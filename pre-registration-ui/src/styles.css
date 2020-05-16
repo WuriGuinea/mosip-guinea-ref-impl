@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -74,7 +73,7 @@ body {
   color: rgba(255, 255, 255, 1);
   border: none;
   border-radius: 4px;
-  background: rgba(255, 64, 129, 1);
+  background:#020F59; /*rgba(255, 64, 129, 1);*/
 }
 
 .btn_axn-sec {
@@ -94,7 +93,7 @@ body {
 .btn_axn-sec:hover,
 .btn_axn-pri.page_btn:hover,
 .btn_axn-sec.page_btn:hover {
-  background: rgba(230, 58, 116, 1);
+  background:#020F59;/* rgba(230, 58, 116, 1);*/
   color: rgba(255, 255, 255, 1);
   border: none;
 }
@@ -144,13 +143,12 @@ body {
 .mat-form-field-appearance-outline .mat-form-field-outline-end,
 .mat-form-field-appearance-outline .mat-form-field-outline-start {
   border: none !important;
-  border-bottom: 1px solid #838383 !important;
-  border-radius: 0 !important;
-  background: rgba(255, 255, 255, 1);
+ /* border-bottom: 1px solid #838383 !important;*/
 }
+
 .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
 .select-option > mat-option:hover {
-  background-color: rgba(230, 58, 116, 1) !important;
+  background-color: #020F59 !important; /*rgba(230, 58, 116, 1) !important;*/
   color: rgba(255, 255, 255, 1) !important;
 }
 
@@ -245,4 +243,40 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 
 .ng2-pdf-viewer-container > div {
   position: relative;
+}
+.mat-form-field-infix{
+  border: solid 1px #e1effb !important;
+  border-radius: 10px !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline
+{
+  height: 0px !important;
+  display: none;
+}
+.mat-form-field-appearance-legacy .mat-form-field-infix{
+  border: solid 1px #e1effb !important;
+  border-radius: 10px !important;
+}
+.mat-form-field-appearance-outline .mat-form-field-infix{
+  /*Suppression du border solid sur le field email*/
+  border: none !important;
+}
+.mat-checkbox-inner-container{
+  background: #fff;
+}
+.mat-checkbox-checked.mat-accent .mat-checkbox-background{
+  background: #22a8c9;
+}
+/*.mat-icon-button{
+  top: 200px;
+}*/
+.delete-img{
+  position: relative;
+  top: 200px;
+}
+.mat-checkbox-frame{
+  border-style: none;
+}
+.mat-card{
+  color: #020F59;
 }

@@ -5,18 +5,22 @@
 <div *ngIf="!showSpinner" class="wrapper">
   <div class="form_wrapper">
     <div class="heading">
-      <span>{{ 'login.text' | translate }}</span>
+      <span class="connexiontxt">{{ 'login.text' | translate }}</span>
     </div>
-
+   <!-- <div class="subHeading" id="logobiometrie"></div> -->
+    <mat-card>
+      <img style="height: 213px;" src="/src/assets/biometrie.png" alt="Photo of a Shiba Inu">
+    </mat-card>
+<!--
     <div class="subHeading pinkText">
       {{ 'login.sub_text' | translate }} <span class="boldText"> {{ 'login.sub_text_UID' | translate }} </span>
     </div>
-
+-->
     <div
       style="width: 38vw; max-width: 323px;"
       [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
     >
-      <div>
+   <!--   <div>
         <mat-form-field appearance="outline">
           <mat-select
             disableOptionCentering
@@ -29,7 +33,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-
+    -->
       <div *ngIf="showContactDetails">
         <div [dir]="textDir">
           <mat-form-field appearance="outline">

@@ -79,23 +79,25 @@ img {
   font-size: 0.8rem;
   opacity: 100%;
   display: flex;
-  background-color: #d8f7ff;
+  background-color:#020F59;/* #d8f7ff;*/
+  color: #f4f4f4;
   align-items: center;
 }
 .mat-card {
   width: 335px;
   height: 240px;
   padding: 0;
-  box-shadow: 1px 1px 1px;
+ /* box-shadow: 1px 1px 1px;*/
   opacity: 100%;
   border-radius: 0;
+  border:solid 1px #e1effb;
 }
 .mat-card-content {
   margin-top: 20px;
 }
 .card-content {
   font-family: Roboto;
-  color: #838383;
+  color: #020F59;
   opacity: 90%;
   font-size: 12px;
   white-space: nowrap;
@@ -127,13 +129,15 @@ img {
 }
 .modifyapp-btn-img {
   height: 12px;
-  filter: grayscale(100%);
+  /*filter: grayscale(100%);*/
+  position: relative;
+  left: 68px;
 }
 .modifyinfo-btn-img {
   height: 14px;
 }
 .application-value {
-  color: black;
+  color: #020F59;
   padding-left: 10px;
   word-wrap: break-word;
 }
@@ -188,4 +192,18 @@ mat-card-actions {
 
 mat-card-content {
   padding-right: 16px;
+}
+.mat-checkbox-inner-container{
+  background: #ffffff !important;
+}
+.mat-checkbox-frame{
+  border-style: none;
+}
+.btn_axn-sec:disabled, .btn_axn-sec.page_btn:disabled{
+  background: #BCE0FD !important;
+  color: #020F59 !important;
+}
+.btn_axn-pri{
+  background: #30badd !important;
+  color: #020F59 !important;
 }

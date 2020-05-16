@@ -108,9 +108,8 @@
                 [disabled]="disableModifyDataButton"
                 (click)="onModifyInformation(user)"
               >
-                <img src="assets\Modify information_grey.png" class="modifyinfo-btn-img" />{{
-                  'dashboard.card.action_modify_information' | translate
-                }}
+                <img matTooltip="{{ 'dashboard.card.action_modify_information' | translate }}"
+                 src="assets\Modify information_grey.png" class="modifyinfo-btn-img" /> 
               </button>
               <!-- (click)="onSelectUser(user)" -->
               <button
@@ -119,9 +118,8 @@
                 (click)="onAcknowledgementView(user)"
                 [disabled]="user.status === 'Pending_Appointment'"
               >
-                <img src="assets\view.png" class="modifyapp-btn-img" />{{
-                  'dashboard.card.action_view_acknowledgement' | translate
-                }}
+                <img matTooltip="{{ 'dashboard.card.action_view_acknowledgement' | translate }}"
+                 src="assets\view.png" class="modifyapp-btn-img" />
               </button>
               <!-- <button mat-icon-button class="footer-download-btn">
                 <img src="assets\download.png" class="download-btn-img" />

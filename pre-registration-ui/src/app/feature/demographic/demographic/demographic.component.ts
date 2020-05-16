@@ -200,7 +200,10 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    */
   async ngOnInit() {
     this.initialization();
-    this.config = this.configService.getConfig();
+    // changed by Ankit
+     this.dataStorageService.getConfig().subscribe( response => { this.configService.setConfig(response);
+     this.config = this.configService.getConfig(); }, error => { } );
+     // this.config = this.configService.getConfig();
     this.setConfig();
     this.getPrimaryLabels();
     await this.getConsentMessage();
@@ -874,6 +877,37 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
         this.userForm.controls[this.formControlNames.year].patchValue('');
       }
   }
+  //TODO changes by Elhadj
+  //user details build the autofield
+  console(){
+    //TODO
+    // "region": 'RSK',
+    //   "province": 'RBT',
+    //   "city": 'KNT',
+    //   "zone": "OLOJ",
+    this.userForm.setValue({
+      "fullName": "sdsdsds",
+      "gender": "",
+      "residenceStatus": "",
+      "dateOfBirth": "",
+      "addressLine1": 'addressLine1',
+      "addressLine2": 'addressLine2',
+      "addressLine3": '121',
+      "region": 'RSK',
+      "province": 'KTA',
+      "city": 'KNT',
+      "zone": "MEHD",
+      "email": 'ankit.vaishnav@technoforte.co.in',
+      "postalCode": '14022',
+      "phone": '7738710542',
+      "referenceIdentityNumber": '1234567890',
+      "age": '32',
+      "date": '11',
+      "month": '11',
+      "year": '1981',
+    });
+    console.log(this.userForm.controls[this.formControlNames.fullName].value)
+  }
 
   /**
    * @description This is called whenever there is a change in Date of birth field and accordingly age
@@ -995,8 +1029,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    */
   onSubmit() {
     this.markFormGroupTouched(this.userForm);
-    this.markFormGroupTouched(this.transUserForm);
-    if (this.userForm.valid && this.transUserForm.valid && this.dataIncomingSuccessful) {
+    if (this.userForm.valid && this.dataIncomingSuccessful) {
       const identity = this.createIdentityJSONDynamic();
       const request = this.createRequestJSON(identity);
       const responseJSON = this.createResponseJSON(identity);
