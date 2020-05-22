@@ -59,6 +59,12 @@
   display: flex;
   margin: 0 2vw;
   padding-bottom: 80px;
+  border:solid 1px #BCE0FD;
+  border-radius: 15px;
+  padding: 14px;
+}
+.mat-card:not([class*=mat-elevation-z]){/*enlever bordure sur le bloc de droite et bloc date*/
+  box-shadow: none !important;
 }
 
 .time-seelection__slot-groups-div {
@@ -79,30 +85,36 @@
 }
 
 .time-selection__time-slots-container {
-  border-top: 1px solid #ff4081;
+  /*border-top: 1px solid #ff4081;*/
   margin-right: 20px;
   padding: 0;
   border-radius: 0px;
 }
 
 .time-selection__names-container {
-  min-width: 24.5%;
+  min-width: 35.5% !important;/* augmenter la taille du bloc de droite afin que les nom et prenoms tiennent dans le champ*/
   padding: 0;
+  display: flex !important;
+  flex-direction: row-reverse !important;
 }
 
 .time-selection__time-slots-container div {
-  display: flex;
+ /* display: flex;*/
+  display: -webkit-flex;
   flex-wrap: wrap;
   max-width: 100%;
+  display :inline-table;
 }
 
 .time-selection__name-list-header {
   height: 55px;
   width: 100%;
-  background-color: #3973ac;
+  background-color: #020F59;
   padding: 5px 2rem;
   word-wrap: break-word;
   color: white;
+  margin-top: 17px;
+  border-radius: 6px 6px 0px 0px;
 }
 
 .time-selection__names-header-date-text {
@@ -125,6 +137,8 @@
   word-wrap: break-word;
   word-break: break-all;
   white-space: pre-wrap;
+  border-radius: 2px;
+  border: solid 1px #BCE0FD;
 }
 
 .time-selection__name-list-item {
@@ -176,8 +190,8 @@
 .card {
   display: flex;
   flex-wrap: wrap;
-  height: 110px;
-  width: 295px;
+  height: 92px;
+  width: 182px;
   margin: 0;
   border: 1px solid #eee;
   box-shadow: none;
@@ -186,7 +200,7 @@
 }
 
 .card-content {
-  padding: 15px 2rem;
+  padding:0px 0rem; /*15px 2rem;*/
 }
 
 .card-time-text {
@@ -270,11 +284,13 @@
 }
 
 .selected {
-  border: 1px solid #ff4081;
+  border: none;
+  background: #BCE0FD !important;
+  border-radius: 10px;
 }
 
 .selected-card {
-  background-color: #ff4081 !important;
+  background-color: #BCE0FD !important;
   color: white !important;
 }
 
@@ -291,9 +307,9 @@
   flex: 1 1 auto;
 }
 .user-back-btn {
-  background-color: #ffffff;
-  border: 1px solid #ff4081;
-  color: #ff4081;
+  background-color: #BCE0FD;
+  border: 1px solid #BCE0FD;
+  color: #020F59;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -304,9 +320,9 @@
   text-transform: uppercase;
 }
 .user-book_later-btn {
-  background-color: #ffffff;
-  border: 1px solid #ff4081;
-  color: #ff4081;
+  background-color: #BCE0FD;
+  border: 1px solid #BCE0FD ;
+  color: #020F59;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -318,9 +334,9 @@
   text-transform: uppercase;
 }
 .user-continue-btn {
-  background-color: #ff4081;
+  background-color: #BCE0FD ;
   border: none;
-  color: white;
+  color: #020F59;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
