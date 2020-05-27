@@ -1,6 +1,8 @@
 .ack-container {
   margin: 20px 2vw;
   padding: 0 0 50px 0;
+  border-radius: 4px;
+  border: solid 1px #BCE0FD;
 }
 .ack__guidelines li:last-child{
     display: none;
@@ -113,7 +115,7 @@
 
 .ack__message-container {
   padding: 1px 0px;
-  background-color: #eafaea;
+  background-color: #C6EFCE;
   color: green;
   margin: 0 2rem;
 }
@@ -180,6 +182,21 @@ table tr td {
     margin-right: 20px;
   }
 }
-
+.guidelinearea{
+  width: 100%;
+  height:100px;
+  border: none;
+  margin-left: -78px;
+  background: transparent;color: #020F59;
+}
+@media (max-width: 1000px) {
+  .ack__guidelines-container {
+    margin: 17px 0rem;
+  }
+  .guidelinearea{
+    width: 100%;
+    margin-left: 2px;
+  }
+}
 
 

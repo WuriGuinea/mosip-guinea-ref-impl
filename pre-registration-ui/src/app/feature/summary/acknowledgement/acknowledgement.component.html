@@ -53,7 +53,8 @@
             </table>
           </div>
           <div class="spacer"></div>
-          <div id="table-container" *ngIf="secondaryLanguagelabels && secondaryLanguageRegistrationCenter">
+          <!--début partie langue secondaire-->
+         <!-- <div id="table-container" *ngIf="secondaryLanguagelabels && secondaryLanguageRegistrationCenter">
             <table>
               <tr>
                 <td>{{ secondaryLanguagelabels.label_name }}</td>
@@ -86,7 +87,7 @@
                 <td>{{ user.bookingTimeSecondary }}, {{ user.bookingDataSecondary }}</td>
               </tr>
             </table>
-          </div>
+          </div> --><!--fin partie langue secondaire-->
           <div class="spacer"></div>
           <div *ngIf="user.qrCodeBlob" id="qr-code-container" class="ack__qr-code">
             <img id="qr-code" src="data:image/png;base64,{{ user.qrCodeBlob }}" />
@@ -95,11 +96,18 @@
       </mat-card-content>
       <mat-card-footer id="guidelines-container" class="ack__guidelines-container">
         <h4>{{ 'acknowledgement.container_guideline' | translate }}</h4>
-        <table *ngIf="guidelines.length !== 0" class="ack__guidelines">
+     <!-- <table *ngIf="guidelines.length !== 0" class="ack__guidelines">
           <tr *ngFor="let guideline of guidelines">
             <td class="inner-guideline-content">{{ guideline }}</td>
           </tr>
-        </table>
+        </table>-->
+        <textarea class="guidelinearea"readonly>
+          Consignes Importantes:
+          Prière de fournir les pieces justificatives suivantes si possible:
+           Justificatif d'identité (carte d'identité nationale, passeport)
+           Justificatif de domicile (certificate de residence, attestation d'hébergement, facture d'énergie ou d'eau)
+           Justificatif de filiation (jugement supplétif, acte de naissance)
+        </textarea>
       </mat-card-footer>
     </mat-card>
   </div>
