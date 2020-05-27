@@ -22,6 +22,8 @@ import { FilesModel } from 'src/app/shared/models/demographic-model/files.model'
 import { LogService } from 'src/app/shared/logger/log.service';
 import LanguageFactory from 'src/assets/i18n';
 import { Subscription } from 'rxjs';
+import {AuthService} from "../../../auth/auth.service";
+import {catchError} from "rxjs/operators";
 // import { ErrorService } from 'src/app/shared/error/error.service';
 
 /**
@@ -78,6 +80,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     public dialog: MatDialog,
+    private authService: AuthService,
     private dataStorageService: DataStorageService,
     private regService: RegistrationService,
     private bookingService: BookingService,
@@ -96,22 +99,33 @@ export class DashBoardComponent implements OnInit, OnDestroy {
    * @memberof DashBoardComponent
    */
   ngOnInit() {
-    this.loginId = this.regService.getLoginId();
-    this.initUsers();
-    const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
-    this.subscriptions.push(subs);
-    if (!this.message['timerFired']) {
-      this.autoLogout.getValues(this.primaryLangCode);
-      this.autoLogout.setValues();
-      this.autoLogout.keepWatching();
-    } else {
-      this.autoLogout.getValues(this.primaryLangCode);
-      this.autoLogout.continueWatching();
-    }
-    let factory = new LanguageFactory(this.primaryLangCode);
-    let response = factory.getCurrentlanguage();
-    this.secondaryLanguagelabels = response['dashboard'].discard;
-    this.regService.setSameAs('');
+    const authenticated = this.authService.getLogin()
+      .then((authenticated) => {
+        if (!authenticated){
+          this.router.navigate(['/login']);
+        } else {
+          this.loginId = this.regService.getLoginId();
+          this.initUsers();
+          const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
+          this.subscriptions.push(subs);
+          if (!this.message['timerFired']) {
+            this.autoLogout.getValues(this.primaryLangCode);
+            this.autoLogout.setValues();
+            this.autoLogout.keepWatching();
+          } else {
+            this.autoLogout.getValues(this.primaryLangCode);
+            this.autoLogout.continueWatching();
+          }
+          let factory = new LanguageFactory(this.primaryLangCode);
+          let response = factory.getCurrentlanguage();
+          this.secondaryLanguagelabels = response['dashboard'].discard;
+          this.regService.setSameAs('');
+        }
+      })
+      .catch((error) => {
+        this.loggerService.error('dashboard', error);
+        this.onError();
+      });
   }
 
   /**

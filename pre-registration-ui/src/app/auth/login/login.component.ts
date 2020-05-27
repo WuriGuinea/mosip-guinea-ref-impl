@@ -271,17 +271,30 @@ export class LoginComponent implements OnInit {
         }
       };
 
-      // update of timer value on click of resend
-      if (document.getElementById('timer').style.visibility === 'visible') {
-        document.getElementById('secondsSpan').innerText = this.seconds;
-        document.getElementById('minutesSpan').innerText = this.minutes;
-      } else {
-        // initial set up for timer
-        document.getElementById('timer').style.visibility = 'visible';
-        this.timer = setInterval(timerFn, 1000);
-      }
 
-      this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {});
+
+      this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {
+        if (response["response"]){
+          // update of timer value on click of resend
+          if (document.getElementById('timer').style.visibility === 'visible') {
+            document.getElementById('secondsSpan').innerText = this.seconds;
+            document.getElementById('minutesSpan').innerText = this.minutes;
+          } else {
+            // initial set up for timer
+            document.getElementById('timer').style.visibility = 'visible';
+            this.timer = setInterval(timerFn, 1000);
+          }
+        } else {
+          if (response["errors"] && response["errors"].length > 0){
+            let errStr = response["errors"].reduce(function(c, e){
+              return c +"\n"+ e.message
+            }, "");
+            alert(errStr)
+          } else {
+            alert("error occured while sending OTP")
+          }
+        }
+      });
 
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined) {
@@ -294,7 +307,7 @@ export class LoginComponent implements OnInit {
             this.authService.setToken();
             this.regService.setLoginId(this.inputContactDetails);
             this.disableVerify = false;
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['']);
           } else {
             this.disableVerify = false;
             this.showOtpMessage();

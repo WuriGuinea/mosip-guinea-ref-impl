@@ -92,7 +92,6 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   transUserForm: FormGroup;
   maxDate = new Date(Date.now());
   preRegId = '';
-  loginId = '';
   user: UserModel;
   demodata: string[];
   secondaryLanguagelabels: any;
@@ -120,18 +119,10 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   @ViewChildren('keyboardRef', { read: ElementRef })
   private _attachToElementMesOne: any;
 
-  regions_in_primary_lang: CodeValueModal[] = [];
-  regions_in_secondary_lang: CodeValueModal[] = [];
-  regions: CodeValueModal[][] = [this.regions_in_primary_lang, this.regions_in_secondary_lang];
-  provinces_in_primary_lang: CodeValueModal[] = [];
-  provinces_in_secondary_lang: CodeValueModal[] = [];
-  provinces: CodeValueModal[][] = [this.provinces_in_primary_lang, this.provinces_in_secondary_lang];
-  cities_in_primary_lang: CodeValueModal[] = [];
-  cities_in_secondary_lang: CodeValueModal[] = [];
-  cities: CodeValueModal[][] = [this.cities_in_primary_lang, this.cities_in_secondary_lang];
-  zones_in_primary_lang: CodeValueModal[] = [];
-  zones_in_secondary_lang: CodeValueModal[] = [];
-  zones: CodeValueModal[][] = [this.zones_in_primary_lang, this.zones_in_secondary_lang];
+  regions: CodeValueModal[] = [];
+  provinces: CodeValueModal[] = [];
+  cities: CodeValueModal[] = [];
+  zones: CodeValueModal[] = [];
   locations = [this.regions, this.provinces, this.cities, this.zones];
   selectedLocationCode = [];
   codeValue: CodeValueModal[] = [];
@@ -295,7 +286,6 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       this.dataModification = false;
       this.step = this.regService.getUsers().length;
     }
-    this.loginId = this.regService.getLoginId();
   }
 
   /**
@@ -443,11 +433,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       const parentLocationCode = this.selectedLocationCode[index];
       const currentLocationCode = this.selectedLocationCode[index + 1];
       const elements = this.locations[index];
-      for (let elementsIndex = 0; elementsIndex < elements.length; elementsIndex++) {
-        const element = elements[elementsIndex];
-        const language = this.languages[elementsIndex];
-        await this.getLocationImmediateHierearchy(language, parentLocationCode, element, currentLocationCode);
-      }
+      const language = this.primaryLang;
+      await this.getLocationImmediateHierearchy(language, parentLocationCode, elements, currentLocationCode);
     }
     this.dataIncomingSuccessful = true;
   }
@@ -678,30 +665,25 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    */
   async onLocationSelect(
     event: MatSelectChange,
-    nextHierarchies: CodeValueModal[][],
-    currentLocationHierarchies: CodeValueModal[][],
+    nextHierarchies: CodeValueModal[],
+    currentLocationHierarchies: CodeValueModal[],
     formControlName?: string
   ) {
     if (nextHierarchies) {
-      for (let index = 0; index < nextHierarchies.length; index++) {
-        const element = nextHierarchies[index];
-        const languageCode = this.languages[index];
-        if (formControlName) this.userForm.controls[formControlName].setValue('');
-        this.getLocationImmediateHierearchy(languageCode, event.value, element);
-      }
+      const element = nextHierarchies;
+      const languageCode = this.primaryLang;
+      this.getLocationImmediateHierearchy(languageCode, event.value, element);
     } else {
       this.dataIncomingSuccessful = true;
     }
 
     if (currentLocationHierarchies) {
-      for (let index = 0; index < currentLocationHierarchies.length; index++) {
-        const currentLocationHierarchy = currentLocationHierarchies[index];
-        currentLocationHierarchy.filter(currentLocationHierarchy => {
-          if (currentLocationHierarchy.valueCode === event.value) {
-            this.addCodeValue(currentLocationHierarchy);
-          }
-        });
-      }
+      const currentLocationHierarchy = currentLocationHierarchies;
+      currentLocationHierarchy.filter(currentLocationHierarchy => {
+        if (currentLocationHierarchy.valueCode === event.value) {
+          this.addCodeValue(currentLocationHierarchy);
+        }
+      });
     }
   }
 
@@ -1262,23 +1244,11 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    * @memberof DemographicComponent
    */
   private createResponseJSON(identity: IdentityModel) {
-    let preRegistrationId = '';
-    let createdBy = this.loginId;
-    let createdDateTime = Utils.getCurrentDate();
-    let updatedDateTime = '';
     let langCode = this.primaryLang;
     if (this.user) {
-      preRegistrationId = this.user.preRegId;
-      createdBy = this.user.request.createdBy;
-      createdDateTime = this.user.request.createdDateTime;
-      updatedDateTime = Utils.getCurrentDate();
       langCode = this.user.request.langCode;
     }
     const req: ResponseModel = {
-      preRegistrationId: preRegistrationId,
-      createdBy: createdBy,
-      createdDateTime: createdDateTime,
-      updatedDateTime: updatedDateTime,
       langCode: langCode,
       demographicDetails: new DemoIdentityModel(identity)
     };
