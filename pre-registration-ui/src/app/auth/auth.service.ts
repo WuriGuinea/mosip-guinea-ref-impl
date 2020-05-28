@@ -31,6 +31,7 @@ export class AuthService {
       this.httpClient.get(url, {observe: 'response'}).subscribe(
         response => {
           console.log("GetLogin: " + response.status);
+          // localStorage.setItem('loggedIn', 'true');
           resolve(true);
         },
         error => {
@@ -42,7 +43,7 @@ export class AuthService {
   }
 
   setToken() {
-    this.token = 'settingToken';
+    // this.token = 'settingToken';
     this.myProp.next(true);
   }
 
@@ -56,8 +57,8 @@ export class AuthService {
   }
 
   onLogout() {
-    localStorage.setItem('loggedIn', 'false');
-    localStorage.setItem('loggedOut', 'true');
+    // localStorage.setItem('loggedIn', 'false');
+    // localStorage.setItem('loggedOut', 'true');
     this.removeToken();
     this.dataStorageService.onLogout().subscribe();
     this.router.navigate(['/']);

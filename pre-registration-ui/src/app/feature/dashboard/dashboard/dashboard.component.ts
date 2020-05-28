@@ -45,7 +45,6 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   userFile: FileModel[] = [];
   file: FileModel = new FileModel();
   userFiles: FilesModel = new FilesModel(this.userFile);
-  loginId = '';
   message = {};
 
   primaryLangCode = localStorage.getItem('langCode');
@@ -81,6 +80,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     private router: Router,
     public dialog: MatDialog,
     private authService: AuthService,
+    private dataService: DataStorageService,
     private dataStorageService: DataStorageService,
     private regService: RegistrationService,
     private bookingService: BookingService,
@@ -99,33 +99,41 @@ export class DashBoardComponent implements OnInit, OnDestroy {
    * @memberof DashBoardComponent
    */
   ngOnInit() {
-    const authenticated = this.authService.getLogin()
-      .then((authenticated) => {
-        if (!authenticated){
-          this.router.navigate(['/login']);
-        } else {
-          this.loginId = this.regService.getLoginId();
-          this.initUsers();
-          const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
-          this.subscriptions.push(subs);
-          if (!this.message['timerFired']) {
-            this.autoLogout.getValues(this.primaryLangCode);
-            this.autoLogout.setValues();
-            this.autoLogout.keepWatching();
-          } else {
-            this.autoLogout.getValues(this.primaryLangCode);
-            this.autoLogout.continueWatching();
-          }
-          let factory = new LanguageFactory(this.primaryLangCode);
-          let response = factory.getCurrentlanguage();
-          this.secondaryLanguagelabels = response['dashboard'].discard;
-          this.regService.setSameAs('');
-        }
-      })
-      .catch((error) => {
+    this.dataService.getConfig().subscribe(
+      response => {
+        this.configService.setConfig(response);
+        const authenticated = this.authService.getLogin()
+          .then((authenticated) => {
+            if (!authenticated){
+              this.router.navigate(['/login']);
+            } else {
+              this.initUsers();
+              const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
+              this.subscriptions.push(subs);
+              if (!this.message['timerFired']) {
+                this.autoLogout.getValues(this.primaryLangCode);
+                this.autoLogout.setValues();
+                this.autoLogout.keepWatching();
+              } else {
+                this.autoLogout.getValues(this.primaryLangCode);
+                this.autoLogout.continueWatching();
+              }
+              let factory = new LanguageFactory(this.primaryLangCode);
+              let response = factory.getCurrentlanguage();
+              this.secondaryLanguagelabels = response['dashboard'].discard;
+              this.regService.setSameAs('');
+            }
+          })
+          .catch((error) => {
+            this.loggerService.error('dashboard', error);
+            this.onError();
+          });
+      },
+      error => {
         this.loggerService.error('dashboard', error);
         this.onError();
-      });
+      }
+    );
   }
 
   /**
@@ -148,7 +156,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
    * @memberof DashBoardComponent
    */
   getUsers() {
-    const sub = this.dataStorageService.getUsers(this.loginId).subscribe(
+    const sub = this.dataStorageService.getUsers().subscribe(
       (applicants: any) => {
         this.loggerService.info('applicants in dashboard', applicants);
         if (
@@ -307,12 +315,8 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   onNewApplication() {
     this.flushArrays();
     this.regService.changeMessage({ modifyUser: 'false' });
-    if (this.loginId) {
-      this.router.navigate(['pre-registration', 'demographic']);
-      this.isNewApplication = true;
-    } else {
-      this.router.navigate(['/']);
-    }
+    this.router.navigate(['pre-registration', 'demographic']);
+    this.isNewApplication = true;
   }
 
   openDialog(data, width) {

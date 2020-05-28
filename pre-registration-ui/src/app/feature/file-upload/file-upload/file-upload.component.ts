@@ -50,7 +50,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   activeUsers: UserModel[] = [];
   documentCategory: string;
   documentType: string;
-  loginId: string;
   documentIndex: number;
   selectedDocument: SelectedDocuments = {
     docCatCode: '',
@@ -122,7 +121,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       .getConfigByKey(appConstants.CONFIG_KEYS.preregistration_document_alllowe_files)
       .split(',');
     this.getAllowedFileTypes(this.allowedFiles);
-    this.loginId = this.registration.getLoginId();
     this.setApplicants();
     this.sameAs = this.registration.getSameAs();
     if (this.sameAs === '') {
@@ -421,7 +419,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    * @memberof FileUploadComponent
    */
   async getAllApplicants() {
-    const subs = await this.dataStroage.getUsers(this.loginId).subscribe(
+    const subs = await this.dataStroage.getUsers().subscribe(
       response => {
         if (response[appConstants.RESPONSE]) {
           this.bookingService.addApplicants(response['response']['basicDetails']);

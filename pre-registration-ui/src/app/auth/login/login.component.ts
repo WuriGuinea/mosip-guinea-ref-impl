@@ -303,9 +303,9 @@ export class LoginComponent implements OnInit {
         response => {
           if (!response['errors']) {
             clearInterval(this.timer);
-            localStorage.setItem('loggedIn', 'true');
-            this.authService.setToken();
-            this.regService.setLoginId(this.inputContactDetails);
+            // localStorage.setItem('loggedIn', 'true');
+            // this.authService.setToken();
+            // this.regService.setLoginId(this.inputContactDetails);
             this.disableVerify = false;
             this.router.navigate(['']);
           } else {
