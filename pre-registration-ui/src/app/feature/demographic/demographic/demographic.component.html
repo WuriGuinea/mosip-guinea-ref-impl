@@ -181,7 +181,7 @@
                 </div>
 
                 <div [dir]="textDir" class="user__container card">
-                    <h4 id="titlecolor">Adresse</h4>
+                    <h4 class="titlecolor">Adresse</h4>
                     <div class="user__dropdown">
                         <mat-form-field>
                             <mat-select
@@ -204,7 +204,7 @@
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, cities, provinces, formControlNames.city)"
-                                    placeholder="{{ 'demographic.label_province' | translate }}"
+                                    placeholder="{{ 'demographic.label_prefecture' | translate }}"
                                     [formControlName]="formControlNames.province"
                                     #province
                             >
@@ -222,7 +222,7 @@
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, zones, cities, formControlNames.zone)"
-                                    placeholder="{{ 'demographic.label_city' | translate }}"
+                                    placeholder="{{ 'demographic.label_subprefectureOrCommune' | translate }}"
                                     [formControlName]="formControlNames.city"
                                     #city
                             >
@@ -237,8 +237,8 @@
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
-                                    (selectionChange)="onLocationSelect($event, null, zones)"
-                                    placeholder="{{ 'demographic.label_zone' | translate }}"
+                                    (selectionChange)="onLocationSelect($event, sectors, zones, formControlNames.sector)"
+                                    placeholder="{{ 'demographic.label_district' | translate }}"
                                     [formControlName]="formControlNames.zone"
                                     #authority
                             >
@@ -253,36 +253,25 @@
                     </div>
                     <div class="user__dropdown">
                         <mat-form-field>
-                            <input
-                                    matInput
-                                    type="text"
-                                    #postalCode
-                                    maxlength="{{ POSTALCODE_LENGTH }}"
-                                    placeholder="{{ 'demographic.label_postalCode' | translate }}"
-                                    [formControlName]="formControlNames.postalCode"
-                                    #postalCode
-                            />
-                            <mat-error *ngIf="!postalCode.invalid">{{
-                                'demographic.validation.postal_code_required' | translate
+                            <mat-select
+                                    disableOptionCentering
+                                    (selectionChange)="onLocationSelect($event, null, sectors)"
+                                    placeholder="{{ 'demographic.label_sector' | translate }}"
+                                    [formControlName]="formControlNames.sector"
+                                    #authority
+                            >
+                                <mat-option *ngFor="let sector of sectors" [value]="sector.valueCode">{{
+                                    sector.valueName
+                                    }}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!authority.invalid">{{
+                                'demographic.validation.admin_required' | translate
                                 }}</mat-error>
                         </mat-form-field>
-                    </div>
-                    <div class="user__dropdown">
-                        <mat-form-field>
-                            <input
-                                    matInput
-                                    #mobileNumber
-                                    type="text"
-                                    maxlength="{{ MOBILE_LENGTH }}"
-                                    placeholder="{{ 'demographic.label_mob_num' | translate }}"
-                                    [formControlName]="formControlNames.phone"
-                            />
-                            <mat-error *ngIf="!mobileNumber.invalid">{{
-                                'demographic.validation.mobile_required' | translate
-                                }}</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <h5 class="infocompl">Informations complémentaires</h5>
+                    </div> 
+                    <br/> 
+                    <br/> 
+                    <h5 class="infocompl titlecolor">Informations complémentaires</h5>
                     <div >
                         <input class="zonetxt"  type="text">
                     </div>

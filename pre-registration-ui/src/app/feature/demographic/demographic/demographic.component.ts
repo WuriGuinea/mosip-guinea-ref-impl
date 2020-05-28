@@ -123,7 +123,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   provinces: CodeValueModal[] = [];
   cities: CodeValueModal[] = [];
   zones: CodeValueModal[] = [];
-  locations = [this.regions, this.provinces, this.cities, this.zones];
+  sectors: CodeValueModal[] = [];
+  locations = [this.regions, this.provinces, this.cities, this.zones, this.sectors];
   selectedLocationCode = [];
   codeValue: CodeValueModal[] = [];
   subscriptions: Subscription[] = [];
@@ -141,6 +142,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     province: 'province',
     city: 'city',
     zone: 'zone',
+    sector: 'sector',
     email: 'email',
     postalCode: 'postalCode',
     phone: 'phone',
@@ -367,6 +369,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       [this.formControlNames.province]: new FormControl(this.formControlValues.province, Validators.required),
       [this.formControlNames.city]: new FormControl(this.formControlValues.city, Validators.required),
       [this.formControlNames.zone]: new FormControl(this.formControlValues.zone, Validators.required),
+      [this.formControlNames.sector]: new FormControl(this.formControlValues.sector, Validators.required),
       [this.formControlNames.email]: new FormControl(this.formControlValues.email, [
         Validators.pattern(this.EMAIL_PATTERN)
       ]),
@@ -423,7 +426,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       this.formControlValues.region,
       this.formControlValues.province,
       this.formControlValues.city,
-      this.formControlValues.zone
+      this.formControlValues.zone,
+      this.formControlValues.sector
     ];
     if (!this.dataModification) {
       this.locations = [this.regions];
@@ -493,6 +497,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
         province: '',
         city: '',
         zone: '',
+        sector: '',
         email: '',
         postalCode: '',
         phone: '',
@@ -532,7 +537,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
         region: this.user.request.demographicDetails.identity.region[index].value,
         province: this.user.request.demographicDetails.identity.province[index].value,
         city: this.user.request.demographicDetails.identity.city[index].value,
-        zone: this.user.request.demographicDetails.identity.zone[0].value,
+        zone: this.user.request.demographicDetails.identity.zone[index].value,
+        sector: this.user.request.demographicDetails.identity.sector[0].value,
         email: this.user.request.demographicDetails.identity.email,
         postalCode: this.user.request.demographicDetails.identity.postalCode,
         phone: this.user.request.demographicDetails.identity.phone,
@@ -1206,7 +1212,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    * @memberof DemographicComponent
    */
   private createIdentityJSONDynamic() {
-    const identity = new IdentityModel(1, [], '', [], [], [], [], [], [], [], [], [], '', '', '', '');
+    const identity = new IdentityModel(1, [], '', [], [], [], [], [], [], [], [], [],[], '', '', '', '');
     let keyArr: any[] = Object.keys(this.formControlNames);
     for (let index = 0; index < keyArr.length - 8; index++) {
       const element = keyArr[index];
