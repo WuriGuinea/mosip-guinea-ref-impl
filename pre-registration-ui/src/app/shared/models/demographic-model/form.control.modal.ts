@@ -14,6 +14,7 @@ export interface FormControlModal {
   province: string;
   city: string;
   zone: string;
+  sector: string;
   email: string;
   postalCode: string;
   phone: string;

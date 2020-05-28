@@ -21,6 +21,7 @@ export class IdentityModel {
     public province: AttributeModel[],
     public city: AttributeModel[],
     public zone: AttributeModel[],
+    public sector: AttributeModel[],
     public postalCode: string,
     public phone: string,
     public email: string,
