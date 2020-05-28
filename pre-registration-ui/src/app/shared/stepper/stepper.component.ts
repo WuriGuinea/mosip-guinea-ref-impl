@@ -9,6 +9,9 @@ export class StepperComponent implements OnInit, OnChanges {
   @Input() componentName: string;
 
   classes = {
+    step0: {
+      div: []
+    },
     step1: {
       p: [],
       icon: [],
@@ -36,6 +39,7 @@ export class StepperComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.componentName === 'DemographicComponent') {
+      this.classes.step0.div = ['container'];
       this.classes.step1.p = ['active'];
       this.classes.step1.icon = ['inline-icon', 'inline-icon-background-active'];
       this.classes.step1.line = ['progress', 'progress-active'];
@@ -48,6 +52,7 @@ export class StepperComponent implements OnInit, OnChanges {
       this.classes.step4.p = ['incomplete'];
       this.classes.step4.icon = ['inline-icon', 'inline-icon-background-incomplete'];
     } else if (this.componentName === 'FileUploadComponent' || this.componentName === 'PreviewComponent') {
+      this.classes.step0.div = ['upload'];
       this.classes.step1.p = ['complete'];
       this.classes.step1.icon = ['inline-icon', 'inline-icon-background-complete'];
       this.classes.step1.line = ['progress', 'progress-complete'];
@@ -60,6 +65,7 @@ export class StepperComponent implements OnInit, OnChanges {
       this.classes.step4.p = ['incomplete'];
       this.classes.step4.icon = ['inline-icon', 'inline-icon-background-incomplete'];
     } else if (this.componentName === 'CenterSelectionComponent' || this.componentName === 'TimeSelectionComponent') {
+      this.classes.step0.div = ['rdv'];
       this.classes.step1.p = ['complete'];
       this.classes.step1.icon = ['inline-icon', 'inline-icon-background-complete'];
       this.classes.step1.line = ['progress', 'progress-complete'];
@@ -72,6 +78,7 @@ export class StepperComponent implements OnInit, OnChanges {
       this.classes.step4.p = ['incomplete'];
       this.classes.step4.icon = ['inline-icon', 'inline-icon-background-incomplete'];
     } else if (this.componentName === 'AcknowledgementComponent') {
+      this.classes.step0.div = ['confirmation-rdv'];
       this.classes.step1.p = ['complete'];
       this.classes.step1.icon = ['inline-icon', 'inline-icon-background-complete'];
       this.classes.step1.line = ['progress', 'progress-complete'];
