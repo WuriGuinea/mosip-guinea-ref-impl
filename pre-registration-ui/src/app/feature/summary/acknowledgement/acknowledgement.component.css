@@ -51,7 +51,13 @@
 
 .ack__header-container {
   padding: 0;
-  border-bottom: 1px solid #ff4081;
+  border-bottom: 1px solid #020F59;
+  display: none;
+}
+@media (max-width: 1200px) {
+  .ack__header-container {
+    display: block;
+  }
 }
 
 .ack__header-container hr {

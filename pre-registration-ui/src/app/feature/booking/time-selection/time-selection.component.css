@@ -6,14 +6,20 @@
   align-items: center;
 }
 .time-selection__title-card {
-  color: #ff4081;
+  color: #020F59;
   padding: 0px;
   display: flex;
   align-items: center;
   white-space: nowrap;
   margin: 0px 2vw;
-  border-bottom: 1px solid #ff4081;
+  border-bottom: 1px solid #020F59;
   border-radius: 0px;
+  display: none;
+}
+@media (max-width: 1200px) {
+  .time-selection__title-card {
+    display: block;
+  }
 }
 
 .time-selection__title-card-text {

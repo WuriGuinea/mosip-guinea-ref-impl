@@ -32,7 +32,13 @@
 
 .preview__header {
   padding: 0;
-  color: #ff4081;
+  color: #020F59;
+  display: none;
+}
+@media (max-width: 1200px) {
+  .preview__header {
+    display: block;
+  }
 }
 
 .preview__header-container {
@@ -68,6 +74,7 @@
   border: solid 1px #020F59;
   margin-left: 6px;
   border-radius: 11px;
+  padding: 16px;
 }
 
 .preview__body-content-div hr {
