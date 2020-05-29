@@ -61,12 +61,11 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   EMAIL_PATTERN: string;
   EMAIL_LENGTH: string;
   DOB_PATTERN: string;
-  POSTALCODE_PATTERN: string;
-  POSTALCODE_LENGTH: string;
   ADDRESS_PATTERN: string;
   defaultDay: string;
   defaultMonth: string;
-  FULLNAME_PATTERN: string;
+  FIRSTNAME_PATTERN: string;
+  LASTNAME_PATTERN: string;
   defaultLocation: string;
 
   ageOrDobPref = '';
@@ -98,13 +97,10 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   demographiclabels: any;
   errorlabels: any;
   uppermostLocationHierarchy: any;
-  primaryGender = [];
-  secondaryGender = [];
   primaryResidenceStatus = [];
-  secondaryResidenceStatus = [];
   secondaryResidenceStatusTemp = [];
-  genders: any;
-  residenceStatus: any;
+  genders: [];
+  residenceStatus: [];
   message = {};
   config = {};
   consentMessage: any;
@@ -120,40 +116,35 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   private _attachToElementMesOne: any;
 
   regions: CodeValueModal[] = [];
-  provinces: CodeValueModal[] = [];
-  cities: CodeValueModal[] = [];
-  zones: CodeValueModal[] = [];
-  locations = [this.regions, this.provinces, this.cities, this.zones];
+  prefectures: CodeValueModal[] = [];
+  subPrefectureOrCommunes: CodeValueModal[] = [];
+  districts: CodeValueModal[] = [];
+  sectors: CodeValueModal[] = [];
+  locations = [this.regions, this.prefectures, this.subPrefectureOrCommunes, this.districts, this.sectors];
   selectedLocationCode = [];
   codeValue: CodeValueModal[] = [];
   subscriptions: Subscription[] = [];
 
   formControlValues: FormControlModal;
   formControlNames: FormControlModal = {
-    fullName: 'fullName',
+    firstName: 'firstName',
+    lastName: 'lastName',
     gender: 'gender',
     dateOfBirth: 'dateOfBirth',
     residenceStatus: 'residenceStatus',
-    addressLine1: 'addressLine1',
-    addressLine2: 'addressLine2',
-    addressLine3: 'addressLine3',
+    additionalAddressDetails: 'additionalAddressDetails',
     region: 'region',
-    province: 'province',
-    city: 'city',
-    zone: 'zone',
+    prefecture: 'prefecture',
+    subPrefectureOrCommune: 'subPrefectureOrCommune',
+    district: 'district',
+    sector: 'sector',
     email: 'email',
-    postalCode: 'postalCode',
     phone: 'phone',
-    referenceIdentityNumber: 'referenceIdentityNumber',
 
     age: 'age',
     date: 'date',
     month: 'month',
-    year: 'year',
-    fullNameSecondary: 'secondaryFullName',
-    addressLine1Secondary: 'secondaryAddressLine1',
-    addressLine2Secondary: 'secondaryAddressLine2',
-    addressLine3Secondary: 'secondaryAddressLine3'
+    year: 'year'
   };
 
   /**
@@ -223,12 +214,12 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     this.MOBILE_PATTERN = this.config[appConstants.CONFIG_KEYS.mosip_regex_phone];
     this.REFERENCE_IDENTITY_NUMBER_PATTERN = this.config[appConstants.CONFIG_KEYS.mosip_regex_referenceIdentityNumber];
     this.EMAIL_PATTERN = this.config[appConstants.CONFIG_KEYS.mosip_regex_email];
-    this.POSTALCODE_PATTERN = this.config[appConstants.CONFIG_KEYS.mosip_regex_postalCode];
     this.DOB_PATTERN = this.config[appConstants.CONFIG_KEYS.mosip_regex_DOB];
     this.defaultDay = this.config[appConstants.CONFIG_KEYS.mosip_default_dob_day];
     this.defaultMonth = this.config[appConstants.CONFIG_KEYS.mosip_default_dob_month];
     this.ADDRESS_PATTERN = this.config[appConstants.CONFIG_KEYS.preregistration_address_length];
-    this.FULLNAME_PATTERN = this.config[appConstants.CONFIG_KEYS.preregistration_fullname_length];
+    this.FIRSTNAME_PATTERN = this.config[appConstants.CONFIG_KEYS.preregistration_firstname_length];
+    this.LASTNAME_PATTERN = this.config[appConstants.CONFIG_KEYS.preregistration_lastname_length];
     this.agePattern = this.config[appConstants.CONFIG_KEYS.mosip_id_validation_identity_age];
     this.defaultLocation = this.config[appConstants.CONFIG_KEYS.mosip_default_location];
   }
@@ -330,9 +321,14 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     this.setFormControlValues();
 
     this.userForm = new FormGroup({
-      [this.formControlNames.fullName]: new FormControl(this.formControlValues.fullName.trim(), [
+      [this.formControlNames.firstName]: new FormControl(this.formControlValues.firstName.trim(), [
         Validators.required,
-        Validators.pattern(this.FULLNAME_PATTERN),
+        Validators.pattern(this.FIRSTNAME_PATTERN),
+        this.noWhitespaceValidator
+      ]),
+      [this.formControlNames.lastName]: new FormControl(this.formControlValues.lastName.trim(), [
+        Validators.required,
+        Validators.pattern(this.LASTNAME_PATTERN),
         this.noWhitespaceValidator
       ]),
       [this.formControlNames.gender]: new FormControl(this.formControlValues.gender, Validators.required),
@@ -350,58 +346,21 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       [this.formControlNames.date]: new FormControl(this.formControlValues.date, [Validators.required]),
       [this.formControlNames.month]: new FormControl(this.formControlValues.month, [Validators.required]),
       [this.formControlNames.year]: new FormControl(this.formControlValues.year, [Validators.required]),
-      [this.formControlNames.addressLine1]: new FormControl(this.formControlValues.addressLine1, [
-        Validators.required,
-        Validators.pattern(this.ADDRESS_PATTERN),
-        this.noWhitespaceValidator
-      ]),
-      [this.formControlNames.addressLine2]: new FormControl(
-        this.formControlValues.addressLine2,
-        Validators.pattern(this.ADDRESS_PATTERN)
-      ),
-      [this.formControlNames.addressLine3]: new FormControl(
-        this.formControlValues.addressLine3,
+      [this.formControlNames.additionalAddressDetails]: new FormControl(
+        this.formControlValues.additionalAddressDetails,
         Validators.pattern(this.ADDRESS_PATTERN)
       ),
       [this.formControlNames.region]: new FormControl(this.formControlValues.region, Validators.required),
-      [this.formControlNames.province]: new FormControl(this.formControlValues.province, Validators.required),
-      [this.formControlNames.city]: new FormControl(this.formControlValues.city, Validators.required),
-      [this.formControlNames.zone]: new FormControl(this.formControlValues.zone, Validators.required),
+      [this.formControlNames.prefecture]: new FormControl(this.formControlValues.prefecture, Validators.required),
+      [this.formControlNames.subPrefectureOrCommune]: new FormControl(this.formControlValues.subPrefectureOrCommune, Validators.required),
+      [this.formControlNames.district]: new FormControl(this.formControlValues.district, Validators.required),
+      [this.formControlNames.sector]: new FormControl(this.formControlValues.sector, Validators.required),
       [this.formControlNames.email]: new FormControl(this.formControlValues.email, [
         Validators.pattern(this.EMAIL_PATTERN)
-      ]),
-      [this.formControlNames.postalCode]: new FormControl(this.formControlValues.postalCode, [
-        Validators.required,
-        Validators.pattern(this.POSTALCODE_PATTERN)
       ]),
       [this.formControlNames.phone]: new FormControl(this.formControlValues.phone, [
         Validators.pattern(this.MOBILE_PATTERN)
       ]),
-      [this.formControlNames.referenceIdentityNumber]: new FormControl(this.formControlValues.referenceIdentityNumber, [
-        Validators.required,
-        Validators.pattern(this.REFERENCE_IDENTITY_NUMBER_PATTERN)
-      ])
-    });
-
-    this.transUserForm = new FormGroup({
-      [this.formControlNames.fullNameSecondary]: new FormControl(this.formControlValues.fullNameSecondary.trim(), [
-        Validators.required,
-        Validators.pattern(this.FULLNAME_PATTERN),
-        this.noWhitespaceValidator
-      ]),
-      [this.formControlNames.addressLine1Secondary]: new FormControl(this.formControlValues.addressLine1Secondary, [
-        Validators.required,
-        Validators.pattern(this.ADDRESS_PATTERN),
-        this.noWhitespaceValidator
-      ]),
-      [this.formControlNames.addressLine2Secondary]: new FormControl(
-        this.formControlValues.addressLine2Secondary,
-        Validators.pattern(this.ADDRESS_PATTERN)
-      ),
-      [this.formControlNames.addressLine3Secondary]: new FormControl(
-        this.formControlValues.addressLine3Secondary,
-        Validators.pattern(this.ADDRESS_PATTERN)
-      )
     });
 
     this.setLocations();
@@ -421,9 +380,10 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     this.selectedLocationCode = [
       this.uppermostLocationHierarchy,
       this.formControlValues.region,
-      this.formControlValues.province,
-      this.formControlValues.city,
-      this.formControlValues.zone
+      this.formControlValues.prefecture,
+      this.formControlValues.subPrefectureOrCommune,
+      this.formControlValues.district,
+      this.formControlValues.sector
     ];
     if (!this.dataModification) {
       this.locations = [this.regions];
@@ -447,8 +407,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    */
   private async setGender() {
     await this.getGenderDetails();
-    this.filterOnLangCode(this.primaryLang, this.primaryGender, this.genders);
-    this.filterOnLangCode(this.secondaryLang, this.secondaryGender, this.genders);
+    // this.filterOnLangCode(this.primaryLang, this.primaryGender, this.genders);
   }
 
   /**
@@ -459,8 +418,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    */
   private async setResident() {
     await this.getResidentDetails();
-    this.filterOnLangCode(this.primaryLang, this.primaryResidenceStatus, this.residenceStatus);
-    this.filterOnLangCode(this.secondaryLang, this.secondaryResidenceStatus, this.residenceStatus);
+    // this.filterOnLangCode(this.primaryLang, this.primaryResidenceStatus, this.residenceStatus);
     // if(this.dataModification){
     //   this.getValueFromCode(this.secondaryResidenceStatus,this.user.request.demographicDetails.identity.residenceStatus[0].value)
     // }
@@ -478,7 +436,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     }
     if (!this.dataModification) {
       this.formControlValues = {
-        fullName: '',
+        firstName: '',
+        lastName: '',
         gender: '',
         residenceStatus: '',
         date: '',
@@ -486,62 +445,37 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
         year: '',
         dateOfBirth: '',
         age: '',
-        addressLine1: '',
-        addressLine2: '',
-        addressLine3: '',
+        additionalAddressDetails: '',
         region: '',
-        province: '',
-        city: '',
-        zone: '',
+        prefecture: '',
+        subPrefectureOrCommune: '',
+        district: '',
+        sector: '',
         email: '',
-        postalCode: '',
         phone: '',
-        referenceIdentityNumber: '',
-
-        fullNameSecondary: '',
-        addressLine1Secondary: '',
-        addressLine2Secondary: '',
-        addressLine3Secondary: ''
       };
     } else {
-      let index = 0;
-      let secondaryIndex = 1;
       this.loggerService.info('user', this.user);
 
-      if (this.user.request.demographicDetails.identity.fullName[0].language !== this.primaryLang) {
-        index = 1;
-        secondaryIndex = 0;
-      }
-      if (this.primaryLang === this.secondaryLang) {
-        index = 0;
-        secondaryIndex = 0;
-      }
       const dob = this.user.request.demographicDetails.identity.dateOfBirth;
       this.formControlValues = {
-        fullName: this.user.request.demographicDetails.identity.fullName[index].value,
-        gender: this.user.request.demographicDetails.identity.gender[index].value,
-        residenceStatus: this.user.request.demographicDetails.identity.residenceStatus[index].value,
+        firstName: this.user.request.demographicDetails.identity.firstName[0].value,
+        lastName: this.user.request.demographicDetails.identity.lastName[0].value,
+        gender: this.user.request.demographicDetails.identity.gender[0].value,
+        residenceStatus: this.user.request.demographicDetails.identity.residenceStatus[0].value,
         date: this.user.request.demographicDetails.identity.dateOfBirth.split('/')[2],
         month: this.user.request.demographicDetails.identity.dateOfBirth.split('/')[1],
         year: this.user.request.demographicDetails.identity.dateOfBirth.split('/')[0],
         dateOfBirth: dob,
         age: this.calculateAge(new Date(new Date(dob))).toString(),
-        addressLine1: this.user.request.demographicDetails.identity.addressLine1[index].value,
-        addressLine2: this.user.request.demographicDetails.identity.addressLine2[index].value,
-        addressLine3: this.user.request.demographicDetails.identity.addressLine3[index].value,
-        region: this.user.request.demographicDetails.identity.region[index].value,
-        province: this.user.request.demographicDetails.identity.province[index].value,
-        city: this.user.request.demographicDetails.identity.city[index].value,
-        zone: this.user.request.demographicDetails.identity.zone[0].value,
+        additionalAddressDetails: this.user.request.demographicDetails.identity.additionalAddressDetails,
+        region: this.user.request.demographicDetails.identity.region[0].value,
+        prefecture: this.user.request.demographicDetails.identity.prefecture[0].value,
+        subPrefectureOrCommune: this.user.request.demographicDetails.identity.subPrefectureOrCommune[0].value,
+        district: this.user.request.demographicDetails.identity.district[0].value,
+        sector: this.user.request.demographicDetails.identity.sector[0].value,
         email: this.user.request.demographicDetails.identity.email,
-        postalCode: this.user.request.demographicDetails.identity.postalCode,
         phone: this.user.request.demographicDetails.identity.phone,
-        referenceIdentityNumber: this.user.request.demographicDetails.identity.referenceIdentityNumber.toString(),
-
-        fullNameSecondary: this.user.request.demographicDetails.identity.fullName[secondaryIndex].value,
-        addressLine1Secondary: this.user.request.demographicDetails.identity.addressLine1[secondaryIndex].value,
-        addressLine2Secondary: this.user.request.demographicDetails.identity.addressLine2[secondaryIndex].value,
-        addressLine3Secondary: this.user.request.demographicDetails.identity.addressLine3[secondaryIndex].value
       };
     }
   }
@@ -795,42 +729,34 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    * @param {MatButtonToggleChange} [event]
    * @memberof DemographicComponent
    */
-  onEntityChange(entity: any, event?: MatButtonToggleChange) {
+  onGenderChange(entity: any, event?: MatButtonToggleChange) {
     if (event) {
-      entity.forEach(element => {
-        element.filter((element: any) => {
-          if (event.value === element.code) {
-            const codeValue: CodeValueModal = {
-              languageCode: element.langCode,
-              valueCode: element.code,
-              valueName: element.genderName ? element.genderName : element.name
-            };
-            this.addCodeValue(codeValue);
-          }
-        });
+      entity.filter((element: any) => {
+        if (event.value === element.code) {
+          const codeValue: CodeValueModal = {
+            languageCode: element.langCode,
+            valueCode: element.code,
+            valueName: element.genderName
+          };
+          this.addCodeValue(codeValue);
+        }
       });
     }
-    // this.getValueFromCode(entity[1], event.value);
   }
 
-  // In progress to do
-  getValueFromCode(entity: any, value: string) {
-    this.secondaryResidenceStatusTemp = JSON.parse(JSON.stringify(entity));
-    console.log('secondaryResidenceStatusTemp ', this.secondaryResidenceStatusTemp);
-    console.log(
-      'index',
-      entity.findIndex(item => {
-        console.log('item', item);
-
-        item.code !== value;
-      })
-    );
-    this.secondaryResidenceStatusTemp.splice(
-      entity.findIndex(item => item.code !== value),
-      1
-    );
-    console.log('enityt1', this.secondaryResidenceStatusTemp);
-    console.log('enityt2', entity);
+  onResidenceStatusChange(entity: any, event?: MatButtonToggleChange) {
+    if (event) {
+      entity.filter((element: any) => {
+        if (event.value === element.code) {
+          const codeValue: CodeValueModal = {
+            languageCode: element.langCode,
+            valueCode: element.code,
+            valueName: element.name
+          };
+          this.addCodeValue(codeValue);
+        }
+      });
+    }
   }
 
   /**
@@ -839,6 +765,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    * @memberof DemographicComponent
    */
   onAgeChange() {
+    this.defaultDay = "01";
+    this.defaultMonth = "01";
     const age = this.age.nativeElement.value;
     const ageRegex = new RegExp(this.agePattern);
     if (age && age != this.oldAge)
@@ -861,34 +789,32 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   }
   //TODO changes by Elhadj
   //user details build the autofield
-  console(){
+  autoFill(){
     //TODO
     // "region": 'RSK',
     //   "province": 'RBT',
     //   "city": 'KNT',
     //   "zone": "OLOJ",
     this.userForm.setValue({
-      "fullName": "sdsdsds",
-      "gender": "",
-      "residenceStatus": "",
+      "firstName": "Joan",
+      "lastName": "de Arc",
+      "gender": "FLE",
+      "residenceStatus": "NFR",
       "dateOfBirth": "",
-      "addressLine1": 'addressLine1',
-      "addressLine2": 'addressLine2',
-      "addressLine3": '121',
-      "region": 'RSK',
-      "province": 'KTA',
-      "city": 'KNT',
-      "zone": "MEHD",
+      "additionalAddressDetails": "Château d'Angers",
+      "region": "4",
+      "prefecture": "004",
+      "subPrefectureOrCommune": "00401",
+      "district": "0040101",
+      "sector": "004010101",
       "email": 'ankit.vaishnav@technoforte.co.in',
-      "postalCode": '14022',
       "phone": '7738710542',
-      "referenceIdentityNumber": '1234567890',
       "age": '32',
       "date": '11',
       "month": '11',
       "year": '1981',
     });
-    console.log(this.userForm.controls[this.formControlNames.fullName].value)
+    console.log(this.userForm.controls[this.formControlNames.firstName].value)
   }
 
   /**
@@ -1012,11 +938,14 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   onSubmit() {
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid && this.dataIncomingSuccessful) {
+      console.log("onSubmit: this.userForm.valid && this.dataIncomingSuccessfu");
       const identity = this.createIdentityJSONDynamic();
       const request = this.createRequestJSON(identity);
       const responseJSON = this.createResponseJSON(identity);
+      console.log(responseJSON);
       this.dataUploadComplete = false;
       if (this.dataModification) {
+        console.log("onSubmit: this.dataModification");
         let preRegistrationId = this.user.preRegId;
         this.subscriptions.push(
           this.dataStorageService.updateUser(request, preRegistrationId).subscribe(
@@ -1046,6 +975,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
           )
         );
       } else {
+        console.log("onSubmit:")
         this.subscriptions.push(
           this.dataStorageService.addUser(request).subscribe(
             response => {
@@ -1102,10 +1032,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       new UserModel(this.preRegId, request, this.regService.getUserFiles(this.step), this.codeValue)
     );
     this.bookingService.updateNameList(this.step, {
-      fullName: this.userForm.controls[this.formControlNames.fullName].value,
-      fullNameSecondaryLang: this.transUserForm.controls[this.formControlNames.fullNameSecondary].value,
+      name: this.userForm.controls[this.formControlNames.firstName].value,
       preRegId: this.preRegId,
-      postalCode: this.userForm.controls[this.formControlNames.postalCode].value,
       regDto: this.bookingService.getNameList()[0].regDto
     });
   }
@@ -1122,10 +1050,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     this.preRegId = response[appConstants.RESPONSE][appConstants.DEMOGRAPHIC_RESPONSE_KEYS.preRegistrationId];
     this.regService.addUser(new UserModel(this.preRegId, request, this.files, this.codeValue));
     this.bookingService.addNameList({
-      fullName: this.userForm.controls[this.formControlNames.fullName].value,
-      fullNameSecondaryLang: this.transUserForm.controls[this.formControlNames.fullNameSecondary].value,
+      name: this.userForm.controls[this.formControlNames.firstName].value,
       preRegId: this.preRegId,
-      postalCode: this.userForm.controls[this.formControlNames.postalCode].value
     });
   }
 
@@ -1159,23 +1085,11 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   private createAttributeArray(element: string, identity: IdentityModel) {
     let attr: any;
     if (typeof identity[element] === 'object') {
-      let forms = [];
-      let formControlNames = [];
-      const transliterateField = ['fullName', 'addressLine1', 'addressLine2', 'addressLine3'];
-      if (transliterateField.includes(element)) {
-        forms = ['userForm', 'transUserForm'];
-        formControlNames = [element, element + 'Secondary'];
-      } else {
-        forms = ['userForm', 'userForm'];
-        formControlNames = [element, element];
-      }
       attr = [];
-      for (let index = 0; index < this.languages.length; index++) {
-        const languageCode = this.languages[index];
-        const form = forms[index];
-        const controlName = formControlNames[index];
-        attr.push(new AttributeModel(languageCode, this[form].controls[this.formControlNames[controlName]].value));
-      }
+      const languageCode = this.primaryLang;
+      const form = 'userForm';
+      const controlName = element;
+      attr.push(new AttributeModel(languageCode, this[form].controls[this.formControlNames[controlName]].value));
     } else if (typeof identity[element] === 'string' && this.userForm.controls[this.formControlNames[element]].value) {
       attr = this.userForm.controls[this.formControlNames[element]].value;
     }
@@ -1206,9 +1120,9 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    * @memberof DemographicComponent
    */
   private createIdentityJSONDynamic() {
-    const identity = new IdentityModel(1, [], '', [], [], [], [], [], [], [], [], [], '', '', '', '');
+    const identity = new IdentityModel(1, [], [], '', [], [], '', [], [], [], [], [], '', '');
     let keyArr: any[] = Object.keys(this.formControlNames);
-    for (let index = 0; index < keyArr.length - 8; index++) {
+    for (let index = 0; index < keyArr.length - 4; index++) {
       const element = keyArr[index];
       this.createAttributeArray(element, identity);
     }

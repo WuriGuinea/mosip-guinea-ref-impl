@@ -51,14 +51,27 @@
   display: inline-block;
 }
 
+.row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.col-50 {
+  width: 50%;
+}
+
+
 .user header {
   margin: 0;
   font-weight: bold;
-  color: #fd518c;
+  color: #020F59;
 }
 
 .user hr {
-  border-top: 1.5px solid #fd518c;
+  border-top: 1.5px solid #020F59;
   position: relative;
   left: -31.8px;
   margin-top: 0.5rem;
@@ -68,7 +81,7 @@
 .user__container {
   font-size: 0.8rem;
   /* box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3); */
-  padding: 1rem 0rem 1rem 0rem;
+  padding: 1rem 1rem 1rem 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 49%;
@@ -297,6 +310,7 @@ mat-icon {
   .user__container {
     width: 100%;
     float: none;
+    padding: 1rem;
   }
 
   .genderAndForeigner {

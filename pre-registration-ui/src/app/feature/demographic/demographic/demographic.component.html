@@ -1,7 +1,7 @@
 <div class="spinner" *ngIf="!dataIncomingSuccessful && !hasError">
     <mat-spinner></mat-spinner>
 </div>
-<div *ngIf="(secondaryLanguagelabels && dataIncomingSuccessful) || hasError">
+<div *ngIf="(dataIncomingSuccessful) || hasError">
     <div class="wrapper">
         <div class="user">
             <header>{{ 'demographic.title' | translate }}</header>
@@ -11,25 +11,44 @@
                 <div [dir]="textDir" class="user__container card">
                     <h4 class="titlecolor">Informations personnelles</h4>
 
-                    <mat-form-field>
-                        <mat-label>{{ 'demographic.label_name' | translate}}</mat-label>
-                        <input
-                                matInput
-                                #fullName
-                                placeholder="{{ 'demographic.label_name' | translate }}"
-                                [formControlName]="formControlNames.fullName"
-                        />
-                        <mat-error *ngIf="!fullName.invalid">
-                            {{ 'demographic.validation.name_required' | translate }}
-                        </mat-error>
-                    </mat-form-field>
+                    <div class="row">
+                        <div class="col-50">
+                            <mat-form-field>
+                                <mat-label>First name</mat-label>
+                                <input
+                                        matInput
+                                        #firstName
+                                        placeholder="Your first name"
+                                        [formControlName]="formControlNames.firstName"
+                                />
+                                <mat-error *ngIf="!firstName.invalid">
+                                    First name is required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-50">
+                            <mat-form-field>
+                                <mat-label>Last name</mat-label>
+                                <input
+                                        matInput
+                                        #lastName
+                                        placeholder="Your last name"
+                                        [formControlName]="formControlNames.lastName"
+                                />
+                                <mat-error *ngIf="!lastName.invalid">
+                                    Last name is required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
 
                     <div class="user__age-or-date">
                         <div class="user__date">
                             <mat-form-field>
                                 <input
                                         matInput
-                                        placeholder="{{ 'demographic.date_dd' | translate }}"
+                                        placeholder="JJ"
                                         #dd
                                         [formControlName]="formControlNames.date"
                                         (focusout)="onDOBChange()"
@@ -38,7 +57,7 @@
                             <mat-form-field>
                                 <input
                                         matInput
-                                        placeholder="{{ 'demographic.date_mm' | translate }}"
+                                        placeholder="MM"
                                         #mm
                                         [formControlName]="formControlNames.month"
                                         (focusout)="onDOBChange()"
@@ -47,7 +66,7 @@
                             <mat-form-field>
                                 <input
                                         matInput
-                                        placeholder="{{ 'demographic.date_yyyy' | translate }}"
+                                        placeholder="AAAA"
                                         #yyyy
                                         [formControlName]="formControlNames.year"
                                         (focusout)="onDOBChange()"
@@ -56,7 +75,7 @@
                         </div>
 
                         <div class="user__pref">
-                            {{ 'demographic.text_or' | translate }}
+                            OU
                         </div>
                         <div class="user__age">
                             <mat-form-field>
@@ -85,33 +104,19 @@
 
                     <div class="user__genderAndForeigner user__dropdown">
                         <span class="user__genderAndForeigner--text">{{ 'demographic.text_gender' | translate }}</span>
-                        <!--  <mat-button-toggle-group
-                            [formControlName]="formControlNames.gender"
-                            (change)="onEntityChange([primaryGender, secondaryGender], $event)"
-                            appearance="legacy"
-                            name="fontStyle"
-                            aria-label="Font Style"
-                          >
-                            <mat-button-toggle *ngFor="let gender of primaryGender" [value]="gender.code">{{
-                              gender.genderName
-                            }}</mat-button-toggle>
-                          </mat-button-toggle-group> -->
                         <!--essai pour le genre à supprimer si cela ne fonctionne pas-->
                         <mat-form-field>
                             <mat-select
-                                    [formControlName]="formControlNames.gender"
-                                    (change)="onEntityChange([primaryGender, secondaryGender], $event)"
-                                    appearance="legacy"
-                                    name="fontStyle"
-                                    aria-label="Font Style"
+                                [formControlName]="formControlNames.gender"
+                                (change)="onGenderChange(genders, $event)"
+                                appearance="legacy"
+                                name="fontStyle"
+                                aria-label="Font Style"
                             >
-                                <mat-option *ngFor="let gender of primaryGender" [value]="gender.code">{{
-                                    gender.genderName
-                                    }}</mat-option>
+                                <mat-option *ngFor="let gender of genders" [value]="gender.code">
+                                    {{ gender.genderName }}
+                                </mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!authority.invalid">{{
-                                'demographic.validation.admin_required' | translate
-                                }}</mat-error>
                         </mat-form-field>
                         <!--fin essai-->
                     </div>
@@ -127,27 +132,24 @@
                         <mat-form-field>
                             <mat-select
                                     [formControlName]="formControlNames.residenceStatus"
-                                    (change)="onEntityChange([primaryResidenceStatus, secondaryResidenceStatus], $event)"
+                                    (change)="onResidenceStatusChange(residenceStatus, $event)"
                                     appearance="legacy"
                                     name="fontStyle"
                                     aria-label="Font Style"
                             >
-                                <mat-option *ngFor="let resident of primaryResidenceStatus" [value]="resident.code">{{
-                                    resident.name
-                                    }}</mat-option>
+                                <mat-option *ngFor="let resident of residenceStatus" [value]="resident.code">
+                                    {{ resident.name }}
+                                </mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!authority.invalid">{{
-                                'demographic.validation.admin_required' | translate
-                                }}</mat-error>
                         </mat-form-field>
                         <!--fin essai-->
                     </div>
                     <div
-                            class="mat-error ng-star-inserted user__gender__error"
-                            *ngIf="
-                  userForm.get(formControlNames.residenceStatus).touched &&
-                  userForm.get(formControlNames.residenceStatus).invalid
-                "
+                        class="mat-error ng-star-inserted user__gender__error"
+                        *ngIf="
+                          userForm.get(formControlNames.residenceStatus).touched &&
+                          userForm.get(formControlNames.residenceStatus).invalid
+                        "
                     >
                         {{ 'demographic.validation.nationality_validation' | translate }}
                     </div>
@@ -186,8 +188,8 @@
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
-                                    (selectionChange)="onLocationSelect($event, provinces, regions, formControlNames.province)"
-                                    placeholder="{{ 'demographic.label_region' | translate }}"
+                                    (selectionChange)="onLocationSelect($event, prefectures, regions, formControlNames.prefecture)"
+                                    placeholder="Region"
                                     [formControlName]="formControlNames.region"
                                     #region
                             >
@@ -195,7 +197,9 @@
                                     region.valueName
                                     }}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!region.invalid">{{ 'demographic.validation.region_required' | translate }}</mat-error>
+                            <mat-error *ngIf="!region.invalid">
+                                Veuillez sélectionner une region
+                            </mat-error>
                         </mat-form-field>
                     </div>
 
@@ -203,94 +207,95 @@
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
-                                    (selectionChange)="onLocationSelect($event, cities, provinces, formControlNames.city)"
-                                    placeholder="{{ 'demographic.label_province' | translate }}"
-                                    [formControlName]="formControlNames.province"
-                                    #province
+                                    (selectionChange)="onLocationSelect($event, subPrefectureOrCommunes, prefectures, formControlNames.subPrefectureOrCommune)"
+                                    placeholder="Province"
+                                    [formControlName]="formControlNames.prefecture"
+                                    #prefecture
                             >
-                                <mat-option *ngFor="let province of provinces" [value]="province.valueCode">{{
-                                    province.valueName
+                                <mat-option *ngFor="let prefecture of prefectures" [value]="prefecture.valueCode">{{
+                                    prefecture.valueName
                                     }}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!province.invalid">{{
-                                'demographic.validation.province_required' | translate
-                                }}</mat-error>
+                            <mat-error *ngIf="!prefecture.invalid">
+                                Veuillez sélectionner une prefecture
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
-                                    (selectionChange)="onLocationSelect($event, zones, cities, formControlNames.zone)"
-                                    placeholder="{{ 'demographic.label_city' | translate }}"
-                                    [formControlName]="formControlNames.city"
-                                    #city
+                                    (selectionChange)="onLocationSelect($event, districts, subPrefectureOrCommunes, formControlNames.district)"
+                                    placeholder="Sub Prefecture or Commune"
+                                    [formControlName]="formControlNames.subPrefectureOrCommune"
+                                    #subprefecture
                             >
-                                <mat-option *ngFor="let city of cities" [value]="city.valueCode">{{
-                                    city.valueName
+                                <mat-option *ngFor="let subprefecture of subPrefectureOrCommunes" [value]="subprefecture.valueCode">{{
+                                    subprefecture.valueName
                                     }}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!city.invalid">{{ 'demographic.validation.city_required' | translate }}</mat-error>
+                            <mat-error *ngIf="!subprefecture.invalid">Veuillez sélectionner une sub prefecture</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
-                                    (selectionChange)="onLocationSelect($event, null, zones)"
-                                    placeholder="{{ 'demographic.label_zone' | translate }}"
-                                    [formControlName]="formControlNames.zone"
-                                    #authority
+                                    (selectionChange)="onLocationSelect($event, sectors, districts, formControlNames.sector)"
+                                    placeholder="District"
+                                    [formControlName]="formControlNames.district"
+                                    #district
                             >
-                                <mat-option *ngFor="let zone of zones" [value]="zone.valueCode">{{
-                                    zone.valueName
+                                <mat-option *ngFor="let district of districts" [value]="district.valueCode">{{
+                                    district.valueName
                                     }}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!authority.invalid">{{
-                                'demographic.validation.admin_required' | translate
-                                }}</mat-error>
+                            <mat-error *ngIf="!district.invalid">Veuillez sélectionner une district</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="user__dropdown">
                         <mat-form-field>
-                            <input
-                                    matInput
-                                    type="text"
-                                    #postalCode
-                                    maxlength="{{ POSTALCODE_LENGTH }}"
-                                    placeholder="{{ 'demographic.label_postalCode' | translate }}"
-                                    [formControlName]="formControlNames.postalCode"
-                                    #postalCode
-                            />
-                            <mat-error *ngIf="!postalCode.invalid">{{
-                                'demographic.validation.postal_code_required' | translate
-                                }}</mat-error>
+                            <mat-select
+                                    disableOptionCentering
+                                    (selectionChange)="onLocationSelect($event, null, sectors)"
+                                    placeholder="Sector"
+                                    [formControlName]="formControlNames.sector"
+                                    #sector
+                            >
+                                <mat-option *ngFor="let sector of sectors" [value]="sector.valueCode">{{
+                                    sector.valueName
+                                    }}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!sector.invalid">Veuillez sélectionner une sector</mat-error>
                         </mat-form-field>
                     </div>
-                    <div class="user__dropdown">
+                    <div class="row">
                         <mat-form-field>
+                            <mat-label>Additional address details</mat-label>
                             <input
                                     matInput
-                                    #mobileNumber
-                                    type="text"
-                                    maxlength="{{ MOBILE_LENGTH }}"
-                                    placeholder="{{ 'demographic.label_mob_num' | translate }}"
-                                    [formControlName]="formControlNames.phone"
+                                    #additionalAddressDetails
+                                    placeholder="Additional address details"
+                                    [formControlName]="formControlNames.additionalAddressDetails"
                             />
-                            <mat-error *ngIf="!mobileNumber.invalid">{{
-                                'demographic.validation.mobile_required' | translate
-                                }}</mat-error>
+                            <mat-error *ngIf="!additionalAddressDetails.invalid">
+                                Additional address details is required
+                            </mat-error>
                         </mat-form-field>
                     </div>
-                    <h5 class="infocompl">Informations complémentaires</h5>
-                    <div >
-                        <input class="zonetxt"  type="text">
-                    </div>
+
                 </div>
             </form>
         </div>
     </div>
     <div class="user__buttons">
+        <button
+                class="user__btn"
+                type="button"
+                (click)="autoFill()"
+        >
+            Autofill
+        </button>
         <button
                 class="user__btn user__btn--back"
                 type="button"

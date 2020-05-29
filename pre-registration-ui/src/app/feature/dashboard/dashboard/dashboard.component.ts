@@ -592,15 +592,11 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     const fullName = user.name;
     const regDto = user.regDto;
     const status = user.status;
-    const postalCode = user.postalCode;
-    const nameInSecondaryLanguage = user.nameInSecondaryLanguage;
     this.bookingService.addNameList({
-      fullName: fullName,
+      name: fullName,
       preRegId: preId,
       regDto: regDto,
       status: status,
-      postalCode: postalCode,
-      fullNameSecondaryLang: nameInSecondaryLanguage
     });
   }
 
