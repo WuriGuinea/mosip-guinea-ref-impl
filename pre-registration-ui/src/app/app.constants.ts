@@ -119,7 +119,7 @@ export const DASHBOARD_RESPONSE_KEYS = {
   },
   applicant: {
     preId: 'preRegistrationId',
-    fullname: 'fullName',
+    fullname: 'firstName',
     statusCode: 'statusCode',
     postalCode: 'postalCode',
     basicDetails: 'basicDetails',
