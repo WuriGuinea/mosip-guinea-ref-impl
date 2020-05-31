@@ -7,7 +7,6 @@
     </mat-card-header>
     <mat-card-content>
       <div class="preview__body-content-container">
-     <!--début bloc gauche--> 
        <div
           [ngClass]="
             primaryLanguage === 'ara' ? 'preview__body-content-div right spacing' : 'preview__body-content-div'
@@ -70,8 +69,7 @@
             
             </table>
           </div>
-        </div><!--fin bloc gauche-->
-        <!--debut bloc droit, dans ce bloc géré le nouveau bloc-->
+        </div>
         <div
         [ngClass]="
           primaryLanguage === 'ara' ? 'preview__body-content-div right spacing' : 'preview__body-content-div'
@@ -144,35 +142,6 @@
         <!--fin bloc droit-->
       </div>
     </mat-card-content>
-  <!--  <div class="preview__footer-header">
-      <span>{{ 'preview.title_document' | translate }}</span>
-      <span
-        (click)="modifyDocument()"
-        class="preview__modify-file"
-        matTooltip="{{ 'helpText.modify_at_DocumentPreview' | translate }}"
-        ><img src="assets/edit.png" /> {{ 'preview.action_modify' | translate }}</span
-      >
-    </div>-->
-  <!--  <mat-card-footer class="preview__footer-container">
-      <div class="preview__footer">
-        <div class="preview__file-container">
-          <!-- <span class="preview__file-span" *ngFor="let file of files">
-            <img src="assets/pdf.png" />&nbsp;&nbsp;{{ file.doc_name }}
-          </span> -->
-        <!--  <table style="width:100%" *ngIf="documentMapObject">
-            <tr class="preview__file__table__header">
-              <td *ngFor="let object of documentMapObject">{{ object.name }}</td>
-            </tr>
-            <tr class="preview__file__table__data">
-              <td *ngFor="let object of documentMapObject">
-                <p *ngIf="object.fileName !== undefined">{{ object.fileName }}</p>
-                <p class="error" *ngIf="object.fileName === undefined">{{ 'preview.text_not_uploaded' | translate }}</p>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </mat-card-footer>-->
   </mat-card>
 </div>
 
