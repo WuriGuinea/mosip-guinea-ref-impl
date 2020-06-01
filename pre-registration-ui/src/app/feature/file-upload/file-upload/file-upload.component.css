@@ -16,16 +16,17 @@
   height: 50%;
 }
 .browseInput {
-  background: none;
-  border: 1px solid rgba(253, 81, 140, 1);
-  color: rgba(253, 81, 140, 1);
+  background: #020F59;
+  border: 1px solid #020F59;
+  color: #ffffff;
   border-radius: 2px;
   padding: 0.4rem 1.5rem;
 }
 
 .browseInput[disabled] {
-  border: 1px solid rgba(253, 81, 140, 0.35);
-  color: rgba(253, 81, 140, 0.35);
+  border: 1px solid #BCE0FD;
+  color: #ffffff;
+  background: #BCE0FD;
 }
 .documentWrapper {
   width: 100%;

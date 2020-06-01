@@ -38,7 +38,7 @@
           />
           <input
             class="browseInput"
-            value="{{ 'documents.action_browse' | translate }}"
+            value="+"
             type="button"
             (click)="clickOnButton(i)"
             [disabled]="
@@ -46,7 +46,7 @@
               !document.selectedDocName ||
               document.selectedDocName === ''
             "
-          />
+          /> 
         </span>
         <span *ngIf="document.code === 'POA'">
           <span *ngIf="allApplicants.length > 1"> {{ 'documents.OR' | translate }}</span>
