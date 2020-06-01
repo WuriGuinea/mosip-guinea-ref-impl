@@ -269,17 +269,17 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     const demographicMetadata = applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.applicant.demographicMetadata];
 
     let primaryIndex = 0;
-    let secondaryIndex = 1;
+    // let secondaryIndex = 1;
     let lang =
       applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.fullname][0]['language'];
-    if (lang !== this.primaryLangCode) {
-      primaryIndex = 1;
-      secondaryIndex = 0;
-    }
-    if (this.primaryLangCode === this.secondaryLangCode) {
-      primaryIndex = 0;
-      secondaryIndex = 0;
-    }
+    // if (lang !== this.primaryLangCode) {
+    //   primaryIndex = 1;
+    //   secondaryIndex = 0;
+    // }
+    // if (this.primaryLangCode === this.secondaryLangCode) {
+    //   primaryIndex = 0;
+    //   secondaryIndex = 0;
+    // }
     const applicant: Applicant = {
       applicationID: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.applicant.preId],
       name:
@@ -299,7 +299,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
       regDto: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.bookingRegistrationDTO.dto],
       nameInSecondaryLanguage:
         applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.fullname][
-          secondaryIndex
+          primaryIndex
         ]['value'],
       postalCode: applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.postalCode]
     };
