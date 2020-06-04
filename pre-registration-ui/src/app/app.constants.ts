@@ -34,7 +34,7 @@ export const APPEND_URL = {
   gender: 'v1/masterdata/gendertypes',
   resident: 'v1/masterdata/individualtypes',
   transliteration: 'transliteration/transliterate',
-  applicantType: 'v1/applicanttype/',
+  applicantType: 'v1/masterdata/',
   validDocument: 'applicanttype/',
   getApplicantType: 'getApplicantType',
   post_document: 'documents/',
