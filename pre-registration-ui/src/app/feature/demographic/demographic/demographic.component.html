@@ -4,17 +4,19 @@
 <div *ngIf="(dataIncomingSuccessful) || hasError">
     <div class="wrapper">
         <div class="user">
-            <header>{{ 'demographic.title' | translate }}</header>
-            <hr />
+
+            
+            <!-- <header>{{ 'demographic.title' | translate }}</header>
+            <hr />   SHOW THIS ONLY ON MBILE DEVICES-->
 
             <form [formGroup]="userForm" class="user__form">
                 <div [dir]="textDir" class="user__container card">
-                    <h4 class="titlecolor">Informations personnelles</h4>
-
+                    <h4 class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
+<br/>
                     <div class="row">
                         <div class="col-50">
                             <mat-form-field>
-                                <mat-label>First name</mat-label>
+                                <mat-label>{{ 'demographic.label_first_name' | translate }}</mat-label>
                                 <input
                                         matInput
                                         #firstName
@@ -28,7 +30,7 @@
                         </div>
                         <div class="col-50">
                             <mat-form-field>
-                                <mat-label>Last name</mat-label>
+                                <mat-label>{{ 'demographic.label_last_name' | translate }}</mat-label>
                                 <input
                                         matInput
                                         #lastName
@@ -104,7 +106,6 @@
 
                     <div class="user__genderAndForeigner user__dropdown">
                         <span class="user__genderAndForeigner--text">{{ 'demographic.text_gender' | translate }}</span>
-                        <!--essai pour le genre à supprimer si cela ne fonctionne pas-->
                         <mat-form-field>
                             <mat-select
                                     [formControlName]="formControlNames.gender"
@@ -118,7 +119,6 @@
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-                        <!--fin essai-->
                     </div>
                     <div
                             class="mat-error ng-star-inserted user__gender__error"
@@ -142,7 +142,6 @@
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-                        <!--fin essai-->
                     </div>
                     <div
                             class="mat-error ng-star-inserted user__gender__error"
@@ -153,6 +152,9 @@
                     >
                         {{ 'demographic.validation.nationality_validation' | translate }}
                     </div>
+                    <br/>
+                    <h4 class="titlecolor">{{ 'demographic.contact_section_title' | translate }}</h4>
+                    
                     <div class="user__dropdown">
                         <mat-form-field>
                             <input
@@ -183,7 +185,8 @@
                 </div>
 
                 <div [dir]="textDir" class="user__container card">
-                    <h4 id="titlecolor">Adresse</h4>
+                    <h4 id="titlecolor">{{ 'demographic.address_section_title' | translate }}</h4>
+                   <br/>
                     <div class="user__dropdown">
                         <mat-form-field>
                             <mat-select
@@ -278,12 +281,14 @@
                     <div class="row">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}</mat-label>
-                            <input
+                            <textarea
                                     matInput
                                     #additionalAddressDetails
                                     placeholder="{{ 'demographic.label_additionalAddressDetails' | translate }}"
                                     [formControlName]="formControlNames.additionalAddressDetails"
-                            />
+                                    rows="4"
+                            >
+                            </textarea>
                         </mat-form-field>
                     </div>
 
