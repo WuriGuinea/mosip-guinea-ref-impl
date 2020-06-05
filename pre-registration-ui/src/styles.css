@@ -280,3 +280,6 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 .mat-card{
   color: #020F59;
 }
+.mat-icon{
+  width: auto !important;
+}

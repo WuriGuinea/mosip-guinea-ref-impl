@@ -59,12 +59,12 @@
   text-transform: none !important;
 }
 
-@media (min-width: 670px) {
+@media (min-width: 790px) {
   .sidenav-button {
     display: none;
   }
 }
-@media (max-width: 670px) {
+@media (max-width: 790px) {
   .list-item {
     display: none;
   }

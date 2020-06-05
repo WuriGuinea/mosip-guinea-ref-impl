@@ -16,16 +16,35 @@
   height: 50%;
 }
 .browseInput {
-  background: none;
-  border: 1px solid rgba(253, 81, 140, 1);
-  color: rgba(253, 81, 140, 1);
+  background: #020F59;
+  border: 1px solid #020F59;
+  color: #ffffff;
   border-radius: 2px;
-  padding: 0.4rem 1.5rem;
+  padding: 0.3rem 11.4px;
+  height: fit-content;
+  height: 24px;
 }
 
 .browseInput[disabled] {
-  border: 1px solid rgba(253, 81, 140, 0.35);
-  color: rgba(253, 81, 140, 0.35);
+  border: 1px solid #BCE0FD;
+  color: #ffffff;
+  background: #BCE0FD;
+}
+.deleteicon[disabled]{
+  border: 1px solid #BCE0FD;
+  color: #ffffff;
+  background: #BCE0FD;
+  margin-left: 2px;
+}
+.deleteandview{
+  margin-left: 5px;
+  margin-top: -3px;
+}
+.view-img{
+  background: #020F59;
+  height: 24px !important;
+  width:  31px !important;
+  margin-right: 3px;
 }
 .documentWrapper {
   width: 100%;
@@ -93,13 +112,18 @@ mat-select:focus {
 .file-uploaad__header {
   font-size: 15px;
   text-align: left;
-  color: rgba(255, 82, 141, 1);
+  color: rgba#020F59;
   box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.12);
   padding: 18px 2rem;
-  border-bottom: 1px solid rgba(225, 82, 141, 1);
+  border-bottom: 1px solid #020F59;
   font-weight: bold;
+  display: none;
 }
-
+@media (max-width: 1200px) {
+  .file-uploaad__header {
+    display: block;
+  }
+}
 .file-upload__body {
   padding: 0px 2rem 10px 2rem;
   font-size: 0.8rem;
@@ -142,6 +166,19 @@ mat-select:focus {
   padding: 10px 0px;
   min-height: 100px;
 }
+.filestyle{
+  border:solid 1px #BCE0FD;
+  margin: 10px;
+}
+.deleteicon{
+  background: #020F59;
+  border: 1px solid #020F59;
+  color: #ffffff;
+  border-radius: 2px;
+  padding: 0.3rem 11.4px;
+  margin-left: 2px;
+  height: 24px !important;
+}
 
 .file-upload__body__document-name {
   max-width: 30vw;
@@ -162,7 +199,7 @@ mat-select:focus {
 
 .file-uplaoad__body__document-name__view {
   float: right;
-  padding-right: 12%;
+  padding-right: 77%;
 }
 
 .file-uplaoad__body__document-name__view img {
@@ -170,6 +207,9 @@ mat-select:focus {
   width: 20px;
   cursor: pointer;
   filter: grayscale(100%);
+}
+.docposition{
+  margin-left: 130px;
 }
 .file-upload__button {
   display: inline-flex;

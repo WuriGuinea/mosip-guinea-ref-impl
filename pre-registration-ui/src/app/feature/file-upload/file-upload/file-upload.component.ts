@@ -538,6 +538,9 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   viewFileByIndex(i: number) {
     this.viewFile(this.users[0].files.documentsMetaData[i]);
   }
+  deletefile(i:number){
+    this.users[0].files.documentsMetaData.splice(i, 1);
+  }
 
   setByteArray(fileByteArray) {
     this.fileByteArray = fileByteArray;
