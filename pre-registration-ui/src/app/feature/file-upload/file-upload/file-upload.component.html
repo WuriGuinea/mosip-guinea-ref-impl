@@ -9,7 +9,7 @@
   </div>
   <div class="file-upload__body">
     <div class="file-upload__body__1">
-      <div class="file-upload__body__document-type" *ngFor="let document of LOD; let i = index">
+      <div class="file-upload__body__document-type filestyle" *ngFor="let document of LOD; let i = index">
         <mat-form-field class="file-upload__input">
           <mat-select
             #ref
@@ -47,6 +47,26 @@
               document.selectedDocName === ''
             "
           /> 
+          <div *ngIf="file.docCatCode == document.code">
+           
+          </div>
+          <div class="file-upload__body__document-name">
+            <div *ngFor="let file of users[0].files.documentsMetaData; let j = index">
+              <div class="deleteandview" *ngIf="file.docCatCode == document.code">
+               
+                <span class="file-uplaoad__body__document-name__view" (click)="viewFile(file)">
+                  <img src="assets\visibility-24px.svg" class="view-img" />
+                </span>
+                <input
+                class="deleteicon"
+                value="x"
+                type="button"
+                (click)="deletefile(j)"
+              /> 
+              <span class="docposition">{{ file.docName }}</span>
+              </div>
+            </div>
+          </div>
         </span>
         <span *ngIf="document.code === 'POA'">
           <span *ngIf="allApplicants.length > 1"> {{ 'documents.OR' | translate }}</span>
@@ -67,7 +87,7 @@
             >
           </span>
         </span>
-        <div class="file-upload__body__document-name">
+      <!--  <div class="file-upload__body__document-name">
           <div *ngFor="let file of users[0].files.documentsMetaData; let j = index">
             <div *ngIf="file.docCatCode == document.code">
               <span>{{ file.docName }}</span>
@@ -76,7 +96,7 @@
               </span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="file-upload__body__2" *ngIf="this.users[0].files && fileIndex >= 0">
