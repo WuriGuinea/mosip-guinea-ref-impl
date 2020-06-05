@@ -171,7 +171,7 @@ export const notificationDtoKeys = {
   file: 'attachment'
 };
 
-export const previewFields = ['region', 'province', 'city', 'zone', 'gender', 'residenceStatus'];
+export const previewFields = ['region', 'prefecture', 'subPrefectureOrCommune', 'district', 'sector', 'gender', 'residenceStatus'];
 
 export const DOCUMENT_UPLOAD_REQUEST_DOCUMENT_KEY = 'file';
 export const DOCUMENT_UPLOAD_REQUEST_DTO_KEY = 'Document request';

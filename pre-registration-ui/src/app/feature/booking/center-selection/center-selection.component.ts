@@ -86,11 +86,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
       pincodes.push(user['postalCode']);
     });
     const subs = this.dataService
-      .recommendedCenters(
-        this.primaryLang,
-        this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_recommended_centers_locCode),
-        pincodes
-      )
+      .recommendedCenters()
       .subscribe(response => {
         if (response[appConstants.RESPONSE]) this.displayResults(response['response']);
       });

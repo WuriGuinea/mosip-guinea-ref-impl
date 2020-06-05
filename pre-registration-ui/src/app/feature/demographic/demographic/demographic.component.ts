@@ -787,35 +787,6 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
         this.userForm.controls[this.formControlNames.year].patchValue('');
       }
   }
-  //TODO changes by Elhadj
-  //user details build the autofield
-  autoFill(){
-    //TODO
-    // "region": 'RSK',
-    //   "province": 'RBT',
-    //   "city": 'KNT',
-    //   "zone": "OLOJ",
-    this.userForm.setValue({
-      "firstName": "Joan",
-      "lastName": "de Arc",
-      "gender": "FLE",
-      "residenceStatus": "NFR",
-      "dateOfBirth": "",
-      "additionalAddressDetails": "Château d'Angers",
-      "region": "4",
-      "prefecture": "004",
-      "subPrefectureOrCommune": "00401",
-      "district": "0040101",
-      "sector": "004010101",
-      "email": 'ankit.vaishnav@technoforte.co.in',
-      "phone": '7738710542',
-      "age": '32',
-      "date": '11',
-      "month": '11',
-      "year": '1981',
-    });
-    console.log(this.userForm.controls[this.formControlNames.firstName].value)
-  }
 
   /**
    * @description This is called whenever there is a change in Date of birth field and accordingly age
