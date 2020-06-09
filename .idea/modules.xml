@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/mosip-guinea-ref-impl.iml" filepath="$PROJECT_DIR$/.idea/mosip-guinea-ref-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registration/registration-client/registration-client.iml" filepath="$PROJECT_DIR$/registration/registration-client/registration-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registration/registration-libs/registration-libs.iml" filepath="$PROJECT_DIR$/registration/registration-libs/registration-libs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registration/registration-parent.iml" filepath="$PROJECT_DIR$/registration/registration-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registration/registration-services/registration-services.iml" filepath="$PROJECT_DIR$/registration/registration-services/registration-services.iml" />
+    </modules>
+  </component>
+</project>
