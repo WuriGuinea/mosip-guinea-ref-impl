@@ -60,9 +60,9 @@ import javafx.stage.Stage;
 /**
  * Class for Operator Authentication
  *
- * 
- * 
- * 
+ *
+ *
+ *
  */
 @Controller
 public class AuthenticationController extends BaseController implements Initializable {
@@ -170,11 +170,11 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	@Autowired
 	private BioService bioService;
-	
+
 	private int fingerPrintAuthCount;
 	private int irisPrintAuthCount;
 	private int facePrintAuthCount;
-	
+
 	@FXML
 	private Label authCounter;
 
@@ -448,7 +448,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * to validate the face in case of face based authentication
-	 * 
+	 *
 	 * @throws IOException
 	 * @throws RegBaseCheckedException
 	 */
@@ -494,14 +494,14 @@ public class AuthenticationController extends BaseController implements Initiali
 					RegistrationUIConstants.getMessageLanguageSpecific(exception.getMessage().substring(0, 3)
 							+ RegistrationConstants.UNDER_SCORE + RegistrationConstants.MESSAGE.toUpperCase()));
 		}
-		
+
 		authCounter.setText(++facePrintAuthCount+"");
 
 	}
 
 	/**
 	 * to get the configured modes of authentication
-	 * 
+	 *
 	 * @throws RegBaseCheckedException
 	 */
 	private void getAuthenticationModes(String authType) throws RegBaseCheckedException {
@@ -570,7 +570,7 @@ public class AuthenticationController extends BaseController implements Initiali
 				toogleBioException = (Boolean) SessionContext.userContext().getUserMap()
 						.get(RegistrationConstants.TOGGLE_BIO_METRIC_EXCEPTION)
 						|| (Boolean) SessionContext.userContext().getUserMap()
-								.get(RegistrationConstants.IS_LOW_QUALITY_BIOMETRICS);
+						.get(RegistrationConstants.IS_LOW_QUALITY_BIOMETRICS);
 			}
 
 			if (!userAuthenticationTypeList.isEmpty()) {
@@ -585,11 +585,11 @@ public class AuthenticationController extends BaseController implements Initiali
 						getValueFromApplicationContext(RegistrationConstants.FINGERPRINT_DISABLE_FLAG))
 						&& authenticationType.equalsIgnoreCase(RegistrationConstants.FINGERPRINT))
 						|| (RegistrationConstants.DISABLE.equalsIgnoreCase(
-								getValueFromApplicationContext(RegistrationConstants.IRIS_DISABLE_FLAG))
-								&& authenticationType.equalsIgnoreCase(RegistrationConstants.IRIS))
+						getValueFromApplicationContext(RegistrationConstants.IRIS_DISABLE_FLAG))
+						&& authenticationType.equalsIgnoreCase(RegistrationConstants.IRIS))
 						|| (RegistrationConstants.DISABLE.equalsIgnoreCase(
-								getValueFromApplicationContext(RegistrationConstants.FACE_DISABLE_FLAG))
-								&& authenticationType.equalsIgnoreCase(RegistrationConstants.FACE))) {
+						getValueFromApplicationContext(RegistrationConstants.FACE_DISABLE_FLAG))
+						&& authenticationType.equalsIgnoreCase(RegistrationConstants.FACE))) {
 
 					enableErrorPage();
 					if (!isEODAuthentication) {
@@ -610,7 +610,7 @@ public class AuthenticationController extends BaseController implements Initiali
 					 */
 					if ((toogleBioException != null && toogleBioException.booleanValue())
 							&& RegistrationConstants.ENABLE.equalsIgnoreCase(
-									getValueFromApplicationContext(RegistrationConstants.SUPERVISOR_AUTH_CONFIG))) {
+							getValueFromApplicationContext(RegistrationConstants.SUPERVISOR_AUTH_CONFIG))) {
 						authCount = 0;
 						isSupervisor = true;
 						getAuthenticationModes(ProcessNames.EXCEPTION.getType());
@@ -634,7 +634,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * to enable the respective authentication mode
-	 * 
+	 *
 	 * @param loginMode - name of authentication mode
 	 */
 	public void loadAuthenticationScreen(String loginMode) {
@@ -648,23 +648,23 @@ public class AuthenticationController extends BaseController implements Initiali
 		irisBasedLogin.setVisible(false);
 
 		switch (loginMode.toUpperCase()) {
-		case RegistrationConstants.OTP:
-			enableOTP();
-			break;
-		case RegistrationConstants.PWORD:
-			enablePWD();
-			break;
-		case RegistrationConstants.FINGERPRINT_UPPERCASE:
-			enableFingerPrint();
-			break;
-		case RegistrationConstants.IRIS:
-			enableIris();
-			break;
-		case RegistrationConstants.FACE:
-			enableFace();
-			break;
-		default:
-			enablePWD();
+			case RegistrationConstants.OTP:
+				enableOTP();
+				break;
+			case RegistrationConstants.PWORD:
+				enablePWD();
+				break;
+			case RegistrationConstants.FINGERPRINT_UPPERCASE:
+				enableFingerPrint();
+				break;
+			case RegistrationConstants.IRIS:
+				enableIris();
+				break;
+			case RegistrationConstants.FACE:
+				enableFace();
+				break;
+			default:
+				enablePWD();
 		}
 
 		userAuthenticationTypeList.remove(RegistrationConstants.PARAM_ZERO);
@@ -813,7 +813,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * to check the role of supervisor in case of biometric exception
-	 * 
+	 *
 	 * @param userId - username entered by the supervisor in the authentication
 	 *               screen
 	 * @return boolean variable "true", if the person is authenticated as supervisor
@@ -834,7 +834,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * to capture and validate the fingerprint for authentication
-	 * 
+	 *
 	 * @param userId - username entered in the textfield
 	 * @return true/false after validating fingerprint
 	 * @throws IOException
@@ -876,7 +876,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * to capture and validate the iris for authentication
-	 * 
+	 *
 	 * @param userId - username entered in the textfield
 	 * @return true/false after validating iris
 	 * @throws IOException
@@ -905,7 +905,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * to capture and validate the iris for authentication
-	 * 
+	 *
 	 * @param userId - username entered in the textfield
 	 * @return true/false after validating face
 	 * @throws IOException
@@ -944,7 +944,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * event class to exit from authentication window. pop up window.
-	 * 
+	 *
 	 * @param event - the action event
 	 */
 	public void exitWindow(ActionEvent event) {
@@ -955,7 +955,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * Setting the init method to the Basecontroller
-	 * 
+	 *
 	 * @param parentControllerObj - Parent Controller name
 	 * @param authType            - Authentication Type
 	 * @throws RegBaseCheckedException
@@ -994,7 +994,7 @@ public class AuthenticationController extends BaseController implements Initiali
 		int FingerPrintAuthCount=0;
 		int IrisPrintAuthCount=0;
 		int FacePrintAuthCount=0;
-		
+
 		setImageOnHover();
 
 		irisImageView.setImage(
@@ -1009,7 +1009,7 @@ public class AuthenticationController extends BaseController implements Initiali
 		if (getRegistrationDTOFromSession() != null
 				&& getRegistrationDTOFromSession().getRegistrationMetaDataDTO().getRegistrationCategory() != null
 				&& getRegistrationDTOFromSession().getRegistrationMetaDataDTO().getRegistrationCategory()
-						.equals(RegistrationConstants.PACKET_TYPE_LOST)) {
+				.equals(RegistrationConstants.PACKET_TYPE_LOST)) {
 			registrationNavlabel.setText(
 					ApplicationContext.applicationLanguageBundle().getString(RegistrationConstants.LOSTUINLBL));
 		}
@@ -1055,22 +1055,22 @@ public class AuthenticationController extends BaseController implements Initiali
 		}
 
 		switch (userAuthenticationTypeListValidation.get(0).toUpperCase()) {
-		case RegistrationConstants.OTP:
-			validateOTP();
-			break;
-		case RegistrationConstants.PWORD:
-			validatePwd();
-			break;
-		case RegistrationConstants.FINGERPRINT_UPPERCASE:
-			validateFingerprint();
-			break;
-		case RegistrationConstants.IRIS:
-			validateIris();
-			break;
-		case RegistrationConstants.FACE:
-			validateFace();
-			break;
-		default:
+			case RegistrationConstants.OTP:
+				validateOTP();
+				break;
+			case RegistrationConstants.PWORD:
+				validatePwd();
+				break;
+			case RegistrationConstants.FINGERPRINT_UPPERCASE:
+				validateFingerprint();
+				break;
+			case RegistrationConstants.IRIS:
+				validateIris();
+				break;
+			case RegistrationConstants.FACE:
+				validateFace();
+				break;
+			default:
 
 		}
 
@@ -1078,7 +1078,7 @@ public class AuthenticationController extends BaseController implements Initiali
 
 	/**
 	 * This method will remove the auth method from list
-	 * 
+	 *
 	 * @param authList    authentication list
 	 * @param disableFlag configuration flag
 	 * @param authCode    auth mode
