@@ -719,7 +719,7 @@ Working on new Css by taleev
 	-fx-background-color:#BCE0FD;
 	-fx-border-width: 1.0 1.0 1.0 1.0;
 	-fx-border-color: #BCE0FD;
-	-fx-text-fill: #FFFFFF;
+	-fx-text-fill: #020F59;
 	-fx-border-radius: 3.0,3.0,3.0,3.0;
 	-fx-font-size: 1.2em;
 }
@@ -727,17 +727,19 @@ Working on new Css by taleev
 .contiuneButton:hover {
 	-fx-background-color:#BCE0FD;
 	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 
 .contiuneButton:pressed {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 
 .contiuneButton:disabled {
 	-fx-background-color: #C9C9C9;
 	-fx-border-color: #C9C9C9;
-	-fx-text-fill: #666666;
+	-fx-text-fill: #020F59;
 }
 
 .backButton{
@@ -752,13 +754,13 @@ Working on new Css by taleev
 .backButton:hover {
 	-fx-background-color:#BCE0FD;
 	-fx-border-color: #BCE0FD;
-	-fx-text-fill: #FFFFFF;
+	-fx-text-fill: #020F59;
 }
 
 .backButton:pressed {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 
 .demoGraphicTextField{
@@ -1578,10 +1580,10 @@ Working on new Css by taleev
 	-fx-border-color: #F4F4F4;
 	-fx-border-width: 1.0 1.0 0.0 1.0;
 	-fx-text-fill: white;
-	-fx-background-color:#0B6A82
+	-fx-background-color:#020F59
 }
 .headerDetails {
-	-fx-background-color: #175768;
+	-fx-background-color: #020F59;
 }
 .registrationOfficerIdPane{
 	-fx-background-radius: 21.0,21.0,21.0,21.0;
@@ -1596,7 +1598,7 @@ Working on new Css by taleev
 	-fx-border-color: #61AB01;
 }
 .menuBar{
-	-fx-background-color:#0B6A82
+	-fx-background-color:#020F59
 }
 .headerDetails .label{
 	-fx-text-fill: white;
@@ -1714,14 +1716,14 @@ Working on new Css by taleev
 	-fx-background-radius: 4.0 4.0 0.0 0.0;
 }
 .operationalPaneDetailsSync:hover, .operationalPaneDetailsSync:hover .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .operationalPaneDetailsSync:pressed, .operationalPaneDetailsSync:pressed .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .operationalTitle{
 	-fx-text-fill: #020F59;
@@ -1739,14 +1741,14 @@ Working on new Css by taleev
 	-fx-background-color:#FFFFFF;
 }
 .operationalPaneDetailsPreReg:hover, .operationalPaneDetailsPreReg:hover .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .operationalPaneDetailsPreReg:pressed, .operationalPaneDetailsPreReg:pressed .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .operationalPaneDetails{
 	-fx-border-width: 1.0 1.0 1.0 1.0;
@@ -1754,14 +1756,14 @@ Working on new Css by taleev
 	-fx-background-color:#FFFFFF;
 }
 .operationalPaneDetails:hover, .operationalPaneDetails:hover .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .operationalPaneDetails:pressed, .operationalPaneDetails:pressed .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .operationalPaneDetailsBioUpdate{
 	-fx-border-width: 0.0 1.0 1.0 1.0;
@@ -1771,14 +1773,14 @@ Working on new Css by taleev
 	-fx-background-radius: 0.0 0.0 4.0 4.0;
 }
 .operationalPaneDetailsBioUpdate:hover, .operationalPaneDetailsBioUpdate:hover .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .operationalPaneDetailsBioUpdate:pressed, .operationalPaneDetailsBioUpdate:pressed .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .newsUpdates{
 	-fx-background-color:#FFFFFF;
@@ -1825,18 +1827,18 @@ Working on new Css by taleev
 .onboardUserPaneStyle{
 	-fx-background-radius: 4.0,4.0,4.0,4.0;
 	-fx-border-radius: 4.0,4.0,4.0,4.0;
-	-fx-border-color: #BCE0FD;
+	-fx-border-color: #020F59;
 	-fx-background-color:#FFFFFF;
 }
 .onboardUserPaneStyle:hover, .onboardUserPaneStyle:hover .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .onboardUserPaneStyle:pressed, .onboardUserPaneStyle:pressed .label {
-	-fx-background-color:#020F59;
-	-fx-border-color: #020F59;
-	-fx-text-fill: #FFFFFF;
+	-fx-background-color:#BCE0FD;
+	-fx-border-color: #BCE0FD;
+	-fx-text-fill: #020F59;
 }
 .useronBoardLink{
 	-fx-text-fill: #BCE0FD;
