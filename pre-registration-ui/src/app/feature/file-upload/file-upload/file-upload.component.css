@@ -239,9 +239,9 @@ mat-select:focus {
   /* padding: 0px 53px;
   border: 1px solid red;
   margin: 5px; */
-  background-color: #ff4081;
+  background-color: #BCE0FD;
   border: none;
-  color: white;
+  color: #020F59;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -253,9 +253,9 @@ mat-select:focus {
 }
 
 .user__btn--back {
-  border: 1px solid #ff4081;
-  background-color: white;
-  color: #ff4081;
+ /* border: 1px solid #ff4081;*/
+  background-color: #BCE0FD;
+  color: #020F59;
   margin-left: 2rem;
   text-transform: uppercase;
 }

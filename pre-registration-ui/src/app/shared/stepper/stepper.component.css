@@ -32,6 +32,8 @@
    margin: 1% 1% 0% 2%;
    background-image: url('/src/assets/demo-details.png');
    background-repeat: no-repeat;
+   background-size: cover;
+   height: 85px;
   /* width: 114%;*/
  }
  @media (max-width: 1200px) {
@@ -49,6 +51,8 @@
    margin: 1% 1% 0% 2%;
    background-image: url('/src/assets/upload-docs.png');
    background-repeat: no-repeat;
+   background-size: cover;
+   height: 85px;
   /* width: 114%;*/
  }
  .rdv {
@@ -61,6 +65,8 @@
    margin: 1% 1% 0% 2%;
    background-image: url('/src/assets/rdv.png');
    background-repeat: no-repeat;
+   background-size: cover;
+   height: 85px;
   /* width: 114%;*/
  }
  .confirmation-rdv {
@@ -73,6 +79,8 @@
    margin: 1% 1% 0% 2%;
    background-image: url('/src/assets/confirmation-rdv.png');
    background-repeat: no-repeat;
+   background-size: cover;
+   height: 85px;
   /* width: 114%;*/
  }
  
