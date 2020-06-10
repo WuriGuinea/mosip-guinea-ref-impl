@@ -81,12 +81,13 @@ body {
   min-height: 50px;
   padding: 0px 50px;
   font-size: 0.8rem;
-  font-family: Roboto;
   font-weight: 500;
-  color: rgba(255, 64, 129, 1);
-  border: 1px solid rgba(255, 64, 129, 1);
   border-radius: 4px;
   background: rgba(255, 255, 255, 1);
+  background: #BCE0FD !important;
+  color: #020F59 !important;
+  font: Bold 15px/12px Arial;
+  opacity: 1;
 }
 
 .btn_axn-pri:hover,

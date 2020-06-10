@@ -32,8 +32,8 @@
 }
 .accept-button {
   margin: 10px auto;
-  color: white;
-  background-color: #ff4081;
+  color: #020F59;
+  background-color: #BCE0FD;
   border-radius: 2px;
 }
 .accept-button-disabled {

@@ -130,9 +130,8 @@
   flex: 1 1 auto;
 }
 .user-back-btn {
-  background-color: #ffffff;
-  border: 1px solid #ff4081;
-  color: #ff4081;
+  background-color: #BCE0FD;
+  color: #020F59;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -142,9 +141,8 @@
   cursor: pointer;
 }
 .user-book_later-btn {
-  background-color: #ffffff;
-  border: 1px solid #ff4081;
-  color: #ff4081;
+  background-color: #BCE0FD;
+  color: #020F59;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -155,9 +153,9 @@
   margin-right: 0px;
 }
 .user-continue-btn {
-  background-color: #020F59;/* #ff4081;*/
+  background-color: #BCE0FD;/* #ff4081;*/
   border: none;
-  color: white;
+  color: #020F59;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;

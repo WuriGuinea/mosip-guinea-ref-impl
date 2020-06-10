@@ -9,7 +9,7 @@
   <div class="container">
     <div class="centers-wrapper">
       <!-- search container -->
-      <div class="center_selection-intial-recommendation-container" *ngIf="searchClick; else elseBlock">
+    <!--  <div class="center_selection-intial-recommendation-container" *ngIf="searchClick; else elseBlock">
         <div *ngIf="REGISTRATION_CENTRES" class="center_selection-center_recommendation-display">
           <span (click)="getRecommendedCenters()"
             ><b>{{ 'centerSelection.display_recommended' | translate }}</b
@@ -37,7 +37,21 @@
         >
           <img src="assets\search.png" />
         </button>
+      </div> -->
+     <div class="center_selection-intial-recommendation-container" *ngIf="searchClick; else elseBlock">
+        <mat-form-field>
+        <mat-select  [(value)]="selected">
+          <mat-option value="{{ 'centerSelection.display_recommended' | translate }}"(click)="getRecommendedCenters()">{{ 'centerSelection.display_recommended' | translate }}</mat-option>
+          <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}"(click)="getLocation()">{{ 'centerSelection.action_nearBy' | translate }}</mat-option>
+          <mat-option value="{{ 'centerSelection.text_search' | translate }}"(click)="setSearchClick(false)">{{ 'centerSelection.text_search' | translate }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="center_selection-center-available-text">
+        ( {{ 'centerSelection.text_found' | translate }} {{ REGISTRATION_CENTRES.length }}
+        {{ 'centerSelection.text_centers' | translate }} )
       </div>
+
+    </div>
 
       <ng-template #elseBlock>
         <div class="center_selection-form-container">
@@ -111,8 +125,8 @@
         </span>
         <ul>
           <li *ngFor="let center of REGISTRATION_CENTRES; let i = index">
-            <mat-card [ngClass]="selectedCentre === center ? 'center-card center-card-selected' : 'center-card'">
-              <input
+            <mat-card  (click)="selectedRow(center)" [ngClass]="selectedCentre === center ? 'center-card center-card-selected' : 'center-card'">
+              <input class="radiohide"
                 type="radio"
                 [value]="center"
                 [(ngModel)]="selectedCentre"
@@ -137,12 +151,14 @@
                   </div>
                 </div>
                 <div>
+                <br>   <span><img src="assets\schedule.png"/></span>
+                <span> {{ 'centerSelection.text_horaire' | translate }}</span><br>
                   <span><img src="assets\contact number.png"/></span>
                   <span>{{ center.contactPerson + ', ' + center.contactPhone }}</span>
                 </div>
               </div>
               <span class="spacer"></span>
-              <div>
+              <div class="timing">
                 <div>
                   <span>
                     <div>
