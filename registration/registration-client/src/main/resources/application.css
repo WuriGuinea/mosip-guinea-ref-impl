@@ -117,7 +117,7 @@
 	-fx-border-color: #F0F0F0;
 	-fx-pref-height: 25.0px;
 	-fx-pref-width: 25.0px;
-	-fx-text-fill: #666666;
+	-fx-text-fill: #020F59;
 }
 
 .qualityLabelRed{
@@ -183,7 +183,7 @@
 
 .sendNotificationPane {
 	-fx-border-width: 1.0 1.0 1.0 1.0;
-	-fx-border-color: black;
+	-fx-border-color: #020F59;
 }
 
 #anchor-pane-registration{
@@ -230,7 +230,7 @@
 
 #common-hbox{
 	-fx-border-width: 1.0;
-	-fx-border-color: black;
+	-fx-border-color: #020F59;
 }
 
 #commonHeader {
@@ -265,7 +265,7 @@
 }
 #mainBox{
 	-fx-border-width: 0.0;
-	-fx-border-color: black;
+	-fx-border-color: #020F59;
 }
 
 #optionLayout{
@@ -296,7 +296,7 @@
 
 .webCamPane {
 	-fx-border-width: 1.0 1.0 1.0 1.0;
-	-fx-border-color: black;
+	-fx-border-color: #020F59;
 }
 #approvalAccordion .title > .arrow-button .arrow{
 	-fx-translate-x: 870.0;
@@ -317,7 +317,7 @@
 
 
 #applicantImageHBox, #exceptionImageHBox {
-	-fx-border-color: black;
+	-fx-border-color: #020F59;
 	-fx-border-width: 2.0;
 }
 /* Registration - Biometric - Iris Capture */
@@ -336,7 +336,7 @@
 
 .paneRoot {
 	-fx-border-width: 1.0 1.0 1.0 1.0;
-	-fx-border-color: black;
+	-fx-border-color: #020F59;
 	-fx-pref-height: 359.0px;
 	-fx-pref-width: 477.0px;
 }
@@ -350,7 +350,7 @@
 .imagePane {
 	-fx-background-color:#ffffff;
 	-fx-border-width: 1.0;
-	-fx-border-color: black;
+	-fx-border-color: #020F59;
 	-fx-pref-height: 238.0px;
 	-fx-pref-width: 349.0px;
 }
@@ -358,7 +358,7 @@
 .exit {
 	-fx-border-color: transparent;
 	-fx-padding: 4.0 0.0 4.0 0.0;
-	-fx-text-fill: black;
+	-fx-text-fill: #020F59;
 }
 
 #duplicateCheckLbl{
@@ -523,7 +523,7 @@
 	-fx-pref-width: 477.0px;
 }
 .borderStyle{
-	-fx-border-color:black;
+	-fx-border-color:#020F59;
 	-fx-border-width: 1.0;
 	-fx-border-style: solid;
 }
@@ -643,7 +643,7 @@ Working on new Css by taleev
 }
 
 .biometricEceptionLabel{
-	-fx-text-fill : #666666;
+	-fx-text-fill : #020F59;
 	-fx-font-size : 20.0px;
 }
 
@@ -771,36 +771,36 @@ Working on new Css by taleev
 	-fx-border-color: #C9C9C9;
 	-fx-border-width: 0.0 0.0 1.0 0.0;
 	-fx-background-color: #FFFFFF;
-	-fx-prompt-text-fill: #000000;
+	-fx-prompt-text-fill: black;
 	-fx-font-size: 1.2em;
-	-fx-text-fill : #000000;
+	-fx-text-fill : black;
 }
 
 
 
 .demographicLangHeader{
 	-fx-font-size : 1.4em;
-	-fx-text-fill : #2F3033;
+	-fx-text-fill : black;
 	-fx-font-weight: bold;
 }
 
 .demographicMiscTexts{
-	-fx-text-fill: #666666;
+	-fx-text-fill: black;
 	-fx-font-size: 1.3em;
 }
 
 .demoGraphicFieldLabelOnType{
 	-fx-background-color:#ffffff;
 	-fx-border-width: 0.0;
-	-fx-text-fill : #22A8C9;
-	-fx-prompt-text-fill: #000000;
+	-fx-text-fill : black;
+	-fx-prompt-text-fill: black
 	-fx-font-size: 1em;
 }
 
 .demoGraphicFieldLabel{
 	-fx-background-color:#ffffff;
 	-fx-border-width: 0.0;
-	-fx-text-fill : #666666;
+	-fx-text-fill : #black;
 	-fx-font-size: 1em;
 }
 
@@ -826,16 +826,16 @@ Working on new Css by taleev
 	-fx-border-color: #C9C9C9;
 	-fx-border-width: 0.0 0.0 1.0 0.0;
 	-fx-background-color: #FFFFFF;
-	-fx-prompt-text-fill: #000000;
+	-fx-prompt-text-fill: black;
 	-fx-font-size: 1.2em;
-	-fx-text-fill : #000000;
+	-fx-text-fill : #020F59;
 }
 
 .demoGraphicTextFieldOnType{
 	-fx-border-color: #C9C9C9;
 	-fx-border-width: 0.0 0.0 1.0 0.0;
 	-fx-background-color: #FFFFFF;
-	-fx-prompt-text-fill: black;
+	-fx-prompt-text-fill: #000000;
 	-fx-text-fill: #000000;
 	-fx-font-size: 1.2em;
 }
@@ -844,17 +844,17 @@ Working on new Css by taleev
 	-fx-border-color: #22A8C9;
 	-fx-border-width: 0.0 0.0 2.0 0.0;
 	-fx-background-color: #FFFFFF;
-	-fx-prompt-text-fill: gray;
+	-fx-prompt-text-fill: #000000;
 	-fx-text-fill: #000000;
 	-fx-font-size: 1.2em;
 }
 
 .scanPage{
 	-fx-background-color : white;
-	-fx-text-fill : black;
+	-fx-text-fill : #020F59;
 	-fx-font-size: 1.3em;
 	-fx-border-width : 1.0;
-	-fx-border-color : black;
+	-fx-border-color : #020F59;
 }
 
 .demoGraphicFieldMessageLabel{
@@ -956,7 +956,7 @@ Working on new Css by taleev
 
 .fingerPrintPanes:focused{
 	-fx-background-color : #F0F0F0;
-	-fx-border-color : #00A6E9;
+	-fx-border-color : #020F59;
 	-fx-border-width : 5.0;
 	-fx-padding : -2.5;
 	-fx-border-radius: 3.0,3.0,3.0,3.0;
@@ -965,7 +965,7 @@ Working on new Css by taleev
 
 .biometricPaneSelected{
 	-fx-background-color : #F0F0F0;
-	-fx-border-color : #00A6E9;
+	-fx-border-color : #020F59;
 	-fx-border-width : 5;
 	-fx-padding : -2.5;
 	-fx-border-radius: 3,3,3,3;
@@ -990,7 +990,7 @@ Working on new Css by taleev
 
 .IrisPanes:focused{
 	-fx-background-color : #F0F0F0;
-	-fx-border-color : #00A6E9;
+	-fx-border-color : #020F59;
 	-fx-border-width : 5.0 5.0 5.0 5.0;
 	-fx-padding : -2.5;
 	-fx-border-radius: 3.0,3.0,3.0,3.0;
@@ -1008,7 +1008,7 @@ Working on new Css by taleev
 
 
 .bioIris{
-	-fx-border-color : #51d1ff;
+	-fx-border-color : #020F59;
 	-fx-border-width : 5.0;
 }
 
@@ -1033,7 +1033,7 @@ Working on new Css by taleev
 
 .photoCapturePanes:focused{
 	-fx-background-color : #F0F0F0;
-	-fx-border-color : #00A6E9;
+	-fx-border-color : #020F59;
 	-fx-border-width : 5.0;
 	-fx-padding : -2.5;
 	-fx-border-radius: 3.0,3.0,3.0,3.0;
@@ -1060,27 +1060,27 @@ Working on new Css by taleev
 }
 
 .threshHoldLabel{
-	-fx-tex-fill : #000000;
+	-fx-tex-fill : #020F59;
 	-fx-font-size : 15.0px;
 }
 
 .qualityLabel{
-	-fx-tex-fill : #000000;
+	-fx-tex-fill : #020F59;
 	-fx-font-size : 15.0px;
 }
 
 .attemptsLabel{
-	-fx-tex-fill : #000000;
+	-fx-tex-fill : #020F59;
 	-fx-font-size : 15.0px;
 }
 
 .exceptionLabel{
-	-fx-tex-fill : #000000;
+	-fx-tex-fill : #020F59;
 	-fx-font-size : 15.0px;
 }
 
 .qualityBoxLabel{
-	-fx-text-fill : #666666;
+	-fx-text-fill : #020F59;
 	-fx-font-size : 1.5em;
 }
 
@@ -1091,7 +1091,7 @@ Working on new Css by taleev
 
 .authenticationBiometricSubPane{
 	-fx-border-width: 0.0 0.0 1.0 0.0;
-	-fx-border-color: #C9C9C9;
+	-fx-border-color: #020F59;
 	-fx-pref-height: 444.0px;
 	-fx-pref-width: 750.0px;
 }
@@ -1102,10 +1102,10 @@ Working on new Css by taleev
 }
 
 .operatorAuthenticationStyleTextTypeOne{
-	-fx-text-fill: #666666;
+	-fx-text-fill: #020F59;
 }
 .operatorAuthenticationStyleTextTypeOne:focused{
-	-fx-text-fill: #666666;
+	-fx-text-fill: #020F59;
 	-fx-border-width: 0.2 0.2 2.0 0.2;
 	-fx-border-color: #C9C9C9 #C9C9C9 #22A8C9 #C9C9C9;
 	-fx-background-color: -fx-text-box-border, -fx-control-inner-background;
@@ -1114,7 +1114,7 @@ Working on new Css by taleev
 .attempts{
 	-fx-pref-height: 39.0px;
 	-fx-pref-width: 100.0px;
-	-fx-text-fill: #000000;
+	-fx-text-fill: #020F59;
 }
 
 .scanButton{
@@ -1174,7 +1174,7 @@ Working on new Css by taleev
 }
 
 #uploadPageText{
-	-fx-text-fill: #666666;
+	-fx-text-fill: #020F59;
 }
 
 .headerLabel{
@@ -1198,9 +1198,9 @@ Working on new Css by taleev
 	-fx-pref-height : 45.0;
 	-fx-padding: 10 0 10 0;
 	-fx-pref-width : 35.0;
-	-fx-text-fill: #000000;
+	-fx-text-fill: #020F59;
 	-fx-border-width : 0.0 0.0 1.0 0.0;
-	-fx-border-color : #000000;
+	-fx-border-color : #020F59;
 }
 
 .table-row-cell:focused{
@@ -1212,7 +1212,7 @@ Working on new Css by taleev
 }
 
 .tableId{
-	-fx-text-fill: black;
+	-fx-text-fill: #020F59;
 }
 
 .table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected > .table-cell{
@@ -1221,7 +1221,7 @@ Working on new Css by taleev
 }
 
 .table-view .column-header{
-	-fx-text-fill: #666666;
+	-fx-text-fill: #020F59;
 	-fx-background-color: #FFFFFF;
 	-fx-border-width : 0.0 0.0 1.0 0.0;
 	-fx-border-color : #020F59;
@@ -1229,7 +1229,7 @@ Working on new Css by taleev
 
 .table-view .column-header .label{
 	-fx-alignment: null;
-	-fx-text-fill :#666666;
+	-fx-text-fill :#020F59;
 	-fx-font: 15.0px Roboto;
 }
 
@@ -1265,7 +1265,7 @@ Working on new Css by taleev
 }
 
 .rejectionPageHeaderLabel{
-	-fx-text-fill : #000000;
+	-fx-text-fill : #020F59;
 	-fx-font-family: Roboto;
 	-fx-font-size : 15.0px;
 	-fx-pref-heigth : 100.0;
@@ -1287,7 +1287,7 @@ Working on new Css by taleev
 .rejectionParentPane{
 	-fx-background-color : #FFFFFF;
 	-fx-border-width : 1.0 1.0 1.0 1.0;
-	-fx-border-color : black;
+	-fx-border-color : #020F59;
 	-fx-pref-heigth : 100.0;
 	-fx-pref-width : 400.0;
 }
@@ -1295,7 +1295,7 @@ Working on new Css by taleev
 #rejectionAnchorPane .comboboxStyle{
 	-fx-background-color:#ffffff;
 	-fx-border-width: 1.0 1.0 1.0 1.0;
-	-fx-border-color: black;
+	-fx-border-color: #020F59;
 	-fx-font-size: 14.0px;
 }
 
@@ -1516,7 +1516,7 @@ Working on new Css by taleev
 	-fx-background-color:#ffffff;
 	-fx-background-radius: 6.0,5.0;
 	-fx-background-insets: 0.0,1.0;
-	-fx-text-fill: black;
+	-fx-text-fill: #020F59;
 	-fx-font-size: 10.0px;
 	-fx-pref-height:20.0px;
 	-fx-pref-width:60.0px;
@@ -1928,12 +1928,12 @@ Working on new Css by taleev
 .onboardOperatorDetailsHeader{
 	-fx-font-family: Roboto;
 	-fx-font-size: 12.0px;
-	-fx-text-fill: #000000;
+	-fx-text-fill: #020F59;
 }
 .onboardOperatorDetails{
 	-fx-font-family: Roboto;
 	-fx-font-size: 12.0px;
-	-fx-text-fill: #000000;
+	-fx-text-fill: #020F59;
 }
 .onboardPageBioTitle{
 	-fx-text-fill: #BCE0FD;
@@ -1984,7 +1984,7 @@ Working on new Css by taleev
 
 .userOnboardHeader{
 	-fx-background-color:#FFFFFF;
-	-fx-effect: dropshadow( three-pass-box , #000000 , 1.0, 0.0 , 0.0 , 0.0 );
+	-fx-effect: dropshadow( three-pass-box , #020F59 , 1.0, 0.0 , 0.0 , 0.0 );
 }
 .userOnboardFooter{
 	-fx-background-color: #FFFFFF;
@@ -1993,12 +1993,12 @@ Working on new Css by taleev
 .onboardInfoDetailsName{
 	-fx-font-family: Roboto;
 	-fx-font-size: 12.0px;
-	-fx-text-fill: #333333;
+	-fx-text-fill: #020F59;
 }
 .exceptionCombobox{
 	-fx-background-color:#ffffff;
 	-fx-border-width: 0.0 0.0 1.0 0.0;
-	-fx-text-fill: #000000;
+	-fx-text-fill: #020F59;
 	-fx-border-color: #C9C9C9;
 	-fx-font-size: 12.0px;
 }
@@ -2021,7 +2021,7 @@ Working on new Css by taleev
 	-fx-font-size: 13.0px;
 }
 #onboardPageDesc{
-	-fx-text-fill: #666666;
+	-fx-text-fill: #020F59;
 	-fx-font-family: Roboto;
 	-fx-font-size: 14.0px;
 }
