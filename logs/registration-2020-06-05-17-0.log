@@ -1,3 +1,0 @@
-2020-06-05T17:06:24Z - [io.mosip.registration.scheduler.SchedulerUtil] - INFO  - REGISTRATION - UI - REGISTRATION - REG - The time task for auto logout and login called 
-2020-06-05T17:21:24Z - [io.mosip.registration.tpm.initialize.TPMInitialization] - INFO  - REGISTRATION - TPM - PLATFORM_TPM_INITIALIZATION - REG - REGISTRATION - Closing the instance of Platform TPM
-2020-06-05T17:21:24Z - [io.mosip.registration.tpm.initialize.TPMInitialization] - INFO  - REGISTRATION - TPM - PLATFORM_TPM_INITIALIZATION - REG - REGISTRATION - Completed closing the instance of Platform TPM
