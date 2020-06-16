@@ -1,0 +1,62 @@
+2020-06-12T12:01:54Z - [io.mosip.registration.scheduler.SchedulerUtil] - INFO  - REGISTRATION - UI - REGISTRATION - REG - The time task for auto logout and login called 
+2020-06-12T12:01:55Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Preparing Page flow map for New Registration, Onboard, UIN Update
+2020-06-12T12:01:55Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Updating Map values based on Configuration 
+2020-06-12T12:01:55Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Updating Child values of Map based on Configuration
+2020-06-12T12:01:55Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Updating Visibility values based on Configuration
+2020-06-12T12:01:55Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Visibility values updated based on Configuration
+2020-06-12T12:01:55Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Map values are updated based on Configuration
+2020-06-12T12:01:55Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Updating Map and storing in Application Context
+2020-06-12T12:01:55Z - [io.mosip.registration.context.SessionContext] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Leaving Session Context
+2020-06-12T12:01:55Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Checking for current version started
+2020-06-12T12:01:55Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Getting  of local manifest started
+2020-06-12T12:01:55Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Getting  of local manifest completed
+2020-06-12T12:01:55Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Checking for current version completed
+2020-06-12T12:01:55Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - INFO  - REGISTRATION - REGISTRATION APP HEALTHCHECK UTIL - ISNETWORKAVAILABLE - REGISTRATION - REG - Registration Network Checker had been called.
+2020-06-12T12:01:55Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - ERROR - REGISTRATION - REGISTRATIONAPPHEALTHCHECKUTIL - ISNETWORKAVAILABLEfalse - REGISTRATION - REG - No Internet Access.java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.checkServiceAvailability(RegistrationAppHealthCheckUtil.java:125)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.isNetworkAvailable(RegistrationAppHealthCheckUtil.java:88)
+	at io.mosip.registration.controller.auth.LoginController.initialize(LoginController.java:194)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2409)
+	at io.mosip.registration.controller.BaseController.load(BaseController.java:372)
+	at io.mosip.registration.controller.BaseController.loadLoginScreen(BaseController.java:680)
+	at io.mosip.registration.scheduler.SchedulerUtil.stop(SchedulerUtil.java:309)
+	at io.mosip.registration.scheduler.SchedulerUtil.lambda$closeStage$2(SchedulerUtil.java:267)
+	at javafx.animation.Animation.impl_finished(Animation.java:1132)
+	at javafx.animation.AnimationAccessorImpl.finished(AnimationAccessorImpl.java:49)
+	at com.sun.scenario.animation.shared.SingleLoopClipEnvelope.timePulse(SingleLoopClipEnvelope.java:103)
+	at javafx.animation.Animation.impl_timePulse(Animation.java:1102)
+	at javafx.animation.Animation$1.lambda$timePulse$0(Animation.java:186)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javafx.animation.Animation$1.timePulse(Animation.java:185)
+	at com.sun.scenario.animation.AbstractMasterTimer.timePulseImpl(AbstractMasterTimer.java:344)
+	at com.sun.scenario.animation.AbstractMasterTimer$MainLoop.run(AbstractMasterTimer.java:267)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:557)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:541)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.pulseFromQueue(QuantumToolkit.java:534)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.lambda$runToolkit$11(QuantumToolkit.java:340)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$4(WinApplication.java:186)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-06-12T12:01:55Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-12T12:01:55Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-12T12:01:55Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-12T12:01:55Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context

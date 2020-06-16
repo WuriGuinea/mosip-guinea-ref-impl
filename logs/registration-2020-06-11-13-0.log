@@ -1,0 +1,961 @@
+2020-06-11T13:58:00Z - [io.mosip.registration.service.security.impl.LocalClientSecurityImpl] - INFO  - LOCAL_CLIENT_SECURITY_IMPL - REG - REGISTRATION - Getting the instance of Local Security Impl
+2020-06-11T13:58:00Z - [io.mosip.registration.service.security.impl.LocalClientSecurityImpl] - INFO  - LOCAL_CLIENT_SECURITY_IMPL - REG - REGISTRATION - Completed getting the instance of Local Security Impl
+2020-06-11T13:58:00Z - [io.mosip.registration.service.security.impl.LocalClientSecurityImpl] - INFO  - LOCAL_CLIENT_SECURITY_IMPL - REG - REGISTRATION - Check this file for publicKey and KeyIndex if already exist: C:\Users\hp\.mosipkeys\readme.txt
+2020-06-11T13:58:00Z - [io.mosip.registration.config.DaoConfig] - INFO  - REGISTRATION - DAO Config - DB - REGISTRATION - REG - ****** SETTING UP DATASOURCE *******
+2020-06-11T13:58:00Z - [io.mosip.registration.config.DaoConfig] - DEBUG - REGISTRATION - DAO Config - DB - REGISTRATION - REG - ****** DATASOURCE dbPath : db/reg
+2020-06-11T13:58:00Z - [io.mosip.registration.config.DaoConfig] - DEBUG - REGISTRATION - DAO Config - DB - REGISTRATION - REG - ****** DATASOURCE dbKey : bW9zaXAxMjM0NQ==
+2020-06-11T13:58:00Z - [io.mosip.registration.config.DaoConfig] - DEBUG - REGISTRATION - DAO Config - DB - REGISTRATION - REG - ****** DATASOURCE tpmAvailability : false
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Entering init method for preparing device registry
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Initializing on port : 4501
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Initializing on port : 4500
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Initializing on port : 4503
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Exit init method for preparing device registry
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Initializing on port : 4502
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Initializing device : null ,on Port : 4500
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Initializing device : null ,on Port : 4501
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Initializing device : null ,on Port : 4502
+2020-06-11T13:58:06Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - Initializing device : null ,on Port : 4503
+2020-06-11T13:58:06Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Jobs initiation was started
+2020-06-11T13:58:06Z - [io.mosip.registration.service.config.impl.GlobalParamServiceImpl] - INFO  - REGISTRATION - SYNC - GLOBAL_PARAMS_SERVICE - REGISTRATION - REG - Fetching list of global params
+2020-06-11T13:58:06Z - [io.mosip.registration.dao.impl.GlobalParamDAOImpl] - INFO  - REGISTRATION - GLOBALPARAMS - GLOBAL_PARAM_DAO_IMPL - REGISTRATION - REG - Fetching list of global params
+2020-06-11T13:58:06Z - [io.mosip.registration.dao.impl.GlobalParamDAOImpl] - INFO  - REGISTRATION - GLOBALPARAMS - GLOBAL_PARAM_DAO_IMPL - REGISTRATION - REG - List of global params fetched successfully
+2020-06-11T13:58:06Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Fetching sync_job_defs from db
+2020-06-11T13:58:06Z - [io.mosip.registration.dao.impl.SyncJobConfigDAOImpl] - INFO  - REGISTRATION-JOB_CONFIF_DAO - REGISTRATION - REG - Get all Sync Jobs
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Updating Sync Frequency : 0 0 11 * * ?
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started invoking Missed Trigger Jobs
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : PKS_J00016
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : DEL_J00013
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : UDS_J00017
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : ADJ_J00012
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : RCS_J00005
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : RPS_J00006
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : PKU_J00018
+
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : RDJ_J00010
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : UDM_J00012
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed invoking Missed Trigger Jobs
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : PDS_J00003
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : POS_J00008
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Initializing Scheduler Factory Bean started
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : MDS_J00001
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Started Checking whether Trigger missed for  : PVS_J00015
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.dao.impl.SyncTransactionDAOImpl] - INFO  - REGISTRATION-SYNC-TRANSACTION DAO - REGISTRATION - REG - Fetch  sync details based on crDtime from database started
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Initializing Scheduler Factory Bean completed
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - start jobs invocation started
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Loading Scheduler started
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : PKS_J00016
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : MDS_J00001
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : RCS_J00005
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : PDS_J00003
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : ADJ_J00012
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : POS_J00008
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : PKS_J00016
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : DEL_J00013
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : PVS_J00015
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : PKU_J00018
+
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : RDJ_J00010
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : RPS_J00006
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : UDS_J00017
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Completed Checking whether Trigger missed for  : UDM_J00012
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :PKS_J00016
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : DEL_J00013
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :DEL_J00013
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : UDS_J00017
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :UDS_J00017
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : ADJ_J00012
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :ADJ_J00012
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : RCS_J00005
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :RCS_J00005
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : RPS_J00006
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :RPS_J00006
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : PKU_J00018
+
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :PKU_J00018
+
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : RDJ_J00010
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :RDJ_J00010
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : UDM_J00012
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :UDM_J00012
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : PDS_J00003
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :PDS_J00003
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : POS_J00008
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :POS_J00008
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : MDS_J00001
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :MDS_J00001
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Checking the Job to load in scheduler : PVS_J00015
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Scheduler loaded the job :PVS_J00015
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Loading Scheduler completed
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - start jobs invocation ended
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Jobs initiation was completed
+2020-06-11T13:58:07Z - [io.mosip.registration.controller.RestartController] - INFO  - REGISTRATION - RESTART  - RESTART CONTROLLER - REGISTRATION - REG - Initiate Restart Timer started
+2020-06-11T13:58:07Z - [io.mosip.registration.controller.RestartController] - INFO  - REGISTRATION - RESTART  - RESTART CONTROLLER - REGISTRATION - REG - Creation of sync restart timer started
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Getting Re-start time started
+2020-06-11T13:58:07Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Getting Re-start time completed
+2020-06-11T13:58:07Z - [io.mosip.registration.controller.RestartController] - INFO  - REGISTRATION - RESTART  - RESTART CONTROLLER - REGISTRATION - REG - Creation of sync restart timer completed
+2020-06-11T13:58:07Z - [io.mosip.registration.controller.RestartController] - INFO  - REGISTRATION - RESTART  - RESTART CONTROLLER - REGISTRATION - REG - Initiate Restart Timer completed
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading data has been started post construct
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading languages has been started
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading languages has been ended
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading gender types has been started
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading gender types has been ended
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading location details has been started
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading location details has been ended
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading document categories has been started
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading document categories has been ended
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading document types has been started
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading document types has been ended
+2020-06-11T13:58:07Z - [io.mosip.registration.validator.RegIdObjectMasterDataValidator] - INFO  - REGISTRATION - MASTER_DATA_VALIDATION - REGISTRATION_ID_OBJECT_MASTER_DATA_VALIDATOR - REGISTRATION - REG - Loading data has ended
+2020-06-11T13:58:07Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - No device is running at port number 4501
+2020-06-11T13:58:07Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - No device is running at port number 4503
+2020-06-11T13:58:07Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - No device is running at port number 4502
+2020-06-11T13:58:08Z - [io.mosip.registration.mdm.service.impl.MosipBioDeviceManager] - INFO  - REGISTRATION - USER_REGISTRATION - MOSIP BIO DEVICE MANAGER - REGISTRATION - REG - No device is running at port number 4500
+2020-06-11T13:58:08Z - [io.mosip.registration.controller.Initialization] - INFO  - REGISTRATION - LOGIN SCREEN INITILIZATION - REGISTRATIONAPPINITILIZATION - REGISTRATION - REG - Login screen initilization 13:58:08
+2020-06-11T13:58:08Z - [io.mosip.registration.service.config.impl.GlobalParamServiceImpl] - INFO  - REGISTRATION - SYNC - GLOBAL_PARAMS_SERVICE - REGISTRATION - REG - Fetching list of global params
+2020-06-11T13:58:08Z - [io.mosip.registration.dao.impl.GlobalParamDAOImpl] - INFO  - REGISTRATION - GLOBALPARAMS - GLOBAL_PARAM_DAO_IMPL - REGISTRATION - REG - Fetching list of global params
+2020-06-11T13:58:08Z - [io.mosip.registration.dao.impl.GlobalParamDAOImpl] - INFO  - REGISTRATION - GLOBALPARAMS - GLOBAL_PARAM_DAO_IMPL - REGISTRATION - REG - List of global params fetched successfully
+2020-06-11T13:58:08Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Retrieve Login mode
+2020-06-11T13:58:09Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Checking for current version started
+2020-06-11T13:58:09Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Getting  of local manifest started
+2020-06-11T13:58:09Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Getting  of local manifest completed
+2020-06-11T13:58:09Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Checking for current version completed
+2020-06-11T13:58:09Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - INFO  - REGISTRATION - REGISTRATION APP HEALTHCHECK UTIL - ISNETWORKAVAILABLE - REGISTRATION - REG - Registration Network Checker had been called.
+2020-06-11T13:58:09Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - ERROR - REGISTRATION - REGISTRATIONAPPHEALTHCHECKUTIL - ISNETWORKAVAILABLEfalse - REGISTRATION - REG - No Internet Access.java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.checkServiceAvailability(RegistrationAppHealthCheckUtil.java:125)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.isNetworkAvailable(RegistrationAppHealthCheckUtil.java:88)
+	at io.mosip.registration.controller.auth.LoginController.initialize(LoginController.java:194)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2441)
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2409)
+	at io.mosip.registration.controller.BaseController.load(BaseController.java:372)
+	at io.mosip.registration.controller.auth.LoginController.loadInitialScreen(LoginController.java:262)
+	at io.mosip.registration.controller.Initialization.start(Initialization.java:50)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$8(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$7(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$4(WinApplication.java:186)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-06-11T13:58:09Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:09Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:09Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:09Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:09Z - [io.mosip.registration.dao.impl.IdentitySchemaDaoImpl] - INFO  - REGISTRATION - MASTER_SYNC - ID_SCHEMA_SYNC - REGISTRATION - REG - SCHEMA :: C:\Users\hp\IdeaProjects\mosip-guinea-ref-impl\SCHEMA_0.1.json
+2020-06-11T13:58:09Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Preparing Page flow map for New Registration, Onboard, UIN Update
+2020-06-11T13:58:09Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Updating Map values based on Configuration 
+2020-06-11T13:58:09Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Updating Child values of Map based on Configuration
+2020-06-11T13:58:09Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Updating Visibility values based on Configuration
+2020-06-11T13:58:09Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Visibility values updated based on Configuration
+2020-06-11T13:58:09Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Map values are updated based on Configuration
+2020-06-11T13:58:09Z - [io.mosip.registration.util.common.PageFlow] - INFO  - REGISTRATION - PAGE_FLOW - PAGE_FLOW - REGISTRATION - REG - Updating Map and storing in Application Context
+2020-06-11T13:58:10Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Started Execute SQL file check
+2020-06-11T13:58:10Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:10Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Checking for current version started
+2020-06-11T13:58:10Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Getting  of local manifest started
+2020-06-11T13:58:10Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Getting  of local manifest completed
+2020-06-11T13:58:10Z - [io.mosip.registration.update.SoftwareUpdateHandler] - INFO  - REGISTRATION - HEADER - REGISTARTION_UPDATE - REGISTRATION - REG - Checking for current version completed
+2020-06-11T13:58:10Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Completed Execute SQL file check
+2020-06-11T13:58:12Z - [io.mosip.registration.dao.impl.GlobalParamDAOImpl] - INFO  - REGISTRATION - GLOBALPARAMS - GLOBAL_PARAM_DAO_IMPL - REGISTRATION - REG - Get Global Param
+2020-06-11T13:58:12Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - INITIAL_SYNC - LOGIN_CONTROLLER - REGISTRATION - REG - Handling all the sync activities before login
+2020-06-11T13:58:12Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION  - LOGINSERVICE - REGISTRATION - REG - Started Initial sync
+2020-06-11T13:58:12Z - [io.mosip.registration.service.sync.impl.PublicKeySyncImpl] - INFO  - REGISTRATION_PUBLIC_KEY_SYNC - REGISTRATION - REG - Entering into get public key method.....
+2020-06-11T13:58:12Z - [io.mosip.registration.service.sync.impl.PublicKeySyncImpl] - INFO  - REGISTRATION_PUBLIC_KEY_SYNC - REGISTRATION - REG - Fetching signed public key.....
+2020-06-11T13:58:12Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - start jobs invocation started
+2020-06-11T13:58:12Z - [io.mosip.registration.dao.impl.IdentitySchemaDaoImpl] - INFO  - REGISTRATION - MASTER_SYNC - ID_SCHEMA_SYNC - REGISTRATION - REG - SCHEMA :: C:\Users\hp\IdeaProjects\mosip-guinea-ref-impl\SCHEMA_0.1.json
+2020-06-11T13:58:12Z - [io.mosip.registration.controller.Initialization] - INFO  - REGISTRATION - LOGIN SCREEN INITILIZATION - REGISTRATIONAPPINITILIZATION - REGISTRATION - REG - Login screen loaded13:58:12
+2020-06-11T13:58:12Z - [io.mosip.registration.service.sync.impl.PublicKeySyncImpl] - INFO  - REGISTRATION_PUBLIC_KEY_SYNC - REGISTRATION - REG - Leaving into get public key method.....
+2020-06-11T13:58:12Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION  - LOGINSERVICE - REGISTRATION - REG - Initial Sync Done : PublicKey Sync
+2020-06-11T13:58:12Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION  - LOGINSERVICE - REGISTRATION - REG - dev
+2020-06-11T13:58:12Z - [io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl] - INFO  - REGISTRATION - TPM_PUBLIC_KEY_SYNC - SYNC_TPM_PUBLIC_KEY - REGISTRATION - REG - Sync TPM Public Key
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - DEBUG - REGISTRATION - SERVICE_DELEGATE_UTIL - POST - REGISTRATION - REG -  post method called
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_POST_REQUEST - REGISTRATION - REG - Preparing post request for web-service
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_REQUEST - REGISTRATION - REG - Preparing RequestHTTPDTO object for web-service
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_REQUEST - REGISTRATION - REG - Preparing Header for web-service request
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_REQUEST - REGISTRATION - REG - Completed preparing Header for web-service request
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_REQUEST - REGISTRATION - REG - Completed preparing RequestHTTPDTO object for web-service
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_POST_REQUEST - REGISTRATION - REG - Preparing URI for web-service
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_POST_REQUEST - REGISTRATION - REG - Completed preparing URI for web-service
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_POST_REQUEST - REGISTRATION - REG - Completed preparing post request for web-service
+2020-06-11T13:58:12Z - [io.mosip.registration.util.advice.LoggerAdvice] - INFO  - REGISTRATION - LOGGER-BEFORE-ADVICE- INVOKE - REGISTRATION - REG - Request URL======>https://guinea.mosip.io/v1/syncdata/tpm/publickey/verify
+2020-06-11T13:58:12Z - [io.mosip.registration.util.advice.LoggerAdvice] - INFO  - REGISTRATION - LOGGER-BEFORE-ADVICE- INVOKE - REGISTRATION - REG - Request Method======>POST
+2020-06-11T13:58:12Z - [io.mosip.registration.util.advice.LoggerAdvice] - INFO  - REGISTRATION - LOGGER-BEFORE-ADVICE- INVOKE - REGISTRATION - REG - Request Class======>class java.lang.Object
+2020-06-11T13:58:12Z - [io.mosip.registration.util.advice.RestClientAuthAdvice] - INFO  - REGISTRATION - AUTHORIZATION - REST_CLIENT_AUTH_ADVICE - REG - REGISTRATION - Adding authZ token to web service request header if required
+2020-06-11T13:58:12Z - [io.mosip.registration.util.advice.RestClientAuthAdvice] - INFO  - REGISTRATION - AUTHORIZATION - REST_CLIENT_AUTH_ADVICE - REG - REGISTRATION - Getting authZ token
+2020-06-11T13:58:12Z - [io.mosip.registration.util.advice.RestClientAuthAdvice] - INFO  - REGISTRATION - AUTHORIZATION - REST_CLIENT_AUTH_ADVICE - REG - REGISTRATION - Session Context null and user id and password are from applicaiton context 
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - GET_AUTH_TOKEN - REGISTRATION - REG - Fetching Auth Token based on Login Mode
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_AUTHN_REQUEST_DTO - REGISTRATION - REG - Preparing AuthNRequestDTO Based on Login Mode
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_AUTHN_REQUEST_DTO - REGISTRATION - REG - Completed preparing AuthNRequestDTO Based on Login Mode
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_POST_REQUEST - REGISTRATION - REG - Preparing URI for web-service
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.ServiceDelegateUtil] - INFO  - REGISTRATION - SERVICE_DELEGATE_UTIL - PREPARE_POST_REQUEST - REGISTRATION - REG - Completed preparing URI for web-service
+2020-06-11T13:58:12Z - [io.mosip.registration.util.restclient.RestClientUtil] - DEBUG - REGISTRATION - REST_CLIENT_UTIL - INVOKE Token - REGISTRATION - REG - invoke token method called
+2020-06-11T13:58:12Z - [io.mosip.registration.exception.RegBaseCheckedException] - ERROR - REGISTRATION - CHECKED_EXCEPTION - REGISTRATION - REG - REST-OAUTH-001-->Internal Server Error-->org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:732)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:698)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:619)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeURL(RestClientUtil.java:90)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeForToken(RestClientUtil.java:128)
+	at io.mosip.registration.util.restclient.RestClientUtil$$FastClassBySpringCGLIB$$6aaee7db.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invokeForToken(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:519)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.getAuthZToken(RestClientAuthAdvice.java:216)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.addAuthZToken(RestClientAuthAdvice.java:89)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invoke(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.post(ServiceDelegateUtil.java:191)
+	at io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl.syncTPMPublicKey(TPMPublicKeySyncServiceImpl.java:74)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.verifyMachinePublicKeyMapping(LoginServiceImpl.java:369)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.initialSync(LoginServiceImpl.java:323)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:990)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:978)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javafx.concurrent.Service.lambda$null$6(Service.java:725)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javafx.concurrent.Service.lambda$executeTask$7(Service.java:724)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:723)
+	... 49 more
+
+2020-06-11T13:58:12Z - [io.mosip.registration.exception.RegBaseCheckedException] - ERROR - REGISTRATION - CHECKED_EXCEPTION - REGISTRATION - REG - REG-SER-IPD-215-->REST-OAUTH-001 --> Internal Server Error; 
+nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.ioio.mosip.registration.exception.RegBaseCheckedException: REST-OAUTH-001 --> Internal Server Error; 
+nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:590)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.getAuthZToken(RestClientAuthAdvice.java:216)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.addAuthZToken(RestClientAuthAdvice.java:89)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invoke(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.post(ServiceDelegateUtil.java:191)
+	at io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl.syncTPMPublicKey(TPMPublicKeySyncServiceImpl.java:74)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.verifyMachinePublicKeyMapping(LoginServiceImpl.java:369)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.initialSync(LoginServiceImpl.java:323)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:990)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:978)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javafx.concurrent.Service.lambda$null$6(Service.java:725)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javafx.concurrent.Service.lambda$executeTask$7(Service.java:724)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:732)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:698)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:619)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeURL(RestClientUtil.java:90)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeForToken(RestClientUtil.java:128)
+	at io.mosip.registration.util.restclient.RestClientUtil$$FastClassBySpringCGLIB$$6aaee7db.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invokeForToken(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:519)
+	... 34 more
+Caused by: java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:723)
+	... 49 more
+
+2020-06-11T13:58:12Z - [io.mosip.registration.exception.RegBaseCheckedException] - ERROR - REGISTRATION - CHECKED_EXCEPTION - REGISTRATION - REG - REG-TPK-001-->Exception while uploading the TPM Public Key-->io.mosip.registration.exception.RegBaseCheckedException: REG-SER-IPD-215 --> REST-OAUTH-001 --> Internal Server Error; 
+nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.ioio.mosip.registration.exception.RegBaseCheckedException: REST-OAUTH-001 --> Internal Server Error; 
+nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:590)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.getAuthZToken(RestClientAuthAdvice.java:216)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.addAuthZToken(RestClientAuthAdvice.java:89)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invoke(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.post(ServiceDelegateUtil.java:191)
+	at io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl.syncTPMPublicKey(TPMPublicKeySyncServiceImpl.java:74)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.verifyMachinePublicKeyMapping(LoginServiceImpl.java:369)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.initialSync(LoginServiceImpl.java:323)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:990)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:978)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javafx.concurrent.Service.lambda$null$6(Service.java:725)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javafx.concurrent.Service.lambda$executeTask$7(Service.java:724)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:732)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:698)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:619)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeURL(RestClientUtil.java:90)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeForToken(RestClientUtil.java:128)
+	at io.mosip.registration.util.restclient.RestClientUtil$$FastClassBySpringCGLIB$$6aaee7db.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invokeForToken(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:519)
+	... 34 more
+Caused by: java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:723)
+	... 49 more
+
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.post(ServiceDelegateUtil.java:194)
+	at io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl.syncTPMPublicKey(TPMPublicKeySyncServiceImpl.java:74)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.verifyMachinePublicKeyMapping(LoginServiceImpl.java:369)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.initialSync(LoginServiceImpl.java:323)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:990)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:978)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javafx.concurrent.Service.lambda$null$6(Service.java:725)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javafx.concurrent.Service.lambda$executeTask$7(Service.java:724)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-06-11T13:58:12Z - [io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl] - INFO  - REGISTRATION - TPM_PUBLIC_KEY_SYNC - SYNC_TPM_PUBLIC_KEY - REGISTRATION - REG - Completed sync of TPM Public Key
+2020-06-11T13:58:12Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - ERROR - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - io.mosip.registration.exception.RegBaseCheckedException: REG-TPK-001 --> Exception while uploading the TPM Public Key; 
+nested exception is io.mosip.registration.exception.RegBaseCheckedException: REG-SER-IPD-215 --> REST-OAUTH-001 --> Internal Server Error; 
+nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.ioio.mosip.registration.exception.RegBaseCheckedException: REST-OAUTH-001 --> Internal Server Error; 
+nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:590)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.getAuthZToken(RestClientAuthAdvice.java:216)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.addAuthZToken(RestClientAuthAdvice.java:89)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invoke(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.post(ServiceDelegateUtil.java:191)
+	at io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl.syncTPMPublicKey(TPMPublicKeySyncServiceImpl.java:74)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.verifyMachinePublicKeyMapping(LoginServiceImpl.java:369)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.initialSync(LoginServiceImpl.java:323)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:990)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:978)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javafx.concurrent.Service.lambda$null$6(Service.java:725)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javafx.concurrent.Service.lambda$executeTask$7(Service.java:724)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:732)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:698)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:619)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeURL(RestClientUtil.java:90)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeForToken(RestClientUtil.java:128)
+	at io.mosip.registration.util.restclient.RestClientUtil$$FastClassBySpringCGLIB$$6aaee7db.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invokeForToken(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:519)
+	... 34 more
+Caused by: java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:723)
+	... 49 more
+
+	at io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl.syncTPMPublicKey(TPMPublicKeySyncServiceImpl.java:99)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.verifyMachinePublicKeyMapping(LoginServiceImpl.java:369)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.initialSync(LoginServiceImpl.java:323)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:990)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:978)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javafx.concurrent.Service.lambda$null$6(Service.java:725)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javafx.concurrent.Service.lambda$executeTask$7(Service.java:724)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: io.mosip.registration.exception.RegBaseCheckedException: REG-SER-IPD-215 --> REST-OAUTH-001 --> Internal Server Error; 
+nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.ioio.mosip.registration.exception.RegBaseCheckedException: REST-OAUTH-001 --> Internal Server Error; 
+nested exception is org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:590)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.getAuthZToken(RestClientAuthAdvice.java:216)
+	at io.mosip.registration.util.advice.RestClientAuthAdvice.addAuthZToken(RestClientAuthAdvice.java:89)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invoke(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.post(ServiceDelegateUtil.java:191)
+	at io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl.syncTPMPublicKey(TPMPublicKeySyncServiceImpl.java:74)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.verifyMachinePublicKeyMapping(LoginServiceImpl.java:369)
+	at io.mosip.registration.service.login.impl.LoginServiceImpl.initialSync(LoginServiceImpl.java:323)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:990)
+	at io.mosip.registration.controller.auth.LoginController$1$1.call(LoginController.java:978)
+	at javafx.concurrent.Task$TaskCallable.call(Task.java:1423)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javafx.concurrent.Service.lambda$null$6(Service.java:725)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javafx.concurrent.Service.lambda$executeTask$7(Service.java:724)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on POST request for "https://guinea.mosip.io/v1/authmanager/authenticate/clientidsecretkey": guinea.mosip.io; nested exception is java.net.UnknownHostException: guinea.mosip.io
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:732)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:698)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:619)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeURL(RestClientUtil.java:90)
+	at io.mosip.registration.util.restclient.RestClientUtil.invokeForToken(RestClientUtil.java:128)
+	at io.mosip.registration.util.restclient.RestClientUtil$$FastClassBySpringCGLIB$$6aaee7db.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at io.mosip.registration.util.restclient.RestClientUtil$$EnhancerBySpringCGLIB$$ce4c56e7.invokeForToken(<generated>)
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.getAuthToken(ServiceDelegateUtil.java:519)
+	... 34 more
+Caused by: java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:76)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:723)
+	... 49 more
+
+	at io.mosip.registration.util.restclient.ServiceDelegateUtil.post(ServiceDelegateUtil.java:194)
+	at io.mosip.registration.service.sync.impl.TPMPublicKeySyncServiceImpl.syncTPMPublicKey(TPMPublicKeySyncServiceImpl.java:74)
+	... 12 more
+
+2020-06-11T13:58:12Z - [io.mosip.registration.controller.reg.AlertController] - INFO  - REGISTRATION - ALERT_CONTROLLER - ALERT_GENERATION - REGISTRATION - REG - Alert generation has been started
+2020-06-11T13:58:12Z - [io.mosip.registration.controller.reg.AlertController] - INFO  - REGISTRATION - ALERT_CONTROLLER - ALERT_GENERATION - REGISTRATION - REG - Alert generation has been ended
+2020-06-11T13:58:14Z - [io.mosip.registration.controller.reg.AlertController] - INFO  - REGISTRATION - ALERT_CONTROLLER - ALERT_GENERATION - REGISTRATION - REG - Alert closing has been started
+2020-06-11T13:58:14Z - [io.mosip.registration.controller.reg.AlertController] - INFO  - REGISTRATION - ALERT_CONTROLLER - ALERT_GENERATION - REGISTRATION - REG - Alert closing has been ended
+2020-06-11T13:58:14Z - [io.mosip.registration.controller.reg.AlertController] - INFO  - REGISTRATION - ALERT_CONTROLLER - ALERT_GENERATION - REGISTRATION - REG - Alert closing has been started
+2020-06-11T13:58:14Z - [io.mosip.registration.controller.reg.AlertController] - INFO  - REGISTRATION - ALERT_CONTROLLER - ALERT_GENERATION - REGISTRATION - REG - Alert closing has been ended
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Validating Credentials entered through UI
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Validating User
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Fetching User details
+2020-06-11T13:58:50Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - USER_DETAIL - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - Fetching User details
+2020-06-11T13:58:50Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - USER_DETAIL - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - User details fetched successfully
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Completed fetching User details
+2020-06-11T13:58:50Z - [io.mosip.registration.service.operator.impl.UserOnboardServiceImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - fetching getMachineCenterId ....
+2020-06-11T13:58:50Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - getStationID() machineName --> desktop-77q2501
+2020-06-11T13:58:50Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - getCenterID() stationID --> 10072
+2020-06-11T13:58:50Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - fetching center details from repository....
+2020-06-11T13:58:50Z - [io.mosip.registration.service.operator.impl.UserOnboardServiceImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - station Id = 10072---->center Id = 10002
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Validating roles
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - completed validating user
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Fetching invalid login params
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Invoking validation of login attempts
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - validating invalid login params
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Comparing timestamps in case of invalid login attempts
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Validated number of login attempts
+2020-06-11T13:58:50Z - [io.mosip.registration.service.operator.impl.UserMachineMappingServiceImpl] - INFO  - REGISTRATION-CENTER-USER-MACHINE-MAPPING-DETAILS- SYNC - REGISTRATION - REG - Started to find whether the user new to machine or not
+2020-06-11T13:58:50Z - [io.mosip.registration.dao.impl.MachineMappingDAOImpl] - INFO  - REGISTRATION - USER CLIENT MACHINE MAPPING - REGISTRATION - REG - checking exists or not
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Fetching list of login modes
+2020-06-11T13:58:50Z - [io.mosip.registration.dao.impl.AppAuthenticationDAOImpl] - INFO  - REGISTRATION - LOGINMODES - REGISTRATION_APP_LOGIN_DAO_IMPL - REGISTRATION - REG - Fetching list of login modes
+2020-06-11T13:58:50Z - [io.mosip.registration.dao.impl.AppAuthenticationDAOImpl] - INFO  - REGISTRATION - LOGINMODES - REGISTRATION_APP_LOGIN_DAO_IMPL - REGISTRATION - REG - List of login modes fetched successfully
+2020-06-11T13:58:50Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Completed fetching list of login modes
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Ignoring FingerPrint login if the configuration is off
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Ignoring login method if the configuration is off
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Ignoring login method if the configuration is off
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Ignoring login method if the configuration is off
+2020-06-11T13:58:50Z - [io.mosip.registration.controller.auth.LoginController] - DEBUG - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Retrieved corresponding Login mode
+2020-06-11T13:58:54Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:54Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:54Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:55Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:55Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Validating Credentials entered through UI
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Fetching User details
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - USER_DETAIL - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - Fetching User details
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - USER_DETAIL - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - User details fetched successfully
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Completed fetching User details
+2020-06-11T13:58:57Z - [io.mosip.registration.context.SessionContext] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Entering into creating Session Context
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Fetching list of login modes
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.AppAuthenticationDAOImpl] - INFO  - REGISTRATION - LOGINMODES - REGISTRATION_APP_LOGIN_DAO_IMPL - REGISTRATION - REG - Fetching list of login modes
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.AppAuthenticationDAOImpl] - INFO  - REGISTRATION - LOGINMODES - REGISTRATION_APP_LOGIN_DAO_IMPL - REGISTRATION - REG - List of login modes fetched successfully
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Completed fetching list of login modes
+2020-06-11T13:58:57Z - [io.mosip.registration.service.security.impl.AuthenticationServiceImpl] - INFO  - REGISTRATION - OPERATOR_AUTHENTICATION - REGISTRATION - REG - Validating credentials using database
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Fetching User details
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - USER_DETAIL - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - Fetching User details
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - USER_DETAIL - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - User details fetched successfully
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Completed fetching User details
+2020-06-11T13:58:57Z - [io.mosip.registration.context.SessionContext] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Started Creating Security Session Context with auth modes skip : false
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Fetching Center details
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.RegistrationCenterDAOImpl] - INFO  - REGISTRATION - CENTER_NAME - REGISTRATION_CENTER_DAO_IMPL - REGISTRATION - REG - Fetching Registration Center details
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.RegistrationCenterDAOImpl] - INFO  - REGISTRATION - CENTER_NAME - REGISTRATION_CENTER_DAO_IMPL - REGISTRATION - REG - Registration Center details fetched successfully
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Completed fetching of Center details
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Fetching list of Screens to be Authorized
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_SERVICE - REGISTRATION - REG - Completed fetching list of Screens to be Authorized
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.ScreenAuthorizationDAOImpl] - INFO  - REGISTRATION - SCREEN_AUTHORIZATION - REGISTRATION_SCREEN_AUTHORIZATION_DAO_IMPL - REGISTRATION - REG - Fetching List of Screens to be authorized
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.ScreenAuthorizationDAOImpl] - INFO  - REGISTRATION - SCREEN_AUTHORIZATION - REGISTRATION_SCREEN_AUTHORIZATION_DAO_IMPL - REGISTRATION - REG - List of Screens to be authorized are fetched successfully
+2020-06-11T13:58:57Z - [io.mosip.registration.context.SessionContext] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Creating Session Context is completed
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Fetching invalid login params
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Invoking validation of login attempts
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - validating invalid login params
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Comparing timestamps in case of invalid login attempts
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Validated number of login attempts
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Loading next login screen
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.auth.LoginController] - INFO  - REGISTRATION - LOGIN - LOGIN_CONTROLLER - REGISTRATION - REG - Loading Home screen
+2020-06-11T13:58:57Z - [io.mosip.registration.scheduler.SchedulerUtil] - INFO  - REGISTRATION - UI - REGISTRATION - REG - Timer has been called 13:58:57
+2020-06-11T13:58:57Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - get Last Completed Jobs Started
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.SyncJobControlDAOImpl] - INFO  - REGISTRATION-SYNC-JOB_CONTROL DAO - REGISTRATION - REG - Fetching the list of sync details from database started
+2020-06-11T13:58:57Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - get Last Completed Jobs Ended
+2020-06-11T13:58:57Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Getting Job info in sync control Started
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.SyncJobControlDAOImpl] - INFO  - REGISTRATION-SYNC-JOB_CONTROL DAO - REGISTRATION - REG - Fetching the sync details from database started
+2020-06-11T13:58:57Z - [io.mosip.registration.service.config.impl.JobConfigurationServiceImpl] - INFO  - REGISTRATION - SYNC - Job_Configuration_Service - REGISTRATION - REG - Getting Job info in sync control Completed
+2020-06-11T13:58:57Z - [io.mosip.registration.service.packet.impl.RegistrationApprovalServiceImpl] - INFO  - REGISTRATION - PACKET_APPROVAL - GET - REGISTRATION - REG - Fetching Packets list by status started
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.RegistrationDAOImpl] - INFO  - REGISTRATION - BY_STATUS - REGISTRATION_DAO - REGISTRATION - REG - Retrieving packets based on status
+2020-06-11T13:58:57Z - [io.mosip.registration.service.packet.impl.RegistrationApprovalServiceImpl] - INFO  - REGISTRATION - PACKET_APPROVAL - GET - REGISTRATION - REG - Packet  list has been fetched
+2020-06-11T13:58:57Z - [io.mosip.registration.service.packet.impl.RegistrationApprovalServiceImpl] - INFO  - REGISTRATION - PACKET_APPROVAL - GET - REGISTRATION - REG - Fetching Packets list by status ended
+2020-06-11T13:58:57Z - [io.mosip.registration.service.packet.impl.ReRegistrationServiceImpl] - INFO  - REGISTRATION - RE_REGISTER_PACKET - GET - REGISTRATION - REG - Getting all the re-registration packets from the table
+2020-06-11T13:58:57Z - [io.mosip.registration.service.packet.impl.ReRegistrationServiceImpl] - INFO  - REGISTRATION - RE_REGISTER_PACKET - GET - REGISTRATION - REG - Fetching from the table finished
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - fetching userMachineMapping details from repository....
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.reg.HeaderController] - INFO  - REGISTRATION - HEADER - HEADER_CONTROLLER - REGISTRATION - REG - Displaying Registration Officer details
+2020-06-11T13:58:57Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - INFO  - REGISTRATION - REGISTRATION APP HEALTHCHECK UTIL - ISNETWORKAVAILABLE - REGISTRATION - REG - Registration Network Checker had been called.
+2020-06-11T13:58:57Z - [io.mosip.registration.controller.reg.HomeController] - INFO  - REGISTRATION - REGSITRATION_HOME_PAGE_LAYOUT - REGISTRATION - REG - Constructing Registration Home Page
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - UPDATELOGINPARAMS - LOGINSERVICE - REGISTRATION - REG - Updating Login Params
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - USER_DETAIL - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - Fetching User details
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - USER_DETAIL - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - User details fetched successfully
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - UPDATE_LOGIN_PARAMS - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - Updating Login params
+2020-06-11T13:58:57Z - [io.mosip.registration.dao.impl.UserDetailDAOImpl] - INFO  - REGISTRATION - UPDATE_LOGIN_PARAMS - REGISTRATION_USER_DETAIL_DAO_IMPL - REGISTRATION - REG - Updated Login params successfully
+2020-06-11T13:58:57Z - [io.mosip.registration.service.login.impl.LoginServiceImpl] - INFO  - REGISTRATION - UPDATELOGINPARAMS - LOGINSERVICE - REGISTRATION - REG - Updated Login Params
+2020-06-11T13:58:57Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - ERROR - REGISTRATION - REGISTRATIONAPPHEALTHCHECKUTIL - ISNETWORKAVAILABLEfalse - REGISTRATION - REG - No Internet Access.java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.checkServiceAvailability(RegistrationAppHealthCheckUtil.java:125)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.isNetworkAvailable(RegistrationAppHealthCheckUtil.java:88)
+	at io.mosip.registration.controller.reg.HeaderController$1.run(HeaderController.java:179)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+2020-06-11T13:59:02Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - INFO  - REGISTRATION - REGISTRATION APP HEALTHCHECK UTIL - ISNETWORKAVAILABLE - REGISTRATION - REG - Registration Network Checker had been called.
+2020-06-11T13:59:02Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - ERROR - REGISTRATION - REGISTRATIONAPPHEALTHCHECKUTIL - ISNETWORKAVAILABLEfalse - REGISTRATION - REG - No Internet Access.java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.checkServiceAvailability(RegistrationAppHealthCheckUtil.java:125)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.isNetworkAvailable(RegistrationAppHealthCheckUtil.java:88)
+	at io.mosip.registration.controller.reg.HeaderController$1.run(HeaderController.java:179)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+2020-06-11T13:59:07Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - INFO  - REGISTRATION - REGISTRATION APP HEALTHCHECK UTIL - ISNETWORKAVAILABLE - REGISTRATION - REG - Registration Network Checker had been called.
+2020-06-11T13:59:07Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - ERROR - REGISTRATION - REGISTRATIONAPPHEALTHCHECKUTIL - ISNETWORKAVAILABLEfalse - REGISTRATION - REG - No Internet Access.java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.checkServiceAvailability(RegistrationAppHealthCheckUtil.java:125)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.isNetworkAvailable(RegistrationAppHealthCheckUtil.java:88)
+	at io.mosip.registration.controller.reg.HeaderController$1.run(HeaderController.java:179)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+2020-06-11T13:59:11Z - [io.mosip.registration.service.operator.impl.UserOnboardServiceImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - fetching getMachineCenterId ....
+2020-06-11T13:59:11Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - getStationID() machineName --> desktop-77q2501
+2020-06-11T13:59:11Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - getCenterID() stationID --> 10072
+2020-06-11T13:59:11Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - fetching center details from repository....
+2020-06-11T13:59:11Z - [io.mosip.registration.service.operator.impl.UserOnboardServiceImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - station Id = 10072---->center Id = 10002
+2020-06-11T13:59:11Z - [io.mosip.registration.service.bio.impl.BioServiceImpl] - INFO  - BIO_SERVICE - REGISTRATION - REG - Clearing All captures
+2020-06-11T13:59:11Z - [io.mosip.registration.dao.impl.GlobalParamDAOImpl] - INFO  - REGISTRATION - GLOBALPARAMS - GLOBAL_PARAM_DAO_IMPL - REGISTRATION - REG - Get Global Param
+2020-06-11T13:59:11Z - [io.mosip.registration.service.sync.impl.PolicySyncServiceImpl] - INFO  - REGISTRATION_KEY_POLICY_SYNC - REGISTRATION - REG - Key Validation is started
+2020-06-11T13:59:11Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - getStationID() machineName --> desktop-77q2501
+2020-06-11T13:59:11Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - getCenterID() stationID --> 10072
+2020-06-11T13:59:11Z - [io.mosip.registration.dao.impl.UserOnboardDAOImpl] - INFO  - REGISTRATION - USER_ONBOARD - USER_ONBOARD_IMLP - REGISTRATION - REG - fetching center details from repository....
+2020-06-11T13:59:11Z - [io.mosip.registration.service.sync.impl.PolicySyncServiceImpl] - INFO  - REGISTRATION_KEY_POLICY_SYNC - REGISTRATION - REG - Key Validation is started
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.PacketHandlerController] - INFO  - REGISTRATION - PACKET_HANDLER - Packet_Handler_Controller - REGISTRATION - REG - Creation of Registration Starting.
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.HeaderController] - INFO  - REGISTRATION - HEADER - HEADER_CONTROLLER - REGISTRATION - REG - Displaying Registration Officer details
+2020-06-11T13:59:11Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - INFO  - REGISTRATION - REGISTRATION APP HEALTHCHECK UTIL - ISNETWORKAVAILABLE - REGISTRATION - REG - Registration Network Checker had been called.
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - DEBUG - REGISTRATION_CONTROLLER - REGISTRATION - REG - Entering the Demographic Details Screen
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 2 matchedfield.get(0).getId() >>> province
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 2 matchedfield.get(0).getId() >>> province
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - INFO  - REGISTRATION - CONTROLLER - REGISTRATION - REG - location.getHierarchyLevel() >>> 4 matchedfield.get(0).getId() >>> zone
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.RegistrationController] - INFO  - REGISTRATION_CONTROLLER - REGISTRATION - REG - Opening virtual keyboard
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.RegistrationController] - INFO  - REGISTRATION_CONTROLLER - REGISTRATION - REG - Registration Started for RID  : [ 10002100720008620200611135911 ] 
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - DEBUG - REGISTRATION_CONTROLLER - REGISTRATION - REG - Validating the age given by age field
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DemographicDetailController] - DEBUG - REGISTRATION_CONTROLLER - REGISTRATION - REG - Validating the age given by age field
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:11Z - [io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil] - ERROR - REGISTRATION - REGISTRATIONAPPHEALTHCHECKUTIL - ISNETWORKAVAILABLEfalse - REGISTRATION - REG - No Internet Access.java.net.UnknownHostException: guinea.mosip.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:606)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:666)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:167)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.checkServiceAvailability(RegistrationAppHealthCheckUtil.java:125)
+	at io.mosip.registration.util.healthcheck.RegistrationAppHealthCheckUtil.isNetworkAvailable(RegistrationAppHealthCheckUtil.java:88)
+	at io.mosip.registration.controller.reg.HeaderController$1.run(HeaderController.java:179)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DocumentScanController] - INFO  - DOCUMNET_SCAN_CONTROLLER - REGISTRATION - REG - Entering the DOCUMENT_SCAN_CONTROLLER
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DocumentScanController] - DEBUG - REGISTRATION_CONTROLLER - REGISTRATION - REG - Entering into toggle function for Biometric exception
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Updating page flow to navigate next or previous
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.DocumentScanController] - DEBUG - REGISTRATION_CONTROLLER - REGISTRATION - REG - Exiting the toggle function for Biometric exception
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the finger on click funtionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - FINGER_LABEL_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - IRIS_EXCEPTION_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the iris on click functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - IRIS_EXCEPTION_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of Iris Functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - IRIS_EXCEPTION_LISTENER - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - It will listen the iris on click functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.reg.BiometricExceptionController] - INFO  - REGISTRATION - IRIS_EXCEPTION_LISTENER_END - BIOMETRIC_EXCEPTION_LISTENER - REGISTRATION - REG - End of Iris Functionality
+2020-06-11T13:59:11Z - [io.mosip.registration.controller.device.GuardianBiometricsController] - INFO  - REGISTRATION - USER_REGISTRATION - GUARDIAN_BIOMETRIC_CONTROLLER - REGISTRATION - REG - Loading of Guardian Biometric screen started
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.device.FingerPrintCaptureController] - INFO  - REGISTRATION - USER_REGISTRATION - FINGERPRINT_CAPTURE_CONTROLLER - REGISTRATION - REG - Loading of FingerprintCapture screen started
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching Quality score while capturing Biometrics
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching Quality score while capturing Biometrics
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching Quality score while capturing Biometrics
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.device.FingerPrintCaptureController] - INFO  - REGISTRATION - USER_REGISTRATION - FINGERPRINT_CAPTURE_CONTROLLER - REGISTRATION - REG - Loading of FingerprintCapture screen ended
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.device.IrisCaptureController] - INFO  - REGISTRATION - USER_REGISTRATION - IRIS_CAPTURE_CONTROLLER - REGISTRATION - REG - Initializing Iris Capture page for user registration
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.device.IrisCaptureController] - INFO  - REGISTRATION - USER_REGISTRATION - IRIS_CAPTURE_CONTROLLER - REGISTRATION - REG - Initializing Iris Capture page for user registration completed
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.device.FaceCaptureController] - INFO  - REGISTRATION - UI - FACE_CAPTURE_CONTROLLER - REGISTRATION - REG - Loading of FaceCapture screen started
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.BaseController] - INFO  - REGISTRATION - BASE - BASE_CONTROLLER - REGISTRATION - REG - Fetching value from application Context
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.reg.RegistrationController] - DEBUG - REGISTRATION_CONTROLLER - REGISTRATION - REG - Entering the Registration Controller
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.reg.PacketHandlerController] - INFO  - REGISTRATION - CREATE_PACKET - REGISTRATION_OFFICER_PACKET_CONTROLLER - REGISTRATION - REG - Validating Create Packet screen for specific role
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Validating the sync status started
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Fetching Registration details where status is Registered
+2020-06-11T13:59:12Z - [io.mosip.registration.dao.impl.SyncJobControlDAOImpl] - INFO  - REGISTRATION-SYNC-JOB_CONTROL DAO - REGISTRATION - REG - Fetching the Registration Details of Registered Status
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Validating the count of packets of status Registered with configured value
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Validating the Duration of oldest packet of status Registered with configured duration
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Fetching Job ID's from sync_job_def table using API name started
+2020-06-11T13:59:12Z - [io.mosip.registration.dao.impl.SyncJobConfigDAOImpl] - INFO  - REGISTRATION-JOB_CONFIF_DAO - REGISTRATION - REG - Get all Sync Jobs
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Fetching Job ID's from sync_job_def table using API name ended
+2020-06-11T13:59:12Z - [io.mosip.registration.dao.impl.SyncJobControlDAOImpl] - INFO  - REGISTRATION - SYNC - VALIDATION - REGISTRATION - REG - Fetching the last sync details from database started
+2020-06-11T13:59:12Z - [io.mosip.registration.dao.impl.SyncJobControlDAOImpl] - INFO  - REGISTRATION - SYNC - VALIDATION - REGISTRATION - REG - Fetching the last sync details from database ended
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Fetched SyncJobInfo containing the sync control list and yet to export packet count
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu May 28 14:05:23 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu Jun 11 11:00:00 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu Jun 11 11:00:00 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu Jun 11 11:14:53 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu May 28 14:00:28 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu Jun 11 11:00:00 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu Jun 11 11:00:00 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu Jun 11 11:00:00 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Sun Jun 07 13:11:40 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu May 28 14:05:24 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu Jun 11 11:00:00 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu May 28 14:05:29 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Wed May 27 06:10:58 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Wed May 27 06:10:58 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Checking the actualdaysfrequency with the configured frequency [Thu May 28 13:52:41 UTC 2020]
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Capturing the login time First time login
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Getting the center latitude and longitudes from session context
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Validating the geo location of machine w.r.t registration center ended
+2020-06-11T13:59:12Z - [io.mosip.registration.dao.impl.GlobalParamDAOImpl] - INFO  - REGISTRATION - GLOBALPARAMS - GLOBAL_PARAM_DAO_IMPL - REGISTRATION - REG - Get Global Param
+2020-06-11T13:59:12Z - [io.mosip.registration.service.sync.impl.SyncStatusValidatorServiceImpl] - INFO  - REGISTRATION - SYNC - SYNC_STATUS_VALIDATOR_SERVICE_IMPL - REGISTRATION - REG - Validating the sync status ended
+2020-06-11T13:59:12Z - [io.mosip.registration.controller.reg.PacketHandlerController] - INFO  - REGISTRATION - PACKET_HANDLER - Packet_Handler_Controller - REGISTRATION - REG - Creation of Registration ended.

@@ -1,0 +1,122 @@
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Started packet creation
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Started Subpacket: evidence
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Identified fields >>> 10
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : proofOfDateOfBirth
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : proofOfDateOfBirth.jpg
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : parentOrGuardianRID
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : parentOrGuardianBiometrics
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : parentOrGuardianUIN
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : proofOfIdentity
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : proofOfIdentity.jpg
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : IDSchemaVersion
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : proofOfException
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : parentOrGuardianName
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : proofOfRelationship
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : proofOfRelationship.jpg
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : UIN
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : ID.json
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_data_hash.txt
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_meta_info.json
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : 10002100720011120200615092309_evidence.zip
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Completed Subpacket: evidence
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Started Subpacket: optional
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Identified fields >>> 3
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : proofOfAddress
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : proofOfAddress.jpg
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : IDSchemaVersion
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : UIN
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : ID.json
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_data_hash.txt
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_meta_info.json
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : 10002100720011120200615092309_optional.zip
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Completed Subpacket: optional
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Started Subpacket: id
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Identified fields >>> 18
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : gender
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : city
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : postalCode
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : referenceIdentityNumber
+2020-06-15T09:26:33Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : individualBiometrics
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : individualBiometrics_bio_CBEFF.xml
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : province
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : zone
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : addressLine1
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : addressLine2
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : residenceStatus
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : addressLine3
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : email
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : fullName
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : dateOfBirth
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : IDSchemaVersion
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : phone
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : UIN
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Adding field : region
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : ID.json
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : audit.json
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_operations_hash.txt
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_data_hash.txt
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_meta_info.json
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : 10002100720011120200615092309_id.zip
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Completed Subpacket: id
+2020-06-15T09:26:34Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011120200615092309 - Exiting packet creation
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Started packet creation
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Started Subpacket: evidence
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Identified fields >>> 10
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : proofOfDateOfBirth
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : proofOfDateOfBirth.jpg
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : parentOrGuardianRID
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : parentOrGuardianBiometrics
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : parentOrGuardianUIN
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : proofOfIdentity
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : proofOfIdentity.jpg
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : IDSchemaVersion
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : proofOfException
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : parentOrGuardianName
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : proofOfRelationship
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : proofOfRelationship.jpg
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : UIN
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : ID.json
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_data_hash.txt
+2020-06-15T12:51:03Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_meta_info.json
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : 10002100720011420200615123410_evidence.zip
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Completed Subpacket: evidence
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Started Subpacket: optional
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Identified fields >>> 3
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : proofOfAddress
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : proofOfAddress.jpg
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : IDSchemaVersion
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : UIN
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : ID.json
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_data_hash.txt
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_meta_info.json
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : 10002100720011420200615123410_optional.zip
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Completed Subpacket: optional
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Started Subpacket: id
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Identified fields >>> 18
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : gender
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : city
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : postalCode
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : referenceIdentityNumber
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : individualBiometrics
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : individualBiometrics_bio_CBEFF.xml
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : province
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : zone
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : addressLine1
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : addressLine2
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : residenceStatus
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : addressLine3
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : email
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : fullName
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : dateOfBirth
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : IDSchemaVersion
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : phone
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : UIN
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Adding field : region
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : ID.json
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : audit.json
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_operations_hash.txt
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_data_hash.txt
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : packet_meta_info.json
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - null - Adding file : 10002100720011420200615123410_id.zip
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Completed Subpacket: id
+2020-06-15T12:51:04Z - [io.mosip.kernel.packetmanager.impl.PacketCreatorImpl] - INFO  - SESSIONID - REGISTRATIONID - 10002100720011420200615123410 - Exiting packet creation
