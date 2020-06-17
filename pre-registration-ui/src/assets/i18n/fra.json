@@ -360,7 +360,7 @@
   "acknowledgement": {
     "title": "Rendez-vous confirmé",
     "message": "L'identifiant de pré-enregistrement et les détails du rendez-vous ont été envoyés à l'identifiant et au numéro de téléphone de l'e-mail enregistré.",
-    "label_name": "prénom",
+    "label_name": "Prénom(s)",
     "label_pre_id": "ID de pré-inscription",
     "label_reg_cntr": "Centre d'inscription",
     "label_cntr_contact_number": "Numéro de contact du centre",
@@ -374,7 +374,7 @@
     "title_preview": "Aperçu",
     "language": "français",
     "subheading_information": "Informations personnelles",
-    "label_name": "Prénom",
+    "label_name": "Prénom(s)",
     "label_names": "Nom",
     "label_age": "Âge",
     "label_DOB": "DOB",
