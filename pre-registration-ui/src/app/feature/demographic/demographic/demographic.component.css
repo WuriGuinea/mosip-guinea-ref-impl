@@ -227,6 +227,7 @@ mat-icon {
   font-size: 0.8rem;
   align-self: center;
   padding-right: 4px;
+  color: #020F59;
 }
 
 .test2 {
@@ -303,7 +304,7 @@ mat-icon {
 
 ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
   color: lightgrey;
-  border-bottom: 2px solid #22a8c9;
+ /* border-bottom: 2px solid #22a8c9;*/
 }
 
 @media (max-width: 798px) {
@@ -411,5 +412,8 @@ margin-bottom:10px;
   position: relative;
   top: -37px;
   padding-left: 10px;
+}
+input.mat-input-element{
+  text-transform: uppercase !important;
 }
 

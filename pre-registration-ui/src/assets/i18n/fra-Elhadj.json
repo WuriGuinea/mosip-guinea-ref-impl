@@ -2,7 +2,7 @@
   "quick_guide": {
     "breadcrumb": {
       "home": "Accueil",
-      "getting_started": "Commencer"
+      "getting_started": "Guide d'utilisation"
     },
     "headerText": {
       "line1": "Pour vous pré-inscrire à un ou plusieurs candidats, complétez les détails démographiques et téléchargez les documents requis. Pour prendre rendez-vous, choisissez votre centre d'inscription préféré, la date et l'heure. En cas de pré-inscription réussie, vous recevrez la notification sur votre identifiant de messagerie électronique ou votre numéro de téléphone.",
@@ -95,7 +95,7 @@
       "name": "Voir accusé de réception",
       "list": {
         "line1": "Après avoir complété avec succès la demande de pré-inscription, vous recevrez un accusé de réception.",
-        "line2": "Vous pouvez imprimer, télécharger, envoyer par e-mail ou par SMS votre accusé de réception.",
+        "line2": "Vous pouvez imprimer, télécharger, envoyer par email ou par SMS votre accusé de réception.",
         "subList": {
           "line1": "Pour imprimer votre accusé de réception, cliquez sur Imprimer.",
           "line2": "Pour télécharger votre accusé de réception, cliquez sur Télécharger le PDF.",
@@ -188,7 +188,7 @@
     "answer": "Réponse",
     "questions": [
       {
-        "question": "Je n'ai pas de numéro de téléphone mobile ni d'identifiant e-mail. Comment créer l'application de pré-inscription?",
+        "question": "Je n'ai pas de numéro de téléphone mobile ni d'identifiant email. Comment créer l'application de pré-inscription?",
         "answer": "Vous pouvez utiliser le numéro de portable d'un ami ou d'un membre de la famille ou un identifiant de messagerie pour vous connecter à l'application de pré-inscription."
       },
       {
@@ -273,9 +273,9 @@
     "action_verify": "Vérifier",
     "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
     "otp_valid_label": "valable",
-    "invalidEmail": "Identifiant e-mail invalide entré",
+    "invalidEmail": "Identifiant email invalide entré",
     "invalidMobile": "Numéro de téléphone invalide entré",
-    "invalidInput": "Identifiant e-mail ou numéro de portable invalide entré"
+    "invalidInput": "Identifiant email ou numéro de portable invalide entré"
   },
   "stepper": {
     "link_demographic": "Informations Personnelles",
@@ -294,9 +294,9 @@
     "date_mm": "MM",
     "date_yyyy": "AAAA",
     "text_or": "OU",
-    "text_years": "Années",
+    "text_years": "Ans",
     "text_gender": "Genre",    
-    "text_residence_status": "Citoyenneté",      
+    "text_residence_status": "Résidence",      
     "label_region": "Région",
     "label_prefecture": "Préfecture",
     "label_subprefectureOrCommune": "Sous-Préfecture/Commune",
@@ -304,9 +304,9 @@
     "label_sector": "Secteur",
     "label_additionalAddressDetails": "Complément d'adresse",
     "label_mob_num": "Numéro de Téléphone",
-    "label_email_id": "E-mail",   
-    "action_back": "Précédent",
-    "action_continue": "Suivant",
+    "label_email_id": "Courriel",   
+    "action_back": "RETOUR",
+    "action_continue": "CONTINUER",
     "action_preview": "APERÇU",
     "personnal_infos_section_title": "Informations Personnelles",
     "contact_section_title": "Contact",
@@ -340,7 +340,7 @@
       "admin_required": "Veuillez sélectionner zone",
       "postal_code_required": "Veuillez entrer un code postal valide",
       "mobile_required": "Veuillez entrer un numéro de téléphone valide",
-      "email_required": "S'il vous plaît entrer e-mail id valide",
+      "email_required": "S'il vous plaît entrer email id valide",
       "pin_required": "Veuillez entrer un numéro d’identité de référence valide"
     }
   },
@@ -349,9 +349,9 @@
     "text_filetype": "Type de fichier autorisé ",
     "text_filesize": "et taille de fichier autorisée",
     "action_browse": "FEUILLETER",
-    "action_back": "Précédent",
+    "action_back": "RETOUR",
     "action_skip": "SAUTER",
-    "action_continue": "Suivant",
+    "action_continue": "CONTINUER",
     "label_sameas": "Pareil que",
     "text_or": "OU",
     "action_view": "VUE",
@@ -374,33 +374,33 @@
     "title_preview": "Aperçu",
     "language": "français",
     "subheading_information": "Informations personnelles",
-    "label_name": "Prénom(s)",
+    "label_name": "Prénom",
     "label_names": "Nom",
     "label_age": "Âge",
-    "label_DOB": "Date de Naissance",
+    "label_DOB": "Date de naissance",
     "text_years": "Ans",
     "text_gender": "Genre",
-    "text_resident_status": "Résidence",
+    "text_resident_status": "Statut de résident",
     "subheading_contact": "Détails du contact",
-    "label_address": "Complément d'Adresse",
+    "label_address": "Complément d'adresse",
     "label_region": "Région",
     "label_province": "Province",
     "label_city": "Ville",
     "label_zone": "Secteur",
     "label_mob_num": "Numéro de portable",
     "label_alt_mob_num": "Numéro de téléphone alternatif (facultatif)",
-    "label_email_id": "Adresse E-mail",
+    "label_email_id": "Identifiant Email",
     "label_pin": "Numéro d'identité de référence",
-    "title_document": "Documents Fournis",
-    "text_not_uploaded": "Non Fourni",
+    "title_document": "Documents téléchargés",
+    "text_not_uploaded": "Non téléchargé",
     "action_modify": "modifier",
-    "action_back": "Précédent",
-    "action_add_applicant": "Ajouter un Demandeur",
-    "action_continue": "Suivant"
+    "action_back": "RETOUR",
+    "action_add_applicant": "AJOUTER LE CANDIDAT",
+    "action_continue": "CONTINUER"
   },
   "message": {
     "login": {
-      "msg1": "L'identifiant e-mail n'est pas valide",
+      "msg1": "L'identifiant email n'est pas valide",
       "msg2": "Le numéro de téléphone n'est pas valide",
       "msg3": "OTP enter n'est pas valide",
       "msg4": "Connexion réussie"
@@ -484,9 +484,9 @@
     "text_availability": "Réservation disponible",
     "text_slots": "fentes",
     "action_done": "TERMINÉ",
-    "action_back": "Précédent",
+    "action_back": "RETOUR",
     "action_bookLater": "RÉSERVER PLUS TARD",
-    "action_continue": "Suivant",
+    "action_continue": "CONTINUER",
     "booking": {
       "title_success": "Succès",
       "msg_success": "Réservation de rendez-vous terminée avec succès",
@@ -507,7 +507,7 @@
     "text_nearBy": "Proche",
     "acttion_back": "Retour",
     "action_bookLater": "Réservez plus tard",
-    "action_continue": "Suivant"
+    "action_continue": "Continuer"
   },
   "appointmentConfirmed": {
     "title": "Rendez-vous confirmé",
@@ -518,10 +518,10 @@
   "dialog": {
     "title_applicant": "Envoyer une confirmation de rendez-vous",
     "content_applicant": "Email / Numéro de téléphone",
-    "text_email": "Entrer l'identifiant e-mail",
+    "text_email": "Entrer l'identifiant email",
     "text_mobile": "Entrez le numéro de téléphone",
     "invalidApplicantNumber": "Numéro de portable invalide",
-    "invalidApplicantEmailId": "Identifiant e-mail invalide",
+    "invalidApplicantEmailId": "Identifiant email invalide",
     "action_ok": "D'accord",
     "title_discard": "Supprimer",
     "action_discard_app": "Supprimer toute l'application",
@@ -545,9 +545,9 @@
     "text_enter": "Entrer",
     "text_horaire":"Ouvert du lundi au vendredi de 9h à 17h",
     "text_search": "Recherche",
-    "action_back": "Précédent",
+    "action_back": "Retour",
     "action_book_later": "Réservez plus tard",
-    "action_continue": "Suivant",
+    "action_continue": "CONTINUER",
     "noResult_found": "Aucun résultat trouvé"
   },
   "autologout": {

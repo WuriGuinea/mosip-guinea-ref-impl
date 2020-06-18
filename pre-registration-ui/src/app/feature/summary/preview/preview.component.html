@@ -16,85 +16,69 @@
            <!-- <p>{{ 'preview.language' | translate }}</p>
           <h3>{{ 'preview.subheading_information' | translate }}</h3>
         -->
-           <h4>Aperçu</h4>
-            
-            <hr />
+           <h4>{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
+           <span 
+           (click)="this.router.navigate(['/pre-registration/demographic']);"
+           class="preview__modify-file info_position_modify"
+           matTooltip="{{ 'helpText.modify_at_DocumentPreview' | translate }}"
+           ><img src="assets/edit.svg" /> </span
+         >
           </div>
           <div>
             <table *ngIf="previewData !== undefined" class="preview__personal-info-table">
               <tr>
                 <td>{{ 'preview.label_name' | translate }}</td>
                 <td>:</td>
-                <td>{{ previewData.firstName[0].value }}</td>
+                <td class="text_uppercase">{{ previewData.firstName[0].value }}</td>
               </tr>
               <tr>
                 <td>{{ 'preview.label_names' | translate }}</td>
                 <td>:</td>
-                <td>{{ previewData.lastName[0].value }}</td>
+                <td class="text_uppercase">{{ previewData.lastName[0].value }}</td>
               </tr>
               <tr>
                 <td>{{ 'preview.label_DOB' | translate }}</td>
                 <td>:</td>
-                <td>{{ dateOfBirthPrimary }}</td>
+                <td class="text_uppercase">{{ dateOfBirthPrimary }}</td>
               </tr>
               <tr>
                 <td>{{ 'preview.label_age' | translate }}</td>
                 <td>:</td>
-                <td>{{ previewData.age }} {{ 'preview.text_years' | translate }}</td>
+                <td class="text_uppercase">{{ previewData.age }} {{ 'preview.text_years' | translate }}</td>
               </tr>
               <tr>
                 <td>{{ 'preview.text_gender' | translate }}</td>
                 <td>:</td>
-                <td>{{ previewData.gender[0].name }}</td>
+                <td class="text_uppercase">{{ previewData.gender[0].name }}</td>
               </tr>
               <tr>
                 <td>{{ 'preview.text_resident_status' | translate }}</td>
                 <td>:</td>
-                <td>{{ previewData.residenceStatus[0].name }}</td>
+                <td class="text_uppercase">{{ previewData.residenceStatus[0].name }}</td>
               </tr>
             </table>
           </div>
           <div>
            <!-- <h3>{{ 'preview.subheading_contact' | translate }}</h3>-->
           <h4>Contact</h4>
-            <hr />
+          <span
+          (click)="this.router.navigate(['/pre-registration/demographic']);"
+          class="preview__modify-file position_modify"style="margin-left:58px"
+          matTooltip="{{ 'helpText.modify_at_DocumentPreview' | translate }}"
+          ><img src="assets/edit.svg" /></span
+        >
           </div>
           <div>
-            <table *ngIf="previewData.firstName !== undefined" class="preview__personal-info-table">
-              <tr>
-                <td>{{ 'preview.label_region' | translate }}</td>
-                <td>:</td>
-                <td>{{ previewData.region[0].name }}</td>
-              </tr>
-              <tr>
-                <td>{{ 'preview.label_province' | translate }}</td>
-                <td>:</td>
-                <td>{{ previewData.prefecture[0].name }}</td>
-              </tr>
-              <tr>
-                <td>{{ 'preview.label_city' | translate }}</td>
-                <td>:</td>
-                <td>{{ previewData.district[0].name }}</td>
-              </tr>
-              <tr>
-                <td>{{ 'preview.label_zone' | translate }}</td>
-                <td>:</td>
-                <td>{{ previewData.sector[0].name }}</td>
-              </tr>
-              <tr>
-                <td>{{ 'preview.label_address' | translate }}</td>
-                <td>:</td>
-                <td>{{ previewData.additionalAddressDetails }}</td>
-              </tr>
+            <table style="padding-right: 242px;" *ngIf="previewData.firstName !== undefined" class="preview__personal-info-table">
               <tr>
                 <td>{{ 'preview.label_mob_num' | translate }}</td>
                 <td>:</td>
-                <td>{{ previewData.phone }}</td>
+                <td class="text_uppercase">{{ previewData.phone }}</td>
               </tr>
               <tr>
                 <td>{{ 'preview.label_email_id' | translate }}</td>
                 <td>:</td>
-                <td>{{ previewData.email }}</td>
+                <td class="text_uppercase">{{ previewData.email }}</td>
               </tr>
             </table>
           </div>
@@ -108,40 +92,74 @@
        <h3>{{ 'preview.subheading_information' | translate }}</h3>
       -->
       <h4>Adresse</h4>
-       
-        <hr />
+      <span style="margin-left:58px"
+      (click)="this.router.navigate(['/pre-registration/demographic']);"
+      class="preview__modify-file position_modify"
+      matTooltip="{{ 'helpText.modify_at_DocumentPreview' | translate }}"
+      ><img src="assets/edit.svg" /></span
+    >
+    <div>
+      <table *ngIf="previewData.firstName !== undefined" class="preview__personal-info-table">
+        <tr>
+          <td>{{ 'preview.label_region' | translate }}</td>
+          <td>:</td>
+          <td class="text_uppercase">{{ previewData.region[0].name }}</td>
+        </tr>
+        <tr>
+          <td>{{ 'preview.label_province' | translate }}</td>
+          <td>:</td>
+          <td class="text_uppercase">{{ previewData.prefecture[0].name }}</td>
+        </tr>
+        <tr>
+          <td>{{ 'preview.label_city' | translate }}</td>
+          <td>:</td>
+          <td class="text_uppercase">{{ previewData.district[0].name }}</td>
+        </tr>
+        <tr>
+          <td>{{ 'preview.label_zone' | translate }}</td>
+          <td>:</td>
+          <td class="text_uppercase">{{ previewData.sector[0].name }}</td>
+        </tr>
+        <tr>
+          <td>{{ 'preview.label_address' | translate }}</td>
+          <td>:</td>
+          <td class="text_uppercase">{{ previewData.additionalAddressDetails }}</td>
+        </tr>
+      
+      </table>
+    </div>
       </div>
       <div>
         <table *ngIf="previewData.fullName !== undefined" class="preview__personal-info-table">
           <tr>
             <td>{{ 'preview.label_address' | translate }}</td>
             <td>:</td>
-            <td>{{ previewData.primaryAddress }}</td>
+            <td class="text_uppercase">{{ previewData.primaryAddress }}</td>
           </tr>
           <tr>
             <td>{{ 'preview.label_region' | translate }}</td>
             <td>:</td>
-            <td>{{ previewData.region[0].name }}</td>
+            <td class="text_uppercase">{{ previewData.region[0].name }}</td>
           </tr>
           <tr>
             <td>{{ 'preview.label_province' | translate }}</td>
             <td>:</td>
-            <td>{{ previewData.province[0].name }}</td>
+            <td class="text_uppercase">{{ previewData.province[0].name }}</td>
           </tr>
           <tr>
             <td>{{ 'preview.label_city' | translate }}</td>
             <td>:</td>
-            <td>{{ previewData.city[0].name }}</td>
+            <td class="text_uppercase">{{ previewData.city[0].name }}</td>
           </tr>
           <tr>
             <td>{{ 'preview.label_zone' | translate }}</td>
             <td>:</td>
-            <td>{{ previewData.zone[0].name }}</td>
+            <td class="text_uppercase">{{ previewData.zone[0].name }}</td>
           </tr>
           <tr>
             <td>{{ 'preview.label_pin' | translate }}</td>
             <td>:</td>
-            <td>{{ previewData.referenceIdentityNumber }}</td>
+            <td class="text_uppercase">{{ previewData.referenceIdentityNumber }}</td>
           </tr>
         </table>
       </div>
@@ -149,14 +167,14 @@
       <h4>Justificatifs</h4>
       <span
       (click)="modifyDocument()"
-      class="preview__modify-file"
+      class="preview__modify-file position_modify"
       matTooltip="{{ 'helpText.modify_at_DocumentPreview' | translate }}"
-      ><img src="assets/edit.png" /> {{ 'preview.action_modify' | translate }}</span
+      ><img src="assets/edit.svg" /></span
     >
         <div>
-          <table style="width:100%" *ngIf="documentMapObject">
+          <table style="width:100%;margin-top: -24px;" *ngIf="documentMapObject">
             <tr class="preview__file__table__header">
-              <td *ngFor="let object of documentMapObject">{{ object.name }}</td>
+              <td  *ngFor="let object of documentMapObject">{{ object.name }}</td>
             </tr>
             <tr class="preview__file__table__data">
               <td *ngFor="let object of documentMapObject">
