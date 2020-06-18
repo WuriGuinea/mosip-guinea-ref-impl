@@ -1,0 +1,6 @@
+﻿code,method_seq,lang_code,is_active,cr_by,cr_dtimes
+PWD,1,fra,TRUE,superadmin,now()
+OTP,2,fra,TRUE,superadmin,now()
+FINGERPRINT,3,fra,TRUE,superadmin,now()
+IRIS,4,fra,TRUE,superadmin,now()
+FACE,5,fra,TRUE,superadmin,now()

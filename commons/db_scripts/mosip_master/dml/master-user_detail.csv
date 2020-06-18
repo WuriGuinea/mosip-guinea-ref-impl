@@ -1,0 +1,6 @@
+﻿id,uin,name,email,mobile,status_code,lang_code,last_login_method,is_active,cr_by,cr_dtimes
+110001,9317596808,Dummy User,imouctar.diallo@wuriguinee.com,620223365,ACT,fra,PWD,TRUE,superadmin,now()
+110002,9317596854,Dummy User,isory.conde@wuriguinee.com,818876517,ACT,fra,PWD,TRUE,superadmin,now()
+110003,9317596855,Dummy User,dt@wuriguinee.com,818876518,ACT,fra,PWD,TRUE,superadmin,now()
+110004,9317596868,Testuser1,mosip-test2@technoforte.co.in,9876543213,ACT,fra,PWD,TRUE,superadmin,now()
+110005,9317596869,Testuser2,mosip-test3@technoforte.co.in,9876543214,ACT,fra,PWD,TRUE,superadmin,now()

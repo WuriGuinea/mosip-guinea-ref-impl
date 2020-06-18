@@ -1,0 +1,7 @@
+﻿code,name,descr,lang_code,is_active,cr_by,cr_dtimes
+UIN,Numéro d'identification unique,Identifiant national fourni au demandeur,fra,TRUE,superadmin,now()
+PRID,ID de pré-enregistrement,Identifiant attribué après le pré-enregistrement,fra,TRUE,superadmin,now()
+RID,ID d'enregistrement,Identifiant attribué après l'enregistrement,fra,TRUE,superadmin,now()
+VID,ID virtuel,Identifiant virtuel temporaire utilisé en remplacement du Numéro d'identification unique,fra,TRUE,superadmin,now()
+Token ID,ID jeton,ID secondaire utilisé par les fournisseurs de services,fra,TRUE,superadmin,now()
+MID,Mobile ID,Identifiant mobile utilisé par acceder aux services en ligne,fra,TRUE,superadmin,now()

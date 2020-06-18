@@ -1,0 +1,10 @@
+﻿code,name,descr,rsncat_code,lang_code,is_active,cr_by,cr_dtimes
+APM,Discordance Age et Photo,Discordance entre l'âge et la photo,CLR,fra,TRUE,superadmin,now()
+GPM,Discordance Genre et Photo,Discordance entre le genre et la photo,CLR,fra,TRUE,superadmin,now()
+IAD,Adresse invalide,Adresse non trouvée,CLR,fra,TRUE,superadmin,now()
+DPG,Enregistrement en double,Double enregistrement trouvé,CLR,fra,TRUE,superadmin,now()
+OTH,Autre,Autre raison,CLR,fra,TRUE,superadmin,now()
+ADM,Tous les détails sont identiques,Tous les détails sont identiques,MNA,fra,TRUE,superadmin,now()
+ADD,Tous les détails démographiques sont identiques,Tous les détails démographiques sont identiques,MNA,fra,TRUE,superadmin,now()
+OPM,Seule la photo est identique,Seule la photo est identique,MNA,fra,TRUE,superadmin,now()
+SDM,Certains détails démographiques sont identiques,Certains détails démographiques sont identiques,MNA,fra,TRUE,superadmin,now()

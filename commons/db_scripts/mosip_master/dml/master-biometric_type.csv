@@ -1,0 +1,4 @@
+﻿code,name,descr,lang_code,is_active,cr_by,cr_dtimes
+FNR,Empreintes digitales,Empreintes digitales du demandeur,fra,TRUE,superadmin,now()
+IRS,Iris,Iris du demandeur,fra,TRUE,superadmin,now()
+PHT,Photo,Photo du visage du demandeur,fra,TRUE,superadmin,now()

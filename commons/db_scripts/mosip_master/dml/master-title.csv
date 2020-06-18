@@ -1,0 +1,4 @@
+﻿code,name,descr,lang_code,is_active,cr_by,cr_dtimes
+MIR,Monsieur,Titre masculin,fra,TRUE,superadmin,now()
+MRS,Madame,Titre féminin,fra,TRUE,superadmin,now()
+MIS,Mademoiselle,Titre de femme célibataire,fra,TRUE,superadmin,now()

@@ -1,0 +1,2 @@
+﻿regcntr_id,hol_date,hol_name,hol_reason,lang_code,is_active,cr_by,cr_dtimes
+10001,05/30/2019,Success Holiday,Techteam Success Holiday,fra,TRUE,superadmin,now()

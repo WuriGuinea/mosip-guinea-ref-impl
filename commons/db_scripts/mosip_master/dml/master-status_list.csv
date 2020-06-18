@@ -1,0 +1,3 @@
+﻿code,descr,sttyp_code,lang_code,is_active,cr_by,cr_dtimes
+ACT,activated,ADT,fra,TRUE,superadmin,now()
+DCT,disabled,ADT,fra,TRUE,superadmin,now()

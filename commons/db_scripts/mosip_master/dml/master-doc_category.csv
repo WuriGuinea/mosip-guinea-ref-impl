@@ -1,0 +1,7 @@
+﻿code,name,descr,lang_code,is_active,cr_by,cr_dtimes
+POA,Justificatif de domicile,Justificatif de domicile,fra,TRUE,superadmin,now()
+POI,Justificatif d'identité,Justificatif d'identité,fra,TRUE,superadmin,now()
+POR,Justificatif de parenté,Justificatif de parenté,fra,TRUE,superadmin,now()
+POB,Justificatif de date de naissance,Justificatif de date de naissance,fra,TRUE,superadmin,now()
+POE,Justificatif d'exception biométrique,Justificatif d'exception biométrique,fra,TRUE,superadmin,now()
+POC,Justificatif de consentement,Justificatif de consentement,fra,TRUE,superadmin,now()

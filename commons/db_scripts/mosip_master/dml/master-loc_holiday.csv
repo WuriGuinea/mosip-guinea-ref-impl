@@ -1,0 +1,8 @@
+﻿id,location_code,holiday_date,holiday_name,holiday_desc,lang_code,is_active,cr_by,cr_dtimes
+2000001,GN,1/1/2020,Nouvel An,Jour de l'An,fra,TRUE,superadmin,now()
+2000002,GN,4/13/2020,Pâques,Lundi de Paques,fra,TRUE,superadmin,now()
+2000003,GN,5/1/2020,Fête du travail,Fête du travail,fra,TRUE,superadmin,now()
+2000004,GN,5/25/2020,Fête de l'Afrique,Fête de l'Union Africaine,fra,TRUE,superadmin,now()
+2000005,GN,8/15/2020,Assomption,Fête de l'Assomption,fra,TRUE,superadmin,now()
+2000006,GN,10/2/2020,Fête de l'Indépendance,Fête de l'indépendance,fra,TRUE,superadmin,now()
+2000007,GN,12/25/2020,Noël,Fête de Noël,fra,TRUE,superadmin,now()

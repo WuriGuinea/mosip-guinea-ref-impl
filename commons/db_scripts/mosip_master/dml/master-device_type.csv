@@ -1,0 +1,8 @@
+﻿code,name,descr,lang_code,is_active,cr_by,cr_dtimes
+FRS,Scanner d'empreintes digitales,Pour capturer les empreintes digitales,fra,TRUE,superadmin,now()
+IRS,Scanner d'iris,Pour capturer l'iris,fra,TRUE,superadmin,now()
+CMR,Appareil photo,Pour prendre la photo du visage,fra,TRUE,superadmin,now()
+SCN,Scanner de documents,Pour numériser les documents,fra,TRUE,superadmin,now()
+PRT,Imprimante,Pour imprimer des documents,fra,TRUE,superadmin,now()
+PTS,Imprimante Scanner,Pour imprimer et scanner les documents,fra,TRUE,superadmin,now()
+QRS,Scanner QR code,Pour lire les QR codes,fra,TRUE,superadmin,now()
