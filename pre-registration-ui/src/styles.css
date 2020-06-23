@@ -255,7 +255,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   display: none;
 }
 .mat-form-field-appearance-legacy .mat-form-field-infix{
-  border: solid 1px #e1effb !important;
+  border: solid 2px #BCE0FD !important;
   border-radius: 10px !important;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix{
@@ -288,3 +288,10 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   color: #020F59 !important;
 }
 
+.mat-form-field-label-wrapper{
+  top: -17px !important;
+  font-size: 1rem;
+}
+.user__btn:active{
+  border: none;
+}

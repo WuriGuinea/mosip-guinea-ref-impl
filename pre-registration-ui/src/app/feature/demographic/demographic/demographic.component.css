@@ -87,6 +87,7 @@
   width: 49%;
   /* margin-left: 2%; */
   float: left;
+  /*height: 346px;*/
 }
 
 .test1 {
@@ -126,7 +127,7 @@ mat-icon {
   /* width: 92%; */
   width: 95%;
   padding: 3px;
-  color: #838383;
+  color: black;
   font-size: 0.8rem;
 }
 
@@ -170,7 +171,8 @@ mat-icon {
 
 .user__age .user__age--years {
   /* align-items: center; */
-  align-self: center;
+ position: relative;
+ top: 12px;
 }
 
 .user__age--disabled {
@@ -183,6 +185,7 @@ mat-icon {
   position: relative;
   top: -15px;
   font-size: 75%;
+  margin-bottom: -12px;
 }
 
 .user__genderAndForeigner {
@@ -268,7 +271,8 @@ mat-icon {
   margin-right: 2rem;
   cursor: pointer;
   border-radius: 2px;
-  text-transform: uppercase;
+  text-transform: none !important;
+  font-weight: bold;
 }
 
 .user__btn--back {
@@ -287,10 +291,10 @@ mat-icon {
 
 .user__btn:disabled,
 .user__btn:active {
-  border: 1px solid lightgray;
-  background-color: lightgray;
+
   color: #2f3033;
   cursor: default;
+  border: none !important ;
 }
 
 ::ng-deep .mat-button-toggle-button {
@@ -416,4 +420,9 @@ margin-bottom:10px;
 input.mat-input-element{
   text-transform: uppercase !important;
 }
-
+.mat-select-value-text{
+  color: black !important;
+}
+.mat-form-field-label-wrapper{
+  top: -15px !important;
+}

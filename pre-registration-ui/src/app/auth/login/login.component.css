@@ -110,6 +110,8 @@ button {
   height: 44px !important;
   border-radius: 8px !important;
   opacity: 0.6;
+  width: 100%;
+  /*margin: 0 30% 36px -131px;*/
 }
 .connexiontxt{
   position: relative;
@@ -119,7 +121,7 @@ button {
 }
 .btn_axn-pri{
   width: 93% !important;
-  left: 11px;
+  left: 9px;
   margin: 0;
 }
 .mat-form-field-appearance-outline .mat-form-field-outline-start{
@@ -158,7 +160,8 @@ left: 15vw;
     /*margin-left: -214px !important;*/
   }
   .btn_axn-pri{
-    left: -190px;
+  /*  left: -190px;*/
+    margin: 0 36% 36px -196px;
     /*margin-left: -192px !important;*/
   }
 }
@@ -174,7 +177,7 @@ left: 15vw;
     /*margin-left: -214px !important;*/
   }
   .btn_axn-pri{
-    left: -14px;
+    left: -13px;
     /*margin-left: -192px !important;*/
   }
   }
