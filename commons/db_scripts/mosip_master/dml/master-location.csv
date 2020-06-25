@@ -1,5 +1,5 @@
 code,name,hierarchy_level,hierarchy_level_name,parent_loc_code,lang_code,is_active,cr_by,cr_dtimes
-GN,GUINEE,0,GUINEE,,fra,TRUE,superadmin,now()
+GN,GUINEE,0,PAYS,,fra,TRUE,superadmin,now()
 4,BOKE,1,REGION,GN,fra,TRUE,superadmin,now()
 004,BOFFA,2,PREFECTURE,4,fra,TRUE,superadmin,now()
 00401,CU-BOFFA,3,SUBPREFECTURE_OR_COMMUNE,004,fra,TRUE,superadmin,now()
