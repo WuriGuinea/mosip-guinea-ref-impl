@@ -228,3 +228,8 @@
   float:none !important;
 
 }
+#previewtitle{
+  text-align: center;
+  color: #020F59;
+  text-transform: uppercase;
+}

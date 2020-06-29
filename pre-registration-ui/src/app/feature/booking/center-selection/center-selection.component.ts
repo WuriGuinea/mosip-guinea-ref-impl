@@ -80,6 +80,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getRecommendedCenters() {
+    this.searchClick=true;
     const pincodes = [];
     this.REGISTRATION_CENTRES = [];
     this.users.forEach(user => {
@@ -156,6 +157,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getLocation() {
+    this.searchClick=true;
     this.REGISTRATION_CENTRES = [];
     if (navigator.geolocation) {
       this.showMap = false;

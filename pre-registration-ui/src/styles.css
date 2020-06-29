@@ -21,7 +21,7 @@
 }
 
 button {
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .mar_right-30 {
@@ -69,11 +69,12 @@ body {
   padding: 0px 50px;
   font-size: 0.8rem;
   font-family: Roboto;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 1);
+  font-weight: bold;
+  color: #020F59;
   border: none;
   border-radius: 4px;
-  background:#020F59; /*rgba(255, 64, 129, 1);*/
+  background:#BCE0FD; /*rgba(255, 64, 129, 1);*/
+  opacity: 1;
 }
 
 .btn_axn-sec {
@@ -94,9 +95,7 @@ body {
 .btn_axn-sec:hover,
 .btn_axn-pri.page_btn:hover,
 .btn_axn-sec.page_btn:hover {
-  background:#020F59;/* rgba(230, 58, 116, 1);*/
-  color: rgba(255, 255, 255, 1);
-  border: none;
+  background:#BCE0FD;
 }
 
 .btn_axn-pri:disabled,
@@ -295,3 +294,10 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 .user__btn:active{
   border: none;
 }
+.user__container card{
+  height: 322px !important;
+  }
+  button{
+    border-color: transparent !important;
+    outline-style: none !important;
+  }

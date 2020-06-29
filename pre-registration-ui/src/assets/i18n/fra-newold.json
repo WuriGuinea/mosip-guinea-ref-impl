@@ -66,7 +66,7 @@
 			}
 		},
 		"CenterSelection": {
-			"name": "Choisir un centre d'enrôlement",
+			"name": "Choisissez un centre d'enregistrement",
 			"list": {
 				"line1": "Sur la page Prendre Rendez-vous, vous pouvez trouver un centre d’enregistrement avec une des trois options suivantes:",
 				"line1_note": "Remarque: les centres d'enregistrement recommandés sont automatiquement affichés en fonction de vos détails démographiques (code postal).",
@@ -80,7 +80,7 @@
 			}
 		},
 		"Booking": {
-			"name": "Prendre rendez-vous",
+			"name": "Prenez rendez-vous",
 			"list": {
 				"line1": "Le système affiche la liste des jours calendaires disponibles avec le nombre de créneaux horaires libres. Sélectionnez votre date préférée.",
 				"line2": "La liste des créneaux horaires disponibles pour la date sélectionnée est classée entre matin et après-midi. Sélectionnez votre option préférée.",
@@ -151,7 +151,7 @@
 			"name": "Réserver un créneau horaire",
 			"list": {
 				"line1": "Sur la page Dossiers, cochez la case correspondant au demandeur concerné.",
-				"line2": "Cliquez sur Réserver / Déplacer un rendez-vous pour réserver un créneau horaire.",
+				"line2": "Cliquez sur Réserver / Modifier un rendez-vous pour réserver créneau horaire.",
 				"line3": "Pour plus d'informations sur la prise d'un rendez-vous, voir la section Prendre un rendez-vous."
 			}
 		},
@@ -164,7 +164,7 @@
 			}
 		},
 		"discard": {
-			"name": "Supprimer une demande",
+			"name": "Supprimer une application",
 			"list": {
 				"line1": "Sur la page Dossiers, cliquez sur l'icône de suppression en regard de la demande de pré-enregistrement d'un demandeur. Une fenêtre contextuelle apparaît à l'écran.",
 				"line2": "Sélectionnez l'option Supprimer toute l'application dans la fenêtre contextuelle.",
@@ -247,7 +247,7 @@
 				"answer": "Le MdM décide de la pertinence de la question et des réponses"
 			},
 			{
-				"question": "Dois-je fournir des documents originaux ou des copies de documents certifiés lors de ma visite au centre d'enregistrement?",
+				"question": "Dois-je porter des documents originaux ou des copies de documents certifiés lors de ma visite au centre d'enregistrement?",
 				"answer": "Le MdM décide de la pertinence de la question et des réponses"
 			}
 		]
@@ -266,7 +266,7 @@
 		"sub_text_UID": "Identifiant National Unique",
 		"label_select": "Choisissez votre langue",
 		"label_email_num": "Adresse e-mail ou numéro de téléphone mobile",
-		"label_otp": "Entrez votre clé d'identification OTP",
+		"label_otp": "RECEVOIR SA CLÉ OTP",
 		"action_send": "RECEVOIR SA CLÉ OTP",
 		"action_resend": "RENVOYER LA CLÉ OTP",
 		"action_verify": "VALIDER",
@@ -302,7 +302,7 @@
 		"label_district": "District",
 		"label_sector": "Secteur",
 		"label_additionalAddressDetails": "Complément d'adresse",
-		"label_mob_num": "Numéro de Téléphone Portable",
+		"label_mob_num": "Numéro de Téléphone",
 		"label_email_id": "E-mail",
 		"action_back": "Précédent",
 		"action_continue": "Suivant",
@@ -312,13 +312,13 @@
 		"address_section_title": "Adresse",
 		"consent": {
 			"title": "Termes et conditions",
-			"subtitle": "Accord",
-			"message": "Pour donner son consentement pour le stockage et l'utilisation des informations personnelles telles qu'elles sont données",
+			"subtitle": "Votre Accord",
+			"message": "Donner son consentement pour le stockage et l'utilisation des informations personnelles telles qu'elles sont données",
 			"checkCondition": "Cliquez pour accepter les termes et conditions",
-			"acceptButton": "Accepter",
-			"alertMessageFirst": "Vous serez déconnecté(e) car vous n'acceptez pas les conditions générales",
-			"alertMessageSecond": "Vous serez redirigé(e) vers votre page dossiers parce que vous n'acceptez pas les conditions générales",
-			"alertMessageThird": "Vous serez redirigé(e) vers la page \"Aperçu\" car vous n'acceptez pas les conditions générales."
+			"acceptButton": "Acceptez",
+			"alertMessageFirst": "Vous serez déconnecté car vous n'acceptez pas les conditions générales",
+			"alertMessageSecond": "Vous serez redirigé vers votre page dossiers parce que vous n'acceptez pas les conditions générales",
+			"alertMessageThird": "Vous serez redirigé vers la page de aperu car vous n'acceptez pas les conditions générales."
 		},
 		"validation": {
 			"first_name_required": "Le nom complet est requis",
@@ -344,28 +344,28 @@
 		}
 	},
 	"documents": {
-		"title_document": "Télécharger Vos Justificatifs",
-		"text_filetype": "Formats de fichiers autorisés ",
-		"text_filesize": "et taille maximale autorisée",
+		"title_document": "Télécharger des Justificatifs",
+		"text_filetype": "Type de fichier autorisé ",
+		"text_filesize": "et taille de fichier autorisée",
 		"action_browse": "Parcourir",
 		"action_back": "Précédent",
 		"action_skip": "Différer",
 		"action_continue": "Suivant",
-		"label_sameas": "Idem que",
+		"label_sameas": "Pareil que",
 		"text_or": "OU",
 		"action_view": "Aperçu",
 		"OR": "ou"
 	},
 	"acknowledgement": {
 		"title": "Rendez-vous Confirmé",
-		"message": "Le numéro de demande et les détails du rendez-vous ont été envoyés à l'adresse e-mail et au numéro de téléphone portable enregistrés.",
+		"message": "Le numéro de pré-enregistrement et les détails du rendez-vous ont été envoyés à l'adresse email et au numéro de téléphone enregistrés.",
 		"label_name": "Prénom(s)",
 		"label_lastname": "Nom",
-		"label_pre_id": "Numéro de Demande",
-		"label_reg_cntr": "Centre d'Enrôlement",
-		"label_cntr_contact_number": "Numéro de Contact du Centre",
-		"label_appointment_date_time": "Date et Heure du Rendez-vous",
-		"container_guideline": "Consignes Importantes",
+		"label_pre_id": "Numéro de pré-enregistrement",
+		"label_reg_cntr": "Centre d'enrôlement",
+		"label_cntr_contact_number": "Numéro de contact du centre",
+		"label_appointment_date_time": "Date et heure du rendez-vous",
+		"container_guideline": "Consignes importantes",
 		"action_send": "ENVOYER EMAIL / SMS",
 		"action_download": "TÉLÉCHARGER LE FICHIER PDF",
 		"action_print": "IMPRESSION"
@@ -373,7 +373,7 @@
 	"preview": {
 		"title_preview": "Aperçu",
 		"language": "français",
-		"subheading_information": "Informations Personnelles",
+		"subheading_information": "Informations personnelles",
 		"label_name": "Prénom(s)",
 		"label_names": "Nom",
 		"label_age": "Âge",
@@ -381,15 +381,14 @@
 		"text_years": "Ans",
 		"text_gender": "Genre",
 		"text_resident_status": "Nationalité",
-		"subheading_contact": "Contact",
-		"label_address": "Adresse",
+		"subheading_contact": "Détails du contact",
+		"label_address": "Complément d'Adresse",
 		"label_region": "Région",
-		"label_province": "Préfecture",
+		"label_prefecture": "Préfecture",
 		"label_subprefectureOrCommune": "Sous-Préfecture",
-		"label_city": "District",
-		"label_zone": "Secteur",
-		"label_additionalAddressDetails": "Complément d'Adresse",
-  
+		"label_district": "District",
+		"label_sector": "Secteur",
+		"label_additionalAddressDetails": "Complément d'adresse",
 		"label_mob_num": "Numéro de portable",
 		"label_alt_mob_num": "Numéro de téléphone alternatif (facultatif)",
 		"label_email_id": "Adresse E-mail",
@@ -409,7 +408,7 @@
 			"msg4": "Connexion réussie"
 		},
 		"demographicDetails": {
-			"msg1": "Saisie d'un mot sur la liste des mots interdits"
+			"msg1": "Black listed word entered"
 		},
 		"uploadDocuments": {
 			"error": "Erreur",
@@ -418,7 +417,7 @@
 			"msg3": "Type de fichier non pris en charge",
 			"msg4": "Le fichier est trop large",
 			"msg5": "Le nom du fichier ne doit pas dépasser 50 caractères",
-			"msg6": "Mauvais format de fichier. Veuillez télécharger le bon format de fichier",
+			"msg6": "Mauvais type de fichier, veuillez télécharger à nouveau",
 			"msg7": "Le fichier n'a pas pu être téléchargé. Veuillez réessayer.",
 			"msg8": "Impossible de copier le document",
 			"msg9": "Il manque des documents",
@@ -433,37 +432,36 @@
 			"msg2": "(should provide User name) Do you want to continue Booking"
 		},
 		"cancelAppointment": {
-			"msg1": "Le rendez-vous pour la demande selectionnée va être annulé",
-			"msg2": "L'annulation du rendez-vous pour cette demande a réussi "
+			"msg1": "Appointment for the selected application will be cancelled",
+			"msg2": "Appointment for the selected application has been successfully cancelled"
 		}
 	},
 	"dashboard": {
 		"title": "Dossiers",
 		"action_modify_information": "Modifier les informations",
-		"action_modify_appointment": "Réserver / Déplacer un Rendez-vous",
-		"action_cre_application": "Créer une nouvelle demande ",
+		"action_modify_appointment": "Réserver / modifier un rendez-vous",
+		"action_cre_application": "Créer une nouvelle application ",
 		"card": {
-			"text_app_id": "No de Demande",
-			"text_name": "Prénom",
-			"text_lastname": "Nom",
-			"text_appoinment_date": "Date de Rendez-vous",
+			"text_app_id": "ID d'application",
+			"text_name": "prénom",
+			"text_appoinment_date": "Date de rendez-vous",
 			"text_status": "Statut",
 			"action_modify_information": "Modifier les informations",
-			"action_view_acknowledgement": "Voir la confirmation"
+			"action_view_acknowledgement": "Voir accusé de réception"
 		},
 		"discard": {
 			"title_confirm": "Confirmer",
 			"title_success": "Succès",
 			"title_error": "Erreur",
 			"cancelAppointment": {
-				"msg_confirm": "le rendez-vous pour la demande sélectionnée sera annulé.",
-				"msg_deleted": "L'annulation du rendez-vous pour cette demande a réussi",
-				"msg_could_not_deleted": "le rendez-vous pour cette demande n'a pas pu être annulé"
+				"msg_confirm": "Rendez-vous pour L'application sélectionnée sera annulée.",
+				"msg_deleted": "Le rendez-vous pour l'application sélectionnée a été annulé avec succès.",
+				"msg_could_not_deleted": "Rendez-vous pour L'application sélectionnée n'a pas pu être annulée"
 			},
 			"deletePreregistration": {
-				"msg_confirm": "La demande sélectionnée sera supprimée. Veuillez confirmer.",
-				"msg_deleted": "La demande sélectionnée a été supprimée",
-				"msg_could_not_deleted": "La demande sélectionnée n'a pas pu être supprimée"
+				"msg_confirm": "L'application sélectionnée sera supprimée. Veuillez confirmer.",
+				"msg_deleted": "L'application sélectionnée a été supprimée avec succès",
+				"msg_could_not_deleted": "L'application sélectionnée n'a pas pu être supprimée"
 			},
 			"button_confirm": "Confirmer",
 			"button_cancel": "Annuler"
@@ -479,99 +477,99 @@
 		}
 	},
 	"timeSelection": {
-		"title_book": "Prendre Rendez-vous",
+		"title_book": "Rendez-vous du livre",
 		"text_prev": "précédent",
 		"text_next": "Suivant",
 		"text_morning": "Matin",
 		"text_afternoon": "Après midi",
 		"text_available": "Demandeurs Disponibles",
-		"text_availability": "Disponibilités",
-		"text_slots": "créneaux",
+		"text_availability": "Réservation disponible",
+		"text_slots": "fentes",
 		"action_done": "TERMINÉ",
 		"action_back": "Précédent",
-		"action_bookLater": "Différer",
+		"action_bookLater": "RÉSERVER PLUS TARD",
 		"action_continue": "Suivant",
 		"booking": {
 			"title_success": "Succès",
-			"msg_success": "Prise de rendez-vous effectuée avec succès",
+			"msg_success": "Réservation de rendez-vous terminée avec succès",
 			"title_failure": "Échec",
-			"msg_failure": "Votre prise de rendez-vous a échoué",
+			"msg_failure": "Rendez-vous de réservation a échoué",
 			"deletedApplicant1": [
-				"Vous n'avez choisi aucun créneau horaire pour l'utilisateur suivant",
-				"Voulez-vous continuer la réservation"
+				"Vous n'avez sélectionné aucune plage horaire pour l'utilisateur suivant",
+				"Voulez-vous continuer à réserver"
 			],
 			"yesButtonText": "Oui",
 			"noButtonText": "Non"
 		}
 	},
 	"appointmentCentreSearch": {
-		"title": "Centres d'Enrôlement",
-		"text_recommended_centres": "Centres Recommandés",
+		"title": "Rendez-vous du livre",
+		"text_recommended_centres": "Centres recommandés",
 		"text_finding_result": "trouver le résultat pour",
-		"text_nearBy": "À Proximité",
-		"action_back": "Précédent",
-		"action_bookLater": "Différer",
+		"text_nearBy": "Proche",
+		"acttion_back": "Retour",
+		"action_bookLater": "Réservez plus tard",
 		"action_continue": "Suivant"
 	},
 	"appointmentConfirmed": {
 		"title": "Rendez-vous confirmé",
-		"text_confirmation": "Le numéro de demande et les détails du rendez-vous ont été envoyés à l'adresse e-mail et au numéro de téléphone mobile enregistrés.",
-		"action_download": "Télécharger",
-		"action_print": "Imprimer"
+		"text_confirmation": "L'identifiant pré-enregistrement et les détails du rendez-vous ont été envoyés à l'identifiant et au numéro de téléphone de l'e-mail enregistré.",
+		"action_download": "TÉLÉCHARGER",
+		"action_print": "IMPRESSION"
 	},
 	"dialog": {
 		"title_applicant": "Envoyer une confirmation de rendez-vous",
-		"content_applicant": "Confirmation Email / SMS",
-		"text_email": "Saisissez votre adresse e-mail",
-		"text_mobile": "Saisissez votre numéro de téléphone mobile",
+		"content_applicant": "Email / Numéro de téléphone",
+		"text_email": "Entrer l'identifiant e-mail",
+		"text_mobile": "Entrez le numéro de téléphone",
 		"invalidApplicantNumber": "Numéro de portable invalide",
-		"invalidApplicantEmailId": "Adresse e-mail invalide",
+		"invalidApplicantEmailId": "Identifiant e-mail invalide",
 		"action_ok": "D'accord",
 		"title_discard": "Supprimer",
-		"action_discard_app": "Supprimer toute la demande",
-		"action_cancel": "Annuler le rendez-vous et préserver les informations personnelles",
-		"action_submit": "Valider",
+		"action_discard_app": "Supprimer toute l'application",
+		"action_cancel": "Annuler un rendez-vous et sauvegarder les détails",
+		"action_submit": "Soumettre",
 		"action_dismiss": "D'accord",
 		"action_add": "Ajouter",
 		"action_close": "Fermer",
-		"action_add_to_slot": "Ajouter au créneau",
-		"navigation_alert": "Êtes-vous sûr de vouloir quitter cette page. Les informations renseignées ne seront pas enregistrées. Veuillez confirmer."
+		"action_add_to_slot": "Ajouter à la fente",
+		"navigation_alert": "Are you sure you would like to navigate away as data entered will not be saved. Please confirm(FRA)"
 	},
 	"centerSelection": {
-		"title": " Prendre Rendez-vous ",
+		"title": " Rendez-vous du livre ",
 		"action_nearBy": "A Proximité",
 		"display_recommended": "Recommandés",
-		"text_found": "Trouvé(s)",
+		"text_found": "A trouvé",
 		"text_centers": "centres",
-		"text_timing": "Horaires",
-		"text_open": "Ouvert",
+		"text_timing": "Timing",
+		"text_open": "Ouvrir",
 		"text_select": "Critère",
 		"text_enter": "Entrer",
 		"text_horaire": "Ouvert du lundi au vendredi de 9h à 17h",
 		"text_search": "Recherche",
 		"action_back": "Précédent",
-		"action_book_later": "Différer",
+		"action_book_later": "Réservez plus tard",
 		"action_continue": "Suivant",
 		"noResult_found": "Aucun résultat trouvé"
 	},
 	"autologout": {
-		"preview": "Vous session va expiré dans 60 secondes en raison de votre inactivité. Veuillez cliquer n'importe où pour réactiver votre session",
+		"preview": "Vous serez expiré dans 60 secondes en raison de votre inactivité. Veuillez cliquer n'importe où pour réactiver votre session",
 		"post": "Vous avez été déconnecté pour cause d'inactivité."
 	},
 	"helpText": {
-		"applicationId": "Numéro de demande pour votre pré-enregistrement",
+		"applicationId": "ID d'application pour votre pré-enregistrement",
 		"status": {
-			"pendingAppointment": "Le rendez-vous n'est pas encore réservé",
-			"booked": "Le rendez-vous est réservé avec succès",
+			"pendingAppointment": "Rendez-vous n'est pas encore réservé",
+			"booked": "Rendez-vous est réservé avec succès",
 			"expired": "La date de rendez-vous est passée"
 		},
-		"deleteIcon": "Vous pouvez entièrement supprimer la demande ou simplement annuler le rendez-vous en préservant les données personnelles fournies. Supprimer la demande annulera le rendez-vous. Anuulez seulement le rendez-vous préservera les données personnelles fournies.",
-		"book/modify_appointment": "Vous devez cocher la case près du libelle du No de demande pour qu'un ou plusieurs demandeurs puissent prendre un rendez-vous",
-		"bookAppointment": "Commencez par sélectionner un créneau horaire libre , puis sélectionnez le demandeur pour lequel le rendez-vous doit  être pris. ",
-		"send_email/sms": "Vous pouvez ajouter un destinataire supplémentaire pour recevoir les notifications.",
+		"deleteIcon": "Vous pouvez supprimer l’application entière ou annuler le rendez-vous et enregistrer les détails, Supprimer l’application entière et annuler le rendez-vous. Annulez le rendez-vous et enregistrez les détails.",
+		"book/modify_appointment": "Vous devez cocher la case en regard de l'identifiant de pré-enregistrement pour qu'un ou plusieurs demandeurs puissent prendre un rendez-vous",
+		"bookAppointment": "Commencez par sélectionner le créneau horaire préféré, puis sélectionnez le demandeur applicable pour le créneau sélectionné. ",
+		"send_email/sms": "Vous pouvez ajouter le destinataire supplémentaire pour recevoir la ou les notifications.",
 		"modify_at_DemoPreview": "Cliquez sur Modifier pour corriger les détails démographiques",
 		"modify_at_DocumentPreview": "Cliquez sur Modifier pour corriger le document téléchargé.",
-		"same_as": "Si le justificatif de domicile est identique à celui du demandeur déjà rempli, vous pouvez utiliser l'option Idem Que",
+		"same_as": "Si la preuve d'adresse est identique à celle du demandeur déjà rempli, vous pouvez utiliser l'option Même comme",
 		"add_applicant": "Cliquez sur Ajouter un demandeur pour ajouter un ou plusieurs demandeurs.",
 		"recommended_centers": "Liste du centre recommandé selon votre code postal",
 		"nearBy": "Centres d'enregistrement basés sur votre géolocalisation",
@@ -579,23 +577,23 @@
 		"preview_continue": "Téléchargez tous les fichiers pour continuer"
 	},
 	"error": {
-		"error": "Une erreur technique est survenue et l'opération ne peut s'achever. Aucune donnée saisie ne peut être sauvegardée",
+		"error": "Une erreur technique s'est produite et l'opération ne peut pas être terminée. Aucune donnée fournie ne peut être sauvegardée",
 		"button_ok": "D'accord",
-		"postalCode": "Le code PIN saisi est invalide",
-		"email": "L'addresse e-mail saisie est invalide",
-		"phone": "Le téléphone saisi est invalide",
-		"dateOfBirth": "La date de naissance saisie est invalide",
+		"postalCode": "Le code PIN entré est invalide",
+		"email": "Le courriel entré est invalide",
+		"phone": "Le téléphone entré est invalide",
+		"dateOfBirth": "Date de naissance entrée est invalide",
 		"referenceIdentityNumber": "Le numéro d'identité de référence entré est invalide",
 		"tokenExpiredLogout": "Vous avez été déconnecté pour cause d'inactivité.",
-		"slotNotAvailable": "Votre rendez-vous ne peut-être pris car le créneau demandé n'est pas libre. Veuillez sélectionner un autre créneau ou ré-essayer plus tard",
-		"timeExpired_1": "Un rendez-vous ne peut être déplacé moins de ",
-		"timeExpired_2": " heures avant le rendez-vous",
-		"errorLabel": "Erreur"
+		"slotNotAvailable": "La réservation / re-réservation de rendez-vous ne peut être effectuée car le créneau demandé n'est pas disponible. Veuillez sélectionner un autre emplacement ou réessayer plus tard",
+		"timeExpired_1": "Un rendez-vous ne peut être déplacé moins de  ",
+		"timeExpired_2": "  heures avant le rendez-vous",
+		"errorLabel": "ERREUR"
 	},
 	"residentTypesMapping": {
 		"NFR": "Nationale",
 		"FR": "Étranger"
 	},
-	"sameAs": "Document téléchargé avec Idem que",
+	"sameAs": "Document téléchargé avec Identique à",
 	"DAYS": ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
 }

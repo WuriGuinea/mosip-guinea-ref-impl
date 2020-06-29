@@ -37,15 +37,16 @@
             style="display: none;"
           />
           <input
-            class="browseInput"
-            value="+"
-            type="button"
+            class=""
+            type=""           
             (click)="clickOnButton(i)"
             [disabled]="
               (document.code === 'POA' && sameAsselected) ||
               !document.selectedDocName ||
               document.selectedDocName === ''
             "
+            [ngClass]="{'browseInputhide' :file.docCatCode == document.code} "
+            [ngClass]="{'browseInput' :file.docCatCode ==! document.code}"
           /> 
           <div *ngIf="file.docCatCode == document.code">
            
@@ -55,11 +56,11 @@
               <div class="deleteandview" *ngIf="file.docCatCode == document.code">
                
                 <span class="file-uplaoad__body__document-name__view" (click)="viewFile(file)">
-                  <img src="assets\view.png" class="view-img" />
+                  <img src="assets\view.svg" class="view-img" />
                 </span>
                 <input
                 class="deleteicon"
-                value="x"
+                value="X"
                 type="button"
                 (click)="deletefile(j)"
               /> 

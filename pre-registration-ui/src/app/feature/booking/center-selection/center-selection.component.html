@@ -54,6 +54,13 @@
     </div>
 
       <ng-template #elseBlock>
+        <mat-form-field>
+          <mat-select  [(value)]="selected">
+            <mat-option value="{{ 'centerSelection.display_recommended' | translate }}"(click)="getRecommendedCenters()">{{ 'centerSelection.display_recommended' | translate }}</mat-option>
+            <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}"(click)="getLocation()">{{ 'centerSelection.action_nearBy' | translate }}</mat-option>
+            <mat-option value="{{ 'centerSelection.text_search' | translate }}"(click)="setSearchClick(false)">{{ 'centerSelection.text_search' | translate }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <div class="center_selection-form-container">
           <form class="search-form">
             <mat-card class="select-card">

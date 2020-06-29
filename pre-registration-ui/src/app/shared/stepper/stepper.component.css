@@ -166,3 +166,134 @@
     left: -25px !important;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: 'Monda', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #666;
+  background: #f0f0f0;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: #3FABBA;
+}
+
+a {
+  text-decoration: none;
+  color: #3FABBA;
+}
+
+.clear {
+  clear: both;
+}
+
+.animation {
+  -webkit-transition: all 0.3s ;
+  -moz-transition: all 0.3s ;
+  -ms-transition: all 0.3s ;
+  -o-transition: all 0.3s ;
+  transition: all 0.3s ;
+}
+
+.wrapper {
+  width: 100%;
+ /* padding: 20px;
+  margin: 20px auto;
+  background: #fff;*/
+}
+
+
+.breadCrumbs {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  list-style:none;
+}
+
+.breadCrumbs li {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.breadCrumbs li a,
+.breadCrumbs li p {
+  display: block;
+  padding: 0 10px 0 30px;
+  line-height: 40px;
+  color: #020F59;
+  background: #3fabba;
+}
+
+.breadCrumbs li:first-child a {
+  padding: 0 10px 0 20px;  
+}
+
+.breadCrumbs li a:hover {
+  
+}
+
+.breadCrumbs li.activePage p,
+.breadCrumbs li.activePage a {
+  background: #333;
+}
+
+.breadCrumbs li:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20px;
+  display: block;
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #3fabba;
+  z-index: 10;
+}
+
+.breadCrumbs li.activePage:after {
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #333;
+}
+
+/* GIVE EVERY CHILD A DIFFERENT COLOR */
+.breadCrumbs li:nth-child(1) a {
+  background: #3fabba;
+}
+
+.breadCrumbs li:nth-child(1):after {
+  border-left: 20px solid #3fabba;
+}
+
+.breadCrumbs li:nth-child(2) a {
+  background: #46bdcd;
+}
+
+.breadCrumbs li:nth-child(2):after {
+  border-left: 20px solid #46bdcd;
+}
+
+.breadCrumbs li:nth-child(3) a {
+  background: #4bd0e2;
+}
+
+.breadCrumbs li:nth-child(3):after {
+  border-left: 20px solid #4bd0e2;
+}
