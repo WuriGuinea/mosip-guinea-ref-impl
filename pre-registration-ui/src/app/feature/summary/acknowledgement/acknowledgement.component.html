@@ -59,19 +59,9 @@
           </div>
         </div>
       </mat-card-content>
-   <!--   <mat-card-footer id="guidelines-container" class="ack__guidelines-container">
-        <h4>{{ 'acknowledgement.container_guideline' | translate }}</h4>
-        <textarea class="guidelinearea"readonly>
-          Consignes Importantes:
-          Prière de fournir les pieces justificatives suivantes si possible:
-           Justificatif d'identité (carte d'identité nationale, passeport)
-           Justificatif de domicile (certificate de residence, attestation d'hébergement, facture d'énergie ou d'eau)
-           Justificatif de filiation (jugement supplétif, acte de naissance)
-        </textarea>
-      </mat-card-footer>-->
       <mat-card-footer id="guidelines-container" class="ack__guidelines-container">
         <h4>{{ 'acknowledgement.container_guideline' | translate }}</h4>
-        <table *ngIf="guidelines.length !== 0" class="ack__guidelines">
+        <table *ngIf="guidelines.length !== 0" class="ack__guidelines">          
           <tr *ngFor="let guideline of guidelines">
             <td class="inner-guideline-content">{{ guideline }}</td>
           </tr>
