@@ -37,7 +37,7 @@
             style="display: none;"
           />
           <input
-            class=""
+            class="browseInput"
             type=""           
             (click)="clickOnButton(i)"
             [disabled]="
@@ -46,7 +46,7 @@
               document.selectedDocName === ''
             "
             [ngClass]="{'browseInputhide' :file.docCatCode == document.code} "
-            [ngClass]="{'browseInput' :file.docCatCode ==! document.code}"
+            [ngClass]="{'browseInput' : file.docCatCode != document.code}"
           /> 
           <div *ngIf="file.docCatCode == document.code">
            
