@@ -106,10 +106,17 @@
 .preview__personal-info-table {
   width: 25rem;
   font-size: 0.8rem;
+  margin-top: -36px;
+  padding-right: 141px;
+  line-height: 0.2em;
+  width: max-content;
 }
 
 .preview__personal-info-table td {
-  padding: 10px 0 10px 0;
+  padding: 10px 14px 10px 0;
+}
+.text_uppercase{
+  text-transform: uppercase;
 }
 
 .preview__modify-div {
@@ -206,4 +213,23 @@
   .preview__body-content-div {
     width: 80%;
   }
+}
+.position_modify{
+  position: relative;
+  margin-left: 80px;
+  bottom: 41px;
+  float:none !important;
+
+}
+.info_position_modify{
+  position: relative;
+  margin-left: 173px;
+  bottom: 41px;
+  float:none !important;
+
+}
+#previewtitle{
+  text-align: center;
+  color: #020F59;
+  text-transform: uppercase;
 }

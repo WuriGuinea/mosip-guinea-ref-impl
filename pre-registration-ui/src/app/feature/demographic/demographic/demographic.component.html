@@ -105,11 +105,12 @@
                     </div>
 
                     <div class="user__genderAndForeigner user__dropdown">
-                        <span class="user__genderAndForeigner--text">{{ 'demographic.text_gender' | translate }}</span>
+                       
                         <mat-form-field>
                             <mat-select
                                     [formControlName]="formControlNames.gender"
                                     (change)="onGenderChange(genders, $event)"
+                                    placeholder="{{ 'demographic.text_gender' | translate  }}"
                                     appearance="legacy"
                                     name="fontStyle"
                                     aria-label="Font Style"
@@ -118,45 +119,41 @@
                                     {{ gender.genderName }}
                                 </mat-option>
                             </mat-select>
+                            <mat-error *ngIf=" userForm.get(formControlNames.gender).touched && userForm.get(formControlNames.gender).invalid">
+                                {{ 'demographic.validation.gender_validation' | translate }}</mat-error>
                         </mat-form-field>
                     </div>
-                    <div
-                            class="mat-error ng-star-inserted user__gender__error"
-                            *ngIf="userForm.get(formControlNames.gender).touched && userForm.get(formControlNames.gender).invalid"
-                    >
-                        {{ 'demographic.validation.gender_validation' | translate }}
-                    </div>
+            
 
                     <div class="user__genderAndForeigner user__dropdown">
-                        <span class="user__genderAndForeigner--text">{{ 'demographic.text_residence_status' | translate }}</span>
+                       
                         <mat-form-field>
                             <mat-select
                                     [formControlName]="formControlNames.residenceStatus"
                                     (change)="onResidenceStatusChange(residenceStatus, $event)"
+                                    placeholder="{{ 'demographic.text_residence_status' | translate }}"
                                     appearance="legacy"
                                     name="fontStyle"
                                     aria-label="Font Style"
+                                    
                             >
                                 <mat-option *ngFor="let resident of residenceStatus" [value]="resident.code">
                                     {{ resident.name }}
                                 </mat-option>
                             </mat-select>
+                            <mat-error *ngIf=" userForm.get(formControlNames.residenceStatus).touched &&
+                            userForm.get(formControlNames.residenceStatus).invalid">
+                                {{ 'demographic.validation.nationality_validation' | translate }}
+                                </mat-error>
                         </mat-form-field>
                     </div>
-                    <div
-                            class="mat-error ng-star-inserted user__gender__error"
-                            *ngIf="
-                          userForm.get(formControlNames.residenceStatus).touched &&
-                          userForm.get(formControlNames.residenceStatus).invalid
-                        "
-                    >
-                        {{ 'demographic.validation.nationality_validation' | translate }}
-                    </div>
+            
                     <br/>
                     <h4 class="titlecolor">{{ 'demographic.contact_section_title' | translate }}</h4>
                     
                     <div class="user__dropdown">
                         <mat-form-field>
+                            <mat-label>{{ 'demographic.label_mob_num' | translate }}</mat-label>
                             <input
                                     matInput
                                     #mobileNumber

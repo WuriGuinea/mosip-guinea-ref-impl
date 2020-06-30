@@ -1,4 +1,4 @@
-
+<!--
 <div [ngClass]="classes.step0.div" class="container">
   <div><p style="position: relative;left: 55px;"  [ngClass]="classes.step1.p"><img src="" [ngClass]="classes.step1.icon"/>&nbsp; {{'stepper.link_demographic'| translate}} </p></div>
   <div><hr [ngClass]="classes.step1.line"/></div>
@@ -8,3 +8,12 @@
   <div><hr [ngClass]="classes.step3.line"/></div>
   <div><p style="position: relative;left: -85px;"[ngClass]="classes.step4.p"><img style="position:relative;left:-500px" src="" [ngClass]="classes.step4.icon" />&nbsp;   {{'stepper.link_confirm'| translate}}</p></div>
 </div>
+-->
+<section class="wrapper">
+  <ul class="breadCrumbs">
+    <li><a href="" title="Home" [ngClass]="classes.step1.a">{{'stepper.link_demographic'| translate}}</a></li>
+    <li><a href="" title="Portfolio" [ngClass]="classes.step2.a">{{'stepper.link_upload_doc'| translate}}</a></li>
+    <li><a href="" title="Websites" [ngClass]="classes.step3.a">{{'stepper.link_book'| translate}}</a></li>
+    <li><a href="" title="HPU internet services"  [ngClass]="classes.step4.a"> {{'stepper.link_confirm'| translate}}</a></li>
+  </ul>
+</section>

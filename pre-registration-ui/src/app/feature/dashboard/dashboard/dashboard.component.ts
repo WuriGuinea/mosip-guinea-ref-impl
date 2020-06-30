@@ -163,8 +163,8 @@ export class DashBoardComponent implements OnInit, OnDestroy {
           applicants[appConstants.NESTED_ERROR] &&
           applicants[appConstants.NESTED_ERROR][0][appConstants.ERROR_CODE] ===
             appConstants.ERROR_CODES.noApplicantEnrolled
-        ) /*saidou */
-        {alert('Aucune application, vous allez être dirigé sur la page démographique');
+        ) 
+        {
           localStorage.setItem('newApplicant', 'true');
           this.onNewApplication();
           return;
@@ -172,7 +172,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
 
         if (applicants[appConstants.RESPONSE] && applicants[appConstants.RESPONSE] !== null) {
           localStorage.setItem('newApplicant', 'false');
-          alert('Redirection sur la page dashboard');/*saidou */
+       
           this.allApplicants =
             applicants[appConstants.RESPONSE][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.basicDetails];
           this.bookingService.addApplicants(
