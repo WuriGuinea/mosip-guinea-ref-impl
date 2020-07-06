@@ -1,4 +1,4 @@
 {
-  "BASE_URL": "https://int.mosip.io/",
+  "BASE_URL":"https://wuri.eastus.cloudapp.azure.com/",
   "PRE_REG_URL": "preregistration/v1/"
 }

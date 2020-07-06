@@ -35,7 +35,7 @@ export class DataStorageService {
   BASE_URL = this.appConfigService.getConfig()['BASE_URL'];
   PRE_REG_URL = this.appConfigService.getConfig()['PRE_REG_URL'];
 
-  getUsers(userId: string) {
+  getUsers() {
     let url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.applicants;
     return this.httpClient.get<Applicant[]>(url);
   }
@@ -264,24 +264,11 @@ export class DataStorageService {
     );
   }
 
-  recommendedCenters(langCode: string, locationHierarchyCode: number, data: string[]) {
+  recommendedCenters() {
     let url =
       this.BASE_URL +
       appConstants.APPEND_URL.master_data +
-      'registrationcenters/' +
-      langCode +
-      '/' +
-      locationHierarchyCode +
-      '/names?';
-    data.forEach(name => {
-      url += 'name=' + name;
-      if (data.indexOf(name) !== data.length - 1) {
-        url += '&';
-      }
-    });
-    if (url.charAt(url.length - 1) === '&') {
-      url = url.substring(0, url.length - 1);
-    }
+      'registrationcenters/';
     return this.httpClient.get(url);
   }
 

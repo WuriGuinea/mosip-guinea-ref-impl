@@ -34,7 +34,7 @@ export const APPEND_URL = {
   gender: 'v1/masterdata/gendertypes',
   resident: 'v1/masterdata/individualtypes',
   transliteration: 'transliteration/transliterate',
-  applicantType: 'v1/applicanttype/',
+  applicantType: 'v1/masterdata/',
   validDocument: 'applicanttype/',
   getApplicantType: 'getApplicantType',
   post_document: 'documents/',
@@ -95,12 +95,12 @@ export const CONFIG_KEYS = {
   preregistration_recommended_centers_locCode: 'preregistration.recommended.centers.locCode',
   preregistration_availability_noOfDays: 'preregistration.availability.noOfDays',
   mosip_regex_referenceIdentityNumber: 'mosip.id.validation.identity.referenceIdentityNumber',
-  mosip_regex_postalCode: 'mosip.id.validation.identity.postalCode',
   mosip_regex_DOB: 'mosip.id.validation.identity.dateOfBirth',
   mosip_default_dob_day: 'mosip.default.dob.day',
   mosip_default_dob_month: 'mosip.default.dob.month',
-  preregistration_address_length: 'mosip.id.validation.identity.addressLine1.[*].value',
-  preregistration_fullname_length: 'mosip.id.validation.identity.fullName.[*].value',
+  preregistration_address_length: 'mosip.id.validation.identity.additionalAddressDetails.[*].value',
+  preregistration_firstname_length: 'mosip.id.validation.identity.firstName.[*].value',
+  preregistration_lastname_length: 'mosip.id.validation.identity.lastName.[*].value',
   mosip_id_validation_identity_age: 'mosip.id.validation.identity.age',
   mosip_preregistration_auto_logout_idle: 'mosip.preregistration.auto.logout.idle',
   mosip_preregistration_auto_logout_timeout: 'mosip.preregistration.auto.logout.timeout',
@@ -119,7 +119,7 @@ export const DASHBOARD_RESPONSE_KEYS = {
   },
   applicant: {
     preId: 'preRegistrationId',
-    fullname: 'fullName',
+    fullname: 'firstName',
     statusCode: 'statusCode',
     postalCode: 'postalCode',
     basicDetails: 'basicDetails',
@@ -171,7 +171,7 @@ export const notificationDtoKeys = {
   file: 'attachment'
 };
 
-export const previewFields = ['region', 'province', 'city', 'zone', 'gender', 'residenceStatus'];
+export const previewFields = ['region', 'prefecture', 'subPrefectureOrCommune', 'district', 'sector', 'gender', 'residenceStatus'];
 
 export const DOCUMENT_UPLOAD_REQUEST_DOCUMENT_KEY = 'file';
 export const DOCUMENT_UPLOAD_REQUEST_DTO_KEY = 'Document request';

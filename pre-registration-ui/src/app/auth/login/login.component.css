@@ -16,17 +16,16 @@
   font-size: 13px;
   color: red;
   margin-top: -10px;
+  margin-left: -174px;
 }
 
 .form_wrapper {
   margin: 6% 64% 0% 64%;
- /* line-height: 2.8rem;
-  height: 88vh;*/
   border-radius: 8px;
-  box-shadow: 0px 0px 8px 1px #a9a1a1;
+  box-shadow: 0px 3px 6px #00000029;;
   background: #fafafa;
   padding: 20px;
-  width: 50%;
+  width: 30%;
 }
 
 .form_fields_padding {
@@ -74,6 +73,8 @@ button {
   text-align: center;
   padding: 8px;
   visibility: hidden;
+  margin-left: -184px;
+  margin-right: 214px;
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
@@ -110,16 +111,20 @@ button {
   height: 44px !important;
   border-radius: 8px !important;
   opacity: 0.6;
+  width: 100%;
+  margin-left: -200px;
+  font-size: 14px;
+  /*margin: 0 30% 36px -131px;*/
 }
 .connexiontxt{
   position: relative;
   top: 2vw;
-  color: #22a8c9;
-  left: 70px;
+  color: #020F59;
+  left: 15px;
 }
 .btn_axn-pri{
   width: 93% !important;
-  left: 11px;
+  left: -190px;
   margin: 0;
 }
 .mat-form-field-appearance-outline .mat-form-field-outline-start{
@@ -146,6 +151,141 @@ left: 15vw;
   padding: 0px;
   top: 194px;/*76px;*/
 }
+@media screen and (min-width: 501px) and (max-width: 935px) {
+  .positionimgbiom {
+    display: none !important;
+  }
+  .connexiontxt{
+    left: 5px;
+  }
+  .input_pri{
+    margin-left: -252px !important;
+    width: 80%;
+    /*margin-left: -214px !important;*/
+  }
+  .btn_axn-pri{
+  /*  left: -190px;*/
+    margin: 0 36% 36px -50px;
+    width: 74% !important;
+    /*margin-left: -192px !important;*/
+  }
+  #timer{
+    margin-right: 222px;
+    margin-left: -321px;
+  }
+}
+@media screen and (min-width: 936px) and (max-width: 1000px) {
+  .positionimgbiom {
+    display: none !important;
+  }
+  .connexiontxt{
+    left: 5px;
+  }
+  .input_pri{
+    margin-left: -262px !important;
+    /*margin-left: -214px !important;*/
+  }
+  .btn_axn-pri{
+  /*  left: -190px;*/
+    margin: 0 36% 36px -61px;
+    /*margin-left: -192px !important;*/
+  }
+  #timer{
+    margin-right: 222px;
+    margin-left: -274px;
+  }
+}
+@media screen and (min-width: 1001px) and (max-width: 1040px) {
+  .positionimgbiom {
+    display: none !important;
+  }
+  .connexiontxt{
+    left: 5px;
+  }
+  .input_pri{
+    margin-left: -256px !important;
+    /*margin-left: -214px !important;*/
+  }
+  .btn_axn-pri{
+  /*  left: -190px;*/
+    margin: 0 36% 36px -55px;
+    /*margin-left: -192px !important;*/
+  }
+  #timer{
+    margin-right: 222px;
+    margin-left: -274px;
+  }
+}
+@media screen and (min-width: 1041px) and (max-width: 1101px) {
+  .positionimgbiom {
+    display: none !important;
+  }
+  .connexiontxt{
+    left: 5px;
+  }
+  .input_pri{
+    margin-left: -250px !important;
+    /*margin-left: -214px !important;*/
+  }
+  .btn_axn-pri{
+  /*  left: -190px;*/
+    margin: 0 36% 36px -50px;
+    /*margin-left: -192px !important;*/
+  }
+  #timer{
+    margin-right: 222px;
+    margin-left: -274px;
+  }
+}
+@media screen and (min-width: 1102px) and (max-width: 1182px) {
+  .positionimgbiom {
+    display: none !important;
+  }
+  .connexiontxt{
+    left: 5px;
+  }
+  .input_pri{
+    margin-left: -235px !important;
+    /*margin-left: -214px !important;*/
+  }
+  .btn_axn-pri{
+  /*  left: -190px;*/
+    margin: 0 36% 36px -36px;
+    /*margin-left: -192px !important;*/
+  }
+  #timer{
+    margin-right: 222px;
+    margin-left: -261px;
+  }
+}
+@media (max-width: 500px) {
+  .positionimgbiom {
+    display: none !important;
+  }
+  .connexiontxt{
+    left: 0px;
+    font-size: 22px;
+  }
+  .input_pri{
+    margin-left: -44px !important;
+    width: 80%;
+    /*margin-left: -214px !important;*/
+  }
+  .btn_axn-pri{
+    left: -31px;
+    width: 70% !important;
+    padding: initial;
+    /*margin-left: -192px !important;*/
+  }
+  #timer{
+
+    margin-left: -15px;
+  }
+  }
+.positionimgbiom{
+  height: 213px;
+  margin-left: -230px;
+  }
 .mat-card:not([class*=mat-elevation-z]){
   box-shadow: none !important;
 }
@@ -156,4 +296,7 @@ button.mat-raised-button.mat-primary{
 }
 mat-form-field-infix{
   border: none !important;
+}
+.btn_axn-pri[disabled]{
+background: #BCE0FD;
 }

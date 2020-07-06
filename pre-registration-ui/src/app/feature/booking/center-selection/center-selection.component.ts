@@ -80,17 +80,14 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getRecommendedCenters() {
+    this.searchClick=true;
     const pincodes = [];
     this.REGISTRATION_CENTRES = [];
     this.users.forEach(user => {
       pincodes.push(user['postalCode']);
     });
     const subs = this.dataService
-      .recommendedCenters(
-        this.primaryLang,
-        this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_recommended_centers_locCode),
-        pincodes
-      )
+      .recommendedCenters()
       .subscribe(response => {
         if (response[appConstants.RESPONSE]) this.displayResults(response['response']);
       });
@@ -160,6 +157,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getLocation() {
+    this.searchClick=true;
     this.REGISTRATION_CENTRES = [];
     if (navigator.geolocation) {
       this.showMap = false;

@@ -50,7 +50,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   activeUsers: UserModel[] = [];
   documentCategory: string;
   documentType: string;
-  loginId: string;
   documentIndex: number;
   selectedDocument: SelectedDocuments = {
     docCatCode: '',
@@ -91,7 +90,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   firstFile: Boolean = true;
   noneApplicant = {
     demographicMetadata: {
-      fullName: [
+      firstName: [
         {
           language: '',
           value: 'None'
@@ -122,7 +121,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       .getConfigByKey(appConstants.CONFIG_KEYS.preregistration_document_alllowe_files)
       .split(',');
     this.getAllowedFileTypes(this.allowedFiles);
-    this.loginId = this.registration.getLoginId();
     this.setApplicants();
     this.sameAs = this.registration.getSameAs();
     if (this.sameAs === '') {
@@ -420,24 +418,24 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    *
    * @memberof FileUploadComponent
    */
-  async getAllApplicants() {
-    const subs = await this.dataStroage.getUsers(this.loginId).subscribe(
-      response => {
-        if (response[appConstants.RESPONSE]) {
-          this.bookingService.addApplicants(response['response']['basicDetails']);
-        } else {
-          this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error);
-        }
-      },
-      err => {
-        this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error, err);
-      },
-      () => {
-        this.setApplicants();
-      }
-    );
-    this.subscriptions.push(subs);
-  }
+  // async getAllApplicants() {
+  //   const subs = await this.dataStroage.getUsers().subscribe(
+  //     response => {
+  //       if (response[appConstants.RESPONSE]) {
+  //         this.bookingService.addApplicants(response['response']['basicDetails']);
+  //       } else {
+  //         this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error);
+  //       }
+  //     },
+  //     err => {
+  //       this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error, err);
+  //     },
+  //     () => {
+  //       this.setApplicants();
+  //     }
+  //   );
+  //   this.subscriptions.push(subs);
+  // }
   /**
    *@description method to set the applicants array  used in same as options aray
    *
@@ -445,11 +443,14 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    */
   setApplicants() {
     this.applicants = JSON.parse(JSON.stringify(this.bookingService.getAllApplicants()));
-
+    console.log('applicants-------------');
+    console.log(this.applicants);
     this.removeApplicantsWithoutPOA();
 
     this.updateApplicants();
     this.allApplicants = this.getApplicantsName(this.applicants);
+    console.log('allapplicants-------------');
+    console.log(this.allApplicants);
     const temp = JSON.parse(JSON.stringify(this.allApplicants));
     this.setNoneApplicant();
   }
@@ -488,7 +489,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     let user: Applicants = {
       preRegistrationId: '',
       demographicMetadata: {
-        fullName: [fullName]
+        firstName: [fullName]
       }
     };
     let activeUsers: any[] = [];
@@ -500,14 +501,14 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       user = {
         preRegistrationId: '',
         demographicMetadata: {
-          fullName: [fullName]
+          firstName: [fullName]
         }
       };
       if (i.files) {
         for (let file of i.files.documentsMetaData) {
           if (file.docCatCode === 'POA') {
             user.preRegistrationId = i.preRegId;
-            user.demographicMetadata.fullName = i.request.demographicDetails.identity.fullName;
+            user.demographicMetadata.firstName = i.request.demographicDetails.identity.firstName;
             activeUsers.push(JSON.parse(JSON.stringify(user)));
           }
         }
@@ -536,6 +537,10 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    */
   viewFileByIndex(i: number) {
     this.viewFile(this.users[0].files.documentsMetaData[i]);
+  }
+  deletefile(i:number,j:number){
+    this.users[0].files.documentsMetaData.splice(j, 1);
+    document.getElementById('tmp_' + i).style.visibility = "visible";
   }
 
   setByteArray(fileByteArray) {
@@ -613,6 +618,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    */
   clickOnButton(i) {
     document.getElementById('file_' + i).click();
+    document.getElementById('tmp_' + i).style.visibility = "hidden";
   }
 
   /**
@@ -1084,7 +1090,7 @@ export interface ProofOfAddress {
 }
 
 export interface DemographicMetaData {
-  fullName?: FullName[];
+  firstName?: FullName[];
   postalCode?: string;
   proofOfAddress?: ProofOfAddress;
 }

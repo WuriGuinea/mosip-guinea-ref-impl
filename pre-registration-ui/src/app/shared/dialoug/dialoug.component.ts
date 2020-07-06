@@ -98,9 +98,9 @@ export class DialougComponent implements OnInit {
   }
 
   async userRedirection() {
-    if (localStorage.getItem('newApplicant') === 'true') {
-      await this.firstPopUp();
-    } else {
+    // if (localStorage.getItem('newApplicant') === 'true') {
+    //   await this.firstPopUp();
+    // } else {
       this.regService.currentMessage.subscribe(message => (this.message = message));
       this.checkCondition = this.message['modifyUserFromPreview'];
 
@@ -109,7 +109,7 @@ export class DialougComponent implements OnInit {
       } else {
         await this.secondPopUp();
       }
-    }
+    // }
   }
 
   firstPopUp() {

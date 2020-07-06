@@ -8,7 +8,7 @@
 .mat-toolbar {
   top: 0;
   position: sticky;
-  z-index: 1;
+  z-index: 2;
   background-color: #020F59;/*#0b6a82;*/
   border-color: #707070;
   border-width: 1px;
@@ -59,12 +59,12 @@
   text-transform: none !important;
 }
 
-@media (min-width: 670px) {
+@media (min-width: 790px) {
   .sidenav-button {
     display: none;
   }
 }
-@media (max-width: 670px) {
+@media (max-width: 790px) {
   .list-item {
     display: none;
   }
