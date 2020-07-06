@@ -38,19 +38,16 @@
           />
           <input
             class="browseInput"
-            type=""           
+            type=""    
+            id="tmp_{{ i }}"       
             (click)="clickOnButton(i)"
             [disabled]="
               (document.code === 'POA' && sameAsselected) ||
               !document.selectedDocName ||
-              document.selectedDocName === ''
-            "
+              document.selectedDocName === ''"
             [ngClass]="{'browseInputhide' :file.docCatCode == document.code} "
             [ngClass]="{'browseInput' : file.docCatCode != document.code}"
-          /> 
-          <div *ngIf="file.docCatCode == document.code">
-           
-          </div>
+          />         
           <div class="file-upload__body__document-name">
             <div *ngFor="let file of users[0].files.documentsMetaData; let j = index">
               <div class="deleteandview" *ngIf="file.docCatCode == document.code">
@@ -62,7 +59,7 @@
                 class="deleteicon"
                 value="X"
                 type="button"
-                (click)="deletefile(j)"
+                (click)="deletefile(i,j)"
               /> 
               <span class="docposition">{{ file.docName }}</span>
               </div>

@@ -33,7 +33,7 @@
   display: block !important;
 }
 .browseInputhide{
-  display: none !important;
+  display: block !important;
 }
 .browseInputdisplayed{
   display: block !important;

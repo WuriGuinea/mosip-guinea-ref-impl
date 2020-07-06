@@ -538,8 +538,9 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   viewFileByIndex(i: number) {
     this.viewFile(this.users[0].files.documentsMetaData[i]);
   }
-  deletefile(i:number){
-    this.users[0].files.documentsMetaData.splice(i, 1);
+  deletefile(i:number,j:number){
+    this.users[0].files.documentsMetaData.splice(j, 1);
+    document.getElementById('tmp_' + i).style.visibility = "visible";
   }
 
   setByteArray(fileByteArray) {
@@ -617,6 +618,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    */
   clickOnButton(i) {
     document.getElementById('file_' + i).click();
+    document.getElementById('tmp_' + i).style.visibility = "hidden";
   }
 
   /**
