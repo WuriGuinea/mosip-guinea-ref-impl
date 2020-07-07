@@ -282,6 +282,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 }
 .mat-icon{
   width: auto !important;
+  color: white !important;
 }
 .mat-form-field-label{
   color: #020F59 !important;
