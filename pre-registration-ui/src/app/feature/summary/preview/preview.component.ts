@@ -48,7 +48,6 @@ export class PreviewComponent implements OnInit {
     this.previewData = this.user.request.demographicDetails.identity;
     this.calculateAge();
     this.previewData.primaryAddress = this.previewData.additionalAddressDetails;
-    // this.previewData.secondaryAddress = this.combineAddress(1);
     this.formatDob(this.previewData.dateOfBirth);
     this.setFieldValues();
     this.getSecondaryLanguageLabels();
@@ -84,7 +83,7 @@ export class PreviewComponent implements OnInit {
         }
         const obj = {
           code: type.code,
-          name: type.description,
+          name: type.name,
           fileName: file.length > 0 ? file[0].docName : undefined
         };
         this.documentMapObject.push(obj);
@@ -92,13 +91,6 @@ export class PreviewComponent implements OnInit {
     }
   }
 
-  // combineAddress(index: number) {
-  //   const address =
-  //     this.previewData.addressLine1[index].value +
-  //     (this.previewData.addressLine2[index].value ? ', ' + this.previewData.addressLine2[index].value : '') +
-  //     (this.previewData.addressLine3[index].value ? ', ' + this.previewData.addressLine3[index].value : '');
-  //   return address;
-  // }
 
   getSecondaryLanguageLabels() {
     let factory = new LanguageFactory(localStorage.getItem('secondaryLangCode'));
