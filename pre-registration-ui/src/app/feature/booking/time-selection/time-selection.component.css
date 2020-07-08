@@ -6,18 +6,24 @@
   align-items: center;
 }
 .time-selection__title-card {
-  color: #ff4081;
+  color: #020F59;
   padding: 0px;
   display: flex;
   align-items: center;
   white-space: nowrap;
   margin: 0px 2vw;
-  border-bottom: 1px solid #ff4081;
+  border-bottom: 1px solid #020F59;
   border-radius: 0px;
+  display: none;
+}
+@media (max-width: 1200px) {
+  .time-selection__title-card {
+    display: block;
+  }
 }
 
 .time-selection__title-card-text {
-  /* margin: -15px 0 0 -25px; */
+ 
 }
 
 .disable_add {
@@ -63,7 +69,7 @@
   border-radius: 15px;
   padding: 14px;
 }
-.mat-card:not([class*=mat-elevation-z]){/*enlever bordure sur le bloc de droite et bloc date*/
+.mat-card:not([class*=mat-elevation-z]){
   box-shadow: none !important;
 }
 
@@ -85,21 +91,19 @@
 }
 
 .time-selection__time-slots-container {
-  /*border-top: 1px solid #ff4081;*/
   margin-right: 20px;
   padding: 0;
   border-radius: 0px;
 }
 
 .time-selection__names-container {
-  min-width: 35.5% !important;/* augmenter la taille du bloc de droite afin que les nom et prenoms tiennent dans le champ*/
+  min-width: 35.5% !important;
   padding: 0;
   display: flex !important;
   flex-direction: row-reverse !important;
 }
 
 .time-selection__time-slots-container div {
- /* display: flex;*/
   display: -webkit-flex;
   flex-wrap: wrap;
   max-width: 100%;
@@ -200,7 +204,7 @@
 }
 
 .card-content {
-  padding:0px 0rem; /*15px 2rem;*/
+  padding:0px 0rem;
 }
 
 .card-time-text {

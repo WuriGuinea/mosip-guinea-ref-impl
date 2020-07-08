@@ -1,100 +1,289 @@
 .progress {
-  display: inline-block;
-  width: 5rem;
-  height: 0;
+  /* display: inline-block;*/
+  display: none;
+   width: 5rem;
+   height: 0;
+   position: relative;
+   top: 3px;
+   margin-right: 5px;
+   margin-left: 5px;
+ }
+ 
+ .progress-active {
+   border-top: 2px solid #fd518c;
+ }
+ 
+ .progress-complete {
+   border-top: 2px solid #000000;
+ }
+ 
+ .progress-incomplete {
+   border-top: 2px solid grey;
+   opacity: 0.5;
+ }
+ 
+ .container {
+   /*justify-content: center;*/
+   justify-content: space-between;
+   align-items: center;
+   vertical-align: center;
+   align-content: center;
+   display: flex;
+   margin: 1% 1% 0% 2%;
+   background-image: url('/assets/demo-details.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 85px;
+  /* width: 114%;*/
+ }
+ @media (max-width: 1200px) {
+  .container {
+   display: none !important;
+  }
+}
+ .upload {
+   /*justify-content: center;*/
+   justify-content: space-between;
+   align-items: center;
+   vertical-align: center;
+   align-content: center;
+   display: flex;
+   margin: 1% 1% 0% 2%;
+   background-image: url('/assets/upload-docs.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 85px;
+  /* width: 114%;*/
+ }
+ .rdv {
+   /*justify-content: center;*/
+   justify-content: space-between;
+   align-items: center;
+   vertical-align: center;
+   align-content: center;
+   display: flex;
+   margin: 1% 1% 0% 2%;
+   background-image: url('/assets/rdv.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 85px;
+  /* width: 114%;*/
+ }
+ .confirmation-rdv {
+   /*justify-content: center;*/
+   justify-content: space-between;
+   align-items: center;
+   vertical-align: center;
+   align-content: center;
+   display: flex;
+   margin: 1% 1% 0% 2%;
+   background-image: url('/assets/confirmation-rdv.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 85px;
+  /* width: 114%;*/
+ }
+ 
+ p {
+   font-size: 20px;
+   /*white-space: nowrap;*/
+ }
+ 
+ .inline-icon {
+   vertical-align: bottom;
+   position: relative;
+   top: -11px;
+   height: 1.5rem;
+ }
+ 
+ .inline-icon-background-active {
+   filter: invert(0%);
+  /* display: block;*/
+ }
+ 
+ .inline-icon-background-complete {
+  /* filter: invert(50%);*/
+ }
+ 
+ .inline-icon-background-incomplete {
+  /* filter: invert(100%);*/
+   opacity: 0.5;
+   padding: 1px;
+   /*display: none;*/
+ }
+ 
+ .active {
+   color: #020F59;
+   font-size: 20;
+   font-weight: 400;
+ }
+ 
+ .complete {
+   color: green;
+ }
+ 
+ .incomplete {
+   color: grey;
+   opacity: 0.5;
+ }
+ 
+ @media (max-width: 500px) {
+   .progress {
+     width: 0;
+   }
+ 
+   p {
+     white-space: normal;
+   }
+ }
+ 
+ @media (max-width: 1032px) and (min-width: 801px) {
+   .progress {
+     width: 100px;
+   }
+ 
+   p {
+     white-space: normal;
+   }
+ }
+ 
+ @media (max-width: 800px) and (min-width: 501px) {
+   .progress {
+     width: 60px;
+   }
+ 
+   p {
+     white-space: normal;
+   }
+ }
+ @media (max-width: 1280px) and (min-width: 1201px) {
+  .incomplete {
+    left: 58px !important;
+  }
+}
+@media (max-width: 1330px) and (min-width: 1280px) {
+  .incomplete {
+    left: -25px !important;
+  }
+}
+body {
+  font-family: 'Monda', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #666;
+  background: #f0f0f0;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: #3FABBA;
+}
+
+a {
+  text-decoration: none;
+  color: #3FABBA;
+}
+
+.clear {
+  clear: both;
+}
+
+.animation {
+  -webkit-transition: all 0.3s ;
+  -moz-transition: all 0.3s ;
+  -ms-transition: all 0.3s ;
+  -o-transition: all 0.3s ;
+  transition: all 0.3s ;
+}
+
+.wrapper {
+  width: 100%;
+ /* padding: 20px;
+  margin: 20px auto;
+  background: #fff;*/
+}
+
+
+.breadCrumbs {
   position: relative;
-  top: 3px;
-  margin-right: 5px;
-  margin-left: 5px;
+  width: 98%;
+  display: inline-flex;
+  list-style:none;
+  left: -12px;
 }
 
-.progress-active {
-  border-top: 2px solid #fd518c;
+.breadCrumbs li {
+  position: relative;
+  float: left;
+  width: 100%;
 }
 
-.progress-complete {
-  border-top: 2px solid #000000;
+.breadCrumbs li a,
+.breadCrumbs li p {
+  display: block;
+  padding: 0 10px 0 30px;
+  line-height: 40px;
+  color: #020F59;
+  background: #BCE0FD;
 }
 
-.progress-incomplete {
-  border-top: 2px solid grey;
-  opacity: 0.5;
+.breadCrumbs li:first-child a {
+  padding: 0 10px 0 20px;  
 }
 
-.container {
-  justify-content: center;
-  align-items: center;
-  vertical-align: center;
-  align-content: center;
-  display: flex;
-  margin: 0 20% 0 20%;
+.breadCrumbs li a:hover {
+  
 }
 
-p {
-  font-size: 12px;
-  white-space: nowrap;
+.breadCrumbs li.activePage p,
+.breadCrumbs li.activePage a {
+  background: #333;
 }
 
-.inline-icon {
-  vertical-align: bottom;
-  height: 1.5rem;
+.breadCrumbs li:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20px;
+  display: block;
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid white;
+  z-index: 1;
 }
 
-.inline-icon-background-active {
-  filter: invert(100%);
+.breadCrumbs li.activePage:after {
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #333;
 }
 
-.inline-icon-background-complete {
-  filter: invert(50%);
+/* GIVE EVERY CHILD A DIFFERENT COLOR */
+.breadCrumbs li:nth-child(1) a {
+  background: #BCE0FD ;
 }
 
-.inline-icon-background-incomplete {
-  filter: invert(100%);
-  opacity: 0.5;
-  padding: 1px;
+.breadCrumbs li:nth-child(1):after {
+  border-left: 20px solid white ;
 }
 
-.active {
-  color: #4da6ff;
-  font-size: 1.2rem;
-  font-weight: 400;
+.breadCrumbs li:nth-child(2) a {
+  background: #BCE0FD ;
 }
 
-.complete {
-  color: green;
+.breadCrumbs li:nth-child(2):after {
+  border-left: 20px solid white ;
 }
 
-.incomplete {
-  color: grey;
-  opacity: 0.5;
+.breadCrumbs li:nth-child(3) a {
+  background: #BCE0FD ;
 }
 
-@media (max-width: 500px) {
-  .progress {
-    width: 0;
-  }
-
-  p {
-    white-space: normal;
-  }
-}
-
-@media (max-width: 1032px) and (min-width: 801px) {
-  .progress {
-    width: 100px;
-  }
-
-  p {
-    white-space: normal;
-  }
-}
-
-@media (max-width: 800px) and (min-width: 501px) {
-  .progress {
-    width: 60px;
-  }
-
-  p {
-    white-space: normal;
-  }
+.breadCrumbs li:nth-child(3):after {
+  border-left: 20px solid white ;
 }

@@ -22,6 +22,8 @@ import { FilesModel } from 'src/app/shared/models/demographic-model/files.model'
 import { LogService } from 'src/app/shared/logger/log.service';
 import LanguageFactory from 'src/assets/i18n';
 import { Subscription } from 'rxjs';
+import {AuthService} from "../../../auth/auth.service";
+import {catchError} from "rxjs/operators";
 // import { ErrorService } from 'src/app/shared/error/error.service';
 
 /**
@@ -43,7 +45,6 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   userFile: FileModel[] = [];
   file: FileModel = new FileModel();
   userFiles: FilesModel = new FilesModel(this.userFile);
-  loginId = '';
   message = {};
 
   primaryLangCode = localStorage.getItem('langCode');
@@ -78,6 +79,8 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     public dialog: MatDialog,
+    private authService: AuthService,
+    private dataService: DataStorageService,
     private dataStorageService: DataStorageService,
     private regService: RegistrationService,
     private bookingService: BookingService,
@@ -96,22 +99,41 @@ export class DashBoardComponent implements OnInit, OnDestroy {
    * @memberof DashBoardComponent
    */
   ngOnInit() {
-    this.loginId = this.regService.getLoginId();
-    this.initUsers();
-    const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
-    this.subscriptions.push(subs);
-    if (!this.message['timerFired']) {
-      this.autoLogout.getValues(this.primaryLangCode);
-      this.autoLogout.setValues();
-      this.autoLogout.keepWatching();
-    } else {
-      this.autoLogout.getValues(this.primaryLangCode);
-      this.autoLogout.continueWatching();
-    }
-    let factory = new LanguageFactory(this.primaryLangCode);
-    let response = factory.getCurrentlanguage();
-    this.secondaryLanguagelabels = response['dashboard'].discard;
-    this.regService.setSameAs('');
+    this.dataService.getConfig().subscribe(
+      response => {
+        this.configService.setConfig(response);
+        const authenticated = this.authService.getLogin()
+          .then((authenticated) => {
+            if (!authenticated){
+              this.router.navigate(['/login']);
+            } else {
+              this.initUsers();
+              const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
+              this.subscriptions.push(subs);
+              if (!this.message['timerFired']) {
+                this.autoLogout.getValues(this.primaryLangCode);
+                this.autoLogout.setValues();
+                this.autoLogout.keepWatching();
+              } else {
+                this.autoLogout.getValues(this.primaryLangCode);
+                this.autoLogout.continueWatching();
+              }
+              let factory = new LanguageFactory(this.primaryLangCode);
+              let response = factory.getCurrentlanguage();
+              this.secondaryLanguagelabels = response['dashboard'].discard;
+              this.regService.setSameAs('');
+            }
+          })
+          .catch((error) => {
+            this.loggerService.error('dashboard', error);
+            this.onError();
+          });
+      },
+      error => {
+        this.loggerService.error('dashboard', error);
+        this.onError();
+      }
+    );
   }
 
   /**
@@ -134,15 +156,15 @@ export class DashBoardComponent implements OnInit, OnDestroy {
    * @memberof DashBoardComponent
    */
   getUsers() {
-    const sub = this.dataStorageService.getUsers(this.loginId).subscribe(
+    const sub = this.dataStorageService.getUsers().subscribe(
       (applicants: any) => {
         this.loggerService.info('applicants in dashboard', applicants);
         if (
           applicants[appConstants.NESTED_ERROR] &&
           applicants[appConstants.NESTED_ERROR][0][appConstants.ERROR_CODE] ===
             appConstants.ERROR_CODES.noApplicantEnrolled
-        ) /*saidou */
-        {alert('Aucune application, vous allez être dirigé sur la page démographique');
+        ) 
+        {
           localStorage.setItem('newApplicant', 'true');
           this.onNewApplication();
           return;
@@ -150,7 +172,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
 
         if (applicants[appConstants.RESPONSE] && applicants[appConstants.RESPONSE] !== null) {
           localStorage.setItem('newApplicant', 'false');
-          alert('Redirection sur la page dashboard');/*saidou */
+       
           this.allApplicants =
             applicants[appConstants.RESPONSE][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.basicDetails];
           this.bookingService.addApplicants(
@@ -247,17 +269,17 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     const demographicMetadata = applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.applicant.demographicMetadata];
 
     let primaryIndex = 0;
-    let secondaryIndex = 1;
+    // let secondaryIndex = 1;
     let lang =
       applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.fullname][0]['language'];
-    if (lang !== this.primaryLangCode) {
-      primaryIndex = 1;
-      secondaryIndex = 0;
-    }
-    if (this.primaryLangCode === this.secondaryLangCode) {
-      primaryIndex = 0;
-      secondaryIndex = 0;
-    }
+    // if (lang !== this.primaryLangCode) {
+    //   primaryIndex = 1;
+    //   secondaryIndex = 0;
+    // }
+    // if (this.primaryLangCode === this.secondaryLangCode) {
+    //   primaryIndex = 0;
+    //   secondaryIndex = 0;
+    // }
     const applicant: Applicant = {
       applicationID: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.applicant.preId],
       name:
@@ -277,7 +299,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
       regDto: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.bookingRegistrationDTO.dto],
       nameInSecondaryLanguage:
         applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.fullname][
-          secondaryIndex
+          primaryIndex
         ]['value'],
       postalCode: applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.postalCode]
     };
@@ -293,12 +315,8 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   onNewApplication() {
     this.flushArrays();
     this.regService.changeMessage({ modifyUser: 'false' });
-    if (this.loginId) {
-      this.router.navigate(['pre-registration', 'demographic']);
-      this.isNewApplication = true;
-    } else {
-      this.router.navigate(['/']);
-    }
+    this.router.navigate(['pre-registration', 'demographic']);
+    this.isNewApplication = true;
   }
 
   openDialog(data, width) {
@@ -574,15 +592,11 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     const fullName = user.name;
     const regDto = user.regDto;
     const status = user.status;
-    const postalCode = user.postalCode;
-    const nameInSecondaryLanguage = user.nameInSecondaryLanguage;
     this.bookingService.addNameList({
       fullName: fullName,
       preRegId: preId,
       regDto: regDto,
       status: status,
-      postalCode: postalCode,
-      fullNameSecondaryLang: nameInSecondaryLanguage
     });
   }
 

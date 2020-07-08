@@ -19,9 +19,9 @@
   flex-wrap: wrap;
 }
 .heading {
-  font-family: Roboto;
+  font: Bold 24px/12px Arial;
   font-size: 24px;
-  color: #fd518c;
+  color: #020F59;
   opacity: 100%;
   line-height: 20px;
   white-space: nowrap;
@@ -202,8 +202,11 @@ mat-card-content {
 .btn_axn-sec:disabled, .btn_axn-sec.page_btn:disabled{
   background: #BCE0FD !important;
   color: #020F59 !important;
+  font: Bold 15px/12px Arial;
+  opacity: 0.5;
 }
 .btn_axn-pri{
-  background: #30badd !important;
+  background: #BCE0FD !important;
   color: #020F59 !important;
+  font: Bold 15px/12px Arial;
 }

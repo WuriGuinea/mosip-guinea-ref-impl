@@ -16,16 +16,55 @@
   height: 50%;
 }
 .browseInput {
-  background: none;
-  border: 1px solid rgba(253, 81, 140, 1);
-  color: rgba(253, 81, 140, 1);
+ /* background: #020F59;
+  border: 1px solid #020F59;
+  color: #ffffff;
   border-radius: 2px;
-  padding: 0.4rem 1.5rem;
+  
+  padding: 0.3rem 11.4px;
+  height: fit-content;*/
+  background-image: url('/assets/add.svg');
+ 
+  height: 29px;
+  width: 29px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  display: block !important;
+}
+.browseInputhide{
+  display: block !important;
+}
+.browseInputdisplayed{
+  display: block !important;
 }
 
 .browseInput[disabled] {
-  border: 1px solid rgba(253, 81, 140, 0.35);
-  color: rgba(253, 81, 140, 0.35);
+ /*
+ border: 1px solid #BCE0FD;
+  color: #ffffff;
+ background: #BCE0FD;*/
+  background-image: url('/assets/add-disabled.svg');
+  height: 29px;
+  width: 29px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.deleteicon[disabled]{
+  border: 1px solid #BCE0FD;
+  color: #ffffff;
+  background: #BCE0FD;
+  margin-left: 2px;
+}
+.deleteandview{
+  margin-left: 5px;
+  margin-top: -3px;
+}
+.view-img{
+  background: #020F59;
+  height: 29px !important;
+  width:  29px !important;
+  margin-right: 3px;
 }
 .documentWrapper {
   width: 100%;
@@ -37,6 +76,9 @@ mat-select {
 }
 mat-select:focus {
   font-weight: 400;
+}
+.mat-select-value{
+  color: #020F59 !important
 }
 .docsContainer {
   display: flex;
@@ -86,20 +128,28 @@ mat-select:focus {
 .file-upload {
   box-shadow: 1px 1px 10px 4px #eeeeee;
   background: #ffffff;
-  margin: 5px 2vw;
+  margin: -2px 2vw 5vw;
   color: #838383;
+  border: solid 1px #020F59;
+  height: auto;
+  border-radius: 16px;
 }
 
 .file-uploaad__header {
   font-size: 15px;
   text-align: left;
-  color: rgba(255, 82, 141, 1);
-  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.12);
-  padding: 18px 2rem;
-  border-bottom: 1px solid rgba(225, 82, 141, 1);
+  color: #020F59;
+  padding: 4px 2rem;
+  margin-top: 5px;
+  margin-bottom: -18px;
   font-weight: bold;
+  display: block;
 }
-
+@media (max-width: 1200px) {
+  .file-uploaad__header {
+    display: block;
+  }
+}
 .file-upload__body {
   padding: 0px 2rem 10px 2rem;
   font-size: 0.8rem;
@@ -109,8 +159,7 @@ mat-select:focus {
 }
 
 .file-upload__body__1 {
-  width: 45.5vw;
-  border-right: 2px solid #e6e6e6;
+  width: 50.5vw;
   margin-bottom: 30px;
 }
 
@@ -142,6 +191,20 @@ mat-select:focus {
   padding: 10px 0px;
   min-height: 100px;
 }
+.filestyle{
+  border:solid 1px #BCE0FD;
+  margin: 10px;
+  padding-top: 22px;
+}
+.deleteicon{
+  background: #020F59;
+  border: 1px solid #020F59;
+  color: #ffffff;
+  border-radius: 2px;
+  padding: 0.3rem 11.4px;
+  margin-left: 2px;
+  height: 29px !important;
+}
 
 .file-upload__body__document-name {
   max-width: 30vw;
@@ -161,15 +224,19 @@ mat-select:focus {
 }
 
 .file-uplaoad__body__document-name__view {
-  float: right;
-  padding-right: 12%;
+  float: left;
 }
 
 .file-uplaoad__body__document-name__view img {
   height: 20px;
   width: 20px;
   cursor: pointer;
-  filter: grayscale(100%);
+  filter: none;
+}
+.docposition{
+  margin-left: 78px;
+  text-decoration: underline #BCE0FD;
+  color: #020F59;
 }
 .file-upload__button {
   display: inline-flex;
@@ -199,9 +266,9 @@ mat-select:focus {
   /* padding: 0px 53px;
   border: 1px solid red;
   margin: 5px; */
-  background-color: #ff4081;
+  background-color: #BCE0FD;
   border: none;
-  color: white;
+  color: #020F59 !important;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
@@ -209,21 +276,20 @@ mat-select:focus {
   font-size: 0.8rem;
   margin: 6px 3rem;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-weight: bold;
 }
 
 .user__btn--back {
-  border: 1px solid #ff4081;
-  background-color: white;
-  color: #ff4081;
+ /* border: 1px solid #ff4081;*/
+  background-color: #BCE0FD;
+  color: #020F59;
   margin-left: 2rem;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .user__btn:disabled,
 .user__btn:active {
-  border: 1px solid lightgray;
-  background-color: lightgray;
   color: #2f3033;
   cursor: default;
 }
