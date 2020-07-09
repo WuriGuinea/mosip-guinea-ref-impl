@@ -16,11 +16,6 @@
           <mat-option value="{{ 'centerSelection.text_search' | translate }}"(click)="setSearchClick(false)">{{ 'centerSelection.text_search' | translate }}</mat-option>
         </mat-select>
       </mat-form-field>
-    <!--  <div class="center_selection-center-available-text">
-        ( {{ 'centerSelection.text_found' | translate }} {{ REGISTRATION_CENTRES.length }}
-        {{ 'centerSelection.text_centers' | translate }} )
-      </div> -->
-
     </div>
 
       <ng-template #elseBlock>
@@ -84,15 +79,6 @@
       </ng-template>
 
       <div class="centers-list" *ngIf="REGISTRATION_CENTRES">
-  <!--      <span
-          *ngIf="!showMessage && !searchClick && REGISTRATION_CENTRES.length !== 0"
-          style="margin-left:24px;"
-          class="center_selection-center-available-text"
-        >
-          {{ 'centerSelection.text_found' | translate }}
-          {{ REGISTRATION_CENTRES.length }}
-          {{ 'centerSelection.text_centers' | translate }}
-        </span> -->
         <span
           *ngIf="showMessage && !searchClick && REGISTRATION_CENTRES.length === 0"
           style="margin-left:24px;"
