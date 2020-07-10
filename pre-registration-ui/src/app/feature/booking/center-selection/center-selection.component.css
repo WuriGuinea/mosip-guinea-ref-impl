@@ -100,14 +100,16 @@ section {
 .center-card {
  /* margin: 2% 0;*/
  margin: 7px;
-  display: flex;
+  display: inline-block;
   border-radius: 19px;
   line-height: 1;
+  width: 96%;
 }
 
 .center-card-selected {
   border: 1px solid #020F59;
   margin: 7px;
+  background: #F1F9FF;
 }
 
 input[type='radio'] {

@@ -46,7 +46,6 @@
   padding: 1.2rem 2rem 0 2rem;
   padding-top: 1.2rem;
   background-color: white;
-  border-bottom: 1px solid lightgray;
   width: 100%;
   display: inline-block;
 }
@@ -254,7 +253,6 @@ mat-icon {
   justify-content: space-between;
   margin-top: 0.2rem;
   background-color: white;
-  border-top: 5px solid #f4f4f4;
   padding: 0 2vw;
   justify-content: flex-end;
 }
