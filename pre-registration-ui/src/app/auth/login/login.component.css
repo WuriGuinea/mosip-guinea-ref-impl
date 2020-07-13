@@ -104,9 +104,8 @@ button {
 
 #timer {
   text-align: center;
-  padding: 8px;
+  padding-top: 20px;
   visibility: hidden;  
-  margin-right: 214px;
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
@@ -132,7 +131,6 @@ button {
     border-radius: 10px;
     box-shadow: 0px 3px 6px #00000029;
     background: #fafafa;
-     padding: 0px; 
      width: 100%;
     display: flex;
     flex-direction: column;
@@ -205,12 +203,8 @@ left: 15vw;
     width: 80%;
   }
   .btn_axn-pri{
-    margin: 0 36% 36px 10px;
-  }
-
-  #timer{
-    margin-right: 222px;
-  }
+    margin: 0 36px 5px 5px;
+  }  
 }
 
 @media screen and (min-width: 936px) and (max-width: 1000px) {
@@ -222,10 +216,7 @@ left: 15vw;
   }
   
   .btn_axn-pri{
-    margin: 0 36% 36px 10px;
-  }
-  #timer{
-    margin-right: 222px;
+    margin: 0 36px 5px 5px;
   }
 }
 
@@ -238,10 +229,7 @@ left: 15vw;
   }
  
   .btn_axn-pri{
-    margin: 0 36% 36px 10px;
-  }
-  #timer{
-    margin-right: 222px;
+    margin: 0 36px 5px 5px;
   }
 }
 @media screen and (min-width: 1041px) and (max-width: 1101px) {
@@ -250,10 +238,6 @@ left: 15vw;
   }
   .connexiontxt{
     left: 5px;
-  }
-  
-  #timer{
-    margin-right: 222px;
   }
 }
 @media screen and (min-width: 501px) and (max-width: 935px) {
@@ -265,11 +249,7 @@ left: 15vw;
   }
   
   .btn_axn-pri{
-    margin: 0 36% 36px 5px;
-  }
-  #timer{
-    margin-right: 222px;
-    margin-left: 0px;
+    margin: 0 36px 5px 5px;
   }
   .form_wrapper[_ngcontent-c13] {    
      width: 80%; 
