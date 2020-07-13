@@ -31,17 +31,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onLogoClick() {
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['dashboard']);
-    } else {
-      this.router.navigate(['/']);
-    }
+    this.router.navigate(['/']);
+    // if (this.authService.isAuthenticated()) {
+    //   this.router.navigate(['dashboard']);
+    // } else {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   onHome() {
-    let homeURL = '';
-    homeURL = 'dashboard';
-    this.router.navigate([homeURL]);
+    this.router.navigate(['/']);
   }
 
   async doLogout() {
