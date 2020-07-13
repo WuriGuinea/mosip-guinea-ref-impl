@@ -398,7 +398,8 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     const subs = await this.dataStroage.getDocumentCategories(applicantcode).subscribe(
       res => {
         if (res[appConstants.RESPONSE]) {
-          this.LOD = res['response'].documentCategories;
+          this.LOD = res['response'].documentCategories; 
+          console.log("LOD= "+ JSON.stringify(this.LOD));
           this.enableBrowseButtonList = new Array(this.LOD.length).fill(false);
           this.registration.setDocumentCategories(res['response'].documentCategories);
           this.onModification();

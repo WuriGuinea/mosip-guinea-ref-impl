@@ -158,6 +158,7 @@
   float: right;
   text-align: center;
   transform: translateY(0.2rem);
+  color: #020F59 !important;
 }
 
 .user__btn {
