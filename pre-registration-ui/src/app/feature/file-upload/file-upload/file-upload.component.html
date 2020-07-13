@@ -57,7 +57,6 @@
                 </span>
                 <input
                 class="deleteicon"
-                value="X"
                 type="button"
                 (click)="deletefile(i,j)"
               /> 
@@ -67,7 +66,7 @@
           </div>
         </span>
         <span *ngIf="document.code === 'POA'">
-          <span *ngIf="allApplicants.length > 1"> {{ 'documents.OR' | translate }}</span>
+          <span id="sameas" *ngIf="allApplicants.length > 1"> {{ 'documents.OR' | translate }}</span>
           <span *ngIf="allApplicants.length > 1">
             <mat-form-field class="file-upload__or">
               <mat-select
@@ -85,16 +84,6 @@
             >
           </span>
         </span>
-      <!--  <div class="file-upload__body__document-name">
-          <div *ngFor="let file of users[0].files.documentsMetaData; let j = index">
-            <div *ngIf="file.docCatCode == document.code">
-              <span>{{ file.docName }}</span>
-              <span class="file-uplaoad__body__document-name__view" (click)="viewFile(file)">
-                <img src="assets\view.png" class="view-img" />
-              </span>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
     <div class="file-upload__body__2" *ngIf="this.users[0].files && fileIndex >= 0">

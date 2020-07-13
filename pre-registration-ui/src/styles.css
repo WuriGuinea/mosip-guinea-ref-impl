@@ -247,8 +247,11 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   position: relative;
 }
 .mat-form-field-infix{
-  border: solid 1px #e1effb !important;
-  border-radius: 10px !important;
+ /* border: solid 1px #e1effb !important;
+  border-radius: 10px !important;*/
+}
+.mat-select-arrow{
+  color: #BCE0FD;
 }
 .mat-form-field-appearance-legacy .mat-form-field-underline
 {
@@ -256,8 +259,11 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   display: none;
 }
 .mat-form-field-appearance-legacy .mat-form-field-infix{
-  border: solid 2px #BCE0FD !important;
-  border-radius: 10px !important;
+ /* border: solid 2px #BCE0FD !important;
+  border-radius: 10px !important;*/
+  border-bottom: solid 1px #BCE0FD  !important;
+  border-top: none !important;
+  border-right: none !important;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix{
   /*Suppression du border solid sur le field email*/

@@ -52,10 +52,18 @@
   background-repeat: no-repeat;
 }
 .deleteicon[disabled]{
-  border: 1px solid #BCE0FD;
+  /*border: 1px solid #BCE0FD;
   color: #ffffff;
   background: #BCE0FD;
-  margin-left: 2px;
+  margin-left: 2px;*/
+  background-image: url('/assets/deleteicon.svg');
+  
+  height: 29px;
+  width: 29px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  display: block !important;
 }
 .deleteandview{
   margin-left: 5px;
@@ -198,13 +206,25 @@ mat-select:focus {
   padding-top: 22px;
 }
 .deleteicon{
-  background: #020F59;
+ /* background: #020F59;
   border: 1px solid #020F59;
   color: #ffffff;
   border-radius: 2px;
   padding: 0.3rem 11.4px;
   margin-left: 2px;
   height: 29px !important;
+  outline: none;*/
+  background-image: url('/assets/deleteicon.svg');
+  
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+}
+#sameas{
+  margin: 10px;
 }
 
 .file-upload__body__document-name {
