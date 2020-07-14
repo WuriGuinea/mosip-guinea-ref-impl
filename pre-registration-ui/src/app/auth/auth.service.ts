@@ -26,16 +26,19 @@ export class AuthService {
   PRE_REG_URL = this.appConfigService.getConfig()['PRE_REG_URL'];
 
   getLogin(){
+    let that=this;
     return new Promise(resolve => {
       const url = this.BASE_URL + appConstants.APPEND_URL.gender;
       this.httpClient.get(url, {observe: 'response'}).subscribe(
         response => {
           console.log("GetLogin: " + response.status);
           // localStorage.setItem('loggedIn', 'true');
+          that.setToken();
           resolve(true);
         },
         error => {
           console.log(error);
+          that.removeToken();
           resolve(false);
         }
       );
@@ -43,7 +46,7 @@ export class AuthService {
   }
 
   setToken() {
-    // this.token = 'settingToken';
+    this.token = 'settingToken';
     this.myProp.next(true);
   }
 

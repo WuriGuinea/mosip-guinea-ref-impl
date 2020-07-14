@@ -30,10 +30,10 @@
       </mat-nav-list>
       <span class="spacer"></span>
     
-      <mat-nav-list *ngIf="!(authService.myProp$ | async)" class="list-item">
-        <a href="./" mat-list-item class="header__actions"> {{ 'header.link_login' | translate }}</a>
-      </mat-nav-list>
-      <mat-nav-list *ngIf="authService.myProp$ | async" class="list-item">
+<!--      <mat-nav-list *ngIf="!(authService.myProp$ | async)" class="list-item">-->
+<!--        <a href="/login" mat-list-item class="header__actions"> {{ 'header.link_login' | translate }}</a>-->
+<!--      </mat-nav-list>-->
+      <mat-nav-list *ngIf="(authService.myProp$ | async)" class="list-item">
         <a mat-list-item class="header__actions" (click)="onHome()">
           <mat-icon class="icon">folder_open</mat-icon>&nbsp;{{ 'header.link_applications' | translate }}</a
         >
