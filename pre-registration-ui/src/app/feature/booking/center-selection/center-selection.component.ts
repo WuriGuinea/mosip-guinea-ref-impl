@@ -46,6 +46,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   subscriptions: Subscription[] = [];
   primaryLang = localStorage.getItem('langCode');
   workingDays: string;
+  centerSelectedOption: string = '';
 
   constructor(
     public dialog: MatDialog,
@@ -71,6 +72,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.users = this.service.getNameList();
     this.getRecommendedCenters();
     this.getErrorLabels();
+    this.centerSelectedOption = 'Recommandés'; // TODO: translate centerSelection.display_recommended' | translate
   }
 
   getErrorLabels() {
