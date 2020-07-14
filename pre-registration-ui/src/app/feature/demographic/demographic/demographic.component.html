@@ -20,7 +20,7 @@
                                 <input
                                         matInput
                                         #firstName
-                                        placeholder="Your first name"
+                                        placeholder="prénom"
                                         [formControlName]="formControlNames.firstName"
                                 />
                                 <mat-error *ngIf="!firstName.invalid">
@@ -34,7 +34,7 @@
                                 <input
                                         matInput
                                         #lastName
-                                        placeholder="Your last name"
+                                        placeholder="nom de famille"
                                         [formControlName]="formControlNames.lastName"
                                 />
                                 <mat-error *ngIf="!lastName.invalid">
@@ -189,7 +189,7 @@
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, prefectures, regions, formControlNames.prefecture)"
-                                    placeholder="Region"
+                                    placeholder="Région"
                                     [formControlName]="formControlNames.region"
                                     #region
                             >
@@ -208,7 +208,7 @@
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, subPrefectureOrCommunes, prefectures, formControlNames.subPrefectureOrCommune)"
-                                    placeholder="Province"
+                                    placeholder="Préfecture"
                                     [formControlName]="formControlNames.prefecture"
                                     #prefecture
                             >
@@ -226,7 +226,7 @@
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, districts, subPrefectureOrCommunes, formControlNames.district)"
-                                    placeholder="Sub Prefecture or Commune"
+                                    placeholder="Sous-préfecture ou Commune"
                                     [formControlName]="formControlNames.subPrefectureOrCommune"
                                     #subprefecture
                             >
@@ -258,7 +258,7 @@
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, null, sectors)"
-                                    placeholder="Sector"
+                                    placeholder="Secteur"
                                     [formControlName]="formControlNames.sector"
                                     #sector
                             >
@@ -275,7 +275,7 @@
                             <textarea
                                     matInput
                                     #additionalAddressDetails
-                                    placeholder="Additional address details"
+                                    placeholder="Complément d'adresse"
                                     [formControlName]="formControlNames.additionalAddressDetails"
                                     rows="4"
                             >

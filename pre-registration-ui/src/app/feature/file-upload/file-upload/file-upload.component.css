@@ -31,6 +31,7 @@
   background-repeat: no-repeat;
   border: none;
   display: block !important;
+  outline: none;
 }
 .browseInputhide{
   display: block !important;
@@ -299,7 +300,8 @@ mat-select:focus {
 }
 
 .file-upload__or {
-  padding-left: 1rem;
+ /* padding-left: 1rem;*/
+  padding-top: 1rem;
 }
 
 .file-buttons {

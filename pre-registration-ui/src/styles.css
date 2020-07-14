@@ -196,6 +196,9 @@ body {
   padding: 0;
   line-height: 30px;
 }
+.mat-form-field-hide-placeholder .mat-select-placeholder{
+  display: none !important;
+}
 
 @media (max-width: 500px) {
   .mat-keyboard .mat-raised-button {
@@ -255,7 +258,6 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 .mat-form-field-appearance-legacy .mat-form-field-infix{
   border: solid 2px #BCE0FD !important;
   border-radius: 10px !important;
-  text-transform: uppercase;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix{
   /*Suppression du border solid sur le field email*/
@@ -282,6 +284,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 }
 .mat-icon{
   width: auto !important;
+  color: white !important;
 }
 .mat-form-field-label{
   color: #020F59 !important;
@@ -308,6 +311,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   }
   .mat-select-value{
     color: #020F59 !important;
+    text-transform: uppercase !important;
   }
   /*
   .mat-raised-button{
