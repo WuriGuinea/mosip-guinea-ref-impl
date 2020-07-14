@@ -65,7 +65,7 @@
             </div>
           </div>
         </span>
-        <span *ngIf="document.code === 'POA'">
+        <span style="margin-left: 40px;" *ngIf="document.code === 'POA'">
           <span id="sameas" *ngIf="allApplicants.length > 1"> {{ 'documents.OR' | translate }}</span>
           <span *ngIf="allApplicants.length > 1">
             <mat-form-field class="file-upload__or">
