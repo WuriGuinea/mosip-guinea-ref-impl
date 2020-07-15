@@ -105,6 +105,10 @@ section {
   line-height: 1;
   width: 96%;
 }
+#schedule{
+  position: relative;
+  top: 8px;
+}
 
 .center-card-selected {
   border: 1px solid #020F59;

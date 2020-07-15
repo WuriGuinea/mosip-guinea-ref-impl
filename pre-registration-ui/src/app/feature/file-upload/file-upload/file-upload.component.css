@@ -32,6 +32,7 @@
   border: none;
   display: block !important;
   outline: none;
+  z-index: auto;
 }
 .browseInputhide{
   display: block !important;
@@ -50,12 +51,21 @@
   width: 29px;
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 0;
 }
 .deleteicon[disabled]{
-  border: 1px solid #BCE0FD;
+  /*border: 1px solid #BCE0FD;
   color: #ffffff;
   background: #BCE0FD;
-  margin-left: 2px;
+  margin-left: 2px;*/
+  background-image: url('/assets/deleteicon.svg');
+  
+  height: 29px;
+  width: 29px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  display: block !important;
 }
 .deleteandview{
   margin-left: 5px;
@@ -73,10 +83,10 @@
   left: 1em;
 }
 mat-select {
-  font-weight: 600;
+  font-weight: normal;
 }
 mat-select:focus {
-  font-weight: 400;
+  font-weight: normal;
 }
 .mat-select-value{
   color: #020F59 !important
@@ -130,7 +140,7 @@ mat-select:focus {
   box-shadow: 1px 1px 10px 4px #eeeeee;
   background: #ffffff;
   margin: -2px 2vw 5vw;
-  color: #838383;
+  color: #020F59;
   border: solid 1px #020F59;
   height: auto;
   border-radius: 16px;
@@ -198,13 +208,27 @@ mat-select:focus {
   padding-top: 22px;
 }
 .deleteicon{
-  background: #020F59;
+ /* background: #020F59;
   border: 1px solid #020F59;
   color: #ffffff;
   border-radius: 2px;
   padding: 0.3rem 11.4px;
   margin-left: 2px;
   height: 29px !important;
+  outline: none;*/
+  background-image: url('/assets/supp.png');
+  
+  height: 29px;
+  width: 29px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+}
+#sameas{
+  margin: 40px;
+  position: relative;
+  top: 9px;
 }
 
 .file-upload__body__document-name {
@@ -212,6 +236,7 @@ mat-select:focus {
   padding: 0.2rem 0;
   font-size: 0.8rem;
   position: relative;
+  margin-left: -34px;
 }
 
 .file-upload__body__document-name span:nth-child(2) {
@@ -238,11 +263,13 @@ mat-select:focus {
   margin-left: 78px;
   text-decoration: underline #BCE0FD;
   color: #020F59;
+  position: relative;
+  top: -3px;
 }
 .file-upload__button {
   display: inline-flex;
   justify-content: flex-end;
-  margin-left: 1.5rem;
+  margin-left: 0.5rem;
 }
 
 .file-uplaoad__body__2__preview {

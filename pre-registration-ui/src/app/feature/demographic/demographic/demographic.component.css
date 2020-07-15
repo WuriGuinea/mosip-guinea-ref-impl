@@ -392,7 +392,7 @@ mat-icon {
   display: none;
 }
 .mat-form-field-appearance-legacy .mat-form-field-infix{
-  border: solid 2px #BCE0FD !important;
+  border: solid 2px #9b9d9e !important;
   border-radius: 10px !important;
 }
 .mat-form-field-appearance-legacy .mat-form-field-label{
@@ -428,4 +428,6 @@ input.mat-input-element{
 }
 textarea.mat-input-element{
   text-transform: uppercase;
+  border: solid 1px #BCE0FD ;
+  border-radius: 5px;
 }
