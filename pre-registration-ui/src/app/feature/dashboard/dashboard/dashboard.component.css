@@ -117,6 +117,7 @@ img {
 }
 .mat-card-footer {
   margin-left: 18px;
+  margin: -28px -16px -16px -2px;
 }
 .footer-btn {
   font-size: 9px;

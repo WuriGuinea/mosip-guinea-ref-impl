@@ -161,6 +161,9 @@ body {
   background: rgba(255, 255, 255, 1) !important;
   color: rgba(102, 102, 102, 1) !important;
 }
+.mat-select-panel .mat-option{
+  border: solid 1px #BCE0FD !important;
+}
 
 .icon {
   margin: 5px;
@@ -198,6 +201,9 @@ body {
 }
 .mat-form-field-hide-placeholder .mat-select-placeholder{
   display: none !important;
+}
+.mat-select-placeholder{
+  color: #020F59;
 }
 
 @media (max-width: 500px) {
@@ -317,7 +323,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   }
   .mat-select-value{
     color: #020F59 !important;
-    text-transform: uppercase !important;
+    text-transform: none !important;
   }
   /*
   .mat-raised-button{
