@@ -161,9 +161,6 @@ body {
   background: rgba(255, 255, 255, 1) !important;
   color: rgba(102, 102, 102, 1) !important;
 }
-.mat-select-panel .mat-option{
-  border: solid 1px #BCE0FD !important;
-}
 
 .icon {
   margin: 5px;
