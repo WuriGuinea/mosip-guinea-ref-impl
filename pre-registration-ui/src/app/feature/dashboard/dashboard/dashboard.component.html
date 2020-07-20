@@ -17,15 +17,15 @@
           class="btn_axn-sec page_btn mar_right-30"
           (click)="onModifyMultipleAppointment()"
         >
-          <img src="assets\Book_Modify Appointment.png" class="modify-app-img" />
           {{ 'dashboard.action_modify_appointment' | translate }}
         </button></span
       >
       <span>
         <!-- class="create-app-btn" -->
         <button class="btn_axn-pri page_btn" (click)="onNewApplication()">
-          <img src="assets\Create new application.png" class="create-app-img" />
-          {{ 'dashboard.action_cre_application' | translate }}
+          <img style="position: relative;top: 6px;" src="assets\Create new application.png" class="create-app-img" />
+          {{ 'dashboard.action_cre_application' | translate }} <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; {{ 'dashboard.action_cre2_application' | translate }}
         </button></span
       >
     </div>

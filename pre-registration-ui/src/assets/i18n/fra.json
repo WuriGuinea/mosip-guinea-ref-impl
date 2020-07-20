@@ -440,8 +440,9 @@
 	"dashboard": {
 		"title": "Dossiers",
 		"action_modify_information": "Modifier les informations",
-		"action_modify_appointment": "Réserver / Déplacer un Rendez-vous",
-		"action_cre_application": "Créer une nouvelle demande ",
+		"action_modify_appointment": "Créer / Déplacer le Rendez-vous",
+		"action_cre_application": "Nouvelle ",
+		"action_cre2_application": "Demande ",
 		"card": {
 			"text_app_id": "No de Demande",
 			"text_name": "Prénom",

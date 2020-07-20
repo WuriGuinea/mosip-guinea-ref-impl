@@ -119,6 +119,9 @@ img {
   margin-left: 18px;
   margin: -28px -16px -16px -2px;
 }
+.btn_axn-sec.page_btn{
+  max-width: 200px !important;
+}
 .footer-btn {
   font-size: 9px;
   margin: 2px;
@@ -127,12 +130,6 @@ img {
 }
 .download-btn-img {
   height: 14px;
-}
-.modifyapp-btn-img {
-  height: 12px;
-  /*filter: grayscale(100%);*/
-  position: relative;
-  left: 68px;
 }
 .modifyinfo-btn-img {
   height: 14px;

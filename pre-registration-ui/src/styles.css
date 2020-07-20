@@ -272,6 +272,9 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   /*Suppression du border solid sur le field email*/
   border: none !important;
 }
+.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button{
+  margin: 0 32px !important;
+}
 .mat-checkbox-inner-container{
   background: #fff;
 }
