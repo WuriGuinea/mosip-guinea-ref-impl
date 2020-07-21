@@ -291,7 +291,7 @@ mat-icon {
 .user__btn:disabled,
 .user__btn:active {
 
-  color: #2f3033;
+  color: #020F59;
   cursor: default;
   border: none !important ;
 }
@@ -428,6 +428,7 @@ input.mat-input-element{
 }
 textarea.mat-input-element{
   text-transform: uppercase;
-  border: solid 1px #BCE0FD ;
+  /*border: solid 1px #BCE0FD ;*/
   border-radius: 5px;
+  height: 32px;
 }
