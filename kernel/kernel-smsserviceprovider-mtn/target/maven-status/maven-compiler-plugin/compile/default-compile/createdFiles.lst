@@ -1,6 +1,0 @@
-io\mosip\kernel\smsserviceprovider\mtn\dto\SmsVendorRequestDto.class
-io\mosip\kernel\smsserviceprovider\mtn\constant\SmsPropertyConstant.class
-io\mosip\kernel\smsserviceprovider\mtn\exception\ApiExceptionHandler.class
-io\mosip\kernel\smsserviceprovider\mtn\impl\SMSServiceProviderImpl.class
-io\mosip\kernel\smsserviceprovider\mtn\constant\SmsExceptionConstant.class
-io\mosip\kernel\smsserviceprovider\mtn\dto\SmsServerResponseDto.class
