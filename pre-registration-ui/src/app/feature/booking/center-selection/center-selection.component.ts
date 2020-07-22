@@ -224,14 +224,14 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
 
   routeDashboard() {
     this.canDeactivateFlag = false;
-    const url = Utils.getURL(this.router.url, 'dashboard', 3);
+    const url = Utils.getURL(this.router.url, '', 3);
     this.router.navigateByUrl(url);
   }
 
   routeBack() {
     let url = '';
     if (this.registrationService.getUsers().length === 0) {
-      url = Utils.getURL(this.router.url, 'dashboard', 3);
+      url = Utils.getURL(this.router.url, '', 3);
     } else {
       url = Utils.getURL(this.router.url, 'summary/preview', 2);
     }
