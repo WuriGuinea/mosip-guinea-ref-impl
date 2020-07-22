@@ -24,7 +24,7 @@
   margin: 0px 2vw;
   padding-top: 0;
   padding-bottom: 0;
-  color: #666666;
+  color: #020F59;
 }
 .mat-form-field.wrapper{
   border: solid 1px rgba(0,0,0,.125) !important;
@@ -139,6 +139,7 @@ mat-icon {
   display: flex;
   width: 87.5%;
   align-items: center;
+  margin-top: 19px;
 }
 
 .user__age-or-date > div {
@@ -428,7 +429,7 @@ input.mat-input-element{
 }
 textarea.mat-input-element{
   text-transform: uppercase;
-  /*border: solid 1px #BCE0FD ;*/
+  border: solid 1px #BCE0FD ;
   border-radius: 5px;
-  height: 32px;
+  height: 30px;
 }

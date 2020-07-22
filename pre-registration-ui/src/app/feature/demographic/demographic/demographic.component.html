@@ -169,6 +169,7 @@
                     </div>
                     <div class="user__dropdown">
                         <mat-form-field>
+                            <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>   
                             <input
                                 #email
                                 maxlength="{{ EMAIL_LENGTH }}"
@@ -269,8 +270,7 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner une sector</mat-error>
                         </mat-form-field>
                     </div>
-                    <div class="row">
-                        <mat-form-field style="border-bottom: none !important;">
+                    <div style="margin-top: 15px;"class="row"> 
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}</mat-label>
                             <textarea
                                     matInput
@@ -280,7 +280,6 @@
                                     rows="4"
                             >
                             </textarea>
-                        </mat-form-field>
                     </div>
 
                 </div>
