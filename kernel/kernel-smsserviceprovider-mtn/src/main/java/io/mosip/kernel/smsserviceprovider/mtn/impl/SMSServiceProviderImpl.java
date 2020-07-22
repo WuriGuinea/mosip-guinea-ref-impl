@@ -50,8 +50,7 @@ private String affiliate;
 		SMSResponseDto smsResponseDTO = new SMSResponseDto();
 		validateInput(contactNumber);
 		contactNumber=countryCode.concat(contactNumber);
-		
-		UriComponentsBuilder sms = UriComponentsBuilder.fromHttpUrl(apiUrl)
+				UriComponentsBuilder sms = UriComponentsBuilder.fromHttpUrl(apiUrl)
 				.queryParam(SmsPropertyConstant.SENDER_ID.getProperty(), senderId)
 				.queryParam(SmsPropertyConstant.PROVIDER_CLIENT.getProperty(), clienId)
 				.queryParam(SmsPropertyConstant.PROVIDER_PASSWORD.getProperty(), password)
@@ -62,17 +61,19 @@ private String affiliate;
 		try {
 			restTemplate.getForEntity(sms.toUriString(), String.class);
 		} catch (HttpClientErrorException | HttpServerErrorException e) {
+			System.out.println("Erreur au paradis");
 			throw new RuntimeException(e.getResponseBodyAsString());
 		}
 		smsResponseDTO.setMessage(SmsPropertyConstant.SUCCESS_RESPONSE.getProperty());
 		smsResponseDTO.setStatus("success");
+	System.out.println("OKUR"+smsResponseDTO.toString());
 		return smsResponseDTO;
 	}
 
 	private void validateInput(String contactNumber) {
 		if (!StringUtils.isNumeric(contactNumber) || contactNumber.length() < numberLength
 				|| contactNumber.length() > numberLength) {
-			throw new InvalidNumberException(SmsExceptionConstant.SMS_INVALID_CONTACT_NUMBER.getErrorCode(),
+				throw new InvalidNumberException(SmsExceptionConstant.SMS_INVALID_CONTACT_NUMBER.getErrorCode(),
 					SmsExceptionConstant.SMS_INVALID_CONTACT_NUMBER.getErrorMessage() + numberLength
 							+ SmsPropertyConstant.SUFFIX_MESSAGE.getProperty());
 		}
