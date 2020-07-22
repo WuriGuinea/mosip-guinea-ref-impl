@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ApiExceptionHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">kernel-smsserviceprovider-mtn</a> &gt; <a href="index.source.html" class="el_package">io.mosip.kernel.smsserviceprovider.mtn.exception</a> &gt; <span class="el_source">ApiExceptionHandler.java</span></div><h1>ApiExceptionHandler.java</h1><pre class="source lang-java linenums">package io.mosip.kernel.smsserviceprovider.mtn.exception;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import io.mosip.kernel.core.exception.ExceptionUtils;
+import io.mosip.kernel.core.exception.ServiceError;
+import io.mosip.kernel.core.http.ResponseWrapper;
+import io.mosip.kernel.core.notification.exception.InvalidNumberException;
+import io.mosip.kernel.core.util.EmptyCheckUtils;
+import io.mosip.kernel.smsserviceprovider.mtn.constant.SmsExceptionConstant;
+
+/**
+ * Class for handling exceptions.
+ * 
+ * @author Urvil Joshi
+ * @since 1.0.0
+ *
+ */
+@Order(Ordered.HIGHEST_PRECEDENCE-1)
+@RestControllerAdvice
+<span class="fc" id="L43">public class ApiExceptionHandler {</span>
+
+	/**
+	 * Reference to ObjectMapper.
+	 */
+	@Autowired
+	private ObjectMapper objectMapper;
+
+	private static final String WHITESPACE = &quot; &quot;;
+
+	/**
+	 * This method handles MethodArgumentNotValidException type of exceptions.
+	 * 
+	 * @param httpServletRequest the request
+	 * @param exception          The exception
+	 * @return The response entity.
+	 * @throws IOException the IOException
+	 */
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity&lt;ResponseWrapper&lt;ServiceError&gt;&gt; smsInvalidInputsFound(
+			final HttpServletRequest httpServletRequest, final MethodArgumentNotValidException exception)
+			throws IOException {
+<span class="nc" id="L65">		ResponseWrapper&lt;ServiceError&gt; responseWrapper = setErrors(httpServletRequest);</span>
+<span class="nc" id="L66">		BindingResult bindingResult = exception.getBindingResult();</span>
+<span class="nc" id="L67">		final List&lt;FieldError&gt; fieldErrors = bindingResult.getFieldErrors();</span>
+<span class="nc" id="L68">		fieldErrors.forEach(x -&gt; {</span>
+<span class="nc" id="L69">			ServiceError error = new ServiceError(SmsExceptionConstant.SMS_ILLEGAL_INPUT.getErrorCode(),</span>
+<span class="nc" id="L70">					x.getField() + WHITESPACE + x.getDefaultMessage());</span>
+<span class="nc" id="L71">			responseWrapper.getErrors().add(error);</span>
+<span class="nc" id="L72">		});</span>
+<span class="nc" id="L73">		return new ResponseEntity&lt;&gt;(responseWrapper, HttpStatus.OK);</span>
+	}
+
+	/**
+	 * This method handles MosipInvalidNumberException type of exceptions.
+	 * 
+	 * @param httpServletRequest the request
+	 * @param e                  The exception
+	 * @return The response entity.
+	 * @throws IOException the IOException
+	 */
+	@ExceptionHandler(InvalidNumberException.class)
+	public ResponseEntity&lt;ResponseWrapper&lt;ServiceError&gt;&gt; smsNotificationInvalidNumber(
+			final HttpServletRequest httpServletRequest, final InvalidNumberException e) throws IOException {
+<span class="nc" id="L87">		ResponseWrapper&lt;ServiceError&gt; errorResponse = setErrors(httpServletRequest);</span>
+<span class="nc" id="L88">		ServiceError error = new ServiceError(e.getErrorCode(), e.getErrorText());</span>
+<span class="nc" id="L89">		errorResponse.getErrors().add(error);</span>
+<span class="nc" id="L90">		return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.OK);</span>
+
+	}
+
+	/**
+	 * This method handle HttpMessageNotReadableException type of exception.
+	 * 
+	 * @param httpServletRequest the request.
+	 * @param e                  the exception.
+	 * @return the response entity.
+	 * @throws IOException IOException.
+	 */
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	public ResponseEntity&lt;ResponseWrapper&lt;ServiceError&gt;&gt; onHttpMessageNotReadable(
+			final HttpServletRequest httpServletRequest, final HttpMessageNotReadableException e) throws IOException {
+<span class="nc" id="L105">		ResponseWrapper&lt;ServiceError&gt; errorResponse = setErrors(httpServletRequest);</span>
+<span class="nc" id="L106">		ServiceError error = new ServiceError(SmsExceptionConstant.SMS_ILLEGAL_INPUT.getErrorCode(), e.getMessage());</span>
+<span class="nc" id="L107">		errorResponse.getErrors().add(error);</span>
+<span class="nc" id="L108">		return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.OK);</span>
+	}
+
+	/**
+	 * This method handle HttpClientErrorException type of exception.
+	 * 
+	 * @param httpServletRequest the request.
+	 * @param e                  the exception.
+	 * @return the response entity.
+	 * @throws IOException IOException.
+	 */
+	@ExceptionHandler(HttpClientErrorException.class)
+	public ResponseEntity&lt;ResponseWrapper&lt;ServiceError&gt;&gt; smsVendorServiceException(
+			final HttpServletRequest httpServletRequest, final HttpClientErrorException e) throws IOException {
+<span class="nc" id="L122">		ResponseWrapper&lt;ServiceError&gt; errorResponse = setErrors(httpServletRequest);</span>
+
+<span class="nc" id="L124">		JsonNode responseTree = objectMapper.readTree(e.getResponseBodyAsString());</span>
+<span class="nc" id="L125">		String errorMessage = null;</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">		if (responseTree != null) {</span>
+<span class="nc" id="L127">			responseTree = responseTree.get(&quot;requestError&quot;).get(&quot;serviceException&quot;);</span>
+<span class="nc" id="L128">			errorMessage = responseTree.get(&quot;text&quot;).asText();</span>
+		} else {
+<span class="nc" id="L130">			errorMessage = e.getMessage();</span>
+		}
+<span class="nc" id="L132">		ServiceError error = new ServiceError(SmsExceptionConstant.SMS_INVALID_CREDENTIAL.getErrorCode(), errorMessage);</span>
+<span class="nc" id="L133">		errorResponse.getErrors().add(error);</span>
+<span class="nc" id="L134">		return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.OK);</span>
+	}
+
+	@ExceptionHandler(HttpServerErrorException.class)
+	public ResponseEntity&lt;ResponseWrapper&lt;ServiceError&gt;&gt; httpServerErrorException(HttpServletRequest httpServletRequest,
+			final HttpServerErrorException exception) throws IOException {
+<span class="nc" id="L140">		ResponseWrapper&lt;ServiceError&gt; errorResponse = setErrors(httpServletRequest);</span>
+<span class="nc" id="L141">		JsonNode responseTree = objectMapper.readTree(exception.getResponseBodyAsString());</span>
+<span class="nc" id="L142">		String errorMessage = null;</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">		if (responseTree != null) {</span>
+<span class="nc" id="L144">			responseTree = responseTree.get(&quot;requestError&quot;).get(&quot;serviceException&quot;);</span>
+<span class="nc" id="L145">			errorMessage = responseTree.get(&quot;text&quot;).asText();</span>
+		} else {
+<span class="nc" id="L147">			errorMessage = exception.getMessage();</span>
+		}
+<span class="nc" id="L149">		ServiceError error = new ServiceError(&quot;KER-NOS-004&quot;, errorMessage);</span>
+<span class="nc" id="L150">		errorResponse.getErrors().add(error);</span>
+<span class="nc" id="L151">		return new ResponseEntity&lt;&gt;(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);</span>
+	}
+
+	@ExceptionHandler(value = { Exception.class, RuntimeException.class })
+	public ResponseEntity&lt;ResponseWrapper&lt;ServiceError&gt;&gt; defaultErrorHandler(
+			final HttpServletRequest httpServletRequest, Exception e) throws IOException {
+
+<span class="nc" id="L158">		ResponseWrapper&lt;ServiceError&gt; responseWrapper = setErrors(httpServletRequest);</span>
+<span class="nc" id="L159">		ServiceError error = new ServiceError(SmsExceptionConstant.INTERNAL_SERVER_ERROR.getErrorCode(),</span>
+<span class="nc" id="L160">				e.getMessage());</span>
+<span class="nc" id="L161">		responseWrapper.getErrors().add(error);</span>
+<span class="nc" id="L162">		ExceptionUtils.logRootCause(e);</span>
+<span class="nc" id="L163">		return new ResponseEntity&lt;&gt;(responseWrapper, HttpStatus.INTERNAL_SERVER_ERROR);</span>
+	}
+
+	private ResponseWrapper&lt;ServiceError&gt; setErrors(HttpServletRequest httpServletRequest) throws IOException {
+<span class="nc" id="L167">		ResponseWrapper&lt;ServiceError&gt; responseWrapper = new ResponseWrapper&lt;&gt;();</span>
+<span class="nc" id="L168">		String requestBody = null;</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">		if (httpServletRequest instanceof ContentCachingRequestWrapper) {</span>
+<span class="nc" id="L170">			requestBody = new String(((ContentCachingRequestWrapper) httpServletRequest).getContentAsByteArray());</span>
+		}
+<span class="nc bnc" id="L172" title="All 2 branches missed.">		if (EmptyCheckUtils.isNullEmpty(requestBody)) {</span>
+<span class="nc" id="L173">			return responseWrapper;</span>
+		}
+<span class="nc" id="L175">		objectMapper.registerModule(new JavaTimeModule());</span>
+<span class="nc" id="L176">		JsonNode reqNode = objectMapper.readTree(requestBody);</span>
+<span class="nc" id="L177">		responseWrapper.setId(reqNode.path(&quot;id&quot;).asText());</span>
+<span class="nc" id="L178">		responseWrapper.setVersion(reqNode.path(&quot;version&quot;).asText());</span>
+<span class="nc" id="L179">		return responseWrapper;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
