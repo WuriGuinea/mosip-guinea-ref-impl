@@ -1,1 +1,6 @@
-﻿regcntr_id,usr_id,machine_id,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes
+﻿regcntr_id,usr_id,machine_id,lang_code,is_active,cr_by,cr_dtimes
+10001,110001,10001,fra,TRUE,superadmin,now()
+10001,110002,10002,fra,TRUE,superadmin,now()
+10001,110003,10003,fra,TRUE,superadmin,now()
+10002,lisbon,10004,fra,TRUE,superadmin,now()
+10002,madrid,10005,fra,TRUE,superadmin,now()
