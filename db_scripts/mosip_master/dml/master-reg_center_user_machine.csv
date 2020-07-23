@@ -2,5 +2,5 @@
 10001,110001,10001,fra,TRUE,superadmin,now()
 10001,110002,10002,fra,TRUE,superadmin,now()
 10001,110003,10003,fra,TRUE,superadmin,now()
-10002,110004,10004,fra,TRUE,superadmin,now()
-10002,110005,10005,fra,TRUE,superadmin,now()
+10002,lisbon,10004,fra,TRUE,superadmin,now()
+10002,madrid,10005,fra,TRUE,superadmin,now()
