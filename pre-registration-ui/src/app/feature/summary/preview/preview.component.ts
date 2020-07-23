@@ -64,10 +64,42 @@ export class PreviewComponent implements OnInit {
   setFieldValues() {
     let fields = appConstants.previewFields;
     fields.forEach(field => {
-      this.previewData[field].forEach(element => {
-        element.name = this.locCodeToName(element.value, element.language);
-      });
+      if(field === 'gender'){
+        this.previewData[field].forEach(element => {
+          element.name = this.getGenderCodeToName(element.value, element.language);
+        });
+      } else if(field === 'residenceStatus'){
+        this.previewData[field].forEach(element => {
+          element.name = this.getresidenceStatusCodeToName(element.value, element.language);
+        });
+      } else {
+        this.previewData[field].forEach(element => {
+          element.name = this.locCodeToName(element.value, element.language);
+        });
+      }
+
     });
+  }
+
+  getGenderCodeToName(code: string, language: string){
+    const genders = this.registrationService.getGenderTypes();
+    console.log("genders", genders);
+    for(let i=0;i<genders.length;i++){
+      if(genders[i]['code'] === code){
+        return genders[i]['genderName']
+      }
+    }
+    return '';
+  }
+
+  getresidenceStatusCodeToName(code: string, language: string){
+    const ress = this.registrationService.getIndividualTypes();
+    for(let i=0;i<ress.length;i++){
+      if(ress[i]['code'] === code){
+        return ress[i]['name']
+      }
+    }
+    return '';
   }
 
   documentsMapping() {

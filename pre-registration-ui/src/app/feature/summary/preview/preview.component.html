@@ -18,7 +18,7 @@
         -->
         <p id="previewtitle">{{ 'preview.title_preview' | translate }}</p>
            <h4>{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
-           <span 
+           <span
            (click)="this.router.navigate(['/pre-registration/demographic']);"
            class="preview__modify-file info_position_modify"
            matTooltip="{{ 'helpText.modify_at_DemoPreview' | translate }}"
@@ -54,7 +54,7 @@
               </tr>
               <tr>
                 <td>{{ 'preview.text_resident_status' | translate }}</td>
-   
+
                 <td class="text_uppercase">{{ previewData.residenceStatus[0].name }}</td>
               </tr>
             </table>
@@ -78,10 +78,10 @@
               </tr>
               <tr>
                 <td>{{ 'preview.label_email_id' | translate }}</td>
-  
+
                 <td id="position-txt" class="text_uppercase">{{ previewData.email }}</td>
               </tr>
-            
+
             </table>
           </div>
         </div>
@@ -132,7 +132,7 @@
 
           <td class="text_uppercase">{{ previewData.additionalAddressDetails }}</td>
         </tr>
-      
+
       </table>
     </div>
       </div>
@@ -145,12 +145,12 @@
           </tr>
           <tr>
             <td>{{ 'preview.label_region' | translate }}</td>
- 
+
             <td class="text_uppercase">{{ previewData.region[0].name }}</td>
           </tr>
           <tr>
             <td>{{ 'preview.label_province' | translate }}</td>
- 
+
             <td class="text_uppercase">{{ previewData.province[0].name }}</td>
           </tr>
           <tr>

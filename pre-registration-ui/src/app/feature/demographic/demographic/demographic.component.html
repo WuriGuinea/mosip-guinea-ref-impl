@@ -5,7 +5,7 @@
     <div class="wrapper">
         <div class="user">
 
-            
+
             <!-- <header>{{ 'demographic.title' | translate }}</header>
             <hr />   SHOW THIS ONLY ON MBILE DEVICES-->
 
@@ -105,7 +105,7 @@
                     </div>
 
                     <div class="user__genderAndForeigner user__dropdown">
-                       
+
                         <mat-form-field>
                             <mat-select
                                     [formControlName]="formControlNames.gender"
@@ -123,10 +123,10 @@
                                 {{ 'demographic.validation.gender_validation' | translate }}</mat-error>
                         </mat-form-field>
                     </div>
-            
+
 
                     <div class="user__genderAndForeigner user__dropdown">
-                       
+
                         <mat-form-field>
                             <mat-select
                                     [formControlName]="formControlNames.residenceStatus"
@@ -135,7 +135,7 @@
                                     appearance="legacy"
                                     name="fontStyle"
                                     aria-label="Font Style"
-                                    
+
                             >
                                 <mat-option *ngFor="let resident of residenceStatus" [value]="resident.code">
                                     {{ resident.name }}
@@ -147,10 +147,10 @@
                                 </mat-error>
                         </mat-form-field>
                     </div>
-            
+
                     <br/>
                     <h4 class="titlecolor">{{ 'demographic.contact_section_title' | translate }}</h4>
-                    
+
                     <div class="user__dropdown">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_mob_num' | translate }}</mat-label>

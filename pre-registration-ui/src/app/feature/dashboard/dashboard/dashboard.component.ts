@@ -23,9 +23,6 @@ import { LogService } from 'src/app/shared/logger/log.service';
 import LanguageFactory from 'src/assets/i18n';
 import { Subscription } from 'rxjs';
 import {AuthService} from "../../../auth/auth.service";
-import {catchError} from "rxjs/operators";
-// import { ErrorService } from 'src/app/shared/error/error.service';
-
 /**
  * @description This is the dashbaord component which displays all the users linked to the login id
  *              and provide functionality like modifying the information, viewing the acknowledgement
@@ -98,42 +95,96 @@ export class DashBoardComponent implements OnInit, OnDestroy {
    *
    * @memberof DashBoardComponent
    */
-  ngOnInit() {
-    this.dataService.getConfig().subscribe(
-      response => {
-        this.configService.setConfig(response);
-        const authenticated = this.authService.getLogin()
-          .then((authenticated) => {
-            if (!authenticated){
-              this.router.navigate(['/login']);
-            } else {
-              this.initUsers();
-              const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
-              this.subscriptions.push(subs);
-              if (!this.message['timerFired']) {
-                this.autoLogout.getValues(this.primaryLangCode);
-                this.autoLogout.setValues();
-                this.autoLogout.keepWatching();
-              } else {
-                this.autoLogout.getValues(this.primaryLangCode);
-                this.autoLogout.continueWatching();
-              }
-              let factory = new LanguageFactory(this.primaryLangCode);
-              let response = factory.getCurrentlanguage();
-              this.secondaryLanguagelabels = response['dashboard'].discard;
-              this.regService.setSameAs('');
-            }
-          })
-          .catch((error) => {
-            this.loggerService.error('dashboard', error);
-            this.onError();
-          });
-      },
-      error => {
-        this.loggerService.error('dashboard', error);
-        this.onError();
+  async ngOnInit() {
+    await this.getConfig();
+    const authenticated = await this.authService.getLogin();
+    if (!authenticated){
+      await this.router.navigate(['/login']);
+    } else {
+      this.initUsers();
+      await this.getGenderDetails();
+      await this.getResidentDetails();
+      const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
+      this.subscriptions.push(subs);
+      if (!this.message['timerFired']) {
+        this.autoLogout.getValues(this.primaryLangCode);
+        this.autoLogout.setValues();
+        this.autoLogout.keepWatching();
+      } else {
+        this.autoLogout.getValues(this.primaryLangCode);
+        this.autoLogout.continueWatching();
       }
-    );
+      let factory = new LanguageFactory(this.primaryLangCode);
+      let response = factory.getCurrentlanguage();
+      this.secondaryLanguagelabels = response['dashboard'].discard;
+      this.regService.setSameAs('');
+    }
+  }
+
+  async getConfig(){
+    return new Promise(resolve => {
+      this.dataService.getConfig().subscribe(
+        response => {
+          this.configService.setConfig(response);
+          resolve();
+        },
+        error => {
+          this.loggerService.error('dashboard', error);
+          this.onError();
+          resolve();
+        });
+    });
+  }
+
+  private getGenderDetails() {
+    return new Promise(resolve => {
+      this.subscriptions.push(
+        this.dataStorageService.getGenderDetails().subscribe(
+          response => {
+            if (response[appConstants.RESPONSE]) {
+              this.regService.setGenderTypes(response[appConstants.RESPONSE][appConstants.DEMOGRAPHIC_RESPONSE_KEYS.genderTypes]);
+              resolve(true);
+            } else {
+              this.onError(new Error("not able to find response"));
+              resolve(true);
+            }
+          },
+          error => {
+            this.loggerService.error('Unable to fetch gender');
+            this.onError(error);
+          }
+        )
+      );
+    });
+  }
+
+  /**
+   * @description This will get the residenceStatus details from the master data.
+   *
+   * @private
+   * @returns
+   * @memberof DemographicComponent
+   */
+  private getResidentDetails() {
+    return new Promise(resolve => {
+      this.subscriptions.push(
+        this.dataStorageService.getResidentDetails().subscribe(
+          response => {
+            if (response[appConstants.RESPONSE]) {
+              this.regService.setIndividualTypes(response[appConstants.RESPONSE][appConstants.DEMOGRAPHIC_RESPONSE_KEYS.residentTypes]);
+              resolve(true);
+            } else {
+              this.onError(new Error("not able to find response"));
+              resolve(true);
+            }
+          },
+          error => {
+            this.loggerService.error('Unable to fetch Resident types');
+            this.onError(error);
+          }
+        )
+      );
+    });
   }
 
   /**
@@ -163,7 +214,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
           applicants[appConstants.NESTED_ERROR] &&
           applicants[appConstants.NESTED_ERROR][0][appConstants.ERROR_CODE] ===
             appConstants.ERROR_CODES.noApplicantEnrolled
-        ) 
+        )
         {
           localStorage.setItem('newApplicant', 'true');
           this.onNewApplication();
@@ -172,7 +223,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
 
         if (applicants[appConstants.RESPONSE] && applicants[appConstants.RESPONSE] !== null) {
           localStorage.setItem('newApplicant', 'false');
-       
+
           this.allApplicants =
             applicants[appConstants.RESPONSE][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.basicDetails];
           this.bookingService.addApplicants(
@@ -272,14 +323,6 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     // let secondaryIndex = 1;
     let lang =
       applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.fullname][0]['language'];
-    // if (lang !== this.primaryLangCode) {
-    //   primaryIndex = 1;
-    //   secondaryIndex = 0;
-    // }
-    // if (this.primaryLangCode === this.secondaryLangCode) {
-    //   primaryIndex = 0;
-    //   secondaryIndex = 0;
-    // }
     const applicant: Applicant = {
       applicationID: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.applicant.preId],
       name:
