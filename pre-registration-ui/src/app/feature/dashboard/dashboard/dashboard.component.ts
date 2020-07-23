@@ -701,8 +701,6 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   private async onError(error?: any) {
     await this.getErrorLabels();
     let message = this.errorLanguagelabels.error;
-    // this.titleOnError = this.errorLanguagelabels.errorLabel;
-    // this.errorService.onError(this.titleOnError, message, error, this.errorLanguagelabels);
     this.titleOnError = this.errorLanguagelabels.errorLabel;
     if (
       error &&
