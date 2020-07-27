@@ -33,19 +33,18 @@ public class SmsServiceProviderTest {
 	@MockBean
 	RestTemplate restTemplate;
 
-
 	@Value("${mosip.kernel.sms.country.code}")
-private   String countryCode   ;
-@Value("${mosip.kernel.sms.api}")
-private   String apiUrl ;
-@Value("${mosip.kernel.sms.client}")
-private   String clienId ;
-@Value("${mosip.kernel.sms.password}")
-private String password;
-@Value("${mosip.kernel.sms.sender}")
-private String senderId;
-@Value("${mosip.kernel.sms.affiliate}")
-private String affiliate;
+	private String countryCode;
+	@Value("${mosip.kernel.sms.api}")
+	private String apiUrl;
+	@Value("${mosip.kernel.sms.client}")
+	private String clienId;
+	@Value("${mosip.kernel.sms.password}")
+	private String password;
+	@Value("${mosip.kernel.sms.sender}")
+	private String senderId;
+	@Value("${mosip.kernel.sms.affiliate}")
+	private String affiliate;
 	@Value("${mosip.kernel.sms.unicode:1}")
 	String unicode;
 	@Value("${mosip.kernel.sms.number.length}")
@@ -79,19 +78,19 @@ private String affiliate;
 
 	}
 
-	//@Test(expected = InvalidNumberException.class)
+	@Test(expected = InvalidNumberException.class)
 	public void invalidContactNumberTest() {
 		service.sendSms("jsbchb", "hello your otp is 45373");
 	}
 
-//	@Test(expected = InvalidNumberException.class)
+	@Test(expected = InvalidNumberException.class)
 	public void contactNumberMinimumThresholdTest() {
 		service.sendSms("78978976", "hello your otp is 45373");
 	}
 
-@Test(expected = InvalidNumberException.class)
+	@Test(expected = InvalidNumberException.class)
 	public void contactNumberMaximumThresholdTest() {
-			service.sendSms("7897897458673484376", "hello your otp is 45373");
+		service.sendSms("7897897458673484376", "hello your otp is 45373");
 	}
 
 	@Test
