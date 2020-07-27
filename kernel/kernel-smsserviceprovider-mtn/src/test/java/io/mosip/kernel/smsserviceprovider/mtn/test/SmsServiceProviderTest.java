@@ -91,7 +91,7 @@ private String affiliate;
 
 @Test(expected = InvalidNumberException.class)
 	public void contactNumberMaximumThresholdTest() {
-		service.sendSms("7897897458673484376", "hello your otp is 45373");
+			service.sendSms("7897897458673484376", "hello your otp is 45373");
 	}
 
 	@Test

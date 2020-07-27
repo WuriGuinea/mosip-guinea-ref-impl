@@ -1,4 +1,4 @@
-## kernel-smsserviceprovider-msg91
+## kernel-smsserviceprovider-mtn
 
  [Background & Design]()
  
@@ -15,18 +15,15 @@
 [application-dev.properties](../../config/application-dev.properties)
 
  ```
- #-----------------------------VID Properties--------------------------------------
+#-----------------------------VID Properties--------------------------------------
 mosip.kernel.sms.enabled=true
-mosip.kernel.sms.country.code=91
-mosip.kernel.sms.number.length=10
+mosip.kernel.sms.country.code=224
+mosip.kernel.sms.number.length=9
 
-
-#----------msg91 gateway---------------
-mosip.kernel.sms.api=http://api.msg91.com/api/v2/sendsms
-mosip.kernel.sms.authkey=<authkey>
-mosip.kernel.sms.route=4
-mosip.kernel.sms.sender=MOSMSG
-
+#----------mtn gateway---------------
+mosip.kernel.sms.api=https://mtnguineevas.com/httpsms/Send
+mosip.kernel.sms.sender=WURI-GUINEE
+mosip.kernel.sms.affiliate=999
 auth.server.admin.validate.url=<auth server validate url>
 
  ```
@@ -36,7 +33,7 @@ auth.server.admin.validate.url=<auth server validate url>
  ```
  	<dependency>
 			<groupId>io.mosip.kernel</groupId>
-			<artifactId>kernel-smsserviceprovider-msg91</artifactId>
+			<artifactId>kernel-smsserviceprovider-mtn</artifactId>
 			<version>${version}</version>
 		</dependency>
 
