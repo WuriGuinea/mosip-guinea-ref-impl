@@ -393,7 +393,7 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   navigateDashboard() {
     this.canDeactivateFlag = false;
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['']);
   }
 
   reloadData() {
