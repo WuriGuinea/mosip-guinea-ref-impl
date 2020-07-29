@@ -122,41 +122,6 @@ export class DashBoardComponent implements OnInit, OnDestroy {
       this.secondaryLanguagelabels = response['dashboard'].discard;
       this.regService.setSameAs('');
     }
-    // this.dataService.getConfig().subscribe(
-    //   response => {
-    //     this.configService.setConfig(response);
-    //     const authenticated = this.authService.getLogin()
-    //       .then((authenticated) => {
-    //         if (!authenticated){
-    //           this.router.navigate(['/login']);
-    //         } else {
-    //           this.initUsers();
-    //           const subs = this.autoLogout.currentMessageAutoLogout.subscribe(message => (this.message = message));
-    //           this.subscriptions.push(subs);
-    //           if (!this.message['timerFired']) {
-    //             this.autoLogout.getValues(this.primaryLangCode);
-    //             this.autoLogout.setValues();
-    //             this.autoLogout.keepWatching();
-    //           } else {
-    //             this.autoLogout.getValues(this.primaryLangCode);
-    //             this.autoLogout.continueWatching();
-    //           }
-    //           let factory = new LanguageFactory(this.primaryLangCode);
-    //           let response = factory.getCurrentlanguage();
-    //           this.secondaryLanguagelabels = response['dashboard'].discard;
-    //           this.regService.setSameAs('');
-    //         }
-    //       })
-    //       .catch((error) => {
-    //         this.loggerService.error('dashboard', error);
-    //         this.onError();
-    //       });
-    //   },
-    //   error => {
-    //     this.loggerService.error('dashboard', error);
-    //     this.onError();
-    //   }
-    // );
   }
 
   async getConfig(){
