@@ -12,7 +12,6 @@
   }
 
 .header-text {
-    color: #FD5D93;
     font-weight: bold;
     font-size: 20px;
     margin-left: -117px;
@@ -36,7 +35,7 @@
 }
 
 .pink-text {
-    color: #FD5D93;
+    color: #020F59;
 }
 
 .white-text {
@@ -44,7 +43,7 @@
 }
 
 .active-panel {
-    background-color: #FD5D93;
+    background-color: #020F59;
     color: white;
 }
 

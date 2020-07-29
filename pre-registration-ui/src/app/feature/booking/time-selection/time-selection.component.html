@@ -75,11 +75,7 @@
                   {{ data.displayTime }}
                 </p>
                 <p [ngClass]="selectedCard === i ? 'card-slot-text-selected' : 'card-slot-text'">
-                  {{ data.availability }} {{ 'timeSelection.text_slots' | translate }}
-                  <span *ngIf="data.names.length !== 0" class="card-slot-text-span-number">{{ data.names.length }}</span
-                  ><span *ngIf="selectedCard === i" class="card-slot-text-span-image"
-                    ><img src="assets/slots.png" height="20px" width="20px"
-                  /></span>
+                 ( {{ data.availability }}) <!--{{ 'timeSelection.text_slots' | translate }} -->
                 </p>
               </mat-card-content>
             </mat-card>
@@ -93,6 +89,9 @@
           *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined"
           class="time-selection__name-list-header"
         >
+        <div *ngFor="let data of availabilityData[selectedTile].timeSlots;">
+          <span *ngIf="data.names.length !== 0" class="compteur">{{ data.names.length }}</span>
+        </div>
           <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDate }}</span
           >, <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDay }}</span>
           <br />
