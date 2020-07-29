@@ -1003,7 +1003,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       new UserModel(this.preRegId, request, this.regService.getUserFiles(this.step), this.codeValue)
     );
     this.bookingService.updateNameList(this.step, {
-      fullName: this.userForm.controls[this.formControlNames.firstName].value,
+      fullName: this.userForm.controls[this.formControlNames.firstName].value +" "+ this.userForm.controls[this.formControlNames.lastName].value,
       preRegId: this.preRegId,
       regDto: this.bookingService.getNameList()[0].regDto
     });
@@ -1021,7 +1021,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     this.preRegId = response[appConstants.RESPONSE][appConstants.DEMOGRAPHIC_RESPONSE_KEYS.preRegistrationId];
     this.regService.addUser(new UserModel(this.preRegId, request, this.files, this.codeValue));
     this.bookingService.addNameList({
-      fullName: this.userForm.controls[this.formControlNames.firstName].value,
+      fullName: this.userForm.controls[this.formControlNames.firstName].value +" "+ this.userForm.controls[this.formControlNames.lastName].value,
       preRegId: this.preRegId,
     });
   }

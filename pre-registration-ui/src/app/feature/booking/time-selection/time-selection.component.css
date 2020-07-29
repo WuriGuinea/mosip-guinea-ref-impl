@@ -147,7 +147,7 @@
 
 .time-selection__name-list-item {
   padding: 15px 0 15px 10px;
-  height: 50px;
+  height: 30px;
   width: 100%;
   font-size: 0.8rem;
 }
@@ -195,13 +195,14 @@
 .card {
   display: flex;
   flex-wrap: wrap;
-  height: 92px;
+  height: 30px;
   width: 182px;
   margin: 0;
-  border: 1px solid #eee;
+  border: 1px solid #BCE0FD;
   box-shadow: none;
   cursor: pointer;
-  border-radius: 0;
+  border-radius: 4px;
+  margin: 0px 10px 10px 0px;
 }
 
 .card-content {
@@ -217,13 +218,22 @@
 .card-slot-text {
   font-size: 11px;
   font-weight: 500;
-  color: blue;
+  /*color: blue;*/
+  margin-top: -50px;
+  margin-left: 118px;
 }
 
 .card-slot-text-span-number {
   font-size: 0.8rem !important;
-  margin-left: 9rem;
   font-weight: 600;
+  /*à mettre dans le bloc droit, c'est le nombre de places choisies dans un créneau
+  */
+  color: #020F59;
+  margin-left: 5px;
+}
+.compteur{
+  display: table-column;
+  float: right;
 }
 
 .card-slot-text-span-image {
@@ -240,6 +250,8 @@
   font-size: 0.8rem;
   font-weight: 500;
   color: white;
+  margin-top: -50px;
+  margin-left: 118px;
 }
 
 .sizing {
