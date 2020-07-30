@@ -1,32 +1,33 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy, HostListener, ViewChildren } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { MatSelectChange, MatButtonToggleChange, MatDialog } from '@angular/material';
-import { TranslateService } from '@ngx-translate/core';
-import { BookingService } from '../../booking/booking.service';
+import {Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {Router} from '@angular/router';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatButtonToggleChange, MatDialog, MatSelectChange} from '@angular/material';
+import {TranslateService} from '@ngx-translate/core';
+import {BookingService} from '../../booking/booking.service';
 
-import { DataStorageService } from 'src/app/core/services/data-storage.service';
-import { RegistrationService } from 'src/app/core/services/registration.service';
+import {DataStorageService} from 'src/app/core/services/data-storage.service';
+import {RegistrationService} from 'src/app/core/services/registration.service';
 
-import { UserModel } from 'src/app/shared/models/demographic-model/user.modal';
-import { CodeValueModal } from 'src/app/shared/models/demographic-model/code.value.modal';
-import { FormControlModal } from 'src/app/shared/models/demographic-model/form.control.modal';
-import { IdentityModel } from 'src/app/shared/models/demographic-model/identity.modal';
-import { DemoIdentityModel } from 'src/app/shared/models/demographic-model/demo.identity.modal';
-import { RequestModel } from 'src/app/shared/models/demographic-model/request.modal';
+import {UserModel} from 'src/app/shared/models/demographic-model/user.modal';
+import {CodeValueModal} from 'src/app/shared/models/demographic-model/code.value.modal';
+import {FormControlModal} from 'src/app/shared/models/demographic-model/form.control.modal';
+import {IdentityModel} from 'src/app/shared/models/demographic-model/identity.modal';
+import {DemoIdentityModel} from 'src/app/shared/models/demographic-model/demo.identity.modal';
+import {RequestModel} from 'src/app/shared/models/demographic-model/request.modal';
 import * as appConstants from '../../../app.constants';
 import Utils from 'src/app/app.util';
-import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
-import { ConfigService } from 'src/app/core/services/config.service';
-import { AttributeModel } from 'src/app/shared/models/demographic-model/attribute.modal';
-import { ResponseModel } from 'src/app/shared/models/demographic-model/response.model';
-import { FilesModel } from 'src/app/shared/models/demographic-model/files.model';
-import { MatKeyboardService, MatKeyboardRef, MatKeyboardComponent } from 'ngx7-material-keyboard';
-import { RouterExtService } from 'src/app/shared/router/router-ext.service';
-import { LogService } from 'src/app/shared/logger/log.service';
+import {DialougComponent} from 'src/app/shared/dialoug/dialoug.component';
+import {ConfigService} from 'src/app/core/services/config.service';
+import {AttributeModel} from 'src/app/shared/models/demographic-model/attribute.modal';
+import {ResponseModel} from 'src/app/shared/models/demographic-model/response.model';
+import {FilesModel} from 'src/app/shared/models/demographic-model/files.model';
+import {MatKeyboardComponent, MatKeyboardRef, MatKeyboardService} from 'ngx7-material-keyboard';
+import {RouterExtService} from 'src/app/shared/router/router-ext.service';
+import {LogService} from 'src/app/shared/logger/log.service';
 import LanguageFactory from 'src/assets/i18n';
-import { FormDeactivateGuardService } from 'src/app/shared/can-deactivate-guard/form-guard/form-deactivate-guard.service';
-import { Subscription } from 'rxjs';
+import {FormDeactivateGuardService} from 'src/app/shared/can-deactivate-guard/form-guard/form-deactivate-guard.service';
+import {Subscription} from 'rxjs';
+
 // import { ErrorService } from 'src/app/shared/error/error.service';
 
 /**
@@ -122,6 +123,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   sectors: CodeValueModal[] = [];
   locations = [this.regions, this.prefectures, this.subPrefectureOrCommunes, this.districts, this.sectors];
   selectedLocationCode = [];
+  locationHierarchy = ["region", "prefecture", "subPrefectureOrCommune", "district", "sector"];
   codeValue: CodeValueModal[] = [];
   subscriptions: Subscription[] = [];
 
@@ -418,10 +420,6 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    */
   private async setResident() {
     await this.getResidentDetails();
-    // this.filterOnLangCode(this.primaryLang, this.primaryResidenceStatus, this.residenceStatus);
-    // if(this.dataModification){
-    //   this.getValueFromCode(this.secondaryResidenceStatus,this.user.request.demographicDetails.identity.residenceStatus[0].value)
-    // }
   }
 
   /**
@@ -606,6 +604,12 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     if (nextHierarchies) {
       const element = nextHierarchies;
       const languageCode = this.primaryLang;
+      let hierarchyIndex = this.locationHierarchy.indexOf(formControlName);
+      if(hierarchyIndex !== -1){
+        for(let i=hierarchyIndex;i<this.locationHierarchy.length;i++){
+          this.userForm.controls[this.locationHierarchy[i]].setValue("");
+        }
+      }
       this.getLocationImmediateHierearchy(languageCode, event.value, element);
     } else {
       this.dataIncomingSuccessful = true;
@@ -909,17 +913,13 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   onSubmit() {
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid && this.dataIncomingSuccessful) {
-      console.log("onSubmit: this.userForm.valid && this.dataIncomingSuccessfu");
       const identity = this.createIdentityJSONDynamic();
       const request = this.createRequestJSON(identity);
       const responseJSON = this.createResponseJSON(identity);
-      console.log(responseJSON);
       this.dataUploadComplete = false;
       if (this.dataModification) {
-        console.log("onSubmit: this.dataModification");
-        let preRegistrationId = this.user.preRegId;
         this.subscriptions.push(
-          this.dataStorageService.updateUser(request, preRegistrationId).subscribe(
+          this.dataStorageService.updateUser(request, this.user.preRegId).subscribe(
             response => {
               if (
                 (response[appConstants.NESTED_ERROR] === null && response[appConstants.RESPONSE] === null) ||

@@ -60,8 +60,6 @@ export class AuthService {
   }
 
   onLogout() {
-    // localStorage.setItem('loggedIn', 'false');
-    // localStorage.setItem('loggedOut', 'true');
     this.removeToken();
     this.dataStorageService.onLogout().subscribe();
     this.router.navigate(['/login']);
