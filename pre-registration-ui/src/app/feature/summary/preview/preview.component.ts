@@ -83,7 +83,6 @@ export class PreviewComponent implements OnInit {
 
   getGenderCodeToName(code: string, language: string){
     const genders = this.registrationService.getGenderTypes();
-    console.log("genders", genders);
     for(let i=0;i<genders.length;i++){
       if(genders[i]['code'] === code){
         return genders[i]['genderName']

@@ -2,9 +2,8 @@
   <mat-card-header>
     <p class="time-selection__title-card-text">
       {{ 'timeSelection.title_book' | translate }}
-      <mat-icon class="icon" matTooltip="{{ 'helpText.bookAppointment' | translate }}" [inline]="true"
-        >help_outline</mat-icon
-      >
+      <mat-icon class="icon" matTooltip="{{ 'helpText.bookAppointment' | translate }}" [inline]="true">help_outline
+      </mat-icon>
     </p>
   </mat-card-header>
 </mat-card>
@@ -19,14 +18,12 @@
           <p (click)="scrollLeft()">{{ 'timeSelection.text_prev' | translate }}</p>
         </div>
         <div class="left-button">
-          <a (click)="scrollLeft()"><img src="assets/left.png"/></a>
+          <a (click)="scrollLeft()"><img src="assets/left.png" /></a>
         </div>
         <div #widgetsContent class="middle">
-          <mat-card
-            *ngFor="let data of availabilityData | slice: 0:days; let i = index"
+          <mat-card *ngFor="let data of availabilityData | slice: 0:days; let i = index"
             [ngClass]="data.holiday ? 'sizing disabled' : selectedTile === i ? 'sizing selected' : 'sizing'"
-            (click)="dateSelected(i)"
-          >
+            (click)="dateSelected(i)">
             <mat-card-content class="time-selection__date">
               <p class="time-selection__tile-date">{{ data.displayDate }}</p>
               <p class="time-selection__tile-date-text">{{ data.displayDay }}</p>
@@ -36,7 +33,7 @@
           </mat-card>
         </div>
         <div class="right-button">
-          <a (click)="scrollRight()"><img src="assets/right.png"/></a>
+          <a (click)="scrollRight()"><img src="assets/right.png" /></a>
         </div>
         <div class="time-selection__arrow-text">
           <p (click)="scrollRight()">{{ 'timeSelection.text_next' | translate }}</p>
@@ -45,37 +42,30 @@
     </div>
   </mat-card>
   <div class="time-seelection__slot-groups-div">
-    <a
-      (click)="tabSelected('morning')"
-      [ngClass]="
+    <a (click)="tabSelected('morning')" [ngClass]="
         activeTab === 'morning' ? 'time-seelection__slot-groups-div-selected' : 'time-seelection__slot-groups-div a'
-      "
-      >{{ 'timeSelection.text_morning' | translate }}</a
-    >
-    <a
-      (click)="tabSelected('afternoon')"
-      [ngClass]="
+      ">{{ 'timeSelection.text_morning' | translate }}</a>
+    <a (click)="tabSelected('afternoon')" [ngClass]="
         activeTab === 'afternoon' ? 'time-seelection__slot-groups-div-selected' : 'time-seelection__slot-groups-div a'
-      "
-      >{{ 'timeSelection.text_afternoon' | translate }}</a
-    >
+      ">{{ 'timeSelection.text_afternoon' | translate }}</a>
   </div>
   <div class="time-selection__slots-div">
     <mat-card class="time-selection__time-slots-container">
       <div class="container-card">
         <div *ngIf="availabilityData[selectedTile] !== undefined" #cardsContent class="middle-card">
           <div *ngFor="let data of availabilityData[selectedTile].timeSlots; let i = index">
-            <mat-card
-              *ngIf="data.tag === activeTab"
+            <mat-card *ngIf="data.tag === activeTab"
               [ngClass]="selectedCard === i ? 'card card-content selected-card' : 'card card-content'"
-              (click)="cardSelected(i)"
-            >
+              (click)="cardSelected(i)">
               <mat-card-content style="width:100%">
                 <p class="card-time-text">
                   {{ data.displayTime }}
                 </p>
                 <p [ngClass]="selectedCard === i ? 'card-slot-text-selected' : 'card-slot-text'">
-                 ( {{ data.availability }}) <!--{{ 'timeSelection.text_slots' | translate }} -->
+                  {{ data.availability }} <!-- {{ 'timeSelection.text_slots' | translate }} -->
+                  <!-- <span *ngIf="data.names.length !== 0"
+                    class="card-slot-text-span-number">{{ data.names.length }}</span><span *ngIf="selectedCard === i"
+                    class="card-slot-text-span-image"><img src="assets/slots.png" height="20px" width="20px" /></span> -->
                 </p>
               </mat-card-content>
             </mat-card>
@@ -84,36 +74,7 @@
       </div>
     </mat-card>
     <mat-card class="time-selection__names-container">
-      <div>
-        <div
-          *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined"
-          class="time-selection__name-list-header"
-        >
-        <div *ngFor="let data of availabilityData[selectedTile].timeSlots;">
-          <span *ngIf="data.names.length !== 0" class="compteur">{{ data.names.length }}</span>
-        </div>
-          <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDate }}</span
-          >, <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDay }}</span>
-          <br />
-          <span class="time-selection__names-header-time-text">{{
-            availabilityData[selectedTile].timeSlots[selectedCard].displayTime
-          }}</span
-          >,
-          <span class="time-selection__names-header-day-text">{{ 'timeSelection.text_morning' | translate }}</span>
-        </div>
-        <div *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined">
-          <table class="time-selection__name-list">
-            <tr
-              class="time-selection__name-list-item"
-              *ngFor="let item of availabilityData[selectedTile].timeSlots[selectedCard].names; let j = index"
-            >
-              <td>{{ item.fullName }}</td>
-              <td><mat-icon (click)="itemDelete(j)" class="name-delete-button">close</mat-icon></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div *ngIf="deletedNames.length !== 0">
+      <div class="applicants_card">
         <div class="time-selection__name-list-header">
           {{ 'timeSelection.text_available' | translate }}
         </div>
@@ -122,16 +83,36 @@
             <tr class="time-selection__name-list-item" *ngFor="let item of deletedNames; let k = index">
               <td>{{ item.fullName }}</td>
               <td>
-                <mat-icon
-                  (click)="addItem(k)"
-                  [ngClass]="disableAddButton ? 'name-delete-button disable_add' : 'name-delete-button'"
-                  >add</mat-icon
-                >
+                <mat-icon (click)="addItem(k)"
+                  [ngClass]="disableAddButton ? 'name-delete-button disable_add' : 'name-delete-button'">add</mat-icon>
               </td>
             </tr>
           </table>
         </div>
       </div>
+      <div *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined">
+        <div class="time-selection__name-list-header">
+          <div *ngFor="let data of availabilityData[selectedTile].timeSlots;">
+            <span *ngIf="data.names.length !== 0" class="compteur">{{ data.names.length }}</span>
+          </div>
+          <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDay }}</span>,
+          <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDate }}</span>
+          <br />
+          <span
+            class="time-selection__names-header-time-text">{{availabilityData[selectedTile].timeSlots[selectedCard].displayTime}}</span>,
+          <span class="time-selection__names-header-day-text">{{'timeSelection.text_morning' | translate }}</span>
+        </div>
+        <table class="time-selection__name-list">
+          <tr class="time-selection__name-list-item"
+            *ngFor="let item of availabilityData[selectedTile].timeSlots[selectedCard].names; let j = index">
+            <td>{{ item.fullName }}</td>
+            <td>
+              <mat-icon (click)="itemDelete(j)" class="name-delete-button">close</mat-icon>
+            </td>
+          </tr>
+        </table>
+      </div>
+
     </mat-card>
   </div>
 

@@ -28,7 +28,7 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
   @ViewChild('widgetsContent', { read: ElementRef }) public widgetsContent;
   @ViewChild('cardsContent', { read: ElementRef }) public cardsContent;
   registrationCenter: String;
-  selectedCard: number;
+  selectedCard: number = 0;
   selectedTile = 0;
   limit = [];
   showAddButton = false;
@@ -112,8 +112,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   dateSelected(index: number) {
     this.selectedTile = index;
-    // this.placeNamesInSlots();
-    // this.cardSelected(0);
   }
 
   cardSelected(index: number): void {
@@ -175,7 +173,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
     });
     this.enableBucketTabs();
     this.deletedNames = [...this.names];
-    // this.placeNamesInSlots();
   }
 
   placeNamesInSlots() {

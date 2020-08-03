@@ -399,7 +399,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       res => {
         if (res[appConstants.RESPONSE]) {
           this.LOD = res['response'].documentCategories; 
-          console.log("LOD= "+ JSON.stringify(this.LOD));
           this.enableBrowseButtonList = new Array(this.LOD.length).fill(false);
           this.registration.setDocumentCategories(res['response'].documentCategories);
           this.onModification();
@@ -415,44 +414,16 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   }
 
   /**
-   *@description method to get the list of applicants to eb shown in same as options
-   *
-   * @memberof FileUploadComponent
-   */
-  // async getAllApplicants() {
-  //   const subs = await this.dataStroage.getUsers().subscribe(
-  //     response => {
-  //       if (response[appConstants.RESPONSE]) {
-  //         this.bookingService.addApplicants(response['response']['basicDetails']);
-  //       } else {
-  //         this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error);
-  //       }
-  //     },
-  //     err => {
-  //       this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error, err);
-  //     },
-  //     () => {
-  //       this.setApplicants();
-  //     }
-  //   );
-  //   this.subscriptions.push(subs);
-  // }
-  /**
    *@description method to set the applicants array  used in same as options aray
    *
    * @memberof FileUploadComponent
    */
   setApplicants() {
     this.applicants = JSON.parse(JSON.stringify(this.bookingService.getAllApplicants()));
-    console.log('applicants-------------');
-    console.log(this.applicants);
     this.removeApplicantsWithoutPOA();
 
     this.updateApplicants();
     this.allApplicants = this.getApplicantsName(this.applicants);
-    console.log('allapplicants-------------');
-    console.log(this.allApplicants);
-    const temp = JSON.parse(JSON.stringify(this.allApplicants));
     this.setNoneApplicant();
   }
 
