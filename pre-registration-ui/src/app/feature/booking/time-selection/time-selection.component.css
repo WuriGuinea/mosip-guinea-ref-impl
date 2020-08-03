@@ -427,9 +427,11 @@
   }
 }
 
-
 @media (max-width: 1300px) {
   .time-selection__names-container {
     flex-direction: column !important;
+  }
+  .applicants_card {
+    margin-right: 0 ;
   }
 }
