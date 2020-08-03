@@ -253,7 +253,6 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     return new Promise(resolve => {
       this.REGISTRATION_CENTRES.forEach(center => {
         this.dataService.getWorkingDays(center.id, this.primaryLang).subscribe(response => {
-          console.log(response);
           response[appConstants.RESPONSE]['workingdays'].forEach(day => {
             center.workingDays = center.workingDays === undefined ? '' : center.workingDays + day.name + ', ';
           });
