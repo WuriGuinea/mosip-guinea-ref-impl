@@ -46,7 +46,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
   errorlabels: any;
   showMorning: boolean;
   showAfternoon: boolean;
-  disableContinueButton = false;
   spinner = true;
   canDeactivateFlag = true;
   DAYS: any;
@@ -236,7 +235,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   makeBooking(): void {
     this.canDeactivateFlag = false;
-    this.disableContinueButton = true;
     this.bookingDataList = [];
     this.availabilityData.forEach(data => {
       data.timeSlots.forEach(slot => {
@@ -255,7 +253,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
       });
     });
     if (this.bookingDataList.length === 0) {
-      this.disableContinueButton = false;
       return;
     }
     const obj = {
@@ -285,7 +282,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
         if (selectedOption) {
           this.bookingOperation(request);
         } else {
-          this.disableContinueButton = false;
           return;
         }
       });
@@ -346,7 +342,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   displayMessage(title: string, message: string, error: any) {
     this.spinner = false;
-    this.disableContinueButton = false;
     if (
       error &&
       error[appConstants.ERROR] &&

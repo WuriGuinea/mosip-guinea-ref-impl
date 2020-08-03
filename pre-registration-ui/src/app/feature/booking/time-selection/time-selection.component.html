@@ -62,10 +62,7 @@
                   {{ data.displayTime }}
                 </p>
                 <p [ngClass]="selectedCard === i ? 'card-slot-text-selected' : 'card-slot-text'">
-                  {{ data.availability }} <!-- {{ 'timeSelection.text_slots' | translate }} -->
-                  <!-- <span *ngIf="data.names.length !== 0"
-                    class="card-slot-text-span-number">{{ data.names.length }}</span><span *ngIf="selectedCard === i"
-                    class="card-slot-text-span-image"><img src="assets/slots.png" height="20px" width="20px" /></span> -->
+                  {{ data.availability }}
                 </p>
               </mat-card-content>
             </mat-card>
@@ -123,7 +120,7 @@
       <button (click)="navigateDashboard()" class="user-book_later-btn">
         {{ 'timeSelection.action_bookLater' | translate }}
       </button>
-      <button [disabled]="disableContinueButton" (click)="makeBooking()" class="user-continue-btn">
+      <button [disabled]="deletedNames.length > 0" (click)="makeBooking()" class="user-continue-btn" [ngClass]="deletedNames.length > 0 ? 'disabled_btn' : 'user-continue-btn-normal'">
         {{ 'timeSelection.action_continue' | translate }}
       </button>
     </mat-card>
