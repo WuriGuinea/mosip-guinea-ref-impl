@@ -215,18 +215,17 @@
 .card-slot-text {
   font-size: 11px;
   font-weight: 500;
-  /* color: blue; */
-  margin-top: -50px; /*merge*/
+  margin-top: -50px; 
   margin-left: 118px;
 }
 
 .card-slot-text-span-number {
   font-size: 0.8rem !important;
   font-weight: 600;
-  color: #020F59; /*merge*/
-  margin-left: 5px; /*before merge 9rem*/
+  color: #020F59; 
+  margin-left: 5px; 
 }
-.compteur{/*merge*/
+.compteur{
   display: table-column;
   float: right;
 }
@@ -245,8 +244,8 @@
   font-size: 0.8rem;
   font-weight: 500;
   color: white;
-  margin-top: -50px; /*merge*/
-  margin-left: 118px; /*merge*/
+  margin-top: -50px; 
+  margin-left: 118px; 
 }
 
 .sizing {
