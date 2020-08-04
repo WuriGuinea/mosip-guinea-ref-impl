@@ -204,6 +204,7 @@ mat-card-content {
   font: 15px/12px Arial;
   opacity: 0.5;
   font-weight: 600;
+  font-family: Roboto;
 }
 .btn_axn-pri{
   background: #BCE0FD !important;
