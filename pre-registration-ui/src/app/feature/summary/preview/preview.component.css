@@ -258,3 +258,10 @@
 .mat-card:not([class*=mat-elevation-z]){
   box-shadow: none !important;
 }
+#fileName-position{
+  left: -5px;
+}
+#justificatifstable{
+  width:100%;
+  margin-top: -39px;
+}

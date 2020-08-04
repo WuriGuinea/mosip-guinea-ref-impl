@@ -13,9 +13,8 @@
   margin-top: 20%;
 }
 
-.form_bdy
-{
-  padding: 0 20%;
+.form_bdy {
+  padding: 0% 20% 8% 20%;
 }
 
 .error {
@@ -28,7 +27,11 @@
   border-radius: 10px;
   box-shadow: 0px 3px 6px #00000029;
   background: #fafafa;
-  margin-right: 32rem;
+  margin-right: 35.5rem;
+}
+
+.logo_wrapper .mat-card {
+  padding-top: 2.2rem;
 }
 
 .login-input {
@@ -50,11 +53,11 @@
 
 .form_wrapper {
   margin: 6% 64% 0% 64%;
-  border-radius: 10px;
+  border-radius: 30px;
   box-shadow: 0px 3px 6px #00000029;;
   background: #fafafa;
   padding: 20px;
-  width: 31rem;
+  width: 35rem;
   padding-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -70,6 +73,7 @@
   font-size: 2rem;
   text-align: center;
   margin-bottom: 10%;
+  margin-top: 3%;
 }
 
 .subHeading {
@@ -162,7 +166,6 @@ button {
   position: relative;
   top: 2vw;
   color: #020F59;
-  left: 15px;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline-start{

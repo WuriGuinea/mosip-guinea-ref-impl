@@ -121,6 +121,7 @@ img {
 }
 .btn_axn-sec.page_btn{
   max-width: 200px !important;
+  font-weight: bold;
 }
 .footer-btn {
   font-size: 9px;
@@ -200,8 +201,10 @@ mat-card-content {
 .btn_axn-sec:disabled, .btn_axn-sec.page_btn:disabled{
   background: #BCE0FD !important;
   color: #020F59 !important;
-  font: Bold 15px/12px Arial;
+  font: 15px/12px Arial;
   opacity: 0.5;
+  font-weight: 600;
+  font-family: Roboto;
 }
 .btn_axn-pri{
   background: #BCE0FD !important;

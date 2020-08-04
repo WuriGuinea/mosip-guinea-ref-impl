@@ -17,7 +17,7 @@
       "note": "Remarque: lorsque vous vous trouvez dans la page Détails démographiques, les données sont affichées dans la langue de votre choix à gauche et les données dans la deuxième langue à droite de l'écran."
     },
 		"login": {
-			"name": "S'identifier",
+			"name": "Se connecter",
 			"list": {
 				"line1": "Sur la page de connexion, entrez votre identifiant email valid ou votre numéro de portable dans la zone de texte adresse email ou numéro de portable.",
 				"line2": "Cliquez sur Recevoir sa clé OTP pour recevoir un mot de passe à usage unique dans votre compte email ou sur votre numéro de téléphone portable.",
@@ -258,16 +258,16 @@
 		"link_contact": "CONTACT",
 		"link_applications": "DOSSIERS",
 		"link_logout": "SE DÉCONNECTER",
-		"link_login": "S'IDENTIFIER",
+		"link_login": "Se connecter"
 		"consent_form":"Formulaire de Consentement"
 	},
 	"login": {
-		"text": "S'identifier",
+		"text": "Se connecter",
 		"sub_text": "pré-enregistrement pour",
 		"sub_text_UID": "Identifiant National Unique",
 		"label_select": "Choisissez votre langue",
-		"label_email_num": "Adresse e-mail ou numéro de téléphone mobile",
-		"label_otp": "Entrez votre clé d'identification OTP",
+		"label_email_num": "    E-mail ou Téléphone mobile",
+		"label_otp": "   Entrez votre clé d'identification OTP",
 		"action_send": "RECEVOIR SA CLÉ OTP",
 		"action_resend": "RENVOYER LA CLÉ OTP",
 		"action_verify": "VALIDER",
@@ -350,7 +350,7 @@
 		"text_filesize": "et taille maximale autorisée",
 		"action_browse": "Parcourir",
 		"action_back": "Précédent",
-		"action_skip": "Différer",
+		"action_skip": "Réserver plus tard",
 		"action_continue": "Suivant",
 		"label_sameas": "Idem que",
 		"text_or": "OU",
@@ -491,7 +491,7 @@
 		"text_slots": "créneaux",
 		"action_done": "TERMINÉ",
 		"action_back": "Précédent",
-		"action_bookLater": "Différer",
+		"action_bookLater": "Réserver plus tard",
 		"action_continue": "Suivant",
 		"booking": {
 			"title_success": "Succès",
@@ -512,7 +512,7 @@
 		"text_finding_result": "trouver le résultat pour",
 		"text_nearBy": "À Proximité",
 		"action_back": "Précédent",
-		"action_bookLater": "Différer",
+		"action_bookLater": "Réserver plus tard",
 		"action_continue": "Suivant"
 	},
 	"appointmentConfirmed": {
@@ -552,7 +552,7 @@
 		"text_horaire": "Ouvert du lundi au vendredi de 9h à 17h",
 		"text_search": "Recherche",
 		"action_back": "Précédent",
-		"action_book_later": "Différer",
+		"action_book_later": "Réserver plus tard",
 		"action_continue": "Suivant",
 		"noResult_found": "Aucun résultat trouvé"
 	},
