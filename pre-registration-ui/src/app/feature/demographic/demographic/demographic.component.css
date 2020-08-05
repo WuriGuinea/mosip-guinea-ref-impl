@@ -433,3 +433,14 @@ textarea.mat-input-element{
   border-radius: 5px;
   height: 37px;
 }
+
+.mat-option-text {
+  display: inline-block;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-option {
+  color: #020F59;
+}
