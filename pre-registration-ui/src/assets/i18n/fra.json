@@ -262,7 +262,7 @@
 		"consent_form":"Formulaire de Consentement"
 	},
 	"login": {
-		"text": "Se connecter",
+		"text": "S'identifier",
 		"sub_text": "pré-enregistrement pour",
 		"sub_text_UID": "Identifiant National Unique",
 		"label_select": "Choisissez votre langue",
