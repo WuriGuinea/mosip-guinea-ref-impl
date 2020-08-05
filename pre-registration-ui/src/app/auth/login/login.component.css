@@ -52,7 +52,7 @@
 }
 
 .form_wrapper {
-  margin: 6% 64% 0% 64%;
+  margin: 12% 64% 0% 64%;
   border-radius: 30px;
   box-shadow: 0px 3px 6px #00000029;;
   background: #fafafa;
@@ -191,7 +191,7 @@ left: 15vw;
   margin-right: 15px;
   background: transparent;
   padding: 0px;
-  margin-top: 6%;
+  margin-top: 10%;
 }
 
 @media screen and (min-width: 501px) and (max-width: 935px) {
@@ -274,8 +274,9 @@ left: 15vw;
   }  
   } 
 .positionimgbiom{
-  height: 273px;
-    margin-left: -206px;
+  height: 350px;
+    margin-left: -262px;
+    margin-top: 131px;
 }
 
 .mat-card:not([class*=mat-elevation-z]){
