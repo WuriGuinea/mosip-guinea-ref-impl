@@ -258,7 +258,7 @@
 		"link_contact": "CONTACT",
 		"link_applications": "DOSSIERS",
 		"link_logout": "SE DÉCONNECTER",
-		"link_login": "SE CONNECTER",
+		"link_login": "S'IDENTIFIER",
 		"consent_form":"Formulaire de Consentement"
 	},
 	"login": {
