@@ -139,6 +139,7 @@ img {
   color: #020F59;
   padding-left: 10px;
   word-wrap: break-word;
+  text-transform: uppercase;
 }
 
 .user__name--wordwrap {
@@ -160,6 +161,7 @@ img {
 }
 #status {
   padding-left: 10px;
+  text-transform: uppercase;
 }
 .buttons {
   margin: auto;
@@ -201,13 +203,10 @@ mat-card-content {
 .btn_axn-sec:disabled, .btn_axn-sec.page_btn:disabled{
   background: #BCE0FD !important;
   color: #020F59 !important;
-  font: 15px/12px Arial;
   opacity: 0.5;
-  font-weight: 600;
-  font-family: Roboto;
+  font-weight: 700;
 }
 .btn_axn-pri{
   background: #BCE0FD !important;
   color: #020F59 !important;
-  font: Bold 15px/12px Arial;
 }

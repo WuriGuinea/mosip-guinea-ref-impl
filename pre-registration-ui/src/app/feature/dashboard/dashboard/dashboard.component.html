@@ -58,14 +58,6 @@
             <div class="card-content">
               <table>
                 <tr>
-                  <td>{{ 'dashboard.card.text_name' | translate }}</td>
-                  <td
-                    [ngClass]="user.name.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
-                  >
-                    {{ user.name }}
-                  </td>
-                </tr>
-                <tr>
                   <td>{{ 'dashboard.card.text_lastname' | translate }}</td>
                   <td
                     [ngClass]="user.name.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
@@ -73,6 +65,14 @@
                     {{ user.lastname }}
                   </td>
                 </tr>
+                <tr>
+                  <td>{{ 'dashboard.card.text_name' | translate }}</td>
+                  <td
+                    [ngClass]="user.name.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
+                  >
+                    {{ user.name }}
+                  </td>
+                </tr>    
                 <tr>
                   <td>{{ 'dashboard.card.text_appoinment_date' | translate }}</td>
                   <td class="application-value">{{ user.appointmentTime }} {{ user.appointmentDate }}</td>
