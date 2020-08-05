@@ -185,10 +185,13 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   async ngOnInit() {
     this.initialization();
     // changed by Ankit
-     this.dataStorageService.getConfig().subscribe( response => { this.configService.setConfig(response);
-     this.config = this.configService.getConfig(); }, error => { } );
+     this.dataStorageService.getConfig().subscribe( response => {
+        this.configService.setConfig(response);
+        this.config = this.configService.getConfig();
+        this.setConfig();
+     }, error => { } );
      // this.config = this.configService.getConfig();
-    this.setConfig();
+
     this.getPrimaryLabels();
     await this.getConsentMessage();
     this.initForm();
@@ -946,7 +949,6 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
           )
         );
       } else {
-        console.log("onSubmit:")
         this.subscriptions.push(
           this.dataStorageService.addUser(request).subscribe(
             response => {
