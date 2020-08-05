@@ -157,7 +157,7 @@
                             <input
                                     matInput
                                     #mobileNumber
-                                    type="text"
+                                    type="number"
                                     maxlength="{{ MOBILE_LENGTH }}"
                                     placeholder="{{ 'demographic.label_mob_num' | translate }}"
                                     [formControlName]="formControlNames.phone"
@@ -171,6 +171,7 @@
                         <mat-form-field>
                             <input
                                 #email
+                                type="text"
                                 maxlength="{{ EMAIL_LENGTH }}"
                                 matInput
                                 placeholder="{{ 'demographic.label_email_id' | translate }}"
