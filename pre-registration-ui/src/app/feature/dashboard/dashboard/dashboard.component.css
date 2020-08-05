@@ -139,6 +139,7 @@ img {
   color: #020F59;
   padding-left: 10px;
   word-wrap: break-word;
+  text-transform: uppercase;
 }
 
 .user__name--wordwrap {
@@ -160,6 +161,7 @@ img {
 }
 #status {
   padding-left: 10px;
+  text-transform: uppercase;
 }
 .buttons {
   margin: auto;

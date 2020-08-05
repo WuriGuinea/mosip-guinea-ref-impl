@@ -258,7 +258,7 @@
 		"link_contact": "CONTACT",
 		"link_applications": "DOSSIERS",
 		"link_logout": "SE DÉCONNECTER",
-		"link_login": "Se connecter",
+		"link_login": "SE CONNECTER",
 		"consent_form":"Formulaire de Consentement"
 	},
 	"login": {
@@ -448,7 +448,7 @@
 			"text_app_id": "No de Demande",
 			"text_name": "Prénom",
 			"text_lastname": "Nom",
-			"text_appoinment_date": "Date de Rendez-vous",
+			"text_appoinment_date": "Rendez-vous",
 			"text_status": "Statut",
 			"action_modify_information": "Modifier les informations",
 			"action_view_acknowledgement": "Voir la confirmation"
