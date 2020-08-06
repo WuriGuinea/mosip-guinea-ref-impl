@@ -302,7 +302,7 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     const bookingRegistrationDTO = applicant[appConstants.DASHBOARD_RESPONSE_KEYS.bookingRegistrationDTO.dto];
     const fromTime = bookingRegistrationDTO[appConstants.DASHBOARD_RESPONSE_KEYS.bookingRegistrationDTO.time_slot_from];
     const toTime = bookingRegistrationDTO[appConstants.DASHBOARD_RESPONSE_KEYS.bookingRegistrationDTO.time_slot_to];
-    let appointmentTime = ' ( ' + fromTime + ' - ' + toTime + ' ) ';
+    let appointmentTime = fromTime + ' - ' + toTime ;
     return appointmentTime;
   }
 

@@ -156,9 +156,7 @@ img {
 .view-img {
   height: 18px;
 }
-.delete-img {
-  height: 18px;
-}
+
 #status {
   padding-left: 10px;
   text-transform: uppercase;
@@ -169,7 +167,7 @@ img {
 .checkbox {
   white-space: nowrap;
   margin-left: 10px;
-  margin-right: 8px;
+  margin-right: -6px;
   /* vertical-align: center; */
 }
 .footer-download-btn {
@@ -210,3 +208,4 @@ mat-card-content {
   background: #BCE0FD !important;
   color: #020F59 !important;
 }
+
