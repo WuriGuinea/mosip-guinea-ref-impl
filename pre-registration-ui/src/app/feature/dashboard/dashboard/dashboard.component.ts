@@ -322,13 +322,21 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     let primaryIndex = 0;
     // let secondaryIndex = 1;
     let lang =
-      applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.fullname][0]['language'];
+      applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.firstName][0]['language'];
     const applicant: Applicant = {
       applicationID: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.applicant.preId],
       name:
-        applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.fullname][primaryIndex][
+        applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.firstName][primaryIndex][
+          'value'
+        ]+" "+applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.lastName][primaryIndex][
           'value'
         ],
+      firstName: applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.firstName][primaryIndex][
+        'value'
+      ],
+      lastName: applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.lastName][primaryIndex][
+        'value'
+      ],
       appointmentDateTime: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.bookingRegistrationDTO.dto]
         ? this.createAppointmentDateTime(applicantResponse)
         : '-',
@@ -340,11 +348,10 @@ export class DashBoardComponent implements OnInit, OnDestroy {
         : '-',
       status: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.applicant.statusCode],
       regDto: applicantResponse[appConstants.DASHBOARD_RESPONSE_KEYS.bookingRegistrationDTO.dto],
-      nameInSecondaryLanguage:
-        applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.fullname][
-          primaryIndex
-        ]['value'],
-      postalCode: applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.postalCode]
+      nameInSecondaryLanguage:"",
+      location: applicantResponse['demographicMetadata'][appConstants.DASHBOARD_RESPONSE_KEYS.applicant.location][primaryIndex][
+        'value'
+        ]
     };
 
     return applicant;
@@ -637,6 +644,9 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     const status = user.status;
     this.bookingService.addNameList({
       fullName: fullName,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      location: user.location,
       preRegId: preId,
       regDto: regDto,
       status: status,

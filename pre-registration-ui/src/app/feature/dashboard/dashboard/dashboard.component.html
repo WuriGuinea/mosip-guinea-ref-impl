@@ -57,23 +57,23 @@
               />
             </button>
           </div>
-          <mat-card-content [ngStyle]="{ marginTop: getMargin(user.name) }">
+          <mat-card-content [ngStyle]="{ marginTop: getMargin(user.firstName) }">
             <div class="card-content">
               <table>
                 <tr>
                   <td>{{ 'dashboard.card.text_name' | translate }}</td>
                   <td
-                    [ngClass]="user.name.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
+                    [ngClass]="user.firstName.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
                   >
-                    {{ user.name }}
+                    {{ user.firstName }}
                   </td>
                 </tr>
                 <tr>
                   <td>{{ 'dashboard.card.text_lastname' | translate }}</td>
                   <td
-                    [ngClass]="user.name.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
+                    [ngClass]="user.lastName.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
                   >
-                    {{ user.lastname }}
+                    {{ user.lastName }}
                   </td>
                 </tr>
                 <tr>
