@@ -66,7 +66,7 @@
                   <td
                     [ngClass]="user.firstName.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
                   >
-                    {{ user.firstName }}
+                    {{ user.lastName }}
                   </td>
                 </tr>
                 <tr>
@@ -74,12 +74,12 @@
                   <td
                     [ngClass]="user.lastName.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'"
                   >
-                    {{ user.lastName }}
+                    {{ user.firstName }}
                   </td>
                 </tr>    
                 <tr>
                   <td>{{ 'dashboard.card.text_appoinment_date' | translate }}</td>
-                  <td class="application-value">{{ user.appointmentDate }} {{ user.appointmentTime }} </td>
+                  <td class="application-value">{{ user.appointmentDate }}  &nbsp;&nbsp;&nbsp;&nbsp; {{ user.appointmentTime }} </td>
                 </tr>
                 <tr>
                   <td>{{ 'dashboard.card.text_status' | translate }}</td>
