@@ -22,10 +22,10 @@
   }
 }
 
-.time-selection__title-card-text {
- 
+.applicants_card {
+  margin-right: 10px ;
+  margin-bottom: 10px;
 }
-
 .disable_add {
   opacity: 0.6 !important;
   cursor: not-allowed !important;
@@ -100,7 +100,8 @@
   min-width: 35.5% !important;
   padding: 0;
   display: flex !important;
-  flex-direction: row-reverse !important;
+  flex-direction: row !important;
+  padding-left: 10%;
 }
 
 .time-selection__time-slots-container div {
@@ -114,10 +115,9 @@
   height: 55px;
   width: 100%;
   background-color: #020F59;
-  padding: 5px 2rem;
+  padding: 5px 1.4rem;
   word-wrap: break-word;
   color: white;
-  margin-top: 17px;
   border-radius: 6px 6px 0px 0px;
 }
 
@@ -147,7 +147,7 @@
 
 .time-selection__name-list-item {
   padding: 15px 0 15px 10px;
-  height: 50px;
+  height: 30px;
   width: 100%;
   font-size: 0.8rem;
 }
@@ -162,9 +162,6 @@
 }
 
 .user__btn {
-  /* padding: 0px 53px;
-    border: 1px solid red;
-    margin: 5px; */
   background-color: #ff4081;
   border: none;
   color: white;
@@ -195,13 +192,14 @@
 .card {
   display: flex;
   flex-wrap: wrap;
-  height: 92px;
+  height: 30px;
   width: 182px;
   margin: 0;
-  border: 1px solid #eee;
+  border: 1px solid #BCE0FD;
   box-shadow: none;
   cursor: pointer;
-  border-radius: 0;
+  border-radius: 4px;
+  margin: 0px 10px 10px 0px;
 }
 
 .card-content {
@@ -217,13 +215,19 @@
 .card-slot-text {
   font-size: 11px;
   font-weight: 500;
-  color: blue;
+  margin-top: -50px; 
+  margin-left: 118px;
 }
 
 .card-slot-text-span-number {
   font-size: 0.8rem !important;
-  margin-left: 9rem;
   font-weight: 600;
+  color: #020F59; 
+  margin-left: 5px; 
+}
+.compteur{
+  display: table-column;
+  float: right;
 }
 
 .card-slot-text-span-image {
@@ -240,6 +244,8 @@
   font-size: 0.8rem;
   font-weight: 500;
   color: white;
+  margin-top: -50px; 
+  margin-left: 118px; 
 }
 
 .sizing {
@@ -351,6 +357,9 @@
   cursor: pointer;
   text-transform: uppercase;
 }
+.user-continue-btn-normal {
+  background-color: #BCE0FD ;
+}
 
 .time-selection__date {
   margin: 0.35rem 0 10px 5px;
@@ -374,11 +383,6 @@
     margin: 0 5px 0 5px;
   }
 
-  .time-selection__name-list-header {
-    height: 150px;
-    padding: 5px;
-  }
-
   .time-selection__name-list-item {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -392,16 +396,10 @@
     flex-wrap: wrap;
   }
 
-  .time-selection__names-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 94%;
-    margin-top: 24px;
-  }
-
   .time-selection__name-list-header {
     height: 50px;
     width: 100%;
+    padding: 5px;
   }
 
   .user-back-btn,
@@ -430,4 +428,19 @@
   .middle {
     width: 85%;
   }
+}
+
+@media (max-width: 1300px) {
+  .time-selection__names-container {
+    flex-direction: column !important;
+  }
+  .applicants_card {
+    margin-right: 0 ;
+  }
+}
+
+.disabled_btn
+{
+  background-color: #E1F0FB;
+  cursor: not-allowed;
 }

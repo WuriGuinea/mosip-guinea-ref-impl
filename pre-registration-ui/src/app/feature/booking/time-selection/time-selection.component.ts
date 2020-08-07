@@ -28,7 +28,7 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
   @ViewChild('widgetsContent', { read: ElementRef }) public widgetsContent;
   @ViewChild('cardsContent', { read: ElementRef }) public cardsContent;
   registrationCenter: String;
-  selectedCard: number;
+  selectedCard: number = 0;
   selectedTile = 0;
   limit = [];
   showAddButton = false;
@@ -46,7 +46,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
   errorlabels: any;
   showMorning: boolean;
   showAfternoon: boolean;
-  disableContinueButton = false;
   spinner = true;
   canDeactivateFlag = true;
   DAYS: any;
@@ -112,8 +111,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   dateSelected(index: number) {
     this.selectedTile = index;
-    // this.placeNamesInSlots();
-    // this.cardSelected(0);
   }
 
   cardSelected(index: number): void {
@@ -175,7 +172,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
     });
     this.enableBucketTabs();
     this.deletedNames = [...this.names];
-    // this.placeNamesInSlots();
   }
 
   placeNamesInSlots() {
@@ -239,7 +235,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   makeBooking(): void {
     this.canDeactivateFlag = false;
-    this.disableContinueButton = true;
     this.bookingDataList = [];
     this.availabilityData.forEach(data => {
       data.timeSlots.forEach(slot => {
@@ -258,7 +253,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
       });
     });
     if (this.bookingDataList.length === 0) {
-      this.disableContinueButton = false;
       return;
     }
     const obj = {
@@ -288,7 +282,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
         if (selectedOption) {
           this.bookingOperation(request);
         } else {
-          this.disableContinueButton = false;
           return;
         }
       });
@@ -349,7 +342,6 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   displayMessage(title: string, message: string, error: any) {
     this.spinner = false;
-    this.disableContinueButton = false;
     if (
       error &&
       error[appConstants.ERROR] &&
@@ -393,7 +385,7 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   navigateDashboard() {
     this.canDeactivateFlag = false;
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['']);
   }
 
   reloadData() {

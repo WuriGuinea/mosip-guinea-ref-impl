@@ -4,11 +4,6 @@
 <div *ngIf="(dataIncomingSuccessful) || hasError">
     <div class="wrapper">
         <div class="user">
-
-
-            <!-- <header>{{ 'demographic.title' | translate }}</header>
-            <hr />   SHOW THIS ONLY ON MBILE DEVICES-->
-
             <form [formGroup]="userForm" class="user__form">
                 <div [dir]="textDir" class="user__container card">
                     <h4 class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
@@ -24,7 +19,7 @@
                                         [formControlName]="formControlNames.firstName"
                                 />
                                 <mat-error *ngIf="!firstName.invalid">
-                                    First name is required
+                                    Prénom requis
                                 </mat-error>
                             </mat-form-field>
                         </div>
@@ -38,7 +33,7 @@
                                         [formControlName]="formControlNames.lastName"
                                 />
                                 <mat-error *ngIf="!lastName.invalid">
-                                    Last name is required
+                                    Nom de famille requis
                                 </mat-error>
                             </mat-form-field>
                         </div>
@@ -48,6 +43,7 @@
                     <div class="user__age-or-date">
                         <div class="user__date">
                             <mat-form-field>
+                                <mat-label>{{ 'demographic.date_dd' | translate }}</mat-label> 
                                 <input
                                         matInput
                                         placeholder="JJ"
@@ -57,6 +53,7 @@
                                 />
                             </mat-form-field>
                             <mat-form-field>
+                                <mat-label>{{ 'demographic.date_mm' | translate }}</mat-label>
                                 <input
                                         matInput
                                         placeholder="MM"
@@ -66,6 +63,7 @@
                                 />
                             </mat-form-field>
                             <mat-form-field>
+                                <mat-label>{{ 'demographic.date_yyyy' | translate }}</mat-label>
                                 <input
                                         matInput
                                         placeholder="AAAA"
@@ -169,6 +167,7 @@
                     </div>
                     <div class="user__dropdown">
                         <mat-form-field>
+                            <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>   
                             <input
                                 #email
                                 type="text"
@@ -222,7 +221,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div class="user__dropdown">
+                    <div style="margin-top: 25px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
@@ -235,7 +234,7 @@
                                     subprefecture.valueName
                                     }}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!subprefecture.invalid">Veuillez sélectionner une sub prefecture</mat-error>
+                            <mat-error *ngIf="!subprefecture.invalid">Veuillez sélectionner une sous prefecture</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="user__dropdown">
@@ -251,7 +250,7 @@
                                     district.valueName
                                     }}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!district.invalid">Veuillez sélectionner une district</mat-error>
+                            <mat-error *ngIf="!district.invalid">Veuillez sélectionner un district</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="user__dropdown">
@@ -267,12 +266,11 @@
                                     sector.valueName
                                     }}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="!sector.invalid">Veuillez sélectionner une sector</mat-error>
+                            <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div class="row">
-                        <mat-form-field style="border-bottom: none !important;">
-                            <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}</mat-label>
+                    <div style="margin-top: -2px;"class="row"> 
+                            <h4>{{ 'demographic.label_additionalAddressDetails' | translate }}</h4>
                             <textarea
                                     matInput
                                     #additionalAddressDetails
@@ -281,7 +279,6 @@
                                     rows="4"
                             >
                             </textarea>
-                        </mat-form-field>
                     </div>
 
                 </div>

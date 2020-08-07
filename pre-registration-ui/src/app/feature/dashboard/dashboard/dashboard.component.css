@@ -121,6 +121,7 @@ img {
 }
 .btn_axn-sec.page_btn{
   max-width: 200px !important;
+  font-weight: bold;
 }
 .footer-btn {
   font-size: 9px;
@@ -138,6 +139,7 @@ img {
   color: #020F59;
   padding-left: 10px;
   word-wrap: break-word;
+  text-transform: uppercase;
 }
 
 .user__name--wordwrap {
@@ -154,11 +156,10 @@ img {
 .view-img {
   height: 18px;
 }
-.delete-img {
-  height: 18px;
-}
+
 #status {
   padding-left: 10px;
+  text-transform: uppercase;
 }
 .buttons {
   margin: auto;
@@ -166,7 +167,7 @@ img {
 .checkbox {
   white-space: nowrap;
   margin-left: 10px;
-  margin-right: 8px;
+  margin-right: -6px;
   /* vertical-align: center; */
 }
 .footer-download-btn {
@@ -200,11 +201,11 @@ mat-card-content {
 .btn_axn-sec:disabled, .btn_axn-sec.page_btn:disabled{
   background: #BCE0FD !important;
   color: #020F59 !important;
-  font: Bold 15px/12px Arial;
   opacity: 0.5;
+  font-weight: 700;
 }
 .btn_axn-pri{
   background: #BCE0FD !important;
   color: #020F59 !important;
-  font: Bold 15px/12px Arial;
 }
+

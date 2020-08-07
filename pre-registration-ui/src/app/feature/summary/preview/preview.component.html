@@ -12,10 +12,7 @@
             primaryLanguage === 'ara' ? 'preview__body-content-div right spacing' : 'preview__body-content-div'
           "
         >
-          <div>
-           <!-- <p>{{ 'preview.language' | translate }}</p>
-          <h3>{{ 'preview.subheading_information' | translate }}</h3>
-        -->
+          <div>            
         <p id="previewtitle">{{ 'preview.title_preview' | translate }}</p>
            <h4>{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
            <span
@@ -60,7 +57,6 @@
             </table>
           </div>
           <div>
-           <!-- <h3>{{ 'preview.subheading_contact' | translate }}</h3>-->
           <h4>Contact</h4>
           <span
           (click)="this.router.navigate(['/pre-registration/demographic']);"
@@ -90,9 +86,6 @@
           primaryLanguage === 'ara' ? 'preview__body-content-div right spacing' : 'preview__body-content-div'
         "
       >  <div>
-      <!--  <p>{{ 'preview.language' | translate }}</p>
-       <h3>{{ 'preview.subheading_information' | translate }}</h3>
-      -->
       <h4>Adresse</h4>
       <span style="margin-left:58px"
       (click)="this.router.navigate(['/pre-registration/demographic']);"
@@ -170,7 +163,6 @@
           </tr>
         </table>
       </div>
-     <!-- <h3>{{ 'preview.title_document' | translate }}</h3>-->
       <h4>Justificatifs</h4>
       <span
       (click)="modifyDocument()"
@@ -179,11 +171,11 @@
       ><img src="assets/edit.svg" /></span
     >
         <div>
-          <table style="width:100%;margin-top: -24px;" *ngIf="documentMapObject">
+          <table id="justificatifstable" *ngIf="documentMapObject">
             <tr class="preview__file__table__header">
               <td  *ngFor="let object of documentMapObject">{{ object.name }}</td>
             </tr>
-            <tr class="preview__file__table__data">
+            <tr id="fileName-position" class="preview__file__table__data">
               <td *ngFor="let object of documentMapObject">
                 <p *ngIf="object.fileName !== undefined">{{ object.fileName }}</p>
                 <p class="error" *ngIf="object.fileName === undefined">{{ 'preview.text_not_uploaded' | translate }}</p>
@@ -193,7 +185,6 @@
         </div>
 
       </div>
-        <!--fin bloc droit-->
       </div>
     </mat-card-content>
   </mat-card>

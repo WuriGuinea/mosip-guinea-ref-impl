@@ -216,7 +216,7 @@ mat-select:focus {
   margin-left: 2px;
   height: 29px !important;
   outline: none;*/
-  background-image: url('/assets/supp.png');
+  background-image: url('/assets/supp.svg');
   
   height: 29px;
   width: 29px;

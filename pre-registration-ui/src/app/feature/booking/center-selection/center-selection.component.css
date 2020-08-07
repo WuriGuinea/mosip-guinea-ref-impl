@@ -257,8 +257,8 @@ input[type='radio'] {
   font-family: Roboto;
   color: #000000;
   opacity: 100%;
-  padding: 10px;
-  background-color: white;
+  padding: 14px;
+ /* background-color: white;*/
   appearance: none;
   width: 100%;
   font-size: 14px;

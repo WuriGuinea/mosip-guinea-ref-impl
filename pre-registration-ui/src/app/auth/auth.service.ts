@@ -31,8 +31,6 @@ export class AuthService {
       const url = this.BASE_URL + appConstants.APPEND_URL.gender;
       this.httpClient.get(url, {observe: 'response'}).subscribe(
         response => {
-          console.log("GetLogin: " + response.status);
-          // localStorage.setItem('loggedIn', 'true');
           that.setToken();
           resolve(true);
         },
