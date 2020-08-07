@@ -367,22 +367,12 @@ mat-icon {
   background: #e8dbd7;
 }*/
 
-/*
+
 .mat-input-element {
   font: inherit;
-  color: currentColor;
+  color: black;
   border: none;
-  outline: 34px !important;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-  vertical-align: bottom;
-  text-align: inherit;
-  border-radius: 9px !important;
-  border: solid 2px darkgray !important;
-  height: 44px !important;
-}*/
+}
 .mat-form-field-infix{
   border: solid 2px #BCE0FD !important;
   border-radius: 10px !important;
