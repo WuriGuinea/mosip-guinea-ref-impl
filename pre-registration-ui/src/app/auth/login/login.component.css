@@ -147,7 +147,7 @@ button {
 .mat-input-element {
   font: inherit;
   background: 0 0;
-  color: currentbColor;
+  color: currentColor;
   border: solid 1px #0D5EDE  !important;
   outline: 0;
   padding: 0;
