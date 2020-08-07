@@ -185,10 +185,13 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   async ngOnInit() {
     this.initialization();
     // changed by Ankit
-     this.dataStorageService.getConfig().subscribe( response => { this.configService.setConfig(response);
-     this.config = this.configService.getConfig(); }, error => { } );
+     this.dataStorageService.getConfig().subscribe( response => {
+        this.configService.setConfig(response);
+        this.config = this.configService.getConfig();
+        this.setConfig();
+     }, error => { } );
      // this.config = this.configService.getConfig();
-    this.setConfig();
+
     this.getPrimaryLabels();
     await this.getConsentMessage();
     this.initForm();
@@ -946,7 +949,6 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
           )
         );
       } else {
-        console.log("onSubmit:")
         this.subscriptions.push(
           this.dataStorageService.addUser(request).subscribe(
             response => {
@@ -1003,9 +1005,12 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       new UserModel(this.preRegId, request, this.regService.getUserFiles(this.step), this.codeValue)
     );
     this.bookingService.updateNameList(this.step, {
-      fullName: this.userForm.controls[this.formControlNames.firstName].value +" "+ this.userForm.controls[this.formControlNames.lastName].value,
+      fullName: this.userForm.controls[this.formControlNames.firstName].value+" "+this.userForm.controls[this.formControlNames.lastName].value,
       preRegId: this.preRegId,
-      regDto: this.bookingService.getNameList()[0].regDto
+      regDto: this.bookingService.getNameList()[0].regDto,
+      firstName: this.userForm.controls[this.formControlNames.firstName].value,
+      lastName: this.userForm.controls[this.formControlNames.lastName].value,
+      location: this.userForm.controls[this.formControlNames.prefecture].value,
     });
   }
 
@@ -1021,8 +1026,11 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     this.preRegId = response[appConstants.RESPONSE][appConstants.DEMOGRAPHIC_RESPONSE_KEYS.preRegistrationId];
     this.regService.addUser(new UserModel(this.preRegId, request, this.files, this.codeValue));
     this.bookingService.addNameList({
-      fullName: this.userForm.controls[this.formControlNames.firstName].value +" "+ this.userForm.controls[this.formControlNames.lastName].value,
+      fullName: this.userForm.controls[this.formControlNames.firstName].value+" "+this.userForm.controls[this.formControlNames.lastName].value,
       preRegId: this.preRegId,
+      firstName: this.userForm.controls[this.formControlNames.firstName].value,
+      lastName: this.userForm.controls[this.formControlNames.lastName].value,
+      location: this.userForm.controls[this.formControlNames.prefecture].value,
     });
   }
 
