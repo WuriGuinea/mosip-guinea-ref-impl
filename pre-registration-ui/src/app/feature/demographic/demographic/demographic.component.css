@@ -420,6 +420,7 @@ margin-bottom:10px;
 }
 input.mat-input-element{
   text-transform: uppercase !important;
+  color: black;
 }
 .mat-select-value-text{
   color: #020F59 !important;
@@ -444,3 +445,4 @@ textarea.mat-input-element{
 .mat-option {
   color: #020F59;
 }
+

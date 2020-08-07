@@ -15,6 +15,7 @@ import * as appConstants from './../../../app.constants';
 import { BookingDeactivateGuardService } from 'src/app/shared/can-deactivate-guard/booking-guard/booking-deactivate-guard.service';
 import LanguageFactory from 'src/assets/i18n';
 import { Subscription } from 'rxjs';
+import {NameList} from "../../../shared/models/demographic-model/name-list.modal";
 
 @Component({
   selector: 'app-center-selection',
@@ -42,7 +43,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   mapProvider = 'OSM';
   searchTextFlag = false;
   displayMessage = 'Showing nearby registration centers';
-  users: UserModel[];
+  users: NameList[];
   subscriptions: Subscription[] = [];
   primaryLang = localStorage.getItem('langCode');
   workingDays: string;
@@ -82,16 +83,34 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getRecommendedCenters() {
-    this.searchClick=true;
-    const pincodes = [];
-    this.REGISTRATION_CENTRES = [];
-    this.users.forEach(user => {
-      pincodes.push(user['postalCode']);
+    let prefectures = [];
+    this.users.forEach((user) => {
+      prefectures.push(user.location);
     });
+    this.REGISTRATION_CENTRES = [];
     const subs = this.dataService
-      .recommendedCenters()
-      .subscribe(response => {
-        if (response[appConstants.RESPONSE]) this.displayResults(response['response']);
+      /* leave it commented */
+      // .recommendedCenters(
+      //   this.primaryLang,
+      //   this.configService.getConfigByKey(
+      //     appConstants.CONFIG_KEYS.preregistration_recommended_centers_locCode
+      //   ),
+      //   prefectures
+      // )
+      .getCenter()
+      .subscribe((response) => {
+        if (response[appConstants.RESPONSE]) {
+          this.displayResults(response["response"]);
+        } else {
+          if (response["errors"] && response["errors"].length > 0){
+            let errStr = response["errors"].reduce(function(c, e){
+              return c +"\n"+ e.message
+            }, "");
+            alert(errStr)
+          } else {
+            alert("error occured while getting recommended centers")
+          }
+        }
       });
     this.subscriptions.push(subs);
   }

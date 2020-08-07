@@ -262,7 +262,7 @@
 		"consent_form":"Formulaire de Consentement"
 	},
 	"login": {
-		"text": "Se connecter",
+		"text": "S'identifier",
 		"sub_text": "pré-enregistrement pour",
 		"sub_text_UID": "Identifiant National Unique",
 		"label_select": "Choisissez votre langue",
@@ -445,7 +445,7 @@
 		"action_cre_application": "Nouvelle ",
 		"action_cre2_application": "Demande ",
 		"card": {
-			"text_app_id": "No de Demande",
+			"text_app_id": "No de Pré-enregistrement",
 			"text_name": "Prénom",
 			"text_lastname": "Nom",
 			"text_appoinment_date": "Rendez-vous",
@@ -471,7 +471,7 @@
 			"button_cancel": "Annuler"
 		},
 		"status": {
-			"pendingAppointment": "Rendez-vous en attente",
+			"pendingAppointment": "En attente",
 			"booked": "Réservé",
 			"expired": "Expiré"
 		},

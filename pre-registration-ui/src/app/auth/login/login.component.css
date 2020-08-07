@@ -31,7 +31,7 @@
 }
 
 .logo_wrapper .mat-card {
-  padding-top: 0.8rem;
+  padding-top: 9.5rem;
 }
 
 .login-input {
@@ -52,7 +52,11 @@
 }
 
 .form_wrapper {
+<<<<<<< HEAD
   margin: 12% 64% 0% 64%;
+=======
+  margin: 15% 64% 0% 64%;
+>>>>>>> 538248ce5a3fd1f5da82d22a9e89ac570f8afa65
   border-radius: 30px;
   box-shadow: 0px 3px 6px #00000029;;
   background: #fafafa;
@@ -147,7 +151,7 @@ button {
 .mat-input-element {
   font: inherit;
   background: 0 0;
-  color: currentColor;
+  color: currentbColor;
   border: solid 1px #0D5EDE  !important;
   outline: 0;
   padding: 0;
@@ -275,6 +279,7 @@ left: 15vw;
   } 
 .positionimgbiom{
   height: 21rem;
+  margin-top: 127px;
 }
 
 .mat-card:not([class*=mat-elevation-z]){
