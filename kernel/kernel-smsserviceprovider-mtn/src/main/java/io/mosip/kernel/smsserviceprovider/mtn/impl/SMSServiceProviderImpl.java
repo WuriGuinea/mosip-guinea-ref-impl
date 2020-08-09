@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import io.mosip.kernel.core.exception.UnsupportedEncodingException;
 import io.mosip.kernel.core.notification.exception.InvalidNumberException;
 import io.mosip.kernel.core.notification.model.SMSResponseDto;
 import io.mosip.kernel.core.notification.spi.SMSServiceProvider;
@@ -47,25 +50,19 @@ public class SMSServiceProviderImpl implements SMSServiceProvider {
 	@Override
 	public SMSResponseDto sendSms(String contactNumber, String message) {
 		SMSResponseDto smsResponseDTO = new SMSResponseDto();
+
 		validateInput(contactNumber);
 		contactNumber = countryCode.concat(contactNumber);
-		UriComponentsBuilder sms = UriComponentsBuilder.fromHttpUrl(apiUrl)
-				.queryParam(SmsPropertyConstant.SENDER_ID.getProperty(), senderId)
-				.queryParam(SmsPropertyConstant.PROVIDER_CLIENT.getProperty(), clienId)
-				.queryParam(SmsPropertyConstant.PROVIDER_PASSWORD.getProperty(), password)
-				.queryParam(SmsPropertyConstant.PROVIDER_AFFILIATE.getProperty(), affiliate)
-				.queryParam(SmsPropertyConstant.SMS_MESSAGE.getProperty(), message)
-				.queryParam(SmsPropertyConstant.RECIPIENT_NUMBER.getProperty(), contactNumber);
-
 		try {
-			restTemplate.getForEntity(sms.toUriString(), String.class);
-		} catch (HttpClientErrorException | HttpServerErrorException e) {
-			System.out.println("Erreur au paradis");
-			throw new RuntimeException(e.getResponseBodyAsString());
+			MtnMessageRequest.send(buildAPIURl(), contactNumber, message);
+		} catch (HttpClientErrorException | HttpServerErrorException | UnsupportedEncodingException
+				| java.io.UnsupportedEncodingException e) {
+
+			throw new RuntimeException(((RestClientResponseException) e).getResponseBodyAsString());
 		}
 		smsResponseDTO.setMessage(SmsPropertyConstant.SUCCESS_RESPONSE.getProperty());
 		smsResponseDTO.setStatus("success");
-			return smsResponseDTO;
+		return smsResponseDTO;
 	}
 
 	private void validateInput(String contactNumber) {
@@ -75,6 +72,15 @@ public class SMSServiceProviderImpl implements SMSServiceProvider {
 					SmsExceptionConstant.SMS_INVALID_CONTACT_NUMBER.getErrorMessage() + numberLength
 							+ SmsPropertyConstant.SUFFIX_MESSAGE.getProperty());
 		}
+	}
+
+	private String buildAPIURl() {
+		String mtnApiURl = apiUrl + "?" + SmsPropertyConstant.PROVIDER_AFFILIATE.getProperty() + "=" + affiliate + "&"
+				+ SmsPropertyConstant.PROVIDER_CLIENT.getProperty() + "=" + clienId + "" + "&"
+				+ SmsPropertyConstant.PROVIDER_PASSWORD.getProperty() + "=" + password + "&"
+				+ SmsPropertyConstant.SENDER_ID.getProperty() + "=" + senderId + "&";
+
+		return mtnApiURl;
 	}
 
 }
