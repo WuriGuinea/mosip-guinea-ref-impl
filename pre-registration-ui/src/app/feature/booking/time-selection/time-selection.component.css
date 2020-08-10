@@ -243,7 +243,7 @@
 .card-slot-text-selected {
   font-size: 0.8rem;
   font-weight: 500;
-  color: white;
+  color: #020F59;
   margin-top: -50px; 
   margin-left: 118px; 
 }
@@ -302,7 +302,7 @@
 
 .selected-card {
   background-color: #BCE0FD !important;
-  color: white !important;
+  color: #020F59 !important;
 }
 
 .time-selection__button-container {

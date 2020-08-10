@@ -9,7 +9,7 @@
   top: 0;
   position: sticky;
   z-index: 2;
-  background-color: #020F59;/*#0b6a82;*/
+  background-color: #020F59;
   border-color: #707070;
   border-width: 1px;
   overflow-x: hidden;
@@ -24,7 +24,7 @@
   /* UX enhancement */
   padding-left: 4%;
   /* UX enhancement end */
-  /*transform: rotate(85deg);*/
+  
 }
 
 .spacer {
@@ -70,7 +70,7 @@
   }
 }
 button.mat-raised-button.mat-primary{
-  width:354px ;/*28%;*/
+  width:354px ;
   background-color: #020F59 !important;
   line-height: 48px !important;
   font-weight: bold;
