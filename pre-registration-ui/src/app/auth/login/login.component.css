@@ -275,7 +275,7 @@ left: 15vw;
   } 
 .positionimgbiom{
   height: 21rem;
-  margin-top: 127px;
+  margin-top: -10px;
 }
 
 .mat-card:not([class*=mat-elevation-z]){
