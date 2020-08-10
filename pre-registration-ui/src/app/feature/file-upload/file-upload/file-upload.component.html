@@ -20,7 +20,6 @@
             (selectionChange)="selectChange($event, i)"
             [disabled]="document.code === 'POA' && sameAsselected ? true : false"
           >
-            <!-- (openedChange)="openedChange(i, $event)" -->
             <mat-option *ngFor="let ValidDocument of document.documentTypes" value="{{ ValidDocument.code }}">
               {{ ValidDocument.name }}
             </mat-option>

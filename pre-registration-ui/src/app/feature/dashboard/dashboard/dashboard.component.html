@@ -1,5 +1,5 @@
 <div class="dashboard-body">
-  <!--  [dir]="textDir"-->
+ 
   <div class="heading-row">
     <div class="heading">
       <p>{{ 'dashboard.title' | translate }}</p>
@@ -10,18 +10,15 @@
         matTooltip="{{ 'helpText.book/modify_appointment' | translate }}"
         [matTooltipDisabled]="!disableModifyAppointmentButton"
       >
-        <!-- class="modify-app-btn" -->
-        <!-- mat-button -->
         <button
           [disabled]="disableModifyAppointmentButton"
           class="btn_axn-sec page_btn mar_right-30"
           (click)="onModifyMultipleAppointment()"
-        >
+        ><!-- mat-button -->
           {{ 'dashboard.action_modify_appointment' | translate }}
         </button></span
       >
       <span>
-        <!-- class="create-app-btn" -->
         <button class="btn_axn-pri page_btn" (click)="onNewApplication()">
           <img style="position: relative;top: 6px;" src="assets\Add.png" class="create-app-img" />
           {{ 'dashboard.action_cre_application' | translate }} <br>
@@ -120,7 +117,6 @@
                 <img matTooltip="{{ 'dashboard.card.action_modify_information' | translate }}"
                  src="assets\Modify information_grey.png" class="modifyinfo-btn-img" />
               </button>
-              <!-- (click)="onSelectUser(user)" -->
               <button
                 mat-button
                 class="footer-btn"
@@ -130,9 +126,6 @@
                 <img matTooltip="{{ 'dashboard.card.action_view_acknowledgement' | translate }}"
                  src="assets\view.png" class="modifyapp-btn-img" />
               </button>
-              <!-- <button mat-icon-button class="footer-download-btn">
-                <img src="assets\download.png" class="download-btn-img" />
-              </button> -->
             </mat-card-actions>
           </mat-card-footer>
         </mat-card>
