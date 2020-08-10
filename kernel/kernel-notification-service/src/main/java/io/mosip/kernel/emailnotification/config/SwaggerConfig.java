@@ -68,7 +68,9 @@ public class SwaggerConfig {
 
 		if (swaggerBaseUrlSet) {
 			docket.protocols(protocols()).host(hostWithPort);
+			System.out.println ("SWG :\n \n \n \n  --------------------------------------");
 			System.out.println("\nSwagger Base URL: " + proto + "://" + hostWithPort + "\n");
+			System.out.println ("SWG :\n \n \n \n       -------------------------------------");
 		}
 		return docket;
 	}
