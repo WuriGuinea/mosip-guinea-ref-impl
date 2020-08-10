@@ -1,11 +1,11 @@
 id,name,descr,file_format_code,model,file_txt,module_id,module_name,template_typ_code,lang_code,is_active,cr_by,cr_dtimes
-1101,Modèle de contenu d'autorisation,Modèle de contenu d'autorisation,txt,,"Cher(e) $name,
+1101,Modèle de contenu d'autorisation,Modèle de contenu d'autorisation,txt,,"Cher(e) $firstName $lastName,
 Voici les détails de votre authentification avec l'INU $uin sur le périphérique déployé par les Services WURI:
 - Type d'authentification : $authType 
 - Date et Heure : $date à $time Hrs 
 - Statut : $status ",10004,Authentification ID,auth-email-content,fra,TRUE,superadmin,now()
 1102,Modèle d'objet d'autorisation,Modèle d'object d'autorisation,txt,,Authentification INU $uin: $status,10004,Authentification ID,auth-email-subject,fra,TRUE,superadmin,now()
-1103,Modèle de SMS d'autorisation,Modèle de SMS d'autorisation,txt,,"Cher(e) $name, les détails de votre authentification avec l'INU $uin par les services WURI : Type : $authType ; Date et Heure : $date à $time Hrs ; Statut : $status; ",10004,Authentification ID,auth-sms,fra,TRUE,superadmin,now()
+1103,Modèle de SMS d'autorisation,Modèle de SMS d'autorisation,txt,,"Cher(e) $firstName $lastName, les détails de votre authentification avec l'INU $uin par les services WURI : Type : $authType ; Date et Heure : $date à $time Hrs ; Statut : $status; ",10004,Authentification ID,auth-sms,fra,TRUE,superadmin,now()
 1107,Modèle de courrier d'identité en double,Modèle de courrier d'identité en double,txt,,"Cher(e) $!name_fra,
 Votre demande d'INU avec le numéro d'enregistrement: $!RID a échoué car un doublon a été détecté. 
 Veuillez nous contacter au : incident@wuriguinee.com ou +224622227491.
@@ -33,46 +33,46 @@ Merci",10003,Processeur dinscription,RPR_UIN_UPD_EMAIL,fra,TRUE,superadmin,now()
 Les infos de votre INU correspondant au numéro d’enregistrement: $!RID ont été mises à jour. 
 Veuillez nous contacter au : inu@wuriguinee.com ou +224622227491 pour récupérer votre nouvelle carte INU.
 Merci",10003,Processeur dinscription,RPR_UIN_UPD_SMS,fra,TRUE,superadmin,now()
-1115,Modèle de contenu de courriel pour un nouvel enregistrement,Modèle de contenu de courriel pour un nouvel enregistrement,txt,,"Cher(e) $name,
+1115,Modèle de contenu de courriel pour un nouvel enregistrement,Modèle de contenu de courriel pour un nouvel enregistrement,txt,,"Cher(e) $FIRSTNAME $LASTNAME,
 Merci de vous être inscrit sur la plateforme d'identification numérique WURI GUINEE. Votre numéro d'enregistrement est $RegistrationID. 
 Si des corrections doivent être apportées à vos données, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client dinscription,NewReg-email-content-template,fra,TRUE,superadmin,now()
 1116,Modèle d'objet pour une nouvel enregistrement,Modèle d'objet pour un nouvel enregistrment,txt,,Confirmation d'enregistrement,10002,Client dinscription,NewReg-email-subject-template,fra,TRUE,superadmin,now()
-1117,Modèle de SMS pour un nouvel enregistrement,Modèle de nouvelle inscription SMS,txt,,"Cher(e) $name,
+1117,Modèle de SMS pour un nouvel enregistrement,Modèle de nouvelle inscription SMS,txt,,"Cher(e) $FIRSTNAME $LASTNAME,
 Merci de vous être inscrit sur la plateforme d'identification numérique WURI GUINEE. Votre numéro d'enregistrement est $RegistrationID. 
 Si des corrections sont nécessaires, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client dinscription,NewReg-sms-template,fra,TRUE,superadmin,now()
-1118,Modèle de contenu de courriel de génération d'OTP,Modèle de contenu de contenu courriel de génération d'OTP,txt,,"Cher(e) $name,
+1118,Modèle de contenu de courriel de génération d'OTP,Modèle de contenu de contenu courriel de génération d'OTP,txt,,"Cher(e) $FIRSTNAME $LASTNAME,
 L'OTP pour l'utilisateur $username est $otp. Il est valide pour $validTime minutes.
 Il a été généré le $date à $heure hrs.",10002,Client d'inscription,OTP-email-content-template,fra,TRUE,superadmin,now()
 1119,Modèle d'objet pour le courriel de génération d'OTP,Modèle d'objet pour le courriel de génération d'OTP,txt,,Votre mot de passe WURI à usage unique (OTP),10002,Client dinscription,OTP-email-subject-template,fra,TRUE,superadmin,now()
-1120,Modèle de SMS OTP,Modèle de SMS OTP,txt,,"Cher(e) $name,
+1120,Modèle de SMS OTP,Modèle de SMS OTP,txt,,"Cher(e) $FIRSTNAME $LASTNAME,
 L'OTP pour l'utilisateur $username est $otp. Il est valide pour $validTime minutes.
 Il a été généré le $date à $heure hrs.",10002,Client dinscription,OTP-sms-template,fra,TRUE,superadmin,now()
-1121,Modèle pour l'enregistrement de la mise à jour,Modèle pour lenregistrement de la mise à jour,txt,,"Cher(e) $name,
+1121,Modèle pour l'enregistrement de la mise à jour,Modèle pour lenregistrement de la mise à jour,txt,,"Cher(e) $FIRSTNAME $LASTNAME,
 Merci de mettre à jour vos coordonnées sur la plateforme d’identité numérique WURI GUINEE.Votre identifiant d'enregistrement est $RegistrationID. 
 Si des corrections doivent être apportées à vos données, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client dinscription,Update-email-content-template,fra,TRUE,superadmin,now()
 1122,Modèle d'objet pour enregistrement des mises à jour,Modèle d'objet pour enregistrement des mises à jour,txt,,Confirmation de la mise à jour des données d'enregistrement,10002,Client dinscription,Update-email-subject-template,fra,TRUE,superadmin,now()
-1123,Modèle pour SMS denregistrement de mise à jour,Modèle pour SMS denregistrement de mise à jour,txt,,"Cher(e) $name,
+1123,Modèle pour SMS denregistrement de mise à jour,Modèle pour SMS denregistrement de mise à jour,txt,,"Cher(e) $FIRSTNAME $LASTNAME,
 Merci de mettre à jour vos coordonnées sur la plateforme d’identification numérique WURI GUINEE. Votre identifiant d'enregistrement est $RegistrationID. 
-Si des corrections sont nécessaires, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client dinscription,Update-sms-template,fra,TRUE,superadmin,now()
-1124,Template for email confirmation,Template for email confirmation,txt,,"Cher(e) $name, 
+Si des corrections sont nécessaires, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client d'inscription,Update-sms-template,fra,TRUE,superadmin,now()
+1124,Template for email confirmation,Template for email confirmation,txt,,"Cher(e) $firstName $lastName, 
 votre pré-enregistrement pour l'obtention d'INU effectuée le sur $Date à $Time est terminée avec succès.
 Votre numéro de pré-enregistrement est $PRID.
 Votre rendez-vous d'enregistrement est prévu le $Appointmentdate à $Appointmenttime.
 vous recevrez également les détails sur votre numéro de téléphone",10001,Pré-inscription,Email-Acknowledgement,fra,TRUE,superadmin,now()
-1125,On-screen recognition template,On-screen recognition template,txt,," Cher(e) $name, veuillez apporter les documents suivants si vous en avez
+1125,On-screen recognition template,On-screen recognition template,txt,," Cher(e) $firstName $lastName, veuillez apporter les documents suivants si vous en avez
 1. Preuve de consentement : disponible à l'adresse uin.gov.gn/consentement ou au bureau d'enregistrement dans le cas échéant
 2. Pièce d'identité : carte nationale d'identité, passeport, ....
 3. Justificatif d'adresse : certificat de résidence, attestation d'hébergement, facture d'électricite ou d'eau, ou autre
 4. Justificat de naissance : extrait de naissance, déclaration de naissance
 ",10001,Pré-inscription,Onscreen-Acknowledgement,fra,TRUE,superadmin,now()
-1126,OTP Email Content Template,OTP Email Content Template,txt,,"Cher(e) $name,
+1126,OTP Email Content Template,OTP Email Content Template,txt,,"Cher(e) $firstName $lastName,
 Votre OTP est $otp. Il est valide pour $validTime minutes. Il correspond au numéro de pre-enregistrement : $PRID
 Il a été généré le $date à $heure hrs.",10001,Pré-inscription,OTP-email-content-template,fra,TRUE,superadmin,now()
 1127,Template for OTP email subject,Template for OTP email subject,txt,,Pre-enregistrement $PRID: demande d'OTP,10001,Pré-inscription,OTP-email-subject-template,fra,TRUE,superadmin,now()
-1128,Template for OTP SMS,Template for OTP SMS,txt,,"Cher(e) $name,
+1128,Template for OTP SMS,Template for OTP SMS,txt,,"Cher(e) $firstName $lastName,
 Votre OTP est $otp. Il est valide pour $validTime minutes. Il correspond au numéro de pre-enregistrement : $PRID
 Il a été généré le $date à $heure hrs.",10001,Pré-inscription,OTP-sms-template,fra,TRUE,superadmin,now()
-1129,Template for SMS Acknowledgment,Template for SMS Acknowledgment,txt,,"Cher(e) $name, 
+1129,Template for SMS Acknowledgment,Template for SMS Acknowledgment,txt,,"Cher(e) $firstName $lastName, 
 votre pré-enregistrement pour l'obtention d'INU effectuée le sur $Date à $Time est terminée avec succès.
 Votre numéro de pré-enregistrement est $PRID.
 Votre rendez-vous d'enregistrement est prévu le $Appointmentdate à $Appointmenttime.
@@ -307,11 +307,11 @@ Merci de trouver votre mot de passe temporaire $otp. Attention il expire dans 3 
 1149,auth otp email service subject,auth otp email service subject,txt,velocity,Mot de passe temporaire (OTP),10004,Authentification ID,auth-otp-email-subject-template,fra,TRUE,superadmin,now()
 1150,auth otp email service subject,auth otp email service subject,txt,velocity,"Cher(e) Client(e), 
 Merci de trouver votre mot de passe temporaire $otp. Attention il expire dans 3 minutes.",10004,Authentification ID,auth-otp-email-content-template,fra,TRUE,superadmin,now()
-1151,Modèle de contenu de courrier électronique,Modèle de contenu de courrier électronique,txt,,"Cher(e) $name,
+1151,Modèle de contenu de courrier électronique,Modèle de contenu de courrier électronique,txt,,"Cher(e) $firstName $lastName,
 Votre mot de passe OTP est $otp. Il correspond au INU $uin. Attention, il est valide pour $validTime minutes
 Il a été généré le $date à $time Hrs, Merci",10004,Authentification ID,ida-auth-otp-email-content-template,fra,TRUE,superadmin,now()
 1152,Modèle pour sujet demail,Modèle pour sujet demail,txt,model,INU $uin: demande de mot de passe (OTP),10004,Authentification ID,ida-auth-otp-email-subject-template,fra,TRUE,superadmin,now()
-1153,Modèle pour OTP dans SMS,Modèle pour OTP dans SMS,txt,model,"Cher(e) $name,
+1153,Modèle pour OTP dans SMS,Modèle pour OTP dans SMS,txt,model,"Cher(e) $firstName $lastName,
 Votre mot de passe OTP est $otp. Il correspond au INU $uin. Attention, il est valide pour $validTime minutes
 Il a été généré le $date à $time Hrs, Merci",10004,Authentification ID,ida-auth-otp-sms-template,fra,TRUE,superadmin,now()
 1154,Consentement,Consentement,txt,,"J'autorise WURI à recueillir l'ensemble des données démographiques et biométriques nécessaires à l'identification numérique, qui sont :
@@ -332,7 +332,7 @@ Veuillez mettre à jour vos coordonnées sur la plateforme d’identification WURI. 
 Nous accusons réception de votre requête sur la perte de votre INU . Votre numéro d'enregistrement pour cette demande est ""${RID}"".",10005,Inscription,lostUIN-email-notification,fra,TRUE,superadmin,now()
 1158,Modèle de SMS de reconnaissance,Modèle de confirmation d'inscription,txt,velocity,"Cher(e) Client(e), 
 Nous accusons réception de votre requête sur la perte de votre INU . Votre numéro d'enregistrement pour cette demande est ""${RID}"".",10005,Inscription,lostUIN-sms-notification,fra,TRUE,superadmin,now()
-1159,Modèle pour annuler un rendez-vous,Modèle pour annuler un rendez-vous,txt,velocity,"Cher(e) $name,
+1159,Modèle pour annuler un rendez-vous,Modèle pour annuler un rendez-vous,txt,velocity,"Cher(e) $firstName $lastName,
 Votre rendez-vous pour l'enregistrement (PRID : $PRID) prévu le $Appointmentdate à $Appointmenttime a été annulé. 
 Nous nous en excusons. Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
 Merci!",10001,Pré-inscription,cancel-appointment,fra,TRUE,superadmin,now()
