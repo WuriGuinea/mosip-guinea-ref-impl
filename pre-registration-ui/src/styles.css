@@ -250,8 +250,6 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   position: relative;
 }
 .mat-form-field-infix{
- /* border: solid 1px #e1effb !important;
-  border-radius: 10px !important;*/
 }
 .mat-select-arrow{
   color: #BCE0FD;
@@ -262,8 +260,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   display: none;
 }
 .mat-form-field-appearance-legacy .mat-form-field-infix{
- /* border: solid 2px #BCE0FD !important;
-  border-radius: 10px !important;*/
+ 
   border-bottom: solid 1px #BCE0FD  !important;
   border-top: none !important;
   border-right: none !important;
@@ -325,7 +322,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     box-shadow: none !important;
   }
   .mat-select-value{
-    color: #020F59 !important;
+    color: #000000 !important;
     text-transform: none !important;
   }
   /*
