@@ -6,7 +6,7 @@
         <div class="user">
             <form [formGroup]="userForm" class="user__form">
                 <div [dir]="textDir" class="user__container card">
-                    <h4 class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
+                    <h4 id="titleposition" class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
 <br/>
                     <div class="row">
                         <div class="col-50">
@@ -147,7 +147,7 @@
                     </div>
 
                     <br/>
-                    <h4 class="titlecolor">{{ 'demographic.contact_section_title' | translate }}</h4>
+                    <h4 style="margin-top: 24px;" class="titlecolor">{{ 'demographic.contact_section_title' | translate }}</h4>
 
                     <div class="user__dropdown">
                         <mat-form-field>
@@ -182,7 +182,7 @@
                 </div>
 
                 <div [dir]="textDir" class="user__container card">
-                    <h4 class="titlecolor">{{ 'demographic.address_section_title' | translate }}</h4>
+                    <h4 id="titleposition" class="titlecolor">{{ 'demographic.address_section_title' | translate }}</h4>
                    <br/>
                     <div class="user__dropdown">
                         <mat-form-field>
@@ -221,7 +221,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 25px;" class="user__dropdown">
+                    <div style="margin-top: 10px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
@@ -253,7 +253,7 @@
                             <mat-error *ngIf="!district.invalid">Veuillez sélectionner un district</mat-error>
                         </mat-form-field>
                     </div>
-                    <div class="user__dropdown">
+                    <div style="margin-top: 9px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
@@ -269,8 +269,8 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: -2px;"class="row"> 
-                            <h4>{{ 'demographic.label_additionalAddressDetails' | translate }}</h4>
+                    <div style="margin-top: 12px;"class="row"> 
+                            <h4 id="complementadr">{{ 'demographic.label_additionalAddressDetails' | translate }}</h4>
                             <textarea
                                     matInput
                                     #additionalAddressDetails

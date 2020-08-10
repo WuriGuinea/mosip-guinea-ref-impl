@@ -139,7 +139,7 @@ mat-icon {
   display: flex;
   width: 87.5%;
   align-items: center;
-  margin-top: 19px;
+  margin-top: 10px;
 }
 
 .user__age-or-date > div {
@@ -194,7 +194,7 @@ mat-icon {
   font-size: 0.8rem;
   display: flex;
   margin-bottom: 6px;
-  margin-top: 8px;
+  margin-top: 9px;
   padding-left: 2px;
 }
 
@@ -420,7 +420,6 @@ margin-bottom:10px;
 }
 input.mat-input-element{
   text-transform: uppercase !important;
-  color: black;
 }
 .mat-select-value-text{
   color: #020F59 !important;
@@ -432,7 +431,7 @@ textarea.mat-input-element{
   text-transform: uppercase;
   border: solid 1px #BCE0FD ;
   border-radius: 5px;
-  height: 37px;
+  height: 60px;
 }
 
 .mat-option-text {
@@ -445,4 +444,18 @@ textarea.mat-input-element{
 .mat-option {
   color: #020F59;
 }
-
+#titleposition{
+  margin-bottom: -14px;
+}
+#complementadr{
+  margin-bottom: -10px;
+  font-weight: 300;
+  font-family: Roboto;
+  font-size: 15px;
+}
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  top: 24px;
+}
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-empty.mat-form-field-label{
+  top: 24px;
+}

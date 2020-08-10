@@ -267,6 +267,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   border-bottom: solid 1px #BCE0FD  !important;
   border-top: none !important;
   border-right: none !important;
+  padding-bottom: 3px;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix{
   /*Suppression du border solid sur le field email*/
@@ -304,8 +305,9 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 }
 
 .mat-form-field-label-wrapper{
-  top: -17px !important;
-  font-size: 1rem;
+  top: -15px !important;
+  font-size: 15px;
+  font-family: Roboto;
 }
 .user__btn:active{
   border: none;
@@ -330,3 +332,6 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   .mat-raised-button{
     background: #BCE0FD !important;
   }*/
+  .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+    top: 24px;
+  }
