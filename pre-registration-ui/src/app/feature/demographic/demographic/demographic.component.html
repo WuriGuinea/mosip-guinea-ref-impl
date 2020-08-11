@@ -39,7 +39,7 @@
                         </div>
                     </div>
 
-
+                    <mat-label style="position: relative;margin-left: -11px;bottom: -40px;">{{ 'demographic.text_date' | translate }} </mat-label>
                     <div class="user__age-or-date">
                         <div class="user__date">
                             <mat-form-field>
@@ -51,7 +51,7 @@
                                         [formControlName]="formControlNames.date"
                                         (focusout)="onDOBChange()"
                                 />
-                            </mat-form-field>
+                            </mat-form-field> <p>/</p>
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.date_mm' | translate }}</mat-label>
                                 <input
@@ -61,7 +61,7 @@
                                         [formControlName]="formControlNames.month"
                                         (focusout)="onDOBChange()"
                                 />
-                            </mat-form-field>
+                            </mat-form-field> <p>/</p>
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.date_yyyy' | translate }}</mat-label>
                                 <input
@@ -77,7 +77,7 @@
                         <div class="user__pref">
                             {{ 'demographic.text_or' | translate }}
                         </div>
-                        <div class="user__age">
+                        <div style="margin-right: 110px;" class="user__age">
                             <mat-form-field>
                                 <input
                                         matInput
@@ -155,7 +155,7 @@
                             <input
                                     matInput
                                     #mobileNumber
-                                    type="number"
+                                    type=""
                                     maxlength="{{ MOBILE_LENGTH }}"
                                     placeholder="{{ 'demographic.label_mob_num' | translate }}"
                                     [formControlName]="formControlNames.phone"
@@ -221,7 +221,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 10px;" class="user__dropdown">
+                    <div style="margin-top: 21px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
@@ -253,7 +253,7 @@
                             <mat-error *ngIf="!district.invalid">Veuillez sélectionner un district</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 9px;" class="user__dropdown">
+                    <div style="margin-top: 11px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering

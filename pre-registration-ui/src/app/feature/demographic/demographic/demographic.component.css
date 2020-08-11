@@ -132,6 +132,7 @@ mat-icon {
   width: 87.5%;
   align-items: center;
   margin-top: 10px;
+  margin-left: 97px;
 }
 
 .user__age-or-date > div {
@@ -403,9 +404,9 @@ input.mat-input-element{
 }
 textarea.mat-input-element{
   text-transform: uppercase;
-  border: solid 1px #BCE0FD ;
   border-radius: 5px;
-  height: 60px;
+  height: 55px;
+  border: solid 1px #BCE0FD  !important;
 }
 
 .mat-option-text {
