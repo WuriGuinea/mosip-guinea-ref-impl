@@ -46,7 +46,12 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 			<version>${spring.boot.version}</version>
 		</dependency>
-
+<!-- https://mvnrepository.com/artifact/net.markenwerk/utils-mail-dkim -->
+<dependency>
+    <groupId>net.markenwerk</groupId>
+    <artifactId>utils-mail-dkim</artifactId>
+    <version>1.0.1</version>
+</dependency>
 	</dependencies>
 	<build>
 		<plugins>

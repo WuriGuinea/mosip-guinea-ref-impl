@@ -12,6 +12,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -24,15 +26,20 @@ import io.mosip.kernel.emailnotification.constant.MailNotifierArgumentErrorConst
 import io.mosip.kernel.emailnotification.constant.MailNotifierConstants;
 import io.mosip.kernel.emailnotification.exception.InvalidArgumentsException;
 import io.mosip.kernel.emailnotification.exception.NotificationException;
+import io.mosip.kernel.emailnotification.service.impl.EmailNotificationServiceImpl;
+import net.markenwerk.utils.mail.dkim.DkimMessage;
+import net.markenwerk.utils.mail.dkim.DkimSigner;
 
 /**
  * This class provides with the utility methods for email-notifier service.
  * 
  * @author Sagar Mahapatra
+ * @author condeis
  * @since 1.0.0
  */
 @Component
 public class EmailNotificationUtils {
+	Logger LOGGER = LoggerFactory.getLogger(EmailNotificationUtils.class);
 	/**
 	 * This method sends the message.
 	 * 
@@ -41,14 +48,39 @@ public class EmailNotificationUtils {
 	 */
 	@Async
 	public void sendMessage(MimeMessage message, JavaMailSender emailSender) {
-		emailSender.send(message);
+		LOGGER.info("To Request uncrypted : " +   message);
+		 
+	 	//	emailSender.send(message);
+	 		sendMessageCrypted(message, emailSender);
 	}
-
+	@Async
+	public void sendMessageCrypted(MimeMessage message, JavaMailSender emailSender) {
+	//	ne marche pas
+	System.out.println("Tentative d'envoi du message crypte");
+	LOGGER.info("Trying to send crypted message ");
+	DkimMessage dkimMessage=null;
+	try {
+		LOGGER.info("Trying to send crypted message ");
+		dkimMessage = new DkimMessage(message, Toto.createDKimSigner());
+		
+	} catch (MessagingException e) {
+		System.out.println("Messaging exception ");
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		System.out.println("Error found while processing encryption"+	e);
+	}
+	 		emailSender.send(dkimMessage);
+	 		LOGGER.info("To Request crypted : " + dkimMessage );
+	}
 	/**
 	 * This method adds the attachments to the mail.
 	 * 
-	 * @param attachments the attachments.
-	 * @param helper      the helper object.
+	 * @param attachments
+	 *            the attachments.
+	 * @param helper
+	 *            the helper object.
 	 */
 	public void addAttachments(MultipartFile[] attachments, MimeMessageHelper helper) {
 		Arrays.asList(attachments).forEach(attachment -> {
@@ -63,23 +95,27 @@ public class EmailNotificationUtils {
 	/**
 	 * This method handles argument validations.
 	 * 
-	 * @param mailTo      the to address to be validated.
-	 * @param mailSubject the subject to be validated.
-	 * @param mailContent the content to be validated.
+	 * @param mailTo
+	 *            the to address to be validated.
+	 * @param mailSubject
+	 *            the subject to be validated.
+	 * @param mailContent
+	 *            the content to be validated.
 	 */
-	public static void validateMailArguments(String fromEmail, String[] mailTo, String mailSubject, String mailContent){
+	public static void validateMailArguments(String fromEmail, String[] mailTo, String mailSubject,
+			String mailContent) {
 		Set<ServiceError> validationErrorsList = new HashSet<>();
-		
-		if (null != fromEmail ) {
-			
+
+		if (null != fromEmail) {
+
 			try {
 				validateEmailAddress(fromEmail);
+			} catch (AddressException ex) {
+				validationErrorsList.add(
+						new ServiceError(MailNotifierArgumentErrorConstants.SENDER_ADDRESS_NOT_FOUND.getErrorCode(),
+								MailNotifierArgumentErrorConstants.SENDER_ADDRESS_NOT_FOUND.getErrorMessage()));
 			}
-			catch(AddressException ex){
-				validationErrorsList.add(new ServiceError(MailNotifierArgumentErrorConstants.SENDER_ADDRESS_NOT_FOUND.getErrorCode(),
-				MailNotifierArgumentErrorConstants.SENDER_ADDRESS_NOT_FOUND.getErrorMessage()));
-			}
-			
+
 		}
 
 		if (mailTo == null || mailTo.length == Integer.parseInt(MailNotifierConstants.DIGIT_ZERO.getValue())) {
@@ -91,10 +127,10 @@ public class EmailNotificationUtils {
 			tos.forEach(to -> {
 				try {
 					validateEmailAddress(to);
-				}
-				catch(AddressException ex){
-					validationErrorsList.add(new ServiceError(MailNotifierArgumentErrorConstants.SENDER_ADDRESS_NOT_FOUND.getErrorCode(),
-					MailNotifierArgumentErrorConstants.SENDER_ADDRESS_NOT_FOUND.getErrorMessage()));
+				} catch (AddressException ex) {
+					validationErrorsList.add(
+							new ServiceError(MailNotifierArgumentErrorConstants.SENDER_ADDRESS_NOT_FOUND.getErrorCode(),
+									MailNotifierArgumentErrorConstants.SENDER_ADDRESS_NOT_FOUND.getErrorMessage()));
 				}
 			});
 		}
@@ -113,10 +149,15 @@ public class EmailNotificationUtils {
 		}
 	}
 
-	private static boolean validateEmailAddress(String emailId ) throws AddressException{
-		
+	private static boolean validateEmailAddress(String emailId) throws AddressException {
+
 		InternetAddress fromEmailAddr = new InternetAddress(emailId);
 		fromEmailAddr.validate();
-		return true;		
+		return true;
+	}
+
+	private DkimSigner createMessageSigningDKIM() {
+
+		return null;
 	}
 }
