@@ -405,7 +405,8 @@ input.mat-input-element{
 textarea.mat-input-element{
   text-transform: uppercase;
   border-radius: 5px;
-  height: 30px;
+  height: 55px;
+  border: solid 1px #BCE0FD  !important;
 }
 
 .mat-option-text {
