@@ -255,8 +255,8 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
         user.preRegId,
         user.bookingData ? user.bookingData.split(',')[0] : user.regDto.appointment_date,
         Number(user.bookingTimePrimary.split(':')[0]) < 10 ? '0' + user.bookingTimePrimary : user.bookingTimePrimary,
-        applicantNumber[1] === undefined ? null : applicantNumber[1],
-        applicantNumber[0] === undefined ? null : applicantNumber[0],
+        applicantNumber[1] === undefined ? "" : applicantNumber[1],
+        applicantNumber[0] === undefined ? "" : applicantNumber[0],
         additionalRecipient,
         false
       );
