@@ -63,6 +63,28 @@
   flex-direction: column;
 }
 
+
+@media screen and (min-width: 936px) and (max-width: 1500px){
+
+  .form_wrapper[_ngcontent-c13] {
+    margin: 8% 64% 0% 64%;
+    border-radius: 30px;
+    box-shadow: 0px 3px 6px #00000029;;
+    background: #fafafa;
+    padding: 20px;
+    width: 35rem;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .positionimgbiom[_ngcontent-c13]{
+    height: 21rem;
+    margin-top: -98px;
+  }
+  
+}
+
 .form_fields_padding {
   margin: 30px 22px 0px 228px;
   width: 38vw;
