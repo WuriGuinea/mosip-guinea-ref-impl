@@ -31,7 +31,7 @@
 }
 
 .logo_wrapper .mat-card {
-  padding-top: 9.5rem;
+  padding-top: 5rem;
 }
 
 .login-input {
@@ -147,7 +147,7 @@ button {
 .mat-input-element {
   font: inherit;
   background: 0 0;
-  color: currentbColor;
+  color: currentColor;
   border: solid 1px #0D5EDE  !important;
   outline: 0;
   padding: 0;
@@ -191,7 +191,7 @@ left: 15vw;
   margin-right: 15px;
   background: transparent;
   padding: 0px;
-  margin-top: 6%;
+  margin-top: 10%;
 }
 
 @media screen and (min-width: 501px) and (max-width: 935px) {
@@ -275,7 +275,7 @@ left: 15vw;
   } 
 .positionimgbiom{
   height: 21rem;
-  margin-top: 127px;
+  margin-top: -10px;
 }
 
 .mat-card:not([class*=mat-elevation-z]){

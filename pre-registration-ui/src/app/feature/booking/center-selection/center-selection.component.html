@@ -1,11 +1,11 @@
 <div class="center_selection-wrapper" *ngIf="isWorkingDaysAvailable">
-  <!-- Header -->
+   <!-- Header -->
   <mat-card class="center-selection__title-card">
     <mat-card-header>
       <p class="center__title-card-text">{{ 'centerSelection.title' | translate }}</p>
     </mat-card-header>
   </mat-card>
-  <!-- search container -->
+  
   <div class="container">
     <div class="centers-wrapper">     
      <div class="center_selection-intial-recommendation-container" *ngIf="searchClick; else elseBlock">
@@ -17,7 +17,7 @@
         </mat-select>
       </mat-form-field>
     </div>
-
+<!-- search container -->
       <ng-template #elseBlock>
         <mat-form-field>
           <mat-select  [(value)]="centerSelectedOption">
@@ -156,7 +156,7 @@
     </div>
   </div>
 
-  <!-- Footer navigation -->
+ <!-- Footer navigation -->
   <div>
     <mat-card class="center-selection__button-container">
       <button (click)="routeBack()" class="user-back-btn">
