@@ -77,7 +77,8 @@
         </div>
         <div>
           <table class="time-selection__name-list">
-            <tr class="time-selection__name-list-item" *ngFor="let item of deletedNames; let k = index">
+            <tr class="time-selection__name-list-item" *ngIf="deletedNames.length == 0"><label for="names" style="color: #000000;"><i>{{ 'timeSelection.applicant_available_list_empty' | translate }}</i></label></tr>
+             <tr class="time-selection__name-list-item" *ngFor="let item of deletedNames; let k = index">
               <td>{{ item.fullName }}</td>
               <td>
                 <mat-icon (click)="addItem(k)"
@@ -100,7 +101,8 @@
           <span class="time-selection__names-header-day-text">{{'timeSelection.text_morning' | translate }}</span>
         </div>
         <table class="time-selection__name-list">
-          <tr class="time-selection__name-list-item"
+          <tr class="time-selection__name-list-item" *ngIf="deletedNames.length !== 0"><label for="deletedNames" style="color: #000000;"><i>{{ 'timeSelection.applicant_selected_list_empty' | translate }}</i></label></tr>
+          <tr class="time-selection__name-list-item" 
             *ngFor="let item of availabilityData[selectedTile].timeSlots[selectedCard].names; let j = index">
             <td>{{ item.fullName }}</td>
             <td>
