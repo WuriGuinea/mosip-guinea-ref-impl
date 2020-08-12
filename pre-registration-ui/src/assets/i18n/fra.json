@@ -494,8 +494,8 @@
 		"action_back": "Précédent",
 		"action_bookLater": "Réserver plus tard",
 		"action_continue": "Suivant",
-		"applicant_list_empty": "Aucun demandeur disponible",
-		"applicant_list_empty_1": "Aucun demandeur ajouté",
+		"applicant_available_list_empty": "Aucun demandeur disponible",
+		"applicant_selected_list_empty": "Aucun demandeur ajouté",
 		"booking": {
 			"title_success": "Succès",
 			"msg_success": "Prise de rendez-vous effectuée avec succès",
