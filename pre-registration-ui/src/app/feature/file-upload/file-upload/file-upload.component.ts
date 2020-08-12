@@ -599,7 +599,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    * @param {*} event
    * @memberof FileUploadComponent
    */
-  handleFileInput(event: any, docName: string, docCode: string) {
+  handleFileInput(event: any, docName: string, docCode: string, index : number) {
     const extensionRegex = new RegExp('(?:' + this.allowedFilesHtml.replace(/,/g, '|') + ')');
     const oldFileExtension = this.fileExtension;
     this.fileExtension = event.target.files[0].name.substring(event.target.files[0].name.indexOf('.') + 1);
@@ -649,6 +649,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
         this.fileUploadLanguagelabels.uploadDocuments.msg3
       );
       this.disableNavigation = false;
+      document.getElementById('tmp_' + index).style.visibility = "visible";
     }
   }
 
