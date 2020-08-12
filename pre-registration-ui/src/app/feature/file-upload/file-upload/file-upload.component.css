@@ -16,13 +16,6 @@
   height: 50%;
 }
 .browseInput {
- /* background: #020F59;
-  border: 1px solid #020F59;
-  color: #ffffff;
-  border-radius: 2px;
-  
-  padding: 0.3rem 11.4px;
-  height: fit-content;*/
   background-image: url('/assets/add.svg');
  
   height: 29px;
@@ -42,10 +35,6 @@
 }
 
 .browseInput[disabled] {
- /*
- border: 1px solid #BCE0FD;
-  color: #ffffff;
- background: #BCE0FD;*/
   background-image: url('/assets/add-disabled.svg');
   height: 29px;
   width: 29px;
@@ -54,10 +43,6 @@
   z-index: 0;
 }
 .deleteicon[disabled]{
-  /*border: 1px solid #BCE0FD;
-  color: #ffffff;
-  background: #BCE0FD;
-  margin-left: 2px;*/
   background-image: url('/assets/deleteicon.svg');
   
   height: 29px;
@@ -96,14 +81,12 @@ mat-select:focus {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  /*margin-right: 70%;*/
 }
 .docsContainer > * {
   width: 100%;
 }
 
 .docsContainer > p.fileName {
-  /*padding: 1em 10px 10px 10px;*/
   height: 20%;
   width: 85%;
   overflow: hidden;
@@ -208,14 +191,6 @@ mat-select:focus {
   padding-top: 22px;
 }
 .deleteicon{
- /* background: #020F59;
-  border: 1px solid #020F59;
-  color: #ffffff;
-  border-radius: 2px;
-  padding: 0.3rem 11.4px;
-  margin-left: 2px;
-  height: 29px !important;
-  outline: none;*/
   background-image: url('/assets/supp.svg');
   
   height: 29px;
@@ -291,9 +266,6 @@ mat-select:focus {
 }
 
 .user__btn {
-  /* padding: 0px 53px;
-  border: 1px solid red;
-  margin: 5px; */
   background-color: #BCE0FD;
   border: none;
   color: #020F59 !important;
@@ -309,7 +281,6 @@ mat-select:focus {
 }
 
 .user__btn--back {
- /* border: 1px solid #ff4081;*/
   background-color: #BCE0FD;
   color: #020F59;
   margin-left: 2rem;
@@ -327,7 +298,6 @@ mat-select:focus {
 }
 
 .file-upload__or {
- /* padding-left: 1rem;*/
   padding-top: 1rem;
 }
 

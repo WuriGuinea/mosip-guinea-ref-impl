@@ -1,5 +1,4 @@
 .progress {
-  /* display: inline-block;*/
   display: none;
    width: 5rem;
    height: 0;
@@ -23,7 +22,6 @@
  }
  
  .container {
-   /*justify-content: center;*/
    justify-content: space-between;
    align-items: center;
    vertical-align: center;
@@ -34,7 +32,6 @@
    background-repeat: no-repeat;
    background-size: cover;
    height: 85px;
-  /* width: 114%;*/
  }
  @media (max-width: 1200px) {
   .container {
@@ -42,7 +39,6 @@
   }
 }
  .upload {
-   /*justify-content: center;*/
    justify-content: space-between;
    align-items: center;
    vertical-align: center;
@@ -53,10 +49,8 @@
    background-repeat: no-repeat;
    background-size: cover;
    height: 85px;
-  /* width: 114%;*/
  }
  .rdv {
-   /*justify-content: center;*/
    justify-content: space-between;
    align-items: center;
    vertical-align: center;
@@ -67,10 +61,8 @@
    background-repeat: no-repeat;
    background-size: cover;
    height: 85px;
-  /* width: 114%;*/
  }
  .confirmation-rdv {
-   /*justify-content: center;*/
    justify-content: space-between;
    align-items: center;
    vertical-align: center;
@@ -81,12 +73,10 @@
    background-repeat: no-repeat;
    background-size: cover;
    height: 85px;
-  /* width: 114%;*/
  }
  
  p {
    font-size: 20px;
-   /*white-space: nowrap;*/
  }
  
  .inline-icon {
@@ -98,18 +88,16 @@
  
  .inline-icon-background-active {
    filter: invert(0%);
-  /* display: block;*/
  }
  
  .inline-icon-background-complete {
-  /* filter: invert(50%);*/
+  
  }
  
  .inline-icon-background-incomplete {
-  /* filter: invert(100%);*/
+  
    opacity: 0.5;
    padding: 1px;
-   /*display: none;*/
  }
  
  .active {
@@ -201,9 +189,6 @@ a {
 
 .wrapper {
   width: 100%;
- /* padding: 20px;
-  margin: 20px auto;
-  background: #fff;*/
 }
 
 
