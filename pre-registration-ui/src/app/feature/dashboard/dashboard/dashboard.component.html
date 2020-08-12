@@ -34,7 +34,7 @@
         <mat-card>
           <div class="card-header">
             <span class="checkbox"
-              ><mat-checkbox [disabled]="isBookingAllowed(user)" (change)="onSelectUser(user, $event)"
+              ><mat-checkbox [disabled]="true"  [ngClass]="isBookingAllowed(user, this) ? '' : 'wuri-disabled-text'" (change)="isBookingAllowed(user) ? onSelectUser(user, $event) : $event.preventDefault()"
                 >{{ 'dashboard.card.text_app_id' | translate }}
               </mat-checkbox></span
             >

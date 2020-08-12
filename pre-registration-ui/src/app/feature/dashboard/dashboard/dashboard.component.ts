@@ -674,19 +674,40 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     else return '27px';
   }
 
-  isBookingAllowed(user: Applicant) {
+  isBookingAllowed(user: Applicant, checkboxElem: HTMLElement) {
     if (user.status == 'Expired') return false;
     const dateform = new Date(user.appointmentDateTime);
     if (dateform.toDateString() !== 'Invalid Date') {
-      let date1: string = user.appointmentDateTime;
-      let date2: string = new Date(Date.now()).toString();
-      let diffInMs: number = Date.parse(date1) - Date.parse(date2);
-      let diffInHours: number = diffInMs / 1000 / 60 / 60;
-      if (diffInHours < this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_timespan_rebook))
-        return true;
-      else return false;
+      const appointmentTimeInMilliseconds = this.getTimeInMilliseconds(user.appointmentDateTime);
+      let appointmentDate: string = user.appointmentDateTime;
+      let dateTimeNow: string = new Date(Date.now()).toString();
+      let diffInMilliseconds: number = (Date.parse(appointmentDate) + appointmentTimeInMilliseconds) - Date.parse(dateTimeNow);
+      let diffInHours: number = diffInMilliseconds / 1000 / 60 / 60;
+      const isAllowed = diffInHours >= this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_timespan_rebook);
+      if(isAllowed)
+      {
+        let elems = document.getElementsByClassName('mat-checkbox-label');
+        let i;
+        for (i = 0; i < elems.length; i++) {
+          var d = elems[i].getAttribute("disabled");
+          if(d == "true")
+            elems[i].setAttribute("style", "color: #E4E4E4;");
+        }
+        
+      }
+      return isAllowed;
     }
     return false;
+  }
+
+  getTimeInMilliseconds(dateTime: string) : number   {
+    const timeString =  dateTime.split('(').pop().split('-')[0];
+    if(!timeString) 
+    return 0;
+    const hrs = timeString.split(":")[0];
+    const mins = timeString.split(":")[1];
+
+    return (parseInt(hrs) * 60 * 60 * 1000) + (parseInt(mins)* 60 * 1000);
   }
 
   /**

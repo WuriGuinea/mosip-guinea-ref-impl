@@ -209,3 +209,7 @@ mat-card-content {
   color: #020F59 !important;
 }
 
+.wuri-disabled-text{
+  color: #E4E4E4;
+  opacity: 1;
+}
