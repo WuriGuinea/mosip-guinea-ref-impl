@@ -444,3 +444,14 @@
   background-color: #E1F0FB;
   cursor: not-allowed;
 }
+
+.placeholder{
+  color: #707070;
+  font-size: 0.7rem;
+  padding: 15px 0 15px 10px;
+  scroll-snap-align: center;
+  text-align: center;
+  vertical-align: middle;
+  height: 30px;
+  width: 100%;
+}
