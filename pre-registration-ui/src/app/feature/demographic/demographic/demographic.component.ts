@@ -775,8 +775,6 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     this.defaultDay = "01";
     this.defaultMonth = "01";
     const age = this.age.nativeElement.value;
-    if(isNaN(age))
-      return;
     const ageRegex = new RegExp(this.agePattern);
     if (age && age != this.oldAge)
       if (ageRegex.test(age)) {
@@ -808,9 +806,6 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     const month = this.mm.nativeElement.value;
     const year = this.yyyy.nativeElement.value;
 
-    if(isNaN(date) || isNaN(month) || isNaN(year))
-      return;
-    
     const newDate = year + '/' + month + '/' + date;
     const dobRegex = new RegExp(this.DOB_PATTERN);
     if (dobRegex.test(newDate)) {

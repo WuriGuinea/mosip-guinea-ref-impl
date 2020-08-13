@@ -131,8 +131,8 @@ mat-icon {
   display: flex;
   width: 87.5%;
   align-items: center;
-  margin-top: 10px;
-  margin-left: 97px;
+  margin-top: -7px;
+  margin-left: 120px;
 }
 
 .user__age-or-date > div {
@@ -141,6 +141,7 @@ mat-icon {
 
 .user__date {
   display: flex;
+  margin-left: 10px;
 }
 
 .user__form .user__date mat-form-field {
