@@ -237,32 +237,33 @@ mat-icon {
 
 .user__buttons {
   width: 100%;
-  position: sticky;
-  bottom: 2px;
-  left: -2px;
   display: flex;
   justify-content: space-between;
-  margin-top: 0.2rem;
-  background-color: white;
+  margin-top: 1rem;
+  bottom: 0;
+  position: fixed;
+  background: #ffffff;
+  box-shadow: 10px 10px 10px 3px #808080;
+  z-index: 22;
   padding: 0 2vw;
-  justify-content: flex-end;
 }
 
 .user__btn {
   background-color: #BCE0FD;
   border: none;
-  color: #020F59;
+  color: #020F59 !important;
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 0.8rem;
-  margin: 6px 2px 4px 2px;
+  margin: 5px 1px 4px 88.2rem;
+  
   margin-right: 2rem;
   cursor: pointer;
-  border-radius: 2px;
-  text-transform: none !important;
+  text-transform: capitalize;
   font-weight: bold;
+ 
 }
 
 .user__btn--back {
