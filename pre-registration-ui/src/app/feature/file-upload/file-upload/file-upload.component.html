@@ -32,7 +32,7 @@
             id="file_{{ i }}"
             (click)="fileUpload.value = null"
             value=""
-            (change)="handleFileInput($event, document.selectedDocName, document.code)"
+            (change)="handleFileInput($event, document.selectedDocName, document.code, i)"
             style="display: none;"
           />
           <input
