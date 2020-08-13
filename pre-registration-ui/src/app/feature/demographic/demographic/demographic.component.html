@@ -79,6 +79,7 @@
                         </div>
                         <div style="margin-right: 118px;" class="user__age">
                             <mat-form-field>
+                                <mat-label>{{ 'demographic.label_age' | translate }}</mat-label>
                                 <input
                                         matInput
                                         tabindex="-1"
@@ -253,7 +254,7 @@
                             <mat-error *ngIf="!district.invalid">Veuillez sélectionner un district</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 7px;" class="user__dropdown">
+                    <div style="margin-top: 14px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
@@ -269,7 +270,7 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 10px;"class="row"> 
+                    <div style="margin-top: 12px;"class="row"> 
                             <h4 id="complementadr">{{ 'demographic.label_additionalAddressDetails' | translate }}</h4>
                             <textarea
                                     matInput
