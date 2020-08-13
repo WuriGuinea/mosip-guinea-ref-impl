@@ -39,7 +39,7 @@
                         </div>
                     </div>
 
-                    <mat-label style="position: relative;margin-left: -11px;bottom: -40px;">{{ 'demographic.text_date' | translate }} </mat-label>
+                    <mat-label style="position: relative;margin-left: 3px;bottom: -20px;">{{ 'demographic.text_date' | translate }} </mat-label>
                     <div class="user__age-or-date">
                         <div class="user__date">
                             <mat-form-field>
@@ -77,8 +77,9 @@
                         <div class="user__pref">
                             {{ 'demographic.text_or' | translate }}
                         </div>
-                        <div style="margin-right: 110px;" class="user__age">
+                        <div style="margin-right: 118px;" class="user__age">
                             <mat-form-field>
+                                <mat-label>{{ 'demographic.label_age' | translate }}</mat-label>
                                 <input
                                         matInput
                                         tabindex="-1"
@@ -221,7 +222,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 21px;" class="user__dropdown">
+                    <div style="margin-top: 3px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
@@ -253,7 +254,7 @@
                             <mat-error *ngIf="!district.invalid">Veuillez sélectionner un district</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 11px;" class="user__dropdown">
+                    <div style="margin-top: 14px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering

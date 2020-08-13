@@ -22,7 +22,7 @@
 .consent-popup-title {
   font-size: 1rem;
   margin: 0px;
-  color: #fd518c;
+  color: #020F59;
 }
 /* consent story desgin css */
 .consent-popup-subtitle {
@@ -86,4 +86,7 @@
 
 .error-dialog {
   margin-bottom: 15px;
+}
+.mat-dialog-title{
+  color: #020F59;
 }
