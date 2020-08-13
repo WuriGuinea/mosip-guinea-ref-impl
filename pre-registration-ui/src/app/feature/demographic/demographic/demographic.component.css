@@ -247,6 +247,8 @@ mat-icon {
   box-shadow: 10px 10px 10px 3px #808080;
   z-index: 22;
   padding: 0 2vw;
+  justify-content: flex-end;
+  position: -webkit-sticky;
 }
 
 .user__btn {
@@ -259,7 +261,6 @@ mat-icon {
   display: inline-block;
   font-size: 0.8rem;
   margin: 5px 1px 4px 88.2rem;
-  
   margin-right: 2rem;
   cursor: pointer;
   text-transform: capitalize;
