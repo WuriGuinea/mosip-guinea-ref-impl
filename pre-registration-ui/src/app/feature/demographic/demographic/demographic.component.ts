@@ -775,6 +775,12 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     this.defaultDay = "01";
     this.defaultMonth = "01";
     const age = this.age.nativeElement.value;
+    if(isNaN(age))
+    {
+      this.userForm.controls[this.formControlNames.age].patchValue('');
+        return;
+    }
+    
     const ageRegex = new RegExp(this.agePattern);
     if (age && age != this.oldAge)
       if (ageRegex.test(age)) {
@@ -805,7 +811,24 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     const date = this.dd.nativeElement.value;
     const month = this.mm.nativeElement.value;
     const year = this.yyyy.nativeElement.value;
-
+    if(isNaN(date))
+    {
+      this.userForm.controls[this.formControlNames.date].patchValue('');
+      return;
+    }
+    if(isNaN(month))
+    {
+      this.userForm.controls[this.formControlNames.month].patchValue('');
+      return;
+    }
+    if(isNaN(year))
+    {
+      this.userForm.controls[this.formControlNames.year].patchValue('');
+      return;
+    }
+    
+    
+  
     const newDate = year + '/' + month + '/' + date;
     const dobRegex = new RegExp(this.DOB_PATTERN);
     if (dobRegex.test(newDate)) {
