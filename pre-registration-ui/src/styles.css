@@ -295,7 +295,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 }
 .mat-icon{
   width: auto !important;
-  color: white !important;
+  color: white;
 }
 .mat-form-field-label{
   color: #020F59 !important;
@@ -332,3 +332,13 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
     top: 24px;
   }
+
+  .mat-checkbox-disabled .mat-checkbox-label {
+    color: grey; 
+  }
+
+  .mat-checkbox-disabled .mat-checkbox-inner-container,
+  .card-header .label-disabled,
+  .card-header .mat-checkbox-disabled .mat-checkbox-inner-container{
+    color: grey !important;
+}

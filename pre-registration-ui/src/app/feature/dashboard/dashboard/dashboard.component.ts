@@ -674,28 +674,16 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     else return '27px';
   }
 
-  isBookingAllowed(user: Applicant, checkboxElem: HTMLElement) {
+  isBookingAllowed(user: Applicant) {
     if (user.status == 'Expired') return false;
-    const dateform = new Date(user.appointmentDateTime);
+    const appointmentDate = user.appointmentDateTime.split('(')[0];
+    const dateform = new Date(appointmentDate);
     if (dateform.toDateString() !== 'Invalid Date') {
-      const appointmentTimeInMilliseconds = this.getTimeInMilliseconds(user.appointmentDateTime);
-      let appointmentDate: string = user.appointmentDateTime;
+      const appointmentTimeInMilliseconds = this.getTimeInMilliseconds(user.appointmentDateTime);      
       let dateTimeNow: string = new Date(Date.now()).toString();
       let diffInMilliseconds: number = (Date.parse(appointmentDate) + appointmentTimeInMilliseconds) - Date.parse(dateTimeNow);
       let diffInHours: number = diffInMilliseconds / 1000 / 60 / 60;
-      const isAllowed = diffInHours >= this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_timespan_rebook);
-      if(isAllowed)
-      {
-        let elems = document.getElementsByClassName('mat-checkbox-label');
-        let i;
-        for (i = 0; i < elems.length; i++) {
-          var d = elems[i].getAttribute("disabled");
-          if(d == "true")
-            elems[i].setAttribute("style", "color: #E4E4E4;");
-        }
-        
-      }
-      return isAllowed;
+      return diffInHours >= this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_timespan_rebook);  
     }
     return false;
   }
@@ -703,7 +691,8 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   getTimeInMilliseconds(dateTime: string) : number   {
     const timeString =  dateTime.split('(').pop().split('-')[0];
     if(!timeString) 
-    return 0;
+      return 0;
+      
     const hrs = timeString.split(":")[0];
     const mins = timeString.split(":")[1];
 
