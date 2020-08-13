@@ -35,7 +35,7 @@
               </mat-checkbox>
             </span>
             <span class="checkbox" [ngClass]="isBookingAllowed(user) ? '' : 'label-disabled' "><strong>#{{ user.applicationID }}</strong>
-              <mat-icon class="icon" matTooltip="{{ 'helpText.applicationId' | translate }}" [inline]="true">
+              <mat-icon class="icon" [ngClass]="isBookingAllowed(user) ? '' : 'label-disabled' " matTooltip="{{ 'helpText.applicationId' | translate }}" [inline]="true">
                 help_outline</mat-icon>
             </span>
             <span class="spacer"></span>

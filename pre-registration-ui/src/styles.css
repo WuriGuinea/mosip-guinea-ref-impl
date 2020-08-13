@@ -325,20 +325,17 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     color: #000000 !important;
     text-transform: none !important;
   }
-  /*
-  .mat-raised-button{
-    background: #BCE0FD !important;
-  }*/
+  
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
     top: 24px;
   }
 
-  .mat-checkbox-disabled .mat-checkbox-label {
-    color: grey; 
-  }
-
   .mat-checkbox-disabled .mat-checkbox-inner-container,
   .card-header .label-disabled,
-  .card-header .mat-checkbox-disabled .mat-checkbox-inner-container{
-    color: grey !important;
+  .mat-checkbox-disabled .mat-checkbox-label{
+    color: grey;
+}
+
+.card-header .checkbox .mat-checkbox-disabled .mat-checkbox-layout .mat-checkbox-inner-container{
+  background-color: grey;
 }
