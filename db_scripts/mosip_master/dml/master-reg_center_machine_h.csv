@@ -1,7 +1,4 @@
 regcntr_id,machine_id,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes
-10001,10001,fra,TRUE,superadmin,2020-07-27 6:51:59,2020-07-27 6:51:57
-10001,10002,fra,TRUE,superadmin,2020-07-27 6:51:59,2020-07-27 6:51:57
-10001,10003,fra,TRUE,superadmin,2020-07-27 6:51:59,2020-07-27 6:51:57
 10002,10004,fra,TRUE,superadmin,2020-07-27 6:51:59,2020-07-27 6:51:57
 10002,10005,fra,TRUE,superadmin,2020-07-27 6:51:59,2020-07-27 6:51:57
 10002,10006,fra,TRUE,superadmin,2020-07-27 6:51:59,2020-07-27 6:51:57
