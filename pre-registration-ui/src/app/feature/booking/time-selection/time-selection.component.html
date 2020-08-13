@@ -77,7 +77,7 @@
         </div>
         <div>
           <table class="time-selection__name-list">
-            <tr class="time-selection__name-list-item" *ngIf="deletedNames.length == 0"><label for="names" style="color: #707070;"><i>{{ 'timeSelection.applicant_available_list_empty' | translate }}</i></label></tr>
+            <tr class="placeholder" *ngIf="deletedNames.length == 0"><i>{{ 'timeSelection.applicant_available_list_empty' | translate }}</i></tr>
              <tr class="time-selection__name-list-item" *ngFor="let item of deletedNames; let k = index">
               <td>{{ item.fullName }}</td>
               <td>
@@ -98,10 +98,11 @@
           <br />
           <span
             class="time-selection__names-header-time-text">{{availabilityData[selectedTile].timeSlots[selectedCard].displayTime}}</span>,
-          <span class="time-selection__names-header-day-text">{{'timeSelection.text_morning' | translate }}</span>
+          <span (click)="tabSelected('morning')" class="time-selection__names-header-day-text" *ngIf="activeTab === 'morning'">{{'timeSelection.text_morning' | translate }}</span>
+          <span (click)="tabSelected('morning')" class="time-selection__names-header-day-text" *ngIf="activeTab === 'afternoon'">{{'timeSelection.text_afternoon' | translate }}</span>
         </div>
         <table class="time-selection__name-list">
-          <tr class="time-selection__name-list-item" *ngIf="deletedNames.length !== 0"><label for="deletedNames" style="color: #707070;"><i>{{ 'timeSelection.applicant_selected_list_empty' | translate }}</i></label></tr>
+          <tr class="placeholder" *ngIf="availabilityData[selectedTile].timeSlots[selectedCard].names.length === 0"><i>{{ 'timeSelection.applicant_selected_list_empty' | translate }}</i></tr>
           <tr class="time-selection__name-list-item" 
             *ngFor="let item of availabilityData[selectedTile].timeSlots[selectedCard].names; let j = index">
             <td>{{ item.fullName }}</td>
