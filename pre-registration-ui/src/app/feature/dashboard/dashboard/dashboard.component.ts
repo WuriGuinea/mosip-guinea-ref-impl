@@ -675,11 +675,11 @@ export class DashBoardComponent implements OnInit, OnDestroy {
   }
 
   isBookingAllowed(user: Applicant) {
-    if (user.status == 'Expired') return false;
+    if (user.status !== 'Booked') return true;
     const appointmentDate = user.appointmentDateTime.split('(')[0];
     const dateform = new Date(appointmentDate);
     if (dateform.toDateString() !== 'Invalid Date') {
-      const appointmentTimeInMilliseconds = this.getTimeInMilliseconds(user.appointmentDateTime);      
+      const appointmentTimeInMilliseconds = this.getTimeInMilliseconds(user.appointmentTime);      
       let dateTimeNow: string = new Date(Date.now()).toString();
       let diffInMilliseconds: number = (Date.parse(appointmentDate) + appointmentTimeInMilliseconds) - Date.parse(dateTimeNow);
       let diffInHours: number = diffInMilliseconds / 1000 / 60 / 60;
@@ -688,13 +688,9 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  getTimeInMilliseconds(dateTime: string) : number   {
-    const timeString =  dateTime.split('(').pop().split('-')[0];
-    if(!timeString) 
-      return 0;
-      
-    const hrs = timeString.split(":")[0];
-    const mins = timeString.split(":")[1];
+  getTimeInMilliseconds(timeSlot: string) : number   {
+    const hrs = timeSlot.split(":")[0];
+    const mins = timeSlot.split(":")[1];
 
     return (parseInt(hrs) * 60 * 60 * 1000) + (parseInt(mins)* 60 * 1000);
   }
