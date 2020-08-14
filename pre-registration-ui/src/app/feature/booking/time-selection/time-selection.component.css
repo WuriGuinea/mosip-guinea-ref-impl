@@ -458,7 +458,7 @@
 }
 
 @media (min-width: 859px) and (max-width: 1125px){
-  .placeholder[_ngcontent-c21] {
+  .placeholder {
     color: #707070;
     font-size: 0.7rem;
     padding: 8px 0px 15px 33px;
