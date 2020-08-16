@@ -90,14 +90,14 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.REGISTRATION_CENTRES = [];
     const subs = this.dataService
       /* leave it commented */
-      // .recommendedCenters(
-      //   this.primaryLang,
-      //   this.configService.getConfigByKey(
-      //     appConstants.CONFIG_KEYS.preregistration_recommended_centers_locCode
-      //   ),
-      //   prefectures
-      // )
-      .getCenter()
+      .recommendedCenters(
+        this.primaryLang,
+        this.configService.getConfigByKey(
+          appConstants.CONFIG_KEYS.preregistration_recommended_centers_locCode
+        ),
+        prefectures
+       )
+      //.getCenter()
       .subscribe((response) => {
         if (response[appConstants.RESPONSE]) {
           this.displayResults(response["response"]);
