@@ -1,4 +1,4 @@
 {
-  "BASE_URL":"https://wuri.eastus.cloudapp.azure.com/",
+  "BASE_URL":"https://sandboxv2.southindia.cloudapp.azure.com/",
   "PRE_REG_URL": "preregistration/v1/"
 }
