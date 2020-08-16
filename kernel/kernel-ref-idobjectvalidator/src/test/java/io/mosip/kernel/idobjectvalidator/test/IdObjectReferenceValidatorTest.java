@@ -4,6 +4,7 @@ import static io.mosip.kernel.core.idobjectvalidator.constant.IdObjectValidatorE
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
@@ -13,11 +14,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.core.io.Resource;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.autoconfigure.RefreshAutoConfiguration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestContext;
@@ -27,13 +30,12 @@ import org.springframework.web.context.WebApplicationContext;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import org.springframework.util.FileCopyUtils; 
 import io.mosip.kernel.core.idobjectvalidator.exception.IdObjectIOException;
 import io.mosip.kernel.core.idobjectvalidator.exception.IdObjectValidationFailedException;
 import io.mosip.kernel.core.idobjectvalidator.exception.InvalidIdSchemaException;
 import io.mosip.kernel.core.idobjectvalidator.spi.IdObjectValidator;
 import io.mosip.kernel.idobjectvalidator.impl.IdObjectReferenceValidator;
-
 /**
  * @author Manoj SP
  *
@@ -50,19 +52,42 @@ public class IdObjectReferenceValidatorTest {
 
 	@Autowired
 	Environment env;
-
+@Autowired 
+ResourceLoader resourceLoader;
 	@Autowired
 	private IdObjectValidator validator;
-
+	
+	
 	@Test
 	public void testValidData() throws JsonParseException, JsonMappingException, IdObjectValidationFailedException,
-			IdObjectIOException, IOException, InvalidIdSchemaException {
-		String identityString = "{\"identity\":{\"residenceStatus\":[{\"language\":\"eng\",\"value\":\"Native\"}],\"IDSchemaVersion\":1.0,\"UIN\":4920546943,\"fullName\":[{\"language\":\"eng\",\"value\":\"Ibrahim Ibn Ali\"}],\"dateOfBirth\":\"1955/04/15\",\"age\":45,\"gender\":[{\"language\":\"eng\",\"value\":\"Male\"}],\"addressLine1\":[{\"language\":\"eng\",\"value\":\"exemple d'adresse ligne 1\"}],\"addressLine2\":[{\"language\":\"eng\",\"value\":\"exemple d'adresse ligne 2\"}],\"addressLine3\":[{\"language\":\"eng\",\"value\":\"exemple d'adresse ligne 2\"}],\"region\":[{\"language\":\"eng\",\"value\":\"Rabat Sale Kenitra\"}],\"province\":[{\"language\":\"eng\",\"value\":\"Kenitra\"}],\"city\":[{\"language\":\"eng\",\"value\":\"Kenitra\"}],\"postalCode\":\"10112\",\"phone\":\"9876543210\",\"email\":\"abc@xyz.com\",\"CNIENumber\":\"6789545678909\",\"localAdministrativeAuthority\":[{\"language\":\"eng\",\"value\":\"Mograne\"}],\"parentOrGuardianRID\":212124324784912,\"parentOrGuardianUIN\":212124324784912,\"parentOrGuardianName\":[{\"language\":\"eng\",\"value\":\"salma\"}],\"proofOfAddress\":{\"format\":\"pdf\",\"type\":\"Ration Card\",\"value\":\"fileReferenceID\"},\"proofOfIdentity\":{\"format\":\"txt\",\"type\":\"DOC001\",\"value\":\"fileReferenceID\"},\"proofOfRelationship\":{\"format\":\"pdf\",\"type\":\"Birth Certificate\",\"value\":\"fileReferenceID\"},\"proofOfDateOfBirth\":{\"format\":\"pdf\",\"type\":\"passport\",\"value\":\"fileReferenceID\"},\"individualBiometrics\":{\"format\":\"cbeff\",\"version\":1.0,\"value\":\"fileReferenceID\"},\"parentOrGuardianBiometrics\":{\"format\":\"cbeff\",\"version\":1.1,\"value\":\"fileReferenceID\"}}}";
-		validator.validateIdObject("",
-				new ObjectMapper().readValue(identityString.getBytes(StandardCharsets.UTF_8), Object.class));
-	}
+			IdObjectIOException, IOException, InvalidIdSchemaException { 
+	//	String identityString = "{\"identity\":{\"residenceStatus\":[{\"language\":\"eng\",\"value\":\"Native\"}],\"IDSchemaVersion\":1.0,\"UIN\":4920546943,\"fullName\":[{\"language\":\"eng\",\"value\":\"Ibrahim Ibn Ali\"}],\"dateOfBirth\":\"1955/04/15\",\"age\":45,\"gender\":[{\"language\":\"eng\",\"value\":\"Male\"}],\"addressLine1\":[{\"language\":\"eng\",\"value\":\"exemple d'adresse ligne 1\"}],\"addressLine2\":[{\"language\":\"eng\",\"value\":\"exemple d'adresse ligne 2\"}],\"addressLine3\":[{\"language\":\"eng\",\"value\":\"exemple d'adresse ligne 2\"}],\"region\":[{\"language\":\"eng\",\"value\":\"Rabat Sale Kenitra\"}],\"province\":[{\"language\":\"eng\",\"value\":\"Kenitra\"}],\"city\":[{\"language\":\"eng\",\"value\":\"Kenitra\"}],\"postalCode\":\"10112\",\"phone\":\"9876543210\",\"email\":\"abc@xyz.com\",\"CNIENumber\":\"6789545678909\",\"localAdministrativeAuthority\":[{\"language\":\"eng\",\"value\":\"Mograne\"}],\"parentOrGuardianRID\":212124324784912,\"parentOrGuardianUIN\":212124324784912,\"parentOrGuardianName\":[{\"language\":\"eng\",\"value\":\"salma\"}],\"proofOfAddress\":{\"format\":\"pdf\",\"type\":\"Ration Card\",\"value\":\"fileReferenceID\"},\"proofOfIdentity\":{\"format\":\"txt\",\"type\":\"DOC001\",\"value\":\"fileReferenceID\"},\"proofOfRelationship\":{\"format\":\"pdf\",\"type\":\"Birth Certificate\",\"value\":\"fileReferenceID\"},\"proofOfDateOfBirth\":{\"format\":\"pdf\",\"type\":\"passport\",\"value\":\"fileReferenceID\"},\"individualBiometrics\":{\"format\":\"cbeff\",\"version\":1.0,\"value\":\"fileReferenceID\"},\"parentOrGuardianBiometrics\":{\"format\":\"cbeff\",\"version\":1.1,\"value\":\"fileReferenceID\"}}}";
+	
+	
+		 Resource resource = resourceLoader.getResource("classpath:guinea_id_object.json");
+		    InputStream inputStream = resource.getInputStream();
+		 
+		    try
+		    {
+		        byte[] bdata = FileCopyUtils.copyToByteArray(inputStream);
+		        String identityString = new String(bdata, StandardCharsets.UTF_8);
+		    //   System.out.println(identityString);
+		       validator.validateIdObject("",
+		   			new ObjectMapper().readValue(identityString.getBytes(StandardCharsets.UTF_8), Object.class));
+		    } 
+		    catch (IOException e) 
+		    {
+		      //  LOGGER.error("IOException", e);
+		    }
+		}
 
-	@Test
+		
+		
+		//		validator.validateIdObject("",
+	//			new ObjectMapper().readValue(identityString.getBytes(StandardCharsets.UTF_8), Object.class));
+	
+
+	//@Test
 	public void testReferenceValidatorError() throws IdObjectValidationFailedException, IdObjectIOException, JsonParseException,
 			JsonMappingException, IOException, InvalidIdSchemaException {
 		try {

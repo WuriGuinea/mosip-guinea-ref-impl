@@ -16,6 +16,7 @@ public enum IdObjectReferenceValidatorDocumentMapping {
 	POI("proofOfIdentity", "POI"),
 	
 	POR("proofOfRelationship", "POR"),
+	POC("proofOfConsent", "POC"),
 	
 	POE("proofOfException", "POE");
 

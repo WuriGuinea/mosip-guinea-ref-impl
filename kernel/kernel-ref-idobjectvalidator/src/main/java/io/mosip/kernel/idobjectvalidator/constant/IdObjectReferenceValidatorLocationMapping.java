@@ -7,21 +7,21 @@ import java.util.stream.Collectors;
 /**
  * The Enum IdObjectReferenceValidatorLocationMapping.
  *
- * @author Manoj SP
+ * @author condeis
  */
 public enum IdObjectReferenceValidatorLocationMapping {
 	
-	COUNTRY("Country", "0"),
+	COUNTRY("PAYS", "0"),
 	
-	REGION("Region", "1"),
+	REGION("REGION", "1"),
 	
-	PROVINCE("Province", "2"),
+	PREFECTURE("PREFECTURE", "2"),
 	
-	CITY("City", "3"),
+	SUBPREFECTURE_OR_COMMUNE("SOUS_PREFECTURE/COMMUNE", "3"),
 	
-	ZONE("Zone", "4"),
+	DISTRICT("DISTRICT", "4"),
 	
-	POSTAL_CODE("Postal Code", "5");
+	SECTOR("SECTEUR", "5");
 	
 
 	private final String hierarchyName;
