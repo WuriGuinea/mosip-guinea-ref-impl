@@ -83,36 +83,79 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getRecommendedCenters() {
-    let prefectures = [];
+    let locations = [];
+    let locationNames = [];
     this.users.forEach((user) => {
-      prefectures.push(user.location);
+      locations.push(user.location);
     });
-    this.REGISTRATION_CENTRES = [];
-    const subs = this.dataService
-      /* leave it commented */
-      .recommendedCenters(
-        this.primaryLang,
-        this.configService.getConfigByKey(
-          appConstants.CONFIG_KEYS.preregistration_recommended_centers_locCode
-        ),
-        prefectures
-       )
-      //.getCenter()
-      .subscribe((response) => {
-        if (response[appConstants.RESPONSE]) {
-          this.displayResults(response["response"]);
-        } else {
-          if (response["errors"] && response["errors"].length > 0){
-            let errStr = response["errors"].reduce(function(c, e){
-              return c +"\n"+ e.message
-            }, "");
-            alert(errStr)
-          } else {
-            alert("error occured while getting recommended centers")
+    this.getPrefectures().then((res) => {
+      if(res && Array.isArray(res)){
+        locationNames = res.reduce(function(acc, v){
+          if(locations.indexOf(v.code) !== -1){
+            acc.push(v.name);
           }
-        }
-      });
-    this.subscriptions.push(subs);
+          return acc
+        }, []);
+
+      this.subscriptions.push(
+        this.dataService
+        /* leave it commented */
+          .recommendedCenters(
+            this.primaryLang,
+            this.configService.getConfigByKey(
+              appConstants.CONFIG_KEYS.preregistration_recommended_centers_locCode
+            ),
+            locationNames
+          )
+          // .getCenter()
+          .subscribe((response) => {
+            if (response[appConstants.RESPONSE]) {
+              this.displayResults(response["response"]);
+            } else {
+              if (response["errors"] && response["errors"].length > 0){
+                let errStr = response["errors"].reduce(function(c, e){
+                  return c +"\n"+ e.message
+                }, "");
+                alert(errStr)
+              } else {
+                alert("error occured while getting recommended centers")
+              }
+            }
+          })
+        );
+      } else {
+        alert("No prefectures found")
+      }
+    });
+  }
+
+  private getPrefectures() {
+    return new Promise((resolve, reject) => {
+      this.subscriptions.push(
+        this.dataService.getLocationByHiererchy(
+          "prefecture"
+        ).subscribe(
+          response => {
+            if (response[appConstants.RESPONSE]) {
+              resolve(response[appConstants.RESPONSE][appConstants.DEMOGRAPHIC_RESPONSE_KEYS.locations]);
+            } else {
+              if (response["errors"] && response["errors"].length > 0){
+                let errStr = response["errors"].reduce(function(c, e){
+                  return c +"\n"+ e.message
+                }, "");
+                alert(errStr)
+              } else {
+                alert("error occured while getting recommended centers")
+              }
+              reject()
+            }
+          },
+          error => {
+            reject();
+          }
+        )
+      );
+    });
   }
 
   setSearchClick(flag: boolean) {
