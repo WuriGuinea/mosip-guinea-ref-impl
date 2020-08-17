@@ -191,7 +191,6 @@ a {
   width: 100%;
 }
 
-
 .breadCrumbs {
   position: relative;
   width: 98%;
@@ -271,9 +270,4 @@ a {
 
 .breadCrumbs li:nth-child(3):after {
   border-left: 20px solid white ;
-}
-
-@media (min-width: 280px) and (max-width: 700px){
-  
-
 }
