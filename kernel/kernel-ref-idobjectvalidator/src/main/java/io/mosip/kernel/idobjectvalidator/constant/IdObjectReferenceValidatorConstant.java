@@ -3,33 +3,18 @@ package io.mosip.kernel.idobjectvalidator.constant;
 /**
  * The Class IdObjectReferenceValidatorConstant.
  *
- * @author Manoj SP
+ * @author ondeis
  */
 public class IdObjectReferenceValidatorConstant {
 	
-	/**
-	 * 	
-	COUNTRY("Country", "0"),
-	
-	REGION("Region", "1"),
-	
-	PROVINCE("Province", "2"),
-	
-	CITY("City", "3"),
-	
-	ZONE("Zone", "4"),
-	
-	POSTAL_CODE("Postal Code", "5");
-	 */
-	public static final String ROOT_PATH = "identity"; //OK
+	public static final String ROOT_PATH = "identity";  
 	public static final String IDENTITY_ARRAY_VALUE_FIELD = "value";
-	public static final String IDENTITY_REFERENCE_IDENTITY_NUMBER_PATH = "identity.referenceIdentityNumber";//OK
-	public static final String IDENTITY_LANGUAGE_PATH = "identity.*.*.language";//OK
-//	public static final String IDENTITY_POSTAL_CODE_PATH = "identity.postalCode";
-	public static final String IDENTITY_GENDER_LANGUAGE_PATH = "identity.gender.*.language";//OK
+	public static final String IDENTITY_REFERENCE_IDENTITY_NUMBER_PATH = "identity.referenceIdentityNumber"; 
+	public static final String IDENTITY_LANGUAGE_PATH = "identity.*.*.language"; 
+	public static final String IDENTITY_GENDER_LANGUAGE_PATH = "identity.gender.*.language";
 	public static final String IDENTITY_GENDER_VALUE_PATH = "identity.gender.*.value";
-	public static final String IDENTITY_REGION_LANGUAGE_PATH = "identity.region.*.language";//OK
-	public static final String IDENTITY_REGION_VALUE_PATH = "identity.region.*.value";//OK
+	public static final String IDENTITY_REGION_LANGUAGE_PATH = "identity.region.*.language";
+	public static final String IDENTITY_REGION_VALUE_PATH = "identity.region.*.value";
 	public static final String IDENTITY_PREFECTURE_LANGUAGE_PATH = "identity.prefecture.*.language";
 	public static final String IDENTITY_PREFECTURE_VALUE_PATH = "identity.prefecture.*.value";
 	public static final String IDENTITY_SUBPREFECTURE_OR_COMMUNE_LANGUAGE_PATH = "identity.subPrefectureOrCommune.*.language";
