@@ -19,8 +19,7 @@
       <div class="sidenav-button">
         <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
       </div>
-      <a (click)="onLogoClick()"><img src="assets\header-logo.png" class="header--logo" style="max-height: 66px"/></a>
- 
+      <a (click)="onLogoClick()"><img src="assets\biometrie.png" class="logobiometrie" style="max-height: 59px"/></a>
       <mat-nav-list class="list-item">
         <a mat-list-item class="wuri-list-item" routerLink="/about-us">{{ 'header.link_about' | translate }}</a>
         <a mat-list-item class="wuri-list-item" href="assets/consentement.pdf"target="_blank">{{ 'header.consent_form' | translate }}</a>
@@ -28,6 +27,7 @@
         <a mat-list-item class="wuri-list-item" routerLink="/contact">{{ 'header.link_contact' | translate }}</a>
         
       </mat-nav-list>
+      
       <span class="spacer"></span>
       <mat-nav-list *ngIf="!(authService.myProp$ | async)" class="list-item">
         <a href="./" mat-list-item class="header__actions">
@@ -40,6 +40,9 @@
         <a mat-list-item class="header__actions" (click)="doLogout()">
           <mat-icon class="icon">person</mat-icon>&nbsp;{{ 'header.link_logout' | translate }}
         </a>
+
+        <a (click)="onLogoClick()"><img src="assets\header-logo.png" class="header--logo" style="max-height: 59px"/></a>
+      
       </mat-nav-list>
     </mat-toolbar>
     <main>

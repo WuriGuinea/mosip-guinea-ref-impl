@@ -4,6 +4,10 @@
   color: #020F59;
 }
 
+.mat-flat-button{
+  background-color: #BCE0FD;
+}
+
 .body-height {
   height: 60px;
 }
@@ -93,4 +97,9 @@
 }
 .mat-dialog-title{
   color: #020F59;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button {
+  color: #020F59;
+  background: #bce0fd;;
 }

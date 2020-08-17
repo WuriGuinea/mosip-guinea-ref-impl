@@ -27,6 +27,11 @@
   
 }
 
+.logobiometrie{
+  vertical-align: middle;
+  cursor: pointer;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
