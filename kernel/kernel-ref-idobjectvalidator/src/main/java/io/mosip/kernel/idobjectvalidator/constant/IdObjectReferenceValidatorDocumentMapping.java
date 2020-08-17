@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 /**
  * The Enum IdObjectReferenceValidatorDocumentMapping.
  *
- * @author Manoj SP
+ * @author condeis
  */
 public enum IdObjectReferenceValidatorDocumentMapping {
 	
