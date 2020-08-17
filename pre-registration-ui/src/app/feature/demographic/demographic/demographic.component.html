@@ -42,7 +42,7 @@
                     <mat-label style="position: relative;margin-left: 3px;bottom: -20px;font-size: 15px;font-family: Roboto;
                     ">{{ 'demographic.text_date' | translate }} </mat-label>
                     <div class="user__age-or-date">
-                        <div class="user__date">
+                        <div style="margin-right: 12px;" class="user__date">
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.date_dd' | translate }}</mat-label> 
                                 <input
@@ -78,7 +78,7 @@
                         <div class="user__pref">
                             {{ 'demographic.text_or' | translate }}
                         </div>
-                        <div style="margin-right: 118px;" class="user__age">
+                        <div style="margin-right: 67px;" class="user__age">
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.label_age' | translate }}</mat-label>
                                 <input
@@ -125,7 +125,7 @@
                     </div>
 
 
-                    <div style="margin-left: 5px;" class="user__genderAndForeigner user__dropdown">
+                    <div style="margin-left: 7px;" class="user__genderAndForeigner user__dropdown">
 
                         <mat-form-field>
                             <mat-select
@@ -167,7 +167,7 @@
                                 }}</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-left: 5px;" class="user__dropdown">
+                    <div style="margin-left: 7px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>   
                             <input
@@ -223,7 +223,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 3px;" class="user__dropdown">
+                    <div style="margin-top: 12px;" class="user__dropdown">
                         <mat-form-field>
                             <mat-select
                                     disableOptionCentering
@@ -271,7 +271,7 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 12px;"class="row"> 
+                    <div style="margin-top: 8px;"class="row"> 
                             <h4 id="complementadr">{{ 'demographic.label_additionalAddressDetails' | translate }}</h4>
                             <textarea
                                     matInput

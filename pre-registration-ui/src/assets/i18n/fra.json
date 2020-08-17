@@ -359,13 +359,13 @@
 		"OR": "ou"
 	},
 	"acknowledgement": {
-		"title": "Rendez-vous Confirmé",
+		"title": "Confirmation de Rendez-vous",
 		"message": "Le numéro de demande et les détails du rendez-vous ont été envoyés à l'adresse e-mail et au numéro de téléphone portable enregistrés.",
 		"label_name": "Prénom(s)",
 		"label_lastname": "Nom",
 		"label_pre_id": "Numéro de Demande",
 		"label_reg_cntr": "Centre d'Enrôlement",
-		"label_cntr_contact_number": "Numéro de Contact du Centre",
+		"label_cntr_contact_number": "No de Contact du Centre",
 		"label_appointment_date_time": "Date et Heure du Rendez-vous",
 		"container_guideline": "Consignes Importantes",
 		"action_send": "ENVOYER EMAIL / SMS",
