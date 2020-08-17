@@ -1,5 +1,10 @@
 package io.mosip.kernel.idobjectvalidator.impl;
 
+import static io.mosip.kernel.idobjectvalidator.constant.IdObjectReferenceValidatorConstant.EMAIL_FORMAT;
+import static io.mosip.kernel.idobjectvalidator.constant.IdObjectReferenceValidatorConstant.IDENTITY_EMAIL_PATH;
+import static io.mosip.kernel.idobjectvalidator.constant.IdObjectReferenceValidatorConstant.PHONE_NUMBER_FORMAT;
+import static io.mosip.kernel.idobjectvalidator.constant.IdObjectReferenceValidatorConstant.IDENTITY_PHONE_NUMBER_PATH;
+import static io.mosip.kernel.idobjectvalidator.constant.IdObjectReferenceValidatorConstant.IDENTITY_EMAIL_PATH;
 import static io.mosip.kernel.core.idobjectvalidator.constant.IdObjectValidatorErrorConstant.ID_OBJECT_PARSING_FAILED;
 import static io.mosip.kernel.core.idobjectvalidator.constant.IdObjectValidatorErrorConstant.ID_OBJECT_VALIDATION_FAILED;
 import static io.mosip.kernel.core.idobjectvalidator.constant.IdObjectValidatorErrorConstant.INVALID_INPUT_PARAMETER;
@@ -48,6 +53,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -87,7 +93,7 @@ import net.minidev.json.JSONArray;
 /**
  * The Class IdObjectReferenceValidator.
  *
- * @author Manoj SP
+ * @author condeis
  */
 @Lazy
 @RefreshScope
@@ -225,6 +231,8 @@ public class IdObjectReferenceValidator implements IdObjectValidator {
 			validateSector(identityString, errorList);
 			validateDocuments(identityString, errorList);
 			validateResidenceStatus(identityString, errorList);
+			validateEmail(identityString, errorList);
+			validatePhoneNumber(identityString, errorList);
 			if (errorList.isEmpty()) {
 				return true;
 			} else {
@@ -233,6 +241,71 @@ public class IdObjectReferenceValidator implements IdObjectValidator {
 		} catch (JsonProcessingException e) {
 			ExceptionUtils.logRootCause(e);
 			throw new IdObjectIOException(ID_OBJECT_PARSING_FAILED, e);
+		}
+	}
+
+	/**
+	 * Validate PHONE NUMBER
+	 * @param identityString
+	 * @param errorList
+	 */
+		private void validatePhoneNumber(String identity, List<ServiceError> errorList) {
+			JsonPath jsonPath = JsonPath.compile(IDENTITY_PHONE_NUMBER_PATH);
+
+			JSONArray pathList = jsonPath.read(identity,
+					Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS, Option.AS_PATH_LIST));
+			String data = jsonPath.read(identity,
+					Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS));
+						try {
+				  Pattern pattern = Pattern.compile(PHONE_NUMBER_FORMAT);
+				if (Objects
+						.nonNull(
+								data)
+						&& !pattern.matcher(data).matches()
+								) {
+					String errorMessage = String.format(INVALID_INPUT_PARAMETER.getMessage(),
+							convertToPath(String.valueOf(pathList.get(0))));
+					errorList.removeIf(serviceError -> serviceError.getMessage().equals(errorMessage));
+					errorList.add(new ServiceError(INVALID_INPUT_PARAMETER.getErrorCode(), errorMessage));
+				}
+			} catch (Exception e) {
+				ExceptionUtils.logRootCause(e);
+				String errorMessage = String.format(INVALID_INPUT_PARAMETER.getMessage(),
+						convertToPath(String.valueOf(pathList.get(0))));
+				errorList.removeIf(serviceError -> serviceError.getMessage().equals(errorMessage));
+				errorList.add(new ServiceError(INVALID_INPUT_PARAMETER.getErrorCode(), errorMessage));
+			}
+		} 
+
+	/**
+	 * Validate email
+	 * 
+	 * @param identityString
+	 * @param errorList
+	 */
+	private void validateEmail(String identity, List<ServiceError> errorList) {
+		JsonPath jsonPath = JsonPath.compile(IDENTITY_EMAIL_PATH);
+
+		JSONArray pathList = jsonPath.read(identity,
+				Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS, Option.AS_PATH_LIST));
+		String data = jsonPath.read(identity,
+				Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS));
+
+		System.out.println("Email fourni: " + data);
+		try {
+			Pattern pattern = Pattern.compile(EMAIL_FORMAT);
+			if (Objects.nonNull(data) && !pattern.matcher(data).matches()) {
+				String errorMessage = String.format(INVALID_INPUT_PARAMETER.getMessage(),
+						convertToPath(String.valueOf(pathList.get(0))));
+				errorList.removeIf(serviceError -> serviceError.getMessage().equals(errorMessage));
+				errorList.add(new ServiceError(INVALID_INPUT_PARAMETER.getErrorCode(), errorMessage));
+			}
+		} catch (Exception e) {
+			ExceptionUtils.logRootCause(e);
+			String errorMessage = String.format(INVALID_INPUT_PARAMETER.getMessage(),
+					convertToPath(String.valueOf(pathList.get(0))));
+			errorList.removeIf(serviceError -> serviceError.getMessage().equals(errorMessage));
+			errorList.add(new ServiceError(INVALID_INPUT_PARAMETER.getErrorCode(), errorMessage));
 		}
 	}
 
