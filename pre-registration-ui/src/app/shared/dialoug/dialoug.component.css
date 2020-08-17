@@ -1,7 +1,9 @@
 ::ng-deep .mat-dialog-container {
   padding: 10px 1.5rem 1.5rem 1.7rem;
   border-radius: 0px;
+  color: #020F59;
 }
+
 .body-height {
   height: 60px;
 }
@@ -41,6 +43,8 @@
   color: white;
   background-color: gray;
 }
+
+
 .consentpopup-content {
   font-size: 0.8rem;
   max-height: 100px;
@@ -86,6 +90,7 @@
 
 .error-dialog {
   margin-bottom: 15px;
+  background-color: #BCE0FD;
 }
 .mat-dialog-title{
   color: #020F59;
