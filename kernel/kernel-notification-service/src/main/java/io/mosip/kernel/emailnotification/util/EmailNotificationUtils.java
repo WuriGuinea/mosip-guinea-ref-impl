@@ -50,26 +50,24 @@ public class EmailNotificationUtils {
 	public void sendMessage(MimeMessage message, JavaMailSender emailSender) {
 		LOGGER.info("To Request uncrypted : " +   message);
 		 
-	 	//	emailSender.send(message);
-	 		sendMessageCrypted(message, emailSender);
+	 	emailSender.send(message);
+	 	//	sendMessageCrypted(message, emailSender);
 	}
 	@Async
 	public void sendMessageCrypted(MimeMessage message, JavaMailSender emailSender) {
-	//	ne marche pas
-	System.out.println("Tentative d'envoi du message crypte");
+
+	
 	LOGGER.info("Trying to send crypted message ");
 	DkimMessage dkimMessage=null;
 	try {
 		LOGGER.info("Trying to send crypted message ");
-		dkimMessage = new DkimMessage(message, Toto.createDKimSigner());
+		dkimMessage = new DkimMessage(message, DkimSignerUtil.createDKimSigner());
 		
 	} catch (MessagingException e) {
-		System.out.println("Messaging exception ");
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
-		System.out.println("Error found while processing encryption"+	e);
+		LOGGER.info("Error found while processing encryption"+	e);
 	}
 	 		emailSender.send(dkimMessage);
 	 		LOGGER.info("To Request crypted : " + dkimMessage );
