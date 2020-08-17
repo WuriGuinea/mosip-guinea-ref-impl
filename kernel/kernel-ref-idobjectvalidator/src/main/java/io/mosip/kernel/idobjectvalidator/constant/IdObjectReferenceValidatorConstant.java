@@ -52,4 +52,9 @@ public class IdObjectReferenceValidatorConstant {
 	public static final String LOCATION_NA = "mosip.kernel.idobjectvalidator.masterdata.locations.locationNotAvailable";
 	public static final String DOB_FORMAT = "uuuu/MM/dd";
 	public static final String IDENTITY_DOB_PATH = "identity.dateOfBirth";
+	public static final String EMAIL_FORMAT="^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-zA-Z]{2,})$";
+	public static final String IDENTITY_EMAIL_PATH = "identity.email";
+	public static final String PHONE_NUMBER_FORMAT="^(6[256]{1})([0-9]{7})$";
+	public static final String IDENTITY_PHONE_NUMBER_PATH="identity.phone";
+
 }
