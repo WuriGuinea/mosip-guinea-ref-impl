@@ -30,6 +30,10 @@
 .logobiometrie{
   vertical-align: middle;
   cursor: pointer;
+  /* UX enhancement */
+  padding-left: 0%;
+  /* UX enhancement end */
+  
 }
 
 .spacer {
