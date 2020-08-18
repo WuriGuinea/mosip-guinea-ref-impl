@@ -3,6 +3,8 @@
  */
 package io.mosip.kernel.smsserviceprovider.mtn.impl;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -50,13 +52,11 @@ public class SMSServiceProviderImpl implements SMSServiceProvider {
 	@Override
 	public SMSResponseDto sendSms(String contactNumber, String message) {
 		SMSResponseDto smsResponseDTO = new SMSResponseDto();
-
 		validateInput(contactNumber);
 		contactNumber = countryCode.concat(contactNumber);
 		try {
 			MtnMessageRequest.send(buildAPIURl(), contactNumber, message);
-		} catch (HttpClientErrorException | HttpServerErrorException | UnsupportedEncodingException
-				| java.io.UnsupportedEncodingException e) {
+		} catch (HttpClientErrorException | HttpServerErrorException | UnsupportedEncodingException | IOException e) {
 
 			throw new RuntimeException(((RestClientResponseException) e).getResponseBodyAsString());
 		}
