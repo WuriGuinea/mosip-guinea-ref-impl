@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   font-family: Roboto;
+  border-color: #707070;
   font-size: 12px;
   padding-top: 10px;
   padding-bottom: 0px;
@@ -10,7 +11,25 @@
   width: 100%;
   z-index: -1;
   margin-bottom: 2px;
-  background: white;
+  background: #020F59;
+}
+
+.unirtext{
+  font-size: 8px;
+  margin-left: 35%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  display: block;
+  color: white;
+}
+
+.droittext{
+  font-size: 8px;
+  margin-left: 20%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  display: block;
+  color: white;
 }
 
 .version-txt{
@@ -18,4 +37,22 @@
   font-family: "Roboto", sans-serif;
   font-weight: 100;
   display: block;
+  color: white;
+}
+
+.logofb{
+  width: 7px;
+  margin-left: 8000%;
+}
+
+.iconinstagram{
+  width: 11px;
+  margin-left: 4600%;
+  vertical-align: middle;
+}
+
+.icontwitter{
+  width: 13px;
+  margin-left: 4100%;
+  vertical-align: middle;
 }

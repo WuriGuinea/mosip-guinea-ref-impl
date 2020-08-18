@@ -248,9 +248,10 @@ input[type='radio'] {
   box-shadow: none;
 }
 .mat-icon-button{
-  background-color: #BCE0FD;
+  background: #BCE0FD;
   border-radius: 0%;
 }
+
 .search-form {
   display: flex;
   flex-wrap: wrap;

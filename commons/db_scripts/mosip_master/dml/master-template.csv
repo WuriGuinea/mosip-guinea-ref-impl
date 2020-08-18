@@ -287,26 +287,26 @@ document.onreadystatechange = function () {if(document.readyState === ""complete
 <div ${parentPhotoNotCaptured}><div ${FaceCaptureEnabled} ${AckReceipt} class=""photo""><p class=""applicantPhotoLabel2"">${PhotoPrim} / ${PhotoSec}</p><img class=""parentPhoto"" src=""${ApplicantImageSource}"" border=""0"" width=""100"" height=""100""/></div><div ${FaceCaptureEnabled} ${Preview} class=""previewPhoto""><p class=""applicantPhotoLabel2"">${PhotoPrim} / ${PhotoSec}</p><img class=""parentPhoto"" src=""${ApplicantImageSource}"" border=""0"" width=""100"" height=""100""/></div></div>
 <div ${AckReceipt}><p>${ImportantGuidelines}</p><ul>${Guidelines}</ul></div></div></body></html>",10005,Inscription,reg-ack-template-part4,fra,TRUE,superadmin,now()
 1142,auth otp service,auth otp service for sending otp,txt,velocity,"Monsieur/Madame,
-Votre mot de passe à usage unique $otp. Sa durée de validité est de 3 minutes.
+Votre mot de passe à usage unique $otp. Sa durée de validité est de 5 minutes.
 
 Cordialement,
 L'Équipe WURI Guinée",10001,Pré-inscription,auth-otp-sms-template,fra,TRUE,superadmin,now()
 1143,auth otp email service subject,auth otp email service subject,txt,velocity,Livraison du mot de passe à usage unique (OTP),10001,Pré-inscription,auth-otp-email-subject-template,fra,TRUE,superadmin,now()
 1144,auth otp email service subject,auth otp email service subject,txt,velocity,"Monsieur/Madame,
-Veuillez trouver ci-joint votre mot de passe à usage unique $otp. Ce code vous permettra l’accès à nos services d'enrôlement. Sa durée de validité est de 3 minutes.
+Veuillez trouver ci-joint votre mot de passe à usage unique $otp. Ce code vous permettra l’accès à nos services d'enrôlement. Sa durée de validité est de 5 minutes.
 
 Cordialement,
 L'Équipe WURI Guinée",10001,Pré-inscription,auth-otp-email-content-template,fra,TRUE,superadmin,now()
 1145,Service d'authentification OTP,auth otp service for sending otp,txt,velocity,"Cher(e) Client(e), 
-Veuilez trouver votre mot de passe temporaire $otp. Attention il expire dans 3 minutes.",10002,Client dinscription,auth-otp-sms-template,fra,TRUE,superadmin,now()
+Veuilez trouver votre mot de passe temporaire $otp. Attention il expire dans 5 minutes.",10002,Client dinscription,auth-otp-sms-template,fra,TRUE,superadmin,now()
 1146,auth otp email service subject,auth otp email service subject,txt,velocity,Mot de passe temporaire (OTP),10002,Client dinscription,auth-otp-email-subject-template,fra,TRUE,superadmin,now()
 1147,auth otp email service subject,auth otp email service subject,txt,velocity,"Cher(e) Client(e), 
-Merci de trouver votre mot de passe temporaire $otp. Attention il expire dans 3 minutes.",10002,Client dinscription,auth-otp-email-content-template,fra,TRUE,superadmin,now()
+Merci de trouver votre mot de passe temporaire $otp. Attention il expire dans 5 minutes.",10002,Client dinscription,auth-otp-email-content-template,fra,TRUE,superadmin,now()
 1148,auth otp service,auth otp service for sending otp,txt,velocity,"Cher(e) Client(e), 
-Merci de trouver votre mot de passe temporaire $otp. Attention il expire dans 3 minutes.",10004,Authentification ID,auth-otp-sms-template,fra,TRUE,superadmin,now()
+Merci de trouver votre mot de passe temporaire $otp. Attention il expire dans 5 minutes.",10004,Authentification ID,auth-otp-sms-template,fra,TRUE,superadmin,now()
 1149,auth otp email service subject,auth otp email service subject,txt,velocity,Mot de passe temporaire (OTP),10004,Authentification ID,auth-otp-email-subject-template,fra,TRUE,superadmin,now()
 1150,auth otp email service subject,auth otp email service subject,txt,velocity,"Cher(e) Client(e), 
-Merci de trouver votre mot de passe temporaire $otp. Attention il expire dans 3 minutes.",10004,Authentification ID,auth-otp-email-content-template,fra,TRUE,superadmin,now()
+Merci de trouver votre mot de passe temporaire $otp. Attention il expire dans 5 minutes.",10004,Authentification ID,auth-otp-email-content-template,fra,TRUE,superadmin,now()
 1151,Modèle de contenu de courrier électronique,Modèle de contenu de courrier électronique,txt,,"Cher(e) $firstName $lastName,
 Votre mot de passe OTP est $otp. Il correspond au INU $uin. Attention, il est valide pour $validTime minutes
 Il a été généré le $date à $time Hrs, Merci",10004,Authentification ID,ida-auth-otp-email-content-template,fra,TRUE,superadmin,now()
@@ -446,7 +446,7 @@ Merci",10003,Processeur dinscription,RPR_LOST_UIN_EMAIL,fra,TRUE,superadmin,now(
 <tr>
 <td><label class=""name-head-color""><b>Adresse&nbsp;:&nbsp;</b></label>
 </td>
-<td><span>$!addressLine1_fra, $!city_fra, $!postalCode $!province_fra, $!region_fra,</span></td>
+<td><span>$region, $prefecture, $subPrefectureOrCommune, $district, $sector, $additionalAddressDetails</span></td>
 </tr>
 </table>
 </div>
@@ -475,11 +475,14 @@ Merci",10003,Processeur dinscription,RPR_LOST_UIN_EMAIL,fra,TRUE,superadmin,now(
 </td>
 <td>
 <div class=""name-head-color col-md-6"">
-<br> Cette carte a &eacute;t&eacute; &eacute;mise par WURI GUINEE
-<br> Pour toute question, veuillez nous contacter au :
-<br> <b>Email&nbsp;:&nbsp;</b>contact@wuriguinee.com 
-<br> <b>T&eacute;l&eacute;phone&nbsp;:&nbsp;</b>+224622227491
-<br> <b>Adresse&nbsp;:&nbsp;</b>R&eacute;sidence Corail, Camayenne - Commune Dixinn, Conakry - Guin&eacute;e
+<br> Cette carte ne constitue pas une pi&egrave;ce d'identit&eacute; nationale et ne saurait en aucun cas s'y substituer.
+<br> Elle a &eacute;t&eacute; d&eacute;livr&eacute;e par WURI Guin&eacute;e et les informations qu'elle contient sont strictement confidentielles. 
+<br> Si vous retrouvez une carte qui n'est pas la v&ocirc;tre, veuillez la retourner &agrave;:
+<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Wuri Guin&eacute;e - R&eacute;sidence Corail - Bat A101
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Camayenne-Dixinn   
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Tel:&nbsp;+224622227491
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;contact@inu.gov.gn
 </div>
 </td>
 </tr>
