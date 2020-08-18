@@ -285,6 +285,14 @@ export class DataStorageService {
     return this.httpClient.get(url);
   }
 
+  getLocationByHiererchy(hiererchy: string) {
+    let url =
+      this.BASE_URL +
+      appConstants.APPEND_URL.master_data +
+      'locations/locationhierarchy/'+hiererchy;
+    return this.httpClient.get(url);
+  }
+
   getCenter() {
     let url =
       this.BASE_URL +
