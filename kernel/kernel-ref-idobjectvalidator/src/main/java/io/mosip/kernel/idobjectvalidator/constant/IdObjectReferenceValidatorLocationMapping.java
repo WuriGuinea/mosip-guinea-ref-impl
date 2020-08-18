@@ -12,20 +12,13 @@ import java.util.stream.Collectors;
 public enum IdObjectReferenceValidatorLocationMapping {
 	
 	COUNTRY("PAYS", "0"),
-	
 	REGION("REGION", "1"),
-	
 	PREFECTURE("PREFECTURE", "2"),
-	
 	SUBPREFECTURE_OR_COMMUNE("SOUS_PREFECTURE/COMMUNE", "3"),
-	
 	DISTRICT("DISTRICT", "4"),
-	
 	SECTOR("SECTEUR", "5");
-	
 
 	private final String hierarchyName;
-	
 	private final String level;
 	
 	/**
