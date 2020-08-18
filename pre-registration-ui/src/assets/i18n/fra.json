@@ -519,7 +519,7 @@
 		"action_continue": "Suivant"
 	},
 	"appointmentConfirmed": {
-		"title": "Rendez-vous confirmé",
+		"title": "Confirmation de Rendez-vous",
 		"text_confirmation": "Le numéro de demande et les détails du rendez-vous ont été envoyés à l'adresse e-mail et au numéro de téléphone mobile enregistrés.",
 		"action_download": "Télécharger",
 		"action_print": "Imprimer"

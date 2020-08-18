@@ -1,7 +1,7 @@
 .ack-container {
   margin: 20px 2vw;
   padding: 0 0 50px 0;
-  border-radius: 4px;
+  border-radius: 12px;
   border: solid 1px #020F59;
 }
 .ack__guidelines li:last-child{
@@ -47,6 +47,7 @@
   color: #020F59;
   width: 100%;
   font-size: 1rem;
+  margin-left: 33px;
 }
 
 .ack__header-container {
