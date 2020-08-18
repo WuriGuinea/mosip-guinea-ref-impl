@@ -6,7 +6,7 @@
   font-size: 12px;
   padding-top: 10px;
   padding-bottom: 0px;
-  position: fixed;
+  position: initial;
   bottom: -9px;
   width: 100%;
   z-index: -1;
