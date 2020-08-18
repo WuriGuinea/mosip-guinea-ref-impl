@@ -3,11 +3,11 @@
   justify-content: center;
   font-family: Roboto;
   border-color: #707070;
-  font-size: 12px;
+  font-size: 8px;
   padding-top: 10px;
-  padding-bottom: 0px;
-  position: initial;
-  bottom: -9px;
+  padding-bottom: 13px;
+  position: fixed;
+  bottom: -25px;
   width: 100%;
   z-index: -1;
   margin-bottom: 2px;
@@ -26,7 +26,7 @@
 .droittext{
   font-size: 8px;
   margin-left: 20%;
-  margin-bottom: 10%;
+  margin-bottom: 13%;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
   display: block;
