@@ -1,7 +1,13 @@
 ﻿hierarchy_level,hierarchy_level_name,lang_code,is_active,cr_by,cr_dtimes
 0,PAYS,fra,TRUE,superadmin,now()
+<<<<<<< HEAD
 1,REGION,fra,TRUE,superadmin,now()
 2,PREFECTURE,fra,TRUE,superadmin,now()
 3,SOUS_PREFECTURE_OR_COMMUNE,fra,TRUE,superadmin,now()
+=======
+1,RÉGION,fra,TRUE,superadmin,now()
+2,PREFECTURE,fra,TRUE,superadmin,now()
+3,SOUS-PRÉFECTURE/COMMUNE,fra,TRUE,superadmin,now()
+>>>>>>> branch '1.1.0_condeis_spi' of https://github.com/WuriGuinea/mosip-guinea-ref-impl.git
 4,DISTRICT,fra,TRUE,superadmin,now()
 5,SECTEUR,fra,TRUE,superadmin,now()
