@@ -104,6 +104,7 @@
    color: #020F59;
    font-size: 20;
    font-weight: 400;
+   background:#bce0fd !important;
  }
  
  .complete {
@@ -113,6 +114,7 @@
  .incomplete {
    color: grey;
    opacity: 0.5;
+   background: white !important;
  }
  
  @media (max-width: 500px) {
@@ -211,7 +213,8 @@ a {
   padding: 0 10px 0 30px;
   line-height: 40px;
   color: #020F59;
-  background: #BCE0FD;
+  background: white;
+  height: 41px;
 }
 
 .breadCrumbs li:first-child a {
@@ -249,25 +252,41 @@ a {
 
 /* GIVE EVERY CHILD A DIFFERENT COLOR */
 .breadCrumbs li:nth-child(1) a {
-  background: #BCE0FD ;
+  background: white ;
+  border-top: solid 1px #BCE0FD;
+  border-bottom: solid 1px #BCE0FD;
+  border-left: solid 1px #BCE0FD;
 }
 
 .breadCrumbs li:nth-child(1):after {
-  border-left: 20px solid white ;
+  border-left: 20px solid #BCE0FD ;
 }
 
 .breadCrumbs li:nth-child(2) a {
-  background: #BCE0FD ;
+  background: white ;
+  border-top: solid 1px #BCE0FD;
+  border-bottom: solid 1px #BCE0FD;
+  border-left: solid 1px #BCE0FD;
 }
 
 .breadCrumbs li:nth-child(2):after {
-  border-left: 20px solid white ;
+  border-left: 20px solid #BCE0FD ;
 }
 
 .breadCrumbs li:nth-child(3) a {
-  background: #BCE0FD ;
+  background: white ;
+  border-top: solid 1px #BCE0FD;
+  border-bottom: solid 1px #BCE0FD;
+  border-left: solid 1px #BCE0FD;
 }
 
 .breadCrumbs li:nth-child(3):after {
-  border-left: 20px solid white ;
+  border-left: 20px solid #BCE0FD ;
+}
+.breadCrumbs li:nth-child(4) a {
+  background: #BCE0FD ;
+  border-top: solid 1px #BCE0FD;
+  border-bottom: solid 1px #BCE0FD;
+  border-left: solid 1px #BCE0FD;
+  border-right: solid 1px #BCE0FD;
 }
