@@ -206,5 +206,12 @@ table tr td {
 text-transform: uppercase;
 width: 70%;
 }
-
+.txtalign{
+  position: relative;
+  margin-top: 5px;
+}
+.txtalignbottom{
+  position: relative;
+  margin-top: -5px;
+}
 

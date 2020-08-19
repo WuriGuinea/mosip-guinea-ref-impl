@@ -33,22 +33,22 @@
                 <td id="txt-cap">{{ user.lastName }}</td>
               </tr>
               <tr>
-                <td>{{ 'acknowledgement.label_pre_id' | translate }}</td>
-                <td>:</td>
-                <td>{{ user.preRegId }}</td>
+                <td class="txtalign">{{ 'acknowledgement.label_pre_id' | translate }}</td>
+                <td class="txtalign">:</td>
+                <td class="txtalign" >{{ user.preRegId }}</td>
               </tr>
               <tr>
                 <td>{{ 'acknowledgement.label_reg_cntr' | translate }}</td>
                 <td>:</td>
                 <td style="line-height: 4px;" id="txt-cap">
                  <p> {{ user.registrationCenter.name }},</p> <p>{{ user.registrationCenter.addressLine1 }},
-                  {{ user.registrationCenter.addressLine2 }},</p> <p>{{ user.registrationCenter.addressLine3 }}</p>
+                  {{ user.registrationCenter.addressLine2 }},{{ user.registrationCenter.addressLine3 }}</p>
                 </td>
               </tr>
               <tr>
-                <td>{{ 'acknowledgement.label_cntr_contact_number' | translate }}</td>
-                <td>:</td>
-                <td>{{ user.registrationCenter.contactPhone }}</td>
+                <td class="txtalignbottom">{{ 'acknowledgement.label_cntr_contact_number' | translate }}</td>
+                <td class="txtalignbottom">:</td>
+                <td class="txtalignbottom">{{ user.registrationCenter.contactPhone }}</td>
               </tr>
               <tr>
                 <td style="width: 322px;">{{ 'acknowledgement.label_appointment_date_time' | translate }}</td>
