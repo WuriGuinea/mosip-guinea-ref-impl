@@ -201,6 +201,7 @@
   padding: 2px 2vw;
   display: flex;
   z-index: 22;
+  background: none;
 }
 
 .preview__file-container {
