@@ -33,9 +33,9 @@
                 <td id="txt-cap">{{ user.lastName }}</td>
               </tr>
               <tr>
-                <td style="position: relative;top: 5px;">{{ 'acknowledgement.label_pre_id' | translate }}</td>
-                <td style="position: relative;top: 5px;">:</td>
-                <td style="position: relative;top: 5px;">{{ user.preRegId }}</td>
+                <td class="txtalign">{{ 'acknowledgement.label_pre_id' | translate }}</td>
+                <td class="txtalign">:</td>
+                <td class="txtalign" >{{ user.preRegId }}</td>
               </tr>
               <tr>
                 <td>{{ 'acknowledgement.label_reg_cntr' | translate }}</td>
@@ -46,9 +46,9 @@
                 </td>
               </tr>
               <tr>
-                <td style="position: relative;top: -5px;">{{ 'acknowledgement.label_cntr_contact_number' | translate }}</td>
-                <td style="position: relative;top: -5px;">:</td>
-                <td style="position: relative;top: -5px;">{{ user.registrationCenter.contactPhone }}</td>
+                <td class="txtalignbottom">{{ 'acknowledgement.label_cntr_contact_number' | translate }}</td>
+                <td class="txtalignbottom">:</td>
+                <td class="txtalignbottom">{{ user.registrationCenter.contactPhone }}</td>
               </tr>
               <tr>
                 <td style="width: 322px;">{{ 'acknowledgement.label_appointment_date_time' | translate }}</td>
