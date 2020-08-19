@@ -6,26 +6,83 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 10%;
 }
 
 .spacing {
   margin-top: 20%;
 }
 
+.form_bdy {
+  padding: 0% 20% 8% 20%;
+}
+
 .error {
   font-size: 13px;
   color: red;
   margin-top: -10px;
-  margin-left: -174px;
+}
+
+.logo_wrapper {
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px #00000029;
+  background: #fafafa;
+  margin-right: 67rem;
+}
+
+.logo_wrapper .mat-card {
+  padding-top: 5rem;
+}
+
+.login-input {
+  margin-left: 2%;
+}
+
+:host /deep/ .mat-form-field-wrapper {
+   padding-bottom: 0; 
+}
+
+:host /deep/ .mat-form-field-appearance-outline .mat-form-field-flex {
+  padding: 0 !important;
+  margin-left: 5px;
+}
+
+:host /deep/ .mat-raised-button {
+  padding: 0 1% ;
 }
 
 .form_wrapper {
-  margin: 6% 64% 0% 64%;
-  border-radius: 8px;
+  margin: 15% 64% 0% 64%;
+  border-radius: 30px;
   box-shadow: 0px 3px 6px #00000029;;
   background: #fafafa;
   padding: 20px;
-  width: 30%;
+  width: 35rem;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media screen and (min-width: 936px) and (max-width: 1500px){
+
+  .form_wrapper[_ngcontent-c13] {
+    margin: 8% 64% 0% 64%;
+    border-radius: 30px;
+    box-shadow: 0px 3px 6px #00000029;;
+    background: #fafafa;
+    padding: 20px;
+    width: 35rem;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .positionimgbiom[_ngcontent-c13]{
+    height: 21rem;
+    margin-top: -98px;
+  }
+  
 }
 
 .form_fields_padding {
@@ -37,6 +94,8 @@
 .heading {
   font-size: 2rem;
   text-align: center;
+  margin-bottom: 10%;
+  margin-top: 3%;
 }
 
 .subHeading {
@@ -62,7 +121,7 @@ mat-form-field {
 }
 
 .pinkText {
-  color:#020F59 ;/* #fe528d;*/
+  color:#020F59 ;
 }
 
 button {
@@ -71,10 +130,8 @@ button {
 
 #timer {
   text-align: center;
-  padding: 8px;
-  visibility: hidden;
-  margin-left: -184px;
-  margin-right: 214px;
+  padding-top: 20px;
+  visibility: hidden;  
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
@@ -83,7 +140,6 @@ button {
 
 ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
   border-radius: 3px;
- /* border:solid 1px #838383;*/
 }
 
 
@@ -95,6 +151,20 @@ button {
   .form_fields_padding {
     margin-left: 16%;
   }
+
+  .form_wrapper[_ngcontent-c13] {
+    margin: 6% 64% 0% 64%;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px #00000029;
+    background: #fafafa;
+     width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper[_ngcontent-c13] {
+    margin-right: 10%;
+  }
+
 }
 .mat-input-element {
   font: inherit;
@@ -104,35 +174,29 @@ button {
   outline: 0;
   padding: 0;
   margin: 0;
-  width: 100%;
-  max-width: 100%;
   vertical-align: bottom;
   text-align: inherit;
   height: 44px !important;
   border-radius: 8px !important;
   opacity: 0.6;
-  width: 100%;
-  margin-left: -200px;
   font-size: 14px;
-  /*margin: 0 30% 36px -131px;*/
+}
+button {
+  margin-left: 2%;
 }
 .connexiontxt{
   position: relative;
   top: 2vw;
   color: #020F59;
-  left: 15px;
 }
-.btn_axn-pri{
-  width: 93% !important;
-  left: -190px;
-  margin: 0;
-}
+
 .mat-form-field-appearance-outline .mat-form-field-outline-start{
   border: none !important;
 }
 .mat-form-field-appearance-outline .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-start{
   border: none !important;
 }
+
 #logobiometrie{
 background-image: url("/src/assets/biometrie.jpg");
 background-size: cover;
@@ -143,14 +207,15 @@ position: absolute;
 top: 26vh;
 left: 15vw;
 }
+
 .mat-card{
   position: absolute;
-  margin-left:26px ;/*-271px;*/
   margin-right: 15px;
   background: transparent;
   padding: 0px;
-  top: 194px;/*76px;*/
+  margin-top: 10%;
 }
+
 @media screen and (min-width: 501px) and (max-width: 935px) {
   .positionimgbiom {
     display: none !important;
@@ -159,21 +224,13 @@ left: 15vw;
     left: 5px;
   }
   .input_pri{
-    margin-left: -252px !important;
     width: 80%;
-    /*margin-left: -214px !important;*/
   }
   .btn_axn-pri{
-  /*  left: -190px;*/
-    margin: 0 36% 36px -50px;
-    width: 74% !important;
-    /*margin-left: -192px !important;*/
-  }
-  #timer{
-    margin-right: 222px;
-    margin-left: -321px;
-  }
+    margin: 0 36px 5px 5px;
+  }  
 }
+
 @media screen and (min-width: 936px) and (max-width: 1000px) {
   .positionimgbiom {
     display: none !important;
@@ -181,20 +238,12 @@ left: 15vw;
   .connexiontxt{
     left: 5px;
   }
-  .input_pri{
-    margin-left: -262px !important;
-    /*margin-left: -214px !important;*/
-  }
+  
   .btn_axn-pri{
-  /*  left: -190px;*/
-    margin: 0 36% 36px -61px;
-    /*margin-left: -192px !important;*/
-  }
-  #timer{
-    margin-right: 222px;
-    margin-left: -274px;
+    margin: 0 36px 5px 5px;
   }
 }
+
 @media screen and (min-width: 1001px) and (max-width: 1040px) {
   .positionimgbiom {
     display: none !important;
@@ -202,18 +251,9 @@ left: 15vw;
   .connexiontxt{
     left: 5px;
   }
-  .input_pri{
-    margin-left: -256px !important;
-    /*margin-left: -214px !important;*/
-  }
+ 
   .btn_axn-pri{
-  /*  left: -190px;*/
-    margin: 0 36% 36px -55px;
-    /*margin-left: -192px !important;*/
-  }
-  #timer{
-    margin-right: 222px;
-    margin-left: -274px;
+    margin: 0 36px 5px 5px;
   }
 }
 @media screen and (min-width: 1041px) and (max-width: 1101px) {
@@ -223,42 +263,23 @@ left: 15vw;
   .connexiontxt{
     left: 5px;
   }
-  .input_pri{
-    margin-left: -250px !important;
-    /*margin-left: -214px !important;*/
-  }
-  .btn_axn-pri{
-  /*  left: -190px;*/
-    margin: 0 36% 36px -50px;
-    /*margin-left: -192px !important;*/
-  }
-  #timer{
-    margin-right: 222px;
-    margin-left: -274px;
-  }
 }
-@media screen and (min-width: 1102px) and (max-width: 1182px) {
+@media screen and (min-width: 501px) and (max-width: 935px) {
   .positionimgbiom {
     display: none !important;
   }
   .connexiontxt{
     left: 5px;
   }
-  .input_pri{
-    margin-left: -235px !important;
-    /*margin-left: -214px !important;*/
-  }
+  
   .btn_axn-pri{
-  /*  left: -190px;*/
-    margin: 0 36% 36px -36px;
-    /*margin-left: -192px !important;*/
+    margin: 0 36px 5px 5px;
   }
-  #timer{
-    margin-right: 222px;
-    margin-left: -261px;
-  }
+  .form_wrapper[_ngcontent-c13] {    
+     width: 80%; 
 }
-@media (max-width: 500px) {
+}
+ @media (max-width: 1000px) {
   .positionimgbiom {
     display: none !important;
   }
@@ -267,25 +288,18 @@ left: 15vw;
     font-size: 22px;
   }
   .input_pri{
-    margin-left: -44px !important;
     width: 80%;
-    /*margin-left: -214px !important;*/
   }
   .btn_axn-pri{
-    left: -31px;
-    width: 70% !important;
+    left: 0px;
     padding: initial;
-    /*margin-left: -192px !important;*/
-  }
-  #timer{
-
-    margin-left: -15px;
-  }
-  }
+  }  
+  } 
 .positionimgbiom{
-  height: 213px;
-  margin-left: -230px;
-  }
+  height: 21rem;
+  margin-top: -10px;
+}
+
 .mat-card:not([class*=mat-elevation-z]){
   box-shadow: none !important;
 }
@@ -299,4 +313,5 @@ mat-form-field-infix{
 }
 .btn_axn-pri[disabled]{
 background: #BCE0FD;
+margin-left: 3%;
 }
