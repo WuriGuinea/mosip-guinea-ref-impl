@@ -196,7 +196,7 @@
 .center-selection__button-container {
   width: 100%;
   position: fixed;
-  bottom: 0;
+  bottom: 50px;
   left: 0;
   padding: 2px 2vw;
   display: flex;

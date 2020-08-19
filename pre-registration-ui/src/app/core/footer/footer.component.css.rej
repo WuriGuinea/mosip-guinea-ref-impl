@@ -1,0 +1,17 @@
+diff a/pre-registration-ui/src/app/core/footer/footer.component.css b/pre-registration-ui/src/app/core/footer/footer.component.css	(rejected hunks)
+@@ -3,11 +3,11 @@
+   justify-content: center;
+   font-family: Roboto;
+   border-color: #707070;
+-  font-size: 12px;
++  font-size: 8px;
+   padding-top: 10px;
+-  padding-bottom: 0px;
+-  position: initial;
+-  bottom: -9px;
++  padding-bottom: 13px;
++  position: fixed;
++  bottom: -25px;
+   width: 100%;
+   z-index: -1;
+   margin-bottom: 2px;

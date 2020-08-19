@@ -21,8 +21,9 @@
 .center-selection__button-container {
   width: 100%;
   position: fixed;
-  bottom: 0vh;
+  bottom: 50px;
   left: 0;
+  box-shadow: none;
   padding: 2px 1.6rem;
   display: flex;
   z-index: 22;
