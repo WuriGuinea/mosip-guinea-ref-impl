@@ -241,10 +241,8 @@ mat-icon {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
-  bottom: 0;
+  bottom: 50px;
   position: fixed;
-  background: #ffffff;
-  box-shadow: 10px 10px 10px 3px #808080;
   z-index: 22;
   padding: 0 2vw;
   justify-content: flex-end;
