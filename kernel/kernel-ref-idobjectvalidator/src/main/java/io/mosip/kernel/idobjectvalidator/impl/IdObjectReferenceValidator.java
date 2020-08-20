@@ -246,36 +246,33 @@ public class IdObjectReferenceValidator implements IdObjectValidator {
 
 	/**
 	 * Validate PHONE NUMBER
+	 * 
 	 * @param identityString
 	 * @param errorList
 	 */
-		private void validatePhoneNumber(String identity, List<ServiceError> errorList) {
-			JsonPath jsonPath = JsonPath.compile(IDENTITY_PHONE_NUMBER_PATH);
+	private void validatePhoneNumber(String identity, List<ServiceError> errorList) {
+		JsonPath jsonPath = JsonPath.compile(IDENTITY_PHONE_NUMBER_PATH);
 
-			JSONArray pathList = jsonPath.read(identity,
-					Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS, Option.AS_PATH_LIST));
-			String data = jsonPath.read(identity,
-					Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS));
-						try {
-				  Pattern pattern = Pattern.compile(PHONE_NUMBER_FORMAT);
-				if (Objects
-						.nonNull(
-								data)
-						&& !pattern.matcher(data).matches()
-								) {
-					String errorMessage = String.format(INVALID_INPUT_PARAMETER.getMessage(),
-							convertToPath(String.valueOf(pathList.get(0))));
-					errorList.removeIf(serviceError -> serviceError.getMessage().equals(errorMessage));
-					errorList.add(new ServiceError(INVALID_INPUT_PARAMETER.getErrorCode(), errorMessage));
-				}
-			} catch (Exception e) {
-				ExceptionUtils.logRootCause(e);
+		JSONArray pathList = jsonPath.read(identity,
+				Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS, Option.AS_PATH_LIST));
+		String data = jsonPath.read(identity,
+				Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS));
+		try {
+			Pattern pattern = Pattern.compile(PHONE_NUMBER_FORMAT);
+			if (Objects.nonNull(data) && !pattern.matcher(data).matches()) {
 				String errorMessage = String.format(INVALID_INPUT_PARAMETER.getMessage(),
 						convertToPath(String.valueOf(pathList.get(0))));
 				errorList.removeIf(serviceError -> serviceError.getMessage().equals(errorMessage));
 				errorList.add(new ServiceError(INVALID_INPUT_PARAMETER.getErrorCode(), errorMessage));
 			}
-		} 
+		} catch (Exception e) {
+			ExceptionUtils.logRootCause(e);
+			String errorMessage = String.format(INVALID_INPUT_PARAMETER.getMessage(),
+					convertToPath(String.valueOf(pathList.get(0))));
+			errorList.removeIf(serviceError -> serviceError.getMessage().equals(errorMessage));
+			errorList.add(new ServiceError(INVALID_INPUT_PARAMETER.getErrorCode(), errorMessage));
+		}
+	}
 
 	/**
 	 * Validate email
@@ -290,8 +287,6 @@ public class IdObjectReferenceValidator implements IdObjectValidator {
 				Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS, Option.AS_PATH_LIST));
 		String data = jsonPath.read(identity,
 				Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS));
-
-		System.out.println("Email fourni: " + data);
 		try {
 			Pattern pattern = Pattern.compile(EMAIL_FORMAT);
 			if (Objects.nonNull(data) && !pattern.matcher(data).matches()) {

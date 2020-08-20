@@ -75,7 +75,7 @@ public class TestConfig {
 				+ "{\"locationHierarchylevel\":1,\"locationHierarchyName\":\"REGION\",\"isActive\":true},"
 				+ "{\"locationHierarchylevel\":2,\"locationHierarchyName\":\"PREFECTURE\",\"isActive\":true},"
 				+ "{\"locationHierarchylevel\":4,\"locationHierarchyName\":\"DISTRICT\",\"isActive\":true},"
-				+ "{\"locationHierarchylevel\":3,\"locationHierarchyName\":\"SOUS_PREFECTURE/COMMUNE\",\"isActive\":true}]},\"errors\":null}";
+				+ "{\"locationHierarchylevel\":3,\"locationHierarchyName\":\"SOUS_PREFECTURE_OU_COMMUNE\",\"isActive\":true}]},\"errors\":null}";
 		ResponseWrapper<ObjectNode> responseWrapper = mapper.readValue(response.getBytes(),
 				new TypeReference<ResponseWrapper<ObjectNode>>() {
 				});
@@ -120,7 +120,7 @@ public class TestConfig {
 	private void mockLocationHierarchySousPrefectureOrCommuneResponse(RestTemplate restTemplate)
 			throws RestClientException, JsonParseException, JsonMappingException, IOException {
 		String response = "{\"id\":null,\"version\":null,\"responsetime\":\"2019-05-22T06:49:51.552Z\",\"metadata\":null,\"response\":{\"locations\":[{\"code\":\"pilimini\",\"name\":\"Pilimini\",\"hierarchyLevel\":0,\"hierarchyName\":\"City\",\"parentLocCode\":\"2\",\"langCode\":\"fra\",\"isActive\":true}]},\"errors\":null}";
-		when(restTemplate.getForObject("https://0.0.0.0/locationhierarchy/SOUS_PREFECTURE/COMMUNE", ResponseWrapper.class))
+		when(restTemplate.getForObject("https://0.0.0.0/locationhierarchy/SOUS_PREFECTURE_OU_COMMUNE", ResponseWrapper.class))
 				.thenReturn(mapper.readValue(response.getBytes(), ResponseWrapper.class));
 	}
 
