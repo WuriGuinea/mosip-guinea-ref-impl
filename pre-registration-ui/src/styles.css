@@ -58,14 +58,14 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: Georgia, Regular;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 .btn_axn-pri {
   min-width: 158px;
   min-height: 50px;
   padding: 0px 50px;
   font-size: 0.8rem;
-  font-family: Arial, Bold;
+  font-family: Roboto;
   font-weight: 700;
   color: #020F59;
   border: none;
