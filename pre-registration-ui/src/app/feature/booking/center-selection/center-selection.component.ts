@@ -88,7 +88,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
       this.locationTypes.push(locationType);
     });
     this.locationTypes.push({
-      locationHierarchyDescription: 'Commune',
+      locationHierarchyDescription: 'COMMUNE',
       isActive: true,
       locationHierarchyName: "SOUS_PREFECTURE_OR_COMMUNE",
       locationHierarchylevel: 3
