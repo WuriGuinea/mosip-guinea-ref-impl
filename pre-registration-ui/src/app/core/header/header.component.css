@@ -42,7 +42,7 @@
   line-height: 1.42857143 !important;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: Helvetica;
+  font-family: Arial, Regular;
 }
 .list-item {
   display: inline-flex;
