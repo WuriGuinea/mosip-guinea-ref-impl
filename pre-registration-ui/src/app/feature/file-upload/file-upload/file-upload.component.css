@@ -151,6 +151,15 @@ mat-select:focus {
   justify-content: space-between;
   margin-bottom: 70px;
 }
+@media (min-width: 1026px) and (max-width: 1400px){
+  .file-upload__body {
+    padding: 0px 2rem 10px 2rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -26px;
+  }
+}
 
 .file-upload__body__1 {
   width: 50.5vw;
@@ -257,10 +266,8 @@ mat-select:focus {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
-  bottom: 0;
+  bottom: 50px;
   position: fixed;
-  background: #ffffff;
-  box-shadow: 10px 10px 10px 3px #808080;
   z-index: 22;
   padding: 0 2vw;
 }
