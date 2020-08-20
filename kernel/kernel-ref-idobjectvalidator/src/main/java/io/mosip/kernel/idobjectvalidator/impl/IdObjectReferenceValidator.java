@@ -290,8 +290,6 @@ public class IdObjectReferenceValidator implements IdObjectValidator {
 				Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS, Option.AS_PATH_LIST));
 		String data = jsonPath.read(identity,
 				Configuration.defaultConfiguration().addOptions(Option.SUPPRESS_EXCEPTIONS));
-
-		System.out.println("Email fourni: " + data);
 		try {
 			Pattern pattern = Pattern.compile(EMAIL_FORMAT);
 			if (Objects.nonNull(data) && !pattern.matcher(data).matches()) {
