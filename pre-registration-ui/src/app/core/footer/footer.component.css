@@ -45,13 +45,13 @@
   width: 7px;
   position: absolute;
   margin-top: 0.4%;
-  margin-left: 520px;
+  margin-left: 530px;
 }
 
 .iconinstagram{
   width: 11px;
   position: absolute;
-  margin-left: 463px;
+  margin-left: 473px;
   margin-top: 0.5%;
   vertical-align: middle;
 }
@@ -59,7 +59,25 @@
 .icontwitter{
   width: 13px;
   position: absolute;
-  margin-left: 490px;
+  margin-left: 500px;
   margin-top: 0.5%;
   vertical-align: middle;
+}
+
+@media (min-width: 900px) and (max-width: 1400px){
+  .main-footer{
+    display: flex;
+    justify-content: center;
+    font-family: Roboto;
+    border-color: #707070;
+    font-size: 12px;
+    padding-top: 0;
+    padding-bottom: 4px;
+    position: fixed;
+    bottom: 0;
+    width: 98.4%;
+    z-index: 2;
+    margin-bottom: -25px;
+    background: #020f59;
+}
 }

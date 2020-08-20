@@ -200,6 +200,8 @@ a {
   display: inline-flex;
   list-style:none;
   left: -12px;
+  font-family: Segoe UI, Regular;
+  font-size: 18px;
 }
 
 .breadCrumbs li {
