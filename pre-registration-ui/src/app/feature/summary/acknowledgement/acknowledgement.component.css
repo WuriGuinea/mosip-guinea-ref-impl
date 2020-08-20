@@ -81,11 +81,13 @@
 .ack__button-container {
   width: 100%;
   position: fixed;
-  bottom: 0;
+  bottom: 43px;
   left: 0;
   padding: 10px 2vw;
   display: flex;
-  z-index: 22;
+  background: none;
+  z-index: 2;
+  box-shadow: none;
 }
 
 .spacer {
