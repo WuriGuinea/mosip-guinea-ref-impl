@@ -218,7 +218,7 @@ width: 70%;
   margin-top: -5px;
 }
 
-@media (min-width: 700px) and (max-width: 1400px){
+@media (min-width: 900px) and (max-width: 1400px) {
 
   .ack__message-container {
     padding: 0px 0;
@@ -245,8 +245,8 @@ table tr td {
   width: 87%;
   height: auto;
   display: flex;
-  margin-top: -16rem;
-  margin-left: 56rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
 .ack__button-container {
@@ -278,11 +278,18 @@ table tr td {
 }
 
 .ack-container{
-  margin: 1px 2vw;
+  margin: -3px 2vw;
   padding: 0 0 0px;
   border-radius: 12px;
   border: 1px solid #020f59;
   height: 26rem;
+}
+
+.ack__guidelines {
+  padding-right: 10%;
+  word-break: break-word;
+  page-break-after: always;
+  margin-top: -1%;
 }
 
 }
