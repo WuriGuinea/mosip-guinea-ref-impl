@@ -2,6 +2,6 @@
 0,PAYS,fra,TRUE,superadmin,now()
 1,REGION,fra,TRUE,superadmin,now()
 2,PREFECTURE,fra,TRUE,superadmin,now()
-3,SOUS-PREFECTURE,fra,TRUE,superadmin,now()
+3,SOUS_PREFECTURE_OU_COMMUNE,fra,TRUE,superadmin,now()
 4,DISTRICT,fra,TRUE,superadmin,now()
 5,SECTEUR,fra,TRUE,superadmin,now()
