@@ -159,6 +159,16 @@ mat-select:focus {
     justify-content: space-between;
     margin-bottom: -26px;
   }
+  .file-upload {
+    box-shadow: 1px 1px 10px 4px #eeeeee;
+    background: #ffffff;
+    margin: -8px 2vw 5vw;
+    color: #020F59;
+    border: solid 1px #020F59;
+    height: auto;
+    border-radius: 16px;
+  }
+
 }
 
 .file-upload__body__1 {
