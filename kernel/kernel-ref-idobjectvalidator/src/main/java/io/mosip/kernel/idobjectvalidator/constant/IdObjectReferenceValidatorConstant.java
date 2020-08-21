@@ -41,5 +41,4 @@ public class IdObjectReferenceValidatorConstant {
 	public static final String IDENTITY_EMAIL_PATH = "identity.email";
 	public static final String PHONE_NUMBER_FORMAT="^(6[256]{1})([0-9]{7})$";
 	public static final String IDENTITY_PHONE_NUMBER_PATH="identity.phone";
-
 }
