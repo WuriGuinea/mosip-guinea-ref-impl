@@ -1,71 +1,56 @@
-<div class="center_selection-wrapper" >
-   <!-- Header -->
+<div class="center_selection-wrapper">
+  <!-- Header -->
   <mat-card class="center-selection__title-card">
     <mat-card-header>
       <p class="center__title-card-text">{{ 'centerSelection.title' | translate }}</p>
     </mat-card-header>
   </mat-card>
-  
+
   <div class="container">
-    <div class="centers-wrapper">     
-     <div class="center_selection-intial-recommendation-container" *ngIf="searchClick; else elseBlock">
+    <div class="centers-wrapper">
+      <div class="center_selection-intial-recommendation-container" *ngIf="searchClick; else elseBlock">
         <mat-form-field>
-        <mat-select  [(value)]="centerSelectedOption">
-          <mat-option value="{{ 'centerSelection.display_recommended' | translate }}"(click)="getRecommendedCenters()">{{ 'centerSelection.display_recommended' | translate }} ({{ REGISTRATION_CENTRES.length }})</mat-option>
-          <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}"(click)="getLocation()">{{ 'centerSelection.action_nearBy' | translate }}</mat-option>
-          <mat-option value="{{ 'centerSelection.text_search' | translate }}"(click)="setSearchClick(false)">{{ 'centerSelection.text_search' | translate }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-<!-- search container -->
+          <mat-select [(value)]="centerSelectedOption">
+            <mat-option value="{{ 'centerSelection.display_recommended' | translate }}"
+              (click)="getRecommendedCenters()">{{ 'centerSelection.display_recommended' | translate }}
+              ({{ REGISTRATION_CENTRES.length }})</mat-option>
+            <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}" (click)="getLocation()">
+              {{ 'centerSelection.action_nearBy' | translate }}</mat-option>
+            <mat-option value="{{ 'centerSelection.text_search' | translate }}" (click)="setSearchClick(false)">
+              {{ 'centerSelection.text_search' | translate }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- search container -->
       <ng-template #elseBlock>
         <mat-form-field>
-          <mat-select  [(value)]="centerSelectedOption">
-            <mat-option value="{{ 'centerSelection.display_recommended' | translate }}"(click)="getRecommendedCenters()">{{ 'centerSelection.display_recommended' | translate }}</mat-option>
-            <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}"(click)="getLocation()">{{ 'centerSelection.action_nearBy' | translate }}</mat-option>
-            <mat-option value="{{ 'centerSelection.text_search' | translate }}"(click)="setSearchClick(false)">{{ 'centerSelection.text_search' | translate }}</mat-option>
+          <mat-select [(value)]="centerSelectedOption">
+            <mat-option value="{{ 'centerSelection.display_recommended' | translate }}"
+              (click)="getRecommendedCenters()">{{ 'centerSelection.display_recommended' | translate }}</mat-option>
+            <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}" (click)="getLocation()">
+              {{ 'centerSelection.action_nearBy' | translate }}</mat-option>
+            <mat-option value="{{ 'centerSelection.text_search' | translate }}" (click)="setSearchClick(false)">
+              {{ 'centerSelection.text_search' | translate }}</mat-option>
           </mat-select>
         </mat-form-field>
         <div class="center_selection-form-container">
           <form class="search-form">
             <mat-card class="select-card">
-              <mat-select
-                disableOptionCentering
-                name="select"
-                class="select-input"
-                [(ngModel)]="locationType"
-                value="locationType"
-                placeholder="{{ 'centerSelection.text_select' | translate }}"
-              >
+              <mat-select disableOptionCentering name="select" class="select-input" [(ngModel)]="locationType"
+                value="locationType" placeholder="{{ 'centerSelection.text_select' | translate }}">
                 <mat-option style="color:black;" *ngFor="let locationType of locationTypes" [value]="locationType">
                   {{ locationType.locationHierarchyDescription }}
                 </mat-option>
               </mat-select>
             </mat-card>
             <mat-card class="search-card">
-              <input
-                *ngIf="locationType !== null"
-                mat-input
-                type="search"
-                placeholder="{{ 'centerSelection.text_enter' | translate }} {{ locationType.locationHierarchyName }}"
-                name="search"
-                class="search-input"
-                [(ngModel)]="searchText"
-              />
-              <input
-                *ngIf="locationType === null"
-                mat-input
-                type="search"
-                name="search"
-                class="search-input"
-                [(ngModel)]="searchText"
-              />
-              <button
-                matTooltip="{{ 'helpText.magnifying_glass' | translate }}"
-                mat-icon-button
-                type="submit"
-                (click)="showResults()"
-              >
+              <input *ngIf="locationType !== null" mat-input type="search"
+                placeholder="{{ 'centerSelection.text_enter' | translate }} {{ locationType.locationHierarchyDescription }}"
+                name="search" class="search-input" [(ngModel)]="searchText" />
+              <input *ngIf="locationType === null" mat-input type="search" name="search" class="search-input"
+                [(ngModel)]="searchText" />
+              <button matTooltip="{{ 'helpText.magnifying_glass' | translate }}" mat-icon-button type="submit"
+                (click)="showResults()">
                 <img src="assets\search.svg" />
               </button>
               <button mat-icon-button class="search-cancel-btn" type="button" (click)="setSearchClick(true)">
@@ -78,23 +63,16 @@
       </ng-template>
 
       <div class="centers-list" *ngIf="REGISTRATION_CENTRES">
-        <span
-          *ngIf="showMessage && !searchClick && REGISTRATION_CENTRES.length === 0"
-          style="margin-left:24px;"
-          class="center_selection-center-available-text"
-        >
+        <span *ngIf="showMessage && !searchClick && REGISTRATION_CENTRES.length === 0" style="margin-left:24px;"
+          class="center_selection-center-available-text">
           {{ 'centerSelection.noResult_found' | translate }}
         </span>
         <ul>
           <li *ngFor="let center of REGISTRATION_CENTRES; let i = index">
-            <mat-card  (click)="selectedRow(center)" [ngClass]="selectedCentre === center ? 'center-card center-card-selected' : 'center-card'">
-              <input class="radiohide"
-                type="radio"
-                [value]="center"
-                [(ngModel)]="selectedCentre"
-                (click)="selectedRow(center)"
-                name="center"
-              />
+            <mat-card (click)="selectedRow(center)"
+              [ngClass]="selectedCentre === center ? 'center-card center-card-selected' : 'center-card'">
+              <input class="radiohide" type="radio" [value]="center" [(ngModel)]="selectedCentre"
+                (click)="selectedRow(center)" name="center" />
               <div>
                 <div class="inline-flex">
                   <div><img src="assets\address.png" /></div>
@@ -108,15 +86,16 @@
                           center.addressLine2 +
                           ', ' +
                           center.addressLine3
-                      }}</strong
-                    >
+                      }}</strong>
                   </div>
                 </div>
                 <div>
-                 <span><img style="top: 7px;" id="schedule"src="assets\schedule.png"/></span>
-                <span style="position: relative;top: 0px;"> {{ 'centerSelection.text_horaire' | translate }}</span><br>
-                  <span><img style="top: 16px;" id="schedule" src="assets\contact number.png"/></span>
-                  <span style="position: relative;top: 5px;">{{ center.contactPerson + ', ' + center.contactPhone }}</span>
+                  <span><img style="top: 7px;" id="schedule" src="assets\schedule.png" /></span>
+                  <span style="position: relative;top: 0px;">
+                    {{ 'centerSelection.text_horaire' | translate }}</span><br>
+                  <span><img style="top: 16px;" id="schedule" src="assets\contact number.png" /></span>
+                  <span
+                    style="position: relative;top: 5px;">{{ center.contactPerson + ', ' + center.contactPhone }}</span>
                 </div>
               </div>
               <span class="spacer"></span>
@@ -156,7 +135,7 @@
     </div>
   </div>
 
- <!-- Footer navigation -->
+  <!-- Footer navigation -->
   <div>
     <mat-card class="center-selection__button-container">
       <button (click)="routeBack()" class="user-back-btn">

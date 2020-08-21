@@ -68,7 +68,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.selectedCentre = null;
     const subs = this.dataService.getLocationTypeData().subscribe(response => {
       const locationItems = response[appConstants.RESPONSE]['locations'];
-      this.looslySpliteSousPrefectureOrCommune(locationItems);
+      this.filterLocations(locationItems);
 
     });
     this.subscriptions.push(subs);
@@ -78,13 +78,18 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.centerSelectedOption = 'Recommandés'; // TODO: translate centerSelection.display_recommended' | translate
   }
 
-  // Hack: for displaying SOUS-Prefecture and Commune separately
-  looslySpliteSousPrefectureOrCommune(locationItems: any) {    
+  // Hack: for displaying SOUS-Prefecture and COMMUNE separately and retrieving PAYS option
+  filterLocations(locationItems: any) {
     locationItems.forEach((locationType) => {
-      if (locationType.locationHierarchyName === "SOUS_PREFECTURE_OR_COMMUNE")
+
+      if (locationType.locationHierarchylevel === 0) // 0 => PAYS
+        return;
+
+      if (locationType.locationHierarchylevel === 3) // 3 => SOUS_PREFECTURE_OR_COMMUNE
         locationType.locationHierarchyDescription = 'SOUS-PREFECTURE';
       else
-        locationType.locationHierarchyDescription = locationType.locationHierarchyName
+        locationType.locationHierarchyDescription = locationType.locationHierarchyName;
+
       this.locationTypes.push(locationType);
     });
     this.locationTypes.push({
