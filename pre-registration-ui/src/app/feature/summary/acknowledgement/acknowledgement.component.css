@@ -208,10 +208,21 @@ width: 70%;
 }
 .txtalign{
   position: relative;
-  margin-top: 5px;
+  margin-top: 8px;
+  display: flex;
+  margin-bottom: -14px;
+}
+.txtalignpoint{
+  position: relative;
+  top: 6px;
 }
 .txtalignbottom{
   position: relative;
-  margin-top: -5px;
+  margin-top: -8px;
+  display: flex;
+}
+.point{
+  position: relative;
+  top: -8px;
 }
 

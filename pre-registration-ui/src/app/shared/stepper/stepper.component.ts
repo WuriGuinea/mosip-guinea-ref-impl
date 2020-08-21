@@ -48,7 +48,7 @@ export class StepperComponent implements OnInit, OnChanges {
       this.classes.step2.line = ['progress', 'progress-incomplete'];
       this.classes.step3.a = ['incomplete'];
       this.classes.step3.icon = ['inline-icon', 'inline-icon-background-incomplete'];
-      this.classes.step3.line = ['progress', 'progress-incomplete'];
+      this.classes.step3.line = ['progress', 'progrcompleteess-incomplete'];
       this.classes.step4.a = ['incomplete'];
       this.classes.step4.icon = ['inline-icon', 'inline-icon-background-incomplete'];
     } else if (this.componentName === 'FileUploadComponent' || this.componentName === 'PreviewComponent') {
@@ -88,7 +88,7 @@ export class StepperComponent implements OnInit, OnChanges {
       this.classes.step3.a = ['complete'];
       this.classes.step3.icon = ['inline-icon', 'inline-icon-background-complete'];
       this.classes.step3.line = ['progress', 'progress-complete'];
-      this.classes.step4.a = ['complete'];
+      this.classes.step4.a = ['active'];
       this.classes.step4.icon = ['inline-icon', 'inline-icon-background-complete'];
     }
   }

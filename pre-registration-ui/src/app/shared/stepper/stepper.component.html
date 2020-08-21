@@ -1,4 +1,4 @@
-
+<!--
 <section class="wrapper">
   <ul id="breadcrumb" class="breadCrumbs">
     <li><a href="" title="" [ngClass]="classes.step1.a"><img src="assets/Profile.svg" [ngClass]="classes.step1.icon"/>{{'stepper.link_demographic'| translate}}</a></li>
@@ -7,3 +7,27 @@
     <li><a href="" title=""  [ngClass]="classes.step4.a"><img  src="assets/confirmation.svg" [ngClass]="classes.step4.icon" /> {{'stepper.link_confirm'| translate}}</a></li>
   </ul>
 </section>
+-->
+<div class="">
+  <div class="breadcrumb">
+    <a [ngClass]="classes.step1.a" href="#" class="item ">
+      <span class="arrow"></span>
+      <span class="hide-mobile"><img style="top: 0px !important;" id="iconposition"class="iconposition" src="assets/Profile.svg" [ngClass]="classes.step1.icon"/>{{'stepper.link_demographic'| translate}}</span>
+      <span class="show-mobile"><img style="top: 0px !important;" id="iconposition"class="iconposition" src="assets/Profile.svg" [ngClass]="classes.step1.icon"/>{{'stepper.link_demographic'| translate}}</span>
+    </a>
+    <a [ngClass]="classes.step2.a" href="#" class="item ">
+      <span class="arrow"></span>
+      <span class="hide-mobile"><img id="iconposition"class="iconposition" src="assets/upload_document.svg" [ngClass]="classes.step2.icon" />{{'stepper.link_upload_doc'| translate}}</span>
+      <span class="show-mobile"><img id="iconposition"class="iconposition" src="assets/upload_document.svg" [ngClass]="classes.step2.icon" />{{'stepper.link_upload_doc'| translate}}</span>
+    </a>
+    <a [ngClass]="classes.step3.a" href="#" class="item">
+      <span class="arrow"></span>
+      <span class="hide-mobile"><img id="iconposition"class="iconposition" src="assets/Clock.svg" [ngClass]="classes.step3.icon"/>{{'stepper.link_book'| translate}}</span>
+      <span class="show-mobile"><img id="iconposition"class="iconposition" src="assets/Clock.svg" [ngClass]="classes.step3.icon"/>{{'stepper.link_book'| translate}}</span>
+    </a>
+    <a [ngClass]="classes.step4.a" href="#" class="item">
+      <span class="hide-mobile"><img id="iconposition"class="iconposition" src="assets/confirmation.svg" [ngClass]="classes.step4.icon" /> {{'stepper.link_confirm'| translate}}</span>
+      <span class="show-mobile"><img id="iconposition"class="iconposition" src="assets/confirmation.svg" [ngClass]="classes.step4.icon" /> {{'stepper.link_confirm'| translate}}</span>
+    </a>
+  </div>
+</div>
