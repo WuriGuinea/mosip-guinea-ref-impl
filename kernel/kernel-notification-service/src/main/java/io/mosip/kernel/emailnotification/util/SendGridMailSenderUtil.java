@@ -15,7 +15,7 @@ import javax.mail.internet.MimeMessage;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- * 
+ * Email Message Sender Using SendGrid API
  * @author condeis
  *
  */
@@ -23,8 +23,6 @@ public class SendGridMailSenderUtil {
 
 	public static void mailSend(String apiKey, Mail mail) throws Exception {
 		try {
-
-			// mail.addAttachments(message.);
 			SendGrid sg = new SendGrid(apiKey);
 			Request request = new Request();
 			request.setMethod(Method.POST);
@@ -32,9 +30,7 @@ public class SendGridMailSenderUtil {
 			request.setBody(mail.build());
 			Response response = sg.api(request);
 			System.out.println(response.getStatusCode());
-		//	System.out.println(response.getBody());
-		//	System.out.println(response.getHeaders());
-		} catch (Exception ex) {
+			} catch (Exception ex) {
 			throw ex;
 		}
 
