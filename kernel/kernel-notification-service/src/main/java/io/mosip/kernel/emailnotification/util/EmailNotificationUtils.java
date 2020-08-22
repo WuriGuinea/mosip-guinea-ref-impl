@@ -12,8 +12,6 @@ import org.apache.commons.codec.binary.Base64;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ByteArrayResource;
@@ -22,18 +20,15 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Attachments;
-
 import io.mosip.kernel.core.exception.ServiceError;
 import io.mosip.kernel.emailnotification.constant.MailNotifierArgumentErrorConstants;
 import io.mosip.kernel.emailnotification.constant.MailNotifierConstants;
 import io.mosip.kernel.emailnotification.exception.InvalidArgumentsException;
 import io.mosip.kernel.emailnotification.exception.NotificationException;
 import io.mosip.kernel.emailnotification.service.impl.EmailNotificationServiceImpl;
-import net.markenwerk.utils.mail.dkim.DkimMessage;
-import net.markenwerk.utils.mail.dkim.DkimSigner;
+
 
 /**
  * This class provides with the utility methods for email-notifier service.
