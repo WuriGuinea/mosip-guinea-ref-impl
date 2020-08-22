@@ -27,8 +27,8 @@ import io.mosip.kernel.emailnotification.util.EmailNotificationUtils;
 /**
  * Service implementation class for {@link EmailNotification}.
  * 
- * @author Sagar Mahapatra
- * @since 1.0.0
+ * @author condeis
+ * @since 1.1.0
  */
 @Service
 public class EmailNotificationServiceImpl implements EmailNotification<MultipartFile[], ResponseDto> {
