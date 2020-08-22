@@ -1,12 +1,14 @@
 package io.mosip.kernel.emailnotification.util;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+import org.apache.commons.codec.binary.Base64;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -20,6 +22,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.Attachments;
 
 import io.mosip.kernel.core.exception.ServiceError;
 import io.mosip.kernel.emailnotification.constant.MailNotifierArgumentErrorConstants;
@@ -40,51 +45,18 @@ import net.markenwerk.utils.mail.dkim.DkimSigner;
 @Component
 public class EmailNotificationUtils {
 	Logger LOGGER = LoggerFactory.getLogger(EmailNotificationUtils.class);
-	/**
-	 * This method sends the message.
-	 * 
-	 * @param message     the message to be sent.
-	 * @param emailSender the EmailSender object.
-	 */
-	@Async
-	public void sendMessage(MimeMessage message, JavaMailSender emailSender) {
-		LOGGER.info("To Request uncrypted : " +   message);
-		 
-	 	emailSender.send(message);
-	 	//	sendMessageCrypted(message, emailSender);
-	}
-	@Async
-	public void sendMessageCrypted(MimeMessage message, JavaMailSender emailSender) {
 
-	
-	LOGGER.info("Trying to send crypted message ");
-	DkimMessage dkimMessage=null;
-	try {
-		LOGGER.info("Trying to send crypted message ");
-		dkimMessage = new DkimMessage(message, DkimSignerUtil.createDKimSigner());
-		
-	} catch (MessagingException e) {
-		
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		LOGGER.info("Error found while processing encryption"+	e);
-	}
-	 		emailSender.send(dkimMessage);
-	 		LOGGER.info("To Request crypted : " + dkimMessage );
-	}
-	/**
-	 * This method adds the attachments to the mail.
-	 * 
-	 * @param attachments
-	 *            the attachments.
-	 * @param helper
-	 *            the helper object.
-	 */
-	public void addAttachments(MultipartFile[] attachments, MimeMessageHelper helper) {
+	public void addAttachmentsSendGrid(MultipartFile[] attachments, Mail mail) {
 		Arrays.asList(attachments).forEach(attachment -> {
 			try {
-				helper.addAttachment(attachment.getOriginalFilename(), new ByteArrayResource(attachment.getBytes()));
-			} catch (MessagingException | IOException exception) {
+				String content = new Base64().encodeAsString(attachment.getBytes());
+				Attachments att = new Attachments();
+				att.setFilename(attachment.getName());
+				att.setType(attachment.getContentType());
+				att.setContent(content);
+				att.setDisposition("attachment");
+				mail.addAttachments(att);
+			} catch (IOException exception) {
 				throw new NotificationException(exception);
 			}
 		});
@@ -154,8 +126,15 @@ public class EmailNotificationUtils {
 		return true;
 	}
 
-	private DkimSigner createMessageSigningDKIM() {
+	public void sendMessage(String apiKey, Mail mail) {
+		try {
+			SendGridMailSenderUtil.mailSend(apiKey, mail);
+		} catch (Exception exception) {
+			// TODO Auto-generated catch block
+			throw new NotificationException(exception);
+		}
+		// TODO Auto-generated method stub
 
-		return null;
 	}
+
 }
