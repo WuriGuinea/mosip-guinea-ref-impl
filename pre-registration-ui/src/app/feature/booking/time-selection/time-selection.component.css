@@ -8,13 +8,13 @@
 .time-selection__title-card {
   color: #020F59;
   padding: 0px;
-  display: flex;
   align-items: center;
-  white-space: nowrap;
   margin: 0px 2vw;
-  border-bottom: 1px solid #020F59;
-  border-radius: 0px;
-  display: none;
+  border: 1px solid #020F59;
+  border-radius: 10px;
+  height: 564px;
+  display: block;
+  z-index: 2;
 }
 @media (max-width: 1200px) {
   .time-selection__title-card {
@@ -33,14 +33,17 @@
 
 .time-selection__arrow-text {
   margin: auto;
-  color: #ccc;
+  color: #020F59;
   cursor: pointer;
 }
 
 .time-selection__date-card {
   margin: 0px 2vw;
   border-radius: 0px;
-  padding: 20px 2rem;
+  padding: 1px 2rem;
+  margin-top: 35px;
+  border: 1px solid #BCE0FD  ;
+  border-radius: 10px;
 }
 
 .time-selection__tile-date {
@@ -63,7 +66,7 @@
 
 .time-selection__slots-div {
   display: flex;
-  margin: 0 2vw;
+  margin: -38px 33px 1px 2vw;
   padding-bottom: 80px;
   border:solid 1px #BCE0FD;
   border-radius: 15px;
@@ -75,7 +78,7 @@
 
 .time-seelection__slot-groups-div {
   display: flex;
-  margin: 20px 2vw 0px 2vw;
+  margin: 5px 2vw 40px 2vw;
   padding: 0px 2rem;
 }
 
@@ -97,7 +100,7 @@
 }
 
 .time-selection__names-container {
-  min-width: 39% !important;
+  min-width: 58% !important;
   padding: 0;
   display: flex !important;
   flex-direction: row !important;
@@ -107,8 +110,9 @@
 .time-selection__time-slots-container div {
   display: -webkit-flex;
   flex-wrap: wrap;
-  max-width: 100%;
+  max-width: 90%;
   display :inline-table;
+  margin: -2px;
 }
 
 .time-selection__name-list-header {
@@ -249,18 +253,19 @@
 }
 
 .sizing {
-  height: 130px;
+  height: 80%;
   display: inline-block;
-  margin: 0 15px 0 15px;
+  margin: 0 8px 0 2px;
   text-align: left;
   cursor: pointer;
-  background-color: #eee;
+  background-color: #fff;
   padding: 2px 20px 2px 20px;
-  border: 1px solid #eee;
+  border: 1px solid #020F59;
 }
 
 .sizing:nth-child(1) {
   margin-left: 0px;
+  height: 80%;
 }
 
 .middle {
@@ -470,4 +475,12 @@
     height: 30px;
     width: 100%;
   }
+}
+#legend-step{
+  position: relative;
+  margin-bottom: -30px;
+  margin-top: -30px;
+}
+.mat-card-header{
+  margin-left: -27px;
 }

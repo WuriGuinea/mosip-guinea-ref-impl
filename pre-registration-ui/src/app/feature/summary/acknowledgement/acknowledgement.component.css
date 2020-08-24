@@ -151,7 +151,7 @@ table tr td {
 
 .ack__guidelines-container {
   margin: 20px 2rem;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 #table-container table {
@@ -236,11 +236,11 @@ width: 70%;
     background-color: #c6efce;
     color: green;
     margin: 0 2rem;
-    font-size: 11px;
+    font-size: 14px;
 }
 table tr td {
   padding: 10px 5px 10px 0px;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .ack__header {
@@ -286,6 +286,7 @@ table tr td {
 
 .ack__guidelines-container {
   margin: 20px 2rem;
+  margin-top: 24px;
 }
 
 .ack-container{
@@ -293,7 +294,7 @@ table tr td {
   padding: 0 0 0px;
   border-radius: 12px;
   border: 1px solid #020f59;
-  height: 26rem;
+  /*height: 26rem;*/
 }
 
 .ack__guidelines {
