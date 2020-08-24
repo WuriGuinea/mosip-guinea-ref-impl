@@ -64,7 +64,7 @@ jobs:
     - name: Build registration-processor-printing-stage image
       run: |
           # The camel bridge is not packaged as part of release.zip
-          cd "./registration-processor/post-processor/registration-processor-printing-stage"
+          cd "./registration/registration-processor/post-processor/registration-processor-printing-stage"
           docker build . --file Dockerfile --tag registration-processor-printing-stage
     - name: Log into registry
       run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
