@@ -45,13 +45,13 @@
   width: 7px;
   position: absolute;
   margin-top: 0.4%;
-  margin-left: 530px;
+  margin-left: 620px;
 }
 
 .iconinstagram{
   width: 11px;
   position: absolute;
-  margin-left: 473px;
+  margin-left: 565px;
   margin-top: 0.5%;
   vertical-align: middle;
 }
@@ -59,12 +59,12 @@
 .icontwitter{
   width: 13px;
   position: absolute;
-  margin-left: 500px;
+  margin-left: 593px;
   margin-top: 0.5%;
   vertical-align: middle;
 }
 
-@media (min-width: 900px) and (max-width: 1400px){
+@media (min-width: 900px) and (max-width: 1300px){
   .main-footer{
     display: flex;
     justify-content: center;
