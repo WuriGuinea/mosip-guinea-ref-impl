@@ -21,7 +21,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - uses: kolpav/purge-artifacts-action@v1
       with:
-        token: ${{ secrets. access_token }}
+        token: ${{ secrets.access_token }}
         expire-in: 0 # Setting this to 0 will delete all artifacts
 
     - name: Setup branch and GPG public key 
