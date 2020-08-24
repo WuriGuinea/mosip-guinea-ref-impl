@@ -7,20 +7,17 @@ import java.util.stream.Collectors;
 /**
  * The Enum IdObjectReferenceValidatorDocumentMapping.
  *
- * @author Manoj SP
+ * @author condeis
  */
 public enum IdObjectReferenceValidatorDocumentMapping {
 	
 	POA("proofOfAddress", "POA"),
-	
 	POI("proofOfIdentity", "POI"),
-	
 	POR("proofOfRelationship", "POR"),
-	
+	POC("proofOfConsent", "POC"),
 	POE("proofOfException", "POE");
 
 	private final String attributeName;
-	
 	private final String code;
 	
 	/**
