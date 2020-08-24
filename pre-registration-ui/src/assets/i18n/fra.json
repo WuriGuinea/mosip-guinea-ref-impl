@@ -314,7 +314,7 @@
 		"address_section_title": "Adresse",
 		"consent": {
 			"title": "Termes et conditions",
-			"subtitle": "Accord",
+			"subtitle": "Conditions générales",
 			"message": "Pour donner son consentement pour le stockage et l'utilisation des informations personnelles telles qu'elles sont données",
 			"checkCondition": "Cliquez pour accepter les termes et conditions",
 			"acceptButton": "Accepter",

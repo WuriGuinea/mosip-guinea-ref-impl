@@ -229,7 +229,7 @@ width: 70%;
   top: -8px;
 }
 
-@media (min-width: 900px) and (max-width: 1400px) {
+@media (min-width: 900px) and (max-width: 1300px) {
 
   .ack__message-container {
     padding: 0px 0;
