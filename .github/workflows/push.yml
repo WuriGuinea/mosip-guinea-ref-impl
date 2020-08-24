@@ -50,7 +50,17 @@ jobs:
       run: |
         cd registration
         mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
-         
+
+    - name: Ready the springboot artifacts
+      run: find -name '*.jar' -executable -type f  -exec zip release.zip {} +
+
+
+    - name: Upload the springboot jars 
+      uses: actions/upload-artifact@v1
+      with:
+        name: release
+        path: ./release.zip
+  
   publish_to_nexus:
     runs-on: ubuntu-latest
     steps:
