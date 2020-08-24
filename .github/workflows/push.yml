@@ -60,7 +60,30 @@ jobs:
       with:
         name: release
         path: ./release.zip
-  
+
+    - name: Build registration-processor-printing-stage image
+      run: |
+          # The camel bridge is not packaged as part of release.zip
+          cd "./registration-processor/post-processor/registration-processor-printing-stage"
+          docker build . --file Dockerfile --tag registration-processor-printing-stage
+    - name: Log into registry
+      run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+        
+    - name: Push image
+      run: |
+          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          VERSION=$BRANCH_NAME
+          echo IMAGE_ID=$IMAGE_ID
+          echo VERSION=$VERSION
+          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
+      env:
+        NAMESPACE: ${{ secrets.actor_docker_hub }}
+        SERVICE_NAME: registration-processor-printing-stage
+        SERVICE_LOCATION: registration-processor/post-processor/registration-processor-printing-stage
+
   publish_to_nexus:
     runs-on: ubuntu-latest
     steps:
