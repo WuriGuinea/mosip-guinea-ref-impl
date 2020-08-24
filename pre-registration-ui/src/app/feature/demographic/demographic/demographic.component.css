@@ -256,7 +256,7 @@ mat-icon {
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: table-cell !important;
   font-size: 0.8rem;
   margin: 5px 1px 4px 88.2rem;
   margin-right: 2rem;
