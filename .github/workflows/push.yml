@@ -236,12 +236,12 @@ jobs:
           # Strip git ref prefix from version
           echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
           echo ${{ env.BRANCH_NAME }}
-      - name: Get version info from pom
-        id: getPomVersion
-        uses: mavrosxristoforos/get-xml-info@1.0
-        with:
-          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml 
-          xpath: /*[local-name()="project"]/*[local-name()="version"] 
+      #- name: Get version info from pom
+       # id: getPomVersion
+       # uses: mavrosxristoforos/get-xml-info@1.0
+       # with:
+        #  xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml 
+         # xpath: /*[local-name()="project"]/*[local-name()="version"] 
       
       - name: Unzip and extract the ${{ env.SERVICE_NAME }}
         run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
