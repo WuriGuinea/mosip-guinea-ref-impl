@@ -44,12 +44,12 @@ jobs:
     - name: Build with Maven
       run: |
         cd kernel
-        mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
+        mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests
    
     - name: Build Registration
       run: |
         cd registration
-        mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
+        mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests
 
     - name: Ready the springboot artifacts
       run: find -name '*.jar' -executable -type f  -exec zip release.zip {} +
@@ -65,6 +65,9 @@ jobs:
       run: |
           # The camel bridge is not packaged as part of release.zip
           cd "./registration/registration-processor/post-processor/registration-processor-printing-stage"
+          pwd
+          ls -lrt
+          ls  -lrt target/
           docker build . --file Dockerfile --tag registration-processor-printing-stage
     - name: Log into registry
       run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
