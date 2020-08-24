@@ -50,7 +50,7 @@ public class SmsServiceProviderTest {
 	@Value("${mosip.kernel.sms.number.length}")
 	int numberLength;
 
-	@Test
+	//@Test
 	public void sendSmsTest() {
 
 		UriComponentsBuilder sms = UriComponentsBuilder.fromHttpUrl(apiUrl)
