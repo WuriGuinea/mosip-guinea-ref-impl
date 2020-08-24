@@ -1,9 +1,7 @@
 .main-footer {
   display: flex;
   justify-content: center;
-  font-family: Roboto;
   border-color: #707070;
-  font-size: 12px;
   padding-top: 0px;
   padding-bottom: 4px;
   position: fixed;
