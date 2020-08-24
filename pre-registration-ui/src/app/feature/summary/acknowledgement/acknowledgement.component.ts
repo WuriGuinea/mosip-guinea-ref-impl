@@ -172,7 +172,6 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
     return new Promise((resolve, reject) => {
       const subs = this.dataStorageService.getGuidelineTemplate('Onscreen-Acknowledgement').subscribe(response => {
         this.guidelines = response['response']['templates'][0].fileText.split('\n');
-        this.guidelines[0] = "Cher(e) $firstName, veuillez apporter les documents suivants si vous en avez";
         resolve(true);
       });
       this.subscriptions.push(subs);

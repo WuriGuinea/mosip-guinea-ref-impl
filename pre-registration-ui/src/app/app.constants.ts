@@ -107,7 +107,8 @@ export const CONFIG_KEYS = {
   mosip_preregistration_auto_logout_ping: 'mosip.preregistration.auto.logout.ping',
   preregistration_document_alllowe_files: 'preregistration.documentupload.allowed.file.type',
   preregistration_document_alllowe_file_size: 'preregistration.documentupload.allowed.file.size',
-  preregistration_document_alllowe_file_name_lenght: 'preregistration.documentupload.allowed.file.nameLength'
+  preregistration_document_alllowe_file_name_lenght: 'preregistration.documentupload.allowed.file.nameLength',
+  mosip_idschema_version: 'mosip.idschema.version'
 };
 
 export const DASHBOARD_RESPONSE_KEYS = {
