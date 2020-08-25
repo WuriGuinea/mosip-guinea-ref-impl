@@ -93,7 +93,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       firstName: [
         {
           language: '',
-          value: 'aucun'
+          value: 'Aucun'
         }
       ]
     },
