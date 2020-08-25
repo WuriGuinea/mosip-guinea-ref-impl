@@ -79,3 +79,29 @@
     background: #020f59;
 }
 }
+
+@media (min-width:1430px){
+  .logofb{
+    width: 7px;
+    position: absolute;
+    margin-top: 0.4%;
+    margin-left: 743px;
+  }
+  
+  .iconinstagram{
+    width: 11px;
+    position: absolute;
+    margin-left: 687px;
+    margin-top: 0.5%;
+    vertical-align: middle;
+  }
+  
+  .icontwitter{
+    width: 13px;
+    position: absolute;
+    margin-left: 715px;
+    margin-top: 0.5%;
+    vertical-align: middle;
+  }
+
+}
