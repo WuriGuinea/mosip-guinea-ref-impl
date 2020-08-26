@@ -96,7 +96,8 @@
         <div *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined">
           <div class="time-selection__name-list-header">
             <div >
-              <span *ngIf="availabilityData[selectedTile].timeSlots[selectedCard].names.length !== 0" class="compteur">{{availabilityData[selectedTile].timeSlots[selectedCard].names.length }}</span>
+              <span *ngIf="availabilityData[selectedTile].timeSlots[selectedCard].names.length !== 0" 
+              class="compteur">{{availabilityData[selectedTile].timeSlots[selectedCard].names.length }}</span>
             </div>
             <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDay }}</span>,
             <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDate }}</span>
