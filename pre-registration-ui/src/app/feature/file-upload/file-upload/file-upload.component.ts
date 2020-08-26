@@ -229,7 +229,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     this.allowedFileSize =
       (
         this.config.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_document_alllowe_file_size) / 1000000
-      ).toString() + 'mb';
+      ).toString() + 'MB';
   }
 
   /**
@@ -590,7 +590,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    */
   clickOnButton(i) {
     document.getElementById('file_' + i).click();
-    document.getElementById('tmp_' + i).style.visibility = "hidden";
   }
 
   /**
