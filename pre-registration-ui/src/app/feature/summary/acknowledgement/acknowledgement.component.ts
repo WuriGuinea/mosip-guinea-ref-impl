@@ -250,7 +250,7 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
     this.fileBlob = await this.createBlob();
     this.usersInfo.forEach(user => {
       const notificationDto = new NotificationDtoModel(
-        user.firstName+" "+user.lastName,
+        user.lastName,
         user.preRegId,
         user.bookingData ? user.bookingData.split(',')[0] : user.regDto.appointment_date,
         Number(user.bookingTimePrimary.split(':')[0]) < 10 ? '0' + user.bookingTimePrimary : user.bookingTimePrimary,
