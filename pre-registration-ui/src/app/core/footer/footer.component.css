@@ -10,10 +10,11 @@
   z-index: 2;
   margin-bottom: -25px;
   background: #020F59;
+  flex-direction: row-reverse;
 }
 
 .unirtext{
-  font-size: 8px;
+  font-size: 10px;
   margin-left: 35%;
   font-family: sans-serif;
   font-weight: 100;
@@ -22,7 +23,7 @@
 }
 
 .droittext{
-  font-size: 8px;
+  font-size: 10px;
   margin-left: 20%;
   margin-bottom: 17%;
   font-family: sans-serif;
@@ -32,7 +33,7 @@
 }
 
 .version-txt{
-  font-size: 8px;
+  font-size: 10px;
   font-family: sans-serif;
   font-weight: 100;
   display: block;
@@ -43,13 +44,13 @@
   width: 7px;
   position: absolute;
   margin-top: 0.4%;
-  margin-left: 591px;
+  margin-left: 691px;
 }
 
 .iconinstagram{
   width: 11px;
   position: absolute;
-  margin-left: 535px;
+  margin-left: 635px;
   margin-top: 0.5%;
   vertical-align: middle;
 }
@@ -57,7 +58,7 @@
 .icontwitter{
   width: 13px;
   position: absolute;
-  margin-left: 563px;
+  margin-left: 663px;
   margin-top: 0.5%;
   vertical-align: middle;
 }
