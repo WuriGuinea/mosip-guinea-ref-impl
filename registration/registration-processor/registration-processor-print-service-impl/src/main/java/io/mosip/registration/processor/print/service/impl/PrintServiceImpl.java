@@ -455,8 +455,9 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	 * @return the byte[]
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
+	 * @throws QrcodeGenerationException 
 	 */
-	private byte[] createTextFile(String jsonString) throws IOException {
+	private byte[] createTextFile(String jsonString) throws IOException, QrcodeGenerationException {
 
 		LinkedHashMap<String, String> printTextFileMap = new LinkedHashMap<>();
 		JSONObject demographicIdentity = JsonUtil.objectMapperReadValue(jsonString, JSONObject.class);
@@ -467,6 +468,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 
 		JSONObject printTextFileJsonObject = JsonUtil.objectMapperReadValue(printTextFileJson, JSONObject.class);
 		Set<String> printTextFileJsonKeys = printTextFileJsonObject.keySet();
+		printTextFileMap.put("UIN",(String) demographicIdentity.get("UIN"));
 		for (String key : printTextFileJsonKeys) {
 			String printTextFileJsonString = JsonUtil.getJSONValue(printTextFileJsonObject, key);
 			for (String value : printTextFileJsonString.split(",")) {
@@ -492,10 +494,34 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 			}
 
 		}
-
+		
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
 		String printTextFileString = gson.toJson(printTextFileMap);
+		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(printTextFileString);
+		printTextFileMap.put("digitalSignature", digitalSignaturedQrData);
+		String qrString = gson.toJson(printTextFileMap);
+		String qrCode=getQrCode( qrString);
+		printTextFileMap.put("qrCode", qrCode);
+		
+		printTextFileString = gson.toJson(printTextFileMap);
+		regProcLogger.debug("QRcodejsoncontent:::"+LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
+				printTextFileString);
 		return printTextFileString.getBytes();
+	}
+	
+	private String getQrCode(String qrString) throws IOException, QrcodeGenerationException {
+
+		byte[] qrCodeBytes = qrCodeGenerator.generateQrCode(qrString, QrVersion.V30);
+		if (qrCodeBytes != null) {
+			String imageString = CryptoUtil.encodeBase64String(qrCodeBytes);
+			
+			return "data:image/png;base64," + imageString;
+			
+		}
+
+		return null;
+		
 	}
 
 	/**
