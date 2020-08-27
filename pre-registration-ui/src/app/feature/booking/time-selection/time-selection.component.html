@@ -12,9 +12,9 @@
       <mat-spinner [diameter]="50"></mat-spinner>
     </div>
     <div id="legend-step">
-    <p> &nbsp;{{ 'timeSelection.text_step1' | translate }}
-    </p> 
-    <p> &nbsp;{{ 'timeSelection.text_step2' | translate }}</p> 
+      <br>
+       &nbsp;{{ 'timeSelection.text_step1' | translate }}<br>
+       &nbsp;{{ 'timeSelection.text_step2' | translate }}
     </div>
     <mat-card class="time-selection__date-card  positionnement">
       <div *ngIf="availabilityData.length !== 0">
@@ -67,7 +67,7 @@
                     {{ data.displayTime }}
                   </p>
                   <p [ngClass]="selectedCard === i ? 'card-slot-text-selected' : 'card-slot-text'">
-                    {{ data.availability }}
+                    ({{ data.availability }})
                   </p>
                 </mat-card-content>
               </mat-card>
