@@ -504,9 +504,9 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		String qrCode=getQrCode( qrString);
 		printTextFileMap.put("qrCode", qrCode);
 		
-		printTextFileString = gson.toJson(printTextFileMap);
-		regProcLogger.debug("QRcodejsoncontent:::"+LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
-				printTextFileString);
+		String dummyString = gson.toJson(printTextFileMap);
+		regProcLogger.debug(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
+				dummyString);
 		return printTextFileString.getBytes();
 	}
 	
