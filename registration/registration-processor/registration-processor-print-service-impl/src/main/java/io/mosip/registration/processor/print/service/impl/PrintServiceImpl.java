@@ -455,9 +455,14 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	 * @return the byte[]
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
+<<<<<<< HEAD
 	 * @throws QrcodeGenerationException 
 	 */
 	private byte[] createTextFile(String jsonString) throws IOException, QrcodeGenerationException {
+=======
+	 */
+	private byte[] createTextFile(String jsonString) throws IOException {
+>>>>>>> c3e510cfc2fb37d3ab450ba514c10b6d9bfb1669
 
 		LinkedHashMap<String, String> printTextFileMap = new LinkedHashMap<>();
 		JSONObject demographicIdentity = JsonUtil.objectMapperReadValue(jsonString, JSONObject.class);
@@ -494,6 +499,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 			}
 
 		}
+<<<<<<< HEAD
 		
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
@@ -523,6 +529,13 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		return null;
 		
 	}
+=======
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+		String printTextFileString = gson.toJson(printTextFileMap);
+		return printTextFileString.getBytes();
+	}
+>>>>>>> c3e510cfc2fb37d3ab450ba514c10b6d9bfb1669
 
 	/**
 	 * Sets the qr code.

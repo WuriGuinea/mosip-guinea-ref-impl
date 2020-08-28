@@ -15,6 +15,9 @@
       <br>
        &nbsp;{{ 'timeSelection.text_step1' | translate }}<br>
        &nbsp;{{ 'timeSelection.text_step2' | translate }}
+    <p> &nbsp;{{ 'timeSelection.text_step1' | translate }}
+    </p> 
+    <p> &nbsp;{{ 'timeSelection.text_step2' | translate }}</p> 
     </div>
     <mat-card class="time-selection__date-card  positionnement">
       <div *ngIf="availabilityData.length !== 0">
@@ -67,7 +70,11 @@
                     {{ data.displayTime }}
                   </p>
                   <p [ngClass]="selectedCard === i ? 'card-slot-text-selected' : 'card-slot-text'">
+<<<<<<< HEAD
                     ({{ data.availability }})
+=======
+                    {{ data.availability }}
+>>>>>>> c3e510cfc2fb37d3ab450ba514c10b6d9bfb1669
                   </p>
                 </mat-card-content>
               </mat-card>
