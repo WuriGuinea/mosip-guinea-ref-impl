@@ -82,10 +82,12 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   filterLocations(locationItems: any) {
     locationItems.forEach((locationType) => {
 
-      if (locationType.locationHierarchylevel === 0) // 0 => PAYS
+      if (locationType.locationHierarchylevel === 0  // 0 => PAYS
+        || locationType.locationHierarchylevel === 4 // 4 => DISTRICT
+        || locationType.locationHierarchylevel === 5) // 5 => SECTEUR
         return;
 
-      if (locationType.locationHierarchylevel === 3) // 3 => SOUS_PREFECTURE_OR_COMMUNE
+      if (locationType.locationHierarchylevel === 3) // 3 => SOUS_PREFECTURE_OU_COMMUNE
         locationType.locationHierarchyDescription = 'SOUS-PREFECTURE';
       else
         locationType.locationHierarchyDescription = locationType.locationHierarchyName;
@@ -95,9 +97,11 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.locationTypes.push({
       locationHierarchyDescription: 'COMMUNE',
       isActive: true,
-      locationHierarchyName: "SOUS_PREFECTURE_OR_COMMUNE",
+      locationHierarchyName: locationItems.find(x => x.locationHierarchylevel === 3).locationHierarchyName,
       locationHierarchylevel: 3
     });
+
+    this.locationTypes.sort((a,b) => (a.locationHierarchylevel > b.locationHierarchylevel) ? 1 : ((b.locationHierarchylevel > a.locationHierarchylevel) ? -1 : 0)); 
   }
 
   getErrorLabels() {

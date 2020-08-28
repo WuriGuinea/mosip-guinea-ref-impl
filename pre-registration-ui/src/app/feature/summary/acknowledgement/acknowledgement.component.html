@@ -8,7 +8,7 @@
     <mat-card class="ack-container">
       <mat-card-header class="ack__header-container">
         <div class="ack__header">
-          <p>{{ 'acknowledgement.title' | translate }}</p>
+          <h4>{{ 'acknowledgement.title' | translate }}</h4>
         </div>
       </mat-card-header>
       <mat-card-content>
@@ -34,7 +34,7 @@
               </tr>
               <tr>
                 <td class="txtalign">{{ 'acknowledgement.label_pre_id' | translate }}</td>
-                <td class="txtalign">:</td>
+                <td class="txtalignpoint">:</td>
                 <td class="txtalign" >{{ user.preRegId }}</td>
               </tr>
               <tr>
@@ -47,7 +47,7 @@
               </tr>
               <tr>
                 <td class="txtalignbottom">{{ 'acknowledgement.label_cntr_contact_number' | translate }}</td>
-                <td class="txtalignbottom">:</td>
+                <td class="point">:</td>
                 <td class="txtalignbottom">{{ user.registrationCenter.contactPhone }}</td>
               </tr>
               <tr>

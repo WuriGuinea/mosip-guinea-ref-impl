@@ -1,11 +1,12 @@
 regcntr_id,usr_id,lang_code,is_active,cr_by,cr_dtimes
-10002,lisbon,fra,TRUE,superadmin,2020-07-27 6:52:00
-10002,madrid,fra,TRUE,superadmin,2020-07-27 6:52:00
-10002,berlin,fra,TRUE,superadmin,2020-07-27 6:52:00
-10001,910001,fra,TRUE,superadmin,2020-07-27 6:52:00
-10001,910002,fra,TRUE,superadmin,2020-07-27 6:52:00
-10001,910003,fra,TRUE,superadmin,2020-07-27 6:52:00
-10001,910004,fra,TRUE,superadmin,2020-07-27 6:52:00
-10001,910005,fra,TRUE,superadmin,2020-07-27 6:52:00
-10001,910006,fra,TRUE,superadmin,2020-07-27 6:52:00
-10001,910007,fra,TRUE,superadmin,2020-07-27 6:52:00
+10002,lisbon,fra,TRUE,superadmin,now()
+10002,madrid,fra,TRUE,superadmin,now()
+10002,berlin,fra,TRUE,superadmin,now()
+10001,910001,fra,TRUE,superadmin,now()
+10001,910002,fra,TRUE,superadmin,now()
+10001,910003,fra,TRUE,superadmin,now()
+10001,910004,fra,TRUE,superadmin,now()
+10001,910005,fra,TRUE,superadmin,now()
+10001,910006,fra,TRUE,superadmin,now()
+10001,910007,fra,TRUE,superadmin,now()
+10002,oslo,fra,TRUE,superadmin,now()

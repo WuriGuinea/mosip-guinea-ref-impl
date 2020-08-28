@@ -88,22 +88,22 @@
 				"line4": "Sélectionnez le nom du demandeur pour qui vous voulez prendre rendez-vous.",
 				"line4_note": "Remarque: une liste des noms de candidats est affichée.",
 				"line5": "Vérifiez le ou les créneaux horaires sélectionnés par rapport au nom du demandeur.",
-				"line6": "Cliquez sur Suivant pour voir la confirmation (accusé de réception) de votre demande."
+				"line6": "Cliquez sur Suivant pour voir la confirmation de rendez-vous pour votre demande."
 			}
 		},
 		"Acknowledgement": {
-			"name": "Voir accusé de réception",
+			"name": "Voir confirmation de rendez-vou",
 			"list": {
-				"line1": "Après avoir complété avec succès la demande de pré-enregistrement, vous recevrez un accusé de réception.",
-				"line2": "Vous pouvez imprimer, télécharger, envoyer par e-mail ou par SMS votre accusé de réception.",
+				"line1": "Après avoir complété avec succès la demande de pré-enregistrement, vous recevrez une confirmation de rendez-vous.",
+				"line2": "Vous pouvez imprimer, télécharger, envoyer par e-mail ou par SMS votre confirmation de rendez-vous.",
 				"subList": {
-					"line1": "Pour imprimer votre accusé de réception, cliquez sur Imprimer.",
-					"line2": "Pour télécharger votre accusé de réception, cliquez sur Télécharger le PDF.",
+					"line1": "Pour imprimer votre confirmation de rendez-vous, cliquez sur Imprimer.",
+					"line2": "Pour télécharger votre confirmation de rendez-vous, cliquez sur Télécharger le PDF.",
 					"line3": "Pour ajouter un ou des destinataires supplémentaires de la confirmation de votre demande, procédez comme suit:",
 					"subList": {
 						"line1": "Cliquez sur Envoyer E-mail / SMS.",
 						"line2": "Entrez le numéro de téléphone portable et/ou l'adresse e-mail dans la zone de texte prévue.",
-						"line3": "Cliquez sur Envoyer pour recevoir l'accusé de réception dans votre compte e-mail ou sur votre numéro de téléphone portable."
+						"line3": "Cliquez sur Envoyer pour recevoir la confirmation de rendez-vous dans votre compte e-mail ou sur votre numéro de téléphone portable."
 					}
 				}
 			}
@@ -219,12 +219,12 @@
 				"answer": "Non, mais vous pouvez annuler le rendez-vous en cours et prendre un nouveau rendez-vous à un nouvel emplacement de votre choix."
 			},
 			{
-				"question": "J'ai modifié mes informations après avoir reçu un accusé de réception. Dois-je télécharger ou imprimer à nouveau l'accusé de réception?",
-				"answer": "La page d'accusé de réception n'est qu'un document de référence permettant de mémoriser le lieu et l'heure du rendez-vous, etc. Au centre d'enregistrement, vos dernières informations seront automatiquement disponibles. Ainsi, il n’est pas officiellement nécessaire de réimprimer ou de télécharger"
+				"question": "J'ai modifié mes informations après avoir reçu une confirmation de rendez-vous. Dois-je télécharger ou imprimer à nouveau la confirmation de rendez-vous?",
+				"answer": "La page de confirmation de rendez-vous n'est qu'un document de référence permettant de mémoriser le lieu et l'heure du rendez-vous, etc. Au centre d'enregistrement, vos dernières informations seront automatiquement disponibles. Ainsi, il n’est pas officiellement nécessaire de réimprimer ou de télécharger"
 			},
 			{
-				"question": "J'ai reporté un rendez-vous après avoir reçu un accusé de réception. Dois-je télécharger ou imprimer à nouveau l'accusé de réception?",
-				"answer": "La page d'accusé de réception n'est qu'un document de référence permettant de mémoriser le lieu et l'heure du rendez-vous, etc. Vous pouvez réimprimer ou télécharger l'accusé de réception pour vous rappeler le moment de votre rendez-vous, mais cela n'est pas officiellement nécessaire."
+				"question": "J'ai reporté un rendez-vous après avoir reçu une confirmation de rendez-vous. Dois-je télécharger ou imprimer à nouveau la confirmation de rendez-vous?",
+				"answer": "La page de confirmation de rendez-vous n'est qu'un document de référence permettant de mémoriser le lieu et l'heure du rendez-vous, etc. Vous pouvez réimprimer ou télécharger la confirmation de rendez-vous pour vous rappeler le moment de votre rendez-vous, mais cela n'est pas officiellement nécessaire."
 			},
 			{
 				"question": "Est-ce que quelqu'un d'autre peut soumettre une demande en mon nom pendant le processus d'enregistrement?",
@@ -259,7 +259,7 @@
 		"link_applications": "DOSSIERS",
 		"link_logout": "SE DÉCONNECTER",
 		"link_login": "S'IDENTIFIER",
-		"consent_form":"Formulaire de Consentement"
+		"consent_form":"FORMULAIRE DE CONSENTEMENT"
 	},
 	"login": {
 		"text": "S'identifier",
@@ -314,7 +314,7 @@
 		"address_section_title": "Adresse",
 		"consent": {
 			"title": "Termes et conditions",
-			"subtitle": "Accord",
+			"subtitle": "Conditions générales",
 			"message": "Pour donner son consentement pour le stockage et l'utilisation des informations personnelles telles qu'elles sont données",
 			"checkCondition": "Cliquez pour accepter les termes et conditions",
 			"acceptButton": "Accepter",
@@ -346,14 +346,14 @@
 		}
 	},
 	"documents": {
-		"title_document": "Télécharger Vos Justificatifs",
+		"title_document": "Justificatifs",
 		"text_filetype": "Formats de fichiers autorisés ",
 		"text_filesize": "et taille maximale autorisée",
 		"action_browse": "Parcourir",
 		"action_back": "Précédent",
 		"action_skip": "Réserver plus tard",
 		"action_continue": "Suivant",
-		"label_sameas": "Idem que",
+		"label_sameas": "Pareil que",
 		"text_or": "OU",
 		"action_view": "Aperçu",
 		"OR": "ou"
@@ -478,11 +478,13 @@
 		},
 		"error": {
 			"error": "Erreur Interne du Serveur. Veuillez réessayer après un certain temps.",
-			"button_ok": "D'accord"
+			"button_ok": "OK"
 		}
 	},
 	"timeSelection": {
 		"title_book": "Prendre Rendez-vous",
+		"text_step1": "Etape1: Inscrivez vous pour un rendez-vous en sélectionnant sur le calendrier une journée parmi les dates puis en cliquant sur le créneau que vous avez retenu",
+		"text_step2": "Etape2:Ajoutez des démendeurs en cliquant sur le + dans la liste des demandeurs",
 		"text_prev": "précédent",
 		"text_next": "Suivant",
 		"text_morning": "Matin",
@@ -531,12 +533,12 @@
 		"text_mobile": "Saisissez votre numéro de téléphone mobile",
 		"invalidApplicantNumber": "Numéro de portable invalide",
 		"invalidApplicantEmailId": "Adresse e-mail invalide",
-		"action_ok": "D'accord",
-		"title_discard": "Supprimer",
+		"action_ok": "OK",
+		"title_discard": "Annuler",
 		"action_discard_app": "Supprimer toute la demande",
 		"action_cancel": "Annuler le rendez-vous et préserver les informations personnelles",
 		"action_submit": "Valider",
-		"action_dismiss": "D'accord",
+		"action_dismiss": "OK",
 		"action_add": "Ajouter",
 		"action_close": "Fermer",
 		"action_add_to_slot": "Ajouter au créneau",
@@ -564,7 +566,7 @@
 		"post": "Vous avez été déconnecté pour cause d'inactivité."
 	},
 	"helpText": {
-		"applicationId": "Numéro de demande pour votre pré-enregistrement",
+		"applicationId": "Numéro de pré-enregistrement",
 		"status": {
 			"pendingAppointment": "Le rendez-vous n'est pas encore réservé",
 			"booked": "Le rendez-vous est réservé avec succès",
@@ -574,18 +576,18 @@
 		"book/modify_appointment": "Vous devez cocher la case près du libelle du No de demande pour qu'un ou plusieurs demandeurs puissent prendre un rendez-vous",
 		"bookAppointment": "Commencez par sélectionner un créneau horaire libre , puis sélectionnez le demandeur pour lequel le rendez-vous doit  être pris. ",
 		"send_email/sms": "Vous pouvez ajouter un destinataire supplémentaire pour recevoir les notifications.",
-		"modify_at_DemoPreview": "Cliquez sur Modifier pour corriger les détails démographiques",
+		"modify_at_DemoPreview": "Cliquez sur Modifier pour corriger les informations personnelles",
 		"modify_at_DocumentPreview": "Cliquez sur Modifier pour corriger le document téléchargé.",
 		"same_as": "Si le justificatif de domicile est identique à celui du demandeur déjà rempli, vous pouvez utiliser l'option Idem Que",
 		"add_applicant": "Cliquez sur Ajouter un demandeur pour ajouter un ou plusieurs demandeurs.",
-		"recommended_centers": "Liste du centre recommandé selon votre code postal",
+		"recommended_centers": "Liste des centres recommandés selon votre préfecture",
 		"nearBy": "Centres d'enregistrement basés sur votre géolocalisation",
 		"magnifying_glass": "Recherche basée sur la sélection du menu déroulant.",
 		"preview_continue": "Téléchargez tous les fichiers pour continuer"
 	},
 	"error": {
 		"error": "Une erreur technique est survenue et l'opération ne peut s'achever. Aucune donnée saisie ne peut être sauvegardée",
-		"button_ok": "D'accord",
+		"button_ok": "OK",
 		"postalCode": "Le code PIN saisi est invalide",
 		"email": "L'addresse e-mail saisie est invalide",
 		"phone": "Le téléphone saisi est invalide",

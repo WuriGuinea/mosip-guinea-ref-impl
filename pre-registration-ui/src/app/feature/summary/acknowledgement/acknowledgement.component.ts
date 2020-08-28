@@ -172,7 +172,6 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
     return new Promise((resolve, reject) => {
       const subs = this.dataStorageService.getGuidelineTemplate('Onscreen-Acknowledgement').subscribe(response => {
         this.guidelines = response['response']['templates'][0].fileText.split('\n');
-        this.guidelines[0] = "Cher(e) $firstName, veuillez apporter les documents suivants si vous en avez";
         resolve(true);
       });
       this.subscriptions.push(subs);
@@ -251,7 +250,7 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
     this.fileBlob = await this.createBlob();
     this.usersInfo.forEach(user => {
       const notificationDto = new NotificationDtoModel(
-        user.firstName,
+        user.lastName,
         user.preRegId,
         user.bookingData ? user.bookingData.split(',')[0] : user.regDto.appointment_date,
         Number(user.bookingTimePrimary.split(':')[0]) < 10 ? '0' + user.bookingTimePrimary : user.bookingTimePrimary,

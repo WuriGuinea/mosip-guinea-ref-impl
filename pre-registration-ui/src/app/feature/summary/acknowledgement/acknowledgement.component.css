@@ -82,7 +82,7 @@
 .ack__button-container {
   width: 100%;
   position: fixed;
-  bottom: 43px;
+  bottom: 61px;
   left: 0;
   padding: 10px 2vw;
   display: flex;
@@ -151,7 +151,7 @@ table tr td {
 
 .ack__guidelines-container {
   margin: 20px 2rem;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 #table-container table {
@@ -211,25 +211,36 @@ width: 70%;
 }
 .txtalign{
   position: relative;
-  margin-top: 5px;
+  margin-top: 8px;
+  display: flex;
+  margin-bottom: -14px;
+}
+.txtalignpoint{
+  position: relative;
+  top: 6px;
 }
 .txtalignbottom{
   position: relative;
-  margin-top: -5px;
+  margin-top: -8px;
+  display: flex;
+}
+.point{
+  position: relative;
+  top: -8px;
 }
 
-@media (min-width: 900px) and (max-width: 1400px) {
+@media (min-width: 900px) and (max-width: 1300px) {
 
   .ack__message-container {
     padding: 0px 0;
     background-color: #c6efce;
     color: green;
     margin: 0 2rem;
-    font-size: 11px;
+    font-size: 14px;
 }
 table tr td {
   padding: 10px 5px 10px 0px;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .ack__header {
@@ -252,7 +263,7 @@ table tr td {
 .ack__button-container {
   width: 100%;
   position: fixed;
-  bottom: 40px;
+  bottom: 51px;
   left: 0;
   padding: 10px 2vw;
   display: flex;
@@ -275,6 +286,7 @@ table tr td {
 
 .ack__guidelines-container {
   margin: 20px 2rem;
+  margin-top: 24px;
 }
 
 .ack-container{
@@ -282,7 +294,7 @@ table tr td {
   padding: 0 0 0px;
   border-radius: 12px;
   border: 1px solid #020f59;
-  height: 26rem;
+  /*height: 26rem;*/
 }
 
 .ack__guidelines {
@@ -292,4 +304,12 @@ table tr td {
   margin-top: -1%;
 }
 
+}
+#print-section{
+  margin-bottom: 80px;
+}
+.print-section-inner-div{
+  padding:7px;
+  padding-right: 2px;
+  padding-left: 2px;
 }

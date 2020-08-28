@@ -1,0 +1,97 @@
+{
+	"identity": {
+		"IDSchemaVersion": 1.1,
+		"UIN": 8987061344,
+		"firstName": [
+			{
+				"language": "fra",
+				"value": "Mamadou Lamarana"
+			}
+		],
+		"lastName": [
+			{
+				"language": "fra",
+				"value": "Diallo"
+			}
+		],
+		"gender": [
+			{
+				"language": "fra",
+				"value": "Masculin"
+			}
+		],
+			"residenceStatus": [
+			{
+				"language": "fra",
+				"value": "Guinéen"
+			}
+		],
+		"dateOfBirth": "1990/04/20",
+		"age": 30,
+		"phone": "622989848",
+		"email": "bangoura.abou@gmail.com",
+		"region": [
+			{
+				"language": "fra",
+				"value": "Labé"
+			}
+		],
+		"prefecture": [
+			{
+				"language": "fra",
+				"value": "Koubia"
+			}
+		],
+		"subPrefectureOrCommune": [
+			{
+				"language": "fra",
+				"value": "Pilimini"
+			}
+		],
+		"district": [
+			{
+				"language": "fra",
+				"value": "Ley Sougue"
+			}
+		],
+		"sector": [
+			{
+				"language": "fra",
+				"value": "Missira"
+			}
+		],
+		"prefectureCode": "2",
+		"regionCode": "30",
+		"additionalAddressDetails": "Mosquée",
+		"individualBiometrics": {
+			"format": "cbeff",
+			"version": 1.1,
+			"value": "fileReferenceID"
+		},
+		"proofOfConsent": {
+			"format": "pdf",
+			"type": "Consent",
+			"value": "fileReferenceID"
+		},
+		"proofOfAddress": {
+			"format": "pdf",
+			"type": "Certificat de résidence",
+			"value": "fileReferenceID"
+		},
+		"proofOfIdentity": {
+			"format": "pdf",
+			"type": "Carte d’Identité",
+			"value": "fileReferenceID"
+		},
+		"proofOfRelationship": {
+			"format": "pdf",
+			"type": "Jugement supplétif",
+			"value": "fileReferenceID"
+		},
+		"proofOfDateOfBirth": {
+			"format": "pdf",
+			"type": "Extrait de naissance",
+			"value": "fileReferenceID"
+		}
+	}
+}

@@ -19,7 +19,7 @@
       <div class="sidenav-button">
         <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
       </div>
-      <a (click)="onLogoClick()"><img src="assets\logo.png" class="logobiometrie" style="max-height: 68px"/></a>
+      <a><img src="assets\logo.png" class="logobiometrie" style="max-height: 68px"/></a>
       <mat-nav-list class="list-item">
         <a mat-list-item class="wuri-list-item" routerLink="/about-us">{{ 'header.link_about' | translate }}</a>
         <a mat-list-item class="wuri-list-item" href="assets/consentement.pdf"target="_blank">{{ 'header.consent_form' | translate }}</a>
@@ -40,7 +40,7 @@
           <mat-icon class="icon">person</mat-icon>&nbsp;{{ 'header.link_logout' | translate }}
         </a>
       </mat-nav-list>
-      <a (click)="onLogoClick()"><img src="assets\header-logo.png" class="header--logo" style="max-height: 65px"/></a>
+      <a><img src="assets\header-logo.png" class="header--logo" style="max-height: 65px"/></a>
     </mat-toolbar>
     <main>
       <router-outlet></router-outlet>

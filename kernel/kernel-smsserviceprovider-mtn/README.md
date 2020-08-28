@@ -48,7 +48,7 @@ Autowired interface
 
 ```
 	@Autowired
-	private VidValidator<String> vidValidatorImpl;
+	private SMSServiceProvider smsServiceProvider;
 ```
 Call the method 
 
