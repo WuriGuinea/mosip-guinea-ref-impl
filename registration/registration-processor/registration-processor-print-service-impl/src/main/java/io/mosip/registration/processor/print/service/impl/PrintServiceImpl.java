@@ -455,9 +455,20 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	 * @return the byte[]
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
+<<<<<<< HEAD
 	 * @throws QrcodeGenerationException 
 	 */
 	private byte[] createTextFile(String jsonString) throws IOException, QrcodeGenerationException {
+=======
+<<<<<<< HEAD
+	 * @throws QrcodeGenerationException 
+	 */
+	private byte[] createTextFile(String jsonString) throws IOException, QrcodeGenerationException {
+=======
+	 */
+	private byte[] createTextFile(String jsonString) throws IOException {
+>>>>>>> c3e510cfc2fb37d3ab450ba514c10b6d9bfb1669
+>>>>>>> fc4ece5c9c09d9438a80ba7c48aba68d082f1620
 
 		LinkedHashMap<String, String> printTextFileMap = new LinkedHashMap<>();
 		JSONObject demographicIdentity = JsonUtil.objectMapperReadValue(jsonString, JSONObject.class);
@@ -494,6 +505,11 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 			}
 
 		}
+<<<<<<< HEAD
+		
+		
+=======
+<<<<<<< HEAD
 		
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
@@ -523,6 +539,40 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		return null;
 		
 	}
+=======
+
+>>>>>>> fc4ece5c9c09d9438a80ba7c48aba68d082f1620
+		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+		String printTextFileString = gson.toJson(printTextFileMap);
+		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(printTextFileString);
+		printTextFileMap.put("digitalSignature", digitalSignaturedQrData);
+		String qrString = gson.toJson(printTextFileMap);
+		String qrCode=getQrCode( qrString);
+		printTextFileMap.put("qrCode", qrCode);
+		
+		printTextFileString = gson.toJson(printTextFileMap);
+		regProcLogger.debug("QRcodejsoncontent:::"+LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
+				printTextFileString);
+		return printTextFileString.getBytes();
+	}
+<<<<<<< HEAD
+	
+	private String getQrCode(String qrString) throws IOException, QrcodeGenerationException {
+
+		byte[] qrCodeBytes = qrCodeGenerator.generateQrCode(qrString, QrVersion.V30);
+		if (qrCodeBytes != null) {
+			String imageString = CryptoUtil.encodeBase64String(qrCodeBytes);
+			
+			return "data:image/png;base64," + imageString;
+			
+		}
+
+		return null;
+		
+	}
+=======
+>>>>>>> c3e510cfc2fb37d3ab450ba514c10b6d9bfb1669
+>>>>>>> fc4ece5c9c09d9438a80ba7c48aba68d082f1620
 
 	/**
 	 * Sets the qr code.

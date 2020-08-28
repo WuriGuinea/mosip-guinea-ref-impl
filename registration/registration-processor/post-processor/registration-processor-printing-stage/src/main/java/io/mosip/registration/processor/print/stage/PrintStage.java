@@ -455,6 +455,7 @@ public class PrintStage extends MosipVerticleAPIManager {
 			byte[] qr=qrcodeGenerator.generateQrCode(digitallySignedqueueDto, getQRVersion());
 			queueDto.setEncodedQrCode(CryptoUtil.encodeBase64(qr));
 			regProcLogger.debug(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "QR code print", "QR code base64::: "+queueDto.getEncodedQrCode());
+			System.out.println(queueDto.getEncodedQrCode());
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(bos);
 			oos.writeObject(queueDto);
