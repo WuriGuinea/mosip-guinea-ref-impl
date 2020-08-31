@@ -502,7 +502,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		printTextFileMap.put("digitalSignature", digitalSignaturedQrData);
 		String qrString = gson.toJson(printTextFileMap);
 		String qrCode=getQrCode( qrString);
-		printTextFileMap.put("qrCode", qrCode);
+		printTextFileMap.put(QRCODE, qrCode);
 		
 		String dummyString = gson.toJson(printTextFileMap);
 		regProcLogger.debug(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
@@ -541,19 +541,29 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 			throws QrcodeGenerationException, IOException {
 		String qrString = new String(textFileByte);
 		boolean isQRCodeSet = false;
-		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(qrString);
+		byte[] qrCodeBytes=null;
+		
 		JSONObject textFileJson = JsonUtil.objectMapperReadValue(qrString, JSONObject.class);
+		if(!textFileJson.containsKey("digitalSignature") || textFileJson.get("digitalSignature")==null) {
+		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(qrString);
 		textFileJson.put("digitalSignature", digitalSignaturedQrData);
-
-		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
-		String printTextFileString = gson.toJson(textFileJson);
-
-		byte[] qrCodeBytes = qrCodeGenerator.generateQrCode(printTextFileString, QrVersion.V30);
-		if (qrCodeBytes != null) {
-			String imageString = CryptoUtil.encodeBase64String(qrCodeBytes);
-			attributes.put(QRCODE, "data:image/png;base64," + imageString);
+		}
+		
+		if(!textFileJson.containsKey(QRCODE) || textFileJson.get(QRCODE)==null) {
+		 Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+		 String printTextFileString = gson.toJson(textFileJson);
+		 qrCodeBytes = qrCodeGenerator.generateQrCode(printTextFileString, QrVersion.V30);
+		 if (qrCodeBytes != null) {
+				String imageString = CryptoUtil.encodeBase64String(qrCodeBytes);
+				attributes.put(QRCODE, "data:image/png;base64," + imageString);
+				isQRCodeSet = true;
+			}
+		}
+		else {
+			attributes.put(QRCODE, textFileJson.get(QRCODE));
 			isQRCodeSet = true;
 		}
+		
 
 		return isQRCodeSet;
 	}
