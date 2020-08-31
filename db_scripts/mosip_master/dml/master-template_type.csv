@@ -97,3 +97,6 @@ RS_UIN_UPDATE_SUCCESS_SMS,SMS de confirmation de la requête de mise à jour de 
 RS_UIN_UPDATE_FAILURE_EMAIL,Courriel de l'échec de la requête de mise à jour de l'identifiant national,fra,TRUE,superadmin,now()
 RS_UIN_UPDATE_FAILURE_EMAIL_SUB,Objet du courriel de l'échec de la requête de mise à jour de l'identifiant national,fra,TRUE,superadmin,now()
 RS_UIN_UPDATE_FAILURE_SMS,SMS de l'échec de la requête de mise à jour de l'identifiant national,fra,TRUE,superadmin,now()
+Email-Reminder,Modèle de courriel de rappel de rendez-vous,fra,TRUE,superadmin,now()
+SMS-Reminder,Modèle de SMS de rappel de rendez-vous,fra,TRUE,superadmin,now()
+Reminder-email-subject,Modèle d'objet d'email de rappel de rendez-vous,fra,TRUE,superadmin,now()
