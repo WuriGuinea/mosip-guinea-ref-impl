@@ -56,8 +56,8 @@ jobs:
           IMAGE_ID=$NAMESPACE/$IMAGE_NAME
           echo $IMAGE_ID
           echo $BRANCH_NAME
-          docker tag $IMAGE_NAME $IMAGE_ID:$BRANCH_NAME
-          docker push $IMAGE_ID:$BRANCH_NAME
+          docker tag $IMAGE_NAME $IMAGE_ID:1.1.1
+          docker push $IMAGE_ID:1.1.1
         env:
           NAMESPACE: wuriguinea
           IMAGE_NAME: registration-processor-printing-stage
