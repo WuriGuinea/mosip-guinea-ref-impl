@@ -66,7 +66,7 @@
         >
           </div>
           <div>
-            <table style="padding-right: 242px;" *ngIf="previewData.firstName !== undefined" class="preview__personal-info-table">
+            <table style="padding-right: 242px;width: 42rem;" *ngIf="previewData.firstName !== undefined" class="preview__personal-info-table">
               <tr>
                 <td>{{ 'preview.label_mob_num' | translate }}</td>
 
@@ -172,11 +172,9 @@
     >
         <div>
           <table id="justificatifstable" *ngIf="documentMapObject">
-            <tr class="preview__file__table__header">
-              <td  *ngFor="let object of documentMapObject">{{ object.name }}</td>
-            </tr>
-            <tr id="fileName-position" class="preview__file__table__data">
-              <td *ngFor="let object of documentMapObject">
+            <tr  *ngFor="let object of documentMapObject" class="preview__file__table__header">
+              <td >{{ object.name }}</td>
+              <td>
                 <p *ngIf="object.fileName !== undefined">{{ object.fileName }}</p>
                 <p class="error" *ngIf="object.fileName === undefined">{{ 'preview.text_not_uploaded' | translate }}</p>
               </td>
