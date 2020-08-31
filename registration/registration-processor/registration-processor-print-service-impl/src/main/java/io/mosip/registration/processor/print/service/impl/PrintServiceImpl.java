@@ -497,16 +497,18 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+        String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(gson.toJson(printTextFileMap));
+        printTextFileMap.put("digitalSignature", digitalSignaturedQrData);
+        String qrString = gson.toJson(printTextFileMap);
+        String qrCode=getQrCode(qrString);
+        printTextFileMap.put(QRCODE, qrCode);
 		String printTextFileString = gson.toJson(printTextFileMap);
-		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(printTextFileString);
-		printTextFileMap.put("digitalSignature", digitalSignaturedQrData);
-		String qrString = gson.toJson(printTextFileMap);
-		String qrCode=getQrCode( qrString);
-		printTextFileMap.put(QRCODE, qrCode);
-		
-		String dummyString = gson.toJson(printTextFileMap);
+
+		System.out.println("createTextFile --> printTextFileString: to check qr code");
+		System.out.println(printTextFileString);
 		regProcLogger.debug(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
-				dummyString);
+				printTextFileString);
+
 		return printTextFileString.getBytes();
 	}
 	
