@@ -167,6 +167,8 @@
 
 	<modules>
 		<module>kernel-ref-idobjectvalidator</module>
+		<module>kernel-smsserviceprovider-mtn</module>
+		<module>kernel-notification-service</module>
 	</modules>
 
 	<dependencies>
