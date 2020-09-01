@@ -59,14 +59,14 @@ jobs:
       run: |
         ls -lrt
         find -name '*.jar' -executable -type f  -exec zip release.zip {} +
-        ls -lrt kernel
+        ls -lrt
 
 
-    - name: Upload the springboot jars 
-      uses: actions/upload-artifact@v1
-      with:
-        name: release
-        path: ./release.zip
+   # - name: Upload the springboot jars 
+   #   uses: actions/upload-artifact@v1
+   #   with:
+    #    name: release
+    #    path: ./release.zip
 
   publish_to_nexus:
     runs-on: ubuntu-latest
@@ -232,10 +232,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
-        with:
-          name: release
-          path: ./
+      #- uses: actions/download-artifact@v1
+       # with:
+      #    name: release
+       #   path: ./
 
       - name: Setup branch name 
         run: |
@@ -249,9 +249,11 @@ jobs:
           xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml 
           xpath: /*[local-name()="project"]/*[local-name()="version"] 
       
-      - name: Unzip and extract the id-repository-vid-service
-        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
-      
+     # - name: Unzip and extract the id-repository-vid-service
+      #  run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
+      - name: checking for target folder
+        run: |
+          ls -lrt "./${{env.SERVICE_LOCATION}}"
       - name: Build image
         run: |
           cd "./${{env.SERVICE_LOCATION}}"
