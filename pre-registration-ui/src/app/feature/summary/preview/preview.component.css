@@ -5,15 +5,12 @@
 
 .preview__file__table__header td {
   font-size: 0.8rem;
-  padding: 0 20px 10px 0;
+  padding: 0 15px 10px 0;
 }
 .preview__file__table__header{
   position: relative;
-  display: -moz-inline-grid;
-  display: -ms-inline-grid;
-  display: inline-grid;
   top: 5px;
-  line-height: 18px;
+  line-height: 0px;
 }
 .preview__file__table__data{
   position: relative;
@@ -118,7 +115,7 @@
 }
 
 .preview__personal-info-table {
-  width: 25rem;
+  width: 32rem;
   font-size: 0.8rem;
   margin-top: -36px;
   padding-right: 141px;
@@ -131,7 +128,7 @@
 }
 #position-txt{
   position: relative;
-  left: -7px;
+  left: -15px;
 }
 .text_uppercase{
   text-transform: uppercase;
@@ -263,6 +260,9 @@
   left: -5px;
 }
 #justificatifstable{
-  width:100%;
   margin-top: -39px;
+}
+#contactblock{
+  padding-right: 242px;
+  width: 42rem;
 }
