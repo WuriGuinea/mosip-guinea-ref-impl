@@ -59,7 +59,7 @@ jobs:
       run: |
         ls -lrt
         find -name '*.jar' -executable -type f  -exec zip release.zip {} +
-        ls -lrt
+        ls -lrt kernel/kernel-notification-service
     - name: Build image
       run: |
           cd "./${{env.SERVICE_LOCATION}}"
