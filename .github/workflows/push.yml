@@ -59,13 +59,14 @@ jobs:
       run: |
         ls -lrt
         find -name '*.jar' -executable -type f  -exec zip release.zip {} +
+        ls -lrt
 
 
-    - name: Upload the springboot jars 
-      uses: actions/upload-artifact@v1
-      with:
-        name: release
-        path: ./release.zip
+    #- name: Upload the springboot jars 
+     # uses: actions/upload-artifact@v1
+      #with:
+       # name: release
+        #path: ./release.zip
 
   publish_to_nexus:
     runs-on: ubuntu-latest
