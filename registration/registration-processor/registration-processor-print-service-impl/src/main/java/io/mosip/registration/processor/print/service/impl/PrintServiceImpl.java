@@ -496,7 +496,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		}
 		
 		
-		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+		Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().serializeNulls().create();
         String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(gson.toJson(printTextFileMap));
         printTextFileMap.put("digitalSignature", digitalSignaturedQrData);
         String qrString = gson.toJson(printTextFileMap);
@@ -504,8 +504,6 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
         printTextFileMap.put(QRCODE, qrCode);
 		String printTextFileString = gson.toJson(printTextFileMap);
 
-		System.out.println("createTextFile --> printTextFileString: to check qr code");
-		System.out.println(printTextFileString);
 		regProcLogger.debug(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
 				printTextFileString);
 
@@ -547,26 +545,11 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		
 		JSONObject textFileJson = JsonUtil.objectMapperReadValue(qrString, JSONObject.class);
 
-		System.out.println("!textFileJson.containsKey(\"digitalSignature\")");
-		System.out.println(!textFileJson.containsKey("digitalSignature"));
-		System.out.println("----------------------------------------------");
-		System.out.println("textFileJson.get(\"digitalSignature\")==null");
-		System.out.println(textFileJson.get("digitalSignature")==null);
-
 		if(!textFileJson.containsKey("digitalSignature") || textFileJson.get("digitalSignature")==null) {
 		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(qrString);
 		textFileJson.put("digitalSignature", digitalSignaturedQrData);
 		}
 
-		System.out.println("textFileJson");
-		System.out.println(textFileJson.toJSONString());
-		System.out.println("----------------------------------------------");
-		System.out.println("!textFileJson.containsKey(QRCODE)");
-		System.out.println(!textFileJson.containsKey(QRCODE));
-		System.out.println("----------------------------------------------");
-		System.out.println("textFileJson.get(QRCODE)==null");
-		System.out.println(textFileJson.get(QRCODE)==null);
-		System.out.println("----------------------------------------------");
 		if(!textFileJson.containsKey(QRCODE) || textFileJson.get(QRCODE)==null) {
 		 Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
 		 String printTextFileString = gson.toJson(textFileJson);
