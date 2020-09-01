@@ -417,7 +417,7 @@ Merci",10003,Processeur dinscription,RPR_LOST_UIN_EMAIL,fra,TRUE,superadmin,now(
 <tr>
 <td><label class=""name-head-color""><b>Adresse&nbsp;:&nbsp;</b></label>
 </td>
-<td><span>$!addressLine1_fra, $!city_fra, $!postalCode $!province_fra, $!region_fra,</span></td>
+<td><span>$region, $prefecture, $subPrefectureOrCommune, $district, $sector, $additionalAddressDetails</span></td>
 </tr>
 </table>
 </div>
@@ -446,12 +446,14 @@ Merci",10003,Processeur dinscription,RPR_LOST_UIN_EMAIL,fra,TRUE,superadmin,now(
 </td>
 <td>
 <div class=""name-head-color col-md-6"">
-<br> Cette carte a &eacute;t&eacute; &eacute;mise par WURI GUINEE
-<br> Pour toute question, veuillez nous contacter au :
-<br> <b>Email&nbsp;:&nbsp;</b>contact@wuriguinee.com 
-<br> <b>T&eacute;l&eacute;phone&nbsp;:&nbsp;</b>+224622227491
-<br> <b>Adresse&nbsp;:&nbsp;</b>R&eacute;sidence Corail, Camayenne - Commune Dixinn, Conakry - Guin&eacute;e
-</div>
+<br> Cette carte ne constitue pas une pi&egrave;ce d'identit&eacute; nationale et ne saurait en aucun cas s'y substituer.
+<br> Elle a &eacute;t&eacute; d&eacute;livr&eacute;e par WURI Guin&eacute;e et les informations qu'elle contient sont strictement confidentielles. 
+<br> Si vous retrouvez une carte qui n'est pas la v&ocirc;tre, veuillez la retourner &agrave;:
+<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Wuri Guin&eacute;e - R&eacute;sidence Corail - Bat A101
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Camayenne-Dixinn   
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Tel:&nbsp;+224622227491
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;contact@inu.gov.gn</div>
 </td>
 </tr>
 </table>
