@@ -9,6 +9,7 @@
   color: #020F59;
   padding: 0;
   display: flex;
+  font-size: larger;
   align-items: center;
   box-shadow: none;
 }
@@ -36,9 +37,9 @@ section {
   display: flex;
 }
 .centers-wrapper {
-  margin-left: 25px;
+  margin-left: 35px;
   margin-right: 2vw;
-  margin-top: 12px;
+  margin-top: -3px;
   width: 55%;
 }
 
@@ -305,6 +306,6 @@ input[type='radio'] {
   border-radius: 10px;
   height: 590px;
   display: block;
-  z-index: 2;
+  z-index: -auto;
 }
 
