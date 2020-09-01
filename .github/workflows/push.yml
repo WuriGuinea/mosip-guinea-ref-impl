@@ -48,7 +48,7 @@ jobs:
     - name: Build with Maven
       run: |
         cd kernel
-        mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests
+        mvn -B clean install -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests
    
     #- name: Build Registration
      # run: |
