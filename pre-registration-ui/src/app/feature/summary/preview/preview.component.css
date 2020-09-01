@@ -76,7 +76,7 @@
 .preview__body-content-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 20px 2rem 0px 2rem;
+  padding: 20px 2rem 32px 2rem;
   color: #020F59;
 }
 

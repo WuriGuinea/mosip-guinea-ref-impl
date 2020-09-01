@@ -256,9 +256,8 @@ mat-icon {
   padding: 0.8rem 2rem;
   text-align: center;
   text-decoration: none;
-  display: table-cell !important;
   font-size: 0.8rem;
-  margin: 5px 1px 4px 210rem;
+  margin: 5px 1px 4px 10rem;
   margin-right: 2rem;
   cursor: pointer;
   text-transform: capitalize;
@@ -267,11 +266,6 @@ mat-icon {
 }
 
 .user__btn--back {
-  border: 1px solid #BCE0FD;
-  background-color: white;
-  color: #020F59;
-  margin-left: 2rem;
-  text-transform: none;
   display: none;
 }
 
