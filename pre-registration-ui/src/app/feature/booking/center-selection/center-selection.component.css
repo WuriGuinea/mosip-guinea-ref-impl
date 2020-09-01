@@ -3,13 +3,14 @@
   display: inline-flex;
 }
 .center_selection-wrapper {
-  margin: 40px 2vw;
+  margin: 40px 2vw 12vw;
 }
 .center-selection__title-card {
   color: #020F59;
   padding: 0;
   display: flex;
-  font-size: larger;
+  font-size: 15px;
+  font-weight: bold;
   align-items: center;
   box-shadow: none;
 }
@@ -39,7 +40,6 @@ section {
 .centers-wrapper {
   margin-left: 35px;
   margin-right: 2vw;
-  margin-top: -3px;
   width: 55%;
 }
 
@@ -80,6 +80,7 @@ input[type='radio'] {
 .map {
   width: 40%;
     display: block;
+    margin-top: -2vw;
   }
 
 .container {
