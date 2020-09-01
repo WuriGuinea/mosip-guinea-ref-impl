@@ -9,12 +9,12 @@
   color: #020F59;
   padding: 0px;
   align-items: center;
-  margin: 0px 2vw;
+  margin: 40px 2vw 15vw;
   border: 1px solid #020F59;
   border-radius: 10px;
-  height: 590px;
+  height: 65vw;
   display: block;
-  z-index: 2;
+  z-index: 1;
 }
 @media (max-width: 1200px) {
   .time-selection__title-card {
