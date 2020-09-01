@@ -1,6 +1,0 @@
-﻿code,name,DESCR,BMTYP_CODE,lang_code,is_active,cr_by,cr_dtimes
-TM,Les pouces,Empreinte des pouces gauche et droit,FNR,fra,TRUE,superadmin,now()
-RH,Dalle droite,Empreinte de la dalle droite,FNR,fra,TRUE,superadmin,now()
-LH,Dalle gauche,Empreinte de la dalle gauche,FNR,fra,TRUE,superadmin,now()
-LI,Iris gauche,Capture de l'iris Gauche,IRS,fra,TRUE,superadmin,now()
-RI,Iris droit,Capture de l'iris droit,IRS,fra,TRUE,superadmin,now()

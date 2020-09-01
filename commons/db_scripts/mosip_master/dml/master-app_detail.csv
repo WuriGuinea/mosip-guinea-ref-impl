@@ -1,7 +1,0 @@
-﻿id,name,descr,lang_code,is_active,cr_by,cr_dtimes
-10001,Pré-Enregistrement,Portail Web pour les pré-enregistrements,fra,TRUE,superadmin,now()
-10003,Enregistrement,Application pour les enregistrements,fra,TRUE,superadmin,now()
-10005,Traitement,Application pour les traitements post-enregistrements,fra,TRUE,superadmin,now()
-10007,Authentification,Application pour l'authentification des fournisseurs de services,fra,TRUE,superadmin,now()
-10009,Administration,Portail Web pour la configuration des applications,fra,TRUE,superadmin,now()
-10011,Portail Résident,Portail Web pour les services dédiés aux résidents,fra,TRUE,superadmin,now()
