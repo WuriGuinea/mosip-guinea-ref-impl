@@ -73,8 +73,10 @@ L'Équipe WURI Guinée",10001,Pré-inscription,Email-Acknowledgement,fra,TRUE,su
 	• Formulaire de consentement (disponible sur notre site inu.gov.gn/assets/consentement.pdf ou au bureau d'enregistrement)
 5. Nous capturerons vos renseignements biométriques (empreintes digitales, image de l'Iris, et photo) lorsque vous vous présenterez à votre rendez-vous.",10001,Pré-inscription,Onscreen-Acknowledgement,fra,TRUE,superadmin,now()
 1126,OTP Email Content Template,OTP Email Content Template,txt,,"Madame/Monsieur $name,
-Votre OTP est $otp. Il est valide pour $validTime minutes. Il correspond au numéro de pre-enregistrement : $PRID
-Il a été généré le $date à $heure hrs.",10001,Pré-inscription,OTP-email-content-template,fra,TRUE,superadmin,now()
+Veuillez trouver ci-joint votre mot de passe à usage unique $otp. Ce code vous permettra d’accéder à nos services d'enrôlement. Sa durée de validité est de $validTime minutes.
+
+Cordialement,
+L'Équipe WURI Guinée",10001,Pré-inscription,OTP-email-content-template,fra,TRUE,superadmin,now()
 1127,Template for OTP email subject,Template for OTP email subject,txt,,Pre-enregistrement $PRID: demande d'OTP,10001,Pré-inscription,OTP-email-subject-template,fra,TRUE,superadmin,now()
 1128,Template for OTP SMS,Template for OTP SMS,txt,,"Madame/Monsieur $name,
 Votre OTP est $otp. Il est valide pour $validTime minutes. Il correspond au numéro de pre-enregistrement : $PRID
@@ -87,8 +89,8 @@ L'Équipe WURI Guinée",10001,Pré-inscription,SMS-Acknowledgement,fra,TRUE,supe
 1131,Modèle de carte INU,Modèle de carte INU,html,,"<!DOCTYPE html>
 <html>
 <head>
-	<meta charset=""utf-8"">
-	<meta name=""viewport"" content=""width=device-width, initial-scale=1"">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Modèle de Carte INU</title>
 <style>
 .main-table {
@@ -118,71 +120,70 @@ L'Équipe WURI Guinée",10001,Pré-inscription,SMS-Acknowledgement,fra,TRUE,supe
 }
 </style>
 </head>
-
 <body>
-<table class=""main-table"">
+<table class="main-table">
 <tr>
 <td>&nbsp;
-<div class=""cir""><font size=""1"">Logo</font></div>
+<div class="cir"><font size="1">Logo</font></div>
 </td>
-<td><label class=""name-head-color""><font size=""5""class="" head-title""> &nbsp;&nbsp; R&eacute;publique de Guin&eacute;e &nbsp;&nbsp; </font>
+<td><label class="name-head-color"><font size="5"class=" head-title"> &nbsp;&nbsp; R&eacute;publique de Guin&eacute;e &nbsp;&nbsp; </font>
 </label></td>
-<td rowspan=""4"">
+<td rowspan="4">
 <div>
-<div style=""border: solid black 1px; height: 150px; width: 120px;"">
-<img src = $!ApplicantPhoto style=""width: 120px; height: 150px"">
+<div style="border: solid black 1px; height: 150px; width: 120px;">
+<img src = $!ApplicantPhoto style="width: 120px; height: 150px">
 </div>
 </div>
 </td>
 </tr>
 <tr>
-<td rowspan=""1"">
-<div class=""block top-buffer"">
-<label class=""name-head-color""><b>INU&nbsp;:&nbsp;</b></label> <span class=""name-color""> $!UIN </span>
+<td rowspan="1">
+<div class="block top-buffer">
+<label class="name-head-color"><b>INU&nbsp;:&nbsp;</b></label> <span class="name-color"> $!UIN </span>
 </div>
 </td>
 </tr>
 <tr>
-<td rowspan=""1"">
-<div class=""block top-buffer"">
-<label class=""name-head-color""><b>Nom&nbsp;:&nbsp;</b></label> 
-<span class=""name-color""> $!lastName_fra</span>
+<td rowspan="1">
+<div class="block top-buffer">
+<label class="name-head-color"><b>Nom&nbsp;:&nbsp;</b></label>
+<span class="name-color"> $!lastName_fra</span>
 </div>
 </td>
 </tr>
 <tr>
-<td rowspan=""1"">
-<div class=""block top-buffer"">
-<label class=""name-head-color""><b>Pr&eacute;noms&nbsp;:&nbsp;</b></label> 
-<span class=""name-color""> $!firstName_fra</span>
+<td rowspan="1">
+<div class="block top-buffer">
+<label class="name-head-color"><b>Pr&eacute;noms&nbsp;:&nbsp;</b></label>
+<span class="name-color"> $!firstName_fra</span>
 </div>
 </td>
 </tr>
 <tr>
-<td rowspan=""1"">
-<div class=""block top-buffer"">
-<label class=""name-head-color""><b>Date de naissance&nbsp;:&nbsp;</b></label>
+<td rowspan="1">
+<div class="block top-buffer">
+<label class="name-head-color"><b>Date de naissance&nbsp;:&nbsp;</b></label>
 <span>$!dateOfBirth</span>
 </div>
 </td>
 </tr>
 <tr>
-<td colspan=""2"">
-<div class=""block top-buffer"">
-<label class=""name-head-color""><b>Genre&nbsp;:&nbsp;</b></label> <span>$!gender_fra</span> 
+<td colspan="2">
+<div class="block top-buffer">
+<label class="name-head-color"><b>Genre&nbsp;:&nbsp;</b></label> <span>$!gender_fra</span>
 </div>
 </td>
 </tr>
 <tr>
-<td colspan=""3"">
-<div class=""row"" style=""margin-right: 0px; margin-left: -10px;"">
-<div class=""col-md-2 top-buffer"">
-<div class=""block top-buffer"">
+<td colspan="3">
+<div class="row" style="margin-right: 0px; margin-left: -10px;">
+<div class="col-md-2 top-buffer">
+<div class="block top-buffer">
 <table>
 <tr>
-<td><label class=""name-head-color""><b>Adresse&nbsp;:&nbsp;</b></label>
+<td><label class="name-head-color"><b>Adresse&nbsp;:&nbsp;</b></label>
 </td>
-<td><span>$!addressLine1_fra, $!city_fra, $!postalCode $!province_fra, $!region_fra,</span></td>
+<td><span> $!region_fra, $!prefecture_fra, $!subPrefectureOrCommune_fra, $!sector_fra, $!district_fra, $!additionalAddressDetails_fra</span></td>
 </tr>
 </table>
 </div>
@@ -192,21 +193,21 @@ L'Équipe WURI Guinée",10001,Pré-inscription,SMS-Acknowledgement,fra,TRUE,supe
 </tr>
 </table>
 <div>&nbsp;</div>
-<table class=""main-table"" style=""height: 300px"">
+<table class="main-table" style="height: 300px">
 <tr>
 <td>
-<div style=""margin-left: 10px; margin-right: 10px; border: solid black 1px; height: 250px; width: 250px;"">
-<div class=""col-md-6"">
-<div class=""bar-code-padding""></div>
-<img src=$!QrCode style=""width: 250px; height: 250px; margin-top: -20px"">
+<div style="margin-left: 10px; margin-right: 10px; border: solid black 1px; height: 250px; width: 250px;">
+<div class="col-md-6">
+<div class="bar-code-padding"></div>
+<img src=$!QrCode style="width: 250px; height: 250px; margin-top: -20px">
 </div>
 </div>
 </td>
 <td>
-<div class=""name-head-color col-md-6"">
+<div class="name-head-color col-md-6">
 <br> Cette carte a &eacute;t&eacute; &eacute;mise par WURI GUINEE
 <br> Pour toute question, veuillez nous contacter au :
-<br> <b>Email&nbsp;:&nbsp;</b>contact@inu.gov.gn 
+<br> <b>Email&nbsp;:&nbsp;</b>contact@wuriguinee.com
 <br> <b>T&eacute;l&eacute;phone&nbsp;:&nbsp;</b>+224622227491
 <br> <b>Adresse&nbsp;:&nbsp;</b>R&eacute;sidence Corail, Camayenne - Commune Dixinn, Conakry - Guin&eacute;e
 </div>
@@ -417,7 +418,7 @@ Merci",10003,Processeur dinscription,RPR_LOST_UIN_EMAIL,fra,TRUE,superadmin,now(
 <tr>
 <td><label class=""name-head-color""><b>Adresse&nbsp;:&nbsp;</b></label>
 </td>
-<td><span>$region, $prefecture, $subPrefectureOrCommune, $district, $sector, $additionalAddressDetails</span></td>
+<td><span>$!region_fra, $!prefecture_fra, $!subPrefectureOrCommune_fra, $!sector_fra, $!district_fra, $!additionalAddressDetails</span></td>
 </tr>
 </table>
 </div>
@@ -450,7 +451,7 @@ Merci",10003,Processeur dinscription,RPR_LOST_UIN_EMAIL,fra,TRUE,superadmin,now(
 <br> Elle a &eacute;t&eacute; d&eacute;livr&eacute;e par WURI Guin&eacute;e et les informations qu'elle contient sont strictement confidentielles. 
 <br> Si vous retrouvez une carte qui n'est pas la v&ocirc;tre, veuillez la retourner &agrave;:
 <br>
-<br> &nbsp;&nbsp;&nbsp;&nbsp;Wuri Guin&eacute;e - R&eacute;sidence Corail - Bat A101
+<br> &nbsp;&nbsp;&nbsp;&nbsp;Wuri Guin&eacute;e - R&eacute;sidence Corail - Bureau A101
 <br> &nbsp;&nbsp;&nbsp;&nbsp;Camayenne-Dixinn   
 <br> &nbsp;&nbsp;&nbsp;&nbsp;Tel:&nbsp;+224622227491
 <br> &nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;contact@inu.gov.gn</div>
@@ -458,7 +459,7 @@ Merci",10003,Processeur dinscription,RPR_LOST_UIN_EMAIL,fra,TRUE,superadmin,now(
 </tr>
 </table>
 </body>
-</html>",10003,Processeur dinscription,RPR_MASKED_UIN_CARD_TEMPLATE,fra,TRUE,superadmin,now()
+</html>",10003,Processeur d'inscription,RPR_MASKED_UIN_CARD_TEMPLATE,fra,TRUE,superadmin,now()
 1163,Courriel de confirmation de la demande d'historique d'authentification,Courriel de confirmation de la demande d'historique d'authentification,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande d'historique d'authentification a été traitée avec succès.
 Merci!",10006,Resident Services,RS_AUTH_HIST_SUCCESS_EMAIL,fra,TRUE,superadmin,now()
