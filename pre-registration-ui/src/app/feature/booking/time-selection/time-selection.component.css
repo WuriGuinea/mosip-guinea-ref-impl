@@ -287,12 +287,14 @@
   margin: auto;
   float: left;
   cursor: pointer;
+  padding-top: 18px;
 }
 
 .right-button {
   margin: auto;
   float: right;
   cursor: pointer;
+  padding-top: 18px;
 }
 
 .disabled {
@@ -434,7 +436,7 @@
 
 @media (min-width: 1040px) {
   .middle {
-    width: 85%;
+    width: 67%;
   }
 }
 
