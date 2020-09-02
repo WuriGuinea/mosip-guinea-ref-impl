@@ -85,7 +85,7 @@
   margin-bottom: 1rem;
   width: 49%;
   float: left;
-   height: 322px !important;
+  height: 340px !important;
 }
 
 .test1 {
@@ -418,7 +418,7 @@ textarea.mat-input-element{
   margin-bottom: -14px;
 }
 #complementadr{
-  margin-bottom: -10px;
+  margin-bottom: -6px;
   font-weight: 300;
   font-family: Roboto;
   font-size: 15px;
