@@ -235,7 +235,7 @@ Vos détails démographiques sont :
 4.Genre:${GENDER}
 5.Prefecture :${PREFECTURE}
 6.Commune:${SUBPREFECTUREORCOMMUNE}
-7.Sector:${SECTOR}
+7.Secteur:${SECTOR}
 8.Région:${REGION}
 9.Téléphone:${PHONE}
 10.Email:${EMAIL}",10005,Inscription,reg-sms-notification,fra,TRUE,superadmin,now()
@@ -249,7 +249,7 @@ Vos détails démographiques sont :
 4.Genre:${GENDER}
 5.Prefecture :${PREFECTURE}
 6.Commune:${SUBPREFECTUREORCOMMUNE}
-7.Sector:${SECTOR}
+7.Secteur:${SECTOR}
 8.Région:${REGION}
 9.Téléphone:${PHONE}
 10.Email:${EMAIL}",10005,Inscription,reg-email-notification,fra,TRUE,superadmin,now()
