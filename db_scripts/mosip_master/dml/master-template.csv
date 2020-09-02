@@ -8,38 +8,38 @@ Voici les détails de votre authentification avec l'INU $uin sur le périphériq
 1103,Modèle de SMS d'autorisation,Modèle de SMS d'autorisation,txt,,"Madame/Monsieur $name, les détails de votre authentification avec l'INU $uin par les services WURI : Type : $authType ; Date et Heure : $date à $time Hrs ; Statut : $status; ",10004,Authentification ID,auth-sms,fra,TRUE,superadmin,now()
 1107,Modèle de courrier d'identité en double,Modèle de courrier d'identité en double,txt,,"Madame/Monsieur $!name_fra,
 Votre demande d'INU avec le numéro d'enregistrement: $!RID a échoué car un doublon a été détecté. 
-Veuillez nous contacter au : incident@wuriguinee.com ou +224622227491.
+Veuillez nous contacter au : incident@inu.gov.gn ou +224622227491.
 Merci",10003,Processeur d'inscription,RPR_DUP_UIN_EMAIL,fra,TRUE,superadmin,now()
 1108,Modèle de SMS d'identité en double,Modèle de SMS d'identité en double,txt,,"Madame/Monsieur $!name_fra,
 Votre demande d'INU avec le numéro d'enregistrement: $!RID a échoué car un doublon a été détecté. 
-Veuillez nous contacter au : incident@wuriguinee.com ou +224622227491",10003,Processeur dinscription,RPR_DUP_UIN_SMS,fra,TRUE,superadmin,now()
+Veuillez nous contacter au : incident@inu.gov.gn ou +224622227491",10003,Processeur dinscription,RPR_DUP_UIN_SMS,fra,TRUE,superadmin,now()
 1109,Modèle de courriel pour incident technique,Modèle de courriel pour incident technique,txt,,"Madame/Monsieur $!name_fra,
 Votre demande d'INU avec le numéro d'enregistrement: $!RID a échoué à cause d'un incident technique. 
-Veuillez nous contacter au : incident@wuriguinee.com ou +224622227491.Merci",10003,Processeur d'inscription,RPR_TEC_ISSUE_EMAIL,fra,TRUE,superadmin,now()
+Veuillez nous contacter au : incident@inu.gov.gn ou +224622227491.Merci",10003,Processeur d'inscription,RPR_TEC_ISSUE_EMAIL,fra,TRUE,superadmin,now()
 1110,Modèle de SMS d'incident technique,Modèle de SMS d'incident technique,txt,,"Madame/Monsieur $!name_fra,
 Votre demande d'INU avec le numéro d'enregistrement: $!RID a échoué à cause d'un incident technique. 
-Veuillez nous contacter au : incident@wuriguinee.com ou +224622227491.",10003,Processeur d'inscription,RPR_TEC_ISSUE_SMS,fra,TRUE,superadmin,now()
+Veuillez nous contacter au : incident@inu.gov.gn ou +224622227491.",10003,Processeur d'inscription,RPR_TEC_ISSUE_SMS,fra,TRUE,superadmin,now()
 1111,Modèle de courriel de génération d'INU,Modèle de courriel de génération d'INU,txt,,"Madame/Monsieur $!name_fra,
 Votre INU avec le numéro d’enregistrement: $!RID a été généré avec succès. 
-Veuillez nous contacter au : inu@wuriguinee.com ou +224622227491.Merci",10003,Processeur d'inscription,RPR_UIN_GEN_EMAIL,fra,TRUE,superadmin,now()
+Veuillez nous contacter au : inu@inu.gov.gn ou +224622227491.Merci",10003,Processeur d'inscription,RPR_UIN_GEN_EMAIL,fra,TRUE,superadmin,now()
 1112,Modèle de SMS de génération d'INU,Modèle de SMS de génération d'INU,txt,,"Madame/Monsieur $!name_fra,
 Votre INU avec le numéro d’enregistrement: $!RID a été généré avec succès. 
-Veuillez nous contacter au : inu@wuriguinee.com ou +224622227491.",10003,Processeur d'inscription,RPR_UIN_GEN_SMS,fra,TRUE,superadmin,now()
+Veuillez nous contacter au : inu@inu.gov.gn ou +224622227491.",10003,Processeur d'inscription,RPR_UIN_GEN_SMS,fra,TRUE,superadmin,now()
 1113,Modèle de courriel pour la mise à jour des infos,Modèle de courriel pour la mise à jour des infos,txt,,"Madame/Monsieur $!name_fra,
 Les informations de votre INU correspondant au numéro d’enregistrement: $!RID ont été mises à jour. 
-Veuillez nous contacter au : inu@wuriguinee.com ou +224622227491 pour récupérer votre nouvelle carte INU.
+Veuillez nous contacter au : inu@inu.gov.gn ou +224622227491 pour récupérer votre nouvelle carte INU.
 Merci",10003,Processeur dinscription,RPR_UIN_UPD_EMAIL,fra,TRUE,superadmin,now()
 1114,Modèle de SMS pour la mise à jour des infos,Modèle de SMS pour la mise à jour des infos,txt,,"Madame/Monsieur $!name_fra,
 Les infos de votre INU correspondant au numéro d’enregistrement: $!RID ont été mises à jour. 
-Veuillez nous contacter au : inu@wuriguinee.com ou +224622227491 pour récupérer votre nouvelle carte INU.
+Veuillez nous contacter au : inu@inu.gov.gn ou +224622227491 pour récupérer votre nouvelle carte INU.
 Merci",10003,Processeur dinscription,RPR_UIN_UPD_SMS,fra,TRUE,superadmin,now()
 1115,Modèle de contenu de courriel pour un nouvel enregistrement,Modèle de contenu de courriel pour un nouvel enregistrement,txt,,"Madame/Monsieur $name,
 Merci de vous être inscrit sur la plateforme d'identification numérique WURI GUINEE. Votre numéro d'enregistrement est $RegistrationID. 
-Si des corrections doivent être apportées à vos données, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client dinscription,NewReg-email-content-template,fra,TRUE,superadmin,now()
+Si des corrections doivent être apportées à vos données, veuillez nous contacter au : enregistrement@inu.gov.gn ou +224622227491.",10002,Client dinscription,NewReg-email-content-template,fra,TRUE,superadmin,now()
 1116,Modèle d'objet pour une nouvel enregistrement,Modèle d'objet pour un nouvel enregistrment,txt,,Confirmation d'enregistrement,10002,Client dinscription,NewReg-email-subject-template,fra,TRUE,superadmin,now()
 1117,Modèle de SMS pour un nouvel enregistrement,Modèle de nouvelle inscription SMS,txt,,"Madame/Monsieur $name,
 Merci de vous être inscrit sur la plateforme d'identification numérique WURI GUINEE. Votre numéro d'enregistrement est $RegistrationID. 
-Si des corrections sont nécessaires, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client dinscription,NewReg-sms-template,fra,TRUE,superadmin,now()
+Si des corrections sont nécessaires, veuillez nous contacter au : enregistrement@inu.gov.gn ou +224622227491.",10002,Client dinscription,NewReg-sms-template,fra,TRUE,superadmin,now()
 1118,Modèle de contenu de courriel de génération d'OTP,Modèle de contenu de contenu courriel de génération d'OTP,txt,,"Madame/Monsieur $name,
 L'OTP pour l'utilisateur $username est $otp. Il est valide pour $validTime minutes.
 Il a été généré le $date à $heure hrs.",10002,Client d'inscription,OTP-email-content-template,fra,TRUE,superadmin,now()
@@ -49,11 +49,11 @@ L'OTP pour l'utilisateur $username est $otp. Il est valide pour $validTime minut
 Il a été généré le $date à $heure hrs.",10002,Client dinscription,OTP-sms-template,fra,TRUE,superadmin,now()
 1121,Modèle pour l'enregistrement de la mise à jour,Modèle pour lenregistrement de la mise à jour,txt,,"Madame/Monsieur $name,
 Merci de mettre à jour vos coordonnées sur la plateforme d’identité numérique WURI GUINEE.Votre identifiant d'enregistrement est $RegistrationID. 
-Si des corrections doivent être apportées à vos données, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client dinscription,Update-email-content-template,fra,TRUE,superadmin,now()
+Si des corrections doivent être apportées à vos données, veuillez nous contacter au : enregistrement@inu.gov.gn ou +224622227491.",10002,Client dinscription,Update-email-content-template,fra,TRUE,superadmin,now()
 1122,Modèle d'objet pour enregistrement des mises à jour,Modèle d'objet pour enregistrement des mises à jour,txt,,Confirmation de la mise à jour des données d'enregistrement,10002,Client dinscription,Update-email-subject-template,fra,TRUE,superadmin,now()
 1123,Modèle pour SMS denregistrement de mise à jour,Modèle pour SMS denregistrement de mise à jour,txt,,"Madame/Monsieur $name,
 Merci de mettre à jour vos coordonnées sur la plateforme d’identification numérique WURI GUINEE. Votre identifiant d'enregistrement est $RegistrationID. 
-Si des corrections sont nécessaires, veuillez nous contacter au : enregistrement@wuriguinee.com ou +224622227491.",10002,Client dinscription,Update-sms-template,fra,TRUE,superadmin,now()
+Si des corrections sont nécessaires, veuillez nous contacter au : enregistrement@inu.gov.gn ou +224622227491.",10002,Client dinscription,Update-sms-template,fra,TRUE,superadmin,now()
 1124,Template for email confirmation,Template for email confirmation,txt,,"Madame/Monsieur $name, 
 Nous vous confirmons votre rendez-vous d'enregistrement pour l'obtention d'un INU le $Appointmentdate à $Appointmmenttime. Votre numéro pré-enregistrement est le $PRID.
 Ces détails vous seront également envoyés par SMS au numéro de téléphone fourni.
@@ -206,7 +206,7 @@ L'Équipe WURI Guinée",10001,Pré-inscription,SMS-Acknowledgement,fra,TRUE,supe
 <div class=""name-head-color col-md-6"">
 <br> Cette carte a &eacute;t&eacute; &eacute;mise par WURI GUINEE
 <br> Pour toute question, veuillez nous contacter au :
-<br> <b>Email&nbsp;:&nbsp;</b>contact@wuriguinee.com 
+<br> <b>Email&nbsp;:&nbsp;</b>contact@inu.gov.gn 
 <br> <b>T&eacute;l&eacute;phone&nbsp;:&nbsp;</b>+224622227491
 <br> <b>Adresse&nbsp;:&nbsp;</b>R&eacute;sidence Corail, Camayenne - Commune Dixinn, Conakry - Guin&eacute;e
 </div>
@@ -216,18 +216,18 @@ L'Équipe WURI Guinée",10001,Pré-inscription,SMS-Acknowledgement,fra,TRUE,supe
 </body>
 </html>",10003,Processeur dinscription,RPR_UIN_CARD_TEMPLATE,fra,TRUE,superadmin,now()
 1132,Modèle pour courrier électronique de problème technique,Modèle pour courrier électronique de problème technique,txt,,"Madame/Monsieur $!name_fra,
-Votre INU a été désactivé.Si vous souhaitez le réactiver, veuillez nous contacter au incident@wuriguinee.com ou +224622227491.",10003,Processeur dinscription,RPR_UIN_DEAC_SMS,fra,TRUE,superadmin,now()
+Votre INU a été désactivé.Si vous souhaitez le réactiver, veuillez nous contacter au incident@inu.gov.gn ou +224622227491.",10003,Processeur dinscription,RPR_UIN_DEAC_SMS,fra,TRUE,superadmin,now()
 1133,Modèle pour courrier électronique de problème technique,Modèle pour courrier électronique de problème technique,txt,,"Madame/Monsieur $!name_fra,
 Votre INU a été désactivé.Si vous souhaitez le réactiver, 
-veuillez nous contacter au incident@wuriguinee.com ou +224622227491.Merci",10003,Processeur dinscription,RPR_UIN_DEAC_EMAIL,fra,TRUE,superadmin,now()
+veuillez nous contacter au incident@inu.gov.gn ou +224622227491.Merci",10003,Processeur dinscription,RPR_UIN_DEAC_EMAIL,fra,TRUE,superadmin,now()
 1134,Modèle pour courrier électronique de problème technique,Modèle pour courrier électronique de problème technique,txt,,"Madame/Monsieur $!name_fra,
-Votre INU a été réactivé.Pour toute question, veuillez nous contacter au incident@wuriguinee.com ou +224622227491.",10003,Processeur dinscription,RPR_UIN_REAC_SMS,fra,TRUE,superadmin,now()
+Votre INU a été réactivé.Pour toute question, veuillez nous contacter au incident@inu.gov.gn ou +224622227491.",10003,Processeur dinscription,RPR_UIN_REAC_SMS,fra,TRUE,superadmin,now()
 1135,Modèle pour courrier électronique de problème technique,Modèle pour courrier électronique de problème technique,txt,,"Cher $!name_fra,
-Votre INU a été réactivé.Pour toute question, veuillez nous contacter au incident@wuriguinee.com ou +224622227491.
+Votre INU a été réactivé.Pour toute question, veuillez nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci",10003,Processeur dinscription,RPR_UIN_REAC_EMAIL,fra,TRUE,superadmin,now()
-1136,Modèle SMS d'accusé de réception,Modèle de confirmation dinscription,txt,velocity,"Madame/Monsieur ${ResidentName},
+1136,Modèle SMS d'accusé de réception,Modèle de confirmation d'inscription,txt,velocity,"Madame/Monsieur ${ResidentName},
 Merci de vous être inscrit sur la plateforme d’identité numérique WURI GUINEE. 
-Votre identifiant d''inscription est ""${RID}"". 
+Votre identifiant d'inscription est ""${RID}"". 
 Vos détails démographiques sont :
 1.Date d'enregistrement:${Date}
 2.Nom et Prénoms:${name}
@@ -305,12 +305,12 @@ Nous accusons réception de votre requête sur la perte de votre INU . Votre num
 Nous accusons réception de votre requête sur la perte de votre INU . Votre numéro d'enregistrement pour cette demande est ""${RID}"".",10005,Inscription,lostUIN-sms-notification,fra,TRUE,superadmin,now()
 1159,Modèle pour annuler un rendez-vous,Modèle pour annuler un rendez-vous,txt,velocity,"Madame/Monsieur $name,
 Votre rendez-vous pour l'enregistrement (PRID : $PRID) prévu le $Appointmentdate à $Appointmenttime a été annulé. 
-Nous nous en excusons. Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Nous nous en excusons. Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10001,Pré-inscription,cancel-appointment,fra,TRUE,superadmin,now()
 1160,SMS de notification INU perdu,SMS de notification INU perdu,txt,velocity,"Madame/Monsieur $!name_fra,
-Votre carte INU a été retrouvée. Pour la récuperer, veuillez nous contacter au inu@wuriguinee.com ou +224622227491",10003,Processeur dinscription,RPR_LOST_UIN_SMS,fra,TRUE,superadmin,now()
+Votre carte INU a été retrouvée. Pour la récuperer, veuillez nous contacter au inu@inu.gov.gn ou +224622227491",10003,Processeur dinscription,RPR_LOST_UIN_SMS,fra,TRUE,superadmin,now()
 1161,Email de notification INU perdu,Email de notification INU perdu,txt,velocity,"Madame/Monsieur $!name_fra,
-veuillez nous contacter au incident@wuriguinee.com ou +224622227491.
+veuillez nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci",10003,Processeur dinscription,RPR_LOST_UIN_EMAIL,fra,TRUE,superadmin,now()
 1162,Modèle de masque pour carte INU,Modèle de masque pour carte INU,txt,velocity,"<!DOCTYPE html>
 <html>
@@ -488,12 +488,12 @@ Merci!",10006,Resident Services,RS_UNLOCK_AUTH_SUCCESS_EMAIL,fra,TRUE,superadmin
 Le ou les types AUTH demandés ont été déverrouillés avec succès.
 Merci!",10006,Resident Services,RS_UNLOCK_AUTH_SUCCESS_SMS,fra,TRUE,superadmin,now()
 1175,E-mail de réussite de la génération VID,E-mail de réussite de la génération VID,txt,velocity,"Madame/Monsieur $name_fra,
-Votre identifiant virtuel VID a été généré avec succès. Votre numéro VID est $VID.
+Votre identifiant virtuel VID $VID a été généré avec succès.
 Vous pouvez l'utiliser à la place de votre INU.
 Merci!",10006,Resident Services,RS_VIN_GEN_SUCCESS_EMAIL,fra,TRUE,superadmin,now()
 1176,Sujet de l'e-mail de réussite de la génération VID,Sujet de l'e-mail de réussite de la génération VID,txt,velocity,Identifiant virtuel VID généré avec succès,10006,Resident Services,RS_VIN_GEN_SUCCESS_EMAIL_SUB,fra,TRUE,superadmin,now()
 1177,SMS de réussite de génération VID,SMS de réussite de génération VID,txt,velocity,"Madame/Monsieur $name_fra,
-Votre identifiant virtuel VID a été généré avec succès. Votre numéro VID est $VID.
+Votre identifiant virtuel VID $VID a été généré avec succès.
 Vous pouvez l'utiliser à la place de votre INU.
 Merci!",10006,Resident Services,RS_VIN_GEN_SUCCESS_SMS,fra,TRUE,superadmin,now()
 1178,E-mail de réussite de la révocation de VID,E-mail de réussite de la révocation de VID,txt,velocity,"Madame/Monsieur $name_fra,
@@ -501,7 +501,7 @@ Votre identifiant virtuel VID de numéro $VID a été révoqué avec succès.
 Merci!",10006,Resident Services,RS_VIN_REV_SUCCESS_EMAIL,fra,TRUE,superadmin,now()
 1179,Sujet de l'e-mail de réussite de la révocation de VID,Sujet de l'e-mail de réussite de la révocation de VID,txt,velocity,Identifiant virtuel VID : révocation réussie,10006,Resident Services,RS_VIN_REV_SUCCESS_EMAIL_SUB,fra,TRUE,superadmin,now()
 1180,SMS de succès de révocation VID,SMS de succès de révocation VID,txt,velocity,"Madame/Monsieur $name_fra,
-Votre identifiant virtuel VID de numéro $VID a été révoqué avec succès.
+Votre identifiant virtuel VID $VID a été révoqué avec succès.
 Merci!",10006,Resident Services,RS_VIN_REV_SUCCESS_SMS,fra,TRUE,superadmin,now()
 1181,Réimpression de l'e-mail de réussite de la demande,Réimpression de l'e-mail de réussite de la demande,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de Réimpression d'INU a été traitée avec succès. Votre numéro de demande est $RID.
@@ -512,12 +512,12 @@ Votre demande de Réimpression d'INU a été traitée avec succès. Votre numér
 Merci!",10006,Resident Services,RS_UIN_RPR_SUCCESS_SMS,fra,TRUE,superadmin,now()
 1184,E-mail d'échec de la demande d'historique d'authentification,E-mail d'échec de la demande d'historique d'authentification,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de récupération des détails de votre historique d'authentification a échoué.
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_AUTH_HIST_FAILURE_EMAIL,fra,TRUE,superadmin,now()
 1185,Objet de l'e-mail d'échec de la demande d'historique d'authentification,Objet de l'e-mail d'échec de la demande d'historique d'authentification,txt,velocity,Échec de la demande d'historique d'authentification,10006,Resident Services,RS_AUTH_HIST_FAILURE_EMAIL_SUB,fra,TRUE,superadmin,now()
 1186,SMS d'échec de la demande d'historique d'authentification,SMS d'échec de la demande d'historique d'authentification,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de récupération des détails de votre historique d'authentification a échoué.
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_AUTH_HIST_FAILURE_SMS,fra,TRUE,superadmin,now()
 1187,Télécharger l'e-mail d'échec e-INU,Télécharger l'e-mail d'échec e-INU,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de téléchargement du e-INU a échoué. Veuillez réessayer ultérieurement.
@@ -525,52 +525,52 @@ Merci!",10006,Resident Services,RS_DOW_UIN_FAILURE_EMAIL,fra,TRUE,superadmin,now
 1188,Télécharger le sujet de l'e-mail d'échec e-INU,Télécharger le sujet de l'e-mail d'échec e-INU,txt,velocity,Échec du téléchargement du e-INU,10006,Resident Services,RS_DOW_UIN_FAILURE_EMAIL_SUB,fra,TRUE,superadmin,now()
 1189,Télécharger le SMS d'échec e-INU,Télécharger le SMS d'échec e-INU,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de téléchargement du e-INU a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_DOW_UIN_FAILURE_SMS,fra,TRUE,superadmin,now()
 1190,Échec du verrouillage des e-mails des types d'authentification,Échec du verrouillage des e-mails des types d'authentification,txt,velocity,"Madame/Monsieur $name_fra,
 Votre ou vos types de verrouillage AUTH demandés ont échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_LOCK_AUTH_FAILURE_EMAIL,fra,TRUE,superadmin,now()
 1191,Échec du verrouillage des types d'authentification Objet de l'e-mail,Échec du verrouillage des types d'authentification Objet de l'e-mail,txt,velocity,Types AUTH : Échec du verrouillage,10006,Resident Services,RS_LOCK_AUTH_FAILURE_EMAIL_SUB,fra,TRUE,superadmin,now()
 1192,Échec du verrouillage des types d'authentification SMS,Échec du verrouillage des types d'authentification SMS,txt,velocity,"Madame/Monsieur $name_fra,
 Votre ou vos types de verrouillage AUTH demandés ont échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_LOCK_AUTH_FAILURE_SMS,fra,TRUE,superadmin,now()
 1193,E-mail d'échec de la demande de réimpression,E-mail d'échec de la demande de réimpression,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de réimpression de la carte INU a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_UIN_RPR_FAILURE_EMAIL,fra,TRUE,superadmin,now()
 1194,Échec de la demande de réimpression Objet de l'e-mail,Échec de la demande de réimpression Objet de l'e-mail,txt,velocity,INU : Échec de la demande de réimpression,10006,Resident Services,RS_UIN_RPR_FAILURE_EMAIL_SUB,fra,TRUE,superadmin,now()
 1195,SMS d'échec de la demande de réimpression,SMS d'échec de la demande de réimpression,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de réimpression de la carte INU a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_UIN_RPR_FAILURE_SMS,fra,TRUE,superadmin,now()
 1196,Échec du déverrouillage de la messagerie électronique des types d'authentification,Échec du déverrouillage de la messagerie électronique des types d'authentification,txt,velocity,"Madame/Monsieur $!name_fra,
 Votre demande de déverrouillage de type (s) AUTH a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_UNLOCK_AUTH_FAILURE_EMAIL,fra,TRUE,superadmin,now()
 1197,Échec du déverrouillage du sujet de l'e-mail des types d'authentification,Échec du déverrouillage du sujet de l'e-mail des types d'authentification,txt,velocity,Type AUTH : Echec déverrouillage,10006,Resident Services,RS_UNLOCK_AUTH_FAILURE_EMAIL_SUB,fra,TRUE,superadmin,now()
 1198,Échec de déverrouillage des types d'authentification SMS,Échec de déverrouillage des types d'authentification SMS,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de déverrouillage de type (s) AUTH a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_UNLOCK_AUTH_FAILURE_SMS,fra,TRUE,superadmin,now()
 1199,E-mail d'échec de génération de VID,E-mail d'échec de génération de VID,txt,velocity,"Madame/Monsieur $name_fra,
 La génération de votre identifiant virtuel VID a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_VIN_GEN_FAILURE_EMAIL,fra,TRUE,superadmin,now()
 1200,Objet de l'e-mail d'échec de génération de VID,Objet de l'e-mail d'échec de génération de VID,txt,velocity,Identifiant virtual VID : Echec génération,10006,Resident Services,RS_VIN_GEN_FAILURE_EMAIL_SUB,fra,TRUE,superadmin,now()
 1201,SMS d'échec de génération de VID,SMS d'échec de génération de VID,txt,velocity,"Madame/Monsieur $name_fra,
 La génération de votre identifiant virtuel $VID a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_VIN_GEN_FAILURE_SMS,fra,TRUE,superadmin,now()
 1202,E-mail d'échec de révocation de VID,E-mail d'échec de révocation de VID,txt,velocity,"Madame/Monsieur $name_fra,
 La révocation de votre identifiant virtual $VID a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_VIN_REV_FAILURE_EMAIL,fra,TRUE,superadmin,now()
 1203,Objet de l'e-mail d'échec de la révocation du VID,Objet de l'e-mail d'échec de la révocation du VID,txt,velocity,Identifiant virtuel VID : Échec de révocation,10006,Resident Services,RS_VIN_REV_FAILURE_EMAIL_SUB,fra,TRUE,superadmin,now()
 1204,SMS d'échec de révocation de VID,SMS d'échec de révocation de VID,txt,velocity,"Madame/Monsieur $name_fra,
 La révocation de votre identifiant virtual $VID a échoué. 
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_VIN_REV_FAILURE_SMS,fra,TRUE,superadmin,now()
 1205,E-mail de demande de mise à jour INU placé avec succès,E-mail de demande de mise à jour INU placé avec succès,txt,velocity,"Madame/Monsieur $name_fra,
 Votre demande de mise à jour du INU a été traitée avec succès. 
@@ -583,10 +583,10 @@ Pour toute question, votre numéro de demande est $RID.
 Merci!",10006,Resident Services,RS_UIN_UPDATE_SUCCESS_SMS,fra,TRUE,superadmin,now()
 1208,E-mail d'échec de la demande de mise à jour INU,E-mail d'échec de la demande de mise à jour INU,txt,velocity,"Madame/Monsieur $name_fra,
 Nous n'avons pas pu traiter votre demande de mise à jour INU. Nous nous en excusons.
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_UIN_UPDATE_FAILURE_EMAIL,fra,TRUE,superadmin,now()
 1209,Échec de la demande de mise à jour de l'INU,Échec de la demande de mise à jour de l'INU,txt,velocity,INU : Échec de la demande de mise à jour,10006,Resident Services,RS_UIN_UPDATE_FAILURE_EMAIL_SUB,fra,TRUE,superadmin,now()
 1210,Echec de la demande de mise à jour INU SMS,Echec de la demande de mise à jour INU SMS,txt,velocity,"Madame/Monsieur $name_fra,
 Nous n'avons pas pu traiter votre demande de mise à jour INU. Nous nous en excusons.
-Veuillez réessayer ultérieurement ou nous contacter au incident@wuriguinee.com ou +224622227491.
+Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
 Merci!",10006,Resident Services,RS_UIN_UPDATE_FAILURE_SMS,fra,TRUE,superadmin,now()
