@@ -111,8 +111,9 @@ jobs:
     - name: Publish the maven package
       run: |
         chmod +x ./deploy.sh
-        cd kernel && mvn deploy -Dgpg.skip -DskipTests -s $GITHUB_WORKSPACE/settings.xml -f pom.xml
-          
+       # #cd kernel && mvn deploy -Dgpg.skip -DskipTests -s $GITHUB_WORKSPACE/settings.xml -f pom.xml
+        ./deploy.sh kernel $GITHUB_WORKSPACE/settings.xml .*
+        
    # - name: Publish the maven package registration
    #   run: |
         #chmod +x ./deploy.sh
