@@ -54,7 +54,11 @@ jobs:
      # run: |
       #  cd registration
        # mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests
-
+    - name: Publish the maven package
+      run: |
+        chmod +x ./deploy.sh
+        cd kernel && mvn deploy -Dgpg.skip -DskipTests -s $GITHUB_WORKSPACE/settings.xml -f pom.xml
+        
     - name: Ready the springboot artifacts
       run: |
         ls -lrt
@@ -108,10 +112,10 @@ jobs:
         cd kernel
         mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
         
-    - name: Publish the maven package
-      run: |
-        chmod +x ./deploy.sh
-        cd kernel && mvn deploy -Dgpg.skip -DskipTests -s $GITHUB_WORKSPACE/settings.xml -f pom.xml
+#    - name: Publish the maven package
+ #     run: |
+#        chmod +x ./deploy.sh
+ #       cd kernel && mvn deploy -Dgpg.skip -DskipTests -s $GITHUB_WORKSPACE/settings.xml -f pom.xml
  #      # ./deploy.sh kernel $GITHUB_WORKSPACE/settings.xml .*
         
         
