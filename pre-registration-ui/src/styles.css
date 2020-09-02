@@ -259,7 +259,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   border-bottom: solid 1px #BCE0FD  !important;
   border-top: none !important;
   border-right: none !important;
-  padding-bottom: 3px;
+  padding-bottom: 6px;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix{
   /*Suppression du border solid sur le field email*/
