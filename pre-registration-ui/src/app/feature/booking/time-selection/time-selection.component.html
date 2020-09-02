@@ -12,9 +12,9 @@
       <mat-spinner [diameter]="50"></mat-spinner>
     </div>
     <div id="legend-step">
-    <p> - &nbsp;{{ 'timeSelection.text_step1' | translate }}
+    <p>  &nbsp; {{ 'timeSelection.text_step1' | translate }}
     </p> 
-    <p> - &nbsp;{{ 'timeSelection.text_step2' | translate }}</p> 
+    <p>  &nbsp; {{ 'timeSelection.text_step2' | translate }}</p> 
     </div>
     <mat-card class="time-selection__date-card  positionnement">
       <div *ngIf="availabilityData.length !== 0">
@@ -32,7 +32,7 @@
               <mat-card-content class="time-selection__date">
                 <p class="time-selection__tile-date">{{ data.displayDate }}</p>
                 <p class="time-selection__tile-date-text">{{ data.displayDay }}</p>
-                <p class="time-selection__tile-availability-text">{{ data.TotalAvailable }}</p>
+                <p class="time-selection__tile-availability-text">{{availabilityData[i].timeSlots[selectedCard].names.length }}</p>
                 <p class="time-selection__tile-availability-text">{{ 'timeSelection.text_availability' | translate }}</p>
               </mat-card-content>
             </mat-card>
