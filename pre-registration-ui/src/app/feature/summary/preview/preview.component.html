@@ -168,15 +168,14 @@
       (click)="modifyDocument()"
       class="preview__modify-file position_modify"
       matTooltip="{{ 'helpText.modify_at_DocumentPreview' | translate }}"
-      ><img src="assets/edit.svg" /></span
-    >
+      ><img src="assets/edit.svg" /></span>
         <div>
           <table id="justificatifstable" *ngIf="documentMapObject">
             <tr  *ngFor="let object of documentMapObject" class="preview__file__table__header">
               <td >{{ object.name }}</td>
-              <td>
-                <p *ngIf="object.fileName !== undefined">{{ object.fileName }}</p>
-                <p class="error" *ngIf="object.fileName === undefined">{{ 'preview.text_not_uploaded' | translate }}</p>
+              <td  *ngIf="object.fileName !== undefined">{{ object.fileName }}</td>
+                <td>
+               {{ 'preview.text_not_uploaded' | translate }}
               </td>
             </tr>
           </table>

@@ -10,7 +10,7 @@
 .preview__file__table__header{
   position: relative;
   top: 5px;
-  line-height: 0px;
+  line-height: 10px;
 }
 .preview__file__table__data{
   position: relative;
@@ -260,9 +260,9 @@
   left: -5px;
 }
 #justificatifstable{
-  margin-top: -39px;
+  margin-top: -31px;
 }
 #contactblock{
-  padding-right: 242px;
+  padding-right: 244px;
   width: 42rem;
 }
