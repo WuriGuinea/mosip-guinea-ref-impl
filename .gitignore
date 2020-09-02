@@ -8,6 +8,7 @@ target
 .classpath
 .factorypath
 /.idea/
+*.iml
 /kernel/*.project
 /registration-processor-utilities/packet-generator-uploader-utility/.project
 /registration-processor-utilities/packet-generator-uploader-utility/.settings
