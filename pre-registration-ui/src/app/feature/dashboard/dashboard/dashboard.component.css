@@ -161,7 +161,10 @@ img {
   text-transform: uppercase;
 }
 .buttons {
-  margin: auto;
+  margin-top: 1rem;
+}
+[_ngcontent-c9].buttons{
+  margin: 1rem;
 }
 .checkbox {
   white-space: nowrap;
