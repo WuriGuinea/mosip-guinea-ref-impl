@@ -12,9 +12,10 @@
   margin: 0px 2vw;
   border: 1px solid #020F59;
   border-radius: 10px;
-  height: 590px;
+  height: 411px;
   display: block;
   z-index: 2;
+  margin-bottom: 5px;
 }
 @media (max-width: 1200px) {
   .time-selection__title-card {
@@ -35,6 +36,7 @@
   margin: auto;
   color: #020F59;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .time-selection__date-card {
@@ -44,24 +46,26 @@
   margin-top: 35px;
   border: 1px solid #BCE0FD  ;
   border-radius: 10px;
+  left: -18px;
 }
 
 .time-selection__tile-date {
   margin: 10px 0 10px 0;
   font-size: 1rem;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .time-selection__tile-date-text {
   margin: 10px 0 10px 0;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .time-selection__tile-availability-text {
   margin: 15px 0 15px 0;
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .time-selection__slots-div {
@@ -94,13 +98,12 @@
 }
 
 .time-selection__time-slots-container {
-  margin-right: 20px;
   padding: 0;
   border-radius: 0px;
 }
 
 .time-selection__names-container {
-  min-width: 58% !important;
+  min-width: 54% !important;
   padding: 0;
   display: flex !important;
   flex-direction: row !important;
@@ -110,9 +113,9 @@
 .time-selection__time-slots-container div {
   display: -webkit-flex;
   flex-wrap: wrap;
-  max-width: 90%;
+  max-width: 100%;
   display :inline-table;
-  margin: -2px;
+  margin: 0px;
 }
 
 .time-selection__name-list-header {
@@ -154,6 +157,7 @@
   height: 30px;
   width: 100%;
   font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
 .name-delete-button {
@@ -255,25 +259,24 @@
 }
 
 .sizing {
-  height: 80%;
+  height: 90%;
   display: inline-block;
   margin: 0 8px 0 2px;
   text-align: left;
   cursor: pointer;
   background-color: #fff;
-  padding: 2px 20px 2px 20px;
+  padding: 8px 20px 2px 20px;
   border: 1px solid #020F59;
 }
 
 .sizing:nth-child(1) {
   margin-left: 0px;
-  height: 80%;
 }
 
 .middle {
   float: left;
   overflow: hidden;
-  width: 67.5%;
+  width: 78%;
   white-space: nowrap;
   margin: 0 15px;
 }
@@ -281,20 +284,21 @@
 .container {
   display: flex;
   text-align: center;
+  margin-top: 10px;
 }
 
 .left-button {
   margin: auto;
   float: left;
   cursor: pointer;
-  padding-top: 18px;
+  padding-top: 5px;
 }
 
 .right-button {
   margin: auto;
   float: right;
   cursor: pointer;
-  padding-top: 18px;
+  padding-top: 5px;
 }
 
 .disabled {
@@ -338,7 +342,7 @@
   font-size: 0.8rem;
   margin: 4px 2rem;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: none;
 }
 .user-book_later-btn {
   background-color: #BCE0FD;
@@ -352,7 +356,7 @@
   margin: 4px 2rem;
   cursor: pointer;
   margin-right: 0px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 .user-continue-btn {
   background-color: #BCE0FD ;
@@ -365,7 +369,7 @@
   font-size: 0.8rem;
   margin: 4px 3rem 4px 1.2rem !important;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: none;
 }
 .user-continue-btn-normal {
   background-color: #BCE0FD ;
@@ -436,7 +440,7 @@
 
 @media (min-width: 1040px) {
   .middle {
-    width: 65%;
+    width: 78%;
   }
 }
 
@@ -482,9 +486,24 @@
 }
 #legend-step{
   position: relative;
-  margin-bottom: -30px;
+  margin-bottom: -24px;
   margin-top: -30px;
+  line-height:4px;
 }
 .mat-card-header{
   margin-left: -27px;
+}
+.box-content{
+margin-top: -6px;
+padding-bottom: 25px;
+}
+.time-selection__title-card-text{
+  margin-bottom:38px ;
+  margin-left: 4px;
+  font-family: Roboto;
+  font-weight: bold;
+}
+.blueslot{
+  background: #020F59;
+  color:white;
 }

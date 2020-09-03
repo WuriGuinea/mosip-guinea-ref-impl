@@ -29,11 +29,12 @@
             <mat-card *ngFor="let data of availabilityData | slice: 0:days; let i = index"
               [ngClass]="data.holiday ? 'sizing disabled' : selectedTile === i ? 'sizing selected' : 'sizing'"
               (click)="dateSelected(i)">
-              <mat-card-content class="time-selection__date">
+              <mat-card-content class="time-selection__date box-content">
                 <p class="time-selection__tile-date">{{ data.displayDate }}</p>
                 <p class="time-selection__tile-date-text">{{ data.displayDay }}</p>
-                <p class="time-selection__tile-availability-text">{{availabilityData[i].timeSlots[selectedCard].names.length }}</p>
-                <p class="time-selection__tile-availability-text">{{ 'timeSelection.text_availability' | translate }}</p>
+                <p class="time-selection__tile-availability-text">
+                 {{availabilityData[i].timeSlots[selectedCard].names.length }} {{ 'timeSelection.text_reserved' | translate }}
+                </p>
               </mat-card-content>
             </mat-card>
           </div>
@@ -62,7 +63,10 @@
               <mat-card *ngIf="data.tag === activeTab"
                 [ngClass]="selectedCard === i ? 'card card-content selected-card' : 'card card-content'"
                 (click)="cardSelected(i)">
-                <mat-card-content style="width:100%">
+                <mat-card-content style="width:100%"
+                [ngClass]="{
+                  'blueslot' : availabilityData[selectedTile].timeSlots[i].names.length !== 0
+               }">
                   <p class="card-time-text">
                     {{ data.displayTime }}
                   </p>
