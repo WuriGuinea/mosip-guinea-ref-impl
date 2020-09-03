@@ -117,33 +117,19 @@
 .preview__personal-info-table {
   width: 32rem;
   font-size: 0.8rem;
-  margin-top: -25px;
+  margin-top: -36px;
+  padding-right: 141px;
   line-height: 0.2em;
   width: max-content;
 }
-.text-red{
-  color:red;
-}
 
 .preview__personal-info-table td {
-  padding-bottom: 15px;
+  padding: 10px 65px 10px 0;
 }
-
-.preview__personal-info-address-table {
-  margin-top: -30px;
+#position-txt{
+  position: relative;
+  left: -15px;
 }
-.preview__personal-info-address-table td {
-  padding-bottom: 5px;  
-}
-
-.personal-info-label{
-  white-space: nowrap;
-  width: 12.5rem;
-}
-.break-text{
-  white-space: pre-wrap;
-}
-
 .text_uppercase{
   text-transform: uppercase;
 }
@@ -275,4 +261,8 @@
 }
 #justificatifstable{
   margin-top: -31px;
+}
+#contactblock{
+  padding-right: 244px;
+  width: 42rem;
 }
