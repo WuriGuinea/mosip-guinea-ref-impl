@@ -1,7 +1,0 @@
-code,dtyp_code,name,descr,is_active,cr_by,cr_dtimes
-Slab,Finger,Slab,Fingerprint Slab,TRUE,superadmin,now()
-Single,Finger,Single,Fingerprint Single Finger,TRUE,superadmin,now()
-Touchless,Finger,Touchless,Touch Fingerprint,TRUE,superadmin,now()
-SingleIris,Iris,Single,Single,TRUE,superadmin,now()
-DoubleIris,Iris,Double,Double,TRUE,superadmin,now()
-Full face,Face,Full face,Full Face,TRUE,superadmin,now()

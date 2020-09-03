@@ -215,7 +215,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       if (i == 0) {
         this.allowedFilesHtml = this.allowedFilesHtml + file.substring(file.indexOf('/') + 1);
       } else {
-        this.allowedFilesHtml = this.allowedFilesHtml + ','+ file.substring(file.indexOf('/') + 1);
+        this.allowedFilesHtml = this.allowedFilesHtml + ', '+ file.substring(file.indexOf('/') + 1);
       }
       i++;
     }
