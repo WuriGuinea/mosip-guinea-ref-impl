@@ -24,7 +24,7 @@
 }
 
 .applicants_card {
-  margin-right: 10px ;
+  margin-right: 14px ;
   margin-bottom: 10px;
 }
 .disable_add {
@@ -107,8 +107,11 @@
   padding: 0;
   display: flex !important;
   flex-direction: row !important;
-  padding-left: 10%;
+  padding-left: 1%;
 }
+#appcard{
+  width: 50%;
+  }
 
 .time-selection__time-slots-container div {
   display: -webkit-flex;
@@ -129,7 +132,8 @@
 }
 
 .time-selection__names-header-date-text {
-  font-size: 12px;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
 .time-selection__names-header-time-text {
@@ -489,6 +493,7 @@
   margin-bottom: -24px;
   margin-top: -30px;
   line-height:4px;
+  font-size: 14px;
 }
 .mat-card-header{
   margin-left: -27px;

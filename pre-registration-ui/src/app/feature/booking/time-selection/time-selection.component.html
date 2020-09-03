@@ -79,7 +79,7 @@
         </div>
       </mat-card>
       <mat-card class="time-selection__names-container">
-        <div class="applicants_card">
+        <div id="appcard" class="applicants_card">
           <div class="time-selection__name-list-header">
             {{ 'timeSelection.text_available' | translate }}
           </div>
@@ -96,19 +96,15 @@
             </table>
           </div>
         </div>
-        <div *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined">
+        <div id="appcard" *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined">
           <div class="time-selection__name-list-header">
             <div >
               <span *ngIf="availabilityData[selectedTile].timeSlots[selectedCard].names.length !== 0" 
-              class="compteur">{{availabilityData[selectedTile].timeSlots[selectedCard].names.length }}</span>
+              class="compteur">({{availabilityData[selectedTile].timeSlots[selectedCard].names.length }})</span>
             </div>
-            <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDay }}</span>,
-            <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDate }}</span>
-            <br />
+            <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDate }}</span>,
             <span
-              class="time-selection__names-header-time-text">{{availabilityData[selectedTile].timeSlots[selectedCard].displayTime}}</span>,
-            <span (click)="tabSelected('morning')" class="time-selection__names-header-day-text" *ngIf="activeTab === 'morning'">{{'timeSelection.text_morning' | translate }}</span>
-            <span (click)="tabSelected('morning')" class="time-selection__names-header-day-text" *ngIf="activeTab === 'afternoon'">{{'timeSelection.text_afternoon' | translate }}</span>
+              class="time-selection__names-header-time-text">{{availabilityData[selectedTile].timeSlots[selectedCard].displayTime}}</span>
           </div>
           <table class="time-selection__name-list">
             <tr class="placeholder" *ngIf="availabilityData[selectedTile].timeSlots[selectedCard].names.length === 0"><i>{{ 'timeSelection.applicant_selected_list_empty' | translate }}</i></tr>
