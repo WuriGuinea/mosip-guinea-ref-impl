@@ -279,6 +279,7 @@
                                     placeholder="Complément d'adresse"
                                     [formControlName]="formControlNames.additionalAddressDetails"
                                     rows="4"
+                                    onKeyUp="limite(this,40);" onKeyDown="limite(this,40);"
                             >
                             </textarea>
                     </div>

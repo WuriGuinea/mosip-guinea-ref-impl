@@ -4,7 +4,7 @@
 }
 
 .preview__file__table__header td {
-  font-size: 0.8rem;
+  font-size: 14px;
   padding: 0 15px 10px 0;
 }
 .preview__file__table__header{
@@ -142,6 +142,7 @@
 }
 .break-text{
   white-space: pre-wrap;
+  line-break: anywhere;
 }
 
 .text_uppercase{
