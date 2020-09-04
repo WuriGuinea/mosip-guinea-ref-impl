@@ -394,6 +394,10 @@ input.mat-input-element{
 .mat-select-value-text{
   color: #020F59 !important;
 }
+.mat-select{
+  display: -ms-grid;
+}
+
 .mat-form-field-label-wrapper{
   top: -15px !important;
 }

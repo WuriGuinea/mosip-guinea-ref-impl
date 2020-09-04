@@ -232,6 +232,12 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   overflow: visible !important;
   min-height: 275px !important;
 }
+.ol-unselectable{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 
 .ol-overlaycontainer-stopevent {
   text-align: right;
