@@ -407,7 +407,7 @@ textarea.mat-input-element{
   border-radius: 5px;
   height: 55px;
   border: solid 1px #BCE0FD  !important;
-  color: #000000;
+  color: black;
 }
 
 .mat-option-text {
