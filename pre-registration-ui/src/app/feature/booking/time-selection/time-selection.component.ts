@@ -324,17 +324,17 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
         ) {
           let timespan = response[appConstants.NESTED_ERROR][0].message.match(/\d+/g);
           let errorMessage = this.errorlabels.timeExpired_1 + timespan[0] + this.errorlabels.timeExpired_2;
-          this.displayMessage('Erreur', errorMessage, {
+          this.displayMessage('Error', errorMessage, {
             error: response
           });
         } else {
-          this.displayMessage('Erreur', this.errorlabels.error, {
+          this.displayMessage('Error', this.errorlabels.error, {
             error: response
           });
         }
       },
       error => {
-        this.displayMessage('Erreur', this.errorlabels.error, error);
+        this.displayMessage('Error', this.errorlabels.error, error);
       }
     );
     this.subscriptions.push(subs);
