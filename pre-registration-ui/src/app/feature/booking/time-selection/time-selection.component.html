@@ -80,7 +80,7 @@
         </div>
       </mat-card>
       <mat-card class="time-selection__names-container">
-        <div id="appcard" class="applicants_card">
+        <div class="appcard" class="applicants_card">
           <div class="time-selection__name-list-header">
             {{ 'timeSelection.text_available' | translate }}
           </div>
@@ -97,7 +97,7 @@
             </table>
           </div>
         </div>
-        <div id="appcard" *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined">
+        <div class="appcard" *ngIf="availabilityData[selectedTile] !== undefined && selectedCard !== undefined">
           <div class="time-selection__name-list-header">
             <div >
               <span *ngIf="availabilityData[selectedTile].timeSlots[selectedCard].names.length !== 0" 
