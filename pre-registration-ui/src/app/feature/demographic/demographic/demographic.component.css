@@ -395,7 +395,8 @@ input.mat-input-element{
   color: #020F59 !important;
 }
 .mat-select{
-  display: -ms-grid;
+  display: grid;
+  display: -moz-grid;
 }
 
 .mat-form-field-label-wrapper{
@@ -406,6 +407,7 @@ textarea.mat-input-element{
   border-radius: 5px;
   height: 55px;
   border: solid 1px #BCE0FD  !important;
+  color: #000000;
 }
 
 .mat-option-text {
