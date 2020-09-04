@@ -679,9 +679,10 @@ export class DashBoardComponent implements OnInit, OnDestroy {
     const appointmentDate = user.appointmentDateTime.split('(')[0];
     const dateform = new Date(appointmentDate);
     if (dateform.toDateString() !== 'Invalid Date') {
-      const appointmentTimeInMilliseconds = this.getTimeInMilliseconds(user.appointmentTime);      
-      let dateTimeNow: string = new Date(Date.now()).toString();
-      let diffInMilliseconds: number = (Date.parse(appointmentDate) + appointmentTimeInMilliseconds) - Date.parse(dateTimeNow);
+      const appointmentTimeInMilliseconds = this.getTimeInMilliseconds(user.appointmentTime);    
+      const now = new Date();  
+      let dateTimeUtcNow: string = new Date(now.getTime() + now.getTimezoneOffset() * 60000).toString();
+      let diffInMilliseconds: number = (Date.parse(appointmentDate) + appointmentTimeInMilliseconds) - Date.parse(dateTimeUtcNow);
       let diffInHours: number = diffInMilliseconds / 1000 / 60 / 60;
       return diffInHours >= this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_timespan_rebook);  
     }
