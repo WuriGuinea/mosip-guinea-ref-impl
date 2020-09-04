@@ -14,8 +14,8 @@
   border-radius: 10px;
   height: 411px;
   display: block;
-  z-index: 2;
   margin-bottom: 5px;
+  margin: 4px;
 }
 @media (max-width: 1200px) {
   .time-selection__title-card {
@@ -38,7 +38,12 @@
   cursor: pointer;
   font-weight: bold;
 }
-
+#rightbutton{
+  margin-right: -20px;
+}
+#leftbutton{
+  margin-left: -11px;
+}
 .time-selection__date-card {
   margin: 0px 2vw;
   border-radius: 0px;
@@ -72,9 +77,8 @@
   display: flex;
   margin: -38px 33px 1px 2vw;
   padding-bottom: 80px;
-  border:solid 1px #BCE0FD;
   border-radius: 15px;
-  padding: 14px;
+  padding: 2px;
 }
 .mat-card:not([class*=mat-elevation-z]){
   box-shadow: none !important;
@@ -91,10 +95,11 @@
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
+  color: #707070;
 }
 
 .time-seelection__slot-groups-div-selected {
-  color: blue !important;
+  color:#020F59 !important;
 }
 
 .time-selection__time-slots-container {
@@ -129,10 +134,11 @@
   word-wrap: break-word;
   color: white;
   border-radius: 6px 6px 0px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
 }
 
 .time-selection__names-header-date-text {
-  font-size: 18px;
   text-transform: uppercase;
 }
 
@@ -146,7 +152,7 @@
 }
 
 .time-selection__name-list {
-  padding: 0px 2rem;
+  padding: 0px 20px 2rem;
   list-style: none;
   width: 100%;
   word-wrap: break-word;
@@ -258,14 +264,14 @@
   font-size: 0.8rem;
   font-weight: 500;
   color: #020F59;
-  margin-top: -48px; 
-  margin-left: 101px; 
+  margin-top: -49px; 
+  margin-left: 97px; 
 }
 
 .sizing {
   height: 90%;
   display: inline-block;
-  margin: 0 8px 0 2px;
+  margin: 0 1px 0 2px;
   text-align: left;
   cursor: pointer;
   background-color: #fff;
@@ -296,6 +302,7 @@
   float: left;
   cursor: pointer;
   padding-top: 5px;
+  margin-left: -18px;
 }
 
 .right-button {
@@ -303,6 +310,7 @@
   float: right;
   cursor: pointer;
   padding-top: 5px;
+  margin-right: -18px;
 }
 
 .disabled {
@@ -347,6 +355,7 @@
   margin: 4px 2rem;
   cursor: pointer;
   text-transform: none;
+  font-weight: bold;
 }
 .user-book_later-btn {
   background-color: #BCE0FD;
@@ -361,6 +370,7 @@
   cursor: pointer;
   margin-right: 0px;
   text-transform: none;
+  font-weight: bold;
 }
 .user-continue-btn {
   background-color: #BCE0FD ;
@@ -374,6 +384,7 @@
   margin: 4px 3rem 4px 1.2rem !important;
   cursor: pointer;
   text-transform: none;
+  font-weight: bold;
 }
 .user-continue-btn-normal {
   background-color: #BCE0FD ;
@@ -465,14 +476,15 @@
 
 .placeholder{
   color: #707070;
-  font-size: 0.7rem;
-  padding: 5px 0 15px 10px;
+  font-size: 0.8rem;
+  padding: 5px 0 15px 0px;
   scroll-snap-align: center;
   display: flex;
   text-align: center;
   vertical-align: middle;
   height: 30px;
   width: 100%;
+  text-transform: uppercase;
 }
 
 @media (min-width: 859px) and (max-width: 1125px){
@@ -492,8 +504,9 @@
   position: relative;
   margin-bottom: -24px;
   margin-top: -30px;
+  margin-left: 6px;
   line-height:4px;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 .mat-card-header{
   margin-left: -27px;
@@ -504,7 +517,7 @@ padding-bottom: 25px;
 }
 .time-selection__title-card-text{
   margin-bottom:38px ;
-  margin-left: 4px;
+  margin-left: 8px;
   font-family: Roboto;
   font-weight: bold;
 }

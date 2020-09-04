@@ -19,7 +19,7 @@
     <mat-card class="time-selection__date-card  positionnement">
       <div *ngIf="availabilityData.length !== 0">
         <div class="container">
-          <div class="time-selection__arrow-text">
+          <div id="leftbutton" class="time-selection__arrow-text">
             <p (click)="scrollLeft()">{{ 'timeSelection.text_prev' | translate }}</p>
           </div>
           <div class="left-button">
@@ -41,7 +41,7 @@
           <div class="right-button">
             <a (click)="scrollRight()"><img src="assets/Forward_arrow.png" /></a>
           </div>
-          <div class="time-selection__arrow-text">
+          <div id="rightbutton" class="time-selection__arrow-text">
             <p (click)="scrollRight()">{{ 'timeSelection.text_next' | translate }}</p>
           </div>
         </div>
@@ -71,6 +71,7 @@
                     {{ data.displayTime }}
                   </p>
                   <p [ngClass]="selectedCard === i ? 'card-slot-text-selected' : 'card-slot-text'">
+                    ( {{ data.availability }} )
                   </p>
                 </mat-card-content>
               </mat-card>
