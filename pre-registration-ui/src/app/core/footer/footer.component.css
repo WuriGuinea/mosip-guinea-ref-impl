@@ -4,7 +4,7 @@
   border-color: #707070;
   padding-top: 0px;
   padding-bottom: 4px;
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   width: 99%;
   z-index: 2;
