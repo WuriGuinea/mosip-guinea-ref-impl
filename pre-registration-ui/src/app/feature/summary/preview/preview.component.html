@@ -145,8 +145,8 @@
             <table id="justificatifstable" *ngIf="documentMapObject">
               <tr *ngFor="let object of documentMapObject" class="preview__file__table__header">
                 <td>{{ object.name }}</td>
-                <td *ngIf="object.fileName">{{ object.fileName }}</td>
-                <td class="text-red" *ngIf="!object.fileName">
+                <td *ngIf="object.fileName" class="text-bold">{{ object.fileName }}</td>
+                <td class="text-red text-bold" *ngIf="!object.fileName">
                   {{ 'preview.text_not_uploaded' | translate }}
                 </td>
               </tr>

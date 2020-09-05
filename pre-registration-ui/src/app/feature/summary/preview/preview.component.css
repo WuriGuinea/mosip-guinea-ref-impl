@@ -116,13 +116,17 @@
 
 .preview__personal-info-table {
   width: 32rem;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   margin-top: -25px;
   line-height: 0.2em;
   width: max-content;
 }
 .text-red{
   color:red;
+}
+
+.text-bold{
+  font-weight: bold;
 }
 
 .preview__personal-info-table td {
