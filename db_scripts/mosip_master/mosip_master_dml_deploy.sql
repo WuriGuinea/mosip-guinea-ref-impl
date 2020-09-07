@@ -353,7 +353,7 @@ TRUNCATE TABLE master.zone_user_h cascade ;
 ----- TRUNCATE master.device_provider_h TABLE Data and It's reference Data and COPY Data from CSV file -----
 TRUNCATE TABLE master.device_provider_h cascade ;
 
-\COPY master.device_provider_h (code,name,descr,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-device_provider_h.csv' delimiter ',' HEADER  csv;
+\COPY master.device_provider_h (id,vendor_name,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-device_provider_h.csv' delimiter ',' HEADER  csv;
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
