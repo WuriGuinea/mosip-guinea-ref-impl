@@ -231,7 +231,7 @@ TRUNCATE TABLE master.machine_master cascade ;
 ----- TRUNCATE master.registered_device_master TABLE Data and It's reference Data and COPY Data from CSV file -----
 TRUNCATE TABLE master.registered_device_master cascade ;
 
-\COPY master.machine_master (code,dtype_code,dstype_code,status_code,device_id,device_sub_id,digital_id,serial_number,provider_id,provider_name,purpose,firmware,make,model,expiry_date,certification_level,foundational_trust_provider_id,is_active,cr_by,cr_dtimes) FROM './dml/master-registered_device_master.csv' delimiter ',' HEADER  csv;
+\COPY master.registered_device_master (code,dtype_code,dstype_code,status_code,device_id,device_sub_id,digital_id,serial_number,provider_id,provider_name,purpose,firmware,make,model,expiry_date,certification_level,foundational_trust_provider_id,is_active,cr_by,cr_dtimes) FROM './dml/master-registered_device_master.csv' delimiter ',' HEADER  csv;
 
 
 ----- TRUNCATE master.screen_authorization TABLE Data and It's reference Data and COPY Data from CSV file -----
