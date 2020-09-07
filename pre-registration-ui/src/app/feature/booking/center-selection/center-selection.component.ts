@@ -144,7 +144,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
                   let errStr = response["errors"].reduce(function (c, e) {
                     return c + "\n" + e.message
                   }, "");
-                  alert(errStr)
+                  console.error(errStr);
                 } else {
                   alert("error occured while getting recommended centers")
                 }

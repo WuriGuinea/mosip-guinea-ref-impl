@@ -75,7 +75,7 @@ L'Équipe WURI Guinée",10002,Client dinscription,Update-email-content-template,
 Merci de mettre à jour vos coordonnées sur la plateforme UNIR. Numéro de référence $RegistrationID. 
 Au besoin, veuillez nous contacter au : enregistrement@inu.gov.gn ou +224622227491.",10002,Client dinscription,Update-sms-template,fra,TRUE,superadmin,now()
 1124,Template for email confirmation,Template for email confirmation,txt,,"Madame/Monsieur $name, 
-Nous vous confirmons votre rendez-vous d'enregistrement pour l'obtention d'un INU le $Appointmentdate à $Appointmmenttime. Votre numéro pré-enregistrement est le $PRID.
+Nous vous confirmons votre rendez-vous d'enregistrement pour l'obtention d'un INU le $Appointmentdate à $Appointmenttime. Votre numéro pré-enregistrement est le $PRID.
 Ces détails vous seront également envoyés par SMS au numéro de téléphone fourni.
 Vous pouvez prendre, consulter ou modifier vos rendez-vous sur inu.gov.gn.
 Cordialement,
@@ -102,7 +102,7 @@ L'Équipe WURI Guinée",10001,Pré-inscription,OTP-email-content-template,fra,TR
 Votre mot de passe à usage unique est $otp. Sa durée de validité est de $validTime minutes. Numéro de pré-enregistrement : $PRID
 Généré le $date à $heure hrs.",10001,Pré-inscription,OTP-sms-template,fra,TRUE,superadmin,now()
 1129,Template for SMS Acknowledgment,Template for SMS Acknowledgment,txt,,"Monsieur/Madame $lastName,
-Votre rendez-vous INU (référence $PRID prévu le $Appointmentdate à $Appointmmenttime est confirmé.
+Votre rendez-vous INU (référence $PRID prévu le $Appointmentdate à $Appointmenttime est confirmé.
 Cordialement,
 L'Équipe WURI Guinée",10001,Pré-inscription,SMS-Acknowledgement,fra,TRUE,superadmin,now()
 1130,Modèle pour le sujet d'email d'accusé de réception,Modèle pour le sujet d'email d'accusé de réception,txt,,Pré-enregistrement $PRID: Récépissé de prise de rendez-vous,10001,Pré-inscription,Acknowledgement-email-subject,fra,TRUE,superadmin,now()
