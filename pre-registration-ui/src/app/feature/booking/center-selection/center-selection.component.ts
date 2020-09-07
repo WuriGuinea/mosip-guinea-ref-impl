@@ -75,7 +75,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.users = this.service.getNameList();
     this.getRecommendedCenters();
     this.getErrorLabels();
-    this.centerSelectedOption = 'Recommandés'; // TODO: translate centerSelection.display_recommended' | translate
+    this.centerSelectedOption = 'Recommanded';
   }
 
   // Hack: for displaying SOUS-Prefecture and COMMUNE separately and retrieving PAYS option
