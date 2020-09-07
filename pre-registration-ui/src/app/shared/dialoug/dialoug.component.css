@@ -9,11 +9,19 @@
 }
 
 .body-height {
-  height: 60px;
+  height: 80px;
 }
 
 .button-placer {
   margin: 0 0 0 20px;
+}
+
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+  border-color: #020F59;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle{
+  background-color: #020F59;
 }
 
 .close-button-sizing {
