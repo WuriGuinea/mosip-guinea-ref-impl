@@ -29,6 +29,11 @@ TRUNCATE TABLE master.device_type cascade ;
 
 \COPY master.device_type (code,name,descr,lang_code,is_active,cr_by,cr_dtimes) FROM './dml/master-device_type.csv' delimiter ',' HEADER  csv;
 
+----- TRUNCATE master.device_provider TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.device_provider cascade ;
+
+\COPY master.device_provider (id,vendor_name,is_active,cr_by,cr_dtimes) FROM './dml/master-device_provider.csv' delimiter ',' HEADER  csv;
+
 ----- TRUNCATE master.doc_category TABLE Data and It's reference Data and COPY Data from CSV file -----
 TRUNCATE TABLE master.doc_category cascade ;
 
@@ -344,6 +349,11 @@ TRUNCATE TABLE master.user_detail_h cascade ;
 TRUNCATE TABLE master.zone_user_h cascade ;
 
 \COPY master.zone_user_h (zone_code,usr_id,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-zone_user_h.csv' delimiter ',' HEADER  csv;
+
+----- TRUNCATE master.device_provider_h TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.device_provider_h cascade ;
+
+\COPY master.device_provider_h (code,name,descr,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-device_provider_h.csv' delimiter ',' HEADER  csv;
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
