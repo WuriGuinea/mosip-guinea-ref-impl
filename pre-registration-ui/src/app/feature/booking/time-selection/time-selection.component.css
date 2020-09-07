@@ -9,12 +9,12 @@
   color: #020F59;
   padding: 0px;
   align-items: center;
-  margin: 40px 2vw 15vw;
+  margin: 13px 4vw 15vw;
   border: 1px solid #020F59;
   border-radius: 10px;
-  height: 65vw;
+  height: 517px;
   display: block;
-  z-index: 1;
+  margin-bottom: 116px;
 }
 @media (max-width: 1200px) {
   .time-selection__title-card {
@@ -23,7 +23,7 @@
 }
 
 .applicants_card {
-  margin-right: 10px ;
+  margin-right: 14px ;
   margin-bottom: 10px;
 }
 .disable_add {
@@ -35,8 +35,14 @@
   margin: auto;
   color: #020F59;
   cursor: pointer;
+  font-weight: bold;
 }
-
+#rightbutton{
+  margin-right: -20px;
+}
+#leftbutton{
+  margin-left: -11px;
+}
 .time-selection__date-card {
   margin: 0px 2vw;
   border-radius: 0px;
@@ -44,33 +50,34 @@
   margin-top: 35px;
   border: 1px solid #BCE0FD  ;
   border-radius: 10px;
+  left: -18px;
 }
 
 .time-selection__tile-date {
   margin: 10px 0 10px 0;
   font-size: 1rem;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .time-selection__tile-date-text {
   margin: 10px 0 10px 0;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .time-selection__tile-availability-text {
   margin: 15px 0 15px 0;
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .time-selection__slots-div {
   display: flex;
   margin: -38px 33px 1px 2vw;
   padding-bottom: 80px;
-  border:solid 1px #BCE0FD;
   border-radius: 15px;
-  padding: 14px;
+  padding: 2px;
 }
 .mat-card:not([class*=mat-elevation-z]){
   box-shadow: none !important;
@@ -87,32 +94,35 @@
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
+  color: #707070;
 }
 
 .time-seelection__slot-groups-div-selected {
-  color: blue !important;
+  color:#020F59 !important;
 }
 
 .time-selection__time-slots-container {
-  margin-right: 20px;
   padding: 0;
   border-radius: 0px;
 }
 
 .time-selection__names-container {
-  min-width: 58% !important;
+  min-width: 54% !important;
   padding: 0;
   display: flex !important;
   flex-direction: row !important;
-  padding-left: 10%;
+  padding-left: 1%;
 }
+.appcard{
+  width: 50%;
+  }
 
 .time-selection__time-slots-container div {
   display: -webkit-flex;
   flex-wrap: wrap;
-  max-width: 90%;
+  max-width: 100%;
   display :inline-table;
-  margin: -2px;
+  margin: 0px;
 }
 
 .time-selection__name-list-header {
@@ -123,10 +133,12 @@
   word-wrap: break-word;
   color: white;
   border-radius: 6px 6px 0px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
 }
 
 .time-selection__names-header-date-text {
-  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .time-selection__names-header-time-text {
@@ -139,7 +151,7 @@
 }
 
 .time-selection__name-list {
-  padding: 0px 2rem;
+  padding: 0px 20px 2rem;
   list-style: none;
   width: 100%;
   word-wrap: break-word;
@@ -154,6 +166,7 @@
   height: 30px;
   width: 100%;
   font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
 .name-delete-button {
@@ -250,30 +263,29 @@
   font-size: 0.8rem;
   font-weight: 500;
   color: #020F59;
-  margin-top: -48px; 
-  margin-left: 101px; 
+  margin-top: -49px; 
+  margin-left: 97px; 
 }
 
 .sizing {
-  height: 80%;
+  height: 90%;
   display: inline-block;
-  margin: 0 8px 0 2px;
+  margin: 0 1px 0 2px;
   text-align: left;
   cursor: pointer;
   background-color: #fff;
-  padding: 2px 20px 2px 20px;
+  padding: 8px 20px 2px 20px;
   border: 1px solid #020F59;
 }
 
 .sizing:nth-child(1) {
   margin-left: 0px;
-  height: 80%;
 }
 
 .middle {
   float: left;
   overflow: hidden;
-  width: 67.5%;
+  width: 78%;
   white-space: nowrap;
   margin: 0 15px;
 }
@@ -281,18 +293,23 @@
 .container {
   display: flex;
   text-align: center;
+  margin-top: 10px;
 }
 
 .left-button {
   margin: auto;
   float: left;
   cursor: pointer;
+  padding-top: 5px;
+  margin-left: -18px;
 }
 
 .right-button {
   margin: auto;
   float: right;
   cursor: pointer;
+  padding-top: 5px;
+  margin-right: -18px;
 }
 
 .disabled {
@@ -336,7 +353,8 @@
   font-size: 0.8rem;
   margin: 4px 2rem;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: none;
+  font-weight: bold;
 }
 .user-book_later-btn {
   background-color: #BCE0FD;
@@ -350,7 +368,8 @@
   margin: 4px 2rem;
   cursor: pointer;
   margin-right: 0px;
-  text-transform: uppercase;
+  text-transform: none;
+  font-weight: bold;
 }
 .user-continue-btn {
   background-color: #BCE0FD ;
@@ -363,7 +382,8 @@
   font-size: 0.8rem;
   margin: 4px 3rem 4px 1.2rem !important;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: none;
+  font-weight: bold;
 }
 .user-continue-btn-normal {
   background-color: #BCE0FD ;
@@ -434,7 +454,7 @@
 
 @media (min-width: 1040px) {
   .middle {
-    width: 85%;
+    width: 78%;
   }
 }
 
@@ -455,14 +475,15 @@
 
 .placeholder{
   color: #707070;
-  font-size: 0.7rem;
-  padding: 5px 0 15px 10px;
+  font-size: 0.8rem;
+  padding: 5px 0 15px 0px;
   scroll-snap-align: center;
   display: flex;
   text-align: center;
   vertical-align: middle;
   height: 30px;
   width: 100%;
+  text-transform: uppercase;
 }
 
 @media (min-width: 859px) and (max-width: 1125px){
@@ -480,9 +501,26 @@
 }
 #legend-step{
   position: relative;
-  margin-bottom: -30px;
+  margin-bottom: -24px;
   margin-top: -30px;
+  margin-left: 6px;
+  line-height:4px;
+  font-size: 0.9rem;
 }
 .mat-card-header{
   margin-left: -27px;
+}
+.box-content{
+margin-top: -6px;
+padding-bottom: 25px;
+}
+.time-selection__title-card-text{
+  margin-bottom:38px ;
+  margin-left: 8px;
+  font-family: Roboto;
+  font-weight: bold;
+}
+.blueslot{
+  background: #020F59;
+  color:white;
 }

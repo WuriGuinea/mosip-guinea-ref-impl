@@ -85,7 +85,7 @@
   margin-bottom: 1rem;
   width: 49%;
   float: left;
-   height: 322px !important;
+  height: 340px !important;
 }
 
 .test1 {
@@ -350,7 +350,6 @@ mat-icon {
 
 .mat-input-element {
   font: inherit;
-  color: black;
   border: none;
 }
 .mat-form-field-infix{
@@ -390,10 +389,16 @@ margin-bottom:10px;
 }
 input.mat-input-element{
   text-transform: uppercase !important;
+  color: black;
 }
 .mat-select-value-text{
   color: #020F59 !important;
 }
+.mat-select{
+  display: grid;
+  display: -moz-grid;
+}
+
 .mat-form-field-label-wrapper{
   top: -15px !important;
 }
@@ -418,7 +423,7 @@ textarea.mat-input-element{
   margin-bottom: -14px;
 }
 #complementadr{
-  margin-bottom: -10px;
+  margin-bottom: -6px;
   font-weight: 300;
   font-family: Roboto;
   font-size: 15px;

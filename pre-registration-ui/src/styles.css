@@ -232,9 +232,16 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   overflow: visible !important;
   min-height: 275px !important;
 }
+.ol-unselectable{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 
 .ol-overlaycontainer-stopevent {
   text-align: right;
+  height: 25rem;
 }
 
 .ol-rotate-reset {
@@ -259,7 +266,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   border-bottom: solid 1px #BCE0FD  !important;
   border-top: none !important;
   border-right: none !important;
-  padding-bottom: 3px;
+  padding-bottom: 7px;
 }
 .mat-form-field-appearance-outline .mat-form-field-infix{
   /*Suppression du border solid sur le field email*/

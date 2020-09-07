@@ -78,9 +78,9 @@ input[type='radio'] {
 }
 
 .map {
-  width: 40%;
+  width: 50%;
     display: block;
-    margin-top: -2vw;
+    margin-top: 2.4vw;
   }
 
 .container {
@@ -194,9 +194,8 @@ input[type='radio'] {
   display: none;
 }
 .search-input {
-  padding: 10px;
+  padding: 10px 10px 7px;
   outline: none;
-  color: #000000;
   font-family: Roboto;
   opacity: 100%;
   background-color: white;
