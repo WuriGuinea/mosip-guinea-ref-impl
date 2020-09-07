@@ -476,7 +476,7 @@
 .placeholder{
   color: #707070;
   font-size: 0.8rem;
-  padding: 5px 0 15px 0px;
+  padding: 1rem 0 15px 2rem;
   scroll-snap-align: center;
   display: flex;
   text-align: center;
