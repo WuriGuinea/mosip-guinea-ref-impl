@@ -4,7 +4,7 @@
 }
 
 .preview__file__table__header td {
-  font-size: 14px;
+  font-size: 0.782rem;
   padding: 0 15px 10px 0;
 }
 .preview__file__table__header{
@@ -116,7 +116,7 @@
 
 .preview__personal-info-table {
   width: 32rem;
-  font-size: 0.875rem;
+  font-size: 0.782rem;
   margin-top: -25px;
   line-height: 0.2em;
   width: max-content;
@@ -135,6 +135,7 @@
 
 .preview__personal-info-address-table {
   margin-top: -30px;
+  font-size: 0.782rem;
 }
 .preview__personal-info-address-table td {
   padding-bottom: 5px;  
