@@ -85,7 +85,7 @@ import io.mosip.registration.processor.status.service.RegistrationStatusService;
 
 /**
  * The Class PrintServiceImpl.
- * 
+ *
  * @author M1048358 Alok
  * @author Girish Yarru
  */
@@ -200,7 +200,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see io.mosip.registration.processor.core.spi.print.service.PrintService#
 	 * getDocuments(io.mosip.registration.processor.core.constant.IdType,
 	 * java.lang.String, java.lang.String, boolean)
@@ -208,7 +208,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public Map<String, byte[]> getDocuments(IdType idType, String idValue, String cardType,
-			boolean isPasswordProtected) {
+											boolean isPasswordProtected) {
 		regProcLogger.debug(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
 				"PrintServiceImpl::getDocuments()::entry");
 
@@ -282,7 +282,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 
 			// generating pdf
 			byte[] pdfbytes = uinCardGenerator.generateUinCard(uinArtifact, UinCardType.PDF, password);
-		
+
 			byteMap.put(UIN_CARD_PDF, pdfbytes);
 
 			byte[] uinbyte = attributes.get(IdType.UIN.toString()).toString().getBytes();
@@ -399,7 +399,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	}
 
 	private String setTemplateForMaskedUIN(String cardType, String uin, String vid, Map<String, Object> attributes,
-			String template) throws ApisResourceAccessException, VidCreationException, IOException {
+										   String template) throws ApisResourceAccessException, VidCreationException, IOException {
 		if (cardType.equalsIgnoreCase(CardType.MASKED_UIN.toString())) {
 			template = MASKED_UIN_CARD_TEMPLATE;
 			if (vid == null) {
@@ -428,7 +428,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		pathsegments.add(idValue);
 		String queryParamName = "type";
 		String queryParamValue = "all";
-		
+
 		IdResponseDTO1 response;
 		if (idType.equalsIgnoreCase(IdType.UIN.toString())) {
 			response = (IdResponseDTO1) restClientService.getApi(ApiName.IDREPOGETIDBYUIN, pathsegments, queryParamName,
@@ -455,20 +455,9 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	 * @return the byte[]
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
-<<<<<<< HEAD
-	 * @throws QrcodeGenerationException 
+	 * @throws QrcodeGenerationException
 	 */
 	private byte[] createTextFile(String jsonString) throws IOException, QrcodeGenerationException {
-=======
-<<<<<<< HEAD
-	 * @throws QrcodeGenerationException 
-	 */
-	private byte[] createTextFile(String jsonString) throws IOException, QrcodeGenerationException {
-=======
-	 */
-	private byte[] createTextFile(String jsonString) throws IOException {
->>>>>>> c3e510cfc2fb37d3ab450ba514c10b6d9bfb1669
->>>>>>> fc4ece5c9c09d9438a80ba7c48aba68d082f1620
 
 		LinkedHashMap<String, String> printTextFileMap = new LinkedHashMap<>();
 		JSONObject demographicIdentity = JsonUtil.objectMapperReadValue(jsonString, JSONObject.class);
@@ -505,74 +494,35 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 			}
 
 		}
-<<<<<<< HEAD
-		
-		
-=======
-<<<<<<< HEAD
-		
-		
-		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
-		String printTextFileString = gson.toJson(printTextFileMap);
-		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(printTextFileString);
+
+
+		Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().serializeNulls().create();
+		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(gson.toJson(printTextFileMap));
 		printTextFileMap.put("digitalSignature", digitalSignaturedQrData);
 		String qrString = gson.toJson(printTextFileMap);
-		String qrCode=getQrCode( qrString);
-		printTextFileMap.put("qrCode", qrCode);
-		
-		printTextFileString = gson.toJson(printTextFileMap);
-		regProcLogger.debug("QRcodejsoncontent:::"+LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
+		String qrCode=getQrCode(qrString);
+		printTextFileMap.put(QRCODE, qrCode);
+		String printTextFileString = gson.toJson(printTextFileMap);
+
+		regProcLogger.debug(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
 				printTextFileString);
+
 		return printTextFileString.getBytes();
 	}
-	
+
 	private String getQrCode(String qrString) throws IOException, QrcodeGenerationException {
 
 		byte[] qrCodeBytes = qrCodeGenerator.generateQrCode(qrString, QrVersion.V30);
 		if (qrCodeBytes != null) {
 			String imageString = CryptoUtil.encodeBase64String(qrCodeBytes);
-			
+
 			return "data:image/png;base64," + imageString;
-			
+
 		}
 
 		return null;
-		
-	}
-=======
 
->>>>>>> fc4ece5c9c09d9438a80ba7c48aba68d082f1620
-		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
-		String printTextFileString = gson.toJson(printTextFileMap);
-		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(printTextFileString);
-		printTextFileMap.put("digitalSignature", digitalSignaturedQrData);
-		String qrString = gson.toJson(printTextFileMap);
-		String qrCode=getQrCode( qrString);
-		printTextFileMap.put("qrCode", qrCode);
-		
-		printTextFileString = gson.toJson(printTextFileMap);
-		regProcLogger.debug("QRcodejsoncontent:::"+LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(), "",
-				printTextFileString);
-		return printTextFileString.getBytes();
 	}
-<<<<<<< HEAD
-	
-	private String getQrCode(String qrString) throws IOException, QrcodeGenerationException {
-
-		byte[] qrCodeBytes = qrCodeGenerator.generateQrCode(qrString, QrVersion.V30);
-		if (qrCodeBytes != null) {
-			String imageString = CryptoUtil.encodeBase64String(qrCodeBytes);
-			
-			return "data:image/png;base64," + imageString;
-			
-		}
-
-		return null;
-		
-	}
-=======
->>>>>>> c3e510cfc2fb37d3ab450ba514c10b6d9bfb1669
->>>>>>> fc4ece5c9c09d9438a80ba7c48aba68d082f1620
 
 	/**
 	 * Sets the qr code.
@@ -591,19 +541,30 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 			throws QrcodeGenerationException, IOException {
 		String qrString = new String(textFileByte);
 		boolean isQRCodeSet = false;
-		String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(qrString);
+		byte[] qrCodeBytes=null;
+
 		JSONObject textFileJson = JsonUtil.objectMapperReadValue(qrString, JSONObject.class);
-		textFileJson.put("digitalSignature", digitalSignaturedQrData);
 
-		Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
-		String printTextFileString = gson.toJson(textFileJson);
+		if(!textFileJson.containsKey("digitalSignature") || textFileJson.get("digitalSignature")==null) {
+			String digitalSignaturedQrData = digitalSignatureUtility.getDigitalSignature(qrString);
+			textFileJson.put("digitalSignature", digitalSignaturedQrData);
+		}
 
-		byte[] qrCodeBytes = qrCodeGenerator.generateQrCode(printTextFileString, QrVersion.V30);
-		if (qrCodeBytes != null) {
-			String imageString = CryptoUtil.encodeBase64String(qrCodeBytes);
-			attributes.put(QRCODE, "data:image/png;base64," + imageString);
+		if(!textFileJson.containsKey(QRCODE) || textFileJson.get(QRCODE)==null) {
+			Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+			String printTextFileString = gson.toJson(textFileJson);
+			qrCodeBytes = qrCodeGenerator.generateQrCode(printTextFileString, QrVersion.V30);
+			if (qrCodeBytes != null) {
+				String imageString = CryptoUtil.encodeBase64String(qrCodeBytes);
+				attributes.put(QRCODE, "data:image/png;base64," + imageString);
+				isQRCodeSet = true;
+			}
+		}
+		else {
+			attributes.put(QRCODE, textFileJson.get(QRCODE));
 			isQRCodeSet = true;
 		}
+
 
 		return isQRCodeSet;
 	}
