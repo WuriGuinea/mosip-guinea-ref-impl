@@ -341,7 +341,7 @@ Veuillez mettre à jour vos coordonnées sur la plateforme UNIR. Votre numéro d
 1157,Modèle d'email de reconnaissance,Modèle de confirmation d'inscription,txt,velocity,"Madame/Monsieur ${FIRSTNAME} ${LASTNAME}, 
 Nous accusons réception de votre requête sur la perte de votre INU . Votre numéro d'enregistrement pour cette demande est ""${RID}"".",10005,Inscription,lostUIN-email-notification,fra,TRUE,superadmin,now()
 1158,Modèle de SMS de reconnaissance,Modèle de confirmation d'inscription,txt,velocity,"Madame/Monsieur ${FIRSTNAME} ${LASTNAME}, 
-Nous accusons réception de votre requête sur la perte de votre INU . Numéro de référence "${RID}".",10005,Inscription,lostUIN-sms-notification,fra,TRUE,superadmin,now()
+Nous accusons réception de votre requête sur la perte de votre INU . Numéro de référence ""${RID}"".",10005,Inscription,lostUIN-sms-notification,fra,TRUE,superadmin,now()
 1159,Modèle pour annuler un rendez-vous,Modèle pour annuler un rendez-vous,txt,velocity,"Madame/Monsieur $name,
 Votre rendez-vous pour l'enregistrement (PRID : $PRID) prévu le $Appointmentdate à $Appointmenttime a été annulé. 
 Nous nous en excusons. Veuillez réessayer ultérieurement ou nous contacter au incident@inu.gov.gn ou +224622227491.
