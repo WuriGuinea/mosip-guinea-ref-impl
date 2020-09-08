@@ -171,7 +171,7 @@ body {
 }
 
 .mat-slide-toggle .mat-slide-toggle-thumb {
-  background-color: #ff4081;
+  background-color: #020F59;
 }
 
 .mat-slide-toggle .mat-slide-toggle-bar {
@@ -184,7 +184,7 @@ body {
 
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
-  background-color: #f19f8c;
+  background-color: #020F59;
 }
 
 .user__gender mat-button-toggle-group .mat-button-toggle .mat-button-toggle-button .mat-button-toggle-label-content {

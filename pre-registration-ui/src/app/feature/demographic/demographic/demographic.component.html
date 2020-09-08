@@ -273,6 +273,8 @@
                     </div>
                     <div style="margin-top: 8px;"class="row"> 
                             <h4 id="complementadr">{{ 'demographic.label_additionalAddressDetails' | translate }}</h4>
+                            <img  matTooltip="{{ 'helpText.info' | translate }}" [matTooltipDisabled]="false"
+                src="assets\iconinfo.png" class="iconinfo" />
                             <textarea
                                     matInput
                                     #additionalAddressDetails
