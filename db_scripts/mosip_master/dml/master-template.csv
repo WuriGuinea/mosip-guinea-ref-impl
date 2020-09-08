@@ -299,12 +299,12 @@ Veuillez trouver ci-joint votre mot de passe à usage unique $otp. Ce code vous 
 
 Cordialement,
 L'Équipe WURI Guinée",10001,Pré-inscription,auth-otp-email-content-template,fra,TRUE,superadmin,now()
-1145,Service d'authentification OTP,auth otp service for sending otp,txt,velocity,"Madame/Monsieur ${FIRSTNAME} ${LASTNAME}, 
-Votre clé OTP est $otp. Sa durée de validité est de $validTime minutes
+1145,Service d'authentification OTP,auth otp service for sending otp,txt,velocity,"Madame/Monsieur,
+Votre clé OTP est $otp. Sa durée de validité est de 5 minutes
 Merci",10002,Client dinscription,auth-otp-sms-template,fra,TRUE,superadmin,now()
 1146,auth otp email service subject,auth otp email service subject,txt,velocity,Mot de passe à usage unique (OTP),10002,Client dinscription,auth-otp-email-subject-template,fra,TRUE,superadmin,now()
-1147,auth otp email service subject,auth otp email service subject,txt,velocity,"Madame/Monsieur ${FIRSTNAME} ${LASTNAME}, 
-Votre mot de passe à usage unique est $otp. Sa durée de validité est de $validTime minutes.
+1147,auth otp email service subject,auth otp email service subject,txt,velocity,"Madame/Monsieur,
+Votre mot de passe à usage unique est $otp. Sa durée de validité est de 5 minutes.
 
 Cordialement,
 L'Équipe WURI Guinée",10002,Client dinscription,auth-otp-email-content-template,fra,TRUE,superadmin,now()
