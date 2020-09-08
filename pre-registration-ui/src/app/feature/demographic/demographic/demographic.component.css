@@ -434,3 +434,13 @@ textarea.mat-input-element{
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-empty.mat-form-field-label{
   top: 24px;
 }
+
+.iconinfo{
+  touch-action: none;
+    padding: 1px;
+    margin-top: 2px;
+    user-select: none;
+    -webkit-tap-highlight-color: #020F59;
+    width: 15px;
+    height: 14px;
+}
