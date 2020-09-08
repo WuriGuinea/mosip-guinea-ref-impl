@@ -439,6 +439,7 @@ textarea.mat-input-element{
   touch-action: none;
     padding: 1px;
     margin-top: 2px;
+    margin-left: 5px;
     user-select: none;
     -webkit-tap-highlight-color: #020F59;
     width: 15px;
