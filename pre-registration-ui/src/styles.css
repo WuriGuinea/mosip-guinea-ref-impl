@@ -171,7 +171,7 @@ body {
 }
 
 .mat-slide-toggle .mat-slide-toggle-thumb {
-  background-color: #ff4081;
+  background-color: #020F59;
 }
 
 .mat-slide-toggle .mat-slide-toggle-bar {
@@ -184,7 +184,7 @@ body {
 
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
-  background-color: #f19f8c;
+  background-color: #020F59;
 }
 
 .user__gender mat-button-toggle-group .mat-button-toggle .mat-button-toggle-button .mat-button-toggle-label-content {
@@ -338,4 +338,8 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 
 .card-header .checkbox .mat-checkbox-disabled .mat-checkbox-layout .mat-checkbox-inner-container{
   background-color: grey;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: #020F59;
 }
