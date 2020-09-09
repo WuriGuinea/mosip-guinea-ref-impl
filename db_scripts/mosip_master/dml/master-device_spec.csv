@@ -4,3 +4,4 @@
 736,Webcam,Logitech,C270,CMR,2.086,Pour prendre la photo,fra,TRUE,superadmin,now()
 801,imageFORMULA,Canon,DR-C130,SCN,1.02,Pour numériser les documents,fra,TRUE,superadmin,now()
 920,Single Function Inkjet,Canon,TS207,PRT,1.123,Pour imprimer les documents,fra,TRUE,superadmin,now()
+444,Fingerprint Scanner,Safran Morpho,1300 E2,FRS,1.12,Pour capturer les empreintes digitales,fra,TRUE,superadmin,now()
