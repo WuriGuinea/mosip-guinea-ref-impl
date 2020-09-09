@@ -220,6 +220,11 @@ TRUNCATE TABLE master.reg_device_sub_type cascade ;
 
 \COPY master.reg_device_sub_type (code,dtyp_code,name,descr,is_active,cr_by,cr_dtimes) FROM './dml/master-reg_device_sub_type.csv' delimiter ',' HEADER  csv;
 
+----- TRUNCATE master.mosip_device_service TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.mosip_device_service cascade ;
+
+\COPY master.mosip_device_service (id,sw_binary_hash,sw_version,dprovider_id,dtype_code,dstype_code,make,model,sw_cr_dtimes,sw_expiry_dtimes,is_active,cr_by,cr_dtimes) FROM './dml/master-mosip_device_service.csv' delimiter ',' HEADER  csv;
+
 
 -------------- Level 3 data load scripts ------------------------
 
@@ -355,12 +360,12 @@ TRUNCATE TABLE master.device_provider_h cascade ;
 
 \COPY master.device_provider_h (id,vendor_name,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-device_provider_h.csv' delimiter ',' HEADER  csv;
 
+----- TRUNCATE master.mosip_device_service_h TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.mosip_device_service_h cascade ;
+
+\COPY master.mosip_device_service_h (id,sw_binary_hash,sw_version,dprovider_id,dtype_code,dstype_code,make,model,sw_cr_dtimes,sw_expiry_dtimes,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-mosip_device_service_h.csv' delimiter ',' HEADER  csv;
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
 
 
 
