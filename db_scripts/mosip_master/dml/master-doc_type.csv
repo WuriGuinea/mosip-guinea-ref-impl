@@ -22,5 +22,5 @@ DOC014,Facture d’eau des 3 derniers mois,Facture d’eau des 3 derniers mois,f
 DOC015,Extrait de naissance,Document emis par les services d'Etat civil,fra,TRUE,superadmin,now()
 DOC016,Attestation médicale d'invalidité,Attestation médicale d'invalidité,fra,TRUE,superadmin,now()
 DOC017,Titre de séjour,Titre de séjour,fra,TRUE,superadmin,now()
-DOC018,Consent of proof,Residence permit,fra,TRUE,superadmin,now()
-EOP,Exception de photo,Exception de photo,fra,TRUE,superadmin,now()
+DOC018,Formulaire de consentement,Formulaire de consentement,fra,TRUE,superadmin,now()
+EOP,Photo de l'exception,Photo de l'exception,fra,TRUE,superadmin,now()
