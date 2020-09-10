@@ -285,7 +285,7 @@
 	},
 	"demographic": {
 		"title": "Informations Personnelles",
-		"champs_oblig": " Champs Obligatoires",
+		"champs_oblig": " Champs obligatoires",
 		"language": "français",
 		"label_first_name": "Prénom(s) ",
 		"label_last_name": "Nom de Famille ",
