@@ -6,13 +6,13 @@
         <div class="user">
             <form [formGroup]="userForm" class="user__form">
                 <div [dir]="textDir" class="user__container card">
-                    <mat-label class="champs"> <span style="color: red;">*</span> : {{ 'demographic.champs_oblig' | translate }} </mat-label>
+                    <mat-label class="champs"> <span class="mandatory">*</span> : {{ 'demographic.champs_oblig' | translate }} </mat-label>
                     <h4 id="titleposition" class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4> 
                     <br/>
                     <div class="row">
                         <div class="col-50">
                             <mat-form-field>
-                                <mat-label>{{ 'demographic.label_first_name' | translate }} <span style="color: red;">*</span></mat-label>
+                                <mat-label>{{ 'demographic.label_first_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
                                         matInput
                                         #firstName
@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-50">
                             <mat-form-field>
-                                <mat-label>{{ 'demographic.label_last_name' | translate }} <span style="color: red;">*</span></mat-label>
+                                <mat-label>{{ 'demographic.label_last_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
                                         matInput
                                         #lastName
@@ -41,7 +41,7 @@
                     </div>
 
                     <mat-label style="position: relative;margin-left: 3px;bottom: -20px;font-size: 15px;font-family: Roboto;
-                    ">{{ 'demographic.text_date' | translate }} <span style="color: red;">*</span></mat-label>
+                    ">{{ 'demographic.text_date' | translate }} <span class="mandatory">*</span></mat-label>
                     <div class="user__age-or-date">
                         <div style="margin-right: 12px;" class="user__date">
                             <mat-form-field>
@@ -81,7 +81,7 @@
                         </div>
                         <div style="margin-right: 67px;" class="user__age">
                             <mat-form-field>
-                                <mat-label>{{ 'demographic.label_age' | translate }}  <span style="color: red;">*</span></mat-label>
+                                <mat-label>{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
                                 <input
                                         matInput
                                         tabindex="-1"
@@ -108,7 +108,7 @@
                     <div class="user__genderAndForeigner user__dropdown">
 
                         <mat-form-field>
-                            <mat-label>{{ 'demographic.text_gender' | translate }} <span style="color: red;">*</span></mat-label>
+                            <mat-label>{{ 'demographic.text_gender' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     [formControlName]="formControlNames.gender"
                                     (change)="onGenderChange(genders, $event)"
@@ -130,7 +130,7 @@
                     <div style="margin-left: 7px;" class="user__genderAndForeigner user__dropdown">
 
                         <mat-form-field>
-                            <mat-label>{{ 'demographic.text_residence_status' | translate }} <span style="color: red;">*</span></mat-label>
+                            <mat-label>{{ 'demographic.text_residence_status' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     [formControlName]="formControlNames.residenceStatus"
                                     (change)="onResidenceStatusChange(residenceStatus, $event)"
@@ -191,7 +191,7 @@
                    <br/>
                     <div class="user__dropdown">
                         <mat-form-field>
-                            <mat-label>{{ 'demographic.label_region' | translate }} <span style="color: red;">*</span></mat-label>
+                            <mat-label>{{ 'demographic.label_region' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, prefectures, regions, formControlNames.prefecture)"
@@ -211,7 +211,7 @@
 
                     <div class="user__dropdown">
                         <mat-form-field>
-                            <mat-label>{{ 'demographic.label_prefecture' | translate }} <span style="color: red;">*</span></mat-label>
+                            <mat-label>{{ 'demographic.label_prefecture' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, subPrefectureOrCommunes, prefectures, formControlNames.subPrefectureOrCommune)"
@@ -230,7 +230,7 @@
                     </div>
                     <div style="margin-top: 12px;" class="user__dropdown">
                         <mat-form-field>
-                            <mat-label>{{ 'demographic.label_subprefectureOrCommune' | translate }} <span style="color: red;">*</span></mat-label>
+                            <mat-label>{{ 'demographic.label_subprefectureOrCommune' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, districts, subPrefectureOrCommunes, formControlNames.district)"
@@ -247,7 +247,7 @@
                     </div>
                     <div class="user__dropdown">
                         <mat-form-field>
-                            <mat-label>{{ 'demographic.label_district' | translate }} <span style="color: red;">*</span></mat-label>
+                            <mat-label>{{ 'demographic.label_district' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, sectors, districts, formControlNames.sector)"
@@ -264,7 +264,7 @@
                     </div>
                     <div style="margin-top: 10px;" class="user__dropdown">
                         <mat-form-field>
-                            <mat-label>{{ 'demographic.label_sector' | translate }} <span style="color: red;">*</span></mat-label>
+                            <mat-label>{{ 'demographic.label_sector' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, null, sectors)"
