@@ -12,7 +12,7 @@
   margin: 13px 4vw 15vw;
   border: 1px solid #020F59;
   border-radius: 10px;
-  height: 517px;
+  min-height: 517px;
   display: block;
   margin-bottom: 116px;
 }
