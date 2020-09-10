@@ -399,6 +399,9 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       res => {
         if (res[appConstants.RESPONSE]) {
           this.LOD = res['response'].documentCategories; 
+          this.LOD = this.LOD.filter((ele, i) => {
+            return ele.code !== 'POE';            
+          });
           this.enableBrowseButtonList = new Array(this.LOD.length).fill(false);
           this.registration.setDocumentCategories(res['response'].documentCategories);
           this.onModification();
