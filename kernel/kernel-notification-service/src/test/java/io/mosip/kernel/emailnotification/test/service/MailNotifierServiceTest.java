@@ -77,7 +77,7 @@ public class MailNotifierServiceTest {
 
 	@Test
 	public void verifySendMessageFunctionalityWithFromAddress() throws Exception {
-		String fromEmail = "from.test@mosip.io";
+		String fromEmail = "nepasrepondre@inu.gov.gn";
 		String[] mailTo = { "test@mosip.io" };
 		String[] mailCc = { "testTwo@mosip.io" };
 		String mailSubject = "Test Subject";
