@@ -156,9 +156,9 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
           slot.tag = 'afternoon';
           element.showAfternoon = true;
         }
-        slot.displayTime = Number(fromTime[0]) > 12 ? Number(fromTime[0]) - 12 : fromTime[0];
+        slot.displayTime = Number(fromTime[0]) > 24 ? Number(fromTime[0]) - 12 : fromTime[0];
         slot.displayTime += ':' + fromTime[1] + ' - ';
-        slot.displayTime += Number(toTime[0]) > 12 ? Number(toTime[0]) - 12 : toTime[0];
+        slot.displayTime += Number(toTime[0]) > 24 ? Number(toTime[0]) - 12 : toTime[0];
         slot.displayTime += ':' + toTime[1];
       });
       element.TotalAvailable = sumAvailability;
