@@ -81,17 +81,21 @@ Vous pouvez prendre, consulter ou modifier vos rendez-vous sur inu.gov.gn.
 Cordialement,
 L'Équipe WURI Guinée",10001,Pré-inscription,Email-Acknowledgement,fra,TRUE,superadmin,now()
 1125,On-screen recognition template,On-screen recognition template,txt,,"Le jour de votre rendez-vous:
-1. Veuillez relever votre numéro de pré-enregistrement. Il vous faudra le présenter au guichet pour compléter votre demande. Vous pouvez également imprimer cette page ou télécharger ce document et le présenter à l'opérateur.
-2. Pour une meilleure expérience, veuillez arriver 15 minutes avant l'heure de votre rendez-vous.
-3. Les mineurs, quel que soit leur age, et un titulaire de l'autorité parentale ou un représentant légal doivent se présenter ensemble lors du dépôt de la demande d'un INU.
-4. Merci de vous présenter muni si possible des pièces justificatives ci-dessous pour appuyer votre demande. Veuillez noter que ces documents doivent être établis au nom de l’acquéreur et qu'un seul document dans chaque catégorie de documents valables serait suffisant.
- a)Justificatif d'identité (extrait de naissance, jugement supplétif, carte d'identité nationale, passeport, permis de conduire, carte électorale, matricule emploi ou permis de travail, carte militaire, carte de pension sociale, certificat de naissance, certificat de mariage)
- b)Justificatif de domicile ( certificat de résidence, facture d'eau, d'électricité ou de téléphone fixe, contrat de bail locatif)
- c)Justificatif de liens de parenté (extrait de naissance, jugement supplétif, carte de sécurité sociale, certificat de parenté, carte de pension sociale)
- d)Justificatif d'exception ( photo de l'exception, certificat d'invalidité temporaire ou permanente)
- e)Justificatif de date de naissance (extrait de naissance, jugement de supplétif)
- f)Formulaire de consentement (disponible sur notre site inu.gov.gn/assets/consentement.pdf ou au bureau d'enregistrement)
-5. Nous capturerons vos renseignements biométriques (empreintes digitales, image de l'Iris, et photo) lorsque vous vous présenterez à votre rendez-vous.",10001,Pré-inscription,Onscreen-Acknowledgement,fra,TRUE,superadmin,now()
+<ol>
+<li> Veuillez relever votre numéro de pré-enregistrement. Il vous faudra le présenter au guichet pour compléter votre demande. Vous pouvez également imprimer cette page ou télécharger ce document et le présenter à l'opérateur.</li>
+<li> Pour une meilleure expérience, veuillez arriver 15 minutes avant l'heure de votre rendez-vous.</li>
+<li> Les mineurs, quel que soit leur age, et un titulaire de l'autorité parentale ou un représentant légal doivent se présenter ensemble lors du dépôt de la demande d'un INU.</li>
+<li> Merci de vous présenter muni si possible des pièces justificatives ci-dessous pour appuyer votre demande. Veuillez noter que ces documents doivent être établis au nom de l’acquéreur et qu'un seul document dans chaque catégorie de documents valables serait suffisant.</li>
+<ul>
+	<li>Justificatif d'identité (extrait de naissance, jugement supplétif, carte d'identité nationale, passeport, permis de conduire, carte électorale, matricule emploi ou permis de travail, carte militaire, carte de pension sociale, certificat de naissance, certificat de mariage)</li>
+	<li>Justificatif de domicile ( certificat de résidence, facture d'eau, d'électricité ou de téléphone fixe, contrat de bail locatif)</li>
+	<li>Justificatif de liens de parenté (extrait de naissance, jugement supplétif, carte de sécurité sociale, certificat de parenté, carte de pension sociale)</li>
+	<li>Justificatif d'exception ( photo de l'exception, certificat d'invalidité temporaire ou permanente)</li>
+	<li>Justificatif de date de naissance (extrait de naissance, jugement de supplétif)</li>
+	<li>Formulaire de consentement (disponible sur notre site inu.gov.gn/assets/consentement.pdf ou au bureau d'enregistrement)</li>
+</ul>
+<li>Nous capturerons vos renseignements biométriques (empreintes digitales, image de l'Iris, et photo) lorsque vous vous présenterez à votre rendez-vous.</li>
+</ol>",10001,Pré-inscription,Onscreen-Acknowledgement,fra,TRUE,superadmin,now()
 1126,OTP Email Content Template,OTP Email Content Template,txt,,"Madame/Monsieur $name,
 Veuillez trouver ci-joint votre mot de passe à usage unique $otp. Ce code vous permettra d’accéder à nos services d'enrôlement. Sa durée de validité est de 5 minutes.
 
