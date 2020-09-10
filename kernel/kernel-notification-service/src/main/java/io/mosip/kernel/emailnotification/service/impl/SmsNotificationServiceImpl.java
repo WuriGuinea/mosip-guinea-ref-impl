@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import io.mosip.kernel.core.notification.model.SMSResponseDto;
 import io.mosip.kernel.core.notification.spi.SMSServiceProvider;
 import io.mosip.kernel.emailnotification.service.SmsNotification;
-import io.mosip.kernel.smsserviceprovider.mtn.constant.SmsPropertyConstant;
+import io.mosip.kernel.smsserviceprovider.msg91.constant.SmsPropertyConstant;
 
 /**
  * This service class send SMS on the contact number provided.

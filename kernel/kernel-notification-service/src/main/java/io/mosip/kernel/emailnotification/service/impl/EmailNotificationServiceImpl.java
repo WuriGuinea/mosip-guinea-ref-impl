@@ -14,10 +14,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sendgrid.helpers.mail.Mail;
-import com.sendgrid.helpers.mail.objects.Content;
-import com.sendgrid.helpers.mail.objects.Email;
-
 import io.mosip.kernel.core.notification.spi.EmailNotification;
 import io.mosip.kernel.emailnotification.constant.MailNotifierConstants;
 import io.mosip.kernel.emailnotification.dto.ResponseDto;
@@ -27,8 +23,8 @@ import io.mosip.kernel.emailnotification.util.EmailNotificationUtils;
 /**
  * Service implementation class for {@link EmailNotification}.
  * 
- * @author condeis
- * @since 1.1.0
+ * @author Sagar Mahapatra
+ * @since 1.0.0
  */
 @Service
 public class EmailNotificationServiceImpl implements EmailNotification<MultipartFile[], ResponseDto> {
@@ -50,11 +46,9 @@ public class EmailNotificationServiceImpl implements EmailNotification<Multipart
 	 * Optionally an email address can be configured.
 	 */
 	@Nullable
-	@Value("${unir.kernel.notification.email.from:#{null}}")
+	@Value("${mosip.kernel.notification.email.from:#{null}}")
 	private String fromEmailAddress;
-	@Value("${unir.kernel.notification.email.apikey}")
-	private String apiKey;
-
+	
 	@Value("${mosip.kernel.mail.proxy-mail:false}")
 	private boolean isProxytrue;
 
@@ -78,8 +72,8 @@ public class EmailNotificationServiceImpl implements EmailNotification<Multipart
 			MultipartFile[] attachments) {
 		ResponseDto dto = new ResponseDto();
 		LOGGER.info("To Request : " + String.join(",", mailTo));
-		if (!isProxytrue) {
-			send(mailTo, mailCc, mailSubject, mailContent, attachments);
+		if(!isProxytrue) {
+		send(mailTo, mailCc, mailSubject, mailContent, attachments);
 		}
 		dto.setStatus(MailNotifierConstants.MESSAGE_SUCCESS_STATUS.getValue());
 		dto.setMessage(MailNotifierConstants.MESSAGE_REQUEST_SENT.getValue());
@@ -89,57 +83,41 @@ public class EmailNotificationServiceImpl implements EmailNotification<Multipart
 	@Async
 	private void send(String[] mailTo, String[] mailCc, String mailSubject, String mailContent,
 			MultipartFile[] attachments) {
-		sendWithSendGrid(mailTo, mailCc, mailSubject, mailContent, attachments);
-	}
-
-	@Async
-	private void sendWithSendGrid(String[] mailTo, String[] mailCc, String mailSubject, String mailContent,
-			MultipartFile[] attachments) {
 		EmailNotificationUtils.validateMailArguments(fromEmailAddress, mailTo, mailSubject, mailContent);
 		/**
 		 * Creates the message.
-		 * 
 		 */
-
-		Email to = new Email(mailTo[0]);
-		Email from = null;
-		Mail mail = null;
-		Content content = null;
-		String subject = "";
+		MimeMessage message = emailSender.createMimeMessage();
+		MimeMessageHelper helper;
 		try {
-
-			if (null != fromEmailAddress) {
-				from = new Email(fromEmailAddress);
+			helper = new MimeMessageHelper(message, true);
+			/**
+			 * Sets to, subject, content.
+			 */
+			helper.setTo(mailTo);
+			
+			if (null != fromEmailAddress){
+				helper.setFrom(fromEmailAddress);
 			}
-
-			if (mailSubject != null) {
-				subject = mailSubject;
-			}
-			content = new Content("text/html", mailContent);
-			mail = new Mail(from, mailSubject, to, content);
 			if (mailCc != null) {
-				for (String cc : mailCc) {
-					mail.personalization.get(0).addCc(new Email(cc));
-				}
-				if (null != mailTo && mailTo.length > 1) {
-					for (String toCC : mailTo) {
-						mail.personalization.get(0).addTo(new Email(toCC));
-					}
-				}
+				helper.setCc(mailCc);
 			}
-		} catch (Exception exception) {
+			if (mailSubject != null) {
+				helper.setSubject(mailSubject);
+			}
+			helper.setText(mailContent);
+		} catch (MessagingException exception) {
 			throw new NotificationException(exception);
 		}
 		if (attachments != null) {
-
 			/**
 			 * Adds attachments.
 			 */
-			emailNotificationUtils.addAttachmentsSendGrid(attachments, mail);
+			emailNotificationUtils.addAttachments(attachments, helper);
 		}
 		/**
 		 * Sends the mail.
 		 */
-		emailNotificationUtils.sendMessage(apiKey,mail);
+		emailNotificationUtils.sendMessage(message, emailSender);
 	}
 }

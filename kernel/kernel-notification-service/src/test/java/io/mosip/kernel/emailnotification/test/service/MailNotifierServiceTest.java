@@ -51,12 +51,12 @@ public class MailNotifierServiceTest {
 		helper.setCc(mailCc);
 		helper.setSubject(mailSubject);
 		helper.setText(mailContent);
-		doNothing().when(utils).addAttachmentsSendGrid(Mockito.any(), Mockito.any());
+		doNothing().when(utils).addAttachments(Mockito.any(), Mockito.any());
 		service.sendEmail(mailTo, mailCc, mailSubject, mailContent, attachments);
-		verify(utils, times(1)).addAttachmentsSendGrid(Mockito.any(), Mockito.any());
+		verify(utils, times(1)).addAttachments(Mockito.any(), Mockito.any());
 	}
 
-@Test
+	@Test
 	public void verifySendMessageFunctionality() throws Exception {
 		String[] mailTo = { "test@gmail.com" };
 		String[] mailCc = { "testTwo@gmail.com" };
@@ -77,13 +77,20 @@ public class MailNotifierServiceTest {
 
 	@Test
 	public void verifySendMessageFunctionalityWithFromAddress() throws Exception {
-		String fromEmail = "neprasrepondre@inu.gov.gn";
-		String[] mailTo = { "noreply@inu.gov.gn" };
+		String fromEmail = "from.test@mosip.io";
+		String[] mailTo = { "test@mosip.io" };
 		String[] mailCc = { "testTwo@mosip.io" };
 		String mailSubject = "Test Subject";
 		String mailContent = "Test Content";
 		MultipartFile attachment = new MockMultipartFile("test.txt", "test.txt", "", new byte[10]);
 		MultipartFile[] attachments = { attachment };
+		MimeMessage message = emailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(message, true);
+		//helper.setFrom(fromEmail);
+		helper.setTo(mailTo);
+		helper.setCc(mailCc);
+		helper.setSubject(mailSubject);
+		helper.setText(mailContent);
 		ReflectionTestUtils.setField(service, "fromEmailAddress", fromEmail);
 		doNothing().when(utils).sendMessage(Mockito.any(), Mockito.any());
 		service.sendEmail(mailTo, mailCc, mailSubject, mailContent, attachments);
@@ -107,7 +114,7 @@ public class MailNotifierServiceTest {
 		helper.setSubject(mailSubject);
 		helper.setText(mailContent);
 		ReflectionTestUtils.setField(service, "fromEmailAddress", fromEmail);
-		System.setProperty("unir.kernel.notification.email.from", fromEmail);
+		//System.setProperty("mosip.kernel.notification.email.from", fromEmail);
 		doNothing().when(utils).sendMessage(Mockito.any(), Mockito.any());
 		service.sendEmail(mailTo, mailCc, mailSubject, mailContent, attachments);
 		verify(utils, times(1)).sendMessage(Mockito.any(), Mockito.any());
