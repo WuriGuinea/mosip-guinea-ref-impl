@@ -1,0 +1,4 @@
+id,vendor_name,is_active,cr_by,cr_dtimes
+SYNCBYTE.LTC165,SYNCBYTE,TRUE,superadmin,now()
+SYNCBYTE.TCI322,SYNCBYTE,TRUE,superadmin,now()
+SYNCBYTE.MC01A,SYNCBYTE,TRUE,superadmin,now()
