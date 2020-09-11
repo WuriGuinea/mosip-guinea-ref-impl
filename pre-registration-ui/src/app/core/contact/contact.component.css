@@ -1,0 +1,11 @@
+.wuri-card {
+    color: #020F59;
+    margin-left: 30rem;
+    margin-top: 10rem;
+    border: solid grey 1px;
+    margin-right: 30%;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 5px 5px grey;
+    max-width: 30rem;
+}
