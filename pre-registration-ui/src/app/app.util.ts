@@ -46,10 +46,9 @@ export default class Utils {
   static formatTime(time_slot_from: string) {
     const time = time_slot_from.split(':');
     const appointmentDateTime =
-      (Number(time[0]) > 12 ? Number(time[0]) - 12 : Number(time[0])) +
+      (Number(time[0]) > 24 ? Number(time[0]) - 12 : Number(time[0])) +
       ':' +
-      time[1] +
-      (Number(time[0]) >= 12 ? ' PM' : ' AM');
+      time[1];
     return appointmentDateTime;
   }
 }

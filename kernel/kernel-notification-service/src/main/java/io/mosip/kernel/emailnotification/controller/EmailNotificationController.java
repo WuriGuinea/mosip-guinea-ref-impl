@@ -42,8 +42,9 @@ public class EmailNotificationController {
 	@PostMapping(value = "/email/send", consumes = "multipart/form-data")
 	public @ResponseBody ResponseWrapper<ResponseDto> sendEMail(String[] mailTo, String[] mailCc, String mailSubject,
 			String mailContent, MultipartFile[] attachments) {
-				ResponseWrapper<ResponseDto> responseWrapper = new ResponseWrapper<>();
-				responseWrapper
+		ResponseWrapper<ResponseDto> responseWrapper = new ResponseWrapper<>();
+		System.out.println("Test adding");
+		responseWrapper
 				.setResponse(emailNotificationService.sendEmail(mailTo, mailCc, mailSubject, mailContent, attachments));
 		return responseWrapper;
 	}
