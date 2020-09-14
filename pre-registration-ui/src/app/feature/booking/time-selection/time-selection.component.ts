@@ -124,6 +124,14 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
     this.canAddApplicant(this.availabilityData[this.selectedTile].timeSlots[this.selectedCard]);
   }
 
+  getNbBookings(data: any): number {
+    var i; var nbBookings = 0;
+    for (i = 0; i < data.timeSlots.length; i++) {
+      nbBookings += data.timeSlots[i].names.length;
+    }
+    return nbBookings;
+  }
+
   addItem(index: number): void {
     if (this.canAddApplicant(this.availabilityData[this.selectedTile].timeSlots[this.selectedCard])) {
       this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].names.push(this.deletedNames[index]);
