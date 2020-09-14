@@ -45,7 +45,6 @@ export default class Utils {
 
   static formatTime(time_slot_from: string) {
     const time = time_slot_from.split(':');
-    const AMPM = document.createElement("p");
     const appointmentDateTime =
     (Number(time[0]) > 24 ? Number(time[0]) - 12 : Number(time[0])) +
     ':' +
