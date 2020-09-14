@@ -33,7 +33,7 @@
                 <p class="time-selection__tile-date">{{ data.displayDate }}</p>
                 <p class="time-selection__tile-date-text">{{ data.displayDay }}</p>
                 <p class="time-selection__tile-availability-text">
-                 {{availabilityData[i].timeSlots[selectedCard].names.length }} {{ 'timeSelection.text_reserved' | translate }}
+                 {{getNbBookings(data) }} {{ 'timeSelection.text_reserved' | translate }}
                 </p>
               </mat-card-content>
             </mat-card>
