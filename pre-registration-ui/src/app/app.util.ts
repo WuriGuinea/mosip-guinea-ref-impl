@@ -61,6 +61,6 @@ export default class Utils {
     ':' +
     time[1];
     
-    return appointmentDateTime;
+    return appointmentDateTime ;
   }
 }
