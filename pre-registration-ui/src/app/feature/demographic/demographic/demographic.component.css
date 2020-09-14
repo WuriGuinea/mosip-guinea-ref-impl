@@ -105,7 +105,6 @@
   margin: 0;
   padding-left: 3px;
   padding-bottom: 15px;
-  text-transform: capitalize;
 }
 
 mat-icon {
@@ -232,9 +231,12 @@ mat-icon {
 }
 
 .champs{
-  padding: 0rem 0 0 44rem;
-    font-size: 10px;
-    font-style: italic;
+  padding: 0rem 0 0 40rem;
+  font-size: 11px;
+  font-style: italic;
+  margin-top: -14px;
+  position: absolute;
+  display: block;
 }
 
 .user__dropdown {
@@ -320,6 +322,40 @@ mat-icon {
     width: 37%;
   }
 }
+@media (min-width: 799px) and (max-width: 1299px){
+  .champs {
+    padding: 0rem 0 0 16.2rem;
+    font-size: 11px;
+    font-style: italic;
+    margin-top: -14px;
+    display: block;
+    margin-top: -28px;
+    position: inherit;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1600px){
+  .champs {
+      padding: 0rem 0 0 27rem;
+      font-size: 11px;
+      margin-top: -14px;
+      font-style: italic;
+      position: absolute;
+      display: block;
+    }
+}
+
+@media (min-width: 1601px) and (max-width: 1710px){
+  .champs {
+      padding: 0rem 0 0 30rem;
+      font-size: 11px;
+      margin-top: -14px;
+      font-style: italic;
+      position: absolute;
+      display: block;
+    }
+}
+
 
 @media (max-width: 1000px) {
   .user__genderAndForeigner mat-button-toggle {
