@@ -113,6 +113,20 @@
   flex-direction: row !important;
   padding-left: 1%;
 }
+@media (min-width: 1470px) {
+  .time-selection__names-container {
+    min-width: 58% !important;
+    padding-left: 0%;
+    padding-right: 1%;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1465px) {
+  .time-selection__names-container {
+    min-width: 64% !important;
+    padding-left: 0%;
+    padding-right: 1%;
+  }
+}
 .appcard{
   width: 50%;
   }

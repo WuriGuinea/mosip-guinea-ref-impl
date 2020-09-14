@@ -116,6 +116,7 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
           localStorage.getItem('langCode')
         );
         this.usersInfo[i].bookingTimePrimary = Utils.formatTime(this.usersInfo[i].regDto.time_slot_from);
+        this.usersInfo[i].bookingTimeFrenchFormat = Utils.formatTimeFrench(this.usersInfo[i].regDto.time_slot_from);
         this.usersInfo[i].bookingDataSecondary = Utils.getBookingDateTime(
           this.usersInfo[i].regDto.appointment_date,
           this.usersInfo[i].regDto.time_slot_from,
@@ -130,6 +131,7 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
           localStorage.getItem('langCode')
         );
         this.usersInfo[i].bookingTimePrimary = Utils.formatTime(date[1]);
+        this.usersInfo[i].bookingTimeFrenchFormat = Utils.formatTimeFrench(date[1]);
         this.usersInfo[i].bookingDataSecondary = Utils.getBookingDateTime(
           date[0],
           date[1],
