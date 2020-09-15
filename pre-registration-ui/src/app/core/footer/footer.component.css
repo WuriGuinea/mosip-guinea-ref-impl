@@ -14,27 +14,27 @@
 }
 
 .unirtext{
-  font-size: 12px;
+  font-size: 10px;
   margin-left: 35%;
-  font-family: Roboto;
+  font-family: Roboto-footer;
   font-weight: 100;
   display: block;
   color: #FFFFFF;
 }
 
 .droittext{
-  font-size: 12px;
+  font-size: 10px;
   margin-left: 20%;
   margin-bottom: 17%;
-  font-family: Roboto;
+  font-family: Roboto-footer;
   font-weight: 100;
   display: block;
   color: #FFFFFF;
 }
 
 .version-txt{
-  font-size: 12px;
-  font-family: Roboto;
+  font-size: 10px;
+  font-family: Roboto-footer;
   font-weight: 100;
   display: block;
   color: #FFFFFF;
