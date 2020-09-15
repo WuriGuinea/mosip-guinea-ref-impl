@@ -85,7 +85,7 @@
 
 .time-seelection__slot-groups-div {
   display: flex;
-  margin: 5px 2vw 40px 2vw;
+  margin: 17px 2vw 40px 2vw;
   padding: 0px 2rem;
 }
 
@@ -290,6 +290,7 @@
   background-color: #fff;
   padding: 8px 20px 2px 20px;
   border: 1px solid #020F59;
+  border-radius: 10px;
 }
 
 .sizing:nth-child(1) {
@@ -490,7 +491,8 @@
 .placeholder{
   color: #707070;
   font-size: 0.8rem;
-  padding: 1rem 0 15px 2rem;
+  padding: 9px;
+  padding-left: 1px;
   scroll-snap-align: center;
   display: flex;
   text-align: center;
@@ -517,9 +519,10 @@
   position: relative;
   margin-bottom: -24px;
   margin-top: -30px;
-  margin-left: 6px;
+  margin-left: 16px;
   line-height:4px;
   font-size: 0.9rem;
+  padding-bottom: 1px;
 }
 .mat-card-header{
   margin-left: -27px;
@@ -530,7 +533,7 @@ padding-bottom: 25px;
 }
 .time-selection__title-card-text{
   margin-bottom:38px ;
-  margin-left: 8px;
+  margin-left: 18px;
   font-family: Roboto;
   font-weight: bold;
 }
