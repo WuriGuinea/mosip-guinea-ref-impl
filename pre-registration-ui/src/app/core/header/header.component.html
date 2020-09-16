@@ -34,7 +34,9 @@
       </mat-nav-list>
       <mat-nav-list *ngIf="(authService.myProp$ | async)" class="list-item">
         <a mat-list-item class="header__actions" (click)="onHome()">
-          <mat-icon class="icon">folder_open</mat-icon>&nbsp;{{ 'header.link_applications' | translate }}</a
+          <button mat-icon-button class="icon" type="button"> 
+            <img src="assets\folder.png" />
+          </button>&nbsp;{{ 'header.link_applications' | translate }}</a
         >
         <a mat-list-item class="header__actions" (click)="doLogout()">
           <mat-icon class="icon">person</mat-icon>&nbsp;{{ 'header.link_logout' | translate }}
