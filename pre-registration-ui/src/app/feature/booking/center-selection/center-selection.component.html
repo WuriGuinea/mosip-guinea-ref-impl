@@ -11,9 +11,8 @@
       <div class="center_selection-intial-recommendation-container" *ngIf="searchClick; else elseBlock">
         <mat-form-field>
           <mat-select [(value)]="centerSelectedOption">
-            <mat-option value="Recommanded"
-              (click)="getRecommendedCenters()">{{ 'centerSelection.display_recommended' | translate }}
-              ({{ REGISTRATION_CENTRES.length }})</mat-option>
+            <mat-option value="Recommanded" (click)="getRecommendedCenters()">
+              {{ 'centerSelection.display_recommended' | translate }} ({{ REGISTRATION_CENTRES.length }})</mat-option>
             <mat-option value="NearBy" (click)="getLocation()">
               {{ 'centerSelection.action_nearBy' | translate }}</mat-option>
             <mat-option value="Search" (click)="setSearchClick(false)">
@@ -26,8 +25,8 @@
       <ng-template #elseBlock>
         <mat-form-field>
           <mat-select [(value)]="centerSelectedOption">
-            <mat-option value="{{ 'centerSelection.display_recommended' | translate }}"
-              (click)="getRecommendedCenters()">{{ 'centerSelection.display_recommended' | translate }}</mat-option>
+            <mat-option value="{{ 'centerSelection.display_recommended' | translate }}" (click)="getRecommendedCenters()">
+              {{ 'centerSelection.display_recommended' | translate }}</mat-option>
             <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}" (click)="getLocation()">
               {{ 'centerSelection.action_nearBy' | translate }}</mat-option>
             <mat-option value="{{ 'centerSelection.text_search' | translate }}" (click)="setSearchClick(false)">
