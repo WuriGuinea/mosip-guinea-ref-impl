@@ -291,10 +291,10 @@
 		<module>registration-processor-bio-dedupe-service-impl</module -->
 		<module>registration-processor-print-service-impl</module>
 		<module>registration-processor-info-storage-service</module>
-		<!-- module>registration-processor-message-sender-impl</module>
-		<module>init</module>
+<!--		module>registration-processor-message-sender-impl</module>-->
+<!--		<module>init</module>-->
 		<module>pre-processor</module>
-		<module>core-processor</module -->
+<!--		<module>core-processor</module>-->
 		<module>post-processor</module>
 	</modules>
 
