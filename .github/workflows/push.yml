@@ -1,9 +1,8 @@
 name: Maven Package upon a push 
 
 on:
-  push:
-    branches:
-      - UNIR*
+  pull_request:
+    types: [closed]
   
 jobs:
   build:
