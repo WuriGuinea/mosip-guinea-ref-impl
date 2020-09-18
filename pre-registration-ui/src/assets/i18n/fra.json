@@ -484,8 +484,8 @@
 	},
 	"timeSelection": {
 		"title_book": "Prendre Rendez-vous",
-		"text_step1": "Etape1: Inscrivez vous pour un rendez-vous en sélectionnant sur le calendrier une journée parmi les dates puis en cliquant sur le créneau que vous avez retenu",
-		"text_step2": "Etape2: Ajoutez des demandeurs en cliquant sur le + dans la liste des demandeurs",
+		"text_step1": "Etape 1: Inscrivez vous pour un rendez-vous en sélectionnant sur le calendrier une journée parmi les dates puis en cliquant sur le créneau que vous avez retenu",
+		"text_step2": "Etape 2: Ajoutez des demandeurs en cliquant sur le + dans la liste des demandeurs",
 		"text_prev": "Précédent",
 		"text_next": "Suivant",
 		"text_morning": "Matin",
