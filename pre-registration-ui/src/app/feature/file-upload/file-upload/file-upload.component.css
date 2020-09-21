@@ -84,6 +84,10 @@ mat-select-value-text {
   text-transform: uppercase;
 }
 
+.mat-option {
+  color: #020f59;
+}
+
 mat-select {
   font-weight: normal;
 }

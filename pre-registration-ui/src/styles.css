@@ -338,7 +338,6 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     overflow: hidden;
     text-overflow: ellipsis;
     text-transform: uppercase;
-    color: #020f59;
   }
 
   .mat-select-value-text {
