@@ -84,10 +84,7 @@ mat-option-text {
   color: #020f59;
 }
 
-mat-select-value-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.mat-select-value-text {
   text-transform: uppercase;
 }
 
