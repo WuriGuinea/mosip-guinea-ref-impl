@@ -24,6 +24,11 @@
   background-color: #020F59;
 }
 
+
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: #020F59;
+}
+
 .close-button-sizing {
   color: red;
   margin-left: 4px;

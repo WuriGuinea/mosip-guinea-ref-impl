@@ -67,6 +67,27 @@
   position: absolute;
   left: 1em;
 }
+
+mat-option-text {
+  display: inline-block;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: #020f59;
+}
+
+mat-select-value-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.mat-option {
+  color: #020f59;
+}
+
 mat-select {
   font-weight: normal;
 }
