@@ -93,7 +93,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       firstName: [
         {
           language: '',
-          value: 'None'
+          value: 'Aucun'
         }
       ]
     },
@@ -215,7 +215,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       if (i == 0) {
         this.allowedFilesHtml = this.allowedFilesHtml + file.substring(file.indexOf('/') + 1);
       } else {
-        this.allowedFilesHtml = this.allowedFilesHtml + ',' + file.substring(file.indexOf('/') + 1);
+        this.allowedFilesHtml = this.allowedFilesHtml + ','   + file.substring(file.indexOf('/') + 1);
       }
       i++;
     }
@@ -229,7 +229,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     this.allowedFileSize =
       (
         this.config.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_document_alllowe_file_size) / 1000000
-      ).toString() + 'mb';
+      ).toString() + 'MB';
   }
 
   /**
@@ -399,6 +399,9 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       res => {
         if (res[appConstants.RESPONSE]) {
           this.LOD = res['response'].documentCategories; 
+          this.LOD = this.LOD.filter((ele, i) => {
+            return ele.code !== 'POE';            
+          });
           this.enableBrowseButtonList = new Array(this.LOD.length).fill(false);
           this.registration.setDocumentCategories(res['response'].documentCategories);
           this.onModification();
@@ -590,7 +593,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    */
   clickOnButton(i) {
     document.getElementById('file_' + i).click();
-    document.getElementById('tmp_' + i).style.visibility = "hidden";
   }
 
   /**
@@ -599,7 +601,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    * @param {*} event
    * @memberof FileUploadComponent
    */
-  handleFileInput(event: any, docName: string, docCode: string) {
+  handleFileInput(event: any, docName: string, docCode: string, index : number) {
     const extensionRegex = new RegExp('(?:' + this.allowedFilesHtml.replace(/,/g, '|') + ')');
     const oldFileExtension = this.fileExtension;
     this.fileExtension = event.target.files[0].name.substring(event.target.files[0].name.indexOf('.') + 1);
@@ -649,6 +651,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
         this.fileUploadLanguagelabels.uploadDocuments.msg3
       );
       this.disableNavigation = false;
+      document.getElementById('tmp_' + index).style.visibility = "visible";
     }
   }
 
