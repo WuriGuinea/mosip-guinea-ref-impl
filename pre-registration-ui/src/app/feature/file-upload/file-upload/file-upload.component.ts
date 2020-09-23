@@ -33,6 +33,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   sortedUserFiles: any[] = [];
   applicantType: string;
   allowedFilesHtml: string = '';
+  allowedFilesHtmlDisplay: string = '';
   allowedFileSize: string = '';
   sameAsselected: boolean = false;
   isModify: any;
@@ -219,6 +220,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       }
       i++;
     }
+    this.allowedFilesHtmlDisplay = this.allowedFilesHtml.replace(/,/g, ", ");
   }
   /**
    *@description method to set the value of allowed file size to be displayed in html
