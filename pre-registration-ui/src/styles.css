@@ -344,7 +344,7 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
   
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{

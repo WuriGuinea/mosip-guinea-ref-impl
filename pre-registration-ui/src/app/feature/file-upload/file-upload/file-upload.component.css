@@ -68,6 +68,13 @@
   left: 1em;
 }
 
+.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
+  font-size: inherit;
+  line-height: 3em;
+  height: 3em;
+  text-transform: uppercase;
+}
+
 mat-option-text {
   display: inline-block;
   flex-grow: 1;
@@ -77,10 +84,7 @@ mat-option-text {
   color: #020f59;
 }
 
-mat-select-value-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.mat-select-value-text {
   text-transform: uppercase;
 }
 
