@@ -122,6 +122,7 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
     this.deletedNames.push(this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].names[index]);
     this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].names.splice(index, 1);
     this.canAddApplicant(this.availabilityData[this.selectedTile].timeSlots[this.selectedCard]);
+    this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].availability += 1;
   }
 
   getNbBookings(data: any): number {
@@ -136,6 +137,7 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
     if (this.canAddApplicant(this.availabilityData[this.selectedTile].timeSlots[this.selectedCard])) {
       this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].names.push(this.deletedNames[index]);
       this.deletedNames.splice(index, 1);
+      this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].availability -= 1;      
     }
   }
 
