@@ -516,8 +516,28 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     this.viewFile(this.users[0].files.documentsMetaData[i]);
   }
   deletefile(i:number,j:number){
-    this.users[0].files.documentsMetaData.splice(j, 1);
+    const deletedFiles= this.users[0].files.documentsMetaData.splice(j, 1);  
+    const preRegId = this.users[0].preRegId; 
     document.getElementById('tmp_' + i).style.visibility = "visible";
+    
+    const subs = this.dataStroage.deleteFile(deletedFiles[0].documentId, preRegId).subscribe(
+      response => { 
+        if (response[appConstants.RESPONSE]) {
+          this.registration.updateUser(this.registration.getUsers().length - 1, this.users[this.step]);
+        } else {
+          this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error);
+        }
+      },
+      err => {
+        this.disableNavigation = false;
+        this.displayMessage(
+          "Erreur de suppression",
+          "Une erreur inattendue est survenue. veuiller rééssayer",
+          err
+        );
+      }
+    );
+    this.subscriptions.push(subs);
   }
 
   setByteArray(fileByteArray) {
