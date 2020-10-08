@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -113,6 +114,14 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	/** The uin length. */
 	@Value("${mosip.kernel.uin.length}")
 	private int uinLength;
+
+	/** The dob field name */
+	@Value("${mosip.idobject.dobFieldName}")
+	private String dobFieldName;
+
+	/** The dob format. */
+	@Value("${registration.processor.applicant.dob.format}")
+	private String dobFormat;
 
 	@Value("${mosip.print.uin.header.length}")
 	private int headerLength;
@@ -488,8 +497,21 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 					JSONObject json = JsonUtil.getJSONObject(demographicIdentity, value);
 					printTextFileMap.put(value, (String) json.get(VALUE));
 				} else {
-					printTextFileMap.put(value, (String) object);
-
+					if(dobFieldName.equalsIgnoreCase(value)){
+						String fieldVal = (String) object;
+						try {
+							SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
+							SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
+							fieldVal = newFormat.format(fromUser.parse(fieldVal));
+						} catch (java.text.ParseException e) {
+							e.printStackTrace();
+							regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
+									"", e.getMessage());
+						}
+						printTextFileMap.put(value, fieldVal);
+					} else {
+						printTextFileMap.put(value, (String) object);
+					}
 				}
 			}
 
@@ -661,7 +683,21 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 						JSONObject json = JsonUtil.getJSONObject(demographicIdentity, value);
 						attribute.put(value, (String) json.get(VALUE));
 					} else {
-						attribute.put(value, String.valueOf(object));
+						if(dobFieldName.equalsIgnoreCase(value)){
+							String fieldVal = (String) object;
+							try {
+								SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
+								SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
+								fieldVal = newFormat.format(fromUser.parse(fieldVal));
+							} catch (java.text.ParseException e) {
+								e.printStackTrace();
+								regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
+										"", e.getMessage());
+							}
+							attribute.put(value, fieldVal);
+						} else {
+							attribute.put(value, (String) object);
+						}
 					}
 				}
 			}
