@@ -115,10 +115,6 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	@Value("${mosip.kernel.uin.length}")
 	private int uinLength;
 
-	/** The dob field name */
-	@Value("${mosip.idobject.dobFieldName}")
-	private String dobFieldName;
-
 	/** The dob format. */
 	@Value("${registration.processor.applicant.dob.format}")
 	private String dobFormat;
@@ -478,6 +474,8 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		JSONObject printTextFileJsonObject = JsonUtil.objectMapperReadValue(printTextFileJson, JSONObject.class);
 		Set<String> printTextFileJsonKeys = printTextFileJsonObject.keySet();
 		printTextFileMap.put("UIN",(String) demographicIdentity.get("UIN"));
+
+		String dobFieldName = getDOBFieldName();
 		for (String key : printTextFileJsonKeys) {
 			String printTextFileJsonString = JsonUtil.getJSONValue(printTextFileJsonObject, key);
 			for (String value : printTextFileJsonString.split(",")) {
@@ -662,6 +660,8 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 					utilities.getGetRegProcessorDemographicIdentity());
 
 			List<String> mapperJsonKeys = new ArrayList<>(mapperIdentity.keySet());
+
+			String dobFieldName = getDOBFieldName();
 			for (String key : mapperJsonKeys) {
 				LinkedHashMap<String, String> jsonObject = JsonUtil.getJSONValue(mapperIdentity, key);
 				String values = jsonObject.get(VALUE);
@@ -850,5 +850,23 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 			}
 		}
 		return parameter;
+	}
+
+	private String getDOBFieldName() throws IOException{
+		String mapperJsonString = Utilities.getJson(utilities.getConfigServerFileStorageURL(),
+				utilities.getGetRegProcessorIdentityJson());
+		JSONObject mapperJson = JsonUtil.objectMapperReadValue(mapperJsonString, JSONObject.class);
+		JSONObject mapperIdentity = JsonUtil.getJSONObject(mapperJson,
+				utilities.getGetRegProcessorDemographicIdentity());
+
+		List<String> mapperJsonKeys = new ArrayList<>(mapperIdentity.keySet());
+		for (String key : mapperJsonKeys) {
+			LinkedHashMap<String, String> jsonObject = JsonUtil.getJSONValue(mapperIdentity, key);
+			String value = jsonObject.get(VALUE);
+			if (key.equalsIgnoreCase("dob")) {
+				return value;
+			}
+		}
+		return "";
 	}
 }
