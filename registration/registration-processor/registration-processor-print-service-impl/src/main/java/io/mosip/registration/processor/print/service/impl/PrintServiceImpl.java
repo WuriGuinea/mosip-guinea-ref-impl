@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -113,6 +114,10 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 	/** The uin length. */
 	@Value("${mosip.kernel.uin.length}")
 	private int uinLength;
+
+	/** The dob format. */
+	@Value("${registration.processor.applicant.dob.format}")
+	private String dobFormat;
 
 	@Value("${mosip.print.uin.header.length}")
 	private int headerLength;
@@ -469,6 +474,8 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		JSONObject printTextFileJsonObject = JsonUtil.objectMapperReadValue(printTextFileJson, JSONObject.class);
 		Set<String> printTextFileJsonKeys = printTextFileJsonObject.keySet();
 		printTextFileMap.put("UIN",(String) demographicIdentity.get("UIN"));
+
+		String dobFieldName = getDOBFieldName();
 		for (String key : printTextFileJsonKeys) {
 			String printTextFileJsonString = JsonUtil.getJSONValue(printTextFileJsonObject, key);
 			for (String value : printTextFileJsonString.split(",")) {
@@ -488,8 +495,20 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 					JSONObject json = JsonUtil.getJSONObject(demographicIdentity, value);
 					printTextFileMap.put(value, (String) json.get(VALUE));
 				} else {
-					printTextFileMap.put(value, (String) object);
-
+					if(!dobFieldName.isEmpty() && dobFieldName.equalsIgnoreCase(value)){
+						String fieldVal = (String) object;
+						try {
+							SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
+							SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
+							fieldVal = newFormat.format(fromUser.parse(fieldVal));
+						} catch (java.text.ParseException e) {
+							regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
+									"", e.getMessage());
+						}
+						printTextFileMap.put(value, fieldVal);
+					} else {
+						printTextFileMap.put(value, (String) object);
+					}
 				}
 			}
 
@@ -641,6 +660,8 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 					utilities.getGetRegProcessorDemographicIdentity());
 
 			List<String> mapperJsonKeys = new ArrayList<>(mapperIdentity.keySet());
+
+			String dobFieldName = getDOBFieldName();
 			for (String key : mapperJsonKeys) {
 				LinkedHashMap<String, String> jsonObject = JsonUtil.getJSONValue(mapperIdentity, key);
 				String values = jsonObject.get(VALUE);
@@ -661,7 +682,20 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 						JSONObject json = JsonUtil.getJSONObject(demographicIdentity, value);
 						attribute.put(value, (String) json.get(VALUE));
 					} else {
-						attribute.put(value, String.valueOf(object));
+						if(!dobFieldName.isEmpty() && dobFieldName.equalsIgnoreCase(value)){
+							String fieldVal = (String) object;
+							try {
+								SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
+								SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
+								fieldVal = newFormat.format(fromUser.parse(fieldVal));
+							} catch (java.text.ParseException e) {
+								regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
+										"", e.getMessage());
+							}
+							attribute.put(value, fieldVal);
+						} else {
+							attribute.put(value, (String) object);
+						}
 					}
 				}
 			}
@@ -816,5 +850,23 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 			}
 		}
 		return parameter;
+	}
+
+	private String getDOBFieldName() throws IOException{
+		String mapperJsonString = Utilities.getJson(utilities.getConfigServerFileStorageURL(),
+				utilities.getGetRegProcessorIdentityJson());
+		JSONObject mapperJson = JsonUtil.objectMapperReadValue(mapperJsonString, JSONObject.class);
+		JSONObject mapperIdentity = JsonUtil.getJSONObject(mapperJson,
+				utilities.getGetRegProcessorDemographicIdentity());
+
+		List<String> mapperJsonKeys = new ArrayList<>(mapperIdentity.keySet());
+		for (String key : mapperJsonKeys) {
+			LinkedHashMap<String, String> jsonObject = JsonUtil.getJSONValue(mapperIdentity, key);
+			String value = jsonObject.get(VALUE);
+			if (key.equalsIgnoreCase("dob")) {
+				return value;
+			}
+		}
+		return "";
 	}
 }
