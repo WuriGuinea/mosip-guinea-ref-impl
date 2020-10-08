@@ -504,7 +504,6 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 							SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
 							fieldVal = newFormat.format(fromUser.parse(fieldVal));
 						} catch (java.text.ParseException e) {
-							e.printStackTrace();
 							regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
 									"", e.getMessage());
 						}
@@ -690,7 +689,6 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 								SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
 								fieldVal = newFormat.format(fromUser.parse(fieldVal));
 							} catch (java.text.ParseException e) {
-								e.printStackTrace();
 								regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
 										"", e.getMessage());
 							}
