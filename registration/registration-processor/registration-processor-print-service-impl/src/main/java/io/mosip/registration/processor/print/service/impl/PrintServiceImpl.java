@@ -495,7 +495,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 					JSONObject json = JsonUtil.getJSONObject(demographicIdentity, value);
 					printTextFileMap.put(value, (String) json.get(VALUE));
 				} else {
-					if(dobFieldName.equalsIgnoreCase(value)){
+					if(!dobFieldName.isEmpty() && dobFieldName.equalsIgnoreCase(value)){
 						String fieldVal = (String) object;
 						try {
 							SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
@@ -682,7 +682,7 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 						JSONObject json = JsonUtil.getJSONObject(demographicIdentity, value);
 						attribute.put(value, (String) json.get(VALUE));
 					} else {
-						if(dobFieldName.equalsIgnoreCase(value)){
+						if(!dobFieldName.isEmpty() && dobFieldName.equalsIgnoreCase(value)){
 							String fieldVal = (String) object;
 							try {
 								SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
