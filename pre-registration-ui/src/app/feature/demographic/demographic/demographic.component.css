@@ -387,6 +387,12 @@ mat-icon {
   margin-left: 6px;
   padding: 16px;
 }
+@media (max-width: 398px){
+  .card{
+  position: relative;
+  bottom: 34px;
+}
+}
 
 
 
