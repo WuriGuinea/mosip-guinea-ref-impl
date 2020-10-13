@@ -24,7 +24,7 @@
       <!-- search container -->
       <ng-template #elseBlock>
         <mat-form-field>
-          <mat-select [(ngModel)]="centerSelectedOption">
+          <mat-select [(ngModel)]="centerSelectedOption" placeholder="{{ 'centerSelection.text_search' | translate }}">
             <mat-option value="{{ 'centerSelection.display_recommended' | translate }}" (click)="getRecommendedCenters()">
               {{ 'centerSelection.display_recommended' | translate }}</mat-option>
             <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}" (click)="getLocation()">

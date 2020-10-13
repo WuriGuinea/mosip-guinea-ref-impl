@@ -111,6 +111,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getRecommendedCenters() {
+    this.searchClick =true;
     let locations = [];
     let locationNames = [];
     this.users.forEach((user) => {
