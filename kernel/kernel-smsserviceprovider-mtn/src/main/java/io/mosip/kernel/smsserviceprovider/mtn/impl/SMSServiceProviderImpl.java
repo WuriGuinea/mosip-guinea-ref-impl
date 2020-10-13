@@ -5,6 +5,8 @@ package io.mosip.kernel.smsserviceprovider.mtn.impl;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -28,6 +30,8 @@ import io.mosip.kernel.smsserviceprovider.mtn.constant.SmsPropertyConstant;
  */
 @Component
 public class SMSServiceProviderImpl implements SMSServiceProvider {
+
+	Logger LOGGER = LoggerFactory.getLogger(SMSServiceProviderImpl.class);
 
 	@Autowired
 	RestTemplate restTemplate;
@@ -53,6 +57,7 @@ public class SMSServiceProviderImpl implements SMSServiceProvider {
 	public SMSResponseDto sendSms(String contactNumber, String message) {
 		SMSResponseDto smsResponseDTO = new SMSResponseDto();
 		validateInput(contactNumber);
+		LOGGER.info("SMS request: "+contactNumber);
 		contactNumber = countryCode.concat(contactNumber);
 		try {
 			MtnMessageRequest.send(buildAPIURl(), contactNumber, message);

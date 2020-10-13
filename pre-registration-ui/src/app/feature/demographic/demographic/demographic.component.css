@@ -387,6 +387,28 @@ mat-icon {
   margin-left: 6px;
   padding: 16px;
 }
+@media (max-width: 398px){
+  .card{
+  position: relative;
+  bottom: 34px;
+}
+}
+.hidedesk{
+  display: block;
+}
+@media (max-width: 398px){
+  .hidedesk{
+  display: none;
+}
+}
+.hidemobile{
+  display: none;
+}
+@media (max-width: 398px){
+  .hidemobile{
+  display: block;
+}
+}
 
 
 
@@ -456,6 +478,8 @@ textarea.mat-input-element{
   flex-grow: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: #020f59;
 }
 
 .mat-option {

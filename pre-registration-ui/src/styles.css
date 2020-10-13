@@ -331,6 +331,21 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     color: #000000 !important;
     text-transform: none !important;
   }
+
+  .mat-option-text {
+    display: inline-block;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+  }
+
+  .mat-select-value-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+  }
   
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
     top: 24px;
@@ -347,6 +362,10 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 }
 
 .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: #020F59;
+}
+
+.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
   background-color: #020F59;
 }
 

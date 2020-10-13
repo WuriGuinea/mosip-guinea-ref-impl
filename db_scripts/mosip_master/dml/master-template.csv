@@ -208,7 +208,7 @@ L'Équipe WURI Guinée",10001,Pré-inscription,SMS-Acknowledgement,fra,TRUE,supe
 <tr>
 <td><label class=""name-head-color""><b>Adresse&nbsp;:&nbsp;</b></label>
 </td>
-<td><span> $!region_fra, $!prefecture_fra, $!subPrefectureOrCommune_fra, $!district_fra, $!sector_fra, $!additionalAddressDetails_fra</span></td>
+<td><span> $!region_fra, $!prefecture_fra, $!subPrefectureOrCommune_fra, $!district_fra, $!sector_fra $!additionalAddressDetails_fra</span></td>
 </tr>
 </table>
 </div>
