@@ -46,10 +46,12 @@ public class IdaStarter extends Application {
 	public void start(Stage stage) throws IOException {
 		// Create the Scene
 		Scene scene = new Scene(root);
+	scene.getStylesheets().add("style.css");
 		// Set the Scene to the Stage
 		stage.setScene(scene);
 		// Set the Title to the Stage
-		stage.setTitle("ID-Authentication");
+		stage.setTitle("Système de Vérification d'Identité");
+		//stage.ge
 		// Display the Stage
 		stage.show();
 	}

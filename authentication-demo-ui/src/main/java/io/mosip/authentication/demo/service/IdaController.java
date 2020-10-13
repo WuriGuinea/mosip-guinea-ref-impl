@@ -28,6 +28,9 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import javafx.geometry.Pos;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.scene.layout.HBox;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -81,6 +84,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
@@ -102,8 +106,8 @@ public class IdaController {
 
 	ObjectMapper mapper = new ObjectMapper();
 
-	@FXML
-	ComboBox<String> irisCount;
+//	@FXML
+//	ComboBox<String> irisCount;
 
 	@FXML
 	ComboBox<String> fingerCount;
@@ -112,19 +116,21 @@ public class IdaController {
 	private TextField idValue;
 
 	@FXML
+	private TextField idValueVID;
+	@FXML
 	private CheckBox fingerAuthType;
 
-	@FXML
-	private CheckBox irisAuthType;
+//	@FXML
+//	private CheckBox irisAuthType;
 	
-	@FXML
-	private CheckBox faceAuthType;
+//	@FXML
+//	private CheckBox faceAuthType;
 
 	@FXML
 	private CheckBox otpAuthType;
 
-	@FXML
-	private ComboBox<String> idTypebox;
+	//@FXML
+//private ComboBox<String> idTypebox;
 
 	@FXML
 	private TextField otpValue;
@@ -152,23 +158,31 @@ public class IdaController {
 	private String previousHash;
 	
 	private ObjectMapper objectMapper = new ObjectMapper();
+
+	private SimpleBooleanProperty switchedOn = new SimpleBooleanProperty(false);
+	public SimpleBooleanProperty switchOnProperty() { return switchedOn; }
+	@FXML
+	private Button tsButton;
+
+	@FXML
+	private Label tsLabel;
 	
 	@FXML
 	private void initialize() {
 		responsetextField.setText(null);
-		
+		init();
 		ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
 		ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
 				"8", "9", "10");
 		fingerCount.setItems(fingerCountChoices);
 		fingerCount.getSelectionModel().select(0);
 		
-		ObservableList<String> irisCountChoices = FXCollections.observableArrayList("Left Iris", "Right Iris", "Both Iris");
-		irisCount.setItems(irisCountChoices);
-		irisCount.getSelectionModel().select(0);
+	//	ObservableList<String> irisCountChoices = FXCollections.observableArrayList("Left Iris", "Right Iris", "Both Iris");
+	//	irisCount.setItems(irisCountChoices);
+	//	irisCount.getSelectionModel().select(0);
 		
-		idTypebox.setItems(idTypeChoices);
-		idTypebox.setValue("UIN");
+		//idTypebox.setItems(idTypeChoices);
+		//idTypebox.setValue("UIN");
 		otpAnchorPane.setDisable(true);
 		bioAnchorPane.setDisable(true);
 		responsetextField.setDisable(true);
@@ -181,7 +195,39 @@ public class IdaController {
 		otpValue.textProperty().addListener((observable, oldValue, newValue) -> {
 			updateSendButton();
 		});
+
+
+
+		switchedOn.addListener((a,b,c) -> {
+			if (c) {
+				tsLabel.setText("");
+				tsHBox.setStyle("-fx-border-color: #020F59;-fx-background-color: white;");
+				tsLabel.toFront();
+				idValueVID.setEditable(false);
+				idValue.setEditable(true);
+				idValueVID.setStyle("-fx-text-fill: grey;");
+				idValue.setStyle("-fx-text-fill: #020F59;");
+				idValue.setText("INU");
+				idValueVID.setText("VID");
+			}
+			else {
+				tsLabel.setText("");
+				tsHBox.setStyle("-fx-border-color: #020F59;-fx-background-color: white;");
+				tsButton.toFront();
+				idValueVID.setEditable(true);
+
+				idValue.setEditable(false);
+				idValue.setStyle("-fx-text-fill: grey;");
+				idValueVID.setStyle("-fx-text-fill: #020F59;");
+				idValue.setText("INU");
+				idValueVID.setText("VID");
+			}
+		});
+
+
 	}
+@FXML
+private HBox tsHBox;
 
 	@FXML
 	private void onFingerPrintAuth() {
@@ -195,18 +241,52 @@ public class IdaController {
 		updateSendButton();
 	}
 
-	@FXML
-	private void onIrisAuth() {
-		updateBioCapture();
+
+
+	private void setStyle() {
+		//Default Width
+	//	tsHBox.setWidth(80.0);
+		tsLabel.setAlignment(Pos.CENTER);
+	//	tsHBox.setStyle("-fx-background-color: white; -fx-text-fill:black; -fx-background-radius: 4;");
+	//	tsHBox.setAlignment(Pos.CENTER_LEFT);
 	}
-	
-	@FXML
-	private void onFaceAuth() {
-		updateBioCapture();
+
+
+	private void init() {
+
+
+
+
+idValueVID.setEditable(false);
+idValue.setEditable(true);
+	//	tsLabel.setText(" ");
+		idValueVID.setStyle("-fx-text-color: grey;");
+		idValue.setStyle("-fx-text-color: #020F59;");
+		tsLabel.setVisible(false);
+
+	//	getChildren().addAll(label, button);
+		tsButton.setOnAction((e) -> {
+			switchedOn.set(!switchedOn.get());
+		});
+		tsLabel.setOnMouseClicked((e) -> {
+			switchedOn.set(!switchedOn.get());
+		});
+		setStyle();
+		bindProperties();
 	}
-	
+	private void bindProperties() {
+		tsLabel.prefWidthProperty().bind(tsHBox.widthProperty().divide(2));
+		tsLabel.prefHeightProperty().bind(tsHBox.heightProperty());
+		tsButton.prefWidthProperty().bind(tsHBox.widthProperty().divide(2));
+		tsButton.prefHeightProperty().bind(tsHBox.heightProperty());
+	}
 	private void updateSendButton() {
-		if(idValue.getText() == null || idValue.getText().trim().isEmpty()) {
+		if(idValue.getText() == null
+				|| idValue.getText().trim().isEmpty()||
+				idValue.getText().trim().equalsIgnoreCase("UIN") ||idValueVID.getText() == null
+				|| idValueVID.getText().trim().isEmpty()||
+				idValueVID.getText().trim().equalsIgnoreCase("VID")
+		) {
 			sendAuthRequest.setDisable(true);
 			return;
 		}
@@ -236,7 +316,7 @@ public class IdaController {
 		} else {
 			bioAnchorPane.setDisable(true);
 		}
-		irisCount.setDisable(!irisAuthType.isSelected());
+
 		fingerCount.setDisable(!fingerAuthType.isSelected());
 	}
 	
@@ -263,17 +343,7 @@ public class IdaController {
 		responsetextField.setFont(Font.font("Times New Roman", javafx.scene.text.FontWeight.EXTRA_BOLD, 20));
 		previousHash = null;
 		List<String> bioCaptures = new ArrayList<>();
-		
-		String faceCapture;
-		if (faceAuthType.isSelected()) {
-			faceCapture = captureFace();
-			if(!faceCapture.contains("\"biometrics\"")) {
-				updateSendButton();
-				return;
-			}
-			bioCaptures.add(faceCapture);
-		}
-		
+
 		String fingerCapture;
 		if (fingerAuthType.isSelected()) {
 			fingerCapture = captureFingerprint();
@@ -284,15 +354,7 @@ public class IdaController {
 			bioCaptures.add(fingerCapture);
 		}
 		
-		String irisCapture;
-		if (irisAuthType.isSelected()) {
-			irisCapture = captureIris();
-			if(!irisCapture.contains("\"biometrics\"")) {
-				updateSendButton();
-				return;
-			}
-			bioCaptures.add(irisCapture);
-		} 
+
 		
 		capture = combineCaptures(bioCaptures);
 		
@@ -371,63 +433,10 @@ public class IdaController {
 		return "0";
 	}
 	
-	private String getIrisDeviceSubId() {
-		if(irisCount.getSelectionModel().getSelectedIndex() == 0) {
-			return String.valueOf(1);
-		} else if(irisCount.getSelectionModel().getSelectedIndex() == 1) {
-			return String.valueOf(2);
-		} else {
-			return String.valueOf(3);
-		}
-	}
 
-	private String getFaceDeviceSubId() {
-		return "0";
-	}
-	
-	private String captureIris() throws Exception {
-		responsetextField.setText("Capturing Iris...");
-		responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
 
-	String requestBody = env.getProperty("ida.request.captureRequest.template");
-		
-	requestBody = requestBody.replace("$timeout", env.getProperty("ida.request.captureIris.timeout"))
-								   .replace("$count", getIrisCount()).
-								    replace("$deviceId", env.getProperty("ida.request.captureIris.deviceId")).
-								    replace("$domainUri", env.getProperty("ida.request.captureIris.domainUri")).
-								    replace("$deviceSubId", getIrisDeviceSubId()).
-								    replace("$captureTime", getCaptureTime()).
-								    replace("$previousHash", getPreviousHash()).
-								    replace("$requestedScore",env.getProperty("ida.request.captureIris.requestedScore")).
-								    replace("$type",env.getProperty("ida.request.captureIris.type")).
-								    replace("$bioSubType",getBioSubType(getIrisCount(), env.getProperty("ida.request.captureIris.bioSubType"))).
-								    replace("$name",env.getProperty("ida.request.captureIris.name")).
-								    replace("$value",env.getProperty("ida.request.captureIris.value"));
-		
-		return capturebiometrics(requestBody);
-	}
-	
-	private String captureFace() throws Exception {
-		responsetextField.setText("Capturing Face...");
-		responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
 
-		String requestBody = env.getProperty("ida.request.captureRequest.template");
-		
-		requestBody = requestBody.replace("$timeout", env.getProperty("ida.request.captureFace.timeout"))
-									   .replace("$count", getFaceCount()).
-									    replace("$deviceId", env.getProperty("ida.request.captureFace.deviceId")).
-									    replace("$domainUri", env.getProperty("ida.request.captureFace.domainUri")).
-									    replace("$deviceSubId", getFaceDeviceSubId()).
-									    replace("$captureTime", getCaptureTime()).
-									    replace("$previousHash", getPreviousHash()).
-									    replace("$requestedScore",env.getProperty("ida.request.captureFace.requestedScore")).
-									    replace("$type",env.getProperty("ida.request.captureFace.type")).
-									    replace("$bioSubType",getBioSubType(getFaceCount(), env.getProperty("ida.request.captureFace.bioSubType"))).
-									    replace("$name",env.getProperty("ida.request.captureFace.name")).
-									    replace("$value",env.getProperty("ida.request.captureFace.value"));		
 
-		return capturebiometrics(requestBody);
-	}
 
 	private String getPreviousHash() {
 		return previousHash == null ? "" : previousHash;
@@ -449,13 +458,7 @@ public class IdaController {
 		return finalStr;
 	}
 	
-	private String getIrisCount() {
-		return String.valueOf(irisCount.getSelectionModel().getSelectedIndex() + 1);
-	}
-	
-	private String getFaceCount() {
-		return String.valueOf(1);
-	}
+
 
 	private String getCaptureTime() {
 		TimeZone tz = TimeZone.getTimeZone("UTC");
@@ -516,8 +519,11 @@ public class IdaController {
 		responsetextField.setText(null);
 		OtpRequestDTO otpRequestDTO = new OtpRequestDTO();
 		otpRequestDTO.setId("mosip.identity.otp");
-		otpRequestDTO.setIndividualId(idValue.getText());
-		otpRequestDTO.setIndividualIdType(idTypebox.getValue());
+		String valueToCheck=idValue.getText();
+		if (valueToCheck.equalsIgnoreCase("UIN"));
+		valueToCheck=idValueVID.getText();
+		otpRequestDTO.setIndividualId(valueToCheck);
+	//	otpRequestDTO.setIndividualIdType(idTypebox.getValue());
 		otpRequestDTO.setOtpChannel(Collections.singletonList("email"));
 		otpRequestDTO.setRequestTime(getUTCCurrentDateTimeISOString());
 		otpRequestDTO.setTransactionID(getTransactionID());
@@ -542,8 +548,8 @@ public class IdaController {
 				}
 				responsetextField.setText(responseText);
 			} else {
-				responsetextField.setText("OTP Request Failed with Error");
-				responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
+				responsetextField.setText("Erreur d'envoi de la requête OTP");
+				responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 13px; -fx-font-weight: bold");
 			}
 
 		} catch (KeyManagementException | NoSuchAlgorithmException e) {
@@ -566,7 +572,7 @@ public class IdaController {
 		// set Individual Id
 		authRequestDTO.setIndividualId(idValue.getText());
 		// Set Individual Id type
-		authRequestDTO.setIndividualIdType(idTypebox.getValue());
+	//	authRequestDTO.setIndividualIdType(idTypebox.getValue());
 
 		RequestDTO requestDTO = new RequestDTO();
 		requestDTO.setTimestamp(getUTCCurrentDateTimeISOString());
@@ -651,7 +657,7 @@ public class IdaController {
 	}
 
 	private boolean isBioAuthType() {
-		return fingerAuthType.isSelected() || irisAuthType.isSelected() || faceAuthType.isSelected();
+		return fingerAuthType.isSelected() ;//|| irisAuthType.isSelected() || faceAuthType.isSelected();
 	}
 
 	private EncryptionResponseDto kernelEncrypt(EncryptionRequestDto encryptionRequestDto, boolean isInternal)
@@ -784,10 +790,10 @@ public class IdaController {
 	@FXML
 	private void onReset() {
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-		alert.setTitle("Confirm Reset");
-		alert.setContentText("Are you sure to reset?");
-		ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-		ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.NO);
+		alert.setTitle("Confirmation");
+		alert.setContentText("Etes vous sur de vouloir annuler?");
+		ButtonType okButton = new ButtonType("Oui", ButtonBar.ButtonData.YES);
+		ButtonType noButton = new ButtonType("Non", ButtonBar.ButtonData.NO);
 		alert.getButtonTypes().setAll(okButton, noButton);
 		alert.showAndWait().ifPresent(type -> {
 		        if (type.getButtonData().equals(ButtonType.YES.getButtonData())) {
@@ -798,13 +804,13 @@ public class IdaController {
 
 	private void reset() {
 		fingerCount.getSelectionModel().select(0);
-		irisCount.getSelectionModel().select(0);
+	//	irisCount.getSelectionModel().select(0);
 		idValue.setText("");
 		fingerAuthType.setSelected(false);
-		irisAuthType.setSelected(false);
-		faceAuthType.setSelected(false);
+	//	irisAuthType.setSelected(false);
+	//	faceAuthType.setSelected(false);
 		otpAuthType.setSelected(false);
-		idTypebox.setValue("UIN");
+		//idTypebox.setValue("UIN");
 		otpValue.setText("");
 		otpAnchorPane.setDisable(true);
 		bioAnchorPane.setDisable(true);
