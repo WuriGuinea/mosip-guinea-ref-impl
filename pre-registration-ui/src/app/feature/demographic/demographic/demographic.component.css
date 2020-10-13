@@ -393,6 +393,22 @@ mat-icon {
   bottom: 34px;
 }
 }
+.hidedesk{
+  display: block;
+}
+@media (max-width: 398px){
+  .hidedesk{
+  display: none;
+}
+}
+.hidemobile{
+  display: none;
+}
+@media (max-width: 398px){
+  .hidemobile{
+  display: block;
+}
+}
 
 
 
