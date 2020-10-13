@@ -29,6 +29,11 @@ TRUNCATE TABLE master.device_type cascade ;
 
 \COPY master.device_type (code,name,descr,lang_code,is_active,cr_by,cr_dtimes) FROM './dml/master-device_type.csv' delimiter ',' HEADER  csv;
 
+----- TRUNCATE master.device_provider TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.device_provider cascade ;
+
+\COPY master.device_provider (id,vendor_name,is_active,cr_by,cr_dtimes) FROM './dml/master-device_provider.csv' delimiter ',' HEADER  csv;
+
 ----- TRUNCATE master.doc_category TABLE Data and It's reference Data and COPY Data from CSV file -----
 TRUNCATE TABLE master.doc_category cascade ;
 
@@ -215,6 +220,11 @@ TRUNCATE TABLE master.reg_device_sub_type cascade ;
 
 \COPY master.reg_device_sub_type (code,dtyp_code,name,descr,is_active,cr_by,cr_dtimes) FROM './dml/master-reg_device_sub_type.csv' delimiter ',' HEADER  csv;
 
+----- TRUNCATE master.mosip_device_service TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.mosip_device_service cascade ;
+
+\COPY master.mosip_device_service (id,sw_binary_hash,sw_version,dprovider_id,dtype_code,dstype_code,make,model,sw_cr_dtimes,sw_expiry_dtimes,is_active,cr_by,cr_dtimes) FROM './dml/master-mosip_device_service.csv' delimiter ',' HEADER  csv;
+
 
 -------------- Level 3 data load scripts ------------------------
 
@@ -227,6 +237,12 @@ TRUNCATE TABLE master.device_master cascade ;
 TRUNCATE TABLE master.machine_master cascade ;
 
 \COPY master.machine_master (id,name,mac_address,serial_num,ip_address,mspec_id,public_key,key_index,zone_code,lang_code,is_active,cr_by,cr_dtimes) FROM './dml/master-machine_master.csv' delimiter ',' HEADER  csv;
+
+----- TRUNCATE master.registered_device_master TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.registered_device_master cascade ;
+
+\COPY master.registered_device_master (code,dtype_code,dstype_code,status_code,device_id,device_sub_id,digital_id,serial_number,provider_id,provider_name,purpose,firmware,make,model,expiry_date,certification_level,foundational_trust_provider_id,is_active,cr_by,cr_dtimes) FROM './dml/master-registered_device_master.csv' delimiter ',' HEADER  csv;
+
 
 ----- TRUNCATE master.screen_authorization TABLE Data and It's reference Data and COPY Data from CSV file -----
 TRUNCATE TABLE master.screen_authorization cascade ;
@@ -294,6 +310,11 @@ TRUNCATE TABLE master.machine_master_h cascade ;
 
 \COPY master.machine_master_h (id,name,mac_address,serial_num,ip_address,mspec_id,public_key,key_index,zone_code,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-machine_master_h.csv' delimiter ',' HEADER  csv;
 
+----- TRUNCATE master.registered_device_master_h TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.registered_device_master_h cascade ;
+
+\COPY master.registered_device_master_h (code,dtype_code,dstype_code,status_code,device_id,device_sub_id,digital_id,serial_number,provider_id,provider_name,purpose,firmware,make,model,expiry_date,certification_level,foundational_trust_provider_id,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-registered_device_master_h.csv' delimiter ',' HEADER  csv;
+
 ----- TRUNCATE master.reg_center_device_h TABLE Data and It's reference Data and COPY Data from CSV file -----
 TRUNCATE TABLE master.reg_center_device_h cascade ;
 
@@ -334,12 +355,17 @@ TRUNCATE TABLE master.zone_user_h cascade ;
 
 \COPY master.zone_user_h (zone_code,usr_id,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-zone_user_h.csv' delimiter ',' HEADER  csv;
 
+----- TRUNCATE master.device_provider_h TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.device_provider_h cascade ;
+
+\COPY master.device_provider_h (id,vendor_name,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-device_provider_h.csv' delimiter ',' HEADER  csv;
+
+----- TRUNCATE master.mosip_device_service_h TABLE Data and It's reference Data and COPY Data from CSV file -----
+TRUNCATE TABLE master.mosip_device_service_h cascade ;
+
+\COPY master.mosip_device_service_h (id,sw_binary_hash,sw_version,dprovider_id,dtype_code,dstype_code,make,model,sw_cr_dtimes,sw_expiry_dtimes,is_active,cr_by,cr_dtimes,eff_dtimes) FROM './dml/master-mosip_device_service_h.csv' delimiter ',' HEADER  csv;
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
 
 
 

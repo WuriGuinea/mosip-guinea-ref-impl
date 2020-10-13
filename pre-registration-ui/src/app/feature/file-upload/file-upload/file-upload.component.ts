@@ -33,6 +33,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   sortedUserFiles: any[] = [];
   applicantType: string;
   allowedFilesHtml: string = '';
+  allowedFilesHtmlDisplay: string = '';
   allowedFileSize: string = '';
   sameAsselected: boolean = false;
   isModify: any;
@@ -215,10 +216,11 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       if (i == 0) {
         this.allowedFilesHtml = this.allowedFilesHtml + file.substring(file.indexOf('/') + 1);
       } else {
-        this.allowedFilesHtml = this.allowedFilesHtml + ', '+ file.substring(file.indexOf('/') + 1);
+        this.allowedFilesHtml = this.allowedFilesHtml + ','   + file.substring(file.indexOf('/') + 1);
       }
       i++;
     }
+    this.allowedFilesHtmlDisplay = this.allowedFilesHtml.replace(/,/g, ", ");
   }
   /**
    *@description method to set the value of allowed file size to be displayed in html
@@ -399,6 +401,9 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       res => {
         if (res[appConstants.RESPONSE]) {
           this.LOD = res['response'].documentCategories; 
+          this.LOD = this.LOD.filter((ele, i) => {
+            return ele.code !== 'POE';            
+          });
           this.enableBrowseButtonList = new Array(this.LOD.length).fill(false);
           this.registration.setDocumentCategories(res['response'].documentCategories);
           this.onModification();
@@ -511,8 +516,28 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     this.viewFile(this.users[0].files.documentsMetaData[i]);
   }
   deletefile(i:number,j:number){
-    this.users[0].files.documentsMetaData.splice(j, 1);
+    const deletedFiles= this.users[0].files.documentsMetaData.splice(j, 1);  
+    const preRegId = this.users[0].preRegId; 
     document.getElementById('tmp_' + i).style.visibility = "visible";
+    
+    const subs = this.dataStroage.deleteFile(deletedFiles[0].documentId, preRegId).subscribe(
+      response => { 
+        if (response[appConstants.RESPONSE]) {
+          this.registration.updateUser(this.registration.getUsers().length - 1, this.users[this.step]);
+        } else {
+          this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error);
+        }
+      },
+      err => {
+        this.disableNavigation = false;
+        this.displayMessage(
+          "Erreur de suppression",
+          "Une erreur inattendue est survenue. veuiller rééssayer",
+          err
+        );
+      }
+    );
+    this.subscriptions.push(subs);
   }
 
   setByteArray(fileByteArray) {

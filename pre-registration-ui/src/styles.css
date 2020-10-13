@@ -9,10 +9,16 @@
     url(./assets/icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
     url(./assets/icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
-
 @font-face {
   font-family: 'Roboto';
   src: url(./assets/fonts/Roboto-Regular.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-footer';
+  src: url(./assets/fonts/RobotoSlab-VariableFont_wght.ttf) format('truetype');
   font-weight: 400;
   font-style: normal;
 }
@@ -171,7 +177,7 @@ body {
 }
 
 .mat-slide-toggle .mat-slide-toggle-thumb {
-  background-color: #ff4081;
+  background-color: #020F59;
 }
 
 .mat-slide-toggle .mat-slide-toggle-bar {
@@ -184,7 +190,7 @@ body {
 
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
-  background-color: #f19f8c;
+  background-color: #020F59;
 }
 
 .user__gender mat-button-toggle-group .mat-button-toggle .mat-button-toggle-button .mat-button-toggle-label-content {
@@ -232,9 +238,16 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
   overflow: visible !important;
   min-height: 275px !important;
 }
+.ol-unselectable{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 
 .ol-overlaycontainer-stopevent {
   text-align: right;
+  height: 25rem;
 }
 
 .ol-rotate-reset {
@@ -318,6 +331,21 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     color: #000000 !important;
     text-transform: none !important;
   }
+
+  .mat-option-text {
+    display: inline-block;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+  }
+
+  .mat-select-value-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+  }
   
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
     top: 24px;
@@ -331,4 +359,16 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 
 .card-header .checkbox .mat-checkbox-disabled .mat-checkbox-layout .mat-checkbox-inner-container{
   background-color: grey;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: #020F59;
+}
+
+.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: #020F59;
+}
+
+.mandatory{
+color: red;
 }

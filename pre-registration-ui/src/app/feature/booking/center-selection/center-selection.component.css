@@ -78,9 +78,8 @@ input[type='radio'] {
 }
 
 .map {
-  width: 40%;
+  width: 50%;
     display: block;
-    margin-top: -2vw;
   }
 
 .container {

@@ -122,12 +122,22 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
     this.deletedNames.push(this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].names[index]);
     this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].names.splice(index, 1);
     this.canAddApplicant(this.availabilityData[this.selectedTile].timeSlots[this.selectedCard]);
+    this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].availability += 1;
+  }
+
+  getNbBookings(data: any): number {
+    var i; var nbBookings = 0;
+    for (i = 0; i < data.timeSlots.length; i++) {
+      nbBookings += data.timeSlots[i].names.length;
+    }
+    return nbBookings;
   }
 
   addItem(index: number): void {
     if (this.canAddApplicant(this.availabilityData[this.selectedTile].timeSlots[this.selectedCard])) {
       this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].names.push(this.deletedNames[index]);
       this.deletedNames.splice(index, 1);
+      this.availabilityData[this.selectedTile].timeSlots[this.selectedCard].availability -= 1;      
     }
   }
 
@@ -156,9 +166,9 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
           slot.tag = 'afternoon';
           element.showAfternoon = true;
         }
-        slot.displayTime = Number(fromTime[0]) > 12 ? Number(fromTime[0]) - 12 : fromTime[0];
+        slot.displayTime = Number(fromTime[0]) > 24 ? Number(fromTime[0]) - 12 : fromTime[0];
         slot.displayTime += ':' + fromTime[1] + ' - ';
-        slot.displayTime += Number(toTime[0]) > 12 ? Number(toTime[0]) - 12 : toTime[0];
+        slot.displayTime += Number(toTime[0]) > 24 ? Number(toTime[0]) - 12 : toTime[0];
         slot.displayTime += ':' + toTime[1];
       });
       element.TotalAvailable = sumAvailability;
@@ -324,17 +334,17 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
         ) {
           let timespan = response[appConstants.NESTED_ERROR][0].message.match(/\d+/g);
           let errorMessage = this.errorlabels.timeExpired_1 + timespan[0] + this.errorlabels.timeExpired_2;
-          this.displayMessage('Erreur', errorMessage, {
+          this.displayMessage('Error', errorMessage, {
             error: response
           });
         } else {
-          this.displayMessage('Erreur', this.errorlabels.error, {
+          this.displayMessage('Error', this.errorlabels.error, {
             error: response
           });
         }
       },
       error => {
-        this.displayMessage('Erreur', this.errorlabels.error, error);
+        this.displayMessage('Error', this.errorlabels.error, error);
       }
     );
     this.subscriptions.push(subs);

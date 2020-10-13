@@ -3,8 +3,7 @@ name: Maven Package upon a push
 on:
   push:
     branches:
-      - master
-      - 1.1.*
+      - dev
   
 jobs:
   build:

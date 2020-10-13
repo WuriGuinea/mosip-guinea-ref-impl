@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, SecurityContext } from '@angular/core';
 import * as html2pdf from 'html2pdf.js';
 import { MatDialog } from '@angular/material';
 import { BookingService } from '../../booking/booking.service';
@@ -12,6 +12,7 @@ import { RequestModel } from 'src/app/shared/models/request-model/RequestModel';
 import LanguageFactory from 'src/assets/i18n';
 import { Subscription } from 'rxjs';
 import { ConfigService } from 'src/app/core/services/config.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-acknowledgement',
@@ -23,7 +24,7 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
   secondaryLang = localStorage.getItem('secondaryLangCode');
   usersInfo = [];
   secondaryLanguageRegistrationCenter: any;
-  guidelines = [];
+  guidelines: string = '';
   opt = {};
   fileBlob: Blob;
   showSpinner: boolean = true;
@@ -38,7 +39,8 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
     private dialog: MatDialog,
     private translate: TranslateService,
     private dataStorageService: DataStorageService,
-    private configService: ConfigService
+    private configService: ConfigService,
+    private sanitizer: DomSanitizer
   ) {
     this.translate.use(localStorage.getItem('langCode'));
   }
@@ -114,6 +116,7 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
           localStorage.getItem('langCode')
         );
         this.usersInfo[i].bookingTimePrimary = Utils.formatTime(this.usersInfo[i].regDto.time_slot_from);
+        this.usersInfo[i].bookingTimeFrenchFormat = Utils.formatTimeFrench(this.usersInfo[i].regDto.time_slot_from);
         this.usersInfo[i].bookingDataSecondary = Utils.getBookingDateTime(
           this.usersInfo[i].regDto.appointment_date,
           this.usersInfo[i].regDto.time_slot_from,
@@ -128,6 +131,7 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
           localStorage.getItem('langCode')
         );
         this.usersInfo[i].bookingTimePrimary = Utils.formatTime(date[1]);
+        this.usersInfo[i].bookingTimeFrenchFormat = Utils.formatTimeFrench(date[1]);
         this.usersInfo[i].bookingDataSecondary = Utils.getBookingDateTime(
           date[0],
           date[1],
@@ -171,7 +175,7 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
   getTemplate() {
     return new Promise((resolve, reject) => {
       const subs = this.dataStorageService.getGuidelineTemplate('Onscreen-Acknowledgement').subscribe(response => {
-        this.guidelines = response['response']['templates'][0].fileText.split('\n');
+        this.guidelines = this.sanitizer.sanitize(SecurityContext.HTML, response['response']['templates'][0].fileText);
         resolve(true);
       });
       this.subscriptions.push(subs);

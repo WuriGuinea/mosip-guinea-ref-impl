@@ -1,1 +1,10 @@
 ﻿id,name,mac_address,serial_num,ip_address,dspec_id,zone_code,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes
+11075f50-92a4-4311-b3cb-94d239a3f50c,Camera,A4-BB-6D-0F-BC-3E,173528092,127.0.0.0,736,CK,fra,true,lisbon,now(),now()
+bbc115fa-5343-4a38-916c-1e145794de42,Finger Scanner,A4-BB-6D-0F-BC-3E,C8R1DP06396,127.0.0.0,444,CK,fra,true,lisbon,now(),now()
+860c43ea-f447-48c4-8d3b-a3d2cb8daf12,Finger Scanner,A4-BB-6D-0F-BC-3E,1801160224,127.0.0.0,444,CK,fra,true,lisbon,now(),now()
+ceec5f62-77b7-46f3-816b-3e734305a9c8,Double Iris,A4-BB-6D-0F-BC-3E,9149771,127.0.0.0,327,CK,fra,true,lisbon,now(),now()
+bc808c02-1a7d-4a5d-848f-1aa8590ca6ef,Double Iris,A4-BB-6D-0F-BC-3E,9149769,127.0.0.0,327,CK,fra,true,lisbon,now(),now()
+d2649d13-b911-471c-9932-f63355ee0101,Finger Scanner,A4-BB-6D-0F-BC-3E,C8R1DP06397,127.0.0.0,444,CK,fra,true,lisbon,now(),now()
+79847aec-b87c-4692-9ae9-43ba203a3411,Camera,A4-BB-6D-0F-BC-3E,535626446,127.0.0.0,736,CK,fra,true,lisbon,now(),now()
+bf21dab1-a9b3-4c48-a1b9-b6d828b61052,Iris,3C-2C-30-B4-00-C0,6666669,127.0.0.1,327,CK,fra,true,lisbon,now(),now()
+06ca1c25-55c9-4944-ae38-eb1996190261,Camera,A4-BB-6D-0F-BC-3E,90188719,127.0.0.1,736,CK,fra,true,lisbon,now(),now()

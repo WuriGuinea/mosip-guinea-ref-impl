@@ -75,7 +75,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.users = this.service.getNameList();
     this.getRecommendedCenters();
     this.getErrorLabels();
-    this.centerSelectedOption = 'Recommandés'; // TODO: translate centerSelection.display_recommended' | translate
+    this.centerSelectedOption = 'Recommanded';
   }
 
   // Hack: for displaying SOUS-Prefecture and COMMUNE separately and retrieving PAYS option
@@ -111,6 +111,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getRecommendedCenters() {
+    this.searchClick =true;
     let locations = [];
     let locationNames = [];
     this.users.forEach((user) => {
@@ -144,7 +145,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
                   let errStr = response["errors"].reduce(function (c, e) {
                     return c + "\n" + e.message
                   }, "");
-                  alert(errStr)
+                  console.error(errStr);
                 } else {
                   alert("error occured while getting recommended centers")
                 }

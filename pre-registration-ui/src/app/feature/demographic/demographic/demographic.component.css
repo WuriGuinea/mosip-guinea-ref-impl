@@ -105,7 +105,6 @@
   margin: 0;
   padding-left: 3px;
   padding-bottom: 15px;
-  text-transform: capitalize;
 }
 
 mat-icon {
@@ -231,6 +230,15 @@ mat-icon {
   display: none;
 }
 
+.champs{
+  padding: 0rem 0 0 40rem;
+  font-size: 11px;
+  font-style: italic;
+  margin-top: -14px;
+  position: absolute;
+  display: block;
+}
+
 .user__dropdown {
   width: 48.7%;
   display: inline-block;
@@ -314,6 +322,40 @@ mat-icon {
     width: 37%;
   }
 }
+@media (min-width: 799px) and (max-width: 1299px){
+  .champs {
+    padding: 0rem 0 0 16.2rem;
+    font-size: 11px;
+    font-style: italic;
+    margin-top: -14px;
+    display: block;
+    margin-top: -28px;
+    position: inherit;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1600px){
+  .champs {
+      padding: 0rem 0 0 27rem;
+      font-size: 11px;
+      margin-top: -14px;
+      font-style: italic;
+      position: absolute;
+      display: block;
+    }
+}
+
+@media (min-width: 1601px) and (max-width: 1710px){
+  .champs {
+      padding: 0rem 0 0 30rem;
+      font-size: 11px;
+      margin-top: -14px;
+      font-style: italic;
+      position: absolute;
+      display: block;
+    }
+}
+
 
 @media (max-width: 1000px) {
   .user__genderAndForeigner mat-button-toggle {
@@ -344,6 +386,28 @@ mat-icon {
   border: 1px solid #020F59;
   margin-left: 6px;
   padding: 16px;
+}
+@media (max-width: 398px){
+  .card{
+  position: relative;
+  bottom: 34px;
+}
+}
+.hidedesk{
+  display: block;
+}
+@media (max-width: 398px){
+  .hidedesk{
+  display: none;
+}
+}
+.hidemobile{
+  display: none;
+}
+@media (max-width: 398px){
+  .hidemobile{
+  display: block;
+}
 }
 
 
@@ -394,6 +458,11 @@ input.mat-input-element{
 .mat-select-value-text{
   color: #020F59 !important;
 }
+.mat-select{
+  display: grid;
+  display: -moz-grid;
+}
+
 .mat-form-field-label-wrapper{
   top: -15px !important;
 }
@@ -409,6 +478,8 @@ textarea.mat-input-element{
   flex-grow: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: #020f59;
 }
 
 .mat-option {
@@ -428,4 +499,15 @@ textarea.mat-input-element{
 }
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-empty.mat-form-field-label{
   top: 24px;
+}
+
+.iconinfo{
+  touch-action: none;
+    padding: 1px;
+    margin-top: 2px;
+    margin-left: 5px;
+    user-select: none;
+    -webkit-tap-highlight-color: #020F59;
+    width: 15px;
+    height: 14px;
 }

@@ -28,11 +28,11 @@ public class PacketRequestDto {
 	@NotNull(message = "gender should not be null ")
 	@Gender(enumClass = GenderType.class, ignoreCase = true)
 	private String gender;
-	@ApiModelProperty(value = "the date of birth", position = 4, example = "yyyy/MM/dd")
+	@ApiModelProperty(value = "the date of birth", position = 4, example = "dd/MM/yyyyy")
 	@NotNull(message = "dateOfBirth should not be null ")
 	@NotBlank(message = "dateOfBirth should not be empty")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
-	@DOB(pattern = "yyyy/MM/dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyyy")
+	@DOB(pattern = "dd/MM/yyyyy")
 	private String dateOfBirth;
 	@ApiModelProperty(value = "the age", position = 5, example = "5")
 	@NotNull(message = "age should not be null ")

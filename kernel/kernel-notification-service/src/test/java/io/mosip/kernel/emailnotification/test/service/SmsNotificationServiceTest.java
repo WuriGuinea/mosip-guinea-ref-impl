@@ -37,7 +37,7 @@ public class SmsNotificationServiceTest {
 
 		when(smsServiceProvider.sendSms(Mockito.anyString(), Mockito.anyString())).thenReturn(dto);
 
-		assertThat(service.sendSmsNotification("8987876473", "your otp is 4646"),is(dto));
+		assertThat(service.sendSmsNotification("625739085", "your otp is 4646"),is(dto));
 
 	}
 

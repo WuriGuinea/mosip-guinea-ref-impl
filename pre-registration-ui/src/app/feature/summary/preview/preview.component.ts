@@ -64,11 +64,11 @@ export class PreviewComponent implements OnInit {
   setFieldValues() {
     let fields = appConstants.previewFields;
     fields.forEach(field => {
-      if(field === 'gender'){
+      if (field === 'gender') {
         this.previewData[field].forEach(element => {
           element.name = this.getGenderCodeToName(element.value, element.language);
         });
-      } else if(field === 'residenceStatus'){
+      } else if (field === 'residenceStatus') {
         this.previewData[field].forEach(element => {
           element.name = this.getresidenceStatusCodeToName(element.value, element.language);
         });
@@ -81,20 +81,20 @@ export class PreviewComponent implements OnInit {
     });
   }
 
-  getGenderCodeToName(code: string, language: string){
+  getGenderCodeToName(code: string, language: string) {
     const genders = this.registrationService.getGenderTypes();
-    for(let i=0;i<genders.length;i++){
-      if(genders[i]['code'] === code){
+    for (let i = 0; i < genders.length; i++) {
+      if (genders[i]['code'] === code) {
         return genders[i]['genderName']
       }
     }
     return '';
   }
 
-  getresidenceStatusCodeToName(code: string, language: string){
+  getresidenceStatusCodeToName(code: string, language: string) {
     const ress = this.registrationService.getIndividualTypes();
-    for(let i=0;i<ress.length;i++){
-      if(ress[i]['code'] === code){
+    for (let i = 0; i < ress.length; i++) {
+      if (ress[i]['code'] === code) {
         return ress[i]['name']
       }
     }
@@ -112,6 +112,9 @@ export class PreviewComponent implements OnInit {
           };
           file.push(obj);
         }
+        if (type.code === 'POE') // Filter out Proof of Exception
+          return;
+
         const obj = {
           code: type.code,
           name: type.name,
