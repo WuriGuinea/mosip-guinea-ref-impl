@@ -303,11 +303,12 @@ mat-icon {
   color: lightgrey;
 }
 
-@media (max-width: 798px) {
+@media (min-width: 358px) and (max-width: 798px) {
   .user__container {
     width: 100%;
     float: none;
     padding: 1rem;
+    height: 86vh !important;
   }
 
   .genderAndForeigner {
@@ -386,6 +387,59 @@ mat-icon {
   border: 1px solid #020F59;
   margin-left: 6px;
   padding: 16px;
+}
+@media (max-width: 400px){
+  .card{
+  position: relative;
+  bottom: 34px;
+}
+.user__genderAndForeigner{
+  margin-top: -2px;
+}
+.user__btn{
+  margin: 5px 1px 4px 7rem;
+}
+.user__pref{
+  position: relative;
+  left: -222px;
+  top: 51px;
+}
+.user__age--years{
+  position: relative;
+  left: 11px;
+  top: 10px !important;
+}
+.user__age{
+  position: relative;
+  left: -180px;
+  top: 61px;
+}
+.user__age-or-date{
+  width: 336px;
+  margin-bottom: 80px;
+}
+.col-50{
+  width: 100%;
+}
+.posmobile{
+  margin-top: -6px !important;
+}
+}
+.hidedesk{
+  display: block;
+}
+@media (max-width: 398px){
+  .hidedesk{
+  display: none;
+}
+}
+.hidemobile{
+  display: none;
+}
+@media (max-width: 398px){
+  .hidemobile{
+  display: block;
+}
 }
 
 

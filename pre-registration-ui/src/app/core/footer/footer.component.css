@@ -63,6 +63,25 @@
   vertical-align: middle;
 }
 
+@media (max-width: 400px){
+  .main-footer{
+    display: flex;
+    justify-content: center;
+    font-family: Roboto;
+    border-color: #707070;
+    font-size: 12px;
+    padding-top: 0;
+    padding-bottom: 4px;
+    position: relative;
+    bottom: -20px;
+    width: 98.4%;
+    z-index: 2;
+    margin-bottom: -30px;
+    margin: 2px;
+    height: 59px;
+    background: #020f59;
+}
+}
 @media (min-width: 900px) and (max-width: 1300px){
   .main-footer{
     display: flex;
