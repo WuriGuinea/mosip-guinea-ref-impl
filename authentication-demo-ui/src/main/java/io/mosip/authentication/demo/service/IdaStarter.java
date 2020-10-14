@@ -12,6 +12,7 @@ import io.mosip.kernel.crypto.jce.core.CryptoCore;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -50,7 +51,8 @@ public class IdaStarter extends Application {
 		// Set the Scene to the Stage
 		stage.setScene(scene);
 		// Set the Title to the Stage
-		stage.setTitle("Système de Vérification d'Identité");
+		stage.setTitle("UNIR 1.0.0");
+		stage.getIcons().add(new Image("logo.png"));
 		//stage.ge
 		// Display the Stage
 		stage.show();

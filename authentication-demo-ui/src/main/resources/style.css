@@ -2482,38 +2482,46 @@ top padding is 0.0px, right padding is 0.0px, bottom padding is -80px, left padd
 	}
 
 
-	.checkbox__input {
 
-      input {
-        opacity: 0;
-        width: 1em;
-        height: 1em;
-      }
 
+
+    .check-box {
+        /* default properties */
+        selected-box-color:  #020F59;
+        box-color: white;
+        mark-color:  #020F59;
+        	-fx-text-fill : #020F59;
+    }
+
+    .check-box:selected > .box {
+        /* background color for selected checkbox */
+        -fx-background-color: box-color;
+    }
+
+    .check-box > .box {
+        /* background color of unselected checkbox */
+        -fx-background-color: box-color;
+        -fx-border-color:    selected-box-color;
     }
 
 
-    .checkbox__control {
-      display: inline-grid;
-      width: 1em;
-      height: 1em;
-      border-radius: 0.25em;
-      border: 0.1em solid #020F59;
-    }
-    .checkbox__input {
-      display: grid;
-      grid-template-areas: "checkbox";
 
-      > * {
-        grid-area: checkbox;
-      }
-    }
-    .checkbox__control svg {
-      transition: transform 0.1s ease-in 25ms;
-      transform: scale(0);
-      transform-origin: bottom left;
-    }
-    .checkbox__input input:focus
-     + .checkbox__control {
-      box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
-    }
+.combo-box{
+    -fx-border-color:#E6E6E6;
+    -fx-border-style:solid;
+    -fx-border-width:1;
+    -fx-text-fill: #020F59;
+}
+.combo-box .arrow{
+    -fx-background-color:#020F59;
+}
+.combo-box .arrow-button{
+    -fx-background-color:white;
+    -fx-border-style:none;
+}
+.combo-box .arrow-button{
+    -fx-background-color:white;
+}
+.combo-box .list-cell{
+    -fx-background-color:white;
+}

@@ -34,7 +34,11 @@
                      <font>
                         <Font name="Courier New Bold" size="24.0" />
                      </font></Label>
-                  <ImageView fitHeight="64.0" fitWidth="89.0" layoutX="14.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
+                   <ImageView fitHeight="64.0" fitWidth="89.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" >
+                       <image>
+                           <Image url="logo.png" preserveRatio="true" smooth="true"     />
+                       </image>
+                   </ImageView>
                </children>
             </AnchorPane>
             <GridPane prefHeight="380.0" prefWidth="838.0" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -84,8 +88,8 @@
                                </HBox>
                               <TextField fx:id="idValueVID" layoutX="161.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" styleClass="textfield" text="VID" />
                               <Label prefHeight="17.0" prefWidth="103.0" styleClass="labelPlus" text="Mode vérification" />
-                              <CheckBox fx:id="fingerAuthType" mnemonicParsing="false" onAction="#onFingerPrintAuth" prefHeight="17.0" prefWidth="149.0" text="Empreintes Digitales" styleClass="checkbox__input" />
-                              <CheckBox fx:id="otpAuthType" mnemonicParsing="false" onAction="#onOTPAuth" prefHeight="17.0" prefWidth="58.0" text="OTP" styleClass="labelPlus"/>
+                              <CheckBox fx:id="fingerAuthType" mnemonicParsing="false" onAction="#onFingerPrintAuth" prefHeight="17.0" prefWidth="149.0" text="Empreintes Digitales" styleClass="check-box" />
+                              <CheckBox fx:id="otpAuthType" mnemonicParsing="false" onAction="#onOTPAuth" prefHeight="17.0" prefWidth="58.0" text="OTP" styleClass="check-box"/>
                            </children>
                         </HBox>
                         <!--HBox prefHeight="100.0" prefWidth="911.0" spacing="50.0">
@@ -110,16 +114,16 @@
                            <children>
                               <Label layoutX="14.0" layoutY="5.0" prefHeight="17.0" prefWidth="185.0" styleClass="labelPlus" text="Authentification biométrique" />
                            	  <Label ellipsisString="" layoutX="23.0" layoutY="56.0" prefHeight="17.0" prefWidth="101.0" styleClass="labelPlus" text="Numéro doigt" />
-                              <ComboBox fx:id="fingerCount" layoutX="124.0" layoutY="52.0" onAction="#onSubTypeSelection" prefHeight="25.0" prefWidth="160.0" />
-                              <Button fx:id="capture" layoutX="124.0" layoutY="90.0" mnemonicParsing="false" onAction="#onCapture" prefHeight="25.0" prefWidth="160.0" text="Capture" />
+                              <ComboBox fx:id="fingerCount" layoutX="124.0" layoutY="52.0" onAction="#onSubTypeSelection" prefHeight="25.0" prefWidth="160.0" styleClass="combo-box"/>
+                              <Button fx:id="capture" layoutX="124.0" layoutY="92.0" mnemonicParsing="false" onAction="#onCapture" prefHeight="25.0" prefWidth="160.0" text="Capture" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="otpAnchorPane" prefHeight="146.0" prefWidth="424.0" style="-fx-border-color: #020F59;" GridPane.columnIndex="2">
                            <children>
                               <Label    layoutX="14.0" layoutY="5.0" styleClass="labelPlus" text="Authentification via clé OTP" />
-                              <Button fx:id="requestOtp" layoutX="128.0" layoutY="90.0" mnemonicParsing="false" onAction="#onRequestOtp" prefHeight="25.0" prefWidth="160.0" text="Envoyer une clé OTP" />
-                              <Label layoutX="10.0" layoutY="58.0" prefHeight="17.0" prefWidth="150.0" text="Email ou téléphone" />
-                              <TextField fx:id="otpValue" layoutX="128.0" layoutY="54.0" prefHeight="25.0" prefWidth="160.0" styleClass="textfield" text="test123@gmail.com" />
+                              <Button fx:id="requestOtp" layoutX="150.0" layoutY="92.0" mnemonicParsing="false" onAction="#onRequestOtp" prefHeight="25.0" prefWidth="160.0" text="Envoyer une clé OTP" />
+                              <Label layoutX="10.0" layoutY="58.0" prefHeight="17.0" prefWidth="150.0" text="Email ou téléphone" styleClass="labelPlus"/>
+                              <TextField fx:id="otpValue" layoutX="107.0" layoutY="54.0" prefHeight="25.0" prefWidth="180.0" styleClass="textfield" text="test123@gmail.com" />
                            </children>
                            <GridPane.margin>
                               <Insets />
