@@ -296,6 +296,15 @@
                     </div>
 
                 </div>
+                <button
+                *ngIf="!showPreviewButton"
+                class="user__btn hidemobile"
+                type="button"
+                [disabled]="!dataUploadComplete"
+                (click)="onSubmit()"
+        >
+            {{ 'demographic.action_continue' | translate }}
+        </button>
             </form>
         </div>
     </div>
@@ -310,7 +319,7 @@
         </button>
         <button
                 *ngIf="!showPreviewButton"
-                class="user__btn"
+                class="user__btn hidedesk"
                 type="button"
                 [disabled]="!dataUploadComplete"
                 (click)="onSubmit()"
