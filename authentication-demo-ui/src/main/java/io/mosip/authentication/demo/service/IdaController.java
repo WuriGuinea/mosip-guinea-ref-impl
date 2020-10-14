@@ -171,7 +171,7 @@ public class IdaController {
 
     @FXML
     private Label tsLabel;
-git
+
     @FXML
     private void initialize() {
         responsetextField.setText(null);
