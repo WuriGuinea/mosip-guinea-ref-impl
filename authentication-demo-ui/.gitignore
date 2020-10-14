@@ -1,0 +1,15 @@
+.settings
+target
+/authentication-demo-ui/*.classpath
+/authentication-demo-ui/.factorypath
+/authentication-demo-ui/.project
+/kernel/.settings
+.project
+.classpath
+.factorypath
+/.idea/
+*.iml
+/kernel/*.project
+/registration-processor-utilities/packet-generator-uploader-utility/.project
+/registration-processor-utilities/packet-generator-uploader-utility/.settings
+.jar
