@@ -13,9 +13,9 @@
           <mat-select [(ngModel)]="centerSelectedOption">
             <mat-option value="Recommanded" (click)="getRecommendedCenters()">
               {{ 'centerSelection.display_recommended' | translate }} ({{ REGISTRATION_CENTRES.length }})</mat-option>
-            <mat-option value="NearBy" (click)="getLocation()">
+            <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}" (click)="getLocation()">
               {{ 'centerSelection.action_nearBy' | translate }}</mat-option>
-            <mat-option value="Search" (click)="setSearchClick(false)">
+            <mat-option value="{{ 'centerSelection.text_search' | translate }}" (click)="setSearchClick(false)">
               {{ 'centerSelection.text_search' | translate }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -25,7 +25,7 @@
       <ng-template #elseBlock>
         <mat-form-field>
           <mat-select [(ngModel)]="centerSelectedOption" placeholder="{{ 'centerSelection.text_search' | translate }}">
-            <mat-option value="{{ 'centerSelection.display_recommended' | translate }}" (click)="getRecommendedCenters()">
+            <mat-option value="Recommanded" (click)="getRecommendedCenters()">
               {{ 'centerSelection.display_recommended' | translate }}</mat-option>
             <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}" (click)="getLocation()">
               {{ 'centerSelection.action_nearBy' | translate }}</mat-option>

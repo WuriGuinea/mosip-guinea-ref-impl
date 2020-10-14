@@ -51,7 +51,7 @@
 			<version>${kernel.auth.adapter.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.mosip.registrationprocessor</groupId>
+			<groupId>io.mosip.registrationprocessor.guinea</groupId>
 			<artifactId>registration-processor-core</artifactId>
 			<version>${registration.processor.core.version}</version>
 		</dependency>
