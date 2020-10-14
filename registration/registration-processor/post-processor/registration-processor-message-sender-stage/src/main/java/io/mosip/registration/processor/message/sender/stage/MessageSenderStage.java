@@ -158,9 +158,6 @@ public class MessageSenderStage extends MosipVerticleAPIManager {
 	@Autowired
 	private SyncRegistrationService<SyncResponseDto, SyncRegistrationDto> syncRegistrationservice;
 
-	/** The uin generated subject. */
-	@Value("${registration.processor.uin.generated.subject}")
-	private String uinGeneratedSubject;
 	/**
 	 * Deploy verticle.
 	 */

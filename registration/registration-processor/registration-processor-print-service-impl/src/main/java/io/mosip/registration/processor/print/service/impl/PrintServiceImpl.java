@@ -495,19 +495,23 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 					JSONObject json = JsonUtil.getJSONObject(demographicIdentity, value);
 					printTextFileMap.put(value, (String) json.get(VALUE));
 				} else {
-					if(!dobFieldName.isEmpty() && dobFieldName.equalsIgnoreCase(value)){
-						String fieldVal = (String) object;
-						try {
-							SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
-							SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
-							fieldVal = newFormat.format(fromUser.parse(fieldVal));
-						} catch (java.text.ParseException e) {
-							regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
-									"", e.getMessage());
-						}
-						printTextFileMap.put(value, fieldVal);
+					if(object == null){
+						printTextFileMap.put(value, "");
 					} else {
-						printTextFileMap.put(value, (String) object);
+						if(!dobFieldName.isEmpty() && dobFieldName.equalsIgnoreCase(value)){
+							String fieldVal = (String) object;
+							try {
+								SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
+								SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
+								fieldVal = newFormat.format(fromUser.parse(fieldVal));
+							} catch (java.text.ParseException e) {
+								regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
+										"", e.getMessage());
+							}
+							printTextFileMap.put(value, fieldVal);
+						} else {
+							printTextFileMap.put(value, String.valueOf(object));
+						}
 					}
 				}
 			}
@@ -682,19 +686,23 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 						JSONObject json = JsonUtil.getJSONObject(demographicIdentity, value);
 						attribute.put(value, (String) json.get(VALUE));
 					} else {
-						if(!dobFieldName.isEmpty() && dobFieldName.equalsIgnoreCase(value)){
-							String fieldVal = (String) object;
-							try {
-								SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
-								SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
-								fieldVal = newFormat.format(fromUser.parse(fieldVal));
-							} catch (java.text.ParseException e) {
-								regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
-										"", e.getMessage());
-							}
-							attribute.put(value, fieldVal);
+						if(object == null){
+							attribute.put(value, "");
 						} else {
-							attribute.put(value, (String) object);
+							if(!dobFieldName.isEmpty() && dobFieldName.equalsIgnoreCase(value)){
+								String fieldVal = (String) object;
+								try {
+									SimpleDateFormat fromUser  = new SimpleDateFormat(dobFormat);
+									SimpleDateFormat newFormat = new SimpleDateFormat("dd/MM/yyyy");
+									fieldVal = newFormat.format(fromUser.parse(fieldVal));
+								} catch (java.text.ParseException e) {
+									regProcLogger.error(LoggerFileConstant.SESSIONID.toString(), LoggerFileConstant.REGISTRATIONID.toString(),
+											"", e.getMessage());
+								}
+								attribute.put(value, fieldVal);
+							} else {
+								attribute.put(value, String.valueOf(object));
+							}
 						}
 					}
 				}
@@ -852,21 +860,21 @@ public class PrintServiceImpl implements PrintService<Map<String, byte[]>> {
 		return parameter;
 	}
 
-	private String getDOBFieldName() throws IOException{
-		String mapperJsonString = Utilities.getJson(utilities.getConfigServerFileStorageURL(),
-				utilities.getGetRegProcessorIdentityJson());
-		JSONObject mapperJson = JsonUtil.objectMapperReadValue(mapperJsonString, JSONObject.class);
-		JSONObject mapperIdentity = JsonUtil.getJSONObject(mapperJson,
-				utilities.getGetRegProcessorDemographicIdentity());
-
-		List<String> mapperJsonKeys = new ArrayList<>(mapperIdentity.keySet());
-		for (String key : mapperJsonKeys) {
-			LinkedHashMap<String, String> jsonObject = JsonUtil.getJSONValue(mapperIdentity, key);
-			String value = jsonObject.get(VALUE);
-			if (key.equalsIgnoreCase("dob")) {
-				return value;
-			}
-		}
-		return "";
-	}
+    private String getDOBFieldName() throws IOException{
+        String mapperJsonString = Utilities.getJson(utilities.getConfigServerFileStorageURL(),
+                utilities.getGetRegProcessorIdentityJson());
+        JSONObject mapperJson = JsonUtil.objectMapperReadValue(mapperJsonString, JSONObject.class);
+        JSONObject mapperIdentity = JsonUtil.getJSONObject(mapperJson,
+                utilities.getGetRegProcessorDemographicIdentity());
+        String fieldName = "";
+        List<String> mapperJsonKeys = new ArrayList<>(mapperIdentity.keySet());
+        for (String key : mapperJsonKeys) {
+            LinkedHashMap<String, String> jsonObject = JsonUtil.getJSONValue(mapperIdentity, key);
+            String value = jsonObject.get(VALUE);
+            if (key.equalsIgnoreCase("dob")) {
+                fieldName = value;
+            }
+        }
+        return fieldName;
+    }
 }
