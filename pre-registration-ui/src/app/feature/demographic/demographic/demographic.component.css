@@ -388,10 +388,12 @@ mat-icon {
   margin-left: 6px;
   padding: 16px;
 }
-@media (max-width: 400px){
+@media (max-width: 700px){
   .card{
   position: relative;
   bottom: 34px;
+  width: 100%;
+  height: 100% !important;
 }
 .user__genderAndForeigner{
   margin-top: -2px;
@@ -428,7 +430,7 @@ mat-icon {
 .hidedesk{
   display: block;
 }
-@media (max-width: 398px){
+@media (max-width: 700px){
   .hidedesk{
   display: none;
 }
@@ -436,7 +438,7 @@ mat-icon {
 .hidemobile{
   display: none;
 }
-@media (max-width: 398px){
+@media (max-width: 700px){
   .hidemobile{
   display: block;
 }
