@@ -30,7 +30,7 @@
          <children>
             <AnchorPane prefHeight="44.0" prefWidth="958.0" style="-fx-background-color: #020F59;" GridPane.columnIndex="1">
                <children>
-                  <Label layoutX="226.0" layoutY="54.0" prefHeight="47.0" prefWidth="508.0" text="Système de Verification d'Identité" textFill="WHITE">
+                  <Label layoutX="167.0" layoutY="41.0" prefHeight="17.0" prefWidth="508.0" text="Système de Verification d'Identité" textFill="WHITE">
                      <font>
                         <Font name="Courier New Bold" size="24.0" />
                      </font></Label>
@@ -39,9 +39,9 @@
                            <Image url="logo.png" preserveRatio="true" smooth="true"     />
                        </image-->
                    </ImageView>
-                  <Button layoutX="870.0" layoutY="30.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="33.0" text="X" />
-                  <Button layoutX="834.0" layoutY="30.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="33.0" text="-" />
-                  <Button layoutX="797.0" layoutY="30.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="33.0" text="c" />
+                  <Button fx:id="closeButton" alignment="TOP_RIGHT" layoutX="870.0" layoutY="30.0" mnemonicParsing="false" onAction="#closeAction" prefHeight="33.0" prefWidth="33.0" text="X" />
+                  <Button fx:id="maximizeBtn" layoutX="834.0" layoutY="30.0" mnemonicParsing="false" onAction="#maximizeAction" prefHeight="33.0" prefWidth="33.0" text="A" />
+                  <Button fx:id="minimizeBtn" layoutX="797.0" layoutY="30.0" mnemonicParsing="false" onAction="#minimizeAction" prefHeight="33.0" prefWidth="33.0" text="R" />
                </children>
             </AnchorPane>
             <GridPane prefHeight="380.0" prefWidth="838.0" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

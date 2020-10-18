@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * The Class IdaStarter.
@@ -53,6 +54,7 @@ public class IdaStarter extends Application {
         // Set the Title to the Stage
         stage.setTitle("UNIR 1.0.0");
         stage.getIcons().add(new Image("logo.png"));
+        stage.initStyle(StageStyle.UNDECORATED);
         //stage.ge
         // Display the Stage
         stage.show();

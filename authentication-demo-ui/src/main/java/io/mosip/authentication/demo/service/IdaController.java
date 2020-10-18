@@ -22,12 +22,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
-
+import javafx.event.ActionEvent;
 import javax.crypto.SecretKey;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import javafx.stage.Stage;
 
 import javafx.geometry.Pos;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -108,8 +109,8 @@ public class IdaController {
 
     ObjectMapper mapper = new ObjectMapper();
 
-//	@FXML
-//	ComboBox<String> irisCount;
+	@FXML
+    Button closeButton;
 
     @FXML
     ComboBox<String> fingerCount;
@@ -172,6 +173,12 @@ public class IdaController {
 
     @FXML
     private Label tsLabel;
+
+    @FXML
+    private Button minimizeBtn;
+    @FXML
+    private Button maximizeBtn;
+
 
     @FXML
     private void initialize() {
@@ -510,6 +517,30 @@ public class IdaController {
         return result;
     }
 
+Stage stage;
+    @FXML
+        private void closeAction(ActionEvent event)
+    {
+        System.out.println ("bouton de fermeture appuye");
+        stage=(Stage)((Button) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+
+    @FXML
+    private void minimizeAction(ActionEvent event)
+    {
+        System.out.println ("bouton de reduction appuye");
+        stage=(Stage)((Button) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+    @FXML
+    private void maximizeAction(ActionEvent event)
+    {
+        System.out.println ("bouton agrandissement appuye");
+     //   stage=(Stage)((Button) event.getSource()).getScene().getWindow();
+      //git   stage.setMaximized(true);
+    }
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
