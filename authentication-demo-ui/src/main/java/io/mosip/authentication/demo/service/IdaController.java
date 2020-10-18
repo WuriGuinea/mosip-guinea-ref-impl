@@ -94,6 +94,7 @@ import javafx.scene.text.Font;
  * The Class IdaController.
  *
  * @author Sanjay Murali
+ * @author condeis
  */
 @Component
 public class IdaController {
@@ -171,7 +172,7 @@ public class IdaController {
 
     @FXML
     private Label tsLabel;
-git
+
     @FXML
     private void initialize() {
         responsetextField.setText(null);
@@ -180,8 +181,7 @@ git
                 "8", "9", "10");
         fingerCount.setItems(fingerCountChoices);
         fingerCount.getSelectionModel().select(0);
-
-        //	ObservableList<String> irisCountChoices = FXCollections.observableArrayList("Left Iris", "Right Iris", "Both Iris");
+           //	ObservableList<String> irisCountChoices = FXCollections.observableArrayList("Left Iris", "Right Iris", "Both Iris");
         //	irisCount.setItems(irisCountChoices);
         //	irisCount.getSelectionModel().select(0);
 
@@ -537,7 +537,7 @@ git
             if (response.getStatusCode().is2xxSuccessful()) {
                 List errors = ((List) response.getBody().get("errors"));
                 boolean status = errors == null || errors.isEmpty();
-                String responseText = status ? "OTP Request Success" : "OTP Request Failed";
+                String responseText = status ? "Succès de la requête OTP" : "Echec de la requête OTP";
                 if (status) {
                     responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
                 } else {
