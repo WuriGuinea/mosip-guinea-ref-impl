@@ -103,7 +103,7 @@
                            <children>
                               <Label prefHeight="17.0" prefWidth="141.0" styleClass="labelPlus" text="  Identifiant Numérique" />
                               <TextField fx:id="idValue" prefHeight="25.0" prefWidth="145.0" styleClass="textfield" text="INU" />
-                               <HBox fx:id="tsHBox" alignment="CENTER" maxHeight="15" minWidth="35" style="-fx-border-color: #020F59;">
+                               <HBox fx:id="tsHBox" alignment="CENTER" maxHeight="15" minWidth="35" styleClass="rounded-corner">
                                <children>
 
 

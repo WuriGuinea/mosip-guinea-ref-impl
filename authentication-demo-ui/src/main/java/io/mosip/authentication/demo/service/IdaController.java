@@ -418,7 +418,7 @@ public class IdaController {
     }
 
     private String captureFingerprint() throws Exception {
-        responsetextField.setText("Capturing Fingerprint...");
+        responsetextField.setText("Capture de l'empreinte...");
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
 
         String requestBody = env.getProperty("ida.request.captureRequest.template");
