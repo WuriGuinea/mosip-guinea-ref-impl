@@ -22,12 +22,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
+
 import javafx.event.ActionEvent;
+
 import javax.crypto.SecretKey;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
 import javafx.stage.Stage;
 
 import javafx.geometry.Pos;
@@ -109,7 +112,7 @@ public class IdaController {
 
     ObjectMapper mapper = new ObjectMapper();
 
-	@FXML
+    @FXML
     Button closeButton;
 
     @FXML
@@ -188,7 +191,7 @@ public class IdaController {
                 "8", "9", "10");
         fingerCount.setItems(fingerCountChoices);
         fingerCount.getSelectionModel().select(0);
-           //	ObservableList<String> irisCountChoices = FXCollections.observableArrayList("Left Iris", "Right Iris", "Both Iris");
+        //	ObservableList<String> irisCountChoices = FXCollections.observableArrayList("Left Iris", "Right Iris", "Both Iris");
         //	irisCount.setItems(irisCountChoices);
         //	irisCount.getSelectionModel().select(0);
 
@@ -517,30 +520,27 @@ public class IdaController {
         return result;
     }
 
-Stage stage;
+    Stage stage;
+
     @FXML
-        private void closeAction(ActionEvent event)
-    {
-        System.out.println ("bouton de fermeture appuye");
-        stage=(Stage)((Button) event.getSource()).getScene().getWindow();
+    private void closeAction(ActionEvent event) {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.close();
     }
 
 
     @FXML
-    private void minimizeAction(ActionEvent event)
-    {
-        System.out.println ("bouton de reduction appuye");
-        stage=(Stage)((Button) event.getSource()).getScene().getWindow();
+    private void minimizeAction(ActionEvent event) {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
+
     @FXML
-    private void maximizeAction(ActionEvent event)
-    {
-        System.out.println ("bouton agrandissement appuye");
-     //   stage=(Stage)((Button) event.getSource()).getScene().getWindow();
-      //git   stage.setMaximized(true);
+    private void maximizeAction(ActionEvent event) {
+         //   stage=(Stage)((Button) event.getSource()).getScene().getWindow();
+        //git   stage.setMaximized(true);
     }
+
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {

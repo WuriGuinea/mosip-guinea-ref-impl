@@ -30,20 +30,18 @@
 
 
 
-.buttons:hover{
+.button:hover{
 	-fx-background-color:#FFFFFF;
 	-fx-border-color:#020F59;
 	-fx-text-fill: #020F59;
 	-fx-font-size: 12px;
 }
 
-.buttons{
+.button{
 	-fx-background-color:#BCE0FD;
 	-fx-text-fill: #020F59;
 }
-
-
-.buttons:pressed {
+.button:pressed {
 	-fx-background-color:#BCE0FD;
 	-fx-border-color: #020F59;
 	-fx-text-fill: #020F59;
@@ -146,9 +144,4 @@
 }
 .combo-box .list-cell{
     -fx-background-color:white;
-}
-
-.button-title{
-	-fx-background-color: #020F59;
-	-fx-text-fill: #020F59;
 }
