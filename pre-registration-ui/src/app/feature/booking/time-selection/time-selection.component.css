@@ -50,7 +50,7 @@
   margin-top: 35px;
   border: 1px solid #BCE0FD  ;
   border-radius: 10px;
-  left: -18px;
+  left: -5px;
 }
 
 .time-selection__tile-date {
@@ -518,7 +518,7 @@
   margin-bottom: -24px;
   margin-top: -30px;
   margin-left: 16px;
-  line-height:4px;
+  line-height:14px;
   font-size: 0.9rem;
   padding-bottom: 1px;
 }
