@@ -86,15 +86,16 @@
 	-fx-border-width: 0.0;
 	-fx-text-fill : #020F59;
 	-fx-font-size: 1em;
+	-fx-font-weight: bold;
 
 
 }
-.label-bold{
+.label-normal{
 	-fx-background-color:#ffffff;
 	-fx-border-width: 0.0;
 	-fx-text-fill : #020F59;
 	-fx-font-size: 1em;
-	-fx-font-weight: bold;
+
 
 
 }

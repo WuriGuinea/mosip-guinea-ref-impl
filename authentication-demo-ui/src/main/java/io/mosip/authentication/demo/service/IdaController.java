@@ -165,7 +165,7 @@ public class IdaController {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    private SimpleBooleanProperty switchedOn = new SimpleBooleanProperty(false);
+    private SimpleBooleanProperty switchedOn = new SimpleBooleanProperty(true);
 
     public SimpleBooleanProperty switchOnProperty() {
         return switchedOn;
@@ -185,6 +185,7 @@ public class IdaController {
 
     @FXML
     private void initialize() {
+        init();
         responsetextField.setText(null);
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
         ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
@@ -212,9 +213,8 @@ public class IdaController {
 
 
         switchedOn.addListener((a, b, c) -> {
-            if (c) {
+                   if (c) {
                 tsLabel.setText("");
-                tsHBox.setStyle("-fx-border-color: #020F59;-fx-background-color: white;");
                 tsLabel.toFront();
                 idValueVID.setEditable(false);
                 idValue.setEditable(true);
@@ -227,7 +227,6 @@ public class IdaController {
                 tsHBox.setStyle("-fx-border-color: #020F59;-fx-background-color: white;");
                 tsButton.toFront();
                 idValueVID.setEditable(true);
-
                 idValue.setEditable(false);
                 idValue.setStyle("-fx-text-fill: grey;");
                 idValueVID.setStyle("-fx-text-fill: #020F59;");
@@ -237,6 +236,8 @@ public class IdaController {
         });
 
         init();
+
+
     }
 
     @FXML
@@ -265,7 +266,7 @@ public class IdaController {
 
 
     private void init() {
-
+System.out.println ("appel de  init");
 
         idValueVID.setEditable(false);
         idValue.setEditable(true);
