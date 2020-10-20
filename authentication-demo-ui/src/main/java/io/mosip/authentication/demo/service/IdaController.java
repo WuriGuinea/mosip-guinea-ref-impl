@@ -23,12 +23,15 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 
+import javafx.event.ActionEvent;
+
 import javax.crypto.SecretKey;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.layout.HBox;
@@ -58,11 +61,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import io.mosip.authentication.demo.dto.AuthRequestDTO;
 import io.mosip.authentication.demo.dto.AuthTypeDTO;
 import io.mosip.authentication.demo.dto.CryptomanagerRequestDto;
@@ -94,6 +95,7 @@ import javafx.scene.text.Font;
  * The Class IdaController.
  *
  * @author Sanjay Murali
+ * @author condeis
  */
 @Component
 public class IdaController {
@@ -107,8 +109,8 @@ public class IdaController {
 
     ObjectMapper mapper = new ObjectMapper();
 
-//	@FXML
-//	ComboBox<String> irisCount;
+    @FXML
+    Button closeButton;
 
     @FXML
     ComboBox<String> fingerCount;
@@ -121,17 +123,8 @@ public class IdaController {
     @FXML
     private CheckBox fingerAuthType;
 
-//	@FXML
-//	private CheckBox irisAuthType;
-
-//	@FXML
-//	private CheckBox faceAuthType;
-
     @FXML
     private CheckBox otpAuthType;
-
-    //@FXML
-//private ComboBox<String> idTypebox;
 
     @FXML
     private TextField otpValue;
@@ -160,7 +153,7 @@ public class IdaController {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    private SimpleBooleanProperty switchedOn = new SimpleBooleanProperty(false);
+    private SimpleBooleanProperty switchedOn = new SimpleBooleanProperty(true);
 
     public SimpleBooleanProperty switchOnProperty() {
         return switchedOn;
@@ -173,38 +166,33 @@ public class IdaController {
     private Label tsLabel;
 
     @FXML
+    private Button minimizeBtn;
+    @FXML
+    private Button maximizeBtn;
+
+    @FXML
     private void initialize() {
+        init();
         responsetextField.setText(null);
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
         ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
                 "8", "9", "10");
         fingerCount.setItems(fingerCountChoices);
         fingerCount.getSelectionModel().select(0);
-
-        //	ObservableList<String> irisCountChoices = FXCollections.observableArrayList("Left Iris", "Right Iris", "Both Iris");
-        //	irisCount.setItems(irisCountChoices);
-        //	irisCount.getSelectionModel().select(0);
-
-        //idTypebox.setItems(idTypeChoices);
-        //idTypebox.setValue("UIN");
         otpAnchorPane.setDisable(true);
         bioAnchorPane.setDisable(true);
         responsetextField.setDisable(true);
         sendAuthRequest.setDisable(true);
-
         idValue.textProperty().addListener((observable, oldValue, newValue) -> {
             updateSendButton();
         });
-
         otpValue.textProperty().addListener((observable, oldValue, newValue) -> {
             updateSendButton();
         });
 
-
         switchedOn.addListener((a, b, c) -> {
             if (c) {
                 tsLabel.setText("");
-                tsHBox.setStyle("-fx-border-color: #020F59;-fx-background-color: white;");
                 tsLabel.toFront();
                 idValueVID.setEditable(false);
                 idValue.setEditable(true);
@@ -217,7 +205,6 @@ public class IdaController {
                 tsHBox.setStyle("-fx-border-color: #020F59;-fx-background-color: white;");
                 tsButton.toFront();
                 idValueVID.setEditable(true);
-
                 idValue.setEditable(false);
                 idValue.setStyle("-fx-text-fill: grey;");
                 idValueVID.setStyle("-fx-text-fill: #020F59;");
@@ -227,6 +214,8 @@ public class IdaController {
         });
 
         init();
+
+
     }
 
     @FXML
@@ -246,25 +235,16 @@ public class IdaController {
 
 
     private void setStyle() {
-        //Default Width
-        //	tsHBox.setWidth(80.0);
-        tsLabel.setAlignment(Pos.CENTER);
-        //	tsHBox.setStyle("-fx-background-color: white; -fx-text-fill:black; -fx-background-radius: 4;");
-        //	tsHBox.setAlignment(Pos.CENTER_LEFT);
-    }
+      tsLabel.setAlignment(Pos.CENTER);
+         }
 
 
     private void init() {
-
-
         idValueVID.setEditable(false);
         idValue.setEditable(true);
-        //	tsLabel.setText(" ");
         idValueVID.setStyle("-fx-text-color: grey;");
         idValue.setStyle("-fx-text-color: #020F59;");
         tsLabel.setVisible(false);
-
-        //	getChildren().addAll(label, button);
         tsButton.setOnAction((e) -> {
             switchedOn.set(!switchedOn.get());
         });
@@ -408,7 +388,7 @@ public class IdaController {
     }
 
     private String captureFingerprint() throws Exception {
-        responsetextField.setText("Capturing Fingerprint...");
+        responsetextField.setText("Capture de l'empreinte...");
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
 
         String requestBody = env.getProperty("ida.request.captureRequest.template");
@@ -510,6 +490,27 @@ public class IdaController {
         return result;
     }
 
+    Stage stage;
+
+    @FXML
+    private void closeAction(ActionEvent event) {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+
+    @FXML
+    private void minimizeAction(ActionEvent event) {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void maximizeAction(ActionEvent event) {
+        //   stage=(Stage)((Button) event.getSource()).getScene().getWindow();
+        //git   stage.setMaximized(true);
+    }
+
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
@@ -537,7 +538,7 @@ public class IdaController {
             if (response.getStatusCode().is2xxSuccessful()) {
                 List errors = ((List) response.getBody().get("errors"));
                 boolean status = errors == null || errors.isEmpty();
-                String responseText = status ? "OTP Request Success" : "OTP Request Failed";
+                String responseText = status ? "Succès de la requête OTP" : "Echec de la requête OTP";
                 if (status) {
                     responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
                 } else {

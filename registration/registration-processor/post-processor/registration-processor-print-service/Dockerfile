@@ -36,7 +36,7 @@ ENV artifactory_url_env=${artifactory_url}
 # change volume to whichever storage directory you want to use for this container.
 VOLUME /home/logs
 
-COPY ./target/registration-processor-print-service-*.jar registration-processor-print-service.jar
+COPY ./target/registration-processor-print-service-1.1.1-rc1.jar registration-processor-print-service.jar
 
 EXPOSE 9099
 
