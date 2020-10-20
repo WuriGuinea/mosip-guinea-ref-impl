@@ -403,7 +403,7 @@ mat-icon {
 }
 .user__pref{
   position: relative;
-  left: -222px;
+  left: -252px;
   top: 51px;
 }
 .user__age--years{
@@ -426,6 +426,9 @@ mat-icon {
 .posmobile{
   margin-top: -6px !important;
 }
+.champs{
+  padding: 0rem 0 0 12rem;
+}
 }
 .hidedesk{
   display: block;
@@ -441,6 +444,7 @@ mat-icon {
 @media (max-width: 700px){
   .hidemobile{
   display: block;
+  float: right;
 }
 }
 

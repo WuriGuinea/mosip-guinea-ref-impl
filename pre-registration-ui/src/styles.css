@@ -346,6 +346,21 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     text-overflow: ellipsis;
     text-transform: capitalize;
   }
+  @media (max-width: 700px){
+    .mat-form-field-label{
+      text-overflow: initial !important;
+      overflow: initial !important;
+      white-space: initial !important;
+    }
+    .mat-drawer-content {
+      position: relative;
+      z-index: 1;
+      display: flow-root !important;
+      height: 100%;
+      width: 100% !important;
+      overflow-x: hidden !important;
+    }
+  }
   
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
     top: 24px;
