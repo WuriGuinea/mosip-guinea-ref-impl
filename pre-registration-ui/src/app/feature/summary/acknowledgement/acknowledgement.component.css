@@ -184,9 +184,8 @@ table tr td {
 
   .ack-book_later-btn,
   .ack-continue-btn {
-    font-size: 10px;
+    font-size: 8px;
     padding: 0px 2px;
-    margin-right: 20px;
   }
 }
 .guidelinearea{
@@ -204,6 +203,7 @@ table tr td {
     width: 100%;
     margin-left: 2px;
   }
+  
 }
 #txt-cap{
 text-transform: uppercase;

@@ -205,6 +205,18 @@ mat-select:focus {
   width: 40%;
   padding-bottom: 20px;
 }
+@media (max-width: 700px){
+  .file-upload__body__1{
+  width: 100%;
+}
+.docposition{
+  margin-left: 65px !important;
+  top: -24px !important;
+  display: flex;
+  text-align: center;
+  width: 100%;
+}
+}
 
 :host ::ng-deep .ng2-pdf-viewer-container {
   width: 100% !important;
@@ -302,7 +314,7 @@ mat-select:focus {
   justify-content: space-between;
   margin-top: 1rem;
   bottom: 68px;
-  position: fixed;
+  position: static;
   z-index: 22;
   padding: 0 2vw;
 }
