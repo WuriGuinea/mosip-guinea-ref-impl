@@ -84,7 +84,6 @@
   width: 47%;
   border: solid 1px #020F59;
   margin-left: 6px;
-  margin-top: 20px;
   border-radius: 11px;
   padding: 16px;
 }
@@ -259,6 +258,17 @@
     flex-wrap: wrap;
     color: #020F59;
   }
+
+  .center-selection__button-container {
+    width: 100%;
+    position: static;
+    bottom: 68px;
+    left: 0;
+    padding: 2px 2vw;
+    display: flex;
+    z-index: 22;
+    background: none;
+}
 
   .user-back-btn {
     background-color: #BCE0FD;
