@@ -70,9 +70,9 @@
 			<version>${registration.processor.rest.client.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.mosip.registrationprocessor</groupId>
+			<groupId>io.mosip.registrationprocessor.guinea</groupId>
 			<artifactId>registration-processor-message-sender-impl</artifactId>
-			<version>${registration.processor.message.sender.version}</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

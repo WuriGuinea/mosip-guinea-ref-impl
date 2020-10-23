@@ -36,7 +36,7 @@ ENV artifactory_url_env=${artifactory_url}
 # change volume to whichever storage directory you want to use for this container.
 VOLUME /home/logs
 
-COPY ./target/registration-processor-printing-stage-*.jar registration-processor-printing-stage.jar
+COPY ./target/registration-processor-printing-stage-1.0.1.jar registration-processor-printing-stage.jar
 
 CMD if [ "$is_glowroot_env" = "present" ]; then \
     wget "${artifactory_url_env}"/artifactory/libs-release-local/io/mosip/testing/glowroot.zip ; \
