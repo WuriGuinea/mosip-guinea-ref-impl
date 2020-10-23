@@ -32,7 +32,6 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import javafx.stage.Stage;
-
 import javafx.geometry.Pos;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.layout.HBox;
@@ -62,11 +61,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import io.mosip.authentication.demo.dto.AuthRequestDTO;
 import io.mosip.authentication.demo.dto.AuthTypeDTO;
 import io.mosip.authentication.demo.dto.CryptomanagerRequestDto;
@@ -126,17 +123,8 @@ public class IdaController {
     @FXML
     private CheckBox fingerAuthType;
 
-//	@FXML
-//	private CheckBox irisAuthType;
-
-//	@FXML
-//	private CheckBox faceAuthType;
-
     @FXML
     private CheckBox otpAuthType;
-
-    //@FXML
-//private ComboBox<String> idTypebox;
 
     @FXML
     private TextField otpValue;
@@ -182,38 +170,29 @@ public class IdaController {
     @FXML
     private Button maximizeBtn;
 
-
     @FXML
     private void initialize() {
-        init();
+
         responsetextField.setText(null);
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
         ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
                 "8", "9", "10");
         fingerCount.setItems(fingerCountChoices);
         fingerCount.getSelectionModel().select(0);
-        //	ObservableList<String> irisCountChoices = FXCollections.observableArrayList("Left Iris", "Right Iris", "Both Iris");
-        //	irisCount.setItems(irisCountChoices);
-        //	irisCount.getSelectionModel().select(0);
-
-        //idTypebox.setItems(idTypeChoices);
-        //idTypebox.setValue("UIN");
         otpAnchorPane.setDisable(true);
         bioAnchorPane.setDisable(true);
         responsetextField.setDisable(true);
         sendAuthRequest.setDisable(true);
-
         idValue.textProperty().addListener((observable, oldValue, newValue) -> {
             updateSendButton();
         });
-
         otpValue.textProperty().addListener((observable, oldValue, newValue) -> {
             updateSendButton();
         });
 
-
         switchedOn.addListener((a, b, c) -> {
-                   if (c) {
+            if (c) {
+                System.out.println("I am in true");
                 tsLabel.setText("");
                 tsLabel.toFront();
                 idValueVID.setEditable(false);
@@ -223,6 +202,7 @@ public class IdaController {
                 idValue.setText("INU");
                 idValueVID.setText("VID");
             } else {
+                System.out.println("I am in false");
                 tsLabel.setText("");
                 tsHBox.setStyle("-fx-border-color: #020F59;-fx-background-color: white;");
                 tsButton.toFront();
@@ -232,6 +212,7 @@ public class IdaController {
                 idValueVID.setStyle("-fx-text-fill: #020F59;");
                 idValue.setText("INU");
                 idValueVID.setText("VID");
+
             }
         });
 
@@ -240,6 +221,17 @@ public class IdaController {
 
     }
 
+    public void vidDisabled ()
+    {
+        tsLabel.setText("");
+        tsLabel.toFront();
+        idValueVID.setEditable(false);
+        idValue.setEditable(true);
+        idValueVID.setStyle("-fx-text-fill: grey;");
+        idValue.setStyle("-fx-text-fill: #020F59;");
+        idValue.setText("INU");
+        idValueVID.setText("VID");
+    }
     @FXML
     private HBox tsHBox;
 
@@ -257,33 +249,28 @@ public class IdaController {
 
 
     private void setStyle() {
-        //Default Width
-        //	tsHBox.setWidth(80.0);
-        tsLabel.setAlignment(Pos.CENTER);
-        //	tsHBox.setStyle("-fx-background-color: white; -fx-text-fill:black; -fx-background-radius: 4;");
-        //	tsHBox.setAlignment(Pos.CENTER_LEFT);
-    }
+      tsLabel.setAlignment(Pos.CENTER);
+         }
 
 
     private void init() {
-System.out.println ("appel de  init");
-
+        System.out.println("Init is called");
         idValueVID.setEditable(false);
         idValue.setEditable(true);
-        //	tsLabel.setText(" ");
         idValueVID.setStyle("-fx-text-color: grey;");
         idValue.setStyle("-fx-text-color: #020F59;");
         tsLabel.setVisible(false);
-
-        //	getChildren().addAll(label, button);
         tsButton.setOnAction((e) -> {
             switchedOn.set(!switchedOn.get());
+
         });
         tsLabel.setOnMouseClicked((e) -> {
             switchedOn.set(!switchedOn.get());
+
         });
         setStyle();
         bindProperties();
+        vidDisabled();
     }
 
     private void bindProperties() {
@@ -294,12 +281,10 @@ System.out.println ("appel de  init");
     }
 
     private void updateSendButton() {
-        if (idValue.getText() == null
-                || idValue.getText().trim().isEmpty() ||
-                idValue.getText().trim().equalsIgnoreCase("UIN") || idValueVID.getText() == null
-                || idValueVID.getText().trim().isEmpty() ||
-                idValueVID.getText().trim().equalsIgnoreCase("VID")
-        ) {
+        if (idValue.getText() == null||
+                idValue.getText().trim().isEmpty() ||
+              idValueVID.getText() == null
+                || idValueVID.getText().trim().isEmpty()) {
             sendAuthRequest.setDisable(true);
             return;
         }
@@ -538,21 +523,25 @@ System.out.println ("appel de  init");
 
     @FXML
     private void maximizeAction(ActionEvent event) {
-         //   stage=(Stage)((Button) event.getSource()).getScene().getWindow();
+        //   stage=(Stage)((Button) event.getSource()).getScene().getWindow();
         //git   stage.setMaximized(true);
     }
 
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
+        String type="UIN";
         responsetextField.setText(null);
         OtpRequestDTO otpRequestDTO = new OtpRequestDTO();
         otpRequestDTO.setId("mosip.identity.otp");
         String valueToCheck = idValue.getText();
-        if (valueToCheck.equalsIgnoreCase("UIN")) ;
-        valueToCheck = idValueVID.getText();
+        if (valueToCheck.contains("UIN"))
+        {
+            valueToCheck = idValueVID.getText();
+            type="VID";
+        }
         otpRequestDTO.setIndividualId(valueToCheck);
-        //	otpRequestDTO.setIndividualIdType(idTypebox.getValue());
+        otpRequestDTO.setIndividualIdType(type);
         otpRequestDTO.setOtpChannel(Collections.singletonList("email"));
         otpRequestDTO.setRequestTime(getUTCCurrentDateTimeISOString());
         otpRequestDTO.setTransactionID(getTransactionID());
@@ -572,6 +561,7 @@ System.out.println ("appel de  init");
                 String responseText = status ? "Succès de la requête OTP" : "Echec de la requête OTP";
                 if (status) {
                     responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
+
                 } else {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
                 }
@@ -591,7 +581,7 @@ System.out.println ("appel de  init");
     private void onSendAuthRequest() throws Exception {
         responsetextField.setText(null);
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
-        responsetextField.setText("Preparing Auth Request...");
+        responsetextField.setText("Preparation de la requête OTP");
         AuthRequestDTO authRequestDTO = new AuthRequestDTO();
         // Set Auth Type
         AuthTypeDTO authTypeDTO = new AuthTypeDTO();
@@ -601,7 +591,7 @@ System.out.println ("appel de  init");
         // set Individual Id
         authRequestDTO.setIndividualId(idValue.getText());
         // Set Individual Id type
-        //	authRequestDTO.setIndividualIdType(idTypebox.getValue());
+        	authRequestDTO.setIndividualIdType("UIN");
 
         RequestDTO requestDTO = new RequestDTO();
         requestDTO.setTimestamp(getUTCCurrentDateTimeISOString());
@@ -668,7 +658,7 @@ System.out.println ("appel de  init");
             System.out.println(authResponse.getBody());
         } catch (Exception e) {
             e.printStackTrace();
-            responsetextField.setText("Authentication Failed with Error");
+            responsetextField.setText("Echec d'authentification avec erreur");
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
         }
     }
