@@ -16,8 +16,8 @@
   height: 50%;
 }
 .browseInput {
-  background-image: url('/assets/add.svg');
- 
+  background-image: url('/assets/add.svg'), url('/pre-registration-ui/assets/add.svg');
+
   height: 29px;
   width: 29px;
   background-size: cover;
@@ -35,7 +35,7 @@
 }
 
 .browseInput[disabled] {
-  background-image: url('/assets/add-disabled.svg');
+  background-image: url('/assets/add-disabled.svg'), url('/pre-registration-ui/assets/add-disabled.svg');
   height: 29px;
   width: 29px;
   background-size: cover;
@@ -43,7 +43,7 @@
   z-index: 0;
 }
 .deleteicon[disabled]{
-  background-image: url('/assets/deleteicon.svg');
+  background-image: url('/assets/deleteicon.svg'), url('/pre-registration-ui/assets/deleteicon.svg');
   
   height: 29px;
   width: 29px;
@@ -247,7 +247,7 @@ mat-select:focus {
   padding-top: 22px;
 }
 .deleteicon{
-  background-image: url('/assets/supp.svg');
+  background-image: url('/assets/supp.svg'), url('/pre-registration-ui/assets/supp.svg');
   
   height: 29px;
   width: 29px;
