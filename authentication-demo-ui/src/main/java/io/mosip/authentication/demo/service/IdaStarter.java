@@ -57,6 +57,7 @@ public class IdaStarter extends Application {
      //   stage.initStyle(StageStyle.UNDECORATED);
         //stage.ge
         // Display the Stage
+        stage.setResizable(false);
         stage.show();
     }
 }

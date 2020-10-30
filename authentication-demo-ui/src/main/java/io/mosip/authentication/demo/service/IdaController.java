@@ -109,10 +109,7 @@ public class IdaController {
 
     ObjectMapper mapper = new ObjectMapper();
 
-    @FXML
-    Button closeButton;
-
-    @FXML
+        @FXML
     ComboBox<String> fingerCount;
 
     @FXML
@@ -165,10 +162,6 @@ public class IdaController {
     @FXML
     private Label tsLabel;
 
-    @FXML
-    private Button minimizeBtn;
-    @FXML
-    private Button maximizeBtn;
 
     @FXML
     private void initialize() {
@@ -177,6 +170,11 @@ public class IdaController {
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
         ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
                 "8", "9", "10");
+        ObservableList<String> fingerCountChoicesNew = FXCollections.observableArrayList("1- Auricullaire Gauche", "2- Annulaire Gauche", "3-Majeur Gauche",
+                "4- Index Gauche", "5- Pouce Gauche", "6- Pouce Droit", "7- Index Droit",
+                "8- Majeur Droit", "9- Annulaire Droit", "10- Auriculaire Droit");
+            fingerCountChoices=fingerCountChoicesNew;
+
         fingerCount.setItems(fingerCountChoices);
         fingerCount.getSelectionModel().select(0);
         otpAnchorPane.setDisable(true);
@@ -192,8 +190,7 @@ public class IdaController {
 
         switchedOn.addListener((a, b, c) -> {
             if (c) {
-                System.out.println("I am in true");
-                tsLabel.setText("");
+               tsLabel.setText("");
                 tsLabel.toFront();
                 idValueVID.setEditable(false);
                 idValue.setEditable(true);
@@ -202,7 +199,6 @@ public class IdaController {
                 idValue.setText("INU");
                 idValueVID.setText("VID");
             } else {
-                System.out.println("I am in false");
                 tsLabel.setText("");
                 tsHBox.setStyle("-fx-border-color: #020F59;-fx-background-color: white;");
                 tsButton.toFront();
@@ -254,7 +250,6 @@ public class IdaController {
 
 
     private void init() {
-        System.out.println("Init is called");
         idValueVID.setEditable(false);
         idValue.setEditable(true);
         idValueVID.setStyle("-fx-text-color: grey;");

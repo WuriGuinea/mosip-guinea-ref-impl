@@ -190,8 +190,12 @@
 }
 .combo-box .list-cell{
     -fx-background-color:white;
+    -fx-text-fill: #020F59;
 }
-
+.combo-box .combo-box-popup .list-cell:hover {
+    -fx-text-fill: white ;
+    -fx-background-color: #020F59;
+}
 .button-title{
 	-fx-background-color: #020F59;
 	-fx-text-fill: #020F59;
