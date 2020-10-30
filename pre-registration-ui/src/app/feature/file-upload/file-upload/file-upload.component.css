@@ -210,11 +210,11 @@ mat-select:focus {
   width: 100%;
 }
 .docposition{
-  margin-left: 65px !important;
-  top: -24px !important;
+  margin-left: -150px !important;
+  top: 34px !important;
   display: flex;
   text-align: center;
-  width: 100%;
+  float: left;
 }
 }
 
@@ -399,7 +399,7 @@ mat-select:focus {
     padding-top: 16px;
   }
   .file-upload__input{
-    width: 85%;
+    width: 60%;
   }
   .mat-form-field-label-wrapper{
     width: inherit !important;
@@ -411,4 +411,21 @@ mat-select:focus {
   .browseInput[disabled]{
     display: none !important;
   }
+  .deleteandview{
+    margin-left: 14px;
+  }
+  .view-img{
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .deleteicon{
+    width: 20px;
+    height: 20px;
+  }
+  .browseInput{
+    width: 20px;
+    height: 20px;
+  }
 }
+
+
