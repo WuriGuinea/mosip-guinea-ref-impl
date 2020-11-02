@@ -109,10 +109,7 @@ public class IdaController {
 
     ObjectMapper mapper = new ObjectMapper();
 
-    @FXML
-    Button closeButton;
-
-    @FXML
+        @FXML
     ComboBox<String> fingerCount;
 
     @FXML
@@ -165,18 +162,19 @@ public class IdaController {
     @FXML
     private Label tsLabel;
 
-    @FXML
-    private Button minimizeBtn;
-    @FXML
-    private Button maximizeBtn;
 
     @FXML
     private void initialize() {
-        init();
+
         responsetextField.setText(null);
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
         ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
                 "8", "9", "10");
+        ObservableList<String> fingerCountChoicesNew = FXCollections.observableArrayList("1- Auricullaire Gauche", "2- Annulaire Gauche", "3-Majeur Gauche",
+                "4- Index Gauche", "5- Pouce Gauche", "6- Pouce Droit", "7- Index Droit",
+                "8- Majeur Droit", "9- Annulaire Droit", "10- Auriculaire Droit");
+            fingerCountChoices=fingerCountChoicesNew;
+
         fingerCount.setItems(fingerCountChoices);
         fingerCount.getSelectionModel().select(0);
         otpAnchorPane.setDisable(true);
@@ -192,7 +190,7 @@ public class IdaController {
 
         switchedOn.addListener((a, b, c) -> {
             if (c) {
-                tsLabel.setText("");
+               tsLabel.setText("");
                 tsLabel.toFront();
                 idValueVID.setEditable(false);
                 idValue.setEditable(true);
@@ -210,6 +208,7 @@ public class IdaController {
                 idValueVID.setStyle("-fx-text-fill: #020F59;");
                 idValue.setText("INU");
                 idValueVID.setText("VID");
+
             }
         });
 
@@ -218,6 +217,17 @@ public class IdaController {
 
     }
 
+    public void vidDisabled ()
+    {
+        tsLabel.setText("");
+        tsLabel.toFront();
+        idValueVID.setEditable(false);
+        idValue.setEditable(true);
+        idValueVID.setStyle("-fx-text-fill: grey;");
+        idValue.setStyle("-fx-text-fill: #020F59;");
+        idValue.setText("INU");
+        idValueVID.setText("VID");
+    }
     @FXML
     private HBox tsHBox;
 
@@ -247,12 +257,15 @@ public class IdaController {
         tsLabel.setVisible(false);
         tsButton.setOnAction((e) -> {
             switchedOn.set(!switchedOn.get());
+
         });
         tsLabel.setOnMouseClicked((e) -> {
             switchedOn.set(!switchedOn.get());
+
         });
         setStyle();
         bindProperties();
+        vidDisabled();
     }
 
     private void bindProperties() {
@@ -263,12 +276,10 @@ public class IdaController {
     }
 
     private void updateSendButton() {
-        if (idValue.getText() == null
-                || idValue.getText().trim().isEmpty() ||
-                idValue.getText().trim().equalsIgnoreCase("UIN") || idValueVID.getText() == null
-                || idValueVID.getText().trim().isEmpty() ||
-                idValueVID.getText().trim().equalsIgnoreCase("VID")
-        ) {
+        if (idValue.getText() == null||
+                idValue.getText().trim().isEmpty() ||
+              idValueVID.getText() == null
+                || idValueVID.getText().trim().isEmpty()) {
             sendAuthRequest.setDisable(true);
             return;
         }
@@ -514,14 +525,18 @@ public class IdaController {
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
+        String type="UIN";
         responsetextField.setText(null);
         OtpRequestDTO otpRequestDTO = new OtpRequestDTO();
         otpRequestDTO.setId("mosip.identity.otp");
         String valueToCheck = idValue.getText();
-        if (valueToCheck.equalsIgnoreCase("UIN")) ;
-        valueToCheck = idValueVID.getText();
+        if (valueToCheck.contains("UIN"))
+        {
+            valueToCheck = idValueVID.getText();
+            type="VID";
+        }
         otpRequestDTO.setIndividualId(valueToCheck);
-        //	otpRequestDTO.setIndividualIdType(idTypebox.getValue());
+        otpRequestDTO.setIndividualIdType(type);
         otpRequestDTO.setOtpChannel(Collections.singletonList("email"));
         otpRequestDTO.setRequestTime(getUTCCurrentDateTimeISOString());
         otpRequestDTO.setTransactionID(getTransactionID());
@@ -541,6 +556,7 @@ public class IdaController {
                 String responseText = status ? "Succès de la requête OTP" : "Echec de la requête OTP";
                 if (status) {
                     responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
+
                 } else {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
                 }
@@ -560,7 +576,7 @@ public class IdaController {
     private void onSendAuthRequest() throws Exception {
         responsetextField.setText(null);
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
-        responsetextField.setText("Preparing Auth Request...");
+        responsetextField.setText("Preparation de la requête OTP");
         AuthRequestDTO authRequestDTO = new AuthRequestDTO();
         // Set Auth Type
         AuthTypeDTO authTypeDTO = new AuthTypeDTO();
@@ -570,7 +586,7 @@ public class IdaController {
         // set Individual Id
         authRequestDTO.setIndividualId(idValue.getText());
         // Set Individual Id type
-        //	authRequestDTO.setIndividualIdType(idTypebox.getValue());
+        	authRequestDTO.setIndividualIdType("UIN");
 
         RequestDTO requestDTO = new RequestDTO();
         requestDTO.setTimestamp(getUTCCurrentDateTimeISOString());
@@ -637,7 +653,7 @@ public class IdaController {
             System.out.println(authResponse.getBody());
         } catch (Exception e) {
             e.printStackTrace();
-            responsetextField.setText("Authentication Failed with Error");
+            responsetextField.setText("Echec d'authentification avec erreur");
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
         }
     }
