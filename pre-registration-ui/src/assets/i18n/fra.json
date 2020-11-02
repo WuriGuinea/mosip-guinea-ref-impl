@@ -266,7 +266,7 @@
 		"sub_text": "pré-enregistrement pour",
 		"sub_text_UID": "Identifiant National Unique",
 		"label_select": "Choisissez votre langue",
-		"label_email_num": "    E-mail ou Téléphone mobile",
+		"label_email_num": "    E-mail ou Mobile",
 		"label_otp": "   Entrez votre clé d'identification OTP",
 		"action_send": "RECEVOIR SA CLÉ OTP",
 		"action_resend": "RENVOYER LA CLÉ OTP",
