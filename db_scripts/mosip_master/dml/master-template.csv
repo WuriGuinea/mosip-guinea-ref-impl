@@ -105,7 +105,7 @@ L'Équipe WURI Guinée",10001,Pré-inscription,OTP-email-content-template,fra,TR
 1128,Template for OTP SMS,Template for OTP SMS,txt,,"Madame/Monsieur $name,
 Votre mot de passe à usage unique est $otp. Sa durée de validité est de 5 minutes. Numéro de pré-enregistrement : $PRID
 Généré le $date à $heure hrs.",10001,Pré-inscription,OTP-sms-template,fra,TRUE,superadmin,now()
-1129,Template for SMS Acknowledgment,Template for SMS Acknowledgment,txt,,"Monsieur/Madame $lastName,
+1129,Template for SMS Acknowledgment,Template for SMS Acknowledgment,txt,,"Monsieur/Madame $name,
 Votre rendez-vous INU (référence $PRID prévu le $Appointmentdate à $Appointmenttime est confirmé.
 Cordialement,
 L'Équipe WURI Guinée",10001,Pré-inscription,SMS-Acknowledgement,fra,TRUE,superadmin,now()
