@@ -42,6 +42,7 @@
 .user {
   background-color: #ffffff;
   z-index: 1;
+  height: 35rem;
   margin: auto;
   padding: 1.2rem 2rem 0 2rem;
   padding-top: 1.2rem;

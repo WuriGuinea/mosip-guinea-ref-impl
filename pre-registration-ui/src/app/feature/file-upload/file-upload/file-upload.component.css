@@ -147,10 +147,10 @@ mat-select:focus {
 .file-upload {
   box-shadow: 1px 1px 10px 4px #eeeeee;
   background: #ffffff;
-  margin: 40px 2vw 10vw;
+  margin: 40px 2vw 15vw;
   color: #020F59;
   border: solid 1px #020F59;
-  height: auto;
+  height: 35rem;
   border-radius: 16px;
 }
 
@@ -314,7 +314,7 @@ mat-select:focus {
   justify-content: space-between;
   margin-top: -8rem;
   bottom: 68px;
-  position: static;
+  position: fixed;
   z-index: 22;
   padding: 0 2vw;
 }
