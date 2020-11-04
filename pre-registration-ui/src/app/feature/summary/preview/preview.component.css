@@ -361,3 +361,18 @@
 #justificatifstable{
   margin-top: -31px;
 }
+@media (max-width:400px){
+ .text_uppercase{
+  font-size: xx-small;
+ }
+} 
+@media screen and (min-width: 401px) and (max-width: 420px) {
+  .text_uppercase{
+    font-size: x-small;
+   }
+  }
+  @media screen and (min-width: 350px) and (max-width: 401px) {
+    .text_uppercase{
+      font-size: 7px;
+     }
+    }
