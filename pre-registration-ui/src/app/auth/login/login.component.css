@@ -151,9 +151,14 @@ button {
   .form_fields_padding {
     margin-left: 16%;
   }
+  .wrapper[_ngcontent-c13] {
+    margin-right: 10%;
+  }
 
+}
+@media (max-width: 700px) {
   .form_wrapper[_ngcontent-c13] {
-    margin: 6% 64% 0% 64%;
+    margin: 6% 64% 62% 64%;
     border-radius: 10px;
     box-shadow: 0px 3px 6px darkgray;
     background: #fafafa;
@@ -161,10 +166,6 @@ button {
     display: flex;
     flex-direction: column;
   }
-  .wrapper[_ngcontent-c13] {
-    margin-right: 10%;
-  }
-
 }
 .mat-input-element {
   font: inherit;
@@ -314,4 +315,10 @@ mat-form-field-infix{
 .btn_axn-pri[disabled]{
 background: #BCE0FD;
 margin-left: 3%;
+}
+@media (max-width: 700px) {
+.main-footer{
+  position: fixed !important;
+  bottom:2px !important ;
+}
 }

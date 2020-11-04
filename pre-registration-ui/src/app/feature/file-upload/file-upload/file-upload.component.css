@@ -16,8 +16,8 @@
   height: 50%;
 }
 .browseInput {
-  background-image: url('/assets/add.svg');
- 
+  background-image: url('/assets/add.svg'), url('/pre-registration-ui/assets/add.svg');
+
   height: 29px;
   width: 29px;
   background-size: cover;
@@ -35,7 +35,7 @@
 }
 
 .browseInput[disabled] {
-  background-image: url('/assets/add-disabled.svg');
+  background-image: url('/assets/add-disabled.svg'), url('/pre-registration-ui/assets/add-disabled.svg');
   height: 29px;
   width: 29px;
   background-size: cover;
@@ -43,7 +43,7 @@
   z-index: 0;
 }
 .deleteicon[disabled]{
-  background-image: url('/assets/deleteicon.svg');
+  background-image: url('/assets/deleteicon.svg'), url('/pre-registration-ui/assets/deleteicon.svg');
   
   height: 29px;
   width: 29px;
@@ -210,11 +210,11 @@ mat-select:focus {
   width: 100%;
 }
 .docposition{
-  margin-left: 65px !important;
-  top: -24px !important;
+  margin-left: -150px !important;
+  top: 34px !important;
   display: flex;
   text-align: center;
-  width: 100%;
+  float: left;
 }
 }
 
@@ -247,7 +247,7 @@ mat-select:focus {
   padding-top: 22px;
 }
 .deleteicon{
-  background-image: url('/assets/supp.svg');
+  background-image: url('/assets/supp.svg'), url('/pre-registration-ui/assets/supp.svg');
   
   height: 29px;
   width: 29px;
@@ -312,7 +312,7 @@ mat-select:focus {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: -8rem;
   bottom: 68px;
   position: static;
   z-index: 22;
@@ -394,3 +394,38 @@ mat-select:focus {
   background: rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
+@media (max-width : 700px){
+  .mat-select{
+    padding-top: 16px;
+  }
+  .file-upload__input{
+    width: 60%;
+  }
+  .mat-form-field-label-wrapper{
+    width: inherit !important;
+  }
+  .user__buttons{
+   margin-left: 8px !important;
+   justify-content: space-around !important; 
+  }
+  .browseInput[disabled]{
+    display: none !important;
+  }
+  .deleteandview{
+    margin-left: 14px;
+  }
+  .view-img{
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .deleteicon{
+    width: 20px;
+    height: 20px;
+  }
+  .browseInput{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+

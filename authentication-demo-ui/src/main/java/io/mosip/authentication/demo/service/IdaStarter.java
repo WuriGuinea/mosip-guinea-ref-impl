@@ -54,9 +54,10 @@ public class IdaStarter extends Application {
         // Set the Title to the Stage
         stage.setTitle("UNIR 1.0.0");
         stage.getIcons().add(new Image("logo.png"));
-        stage.initStyle(StageStyle.UNDECORATED);
+     //   stage.initStyle(StageStyle.UNDECORATED);
         //stage.ge
         // Display the Stage
+        stage.setResizable(false);
         stage.show();
     }
 }
