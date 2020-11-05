@@ -429,3 +429,26 @@ mat-select:focus {
 }
 
 
+@media (max-width : 1200px){
+  .user__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -8rem;
+    bottom: -0.5rem;
+    position: relative;
+    z-index: 2;
+    padding: 0 2vw; 
+  }
+
+  .file-upload[_ngcontent-c20] {
+    box-shadow: 1px 1px 10px 4px #eeeeee;
+    background: #ffffff;
+    margin: 40px 2vw 32vw;
+    color: #020F59;
+    border: solid 1px #020F59;
+    height: 35rem;
+    border-radius: 16px;
+  }
+
+}

@@ -18,6 +18,7 @@
   .center-selection__title-card {
     display: block;
   }
+  
 }
 .center-selection__button-container {
   width: 100%;
@@ -307,4 +308,12 @@ input[type='radio'] {
   display: block;
   z-index: -auto;
 }
-
+@media (max-width: 1200px){
+  .center-selection__button-container {
+  position: relative;
+  bottom: -1rem;
+  padding: 2px 1.6rem;
+  display: flex;
+  z-index: 2;
+}
+}

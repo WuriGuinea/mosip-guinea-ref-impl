@@ -16,11 +16,6 @@
   display: block;
   margin-bottom: 116px;
 }
-@media (max-width: 1200px) {
-  .time-selection__title-card {
-    display: block;
-  }
-}
 
 .applicants_card {
   margin-right: 14px ;
@@ -538,4 +533,20 @@ padding-bottom: 25px;
 .blueslot{
   background: #020F59;
   color:white;
+}
+
+@media (max-width: 1200px) {
+  .time-selection__title-card {
+    display: block;
+  }
+  .time-selection__button-container {
+    width: 100%;
+    position: relative;
+    bottom: 68px;
+    left: 0;
+    padding: 2px 1.6rem;
+    display: flex;
+    z-index: 2;
+    background: none;
+}
 }
