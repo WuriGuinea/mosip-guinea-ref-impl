@@ -434,7 +434,7 @@ mat-select:focus {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: -8rem;
+    margin-top: -7rem;
     bottom: -0.5rem;
     position: relative;
     z-index: 2;
