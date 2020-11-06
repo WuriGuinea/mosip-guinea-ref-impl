@@ -441,7 +441,7 @@ mat-select:focus {
     padding: 0 2vw; 
   }
 
-  .file-upload[_ngcontent-c20] {
+  .file-upload{
     box-shadow: 1px 1px 10px 4px #eeeeee;
     background: #ffffff;
     margin: 40px 2vw 32vw;

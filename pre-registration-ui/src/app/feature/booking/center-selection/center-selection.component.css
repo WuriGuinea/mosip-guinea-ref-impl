@@ -46,10 +46,11 @@ section {
 
 .centers-list ul {
   list-style-type: none;
-  padding: 0%;
-  font-size: 0.8rem;
-  display: flex;
-  width: 96%;
+    padding: 0%;
+    line-break: auto;
+    font-size: 0.8rem;
+    display: contents;
+    width: 96%;
 }
 
 .center-card {
