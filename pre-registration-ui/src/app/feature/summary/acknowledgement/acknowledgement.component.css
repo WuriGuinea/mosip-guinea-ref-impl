@@ -333,13 +333,14 @@ table tr td {
     background-color: #BCE0FD;
     color: #020F59;
     text-align: center;
+    margin: 4px 0 4px 0.2rem;
     font-size: 0.5rem;
 }
 
 .ack-continue-btn{
   background-color: #BCE0FD;
   color: #020F59;
-  padding: 0px 2rem;
+  padding: 0px 1rem;
   text-align: center;
   font-size: 0.5rem;
 }
