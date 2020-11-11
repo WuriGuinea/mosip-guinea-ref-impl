@@ -1246,6 +1246,20 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     }
   }
 
+    @HostListener('keydown', ['$event']) onKeyDown(e:any) {
+        if ((e.which == 13 || e.keyCode == 13)) {
+            e.preventDefault();
+            if (e.srcElement.nextElementSibling) {
+                e.srcElement.nextElementSibling.focus();
+            }
+            else{
+                console.log('close keyboard');
+            }
+            return;
+        }
+
+    }
+
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
