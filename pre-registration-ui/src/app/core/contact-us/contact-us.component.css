@@ -17,3 +17,10 @@
 .space{
     margin-left: 5.5em;
 }
+
+textarea.mat-input-element {
+    /* text-transform: uppercase; */
+    border-radius: 5px;
+    height: 55px;
+    border: solid 1px #BCE0FD !important;
+}
