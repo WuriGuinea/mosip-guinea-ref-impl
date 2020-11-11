@@ -1,35 +1,33 @@
 <div class="wuri-card">
     <form [formGroup]="userForm" class="user__form">
         <mat-form-field>
-            <mat-label>Nom complet<span class="mandatory">*</span>
+            <mat-label>{{'contactUs.fullName' | translate}}<span class="mandatory">*</span>
             </mat-label>
             <input 
                 matInput 
                 #fullName 
-                placeholder="Nom complet" 
+                placeholder="{{'contactUs.fullName' | translate}}" 
                 [formControlName]="formControlNames.fullName" />
-            <mat-error *ngIf="true">
-                Ce champs est requis
-            </mat-error>
+                <mat-error *ngIf="!fullName.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
         </mat-form-field>
         <br />
 
         <mat-form-field>
-            <mat-label>{{ 'demographic.label_email_id' | translate }}<span class="mandatory">*</span></mat-label>
+            <mat-label>{{'contactUs.email' | translate}}<span class="mandatory">*</span></mat-label>
             <input 
                 #email 
                 type="text" 
                 matInput 
-                placeholder="{{ 'demographic.label_email_id' | translate }}" 
+                placeholder="{{'contactUs.email' | translate}}" 
                 [formControlName]="formControlNames.email"/>
-            <mat-error *ngIf="true">Ce champs est requis</mat-error>
+                <mat-error *ngIf="!email.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
         </mat-form-field>
         <br />
 
         <mat-form-field>
-            <mat-label>Raison<span class="mandatory">*</span></mat-label>
+            <mat-label>{{'contactUs.reason' | translate}}<span class="mandatory">*</span></mat-label>
             <mat-select 
-                placeholder="Raison" 
+                placeholder="{{'contactUs.reason' | translate}}" 
                 appearance="legacy"
                 name="fontStyle"
                 aria-label="Font Style"
@@ -39,52 +37,42 @@
                 {{reason.value}} 
             </mat-option>
             </mat-select>
-            <mat-error *ngIf="true"> Ce champs est requis</mat-error>
+            <mat-error *ngIf=" userForm.get(formControlNames.reason).touched &&
+            userForm.get(formControlNames.reason).invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
         </mat-form-field>
         <br />
 
         <mat-form-field *ngIf="displayOtherReason">
-            <mat-label>Autre Raison <span class="mandatory">*</span></mat-label>
+            <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
             <input 
                 matInput 
                 #otherReason 
-                placeholder="Autre Raison" 
+                placeholder="{{'contactUs.otherReason' | translate}}" 
                 [formControlName]="formControlNames.otherReason"/>
-            <mat-error *ngIf="true">
-                Ce champs est requis
-            </mat-error>
+                <mat-error *ngIf="!otherReason.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
         </mat-form-field>
         <br />
 
-        <textarea 
-            matInput 
-            #message 
-            placeholder="Message" 
-            rows="4" 
-            maxlength="40"
-            [formControlName]="formControlNames.message">
-        </textarea>
+        <mat-form-field>
+            <mat-label>{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
+            <textarea 
+                matInput 
+                #message 
+                placeholder="{{'contactUs.message' | translate}} {{'contactUs.maxChars' | translate}}" 
+                rows="10" 
+                maxlength="250"
+                [formControlName]="formControlNames.message">
+            </textarea>
+             <mat-error *ngIf="!message.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
+        </mat-form-field>
         <br />
 
         <button 
             class="user__btn user__btn--back" 
             type="button"
             (click)="onSubmit()">
-            Envoyer
+            {{'contactUs.send' | translate}}
         </button>
     </form>
 </div>
 
-<!-- <div class="wuri-card">
-    
-    <b>Adresse</b>: 
-    <span class="espace">Programme Wuri Guin&eacute;e - R&eacute;sidence Corail<br></span>
-            <span class="space">Bureau A101</span>
-        <br><span class="space">Camayenne-Dixinn </span>
-        <br><span class="space">Conakry, République de Guinée</span>
-            <br>
-        <br>
-    <br> <b>Téléphone</b>:&nbsp;&nbsp; +224622227491
-    <br> <b>E-mail</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contact@inu.gov.gn
-
-</div> -->

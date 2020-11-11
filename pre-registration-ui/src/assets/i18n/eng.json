@@ -253,6 +253,16 @@
       }
     ]
   },
+  "contactUs": {
+		"fullName":"",
+		"email":" ",
+		"reason":" ",
+		"otherReason":"",
+		"message":" ",
+		"maxChars":" ",
+		"mandatoryField":" ",
+		"send":" "
+	},
   "header": {
     "link_about": "GETTING STARTED",
     "link_faq": "FAQ",

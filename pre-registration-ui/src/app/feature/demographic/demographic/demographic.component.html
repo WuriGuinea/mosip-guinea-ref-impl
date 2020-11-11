@@ -145,8 +145,8 @@
                                     {{ resident.name }}
                                 </mat-option>
                             </mat-select>
-                            <mat-error *ngIf=" userForm.get(formControlNames.residenceStatus).touched &&
-                            userForm.get(formControlNames.residenceStatus).invalid">
+                            <mat-error *ngIf="userForm.get(formControlNames.residenceStatus).touched &&
+                                            userForm.get(formControlNames.residenceStatus).invalid">
                                 {{ 'demographic.validation.nationality_validation' | translate }}
                                 </mat-error>
                         </mat-form-field>
