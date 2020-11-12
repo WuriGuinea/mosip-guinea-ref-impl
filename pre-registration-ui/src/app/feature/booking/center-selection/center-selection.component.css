@@ -305,7 +305,7 @@ input[type='radio'] {
   margin: 0px 0vw;
   border: 1px solid #020F59;
   border-radius: 10px;
-  height: 590px;
+  min-height: 590px;
   display: block;
   z-index: -auto;
 }
