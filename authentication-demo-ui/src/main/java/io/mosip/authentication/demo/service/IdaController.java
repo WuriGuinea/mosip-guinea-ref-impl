@@ -170,9 +170,9 @@ public class IdaController {
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
         ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
                 "8", "9", "10");
-        ObservableList<String> fingerCountChoicesNew = FXCollections.observableArrayList("1- Auricullaire Gauche", "2- Annulaire Gauche", "3-Majeur Gauche",
-                "4- Index Gauche", "5- Pouce Gauche", "6- Pouce Droit", "7- Index Droit",
-                "8- Majeur Droit", "9- Annulaire Droit", "10- Auriculaire Droit");
+        ObservableList<String> fingerCountChoicesNew = FXCollections.observableArrayList("1- Auriculaire gauche", "2- Annulaire gauche", "3- Majeur gauche",
+                "4- Index gauche", "5- Pouce gauche", "6- Pouce droit", "7- Index droit",
+                "8- Majeur droit", "9- Annulaire droit", "10- Auriculaire droit");
             fingerCountChoices=fingerCountChoicesNew;
 
         fingerCount.setItems(fingerCountChoices);
@@ -211,7 +211,7 @@ public class IdaController {
 
             }
         });
-
+        otpValue.setEditable(false);
         init();
 
 
@@ -556,6 +556,9 @@ public class IdaController {
                 String responseText = status ? "Succès de la requête OTP" : "Echec de la requête OTP";
                 if (status) {
                     responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
+                    otpValue.setEditable(true);
+                    otpValue.setText("Entrez OTP");
+                    otpValue.setStyle("-fx-text-color: grey;");
 
                 } else {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
@@ -645,8 +648,8 @@ public class IdaController {
                 }
                 responsetextField.setText(response);
             } else {
-                responsetextField.setText("Authentication Failed with Error");
-                responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
+                responsetextField.setText("Echec de le requête d'authentification avec des erreurs");
+                responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
             }
 
             System.out.println("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
