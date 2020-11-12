@@ -327,15 +327,27 @@ table tr td {
   padding-right: 2px;
   padding-left: 2px;
 }
-
+.ack-book_later-btnm{
+  display: none;
+}
 @media (max-width: 600px) {
   .ack-book_later-btn{
+    background-color: #BCE0FD;
+    color: #020F59;
+    display: none;
+    text-align: center;
+    margin: 4px 0 4px 0.2rem;
+    font-size: 0.5rem;
+  }
+
+  .ack-book_later-btnm{
+    display: block;
     background-color: #BCE0FD;
     color: #020F59;
     text-align: center;
     margin: 4px 0 4px 0.2rem;
     font-size: 0.5rem;
-}
+  }
 
 .ack-continue-btn{
   background-color: #BCE0FD;
