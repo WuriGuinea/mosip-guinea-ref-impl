@@ -346,7 +346,7 @@ table tr td {
     color: #020F59;
     text-align: center;
     margin: 4px 0 4px 0.2rem;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
   }
 
 .ack-continue-btn{
@@ -354,6 +354,6 @@ table tr td {
   color: #020F59;
   padding: 0px 1rem;
   text-align: center;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 }
 }
