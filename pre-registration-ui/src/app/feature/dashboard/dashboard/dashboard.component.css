@@ -9,10 +9,10 @@
   background-color: #f4f4f4;
   opacity: 100%;
   width: 100%;
-  min-height: 90rem;
+  min-height: 91rem;
   margin: 0;
   padding: 0px 2vw;
-  margin-bottom: 3rem;
+  margin-bottom: -2rem;
 }
 .heading-row {
   display: flex;
@@ -193,6 +193,7 @@ mat-card-content {
   color: #020F59 !important;
   opacity: 0.5;
   font-weight: 700;
+  margin-bottom: 1rem;
 }
 .btn_axn-pri{
   background: #BCE0FD !important;

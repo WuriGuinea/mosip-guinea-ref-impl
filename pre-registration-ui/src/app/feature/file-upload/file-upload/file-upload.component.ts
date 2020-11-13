@@ -597,6 +597,10 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     this.subscriptions.push(subs);
   }
 
+  hideview() {
+    this.flag = false;
+  }
+
   /**
    *@description method to preview last available file.
    *

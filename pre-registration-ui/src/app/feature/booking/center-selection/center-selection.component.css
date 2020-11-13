@@ -3,7 +3,7 @@
   display: inline-flex;
 }
 .center_selection-wrapper {
-  margin: 40px 2vw 12vw;
+  margin: 40px 2vw 20vw;
 }
 .center-selection__title-card {
   color: #020F59;
@@ -18,6 +18,7 @@
   .center-selection__title-card {
     display: block;
   }
+  
 }
 .center-selection__button-container {
   width: 100%;
@@ -45,10 +46,11 @@ section {
 
 .centers-list ul {
   list-style-type: none;
-  padding: 0%;
-  font-size: 0.8rem;
-  display: flex;
-  width: 96%;
+    padding: 0%;
+    line-break: auto;
+    font-size: 0.8rem;
+    display: contents;
+    width: 96%;
 }
 
 .center-card {
@@ -303,8 +305,16 @@ input[type='radio'] {
   margin: 0px 0vw;
   border: 1px solid #020F59;
   border-radius: 10px;
-  height: 590px;
+  min-height: 590px;
   display: block;
   z-index: -auto;
 }
-
+@media (max-width: 1200px){
+  .center-selection__button-container {
+  position: relative;
+  bottom: -1rem;
+  padding: 2px 1.6rem;
+  display: flex;
+  z-index: 2;
+}
+}

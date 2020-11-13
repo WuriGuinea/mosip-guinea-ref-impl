@@ -64,7 +64,7 @@
               <tr>
                 <td class="personal-info-label">{{ 'preview.label_email_id' | translate }}</td>
 
-                <td class="text_uppercase">{{ previewData.email }}</td>
+                <td class="text_uppercase  break-text">{{ previewData.email }}</td>
               </tr>
 
             </table>
@@ -88,7 +88,7 @@
               <td class="text_uppercase">{{ previewData.prefecture[0].name }}</td>
             </tr>
             <tr>
-              <td class="personal-info-label">{{ 'preview.label_subprefectureOrCommune' | translate }}</td>
+              <td class="personal-info-label break-text">{{ 'preview.label_subprefectureOrCommune' | translate }}</td>
 
               <td class="text_uppercase">{{ previewData.subPrefectureOrCommune[0].name }}</td>
             </tr>
@@ -103,7 +103,7 @@
               <td class="text_uppercase">{{ previewData.sector[0].name }}</td>
             </tr>
             <tr>
-              <td class="personal-info-label">{{ 'preview.label_additionalAddressDetails' | translate }}</td>
+              <td class="personal-info-label ">{{ 'preview.label_additionalAddressDetails' | translate }}</td>
 
               <td class="text_uppercase  break-text">{{ previewData.additionalAddressDetails }}</td>
             </tr>
@@ -144,7 +144,7 @@
           <div>
             <table id="justificatifstable" *ngIf="documentMapObject">
               <tr *ngFor="let object of documentMapObject" class="preview__file__table__header">
-                <td>{{ object.name }}</td>
+                <td class="personal-info-label break-text">{{ object.name }}</td>
                 <td *ngIf="object.fileName">{{ object.fileName }}</td>
                 <td class="text-red text-bold" *ngIf="!object.fileName">
                   {{ 'preview.text_not_uploaded' | translate }}
