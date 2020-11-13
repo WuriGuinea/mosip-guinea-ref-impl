@@ -11,7 +11,7 @@ import { ContactUs, ContactUsFormControlModal } from './contact-us';
 })
 export class ContactUsComponent implements OnInit {
 
-  BASE_URL = "http://localhost:8081";
+  BASE_URL = "https://guinea-sandbox.mosip.net/pre-registration-contactus";
   reasons: object[] = ContactUs.Reasons;
   userForm: FormGroup;
   displayOtherReason: boolean = false;
