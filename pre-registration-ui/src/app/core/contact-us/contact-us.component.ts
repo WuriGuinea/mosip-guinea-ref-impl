@@ -68,9 +68,11 @@ export class ContactUsComponent implements OnInit {
       this.sendForm(request).subscribe(
         response => {
           const r = response;
+          console.log(r);
         },
         error => {
           const err = error;
+          console.log(err);
         });
     }
   }
