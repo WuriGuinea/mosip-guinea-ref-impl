@@ -162,7 +162,9 @@ public class IdaController {
     @FXML
     private Label tsLabel;
 
+ private String otpDefaultValue="Entrez OTP";
 
+ private boolean firstInit=true;
     @FXML
     private void initialize() {
 
@@ -185,9 +187,26 @@ public class IdaController {
             updateSendButton();
         });
         otpValue.textProperty().addListener((observable, oldValue, newValue) -> {
+
             updateSendButton();
         });
+        otpValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            otpValue.setText("");
+            otpValue.setStyle("-fx-text-fill: #020F59;");
 
+        });
+        idValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (firstInit==false) {
+                idValue.setText("");
+
+            }
+            firstInit=false;
+        });
+        idValueVID.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            idValueVID.setText("");
+
+
+        });
         switchedOn.addListener((a, b, c) -> {
             if (c) {
                tsLabel.setText("");
@@ -204,6 +223,7 @@ public class IdaController {
                 tsButton.toFront();
                 idValueVID.setEditable(true);
                 idValue.setEditable(false);
+             //   -fx-prompt-text-fill: #020F59;
                 idValue.setStyle("-fx-text-fill: grey;");
                 idValueVID.setStyle("-fx-text-fill: #020F59;");
                 idValue.setText("INU");
@@ -211,9 +231,8 @@ public class IdaController {
 
             }
         });
-        otpValue.setEditable(false);
+       otpValue.setEditable(false);
         init();
-
 
     }
 
@@ -525,6 +544,13 @@ public class IdaController {
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
+
+        otpValue.setStyle("-fx-text-fill: grey;");
+
+        otpValue.setText(otpDefaultValue);
+
+        idValueVID.setStyle("-fx-text-fill: red;");
+
         String type="UIN";
         responsetextField.setText(null);
         OtpRequestDTO otpRequestDTO = new OtpRequestDTO();
@@ -557,8 +583,8 @@ public class IdaController {
                 if (status) {
                     responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
                     otpValue.setEditable(true);
-                    otpValue.setText("Entrez OTP");
-                    otpValue.setStyle("-fx-text-color: grey;");
+                    otpValue.setText(otpDefaultValue);
+
 
                 } else {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
