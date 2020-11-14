@@ -27,6 +27,20 @@ button {
   text-transform: none;
 }
 
+.user__btn {
+  background-color: #BCE0FD;
+  border: none;
+  color: #020F59 !important;
+  padding: 0.8rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin: 5px 1px 4px 10rem;
+  margin-right: 2rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: bold;
+}
 .mar_right-30 {
   margin-right: 30px;
 }
@@ -124,6 +138,7 @@ body {
   min-width: 120px;
   min-height: 40px;
   padding: 0px 40px;
+  margin-bottom: 1rem;
 }
 .select-option {
   margin-top: 35px;

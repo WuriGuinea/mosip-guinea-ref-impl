@@ -145,8 +145,8 @@
                                     {{ resident.name }}
                                 </mat-option>
                             </mat-select>
-                            <mat-error *ngIf=" userForm.get(formControlNames.residenceStatus).touched &&
-                            userForm.get(formControlNames.residenceStatus).invalid">
+                            <mat-error *ngIf="userForm.get(formControlNames.residenceStatus).touched &&
+                                            userForm.get(formControlNames.residenceStatus).invalid">
                                 {{ 'demographic.validation.nationality_validation' | translate }}
                                 </mat-error>
                         </mat-form-field>
@@ -280,21 +280,20 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 8px;"class="row"> 
-                            <h4 id="complementadr">{{ 'demographic.label_additionalAddressDetails' | translate }}</h4>
-                            <img  matTooltip="{{ 'helpText.info' | translate }}" [matTooltipDisabled]="false"
-                src="assets\iconinfo.png" class="iconinfo" />
-                            <textarea
-                                    matInput
-                                    #additionalAddressDetails
-                                    placeholder="Complément d'Adresse"
-                                    [formControlName]="formControlNames.additionalAddressDetails"
-                                    rows="4"
-                                    maxlength="40"
-                            >
-                            </textarea>
+                    <div > 
+                        <img  matTooltip="{{ 'helpText.info' | translate }}" [matTooltipDisabled]="false" src="assets\iconinfo.png" class="iconinfo" />
+                        <mat-form-field>
+                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}</mat-label>
+                        <input
+                             #additionalAddressDetails
+                             type="text"
+                             placeholder="{{'demographic.label_additionalAddressDetails' | translate}}"
+                             matInput
+                             maxlength="40"
+                             [formControlName]="formControlNames.additionalAddressDetails"
+                            />
+                        </mat-form-field>
                     </div>
-
                 </div>
                 <button
                 *ngIf="!showPreviewButton"

@@ -147,10 +147,10 @@ mat-select:focus {
 .file-upload {
   box-shadow: 1px 1px 10px 4px #eeeeee;
   background: #ffffff;
-  margin: 40px 2vw 10vw;
+  margin: 40px 2vw 15vw;
   color: #020F59;
   border: solid 1px #020F59;
-  height: auto;
+  height: 35rem;
   border-radius: 16px;
 }
 
@@ -209,6 +209,15 @@ mat-select:focus {
   .file-upload__body__1{
   width: 100%;
 }
+.hidebloc{
+  display: none;
+}
+.showbloc{
+  display: none;
+}
+.file-upload__body__2{
+  width: 100%;
+}
 .docposition{
   margin-left: -150px !important;
   top: 34px !important;
@@ -217,6 +226,78 @@ mat-select:focus {
   float: left;
 }
 }
+.showbloc{
+  display: none;
+}
+.croix{
+  float: right;
+}
+@media (min-width: 350px) and (max-width: 360px){
+  .docposition{
+    left: -27px;
+  }
+}
+@media (min-width: 361px) and (max-width: 371px){
+  .docposition{
+    left: -35px;
+  }
+}
+@media (min-width: 372px) and (max-width: 392px){
+  .docposition{
+    left: -42px;
+  }
+}
+@media (min-width: 393px) and (max-width: 410px){
+  .docposition{
+    left: -54px;
+  }
+}
+@media (min-width: 411px) and (max-width: 450px){
+  .docposition{
+    left: -60px;
+  }
+}
+@media (min-width: 451px) and (max-width: 480px){
+  .docposition{
+    left: -87px;
+  }
+}
+@media (min-width: 481px) and (max-width: 500px){
+  .docposition{
+    left: -105px;
+  }
+}
+@media (min-width: 501px) and (max-width: 530px){
+  .docposition{
+    left: -115px;
+  }
+}
+@media (min-width: 531px) and (max-width: 560px){
+  .docposition{
+    left: -133px;
+  }
+}
+@media (min-width: 561px) and (max-width: 590px){
+  .docposition{
+    left: -151px;
+  }
+}
+@media (min-width: 591px) and (max-width: 630px){
+  .docposition{
+    left: -169px;
+  }
+}
+@media (min-width: 631px) and (max-width: 670px){
+  .docposition{
+    left: -191px;
+  }
+}
+@media (min-width: 671px) and (max-width: 700px){
+  .docposition{
+    left: -211px;
+  }
+}
+
 
 :host ::ng-deep .ng2-pdf-viewer-container {
   width: 100% !important;
@@ -314,7 +395,7 @@ mat-select:focus {
   justify-content: space-between;
   margin-top: -8rem;
   bottom: 68px;
-  position: static;
+  position: fixed;
   z-index: 22;
   padding: 0 2vw;
 }
@@ -429,3 +510,26 @@ mat-select:focus {
 }
 
 
+@media (max-width : 1200px){
+  .user__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -7rem;
+    bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    padding: 0 2vw; 
+  }
+
+  .file-upload{
+    box-shadow: 1px 1px 10px 4px #eeeeee;
+    background: #ffffff;
+    margin: 40px 2vw 32vw;
+    color: #020F59;
+    border: solid 1px #020F59;
+    height: 35rem;
+    border-radius: 16px;
+  }
+
+}

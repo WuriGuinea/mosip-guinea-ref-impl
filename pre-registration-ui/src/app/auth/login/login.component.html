@@ -19,7 +19,11 @@
           <mat-form-field appearance="outline">     
             <input class="login-input" autofocus="autofocus" matInput [(ngModel)]="inputContactDetails"
               placeholder="{{ 'login.label_email_num' | translate }}" 
-              id="inputFieldContact" required />
+              id="inputFieldContact" required />   
+              
+              <input class="login-mobile" autofocus="autofocus" matInput [(ngModel)]="inputContactDetails"
+                placeholder="{{ 'login.label_email_nummobile' | translate }}" 
+                id="inputFieldContact" required />
           </mat-form-field>
       
         <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>

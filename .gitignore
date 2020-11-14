@@ -12,3 +12,4 @@ target
 /kernel/*.project
 /registration-processor-utilities/packet-generator-uploader-utility/.project
 /registration-processor-utilities/packet-generator-uploader-utility/.settings
+*/.idea

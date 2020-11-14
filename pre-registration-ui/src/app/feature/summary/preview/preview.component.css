@@ -117,9 +117,11 @@
 .preview__personal-info-table {
   width: 32rem;
   font-size: 0.782rem;
-  margin-top: -25px;
-  line-height: 0.2em;
+  margin-top: -25px; 
   width: max-content;
+
+  table-layout: fixed;
+  width: 100%;
 }
 .text-red{
   color:red;
@@ -143,7 +145,7 @@
 
 .personal-info-label{
   white-space: nowrap;
-  width: 13.1rem;
+  width: 13.5rem; 
 }
 .break-text{
   white-space: pre-wrap;
@@ -210,6 +212,7 @@
   font-weight: bold;
 }
 
+
 .center-selection__button-container {
   width: 100%;
   position: fixed;
@@ -248,9 +251,8 @@
     width: 100%;
   }
 
-  .personal-info-label{
-    white-space: nowrap;
-    width: 9.1rem;
+  .personal-info-label{ 
+     width: 10rem; 
   }
 
   .preview__body-content-container {
@@ -261,12 +263,12 @@
 
   .center-selection__button-container {
     width: 100%;
-    position: static;
-    bottom: 68px;
+    position: relative;
+    bottom: 6rem;
     left: 0;
     padding: 2px 2vw;
     display: flex;
-    z-index: 22;
+    z-index: 2;
     background: none;
 }
 
@@ -322,15 +324,24 @@
 }
 
 }
+@media screen and (min-width: 900px) and (max-width: 1200px){
+  .center-selection__button-container {
+    width: 100%;
+    position: relative;
+    bottom: 6rem;
+    left: 0;
+    padding: 2px 2vw;
+    display: flex;
+    z-index: 2;
+    background: none;
+  }
+}
+
+
 @media screen and (min-width: 501px) and (max-width: 900px) {
   .preview__body-content-div {
     width: 80%;
   }
-  .personal-info-label{
-    white-space: nowrap;
-    width: 9.1rem;
-  }
-
 }
 .position_modify{
   position: relative;
@@ -360,4 +371,9 @@
 }
 #justificatifstable{
   margin-top: -31px;
+}
+
+table{
+  table-layout: fixed;
+  width: 100%;
 }

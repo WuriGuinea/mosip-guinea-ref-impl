@@ -17,3 +17,13 @@
 .space{
     margin-left: 5.5em;
 }
+
+textarea.mat-input-element {
+    border-radius: 5px;
+    height: 55px;
+    border: solid 1px #BCE0FD !important;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+    width: 25rem;
+}
