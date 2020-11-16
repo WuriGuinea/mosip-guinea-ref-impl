@@ -11,7 +11,7 @@ import { ContactUs, ContactUsFormControlModal } from './contact-us';
 })
 export class ContactUsComponent implements OnInit {
 
-  BASE_URL = "http://localhost:8081";
+  BASE_URL = "https://guinea-sandbox.mosip.net/pre-registration-contactus";
   reasons: object[] = ContactUs.Reasons;
   userForm: FormGroup;
   displayOtherReason: boolean = false;
@@ -68,9 +68,11 @@ export class ContactUsComponent implements OnInit {
       this.sendForm(request).subscribe(
         response => {
           const r = response;
+          console.log(r);
         },
         error => {
           const err = error;
+          console.log(err);
         });
     }
   }
