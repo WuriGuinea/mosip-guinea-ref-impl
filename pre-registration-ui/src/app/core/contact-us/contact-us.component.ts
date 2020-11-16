@@ -17,7 +17,7 @@ export class ContactUsComponent implements OnInit {
   displayOtherReason: boolean = false;
   formControlValues: ContactUsFormControlModal;
   formControlNames: ContactUsFormControlModal = {
-    fullName: 'fullName',
+    name: 'name',
     email: 'email',
     reason: 'reason',
     otherReason: 'otherReason',
@@ -29,7 +29,7 @@ export class ContactUsComponent implements OnInit {
   ngOnInit() {
     this.setFormControlValues();
     this.userForm = new FormGroup({
-      [this.formControlNames.fullName]: new FormControl(this.formControlValues.fullName.trim(), [
+      [this.formControlNames.name]: new FormControl(this.formControlValues.name.trim(), [
         Validators.required,
         this.noWhitespaceValidator
       ]),
@@ -53,7 +53,7 @@ export class ContactUsComponent implements OnInit {
 
   setFormControlValues() {
     this.formControlValues = {
-      fullName: '',
+      name: '',
       email: '',
       message: '',
       otherReason: '',
