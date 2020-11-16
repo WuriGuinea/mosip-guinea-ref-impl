@@ -22,15 +22,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
-
 import javafx.event.ActionEvent;
-
 import javax.crypto.SecretKey;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-
 import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -109,7 +106,7 @@ public class IdaController {
 
     ObjectMapper mapper = new ObjectMapper();
 
-        @FXML
+    @FXML
     ComboBox<String> fingerCount;
 
     @FXML
@@ -162,6 +159,9 @@ public class IdaController {
     @FXML
     private Label tsLabel;
 
+    private String otpDefaultValue = "Entrez OTP";
+
+    private boolean firstInit = true;
 
     @FXML
     private void initialize() {
@@ -170,10 +170,10 @@ public class IdaController {
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
         ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
                 "8", "9", "10");
-        ObservableList<String> fingerCountChoicesNew = FXCollections.observableArrayList("1- Auricullaire Gauche", "2- Annulaire Gauche", "3-Majeur Gauche",
-                "4- Index Gauche", "5- Pouce Gauche", "6- Pouce Droit", "7- Index Droit",
-                "8- Majeur Droit", "9- Annulaire Droit", "10- Auriculaire Droit");
-            fingerCountChoices=fingerCountChoicesNew;
+        ObservableList<String> fingerCountChoicesNew = FXCollections.observableArrayList("1- Auriculaire gauche", "2- Annulaire gauche", "3- Majeur gauche",
+                "4- Index gauche", "5- Pouce gauche", "6- Pouce droit", "7- Index droit",
+                "8- Majeur droit", "9- Annulaire droit", "10- Auriculaire droit");
+        fingerCountChoices = fingerCountChoicesNew;
 
         fingerCount.setItems(fingerCountChoices);
         fingerCount.getSelectionModel().select(0);
@@ -187,10 +187,22 @@ public class IdaController {
         otpValue.textProperty().addListener((observable, oldValue, newValue) -> {
             updateSendButton();
         });
-
+        otpValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            otpValue.setText("");
+            otpValue.setStyle("-fx-text-fill: #020F59;");
+        });
+        idValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (firstInit == false) {
+                idValue.setText("");
+            }
+            firstInit = false;
+        });
+        idValueVID.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            idValueVID.setText("");
+        });
         switchedOn.addListener((a, b, c) -> {
             if (c) {
-               tsLabel.setText("");
+                tsLabel.setText("");
                 tsLabel.toFront();
                 idValueVID.setEditable(false);
                 idValue.setEditable(true);
@@ -208,17 +220,13 @@ public class IdaController {
                 idValueVID.setStyle("-fx-text-fill: #020F59;");
                 idValue.setText("INU");
                 idValueVID.setText("VID");
-
             }
         });
-
+        otpValue.setEditable(false);
         init();
-
-
     }
 
-    public void vidDisabled ()
-    {
+    public void vidDisabled() {
         tsLabel.setText("");
         tsLabel.toFront();
         idValueVID.setEditable(false);
@@ -228,6 +236,7 @@ public class IdaController {
         idValue.setText("INU");
         idValueVID.setText("VID");
     }
+
     @FXML
     private HBox tsHBox;
 
@@ -245,9 +254,8 @@ public class IdaController {
 
 
     private void setStyle() {
-      tsLabel.setAlignment(Pos.CENTER);
-         }
-
+        tsLabel.setAlignment(Pos.CENTER);
+    }
 
     private void init() {
         idValueVID.setEditable(false);
@@ -257,11 +265,9 @@ public class IdaController {
         tsLabel.setVisible(false);
         tsButton.setOnAction((e) -> {
             switchedOn.set(!switchedOn.get());
-
         });
         tsLabel.setOnMouseClicked((e) -> {
             switchedOn.set(!switchedOn.get());
-
         });
         setStyle();
         bindProperties();
@@ -276,9 +282,9 @@ public class IdaController {
     }
 
     private void updateSendButton() {
-        if (idValue.getText() == null||
+        if (idValue.getText() == null ||
                 idValue.getText().trim().isEmpty() ||
-              idValueVID.getText() == null
+                idValueVID.getText() == null
                 || idValueVID.getText().trim().isEmpty()) {
             sendAuthRequest.setDisable(true);
             return;
@@ -297,10 +303,7 @@ public class IdaController {
                 return;
             }
         }
-
         sendAuthRequest.setDisable(!(isBioAuthType() || otpAuthType.isSelected()));
-
-
     }
 
     private void updateBioPane() {
@@ -309,7 +312,6 @@ public class IdaController {
         } else {
             bioAnchorPane.setDisable(true);
         }
-
         fingerCount.setDisable(!fingerAuthType.isSelected());
     }
 
@@ -336,7 +338,6 @@ public class IdaController {
         responsetextField.setFont(Font.font("Times New Roman", javafx.scene.text.FontWeight.EXTRA_BOLD, 20));
         previousHash = null;
         List<String> bioCaptures = new ArrayList<>();
-
         String fingerCapture;
         if (fingerAuthType.isSelected()) {
             fingerCapture = captureFingerprint();
@@ -385,7 +386,6 @@ public class IdaController {
                 .filter(obj -> obj instanceof Map)
                 .map(obj -> (Map<String, Object>) obj)
                 .collect(Collectors.toList());
-
         identity.put("biometrics", biometricsList);
 
         try {
@@ -393,17 +393,13 @@ public class IdaController {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
         return null;
-
     }
 
     private String captureFingerprint() throws Exception {
         responsetextField.setText("Capture de l'empreinte...");
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
-
         String requestBody = env.getProperty("ida.request.captureRequest.template");
-
         requestBody = requestBody.replace("$timeout", env.getProperty("ida.request.captureFinger.timeout"))
                 .replace("$count", getFingerCount()).
                         replace("$deviceId", env.getProperty("ida.request.captureFinger.deviceId")).
@@ -525,15 +521,21 @@ public class IdaController {
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
-        String type="UIN";
+
+        otpValue.setStyle("-fx-text-fill: grey;");
+
+        otpValue.setText(otpDefaultValue);
+
+        idValueVID.setStyle("-fx-text-fill: red;");
+
+        String type = "UIN";
         responsetextField.setText(null);
         OtpRequestDTO otpRequestDTO = new OtpRequestDTO();
         otpRequestDTO.setId("mosip.identity.otp");
         String valueToCheck = idValue.getText();
-        if (valueToCheck.contains("UIN"))
-        {
+        if (valueToCheck.contains("UIN")) {
             valueToCheck = idValueVID.getText();
-            type="VID";
+            type = "VID";
         }
         otpRequestDTO.setIndividualId(valueToCheck);
         otpRequestDTO.setIndividualIdType(type);
@@ -556,6 +558,9 @@ public class IdaController {
                 String responseText = status ? "Succès de la requête OTP" : "Echec de la requête OTP";
                 if (status) {
                     responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
+                    otpValue.setEditable(true);
+                    otpValue.setText(otpDefaultValue);
+
 
                 } else {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
@@ -586,7 +591,7 @@ public class IdaController {
         // set Individual Id
         authRequestDTO.setIndividualId(idValue.getText());
         // Set Individual Id type
-        	authRequestDTO.setIndividualIdType("UIN");
+        authRequestDTO.setIndividualIdType("UIN");
 
         RequestDTO requestDTO = new RequestDTO();
         requestDTO.setTimestamp(getUTCCurrentDateTimeISOString());
@@ -645,8 +650,8 @@ public class IdaController {
                 }
                 responsetextField.setText(response);
             } else {
-                responsetextField.setText("Authentication Failed with Error");
-                responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
+                responsetextField.setText("Echec de le requête d'authentification avec des erreurs");
+                responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
             }
 
             System.out.println("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
