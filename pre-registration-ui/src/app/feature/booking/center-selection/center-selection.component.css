@@ -359,6 +359,12 @@ input[type='radio'] {
     margin-left: 74px;
   }
 }
+
+  .centers-list{
+    display: flex !important;
+    flex-flow: wrap !important;
+  }
+
 .timing{
   display: none;
 }
