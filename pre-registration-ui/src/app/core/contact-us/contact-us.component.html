@@ -5,10 +5,10 @@
             </mat-label>
             <input 
                 matInput 
-                #fullName 
+                #name 
                 placeholder="{{'contactUs.fullName' | translate}}" 
-                [formControlName]="formControlNames.fullName" />
-                <mat-error *ngIf="!fullName.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
+                [formControlName]="formControlNames.name" />
+                <mat-error *ngIf="!name.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
         </mat-form-field>
         <br />
 
