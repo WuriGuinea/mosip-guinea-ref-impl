@@ -253,10 +253,21 @@
       }
     ]
   },
+  "contactUs": {
+		"fullName":"",
+		"email":" ",
+		"reason":" ",
+		"otherReason":"",
+		"message":" ",
+		"maxChars":" ",
+		"mandatoryField":" ",
+		"send":" "
+	},
   "header": {
     "link_about": "GETTING STARTED",
     "link_faq": "FAQ",
     "link_contact": "CONTACT",
+    "link_contact_us": "CONTACT US",
     "link_applications": "Your Applications",
     "link_logout": "Logout",
     "link_login": "LOGIN"
