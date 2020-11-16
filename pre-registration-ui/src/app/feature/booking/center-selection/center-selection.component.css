@@ -39,7 +39,7 @@ section {
   display: flex;
 }
 .centers-wrapper {
-  margin-left: 35px;
+  margin-left: -32px;
   margin-right: 2vw;
   width: 55%;
 }
@@ -195,7 +195,7 @@ input[type='radio'] {
   display: none;
 }
 .search-input {
-  padding: 10px 10px 7px;
+  padding: 10px 0px 7px;
   outline: none;
   font-family: Roboto;
   opacity: 100%;
@@ -271,24 +271,87 @@ input[type='radio'] {
   left: 213px;
   top: -66px;
 }
-
-@media (max-width: 500px) {
+@media (min-width:250px) and (max-width:444px){
+  .search-form{
+    left: 0px !important;
+    top: -25px;
+  }
+  .centers-list{
+    margin-left: -35px;
+    margin-top: -10px;
+  }
+  .search-card{
+    width: 90% !important;
+    margin-left: 2px !important;
+    margin-top: 7px;
+  }
+  .select-card{
+    width: 88%;
+  }
+  .center-selection__card{
+    min-height: 630px !important;
+  }
+  .mat-form-field{
+    width: 272px !important;
+  }
+}
+@media (max-width: 700px) {
   .user-back-btn,
   .user-book_later-btn,
   .user-continue-btn {
-    font-size: 10px;
-    padding: 0px 2px;
-    margin-right: 20px;
+    background-color: #BCE0FD;
+    border: none;
+    color: #020F59;
+    padding: 0.7rem 1.6rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.7rem;
+    margin: 40px 0rem 2px 1rem !important;
+    cursor: pointer;
+    font-weight: bold;
   }
   .container {
     display: flex;
     padding: 0px 1rem 0px 2rem;
+    margin-left: 34px;
   }
   .centers-wrapper {
-    width: 90%;
+    width: 72%;
   }
   .center_selection-center_recommendation-display {
     white-space: normal;
+  }
+  .mat-form-field-infix{
+    width: 108px !important;
+    margin-left: 96px !important;
+  }
+  .search-form{
+    width: 315px !important;
+    left: 197px;
+  }
+  
+.search-card{
+  width: 55%;
+  margin-left: 18px;
+}
+.map{
+  display: none;
+}
+  .select-input{
+    padding-left: 1px !important;
+    padding-right: 3px !important;
+  }
+  .center_selection-intial-recommendation-container{
+    margin-left: 27px;
+  }
+}
+@media (min-width:700px) and (max-width:1199px){
+  .centers-list{
+    margin-left: 5px;
+  }
+  .container{
+    margin-left: 74px;
   }
 }
 .timing{
@@ -305,15 +368,14 @@ input[type='radio'] {
   margin: 0px 0vw;
   border: 1px solid #020F59;
   border-radius: 10px;
-  min-height: 590px;
+ min-height: 590px;
   display: block;
-  z-index: -auto;
 }
 @media (max-width: 1200px){
   .center-selection__button-container {
   position: relative;
   bottom: -1rem;
-  padding: 2px 1.6rem;
+  padding: 2px 1.6rem 0px 0rem;
   display: flex;
   z-index: 2;
 }
