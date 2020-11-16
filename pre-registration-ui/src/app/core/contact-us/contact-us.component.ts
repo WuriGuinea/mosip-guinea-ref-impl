@@ -30,23 +30,19 @@ export class ContactUsComponent implements OnInit {
     this.setFormControlValues();
     this.userForm = new FormGroup({
       [this.formControlNames.name]: new FormControl(this.formControlValues.name.trim(), [
-        Validators.required,
-        this.noWhitespaceValidator
+        Validators.required 
       ]),
       [this.formControlNames.email]: new FormControl(this.formControlValues.email, [
         Validators.pattern(/^[\w-\+]+(\.[\w]+)*@[\w-]+(\.[\w]+)*(\.[a-zA-Z]{2,})$/)
       ]),
       [this.formControlNames.reason]: new FormControl(this.formControlValues.reason.trim(), [
-        Validators.required,
-        this.noWhitespaceValidator
+        Validators.required 
       ]),
       [this.formControlNames.otherReason]: new FormControl(this.formControlValues.otherReason.trim(), [
-        Validators.required,
-        this.noWhitespaceValidator
+        Validators.required 
       ]),
       [this.formControlNames.message]: new FormControl(this.formControlValues.message.trim(), [
-        Validators.required,
-        this.noWhitespaceValidator
+        Validators.required 
       ])
     });
   }
@@ -80,13 +76,7 @@ export class ContactUsComponent implements OnInit {
   onReasonChange(entity: any, event?: MatButtonToggleChange) {
     this.displayOtherReason = "other" === event.value;
   }
-
-  private noWhitespaceValidator(control: FormControl) {
-    const isWhitespace = (control.value || '').trim().length === 0;
-    const isValid = !isWhitespace;
-    return isValid ? null : { whitespace: true };
-  }
-
+  
   private markFormGroupTouched(formGroup: FormGroup) {
     (<any>Object).values(formGroup.controls).forEach(control => {
       control.markAsTouched();
