@@ -39,7 +39,7 @@ section {
   display: flex;
 }
 .centers-wrapper {
-  margin-left: -32px;
+  margin-left: 31px;
   margin-right: 2vw;
   width: 55%;
 }
@@ -318,6 +318,11 @@ input[type='radio'] {
   }
   .centers-wrapper {
     width: 72%;
+    margin-left: -31px;
+    margin-right: 2vw;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-infix{
+    margin-left: -25px;
   }
   .center_selection-center_recommendation-display {
     white-space: normal;
@@ -343,7 +348,7 @@ input[type='radio'] {
     padding-right: 3px !important;
   }
   .center_selection-intial-recommendation-container{
-    margin-left: 27px;
+    margin-left: 0px;
   }
 }
 @media (min-width:700px) and (max-width:1199px){
