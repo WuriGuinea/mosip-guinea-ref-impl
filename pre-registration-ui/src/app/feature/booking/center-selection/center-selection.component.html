@@ -63,7 +63,7 @@
       </ng-template>
 
       <div class="centers-list" *ngIf="REGISTRATION_CENTRES">
-        <span *ngIf="REGISTRATION_CENTRES.length === 0" style="margin-left:24px;"
+        <span *ngIf="REGISTRATION_CENTRES.length === 0" style="margin-left:38px;top: 29px;position: relative;"
           class="center_selection-center-available-text">
           {{ 'centerSelection.noResult_found' | translate }}
         </span>
@@ -145,7 +145,7 @@
       <button (click)="routeDashboard()" class="user-book_later-btn">
         {{ 'centerSelection.action_book_later' | translate }}
       </button>
-      <button (click)="routeNext()" [disabled]="selectedCentre === null" class="user-continue-btn">
+      <button (click)="routeNext()" [disabled]="selectedCentre === null" class="user-continue-btn ajouts">
         {{ 'centerSelection.action_continue' | translate }}
       </button>
     </mat-card>

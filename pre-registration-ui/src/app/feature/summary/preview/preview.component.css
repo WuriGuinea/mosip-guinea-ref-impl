@@ -131,6 +131,7 @@
   font-weight: bold;
 }
 
+
 .preview__personal-info-table td {
   padding-bottom: 5px;
 }
@@ -138,9 +139,6 @@
 .preview__personal-info-address-table {
   margin-top: -30px;
   font-size: 0.782rem;
-}
-.preview__personal-info-address-table td {
-  padding-bottom: 5px;  
 }
 
 .personal-info-label{
