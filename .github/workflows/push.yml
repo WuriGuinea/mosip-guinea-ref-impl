@@ -207,7 +207,7 @@ jobs:
 
       - name: Push image
         #get BRANCH_NAME
-        uses: nelonoel/branch-name@v1.0.1
+      - uses: nelonoel/branch-name@v1.0.1
         run: |
           IMAGE_ID=$NAMESPACE/$SERVICE_NAME
           # Change all uppercase to lowercase
