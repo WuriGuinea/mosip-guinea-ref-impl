@@ -195,7 +195,7 @@ jobs:
 
       - name:
         run: |
-          echo "BRANCH_NAME=${{ github.ref }}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=test" >> $GITHUB_ENV
           echo $BRANCH_NAME
           echo 4
 
