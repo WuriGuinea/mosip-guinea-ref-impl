@@ -199,9 +199,9 @@ jobs:
           echo $branch
           echo 4
 
-#
-#      - name: npm install
-#        run: cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
+
+      - name: npm install
+        run: echo  $branch #cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
 #
 #      - name: npm build
 #        run: cd ${{ env.SERVICE_LOCATION }} && npm run-script build -- --prod --base-href . --output-path=dist
