@@ -214,7 +214,7 @@ jobs:
           echo "push version $VERSION"
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
-          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+          docker tag $SERVICE_NAME $IMAGE_ID:${{ env.BRANCH_NAME }}
           docker push $IMAGE_ID:${{ env.BRANCH_NAME }}
 
   docker-kernel-auth-service:
