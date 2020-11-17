@@ -1,7 +1,7 @@
 
 
 export interface ContactUsFormControlModal {
-   fullName: string;
+   name: string;
    email: string;
    reason: string;
    otherReason: string;

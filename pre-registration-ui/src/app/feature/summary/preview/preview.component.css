@@ -117,9 +117,11 @@
 .preview__personal-info-table {
   width: 32rem;
   font-size: 0.782rem;
-  margin-top: -25px;
-  line-height: 0.2em;
+  margin-top: -25px; 
   width: max-content;
+
+  table-layout: fixed;
+  width: 100%;
 }
 .text-red{
   color:red;
@@ -129,21 +131,19 @@
   font-weight: bold;
 }
 
-.preview__personal-info-table td {
-  padding-bottom: 15px;
+.preview__personal-info-table td, 
+.preview__personal-info-address-table td  {
+  padding-bottom: 5px;
 }
 
 .preview__personal-info-address-table {
   margin-top: -30px;
   font-size: 0.782rem;
 }
-.preview__personal-info-address-table td {
-  padding-bottom: 5px;  
-}
 
 .personal-info-label{
   white-space: nowrap;
-  width: 13.1rem;
+  width: 13.5rem; 
 }
 .break-text{
   white-space: pre-wrap;
@@ -249,9 +249,8 @@
     width: 100%;
   }
 
-  .personal-info-label{
-    white-space: nowrap;
-    width: 9.1rem;
+  .personal-info-label{ 
+     width: 10rem; 
   }
 
   .preview__body-content-container {
@@ -341,11 +340,6 @@
   .preview__body-content-div {
     width: 80%;
   }
-  .personal-info-label{
-    white-space: nowrap;
-    width: 9.1rem;
-  }
-
 }
 .position_modify{
   position: relative;
@@ -376,18 +370,8 @@
 #justificatifstable{
   margin-top: -31px;
 }
-@media (max-width:400px){
- .text_uppercase{
-  font-size: xx-small;
- }
-} 
-@media screen and (min-width: 401px) and (max-width: 420px) {
-  .text_uppercase{
-    font-size: x-small;
-   }
-  }
-  @media screen and (min-width: 350px) and (max-width: 401px) {
-    .text_uppercase{
-      font-size: 7px;
-     }
-    }
+
+table{
+  table-layout: fixed;
+  width: 100%;
+}
