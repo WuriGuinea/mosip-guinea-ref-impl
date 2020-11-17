@@ -195,13 +195,13 @@ jobs:
 
       - name:
         run: |
-          echo "branch=test" >> $GITHUB_ENV
-          echo $branch
+          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
+
           echo 4
 
 
       - name: npm install
-        run: echo  $branch #cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
+        run: echo $BRANCH_NAME #cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
 #
 #      - name: npm build
 #        run: cd ${{ env.SERVICE_LOCATION }} && npm run-script build -- --prod --base-href . --output-path=dist
