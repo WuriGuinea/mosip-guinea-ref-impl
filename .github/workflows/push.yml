@@ -205,9 +205,10 @@ jobs:
       - name: Log into registry
         run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
 
-      - name: Push image
+
         #get BRANCH_NAME
       - uses: nelonoel/branch-name@v1.0.1
+      - name: Push image
         run: |
           IMAGE_ID=$NAMESPACE/$SERVICE_NAME
           # Change all uppercase to lowercase
