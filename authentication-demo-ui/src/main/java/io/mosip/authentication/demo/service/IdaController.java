@@ -161,7 +161,7 @@ public class IdaController {
 
     private String otpDefaultValue = "Saisir OTP";
 
-    private boolean firstInit = true;
+  //  private boolean firstInit = true;
 
     @FXML
     private void initialize() {
@@ -185,6 +185,7 @@ public class IdaController {
             updateSendButton();
         });
         otpValue.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (otpValue.isEditable())
             updateSendButton();
         });
         otpValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -194,10 +195,10 @@ public class IdaController {
 
         });
         idValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (idValue.isEditable()) {
-                idValue.setText("");
+            if (idValue.isEditable() && idValue.getText().equals("INU")) {
+                idValue.setText("TOTO");
             }
-            firstInit = false;
+
         });
         idValueVID.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (idValueVID.isEditable())
@@ -294,7 +295,7 @@ public class IdaController {
         }
 
         if (otpAuthType.isSelected()) {
-            if (otpValue.getText().trim().isEmpty()) {
+            if (otpValue.getText().trim().isEmpty() || otpValue.getText().equals(otpDefaultValue)) {
                 sendAuthRequest.setDisable(true);
                 return;
             }
@@ -835,7 +836,7 @@ public class IdaController {
     private void reset() {
         fingerCount.getSelectionModel().select(0);
         //	irisCount.getSelectionModel().select(0);
-        idValue.setText("");
+        idValue.setText("1");
         fingerAuthType.setSelected(false);
         //	irisAuthType.setSelected(false);
         //	faceAuthType.setSelected(false);
