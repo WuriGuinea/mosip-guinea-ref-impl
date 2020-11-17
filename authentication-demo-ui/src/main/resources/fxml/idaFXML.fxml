@@ -2,14 +2,13 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="980.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.mosip.authentication.demo.service.IdaController">
 
-   
+
 
     <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -35,12 +34,17 @@
                      <font>
                         <Font name="Courier New Bold" size="24.0" />
                      </font></Label>
-                   <ImageView fitHeight="54.0" fitWidth="94.0" layoutX="9.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: green;">
+                   <ImageView fitHeight="63.0" fitWidth="101.0" layoutX="2.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: green;">
+                              <image>
+                                <Image url="logo.png" preserveRatio="true" smooth="true"     />
+                            </image>
+                        </ImageView>
+                       <ImageView fitHeight="63.0" fitWidth="101.0" layoutX="875.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: green;">
                        <image>
-                           <Image url="logo.png" preserveRatio="true" smooth="true"     />
-                       </image>
-                   </ImageView>
-                                 </children>
+                       <Image url="banniere.png" preserveRatio="true" smooth="true"     />
+                   </image>
+                  </ImageView>
+               </children>
             </AnchorPane>
             <GridPane prefHeight="380.0" prefWidth="838.0" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columnConstraints>
@@ -134,8 +138,8 @@
                   </GridPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
-                        <Button fx:id="sendAuthRequest"   layoutX="863.0"  mnemonicParsing="false" onAction="#onSendAuthRequest" styleClass="buttons" text="Authentifier" />
-                        <Button fx:id="reset"  layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#onReset" styleClass="buttons" text="Réinitialiser" />
+                        <Button fx:id="sendAuthRequest" layoutX="863.0" mnemonicParsing="false" onAction="#onSendAuthRequest" styleClass="buttons" text="Authentifier" />
+                        <Button fx:id="reset" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#onReset" styleClass="buttons" text="Réinitialiser" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
