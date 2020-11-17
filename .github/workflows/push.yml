@@ -30,7 +30,7 @@ jobs:
     - name: Setup branch and GPG public key
       run: |
         # Strip git ref prefix from version
-        echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+        echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
         echo ${{ env.BRANCH_NAME }}
         #echo "::set-env name=GPG_TTY::$(tty)"
         #echo ${{ env.GPG_TTY }}
@@ -86,7 +86,7 @@ jobs:
     - name: Setup branch and GPG public key
       run: |
         # Strip git ref prefix from version
-        echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+        echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
         echo ${{ env.BRANCH_NAME }}
         #echo "::set-env name=GPG_TTY::$(tty)"
         #echo ${{ env.GPG_TTY }}
@@ -199,7 +199,6 @@ jobs:
         run: |
             # Strip git ref prefix from version
             echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
-            echo ${{ env.BRANCH_NAME }}
 
       - name: npm install
         run: cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
@@ -248,8 +247,7 @@ jobs:
       - name: Setup branch name
         run: |
           # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
+          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
       - name: Get version info from pom
         id: getPomVersion
         uses: mavrosxristoforos/get-xml-info@1.0
@@ -299,8 +297,7 @@ jobs:
       - name: Setup branch name
         run: |
           # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
+          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
       - name: Get version info from pom
         id: getPomVersion
         uses: mavrosxristoforos/get-xml-info@1.0
@@ -350,8 +347,7 @@ jobs:
       - name: Setup branch name
         run: |
           # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
+          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
       - name: Get version info from pom
         id: getPomVersion
         uses: mavrosxristoforos/get-xml-info@1.0
@@ -401,8 +397,7 @@ jobs:
       - name: Setup branch name
         run: |
           # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
+          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
       - name: Get version info from pom
         id: getPomVersion
         uses: mavrosxristoforos/get-xml-info@1.0
@@ -452,8 +447,8 @@ jobs:
       - name: Setup branch name
         run: |
           # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
+          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
+
       - name: Get version info from pom
         id: getPomVersion
         uses: mavrosxristoforos/get-xml-info@1.0
@@ -503,8 +498,8 @@ jobs:
       - name: Setup branch name
         run: |
           # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
+          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
+
       - name: Get version info from pom
         id: getPomVersion
         uses: mavrosxristoforos/get-xml-info@1.0
