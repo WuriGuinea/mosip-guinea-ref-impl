@@ -199,7 +199,7 @@ jobs:
       - name: setup environment
         run: |
           # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+          echo "${GITHUB_BRANCH##*/}" env: GITHUB_BRANCH: ${{ github.ref }}
           echo ${{ env.BRANCH_NAME }}
 
       - name: Build image
