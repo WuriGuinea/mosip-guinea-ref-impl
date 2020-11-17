@@ -192,10 +192,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: nelonoel/branch-name@v1
 
       - name:
-        run: echo ${BRANCH_NAME}
+        run: |
+          echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
+          echo ${BRANCH_NAME}
 
 #
 #      - name: npm install
