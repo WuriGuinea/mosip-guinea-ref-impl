@@ -5,175 +5,175 @@ on:
     types: [closed]
   
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        ref: ${{ github.ref }}
-        java-version: 1.8
-        server-id: central # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
-    - uses: kolpav/purge-artifacts-action@v1
-      with:
-        token: ${{ secrets.access_token }}
-        expire-in: 0 # Setting this to 0 will delete all artifacts
-
-    - name: Setup branch and GPG public key
-      run: |
-        # Strip git ref prefix from version
-        echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-        echo ${{ env.BRANCH_NAME }}
-        #echo "::set-env name=GPG_TTY::$(tty)"
-        #echo ${{ env.GPG_TTY }}
-        #sudo apt-get --yes install gnupg2
-        #gpg2 --import ./.github/keys/mosipgpgkey_pub.gpg
-        #gpg2 --quiet --batch --passphrase=${{secrets.gpg_secret}}  --allow-secret-key-import --import ./.github/keys/mosipgpgkey_sec.gpg
-
-    - uses: actions/cache@v1
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-${{ env.BRANCH_NAME }}
-
-    - name: Setup the settings file for jfrog server
-      run: echo "<settings>  <servers> <server> <username>${{secrets.jfrog_user}}</username> <password>${{secrets.jfrog_secret}}</password><id>central</id> </server> </servers> <profiles>   <profile>     <repositories>         <repository>         <snapshots>           <enabled>false</enabled>         </snapshots>         <id>central</id>         <name>libs-release</name>         <url>http://52.172.8.144:8040/artifactory/libs-release</url>       </repository>       <repository>         <snapshots />         <id>snapshots</id>         <name>libs-snapshot</name>         <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>       </repository>     </repositories>     <pluginRepositories>       <pluginRepository>         <snapshots>           <enabled>false</enabled>         </snapshots>         <id>central</id>         <name>libs-release</name>      <url>http://52.172.8.144:8040/artifactory/libs-release</url>      </pluginRepository>        <pluginRepository>        <snapshots />         <id>snapshots</id>          <name>libs-snapshot</name>          <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>       </pluginRepository>     </pluginRepositories> <id>artifactory</id>    </profile>  </profiles>  <activeProfiles>    <activeProfile>artifactory</activeProfile>  </activeProfiles></settings> " > $GITHUB_WORKSPACE/settings.xml
-
-    - name: Build kernel
-      run: |
-        cd kernel
-        mvn -B clean install -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests -Dgpg.skip
-
-    - name: Build Regprocessor
-      run: |
-        cd registration
-        mvn -B clean install -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests -Dgpg.skip
-
-    - name: Ready the springboot artifacts
-      run: |
-        ls -lrt
-        find -name '*.jar' -executable -type f  -exec zip release.zip {} +
-        ls -lrt
-        ls -lrt kernel/kernel-notification-service
-
-    - name: Upload the springboot jars
-      uses: actions/upload-artifact@v1
-      with:
-        name: release
-        path: ./release.zip
-
-  publish_to_nexus:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        ref: ${{ github.ref }}
-        java-version: 1.8
-        server-id: central # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
-
-    - name: Setup branch and GPG public key
-      run: |
-        # Strip git ref prefix from version
-        echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-        echo ${{ env.BRANCH_NAME }}
-        #echo "::set-env name=GPG_TTY::$(tty)"
-        #echo ${{ env.GPG_TTY }}
-        #sudo apt-get --yes install gnupg2
-        #gpg2 --import ./.github/keys/mosipgpgkey_pub.gpg
-        #gpg2 --quiet --batch --passphrase=${{secrets.gpg_secret}}  --allow-secret-key-import --import ./.github/keys/mosipgpgkey_sec.gpg
-
-    - uses: actions/cache@v1
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-${{ env.BRANCH_NAME }}
-    - name: Install xmllint
-      run: |
-        sudo apt-get update
-        sudo apt-get install libxml2-utils
-    - name: Setup the settings file for ossrh server
-      run: echo "<settings>  <servers> <server> <username>${{secrets.jfrog_user}}</username> <password>${{secrets.jfrog_secret}}</password><id>central</id> </server> </servers> <profiles>   <profile>     <repositories>         <repository>         <snapshots>           <enabled>false</enabled>         </snapshots>         <id>central</id>         <name>libs-release</name>         <url>http://52.172.8.144:8040/artifactory/libs-release</url>       </repository>       <repository>         <snapshots />         <id>snapshots</id>         <name>libs-snapshot</name>         <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>       </repository>     </repositories>     <pluginRepositories>       <pluginRepository>         <snapshots>           <enabled>false</enabled>         </snapshots>         <id>central</id>         <name>libs-release</name>      <url>http://52.172.8.144:8040/artifactory/libs-release</url>      </pluginRepository>        <pluginRepository>        <snapshots />         <id>snapshots</id>          <name>libs-snapshot</name>          <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>       </pluginRepository>     </pluginRepositories> <id>artifactory</id>    </profile>  </profiles>  <activeProfiles>    <activeProfile>artifactory</activeProfile>  </activeProfiles></settings> " > $GITHUB_WORKSPACE/settings.xml
-    - name: Build with Maven
-      run: |
-        cd kernel
-        mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
-
-    - name: Publish the maven package
-      run: |
-        chmod +x ./deploy.sh
-        cd kernel && mvn deploy -Dgpg.skip -DskipTests -s $GITHUB_WORKSPACE/settings.xml -f pom.xml
- #      # ./deploy.sh kernel $GITHUB_WORKSPACE/settings.xml .*
-      env:
-        GPG_TTY: $(tty)
-
-   # - name: Publish the maven package registration
-   #   run: |
-        #chmod +x ./deploy.sh
-   #     cd registration && mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
-      #env:
-        #GPG_TTY: $(tty)
-    #- name: Analyze with SonarCloud
-      #run: |
-        #cd kernel
-        #mvn -B verify sonar:sonar -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} -Dsonar.organization=${{ secrets.ORG_KEY }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-      #env:
-        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-   # This workflow contains a single job called "build"
-
-  #build-admin-ui:
-    #runs-on: ubuntu-latest
-    #env:
-      #NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
-      #SERVICE_NAME: admin-ui
-      #SERVICE_LOCATION: admin-ui
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    #steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v2
-      #- uses: actions/setup-node@v1
-
-      #- name: npm install
-        #run: cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
-
-      #- name: npm build
-        #run: cd ${{ env.SERVICE_LOCATION }} && npm run-script build -- --prod --base-href . --output-path=dist
-
-      #- name: setup environment
-        #run: |
-          # Strip git ref prefix from version
-          #echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          #echo ${{ env.BRANCH_NAME }}
-
-      #- name: Build image
-        #run: |
-          #cd "./${{env.SERVICE_LOCATION}}"
-          #docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-
-      #- name: Log into registry
-        #run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
-
-      #- name: Push image
-        #run: |
-          #IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-
-          # Change all uppercase to lowercase
-          #IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          #VERSION=$BRANCH_NAME
-          #echo "push version $VERSION"
-          #echo IMAGE_ID=$IMAGE_ID
-          #echo VERSION=$VERSION
-          #docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          #docker push $IMAGE_ID:$VERSION
+#  build:
+#
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Set up JDK 1.8
+#      uses: actions/setup-java@v1
+#      with:
+#        ref: ${{ github.ref }}
+#        java-version: 1.8
+#        server-id: central # Value of the distributionManagement/repository/id field of the pom.xml
+#        settings-path: ${{ github.workspace }} # location for the settings.xml file
+#    - uses: kolpav/purge-artifacts-action@v1
+#      with:
+#        token: ${{ secrets.access_token }}
+#        expire-in: 0 # Setting this to 0 will delete all artifacts
+#
+#    - name: Setup branch and GPG public key
+#      run: |
+#        # Strip git ref prefix from version
+#        echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#        echo ${{ env.BRANCH_NAME }}
+#        #echo "::set-env name=GPG_TTY::$(tty)"
+#        #echo ${{ env.GPG_TTY }}
+#        #sudo apt-get --yes install gnupg2
+#        #gpg2 --import ./.github/keys/mosipgpgkey_pub.gpg
+#        #gpg2 --quiet --batch --passphrase=${{secrets.gpg_secret}}  --allow-secret-key-import --import ./.github/keys/mosipgpgkey_sec.gpg
+#
+#    - uses: actions/cache@v1
+#      with:
+#        path: ~/.m2/repository
+#        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+#        restore-keys: |
+#          ${{ runner.os }}-maven-${{ env.BRANCH_NAME }}
+#
+#    - name: Setup the settings file for jfrog server
+#      run: echo "<settings>  <servers> <server> <username>${{secrets.jfrog_user}}</username> <password>${{secrets.jfrog_secret}}</password><id>central</id> </server> </servers> <profiles>   <profile>     <repositories>         <repository>         <snapshots>           <enabled>false</enabled>         </snapshots>         <id>central</id>         <name>libs-release</name>         <url>http://52.172.8.144:8040/artifactory/libs-release</url>       </repository>       <repository>         <snapshots />         <id>snapshots</id>         <name>libs-snapshot</name>         <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>       </repository>     </repositories>     <pluginRepositories>       <pluginRepository>         <snapshots>           <enabled>false</enabled>         </snapshots>         <id>central</id>         <name>libs-release</name>      <url>http://52.172.8.144:8040/artifactory/libs-release</url>      </pluginRepository>        <pluginRepository>        <snapshots />         <id>snapshots</id>          <name>libs-snapshot</name>          <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>       </pluginRepository>     </pluginRepositories> <id>artifactory</id>    </profile>  </profiles>  <activeProfiles>    <activeProfile>artifactory</activeProfile>  </activeProfiles></settings> " > $GITHUB_WORKSPACE/settings.xml
+#
+#    - name: Build kernel
+#      run: |
+#        cd kernel
+#        mvn -B clean install -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests -Dgpg.skip
+#
+#    - name: Build Regprocessor
+#      run: |
+#        cd registration
+#        mvn -B clean install -s $GITHUB_WORKSPACE/settings.xml --file pom.xml -DskipTests -Dgpg.skip
+#
+#    - name: Ready the springboot artifacts
+#      run: |
+#        ls -lrt
+#        find -name '*.jar' -executable -type f  -exec zip release.zip {} +
+#        ls -lrt
+#        ls -lrt kernel/kernel-notification-service
+#
+#    - name: Upload the springboot jars
+#      uses: actions/upload-artifact@v1
+#      with:
+#        name: release
+#        path: ./release.zip
+#
+#  publish_to_nexus:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Set up JDK 1.8
+#      uses: actions/setup-java@v1
+#      with:
+#        ref: ${{ github.ref }}
+#        java-version: 1.8
+#        server-id: central # Value of the distributionManagement/repository/id field of the pom.xml
+#        settings-path: ${{ github.workspace }} # location for the settings.xml file
+#
+#    - name: Setup branch and GPG public key
+#      run: |
+#        # Strip git ref prefix from version
+#        echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#        echo ${{ env.BRANCH_NAME }}
+#        #echo "::set-env name=GPG_TTY::$(tty)"
+#        #echo ${{ env.GPG_TTY }}
+#        #sudo apt-get --yes install gnupg2
+#        #gpg2 --import ./.github/keys/mosipgpgkey_pub.gpg
+#        #gpg2 --quiet --batch --passphrase=${{secrets.gpg_secret}}  --allow-secret-key-import --import ./.github/keys/mosipgpgkey_sec.gpg
+#
+#    - uses: actions/cache@v1
+#      with:
+#        path: ~/.m2/repository
+#        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+#        restore-keys: |
+#          ${{ runner.os }}-maven-${{ env.BRANCH_NAME }}
+#    - name: Install xmllint
+#      run: |
+#        sudo apt-get update
+#        sudo apt-get install libxml2-utils
+#    - name: Setup the settings file for ossrh server
+#      run: echo "<settings>  <servers> <server> <username>${{secrets.jfrog_user}}</username> <password>${{secrets.jfrog_secret}}</password><id>central</id> </server> </servers> <profiles>   <profile>     <repositories>         <repository>         <snapshots>           <enabled>false</enabled>         </snapshots>         <id>central</id>         <name>libs-release</name>         <url>http://52.172.8.144:8040/artifactory/libs-release</url>       </repository>       <repository>         <snapshots />         <id>snapshots</id>         <name>libs-snapshot</name>         <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>       </repository>     </repositories>     <pluginRepositories>       <pluginRepository>         <snapshots>           <enabled>false</enabled>         </snapshots>         <id>central</id>         <name>libs-release</name>      <url>http://52.172.8.144:8040/artifactory/libs-release</url>      </pluginRepository>        <pluginRepository>        <snapshots />         <id>snapshots</id>          <name>libs-snapshot</name>          <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>       </pluginRepository>     </pluginRepositories> <id>artifactory</id>    </profile>  </profiles>  <activeProfiles>    <activeProfile>artifactory</activeProfile>  </activeProfiles></settings> " > $GITHUB_WORKSPACE/settings.xml
+#    - name: Build with Maven
+#      run: |
+#        cd kernel
+#        mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
+#
+#    - name: Publish the maven package
+#      run: |
+#        chmod +x ./deploy.sh
+#        cd kernel && mvn deploy -Dgpg.skip -DskipTests -s $GITHUB_WORKSPACE/settings.xml -f pom.xml
+# #      # ./deploy.sh kernel $GITHUB_WORKSPACE/settings.xml .*
+#      env:
+#        GPG_TTY: $(tty)
+#
+#   # - name: Publish the maven package registration
+#   #   run: |
+#        #chmod +x ./deploy.sh
+#   #     cd registration && mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
+#      #env:
+#        #GPG_TTY: $(tty)
+#    #- name: Analyze with SonarCloud
+#      #run: |
+#        #cd kernel
+#        #mvn -B verify sonar:sonar -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} -Dsonar.organization=${{ secrets.ORG_KEY }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+#      #env:
+#        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#   # This workflow contains a single job called "build"
+#
+#  #build-admin-ui:
+#    #runs-on: ubuntu-latest
+#    #env:
+#      #NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
+#      #SERVICE_NAME: admin-ui
+#      #SERVICE_LOCATION: admin-ui
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    #steps:
+#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#      #- uses: actions/checkout@v2
+#      #- uses: actions/setup-node@v1
+#
+#      #- name: npm install
+#        #run: cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
+#
+#      #- name: npm build
+#        #run: cd ${{ env.SERVICE_LOCATION }} && npm run-script build -- --prod --base-href . --output-path=dist
+#
+#      #- name: setup environment
+#        #run: |
+#          # Strip git ref prefix from version
+#          #echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#          #echo ${{ env.BRANCH_NAME }}
+#
+#      #- name: Build image
+#        #run: |
+#          #cd "./${{env.SERVICE_LOCATION}}"
+#          #docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+#
+#      #- name: Log into registry
+#        #run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+#
+#      #- name: Push image
+#        #run: |
+#          #IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+#
+#          # Change all uppercase to lowercase
+#          #IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#          #VERSION=$BRANCH_NAME
+#          #echo "push version $VERSION"
+#          #echo IMAGE_ID=$IMAGE_ID
+#          #echo VERSION=$VERSION
+#          #docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+#          #docker push $IMAGE_ID:$VERSION
 
 # This workflow contains a single job called "build"
   build-pre-registration-ui:
@@ -189,339 +189,341 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - uses: nelonoel/branch-name@v1
 
+      - name:
+        run: echo ${BRANCH_NAME}
 
-      - name: npm install
-        run: cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
+#
+#      - name: npm install
+#        run: cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
+#
+#      - name: npm build
+#        run: cd ${{ env.SERVICE_LOCATION }} && npm run-script build -- --prod --base-href . --output-path=dist
+#
+#      - name: Build image
+#        run: |
+#          cd "./${{env.SERVICE_LOCATION}}"
+#          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+#
+#      - name: Log into registry
+#        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+#
+#        #get BRANCH_NAME
+#      - name: Push image
+#        run: |
+#          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+#          # Change all uppercase to lowercase
+#          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#          VERSION=$(echo $BRANCH_NAME )
+#          echo "push version $VERSION"
+#          echo IMAGE_ID=$IMAGE_ID
+#          echo VERSION=$VERSION
+#          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+#          docker push $IMAGE_ID:$VERSION
 
-      - name: npm build
-        run: cd ${{ env.SERVICE_LOCATION }} && npm run-script build -- --prod --base-href . --output-path=dist
-
-      - name: Build image
-        run: |
-          cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-
-      - name: Log into registry
-        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
-
-
-        #get BRANCH_NAME
-      - uses: nelonoel/branch-name@v1.0.1
-      - name: Push image
-        run: |
-          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          VERSION=$(echo $BRANCH_NAME )
-          echo "push version $VERSION"
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-  docker-kernel-auth-service:
-    needs: build
-
-    runs-on: ubuntu-latest
-    env:
-      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
-      SERVICE_NAME: kernel-auth-service
-      SERVICE_LOCATION: kernel/kernel-auth-service
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
-        with:
-          name: release
-          path: ./
-
-      - name: Setup branch name
-        run: |
-          # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
-      - name: Get version info from pom
-        id: getPomVersion
-        uses: mavrosxristoforos/get-xml-info@1.0
-        with:
-          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
-          xpath: /*[local-name()="project"]/*[local-name()="version"]
-
-      - name: Unzip and extract the id-repository-vid-service
-        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
-
-      - name: Build image
-        run: |
-          cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-      - name: Log into registry
-        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
-
-      - name: Push image
-        run: |
-          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          echo "push version ${{steps.getPomVersion.outputs.info}}"
-          VERSION=$BRANCH_NAME
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-  docker-kernel-notification-service:
-    needs: build
-
-    runs-on: ubuntu-latest
-    env:
-      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
-      SERVICE_NAME: kernel-notification-service
-      SERVICE_LOCATION: kernel/kernel-notification-service
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
-        with:
-          name: release
-          path: ./
-
-      - name: Setup branch name
-        run: |
-          # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
-      - name: Get version info from pom
-        id: getPomVersion
-        uses: mavrosxristoforos/get-xml-info@1.0
-        with:
-          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
-          xpath: /*[local-name()="project"]/*[local-name()="version"]
-
-      - name: Unzip and extract the id-repository-vid-service
-        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
-
-      - name: Build image
-        run: |
-          cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-      - name: Log into registry
-        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
-
-      - name: Push image
-        run: |
-          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          echo "push version ${{steps.getPomVersion.outputs.info}}"
-          VERSION=$BRANCH_NAME
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-  docker-registration-processor-message-sender-stage:
-    needs: build
-
-    runs-on: ubuntu-latest
-    env:
-      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
-      SERVICE_NAME: registration-processor-message-sender-stage
-      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-message-sender-stage
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
-        with:
-          name: release
-          path: ./
-
-      - name: Setup branch name
-        run: |
-          # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
-      - name: Get version info from pom
-        id: getPomVersion
-        uses: mavrosxristoforos/get-xml-info@1.0
-        with:
-          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
-          xpath: /*[local-name()="project"]/*[local-name()="version"]
-
-      - name: Unzip and extract the id-repository-vid-service
-        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
-
-      - name: Build image
-        run: |
-          cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-      - name: Log into registry
-        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
-
-      - name: Push image
-        run: |
-          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          echo "push version ${{steps.getPomVersion.outputs.info}}"
-          VERSION=$BRANCH_NAME
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-  docker-registration-processor-print-service:
-    needs: build
-
-    runs-on: ubuntu-latest
-    env:
-      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
-      SERVICE_NAME: registration-processor-print-service
-      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-print-service
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
-        with:
-          name: release
-          path: ./
-
-      - name: Setup branch name
-        run: |
-          # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
-      - name: Get version info from pom
-        id: getPomVersion
-        uses: mavrosxristoforos/get-xml-info@1.0
-        with:
-          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
-          xpath: /*[local-name()="project"]/*[local-name()="version"]
-
-      - name: Unzip and extract the id-repository-vid-service
-        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
-
-      - name: Build image
-        run: |
-          cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-      - name: Log into registry
-        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
-
-      - name: Push image
-        run: |
-          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          echo "push version ${{steps.getPomVersion.outputs.info}}"
-          VERSION=$BRANCH_NAME
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-  docker-registration-processor-printing-stage:
-    needs: build
-
-    runs-on: ubuntu-latest
-    env:
-      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
-      SERVICE_NAME: registration-processor-printing-stage
-      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-printing-stage
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
-        with:
-          name: release
-          path: ./
-
-      - name: Setup branch name
-        run: |
-          # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
-      - name: Get version info from pom
-        id: getPomVersion
-        uses: mavrosxristoforos/get-xml-info@1.0
-        with:
-          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
-          xpath: /*[local-name()="project"]/*[local-name()="version"]
-
-      - name: Unzip and extract the id-repository-vid-service
-        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
-
-      - name: Build image
-        run: |
-          cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-      - name: Log into registry
-        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
-
-      - name: Push image
-        run: |
-          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          echo "push version ${{steps.getPomVersion.outputs.info}}"
-          VERSION=$BRANCH_NAME
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-
-  docker-registration-processor-registration-transaction-service:
-    needs: build
-
-    runs-on: ubuntu-latest
-    env:
-      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
-      SERVICE_NAME: registration-processor-registration-transaction-service
-      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-registration-transaction-service
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
-        with:
-          name: release
-          path: ./
-
-      - name: Setup branch name
-        run: |
-          # Strip git ref prefix from version
-          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
-          echo ${{ env.BRANCH_NAME }}
-      - name: Get version info from pom
-        id: getPomVersion
-        uses: mavrosxristoforos/get-xml-info@1.0
-        with:
-          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
-          xpath: /*[local-name()="project"]/*[local-name()="version"]
-
-      - name: Unzip and extract the id-repository-vid-service
-        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
-
-      - name: Build image
-        run: |
-          cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-      - name: Log into registry
-        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
-
-      - name: Push image
-        run: |
-          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          echo "push version ${{steps.getPomVersion.outputs.info}}"
-          VERSION=$BRANCH_NAME
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+#  docker-kernel-auth-service:
+#    needs: build
+#
+#    runs-on: ubuntu-latest
+#    env:
+#      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
+#      SERVICE_NAME: kernel-auth-service
+#      SERVICE_LOCATION: kernel/kernel-auth-service
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/download-artifact@v1
+#        with:
+#          name: release
+#          path: ./
+#
+#      - name: Setup branch name
+#        run: |
+#          # Strip git ref prefix from version
+#          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#          echo ${{ env.BRANCH_NAME }}
+#      - name: Get version info from pom
+#        id: getPomVersion
+#        uses: mavrosxristoforos/get-xml-info@1.0
+#        with:
+#          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
+#          xpath: /*[local-name()="project"]/*[local-name()="version"]
+#
+#      - name: Unzip and extract the id-repository-vid-service
+#        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
+#
+#      - name: Build image
+#        run: |
+#          cd "./${{env.SERVICE_LOCATION}}"
+#          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+#      - name: Log into registry
+#        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+#
+#      - name: Push image
+#        run: |
+#          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+#
+#          # Change all uppercase to lowercase
+#          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#          echo "push version ${{steps.getPomVersion.outputs.info}}"
+#          VERSION=$BRANCH_NAME
+#          echo IMAGE_ID=$IMAGE_ID
+#          echo VERSION=$VERSION
+#          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+#          docker push $IMAGE_ID:$VERSION
+#
+#  docker-kernel-notification-service:
+#    needs: build
+#
+#    runs-on: ubuntu-latest
+#    env:
+#      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
+#      SERVICE_NAME: kernel-notification-service
+#      SERVICE_LOCATION: kernel/kernel-notification-service
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/download-artifact@v1
+#        with:
+#          name: release
+#          path: ./
+#
+#      - name: Setup branch name
+#        run: |
+#          # Strip git ref prefix from version
+#          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#          echo ${{ env.BRANCH_NAME }}
+#      - name: Get version info from pom
+#        id: getPomVersion
+#        uses: mavrosxristoforos/get-xml-info@1.0
+#        with:
+#          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
+#          xpath: /*[local-name()="project"]/*[local-name()="version"]
+#
+#      - name: Unzip and extract the id-repository-vid-service
+#        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
+#
+#      - name: Build image
+#        run: |
+#          cd "./${{env.SERVICE_LOCATION}}"
+#          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+#      - name: Log into registry
+#        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+#
+#      - name: Push image
+#        run: |
+#          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+#
+#          # Change all uppercase to lowercase
+#          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#          echo "push version ${{steps.getPomVersion.outputs.info}}"
+#          VERSION=$BRANCH_NAME
+#          echo IMAGE_ID=$IMAGE_ID
+#          echo VERSION=$VERSION
+#          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+#          docker push $IMAGE_ID:$VERSION
+#
+#  docker-registration-processor-message-sender-stage:
+#    needs: build
+#
+#    runs-on: ubuntu-latest
+#    env:
+#      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
+#      SERVICE_NAME: registration-processor-message-sender-stage
+#      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-message-sender-stage
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/download-artifact@v1
+#        with:
+#          name: release
+#          path: ./
+#
+#      - name: Setup branch name
+#        run: |
+#          # Strip git ref prefix from version
+#          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#          echo ${{ env.BRANCH_NAME }}
+#      - name: Get version info from pom
+#        id: getPomVersion
+#        uses: mavrosxristoforos/get-xml-info@1.0
+#        with:
+#          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
+#          xpath: /*[local-name()="project"]/*[local-name()="version"]
+#
+#      - name: Unzip and extract the id-repository-vid-service
+#        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
+#
+#      - name: Build image
+#        run: |
+#          cd "./${{env.SERVICE_LOCATION}}"
+#          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+#      - name: Log into registry
+#        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+#
+#      - name: Push image
+#        run: |
+#          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+#
+#          # Change all uppercase to lowercase
+#          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#          echo "push version ${{steps.getPomVersion.outputs.info}}"
+#          VERSION=$BRANCH_NAME
+#          echo IMAGE_ID=$IMAGE_ID
+#          echo VERSION=$VERSION
+#          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+#          docker push $IMAGE_ID:$VERSION
+#
+#  docker-registration-processor-print-service:
+#    needs: build
+#
+#    runs-on: ubuntu-latest
+#    env:
+#      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
+#      SERVICE_NAME: registration-processor-print-service
+#      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-print-service
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/download-artifact@v1
+#        with:
+#          name: release
+#          path: ./
+#
+#      - name: Setup branch name
+#        run: |
+#          # Strip git ref prefix from version
+#          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#          echo ${{ env.BRANCH_NAME }}
+#      - name: Get version info from pom
+#        id: getPomVersion
+#        uses: mavrosxristoforos/get-xml-info@1.0
+#        with:
+#          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
+#          xpath: /*[local-name()="project"]/*[local-name()="version"]
+#
+#      - name: Unzip and extract the id-repository-vid-service
+#        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
+#
+#      - name: Build image
+#        run: |
+#          cd "./${{env.SERVICE_LOCATION}}"
+#          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+#      - name: Log into registry
+#        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+#
+#      - name: Push image
+#        run: |
+#          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+#
+#          # Change all uppercase to lowercase
+#          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#          echo "push version ${{steps.getPomVersion.outputs.info}}"
+#          VERSION=$BRANCH_NAME
+#          echo IMAGE_ID=$IMAGE_ID
+#          echo VERSION=$VERSION
+#          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+#          docker push $IMAGE_ID:$VERSION
+#
+#  docker-registration-processor-printing-stage:
+#    needs: build
+#
+#    runs-on: ubuntu-latest
+#    env:
+#      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
+#      SERVICE_NAME: registration-processor-printing-stage
+#      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-printing-stage
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/download-artifact@v1
+#        with:
+#          name: release
+#          path: ./
+#
+#      - name: Setup branch name
+#        run: |
+#          # Strip git ref prefix from version
+#          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#          echo ${{ env.BRANCH_NAME }}
+#      - name: Get version info from pom
+#        id: getPomVersion
+#        uses: mavrosxristoforos/get-xml-info@1.0
+#        with:
+#          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
+#          xpath: /*[local-name()="project"]/*[local-name()="version"]
+#
+#      - name: Unzip and extract the id-repository-vid-service
+#        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
+#
+#      - name: Build image
+#        run: |
+#          cd "./${{env.SERVICE_LOCATION}}"
+#          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+#      - name: Log into registry
+#        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+#
+#      - name: Push image
+#        run: |
+#          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+#
+#          # Change all uppercase to lowercase
+#          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#          echo "push version ${{steps.getPomVersion.outputs.info}}"
+#          VERSION=$BRANCH_NAME
+#          echo IMAGE_ID=$IMAGE_ID
+#          echo VERSION=$VERSION
+#          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+#          docker push $IMAGE_ID:$VERSION
+#
+#  docker-registration-processor-registration-transaction-service:
+#    needs: build
+#
+#    runs-on: ubuntu-latest
+#    env:
+#      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
+#      SERVICE_NAME: registration-processor-registration-transaction-service
+#      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-registration-transaction-service
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/download-artifact@v1
+#        with:
+#          name: release
+#          path: ./
+#
+#      - name: Setup branch name
+#        run: |
+#          # Strip git ref prefix from version
+#          echo "::set-env name=BRANCH_NAME::$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')"
+#          echo ${{ env.BRANCH_NAME }}
+#      - name: Get version info from pom
+#        id: getPomVersion
+#        uses: mavrosxristoforos/get-xml-info@1.0
+#        with:
+#          xml-file: ./${{ env.SERVICE_LOCATION }}/pom.xml
+#          xpath: /*[local-name()="project"]/*[local-name()="version"]
+#
+#      - name: Unzip and extract the id-repository-vid-service
+#        run: unzip -uj "release.zip" "${{ env.SERVICE_LOCATION }}/target/*" -d "./${{ env.SERVICE_LOCATION }}/target"
+#
+#      - name: Build image
+#        run: |
+#          cd "./${{env.SERVICE_LOCATION}}"
+#          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+#      - name: Log into registry
+#        run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
+#
+#      - name: Push image
+#        run: |
+#          IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+#
+#          # Change all uppercase to lowercase
+#          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+#          echo "push version ${{steps.getPomVersion.outputs.info}}"
+#          VERSION=$BRANCH_NAME
+#          echo IMAGE_ID=$IMAGE_ID
+#          echo VERSION=$VERSION
+#          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+#          docker push $IMAGE_ID:$VERSION
