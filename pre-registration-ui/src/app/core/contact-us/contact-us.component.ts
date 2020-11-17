@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
@@ -62,15 +62,30 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit() {
+
+    console.log(this.userForm.getRawValue());
+    this.sendForm(this.userForm.getRawValue()).subscribe(
+        response => {
+          const r = response;
+          console.log(r);
+        },
+        error => {
+          const err = error;
+          console.log(err);
+        });
+
+
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid) {
       const request = this.userForm.value;
       this.sendForm(request).subscribe(
         response => {
           const r = response;
+          console.log(r);
         },
         error => {
           const err = error;
+          console.log(err);
         });
     }
   }
@@ -95,8 +110,14 @@ export class ContactUsComponent implements OnInit {
   }
 
   private sendForm(data: object) {
-    const url = this.BASE_URL + "/contact-us";
-    return this.httpClient.post(url, data);
-  }
+    const headers= new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': 'http://localhost:8081/'
+    });
 
+    const url = this.BASE_URL + "/contact-us";
+    return this.httpClient.post(url, data, { 'headers': headers });
+  }
 }
+

@@ -1,3 +1,4 @@
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { Event as NavigationEvent, Router } from '@angular/router';
@@ -23,9 +24,32 @@ export class AppComponent implements OnInit, OnDestroy {
     private autoLogout: AutoLogoutService,
     private router: Router,
     private configService: ConfigService,
-    private appConfigService: AppConfigService
+    private appConfigService: AppConfigService,
+    private http: HttpClient
   ) {
     this.router.navigate(['/']);
+
+    const data = {
+      "name" : "Mamadou Yaya DIALLO",
+      "email" : "yayamombeya090@gmail.com",
+      "reason" :  "DEMANDE INFOR",
+      "otherReason" : null,
+      "message" : "Need some information, please call me on 622315214"
+    };
+
+    const headers= new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    });
+
+    const url = "https://guinea-sandbox.mosip.net/pre-registration-contactus/contact-us";
+    // @ts-ignore
+    this.http.post(url, data, headers).subscribe(r => {
+      console.log(r);
+    }, error => {
+      console.log(error);
+    });
   }
 
   ngOnInit() {
