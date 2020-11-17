@@ -198,7 +198,7 @@ jobs:
 
       - name: setup environment
         run: |
-          # Strip git ref prefix from version
+          # Strip git ref prefix from version.
           echo "${GITHUB_BRANCH##*/}" env: GITHUB_BRANCH: ${{ github.ref }}
           echo ${{ env.BRANCH_NAME }}
 
