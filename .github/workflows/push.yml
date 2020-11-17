@@ -189,8 +189,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      #get BRANCH_NAME
-      - uses: nelonoel/branch-name@v1.0.1
+
 
       - name: npm install
         run: cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
@@ -207,13 +206,14 @@ jobs:
         run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
 
       - name: Push image
+        #get BRANCH_NAME
+        uses: nelonoel/branch-name@v1.0.1
         run: |
           IMAGE_ID=$NAMESPACE/$SERVICE_NAME
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           echo "push version $VERSION"
           echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
           docker tag $SERVICE_NAME $IMAGE_ID:${{ env.BRANCH_NAME }}
           docker push $IMAGE_ID:${{ env.BRANCH_NAME }}
 
