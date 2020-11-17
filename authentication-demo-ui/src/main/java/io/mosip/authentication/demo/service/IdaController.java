@@ -159,7 +159,7 @@ public class IdaController {
     @FXML
     private Label tsLabel;
 
-    private String otpDefaultValue = "Entrez OTP";
+    private String otpDefaultValue = "Saisir OTP";
 
     private boolean firstInit = true;
 
@@ -188,16 +188,19 @@ public class IdaController {
             updateSendButton();
         });
         otpValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            otpValue.setText("");
-            otpValue.setStyle("-fx-text-fill: #020F59;");
+            if (otpValue.isEditable())
+            {  otpValue.setText("");
+            otpValue.setStyle("-fx-text-fill: #020F59;");}
+
         });
         idValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (firstInit == false) {
+            if (idValue.isEditable()) {
                 idValue.setText("");
             }
             firstInit = false;
         });
         idValueVID.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (idValueVID.isEditable())
             idValueVID.setText("");
         });
         switchedOn.addListener((a, b, c) -> {
@@ -321,6 +324,16 @@ public class IdaController {
         responsetextField.setText(null);
         otpAnchorPane.setDisable(!otpAnchorPane.isDisable());
         updateSendButton();
+        if (otpAuthType.isSelected())
+        {
+               otpValue.setText(otpDefaultValue);
+             otpValue.setStyle("-fx-text-fill: grey;");
+        }
+        else
+        {
+            otpValue.setText("");
+        }
+
     }
 
     @FXML
@@ -525,8 +538,6 @@ public class IdaController {
         otpValue.setStyle("-fx-text-fill: grey;");
 
         otpValue.setText(otpDefaultValue);
-
-        idValueVID.setStyle("-fx-text-fill: red;");
 
         String type = "UIN";
         responsetextField.setText(null);
