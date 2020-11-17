@@ -209,15 +209,13 @@ jobs:
       - name: Push image
         run: |
           IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          VERSION=${{ env.BRANCH_NAME }}
           echo "push version $VERSION"
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:${{ env.BRANCH_NAME }}
 
   docker-kernel-auth-service:
     needs: build
