@@ -384,7 +384,7 @@
 		"action_send": "ENVOYER EMAIL / SMS",
 		"action_sendmobile": "EMAIL / SMS",
 		"action_download": "TÉLÉCHARGER LE FICHIER PDF",
-		"action_downloadmobile": "TÉLÉCHARGER LE PDF",
+		"action_downloadmobile": "PDF",
 		"action_print": "IMPRESSION"
 	},
 	"preview": {

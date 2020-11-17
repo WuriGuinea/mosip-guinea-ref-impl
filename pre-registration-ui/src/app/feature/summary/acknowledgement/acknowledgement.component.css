@@ -100,7 +100,7 @@
   color: #020F59;
   padding: 0px 2rem;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-decoration: none;
   display: inline-block;
   margin: 4px 0 4px 1.2rem;
@@ -330,7 +330,11 @@ table tr td {
 .ack-book_later-btnm{
   display: none;
 }
-@media (max-width: 600px) {
+
+.ack-book_msg-btn{
+  display: none;
+}
+@media (max-width: 650px) {
   .ack-book_later-btn{
     background-color: #BCE0FD;
     color: #020F59;
@@ -340,20 +344,58 @@ table tr td {
     font-size: 0.5rem;
   }
 
-  .ack-book_later-btnm{
-    display: block;
+  .ack__button-container {
+    width: 100%;
+    position: relative;
+    bottom: 68px;
+    left: 0;
+    padding: 10px 10vw;
+    display: flex;
+    background: none;
+    z-index: 2;
+    box-shadow: none;
+}
+  .ack-book_later-btnm {
     background-color: #BCE0FD;
     color: #020F59;
+    padding: 0px 1rem;
     text-align: center;
-    margin: 4px 0 4px 0.2rem;
-    font-size: 0.5rem;
-  }
+    font-size: 0.6rem;
+    min-width: 2.7rem;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 0 4px 1rem;
+    cursor: pointer;
+    border-radius: 0;
+}
 
-.ack-continue-btn{
+.ack-book_msg-btn{
   background-color: #BCE0FD;
   color: #020F59;
   padding: 0px 1rem;
   text-align: center;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
+  min-width: 5rem;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 0 4px 1rem;
+  cursor: pointer;
+  border-radius: 0;
 }
+
+.ack-continue-btn{
+  background-color: #BCE0FD;
+  border: none;
+  border-radius: 0;
+  color: #020F59;
+  padding: 0px 1rem;
+  min-width: 6rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.6rem;
+  margin: 4px 2rem 4px 1.2rem !important;
+  cursor: pointer;
+}
+
 }
