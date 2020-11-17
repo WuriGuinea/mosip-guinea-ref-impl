@@ -195,8 +195,8 @@ jobs:
 
       - name:
         run: |
-          echo "BRANCH_NAME=test" >> $GITHUB_ENV
-          echo $BRANCH_NAME
+          echo "branch=test" >> $GITHUB_ENV
+          echo $branch
           echo 4
 
 #
