@@ -196,7 +196,7 @@ public class IdaController {
         });
         idValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (idValue.isEditable() && idValue.getText().equals("INU")) {
-                idValue.setText("TOTO");
+                idValue.setText("");
             }
 
         });
