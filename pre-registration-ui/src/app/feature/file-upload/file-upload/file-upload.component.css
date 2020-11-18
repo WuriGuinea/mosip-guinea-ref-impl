@@ -331,7 +331,7 @@ mat-select:focus {
 }
 
 .file-upload__body__document-type {
-  padding: 10px 0px;
+  padding: 10px 5px;
   min-height: 100px;
 }
 .filestyle{
@@ -522,8 +522,20 @@ mat-select:focus {
   }
 }
 
+@media (max-width : 479px){
+  .user__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -2rem;
+    bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    padding: 0 2vw; 
+  }
+}
 
-@media (max-width : 1200px){
+@media (min-width : 480px) and (max-width : 1200px){
   .user__buttons {
     width: 100%;
     display: flex;

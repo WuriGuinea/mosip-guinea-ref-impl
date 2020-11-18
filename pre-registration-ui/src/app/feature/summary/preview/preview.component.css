@@ -131,8 +131,8 @@
   font-weight: bold;
 }
 
-.preview__personal-info-table td, 
-.preview__personal-info-address-table td  {
+
+.preview__personal-info-table td {
   padding-bottom: 5px;
 }
 
