@@ -27,7 +27,6 @@
     "@angular/router": "7.2.0",
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
-    "@syncfusion/ej2-angular-pdfviewer": "^18.3.50",
     "angular-user-idle": "^2.2.4",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.6.11",
