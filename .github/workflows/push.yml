@@ -209,19 +209,17 @@ jobs:
       - name: Log into registry
         run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
 
-
-        #get BRANCH_NAME
-      - uses: nelonoel/branch-name@v1.0.1
       - name: Push image
         run: |
           IMAGE_ID=$NAMESPACE/$SERVICE_NAME
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          VERSION=$(echo $BRANCH_NAME )
+          VERSION=$BRANCH_NAME
           echo "push version $VERSION"
           echo IMAGE_ID=$IMAGE_ID
-          docker tag $SERVICE_NAME $IMAGE_ID:${{ env.BRANCH_NAME }}
-          docker push $IMAGE_ID:${{ env.BRANCH_NAME }}
+          echo VERSION=$VERSION
+          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
 
   docker-kernel-auth-service:
     needs: build
