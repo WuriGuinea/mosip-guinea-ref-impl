@@ -10,7 +10,7 @@
 .preview__file__table__header{
   position: relative;
   top: 5px;
-  line-height: 10px;
+  /*line-height: 10px;*/
 }
 .preview__file__table__data{
   position: relative;
@@ -139,6 +139,7 @@
 .preview__personal-info-address-table {
   margin-top: -30px;
   font-size: 0.782rem;
+  line-height: 20px;
 }
 
 .personal-info-label{
@@ -369,6 +370,7 @@
 }
 #justificatifstable{
   margin-top: -31px;
+  line-height: 12px;
 }
 
 table{
