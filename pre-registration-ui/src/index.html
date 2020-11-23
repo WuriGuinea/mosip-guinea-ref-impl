@@ -7,8 +7,33 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
   </head>
   <body>
     <app-root></app-root>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#bce0fd"
+          },
+          "button": {
+            "background": "#020f59"
+          },
+
+        },
+        "theme": "classic",
+        "position": "bottom-left",
+        "content": {
+          "message": "Nous utilisons des cookies pour vous garantir la meilleure experience sur notre site web. Si vous continuez a utiliser ce site, nous supposerons que vous en etes satisfait.",
+          "dismiss": "Acceptez",
+          "link": " "
+        },
+        "height": "20",
+      });
+    </script>
   </body>
 </html>
