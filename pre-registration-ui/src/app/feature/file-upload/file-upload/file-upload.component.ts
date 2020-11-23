@@ -598,7 +598,12 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   }
 
   hideview() {
-    this.flag = false;
+    document.getElementById('showbloc').style.display = "none";
+    document.getElementById('hidebloc').style.display = "block";
+  }
+ showview() {
+    document.getElementById('hidebloc').style.display = "none";
+    document.getElementById('showbloc').style.display = "block";
   }
 
   /**
