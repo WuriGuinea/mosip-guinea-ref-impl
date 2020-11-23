@@ -35,6 +35,12 @@
             id="inputFieldOTP" (input)="showVerifyBtn()" />
         </mat-form-field>
       </div>
+      <div *ngIf="showOTP" class="login_inputm">
+        <mat-form-field appearance="outline">
+        <input autofocus="autofocus" matInput [(ngModel)]="inputOTP" placeholder="{{ 'login.label_otp_mobile' | translate }}"
+          id="inputFieldOTPm" (input)="showVerifyBtn()" />
+      </mat-form-field>
+    </div>
 
       <div *ngIf="showSendOTP">
         <button mat-raised-button class="btn_axn-pri" [disabled]="inputContactDetails.length > 0 ? false : true"

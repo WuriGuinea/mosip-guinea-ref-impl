@@ -135,7 +135,7 @@ body {
 
 .btn_axn-pri.page_btn,
 .btn_axn-sec.page_btn {
-  min-width: 120px;
+  min-width: 13rem;
   min-height: 40px;
   padding: 0px 40px;
   margin-bottom: 1rem;
@@ -338,6 +338,11 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     outline-style: none !important;
   }
  .btn_axn-pri .mat-raised-button .cdk-focused .cdk-mouse-focused{
+    background: #BCE0FD !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+  .user__btn  .mat-raised-button .cdk-focused .cdk-mouse-focused{
     background: #BCE0FD !important;
     opacity: 1 !important;
     box-shadow: none !important;

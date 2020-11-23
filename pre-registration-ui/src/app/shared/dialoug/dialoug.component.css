@@ -58,7 +58,7 @@
 }
 .accept-button-disabled {
   margin: 10px auto;
-  color: white;
+  color: #020F59 !important;
   background-color: #BCE0FD;
   opacity: 0.5;
 }
