@@ -1,21 +1,17 @@
 window.cookieconsent.initialise({
     "palette": {
         "popup": {
-            "background": "#020f59",
-            "text": "#fff"
+            "background": "#bce0fd",
+            "text": "#020f59"
         },
         "button": {
-            "background": "#bce0fd"
+            "background": "#020f59"
         }
     },
     "theme": "classic",
-    "position": "bottom-right",
-    "type": "opt-out",
     "content": {
-        close: '&#10005;',
-        message: "Nous utilisons des cookies pour vous garantir la meilleure experience sur notre site web. Si vous continuez à utiliser ce site, nous supposerons que vous en êtes satisfait.",
-        dismiss: "OK",
-        link: " ",
-        "deny": "&#10005;",
-    },
+        "message": "Nous utilisons des cookies pour vous garantir la meilleure experience sur notre site web. Si vous continuez à utiliser ce site, nous supposerons que vous en êtes satisfait.",
+        "dismiss": "OK",
+        "link": " "
+    }
 });
