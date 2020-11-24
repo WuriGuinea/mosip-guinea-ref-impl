@@ -330,7 +330,7 @@ mat-form-field-infix{
 background: #BCE0FD;
 }
 
-@media (min-width: 700px)  and (max-width: 1700px){
+@media (min-width: 700px){
   #inputFieldOTPm{
     display: none;
   }

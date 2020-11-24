@@ -281,10 +281,10 @@
                         </mat-form-field>
                     </div>
                     <div > 
-                        <img  matTooltip="{{ 'helpText.info' | translate }}" [matTooltipDisabled]="false" src="assets\iconinfo.png" class="iconinfo" />
-                        <mat-form-field>
+                        
+                        <mat-form-field><img  matTooltip="{{ 'helpText.info' | translate }}" [matTooltipDisabled]="false" src="assets\iconinfo.png" class="iconinfo" />
                              <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}</mat-label>
-                        <input
+                        <input 
                              #additionalAddressDetails
                              type="text"
                              placeholder="{{'demographic.label_additionalAddressDetails' | translate}}"
@@ -322,6 +322,7 @@
                 type="button"
                 [disabled]="!dataUploadComplete"
                 (click)="onSubmit()"
+                cdkFocusInitial
         >
             {{ 'demographic.action_continue' | translate }}
         </button>
@@ -331,6 +332,7 @@
                 type="button"
                 [disabled]="!dataUploadComplete"
                 (click)="onSubmit()"
+                cdkFocusInitial
         >
             {{ 'demographic.action_preview' | translate }}
         </button>
