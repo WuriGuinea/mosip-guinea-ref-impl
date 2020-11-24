@@ -28,9 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.navigate(['/']);
   }
 
-  ngOnInit() {
-    //if ()
-  }
+  ngOnInit() {}
 
   routerType() {
     this.subscriptions.push(
