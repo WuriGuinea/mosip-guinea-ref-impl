@@ -91,10 +91,6 @@
   box-shadow: none;
 }
 
-.spacer {
-  flex: 1 1 auto;
-}
-
 .ack-book_later-btn {
   background-color: #BCE0FD;
   color: #020F59;
@@ -370,7 +366,7 @@ table tr td {
     min-width: 2.7rem;
     text-decoration: none;
     display: inline-block;
-    margin: 4px 0 4px 1rem;
+    margin: 4px 1rem 4px 3rem;
     cursor: pointer;
     border-radius: 0;
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
@@ -387,7 +383,7 @@ table tr td {
   min-width: 5rem;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 0 4px 1rem;
+  margin: 4px 1px 4px -1rem;
   cursor: pointer;
   border-radius: 0;
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
@@ -406,7 +402,7 @@ table tr td {
   text-decoration: none;
   display: inline-block;
   font-size: 0.7rem;
-  margin: 4px 2rem 4px 1.2rem !important;
+  margin: 4px 1rem 4px 2.5rem !important;
   cursor: pointer;
 }
 
