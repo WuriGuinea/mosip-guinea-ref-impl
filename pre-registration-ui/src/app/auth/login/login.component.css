@@ -330,18 +330,27 @@ mat-form-field-infix{
 background: #BCE0FD;
 }
 
-@media (min-width: 700px){
-  #inputFieldOTPm{
-    display: none;
-  }
-}
 @media (max-width: 699px){
   #inputFieldOTP{
     font-size: 13px !important;
     display: none;
   }
+
+  #inputFieldOTPm{
+    display: block;
+  }
 }
 
+@media (min-width: 700px){
+  #inputFieldOTPm{
+    display: none;
+  }
+
+  #inputFieldOTP{
+    font-size: 13px !important;
+    display: block;
+  }
+}
 .login_inputm{
   margin-top: -3rem;
 }
