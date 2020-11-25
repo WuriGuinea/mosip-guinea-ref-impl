@@ -1,14 +1,49 @@
 .wuri-card {
-    color: #020F59;
-    margin-left: 35%;
-    margin-top: 14rem;
-    border: solid grey 1px;
-    margin-right: 35%;
-    border-radius: 30px;
-    padding: 5rem 5rem 5rem 5rem;
-    box-shadow: 0px 3px 6px darkgrey;
-    min-width: 35rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-left: -15px;
+    margin-right: -15px;
 }
+
+.container {
+    color: #020F59;
+    border: solid grey 1px;
+    border-radius: 30px;
+    padding: 4rem 6rem 2rem 4rem;
+    box-shadow: 0px 3px 6px darkgrey;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 30px;
+}
+
+.form {
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.contact {
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+
 
 .espace{
     margin-left: 1.3em;
@@ -26,4 +61,23 @@ textarea.mat-input-element {
 
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
     width: 25rem;
+}
+
+.header {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #fff;
+    text-decoration: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 44px;
+    white-space: nowrap;
+    padding: 0 20px 0 60px;
+    border-bottom:1px solid #BCE0FD;
+    border-top: 1px solid #BCE0FD;
+}
+.active {
+    color: #020F59;
 }
