@@ -292,9 +292,9 @@ left: 15vw;
   }
   .form_wrapper[_ngcontent-c13] {    
      width: 80%; 
+  }
 }
-}
- @media (max-width: 1000px) {
+@media (max-width: 1000px) {
   .positionimgbiom {
     display: none !important;
   }
@@ -339,6 +339,10 @@ background: #BCE0FD;
   #inputFieldOTPm{
     display: block;
   }
+
+  .login_inputm{
+    margin-top: -3rem;
+  }
 }
 
 @media (min-width: 700px){
@@ -350,7 +354,13 @@ background: #BCE0FD;
     font-size: 13px !important;
     display: block;
   }
-}
-.login_inputm{
-  margin-top: -3rem;
+
+  .login_inputm{
+    display: none;
+  }
+
+  .login_input{
+    display: block;
+  }
+
 }
