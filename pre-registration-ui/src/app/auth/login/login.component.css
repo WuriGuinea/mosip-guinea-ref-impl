@@ -292,9 +292,9 @@ left: 15vw;
   }
   .form_wrapper[_ngcontent-c13] {    
      width: 80%; 
+  }
 }
-}
- @media (max-width: 1000px) {
+@media (max-width: 1000px) {
   .positionimgbiom {
     display: none !important;
   }
@@ -330,18 +330,37 @@ mat-form-field-infix{
 background: #BCE0FD;
 }
 
-@media (min-width: 700px){
-  #inputFieldOTPm{
-    display: none;
-  }
-}
 @media (max-width: 699px){
   #inputFieldOTP{
     font-size: 13px !important;
     display: none;
   }
+
+  #inputFieldOTPm{
+    display: block;
+  }
+
+  .login_inputm{
+    margin-top: -3rem;
+  }
 }
 
-.login_inputm{
-  margin-top: -3rem;
+@media (min-width: 700px){
+  #inputFieldOTPm{
+    display: none;
+  }
+
+  #inputFieldOTP{
+    font-size: 13px !important;
+    display: block;
+  }
+
+  .login_inputm{
+    display: none;
+  }
+
+  .login_input{
+    display: block;
+  }
+
 }

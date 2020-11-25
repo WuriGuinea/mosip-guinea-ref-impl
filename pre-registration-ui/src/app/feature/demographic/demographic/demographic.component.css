@@ -582,8 +582,8 @@ textarea.mat-input-element{
 
 .iconinfo{
   touch-action: none;
-    margin-top: 40px;
-    margin-left: 10rem;
+    margin-top: 0;
+    margin-left: 1px;
     user-select: none;
     -webkit-tap-highlight-color: #020F59;
     width: 15px;
