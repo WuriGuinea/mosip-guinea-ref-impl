@@ -280,10 +280,15 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div > 
-                        
-                        <mat-form-field><img  matTooltip="{{ 'helpText.info' | translate }}" [matTooltipDisabled]="false" src="assets\iconinfo.png" class="iconinfo" />
-                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}</mat-label>
+                    <div style="margin-top: 55px;"> 
+                        <mat-form-field>
+                            <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }} 
+                                <img  
+                                 matTooltip="{{ 'helpText.info' | translate }}" 
+                                 [matTooltipDisabled]="false" src="assets\iconinfo.png" 
+                                 class="iconinfo" 
+                                />
+                            </mat-label>
                         <input 
                              #additionalAddressDetails
                              type="text"
@@ -322,7 +327,6 @@
                 type="button"
                 [disabled]="!dataUploadComplete"
                 (click)="onSubmit()"
-                cdkFocusInitial
         >
             {{ 'demographic.action_continue' | translate }}
         </button>
@@ -332,7 +336,6 @@
                 type="button"
                 [disabled]="!dataUploadComplete"
                 (click)="onSubmit()"
-                cdkFocusInitial
         >
             {{ 'demographic.action_preview' | translate }}
         </button>
