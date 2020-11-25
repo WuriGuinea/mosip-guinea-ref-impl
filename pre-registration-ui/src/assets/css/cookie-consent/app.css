@@ -55,7 +55,8 @@
     flex-wrap: nowrap;
     z-index: 9999;
     text-align: center;
-    height: 75px;
+    min-height: 75px;
+    max-height: 300px;
 }
 .cc-window.cc-static {
     position: static;
