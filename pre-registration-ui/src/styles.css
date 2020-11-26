@@ -381,7 +381,16 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
       overflow-x: hidden !important;
     }
   }
-  
+  @media (max-width: 400px){
+    .mat-drawer-content {
+      position: relative;
+      z-index: 1;
+      display: flow-root !important;
+      height: 100%;
+      width: 100% !important;
+      overflow-x: scroll !important;
+    }
+  }
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
     top: 24px;
   }
