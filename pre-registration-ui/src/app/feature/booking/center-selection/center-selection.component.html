@@ -48,7 +48,7 @@
                 placeholder="{{ 'centerSelection.text_enter' | translate }} {{ locationType.locationHierarchyDescription }}"
                 name="search" class="search-input" [(ngModel)]="searchText" />
               <input *ngIf="locationType === null" mat-input type="search" name="search" class="search-input"
-                [(ngModel)]="searchText" />
+                [(ngModel)]="searchText" disabled />
               <button matTooltip="{{ 'helpText.magnifying_glass' | translate }}" mat-icon-button type="submit"
                 (click)="showResults()">
                 <img src="assets\search.svg" />
