@@ -1,12 +1,13 @@
 <div class="header" style="display: flex">
     <div class="left-h">
-        Acceuil/<span class="active">Contact</span>
+        Accueil/<span class="active">Contact</span>
     </div>
     <div class="right-h">
         Contact
     </div>
 </div>
 <div class="container">
+
     <div class="wuri-card">
         <div class="form">
             <article>
@@ -78,10 +79,12 @@
                     <br />
 
                     <button
-                            class="user__btn user__btn--back title"
+                            class="submit_button title"
                             type="button"
                             (click)="onSubmit()">
                         {{'contactUs.send' | translate}}
+
+                        <mat-spinner diameter="20" mode="indeterminate" style="display: inline"></mat-spinner>
                     </button>
                 </form>
             </article>

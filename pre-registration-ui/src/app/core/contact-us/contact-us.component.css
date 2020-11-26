@@ -5,9 +5,10 @@
     flex-wrap: wrap;
     margin-left: -15px;
     margin-right: -15px;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Arial, Roboto, "Helvetica Neue", sans-serif;
     font-size: 12px;
     padding: 25px;
+    color: #020F59;
 
 }
 
@@ -108,9 +109,27 @@ textarea.mat-input-element {
 .adresse .email .telephone {
     display: block;
     margin-top: 25px;
+    font-size: 14px;
 }
 
 .contact-title {
     margin-top: -15px;
     margin-bottom: 5px;
 }
+
+.submit_button {
+    background-color: #BCE0FD;
+    border: none;
+    color: #020F59 !important;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: bold;
+    width: 150px;
+    height: 45px;
+    border-radius: 5px 5px;
+    padding-right: 5px;
+}
+
