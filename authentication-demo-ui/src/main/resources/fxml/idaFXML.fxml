@@ -123,7 +123,7 @@
                               <Button fx:id="capture" layoutX="134.0" layoutY="92.0" mnemonicParsing="false" onAction="#onCapture" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" text="Capture" />
                               <ImageView fitHeight="121.0" fitWidth="133.0" layoutX="314.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
-                             <Image url="final_hand.png" preserveRatio="true" smooth="true"     />
+                             <Image url="hand_map.png" preserveRatio="true" smooth="true"     />
                          </image>
                               </ImageView>
                            </children>
