@@ -262,6 +262,8 @@ public class IdaController {
     }
 
     private void init() {
+        otpAnchorPane.setStyle( "-fx-border-color: lightgrey;");
+        bioAnchorPane.setStyle( "-fx-border-color: lightgrey;");
         idValueVID.setEditable(false);
         idValue.setEditable(true);
         idValueVID.setStyle("-fx-text-color: grey;");
@@ -313,8 +315,10 @@ public class IdaController {
     private void updateBioPane() {
         if (isBioAuthType()) {
             bioAnchorPane.setDisable(false);
+            bioAnchorPane.setStyle( "-fx-border-color: #020F59;");
         } else {
             bioAnchorPane.setDisable(true);
+            bioAnchorPane.setStyle( "-fx-border-color: lightgrey;");
         }
         fingerCount.setDisable(!fingerAuthType.isSelected());
     }
@@ -329,10 +333,13 @@ public class IdaController {
         {
                otpValue.setText(otpDefaultValue);
              otpValue.setStyle("-fx-text-fill: grey;");
+            otpAnchorPane.setStyle( "-fx-border-color: #020F59;");
+
         }
         else
         {
             otpValue.setText("");
+            otpAnchorPane.setStyle( "-fx-border-color: lightgrey;");
         }
 
     }
