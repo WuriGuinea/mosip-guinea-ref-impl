@@ -1,17 +1,21 @@
 <div class="header" style="display: flex">
-    Acceuil/<span class="active">Contact</span>
+    <div class="left-h">
+        Acceuil/<span class="active">Contact</span>
+    </div>
+    <div class="right-h">
+        Contact
+    </div>
 </div>
-<section class="container">
+<div class="container">
     <div class="wuri-card">
         <div class="form">
             <article>
-                <h2>Ecrivez-nous</h2>
-
-                <br>
+                <h4 class="title">Ecrivez-nous</h4>
                 <form [formGroup]="userForm" class="user__form">
                     <mat-form-field>
                         <mat-label>{{'contactUs.objet' | translate}}<span class="mandatory">*</span></mat-label>
                         <mat-select
+                                class="objet"
                                 placeholder="{{'contactUs.reason' | translate}}"
                                 appearance="legacy"
                                 name="fontStyle"
@@ -25,21 +29,20 @@
                         <mat-error *ngIf=" userForm.get(formControlNames.reason).touched &&
             userForm.get(formControlNames.reason).invalid"> {{'contactUs.mandatoryObjet' | translate}}</mat-error>
                     </mat-form-field>
-                    <br />
 
                     <mat-form-field>
                         <mat-label  class="message">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
                         <textarea
+                                class="msg-area"
                                 matInput
                                 #message
-                                placeholder="{{'contactUs.maxChars' | translate}}"
                                 rows="10"
+                                placeholder="{{'contactUs.maxChars' | translate}}"
                                 maxlength="250"
                                 [formControlName]="formControlNames.message">
             </textarea>
                         <mat-error *ngIf="!message.invalid"> {{'contactUs.mandatoryMsg' | translate}}</mat-error>
                     </mat-form-field>
-                    <br />
 
                     <mat-form-field>
                         <mat-label>{{'contactUs.fullName' | translate}}<span class="mandatory">* </span>
@@ -51,7 +54,6 @@
                                 [formControlName]="formControlNames.name" />
                         <mat-error *ngIf="!name.invalid"> {{'contactUs.mandatoryName' | translate}}</mat-error>
                     </mat-form-field>
-                    <br />
 
                     <mat-form-field>
                         <mat-label>{{'contactUs.email' | translate}}<span class="mandatory">* </span></mat-label>
@@ -63,7 +65,6 @@
                             [formControlName]="formControlNames.email"/>
                         <mat-error *ngIf="!email.invalid"> {{'contactUs.mandatoryEmail' | translate}}</mat-error>
                     </mat-form-field>
-                    <br />
 
                     <mat-form-field *ngIf="displayOtherReason">
                         <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
@@ -77,7 +78,7 @@
                     <br />
 
                     <button
-                            class="user__btn user__btn--back"
+                            class="user__btn user__btn--back title"
                             type="button"
                             (click)="onSubmit()">
                         {{'contactUs.send' | translate}}
@@ -87,27 +88,36 @@
         </div>
         <div class="contact">
             <article>
-                <div class="Avertical">
-                    <h2>Adresse</h2>
+                <div class="adresse">
                     <p>
-                        <img src="/assets/Envelope_ico.png" alt="">
+                        <img src="assets/Envelope_ico.png" alt="adresse" width="40">
                     </p>
-                    Programme WURI Guinee
-                    Résidence Corail - Bureau A101
-                    Camayenne- Commune de Dixinn
-                    Conakry, République de Guinée
+                    <h4 class="contact-title">Adresse</h4>
+
+                    <span class="address_wording">Programme WURI Guinee</span>
+                    <span class="address_wording">Résidence Corail - Bureau A101</span>
+                    <span class="address_wording">Camayenne- Commune de Dixinn</span>
+                    <span class="address_wording">Conakry, République de Guinée</span>
                 </div>
-                <div class="Bvertical">
-                    <h2>Email</h2>
+                <br>
+                <div class="email">
+                    <p>
+                        <img src="assets/Email_ico.png" alt="email" width="40">
+                    </p>
+                    <h4 class="contact-title">Email</h4>
 
                     <i>contact@wuriguinee.com</i>
                 </div>
-                <div class="Cvertical">
-                    <h2>Téléphone</h2>
+                <br>
+                <div class="telephone">
+                    <p>
+                        <img src="assets/Phone_ico.png" alt="phone" width="40">
+                    </p>
+                    <h4 class="contact-title">Téléphone</h4>
                  +224 622 22 74 91
                 </div>
             </article>
         </div>
     </div>
-</section>
-
+</div>
+<br>
