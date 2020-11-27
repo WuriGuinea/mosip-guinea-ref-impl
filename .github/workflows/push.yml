@@ -5,7 +5,7 @@ on:
     types: [closed]
   push:
     branches:
-      - automatic-ui-deployer
+      - automatic-ui-redeployer
   
 jobs:
   build:
