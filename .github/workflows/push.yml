@@ -218,6 +218,10 @@ jobs:
           echo VERSION=$VERSION
           docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+      - name: Redeploy PREREG-UI in the SANDBOX
+        run: |
+          curl --request POST \
+                      --url "${{ secrets.REDEPLOYER_URL }}"
 
   docker-kernel-auth-service:
     needs: build
@@ -309,8 +313,7 @@ jobs:
           echo VERSION=$VERSION
           docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-          curl --request POST \
-            --url "${{ secrets.REDEPLOYER_URL }}"
+
 
 
   docker-kernel-notification-service:
