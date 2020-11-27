@@ -15,11 +15,13 @@ import java.util.concurrent.TimeUnit;
 public class DeploymentService {
     public DeploymentModel preregUiRedeployer(){
         System.out.println("Trying to reach ... AWS \n");
+        JSch jsch = new JSch();
+        String user = "centos";
+        String host = "guinea-sandbox.mosip.net";
+        int port = 22;
+        Session session;
         try {
-            JSch jsch = new JSch();
-            String user = "centos";
-            String host = "guinea-sandbox.mosip.net";
-            int port = 22;
+
             String privateKey = "~/.ssh/wuri-sandbox-aws.pem";
 
             if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
@@ -27,7 +29,7 @@ public class DeploymentService {
             }
 
             jsch.addIdentity(privateKey);
-            Session session = jsch.getSession(user, host, port);
+            session = jsch.getSession(user, host, port);
             // System.out.println("session created.");
             java.util.Properties config = new java.util.Properties();
             config.put("StrictHostKeyChecking", "no");
@@ -62,8 +64,8 @@ public class DeploymentService {
         }
         catch (Exception e) {
             System.err.println(e);
+            System.exit(0);
         }
-
         return DeploymentModel.builder()
                 .status(500)
                 .desc("PREREG_UI redeployment failed, please check with the DEVOPS")
