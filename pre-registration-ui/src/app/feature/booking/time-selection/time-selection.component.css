@@ -15,8 +15,9 @@
   min-height: 517px;
   display: block;
   margin-bottom: 116px;
-  width: 98vw;
-  margin-left: 6px;
+  width: 96vw;
+  margin-left: 11px;
+  top: 30px;
 }
 
 .applicants_card {
