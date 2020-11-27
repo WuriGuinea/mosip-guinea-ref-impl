@@ -12,6 +12,7 @@
 
 }
 
+
 .container {
     color: #020F59;
     border: solid grey 1px;
@@ -52,7 +53,6 @@
     display: block;
 }
 
-
 .objet {
     border: 1px solid #BCE0FD;
     height: 35px;
@@ -74,8 +74,9 @@ textarea.mat-input-element {
     border: solid 1px #BCE0FD !important;
 }
 
+
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
-    width: 25rem;
+    width: 360px;
 }
 
 .header {
@@ -92,6 +93,15 @@ textarea.mat-input-element {
     padding: 0 20px 0 60px;
     border-bottom:1px solid #BCE0FD;
     border-top: 1px solid #BCE0FD;
+}
+.left-h {
+    width: 50%;
+    font-size: 15px;
+    color: #020F59;
+}
+
+.right-h {
+
 }
 .active {
     color: #020F59;
