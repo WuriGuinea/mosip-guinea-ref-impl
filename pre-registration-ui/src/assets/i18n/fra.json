@@ -263,8 +263,21 @@
 		"mandatoryObjet":"Objet du message requis",
 		"mandatoryMsg":"Message requis",
 		"mandatoryName":"Prénom et nom requis",
-		"mandatoryEmail":"Adresse email requiseflwfel",
-		"send":"Envoyer"
+		"mandatoryEmail":"Adresse email requise",
+		"send":"Envoyer",
+		"writeUs": "Ecrivez-nous",
+		"title_address": "Adress",
+		"title_adresse_body": {
+			"a": "Programme WURI Guinee",
+			"b": "Résidence Corail - Bureau A101",
+			"c": "Camayenne - Commune de Dixinn",
+			"d": "Conakry, République de Guinée"
+		},
+		"title_email": "Email",
+		"email_body": "contact@wuriguinee.com",
+		"title_telephone": "Téléphone",
+		"telephone_body": "+224 622 22 74 91"
+
 	},
 	"header": {
 		"link_about": "GUIDE D'UTILISATION",
