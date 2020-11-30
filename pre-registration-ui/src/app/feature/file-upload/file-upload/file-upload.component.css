@@ -174,7 +174,6 @@ mat-select:focus {
   font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 70px;
 }
 @media (min-width: 1026px) and (max-width: 1400px){
   .file-upload__body {
@@ -436,10 +435,9 @@ mat-select:focus {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: -8rem;
-  bottom: 68px;
-  position: fixed;
-  z-index: 22;
+  bottom: 7rem;
+  position: relative;
+  z-index: 2;
   padding: 0 2vw;
 }
 
@@ -595,4 +593,17 @@ mat-select:focus {
     border-radius: 16px;
   }
 
+}
+
+@media (min-width : 1201px) and (max-width : 1400px){
+  user__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -2rem;
+    bottom: 68px;
+    position: relative;
+    z-index: 2;
+    padding: 0 2vw;
+}
 }

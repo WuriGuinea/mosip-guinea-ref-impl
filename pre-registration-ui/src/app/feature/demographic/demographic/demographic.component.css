@@ -250,12 +250,11 @@ mat-icon {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
-  bottom: 70px;
-  position: fixed;
-  z-index: 22;
-  padding: 0 2vw;
+  bottom: 9rem;
+  position: relative;
+  z-index: 2;
+  padding: 0 4vw;
   justify-content: flex-end;
-  position: -webkit-sticky;
 }
 .user__btn {
   background-color: #BCE0FD;

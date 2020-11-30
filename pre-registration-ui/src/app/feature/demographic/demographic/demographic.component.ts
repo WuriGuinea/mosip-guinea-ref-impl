@@ -111,6 +111,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   @ViewChild('mm') mm: ElementRef;
   @ViewChild('yyyy') yyyy: ElementRef;
   @ViewChild('age') age: ElementRef;
+  @ViewChild('form') form: ElementRef;
+  @ViewChild('submitButton') submitButton: ElementRef;
 
   private _keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
   @ViewChildren('keyboardRef', { read: ElementRef })
@@ -936,7 +938,9 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    *
    * @memberof DemographicComponent
    */
-  onSubmit() {
+  onSubmit(e: Event) {
+
+
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid && this.dataIncomingSuccessful) {
       const identity = this.createIdentityJSONDynamic();
@@ -1246,21 +1250,56 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     }
   }
 
-    @HostListener('keydown', ['$event']) onKeyDown(e:any) {
-        if ((e.which == 13 || e.keyCode == 13)) {
-            e.preventDefault();
-            if (e.srcElement.nextElementSibling) {
-                e.srcElement.nextElementSibling.focus();
-            }
-            else{
-                console.log('close keyboard');
-            }
-            return;
-        }
-
-    }
-
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  onEnterDown(event: any) {
+    console.log("Enter", event.target.value);
+
+      const els: any[] = [];
+
+
+      const firstName = this.form.nativeElement.querySelector("#firstName");
+      const lastName = this.form.nativeElement.querySelector("#lastName");
+      const dd = this.form.nativeElement.querySelector("#dd");
+      const mm = this.form.nativeElement.querySelector("#mm");
+      const yyyy = this.form.nativeElement.querySelector("#yyyy");
+      const age = this.form.nativeElement.querySelector("#age");
+      const gender = this.form.nativeElement.querySelector("#gender");
+      const nationnality = this.form.nativeElement.querySelector("#nationnality");
+      const phone = this.form.nativeElement.querySelector("#phone");
+      const email = this.form.nativeElement.querySelector("#email");
+
+      els.push(firstName);
+      els.push(lastName);
+      els.push(dd);
+      els.push(mm);
+      els.push(yyyy);
+      els.push(age);
+      els.push(gender);
+      els.push(nationnality);
+      els.push(phone);
+      els.push(email);
+
+      let emptyElFound = false;
+      let totalEmptyEls = 0;
+      els.forEach(el => {
+        if (el.value === "" && !emptyElFound) {
+          el.focus();
+          emptyElFound = true;
+          totalEmptyEls += 1;
+          return;
+        }
+        // console.log(el.value);
+      });
+
+      if (totalEmptyEls === 0) {
+        // console.log();
+        //this.submitBtn.nativeElement.click();
+        //console.log(this.submitBtn.nativeElement.click, "Submit by enter");
+        //this.myform.nativeElement.submit();
+      }
+      event.preventDefault();
   }
 }
