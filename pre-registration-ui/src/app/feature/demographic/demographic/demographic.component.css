@@ -66,6 +66,7 @@
 .col-50-use {
   position: relative;
   width: 50%;
+  display: flex;
 }
 
 .user header {
@@ -631,8 +632,10 @@ textarea.mat-input-element{
 }
 
 .label-date {
+  position: relative;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 15px;
+  margin-top: 15px;
 }
 
 .date-row {
@@ -644,15 +647,31 @@ textarea.mat-input-element{
   margin-left: 10px;
   margin-right: 10px;
 }
-.text-p {
-  position: relative;
-  width: 100%;
-}
+
 
 .col-jj .col-mm {
   max-width: 20%;
 }
 
-.col-aaaa{
-  max-width: 60%;
+.col-auto-jj {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 20%;
 }
+
+.col-auto-mm {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 25%;
+}
+
+.col-auto-aaaa {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 50%;
+}
+
+
