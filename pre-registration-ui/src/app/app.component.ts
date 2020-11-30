@@ -28,11 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.navigate(['/']);
   }
 
-  ngOnInit() {
-    this.subscriptions.push(this.autoLogout.currentMessageAutoLogout.subscribe(() => {}));
-    this.autoLogout.changeMessage({ timerFired: false });
-    this.routerType();
-  }
+  ngOnInit() {}
 
   routerType() {
     this.subscriptions.push(
