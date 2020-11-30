@@ -129,19 +129,19 @@ mat-icon {
 
 .user__age-or-date {
   display: flex;
-  width: 70.5%;
+  width: 90.5%;
   align-items: center;
   margin-top: -7px;
   margin-left: 120px;
 }
 
 .user__age-or-date > div {
-  width: 33.3%;
+  width: 30.3%;
 }
 
 .user__date {
   display: flex;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .user__form .user__date mat-form-field {
@@ -160,7 +160,6 @@ mat-icon {
 }
 
 .user__age mat-form-field {
-  width: 32%;
   text-align: center;
 }
 
@@ -187,7 +186,7 @@ mat-icon {
   font-size: 0.8rem;
   display: flex;
   margin-bottom: 6px;
-  margin-top: 9px;
+  margin-top: 10px;
   padding-left: 2px;
 }
 
@@ -403,14 +402,7 @@ mat-icon {
     padding: 0.2rem 0;
   }
 
-  .user__age-or-date {
-    width: 92%;
-  }
 
-  user__age-or-date .user__age {
-    width: 78px;
-    text-align: end;
-  }
 
   .user__gender__error {
     top: 0px;
@@ -436,9 +428,7 @@ mat-icon {
   height: 100% !important;
   top: 10px;
 }
-.user__genderAndForeigner{
-  margin-top: -2px;
-}
+
 .user__btn{
   margin: 5px 1px 4px 7rem;
   font-size: 0.7rem;
@@ -458,10 +448,7 @@ mat-icon {
   left: -180px;
   top: 61px;
 }
-.user__age-or-date{
-  width: 336px;
-  margin-bottom: 80px;
-}
+
 .col-50{
   width: 100%;
 }
@@ -596,4 +583,64 @@ textarea.mat-input-element{
   left: 2px;
   top: -16px;
   font-size: 9px;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.date-col {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.col-4-5 {
+  -ms-flex: 0 0 26%;
+  flex: 0 0 26%;
+  max-width: 26%;
+}
+
+.col-4 {
+  -ms-flex: 0 0 37%;
+  flex: 0 0 37%;
+  max-width: 37%;
+}
+
+.col-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 33.33%;
+}
+
+.label-date {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 13px;
+}
+
+.date-row {
+  display: flex;
+  position: relative;
+}
+.or_text {
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.text-p {
+  position: relative;
+  width: 100%;
 }
