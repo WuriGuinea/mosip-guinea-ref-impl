@@ -4,17 +4,18 @@
 <div *ngIf="(dataIncomingSuccessful) || hasError">
     <div class="wrapper">
         <div class="user">
-            <form [formGroup]="userForm" class="user__form">
+            <form [formGroup]="userForm" class="user__form" (keydown.enter)="onEnterDown($event)" #form>
                 <div [dir]="textDir" class="user__container card">
-                    
-                    <h4 id="titleposition" class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4> 
-                    <mat-label class="champs"> <span class="mandatory">*</span> : {{ 'demographic.champs_oblig' | translate }} </mat-label> 
+
+                    <h4 id="titleposition" class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
+                    <mat-label class="champs"> <span class="mandatory">*</span> : {{ 'demographic.champs_oblig' | translate }} </mat-label>
                     <br/>
                     <div class="row">
                         <div class="col-50" style="padding-left: 2px">
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.label_first_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
+                                        id="firstName"
                                         matInput
                                         #firstName
                                         placeholder="prénom"
@@ -29,6 +30,7 @@
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.label_last_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
+                                        id="lastName"
                                         matInput
                                         #lastName
                                         placeholder="nom de famille"
@@ -49,6 +51,7 @@
                                     <span class="half-plus">{{ 'demographic.text_date' | translate }}</span>
                                     <span class="mandatory half"> *</span>
                                 </mat-label>
+
 
                                 <div class="col-50-use">
                                     <mat-form-field class="col-auto-jj" style="margin-top: 7px">
@@ -86,6 +89,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-50">
                             <div class="row">
                                     <div class="col-auto or_text">
@@ -109,7 +113,7 @@
                                             {{ 'demographic.text_years' | translate }}
                                         </p>
                                     </div>
-                                </div>
+
                         </div>
                     </div>
 
@@ -130,6 +134,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_gender' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                                    id="gender"
                                     [formControlName]="formControlNames.gender"
                                     (change)="onGenderChange(genders, $event)"
                                     placeholder="{{ 'demographic.text_gender' | translate  }}"
@@ -152,6 +157,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_residence_status' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                                    id="nationnality"
                                     [formControlName]="formControlNames.residenceStatus"
                                     (change)="onResidenceStatusChange(residenceStatus, $event)"
                                     placeholder="{{ 'demographic.text_residence_status' | translate }}"
@@ -167,7 +173,7 @@
                             <mat-error *ngIf="userForm.get(formControlNames.residenceStatus).touched &&
                                             userForm.get(formControlNames.residenceStatus).invalid">
                                 {{ 'demographic.validation.nationality_validation' | translate }}
-                                </mat-error>
+                            </mat-error>
                         </mat-form-field>
                     </div>
 
@@ -178,6 +184,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_mob_num' | translate }}</mat-label>
                             <input
+                                    id="phone"
                                     matInput
                                     #mobileNumber
                                     type=""
@@ -192,14 +199,15 @@
                     </div>
                     <div style="margin-left: 0px;" class="user__dropdown col-50">
                         <mat-form-field>
-                            <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>   
+                            <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>
                             <input
-                                #email
-                                type="text"
-                                maxlength="{{ EMAIL_LENGTH }}"
-                                matInput
-                                placeholder="{{ 'demographic.label_email_id' | translate }}"
-                                [formControlName]="formControlNames.email"
+                                    id="email"
+                                    #email
+                                    type="text"
+                                    maxlength="{{ EMAIL_LENGTH }}"
+                                    matInput
+                                    placeholder="{{ 'demographic.label_email_id' | translate }}"
+                                    [formControlName]="formControlNames.email"
                             />
                             <mat-error *ngIf="!email.invalid">{{ 'demographic.validation.email_required' | translate }}</mat-error>
                         </mat-form-field>
@@ -208,7 +216,7 @@
 
                 <div [dir]="textDir" class="user__container card">
                     <h4 id="titleposition" class="titlecolor">{{ 'demographic.address_section_title' | translate }}</h4>
-                   <br/>
+                    <br/>
                     <div class="user__dropdown col-50">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_region' | translate }} <span class="mandatory">*</span></mat-label>
@@ -299,11 +307,12 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 55px;"> 
+                    <div style="margin-top: 55px;">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}
                             </mat-label>
                         <input 
+                             id="complement"
                              #additionalAddressDetails
                              type="text"
                              placeholder="{{'demographic.label_additionalAddressDetails' | translate}} - {{ 'helpText.info' | translate }}"
@@ -315,14 +324,14 @@
                     </div>
                 </div>
                 <button
-                *ngIf="!showPreviewButton"
-                class="user__btn hidemobile btneffect"
-                type="button"
-                [disabled]="!dataUploadComplete"
-                (click)="onSubmit()"
-        >
-            {{ 'demographic.action_continue' | translate }}
-        </button>
+                        *ngIf="!showPreviewButton"
+                        class="user__btn hidemobile"
+                        type="button"
+                        [disabled]="!dataUploadComplete"
+                        (click)="onSubmit($event)"
+                >
+                    {{ 'demographic.action_continue' | translate }}
+                </button>
             </form>
         </div>
     </div>
@@ -340,7 +349,7 @@
                 class="user__btn hidedesk"
                 type="button"
                 [disabled]="!dataUploadComplete"
-                (click)="onSubmit()"
+                (click)="onSubmit($event)"
         >
             {{ 'demographic.action_continue' | translate }}
         </button>
@@ -349,7 +358,7 @@
                 class="user__btn"
                 type="button"
                 [disabled]="!dataUploadComplete"
-                (click)="onSubmit()"
+                (click)="onSubmit($event)"
         >
             {{ 'demographic.action_preview' | translate }}
         </button>
