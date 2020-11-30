@@ -1270,6 +1270,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       const nationnality = this.form.nativeElement.querySelector("#nationnality");
       const phone = this.form.nativeElement.querySelector("#phone");
       const email = this.form.nativeElement.querySelector("#email");
+      const complement = this.form.nativeElement.querySelector("#complement");
 
       els.push(firstName);
       els.push(lastName);
@@ -1281,6 +1282,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       els.push(nationnality);
       els.push(phone);
       els.push(email);
+      els.push(complement);
 
       let emptyElFound = false;
       let totalEmptyEls = 0;
@@ -1296,8 +1298,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
 
       if (totalEmptyEls === 0) {
         // console.log();
-        //this.submitBtn.nativeElement.click();
-        //console.log(this.submitBtn.nativeElement.click, "Submit by enter");
+        //this.submitButton.nativeElement.click();
+        //console.log(this.submitButton.nativeElement.click, "Submit by enter");
         //this.myform.nativeElement.submit();
       }
       event.preventDefault();
