@@ -43,70 +43,72 @@
 
                     <!--Date right-->
                     <div class="row" style="font-size: 15px; font-family: Roboto; margin-top: 12px">
-                        <div class="col-4-5">
-                            <mat-label class="text-p">
-                                <span class="half-plus">{{ 'demographic.text_date' | translate }}</span>
-                                <span class="mandatory half"> *</span>
-                            </mat-label>
-                        </div>
-                        <div class="col-4">
+                        <div class="col-50">
                             <div class="row">
-                                <mat-form-field class="col-auto">
-                                    <mat-label class="label-date">{{ 'demographic.date_dd' | translate }}</mat-label>
-                                    <input
-                                            matInput
-                                            placeholder="JJ"
-                                            #dd
-                                            [formControlName]="formControlNames.date"
-                                            (focusout)="onDOBChange()"
-                                    />
-                                </mat-form-field>
-                                <mat-form-field class="col-auto">
-                                    <mat-label class="label-date">{{ 'demographic.date_mm' | translate }}</mat-label>
-                                    <input
-                                            matInput
-                                            placeholder="MM"
-                                            #mm
-                                            [formControlName]="formControlNames.month"
-                                            (focusout)="onDOBChange()"
-                                    />
-                                </mat-form-field>
-                                <mat-form-field class="col-auto">
-                                    <mat-label class="label-date">{{ 'demographic.date_yyyy' | translate }} </mat-label>
-                                    <input
-                                            matInput
-                                            placeholder="AAAA"
-                                            #yyyy
-                                            [formControlName]="formControlNames.year"
-                                            (focusout)="onDOBChange()"
-                                    />
-                                </mat-form-field>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="col-auto or_text">
-                                    <p>{{ 'demographic.text_or' | translate }}</p>
-                                </div>
-                                <div class="col-auto">
-                                    <mat-form-field>
-                                        <mat-label class="label-date">{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
+                                <mat-label class="col-50-use">
+                                    <span class="half-plus">{{ 'demographic.text_date' | translate }}</span>
+                                    <span class="mandatory half"> *</span>
+                                </mat-label>
+
+
+                                <div class="col-50-use">
+                                    <mat-form-field class="col-auto">
+                                        <mat-label class="label-date">{{ 'demographic.date_dd' | translate }}</mat-label>
                                         <input
                                                 matInput
-                                                tabindex="-1"
-                                                [formControlName]="formControlNames.age"
-                                                placeholder="{{ 'demographic.label_age' | translate }}"
-                                                #age
-                                                (focusout)="onAgeChange()"
+                                                placeholder="JJ"
+                                                #dd
+                                                [formControlName]="formControlNames.date"
+                                                (focusout)="onDOBChange()"
+                                        />
+                                    </mat-form-field>
+                                    <mat-form-field class="col-auto">
+                                        <mat-label class="label-date">{{ 'demographic.date_mm' | translate }}</mat-label>
+                                        <input
+                                                matInput
+                                                placeholder="MM"
+                                                #mm
+                                                [formControlName]="formControlNames.month"
+                                                (focusout)="onDOBChange()"
+                                        />
+                                    </mat-form-field>
+                                    <mat-form-field class="col-auto">
+                                        <mat-label class="label-date">{{ 'demographic.date_yyyy' | translate }} </mat-label>
+                                        <input
+                                                matInput
+                                                placeholder="AAAA"
+                                                #yyyy
+                                                [formControlName]="formControlNames.year"
+                                                (focusout)="onDOBChange()"
                                         />
                                     </mat-form-field>
                                 </div>
-                                <div class="col-auto">
-                                    <p>
-                                        {{ 'demographic.text_years' | translate }}
-                                    </p>
-                                </div>
                             </div>
+                        </div>
+                        <div class="col-50">
+                            <div class="row">
+                                    <div class="col-auto or_text">
+                                        <p>{{ 'demographic.text_or' | translate }}</p>
+                                    </div>
+                                    <div class="col-auto">
+                                        <mat-form-field>
+                                            <mat-label class="label-date">{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
+                                            <input
+                                                    matInput
+                                                    tabindex="-1"
+                                                    [formControlName]="formControlNames.age"
+                                                    placeholder="{{ 'demographic.label_age' | translate }}"
+                                                    #age
+                                                    (focusout)="onAgeChange()"
+                                            />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-auto">
+                                        <p>
+                                            {{ 'demographic.text_years' | translate }}
+                                        </p>
+                                    </div>
+                                </div>
                         </div>
                     </div>
 

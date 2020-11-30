@@ -63,6 +63,10 @@
   width: 50%;
 }
 
+.col-50-use {
+  position: relative;
+  width: 50%;
+}
 
 .user header {
   margin: 0;
@@ -608,15 +612,15 @@ textarea.mat-input-element{
 }
 
 .col-4-5 {
-  -ms-flex: 0 0 26%;
-  flex: 0 0 26%;
-  max-width: 26%;
+  -ms-flex: 0 0 70%;
+  flex: 0 0 70%;
+  max-width: 70%;
 }
 
 .col-4 {
-  -ms-flex: 0 0 37%;
-  flex: 0 0 37%;
-  max-width: 37%;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  max-width: 30%;
 }
 
 .col-auto {
@@ -628,7 +632,7 @@ textarea.mat-input-element{
 
 .label-date {
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .date-row {
@@ -643,4 +647,12 @@ textarea.mat-input-element{
 .text-p {
   position: relative;
   width: 100%;
+}
+
+.col-jj .col-mm {
+  max-width: 20%;
+}
+
+.col-aaaa{
+  max-width: 60%;
 }
