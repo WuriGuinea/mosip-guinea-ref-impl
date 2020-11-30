@@ -11,7 +11,7 @@
                     <mat-label class="champs"> <span class="mandatory">*</span> : {{ 'demographic.champs_oblig' | translate }} </mat-label> 
                     <br/>
                     <div class="row">
-                        <div class="col-50">
+                        <div class="col-50" style="padding-left: 2px">
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.label_first_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
@@ -43,16 +43,15 @@
 
                     <!--Date right-->
                     <div class="row" style="font-size: 15px; font-family: Roboto; margin-top: 12px">
-                        <div class="col-50">
+                        <div class="col-50" >
                             <div class="row">
-                                <mat-label class="col-50-use">
+                                <mat-label class="col-50-use label-date" style="padding-left: 3px">
                                     <span class="half-plus">{{ 'demographic.text_date' | translate }}</span>
                                     <span class="mandatory half"> *</span>
                                 </mat-label>
 
-
                                 <div class="col-50-use">
-                                    <mat-form-field class="col-auto-jj">
+                                    <mat-form-field class="col-auto-jj" style="margin-top: 7px">
                                         <mat-label class="label-date">{{ 'demographic.date_dd' | translate }}</mat-label>
                                         <input
                                                 matInput
@@ -62,7 +61,8 @@
                                                 (focusout)="onDOBChange()"
                                         />
                                     </mat-form-field>
-                                    <mat-form-field class="col-auto-mm">
+                                    <p>/</p>
+                                    <mat-form-field class="col-auto-mm" style="margin-top: 7px">
                                         <mat-label class="label-date">{{ 'demographic.date_mm' | translate }}</mat-label>
                                         <input
                                                 matInput
@@ -72,7 +72,8 @@
                                                 (focusout)="onDOBChange()"
                                         />
                                     </mat-form-field>
-                                    <mat-form-field class="col-auto-aaaa">
+                                    <p>/</p>
+                                    <mat-form-field class="col-auto-aaaa" style="margin-top: 7px">
                                         <mat-label class="label-date">{{ 'demographic.date_yyyy' | translate }} </mat-label>
                                         <input
                                                 matInput
@@ -91,7 +92,7 @@
                                         <p>{{ 'demographic.text_or' | translate }}</p>
                                     </div>
                                     <div class="col-auto">
-                                        <mat-form-field>
+                                        <mat-form-field style="margin-top: 7px">
                                             <mat-label class="label-date">{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
                                             <input
                                                     matInput
