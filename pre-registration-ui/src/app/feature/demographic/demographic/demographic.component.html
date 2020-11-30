@@ -293,6 +293,7 @@
                     <div style="margin-top: 55px;">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}
+<<<<<<< HEAD
                                 <img
                                         matTooltip="{{ 'helpText.info' | translate }}"
                                         [matTooltipDisabled]="false" src="assets\iconinfo.png"
@@ -306,6 +307,16 @@
                                 matInput
                                 maxlength="40"
                                 [formControlName]="formControlNames.additionalAddressDetails"
+=======
+                            </mat-label>
+                        <input 
+                             #additionalAddressDetails
+                             type="text"
+                             placeholder="{{'demographic.label_additionalAddressDetails' | translate}} - {{ 'helpText.info' | translate }}"
+                             matInput
+                             maxlength="40"
+                             [formControlName]="formControlNames.additionalAddressDetails"
+>>>>>>> 45402f4be560d6249adb9826147fab712a9e55a4
                             />
                         </mat-form-field>
                     </div>
