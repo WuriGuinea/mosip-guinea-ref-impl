@@ -1,78 +1,129 @@
-<div class="wuri-card">
-    <form [formGroup]="userForm" class="user__form">
-        <mat-form-field>
-            <mat-label>{{'contactUs.fullName' | translate}}<span class="mandatory">*</span>
-            </mat-label>
-            <input 
-                matInput 
-                #name 
-                placeholder="{{'contactUs.fullName' | translate}}" 
-                [formControlName]="formControlNames.name" />
-                <mat-error *ngIf="!name.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
-        </mat-form-field>
-        <br />
-
-        <mat-form-field>
-            <mat-label>{{'contactUs.email' | translate}}<span class="mandatory">*</span></mat-label>
-            <input 
-                #email 
-                type="text" 
-                matInput 
-                placeholder="{{'contactUs.email' | translate}}" 
-                [formControlName]="formControlNames.email"/>
-                <mat-error *ngIf="!email.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
-        </mat-form-field>
-        <br />
-
-        <mat-form-field>
-            <mat-label>{{'contactUs.reason' | translate}}<span class="mandatory">*</span></mat-label>
-            <mat-select 
-                placeholder="{{'contactUs.reason' | translate}}" 
-                appearance="legacy"
-                name="fontStyle"
-                aria-label="Font Style"
-                (selectionChange)="onReasonChange(reasons, $event)"
-                [formControlName]="formControlNames.reason">
-            <mat-option *ngFor="let reason of reasons" [value]="reason.key"> 
-                {{reason.value}} 
-            </mat-option>
-            </mat-select>
-            <mat-error *ngIf=" userForm.get(formControlNames.reason).touched &&
-            userForm.get(formControlNames.reason).invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
-        </mat-form-field>
-        <br />
-
-        <mat-form-field *ngIf="displayOtherReason">
-            <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
-            <input 
-                matInput 
-                #otherReason 
-                placeholder="{{'contactUs.otherReason' | translate}}" 
-                [formControlName]="formControlNames.otherReason"/>
-                <mat-error *ngIf="!otherReason.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
-        </mat-form-field>
-        <br />
-
-        <mat-form-field>
-            <mat-label>{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
-            <textarea 
-                matInput 
-                #message 
-                placeholder="{{'contactUs.message' | translate}} {{'contactUs.maxChars' | translate}}" 
-                rows="10" 
-                maxlength="250"
-                [formControlName]="formControlNames.message">
-            </textarea>
-             <mat-error *ngIf="!message.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
-        </mat-form-field>
-        <br />
-
-        <button 
-            class="user__btn user__btn--back" 
-            type="button"
-            (click)="onSubmit()">
-            {{'contactUs.send' | translate}}
-        </button>
-    </form>
+<div class="header" style="display: flex">
+    <div class="left-h">
+        Accueil/<span class="active">Contact</span>
+    </div>
+    <div class="right-h">
+        Contact
+    </div>
 </div>
+<div class="container">
 
+    <div class="wuri-card">
+        <div class="form">
+            <article>
+                <h4 class="title">Ecrivez-nous</h4>
+                <form [formGroup]="userForm" class="user__form">
+                    <mat-form-field>
+                        <mat-label>{{'contactUs.objet' | translate}}<span class="mandatory">*</span></mat-label>
+                        <mat-select
+                                class="objet"
+                                placeholder="{{'contactUs.reason' | translate}}"
+                                appearance="legacy"
+                                name="fontStyle"
+                                aria-label="Font Style"
+                                (selectionChange)="onReasonChange(reasons, $event)"
+                                [formControlName]="formControlNames.reason">
+                            <mat-option *ngFor="let reason of reasons" [value]="reason.key">
+                                {{reason.value}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf=" userForm.get(formControlNames.reason).touched &&
+            userForm.get(formControlNames.reason).invalid"> {{'contactUs.mandatoryObjet' | translate}}</mat-error>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field>
+                        <mat-label  class="message">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
+                        <textarea
+                                class="msg-area"
+                                matInput
+                                #message
+                                rows="10"
+                                placeholder="{{'contactUs.maxChars' | translate}}"
+                                maxlength="250"
+                                [formControlName]="formControlNames.message">
+            </textarea>
+                        <mat-error *ngIf="!message.invalid"> {{'contactUs.mandatoryMsg' | translate}}</mat-error>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field>
+                        <mat-label>{{'contactUs.fullName' | translate}}<span class="mandatory">* </span>
+                        </mat-label>
+                        <input
+                                matInput
+                                #name
+                                placeholder="{{'contactUs.fullName' | translate}}"
+                                [formControlName]="formControlNames.name" />
+                        <mat-error *ngIf="!name.invalid"> {{'contactUs.mandatoryName' | translate}}</mat-error>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field>
+                        <mat-label>{{'contactUs.email' | translate}}<span class="mandatory">* </span></mat-label>
+                        <input
+                            #email
+                            type="text"
+                            matInput
+                            placeholder="{{'contactUs.email' | translate}}"
+                            [formControlName]="formControlNames.email"/>
+                        <mat-error *ngIf="!email.invalid"> {{'contactUs.mandatoryEmail' | translate}}</mat-error>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field *ngIf="displayOtherReason">
+                        <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
+                        <input
+                                matInput
+                                #otherReason
+                                placeholder="{{'contactUs.otherReason' | translate}}"
+                                [formControlName]="formControlNames.otherReason"/>
+                        <mat-error *ngIf="!otherReason.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
+                    </mat-form-field>
+                    <br />
+
+                    <button
+                            class="submit_button title"
+                            type="button"
+                            (click)="onSubmit()">
+                        {{'contactUs.send' | translate}}
+
+                    </button>
+                </form>
+            </article>
+        </div>
+        <div class="contact">
+            <article>
+                <div class="adresse">
+                    <p>
+                        <img src="assets/Envelope_ico.png" alt="adresse" width="40">
+                    </p>
+                    <h4 class="contact-title">{{'contactUs.title_address' | translate}}</h4>
+
+                    <span class="address_wording">{{'contactUs.title_adresse_body.a' | translate}}</span>
+                    <span class="address_wording">{{'contactUs.title_adresse_body.b' | translate}}</span>
+                    <span class="address_wording">{{'contactUs.title_adresse_body.c' | translate}}</span>
+                    <span class="address_wording">{{'contactUs.title_adresse_body.d' | translate}}</span>
+                </div>
+                <br>
+                <div class="email">
+                    <p>
+                        <img src="assets/Email_ico.png" alt="email" width="40">
+                    </p>
+                    <h4 class="contact-title">{{'contactUs.title_email' | translate}}</h4>
+
+                    <i>{{'contactUs.email_body' | translate}}</i>
+                </div>
+                <br>
+                <div class="telephone">
+                    <p>
+                        <img src="assets/Phone_ico.png" alt="phone" width="40">
+                    </p>
+                    <h4 class="contact-title">{{'contactUs.title_telephone' | translate}}</h4>
+                    {{'contactUs.telephone_body' | translate}}
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+<br>

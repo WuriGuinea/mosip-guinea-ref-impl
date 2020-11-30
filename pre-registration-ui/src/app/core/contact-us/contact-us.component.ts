@@ -33,7 +33,8 @@ export class ContactUsComponent implements OnInit {
         Validators.required 
       ]),
       [this.formControlNames.email]: new FormControl(this.formControlValues.email, [
-        Validators.pattern(/^[\w-\+]+(\.[\w]+)*@[\w-]+(\.[\w]+)*(\.[a-zA-Z]{2,})$/)
+        Validators.pattern(/^[\w-\+]+(\.[\w]+)*@[\w-]+(\.[\w]+)*(\.[a-zA-Z]{2,})$/),
+          Validators.required
       ]),
       [this.formControlNames.reason]: new FormControl(this.formControlValues.reason.trim(), [
         Validators.required 
