@@ -590,3 +590,10 @@ textarea.mat-input-element{
     width: 15px;
     height: 14px;
 }
+.tooltip-position{
+  position: relative;
+  display: flex;
+  left: 2px;
+  top: -16px;
+  font-size: 9px;
+}
