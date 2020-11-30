@@ -226,12 +226,12 @@
 
 .center-selection__button-container {
   width: 100%;
-  position: fixed;
-  bottom: 68px;
+  position: relative;
+  bottom: 5rem;
   left: 0;
-  padding: 2px 2vw;
+  padding: 2px 3vw;
   display: flex;
-  z-index: 22;
+  z-index: 2;
   background: none;
 }
 
