@@ -116,20 +116,20 @@
 
                         </div>
                     </div>
-
-
-                    <div
-                            class="mat-error ng-star-inserted user__dob__error"
-                            *ngIf="
+                        <div
+                                class="mat-error ng-star-inserted user__dob__error"
+                                *ngIf="
                   (userForm.get(formControlNames.dateOfBirth).touched &&
                     userForm.get(formControlNames.dateOfBirth).hasError('incorrect')) ||
                   (userForm.get(formControlNames.age).touched && !userForm.get(formControlNames.age).valid)
                 "
-                    >
-                        {{ 'demographic.validation.DOB_validation' | translate }}
-                    </div>
+                        >
+                            {{ 'demographic.validation.DOB_validation' | translate }}
+                        </div>
 
-                    <div class="user__genderAndForeigner user__dropdown col-50">
+
+
+                        <div class="user__genderAndForeigner user__dropdown col-50">
 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_gender' | translate }} <span class="mandatory">*</span></mat-label>
@@ -152,7 +152,7 @@
                     </div>
 
 
-                    <div style="margin-left: 0px;" class="user__genderAndForeigner user__dropdown col-50">
+                        <div style="margin-left: 0px;" class="user__genderAndForeigner user__dropdown col-50">
 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_residence_status' | translate }} <span class="mandatory">*</span></mat-label>
@@ -178,40 +178,44 @@
                     </div>
 
 
-                    <h4 style="margin-top: 18px;" class="titlecolor posmobile">{{ 'demographic.contact_section_title' | translate }}</h4>
+                        <h4 style="margin-top: 15px;" class="titlecolor posmobile">{{ 'demographic.contact_section_title' | translate }}</h4>
 
-                    <div class="user__dropdown col-50">
-                        <mat-form-field>
-                            <mat-label>{{ 'demographic.label_mob_num' | translate }}</mat-label>
-                            <input
-                                    id="phone"
-                                    matInput
-                                    #mobileNumber
-                                    type=""
-                                    maxlength="{{ MOBILE_LENGTH }}"
-                                    placeholder="{{ 'demographic.label_mob_num' | translate }}"
-                                    [formControlName]="formControlNames.phone"
-                            />
-                            <mat-error *ngIf="!mobileNumber.invalid">{{
-                                'demographic.validation.mobile_required' | translate
-                                }}</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div style="margin-left: 0px;" class="user__dropdown col-50">
-                        <mat-form-field>
-                            <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>
-                            <input
-                                    id="email"
-                                    #email
-                                    type="text"
-                                    maxlength="{{ EMAIL_LENGTH }}"
-                                    matInput
-                                    placeholder="{{ 'demographic.label_email_id' | translate }}"
-                                    [formControlName]="formControlNames.email"
-                            />
-                            <mat-error *ngIf="!email.invalid">{{ 'demographic.validation.email_required' | translate }}</mat-error>
-                        </mat-form-field>
-                    </div>
+
+                        <div class="row">
+                            <div class="user__dropdown col-50">
+                                <mat-form-field>
+                                    <mat-label>{{ 'demographic.label_mob_num' | translate }}</mat-label>
+                                    <input
+                                            id="phone"
+                                            matInput
+                                            #mobileNumber
+                                            type=""
+                                            maxlength="{{ MOBILE_LENGTH }}"
+                                            placeholder="{{ 'demographic.label_mob_num' | translate }}"
+                                            [formControlName]="formControlNames.phone"
+                                    />
+                                    <mat-error *ngIf="!mobileNumber.invalid">{{
+                                        'demographic.validation.mobile_required' | translate
+                                        }}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div  class="user__dropdown col-50">
+                                <mat-form-field>
+                                    <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>
+                                    <input
+                                            id="email"
+                                            #email
+                                            type="text"
+                                            maxlength="{{ EMAIL_LENGTH }}"
+                                            matInput
+                                            placeholder="{{ 'demographic.label_email_id' | translate }}"
+                                            [formControlName]="formControlNames.email"
+                                    />
+                                    <mat-error *ngIf="!email.invalid">{{ 'demographic.validation.email_required' | translate }}</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                </div>
                 </div>
 
                 <div [dir]="textDir" class="user__container card">
