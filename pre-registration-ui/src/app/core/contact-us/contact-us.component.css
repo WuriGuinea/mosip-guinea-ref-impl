@@ -57,6 +57,13 @@
     border: 1px solid #BCE0FD;
     height: 35px;
     margin-bottom: -9px;
+    margin-top: 2px;
+}
+
+.mat-form-field-label-wrapper{
+    top: -35px !important;
+    font-size: 15px;
+    font-family: Roboto;
 }
 
 .espace{
@@ -143,3 +150,9 @@ textarea.mat-input-element {
     padding-right: 5px;
 }
 
+.label-indent {
+    margin-left: 15px;
+    padding:0 !important;
+    line-height: 38px;
+    height: 38px;
+}
