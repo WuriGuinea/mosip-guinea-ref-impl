@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
 import { ContactUs, ContactUsFormControlModal } from './contact-us';
+declare var grecaptcha: any;
+
+
 
 @Component({
   selector: 'app-contact-us',
@@ -24,6 +27,10 @@ export class ContactUsComponent implements OnInit {
     objet: 'object',
     message: 'message',
   };
+
+  invalidLogin: boolean = false;
+  captchaError: boolean = false;
+  loginResponse: string;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -61,6 +68,12 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit() {
+    const response = grecaptcha.getResponse();
+    if (response.length === 0) {
+      this.captchaError = true;
+      return;
+    }
+
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid) {
       const request = this.userForm.value;
@@ -70,9 +83,12 @@ export class ContactUsComponent implements OnInit {
           console.log(r);
         },
         error => {
+          this.invalidLogin = true;
+          this.loginResponse = response.message;
           const err = error;
           console.log(err);
         });
+      grecaptcha.reset();
     }
   }
 
