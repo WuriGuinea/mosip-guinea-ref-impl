@@ -156,3 +156,25 @@ textarea.mat-input-element {
     line-height: 38px;
     height: 38px;
 }
+.capt2 {
+    position: absolute;
+    z-index: 30;
+    display: block;
+}
+
+#container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+#navi,
+#infoi {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#infoi {
+    z-index: 10;
+}
