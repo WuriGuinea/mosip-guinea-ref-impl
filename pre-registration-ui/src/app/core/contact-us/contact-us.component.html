@@ -9,12 +9,12 @@
 <div class="container">
 
     <div class="wuri-card">
-        <div class="form">
+        <div class="form" style="font-size: 15px">
             <article>
                 <h4 class="title">Ecrivez-nous</h4>
                 <form [formGroup]="userForm" class="user__form">
                     <mat-form-field>
-                        <mat-label>{{'contactUs.objet' | translate}}<span class="mandatory">*</span></mat-label>
+                        <mat-label class="label-indent">{{'contactUs.objet' | translate}}<span class="mandatory">*</span></mat-label>
                         <mat-select
                                 class="objet"
                                 placeholder="{{'contactUs.reason' | translate}}"
@@ -32,45 +32,6 @@
                     </mat-form-field>
                     <br>
 
-                    <mat-form-field>
-                        <mat-label  class="message">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
-                        <textarea
-                                class="msg-area"
-                                matInput
-                                #message
-                                rows="10"
-                                placeholder="{{'contactUs.maxChars' | translate}}"
-                                maxlength="250"
-                                [formControlName]="formControlNames.message">
-            </textarea>
-                        <mat-error *ngIf="!message.invalid"> {{'contactUs.mandatoryMsg' | translate}}</mat-error>
-                    </mat-form-field>
-                    <br>
-
-                    <mat-form-field>
-                        <mat-label>{{'contactUs.fullName' | translate}}<span class="mandatory">* </span>
-                        </mat-label>
-                        <input
-                                matInput
-                                #name
-                                placeholder="{{'contactUs.fullName' | translate}}"
-                                [formControlName]="formControlNames.name" />
-                        <mat-error *ngIf="!name.invalid"> {{'contactUs.mandatoryName' | translate}}</mat-error>
-                    </mat-form-field>
-                    <br>
-
-                    <mat-form-field>
-                        <mat-label>{{'contactUs.email' | translate}}<span class="mandatory">* </span></mat-label>
-                        <input
-                            #email
-                            type="text"
-                            matInput
-                            placeholder="{{'contactUs.email' | translate}}"
-                            [formControlName]="formControlNames.email"/>
-                        <mat-error *ngIf="!email.invalid"> {{'contactUs.mandatoryEmail' | translate}}</mat-error>
-                    </mat-form-field>
-                    <br>
-
                     <mat-form-field *ngIf="displayOtherReason">
                         <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
                         <input
@@ -81,6 +42,47 @@
                         <mat-error *ngIf="!otherReason.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
                     </mat-form-field>
                     <br />
+
+                    <mat-form-field>
+                        <mat-label  class="label-indent">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
+                        <textarea
+                                class="msg-area"
+                                matInput
+                                #message
+                                rows="10"
+                                placeholder="{{'contactUs.maxChars' | translate}}"
+                                maxlength="250"
+                                [formControlName]="formControlNames.message">
+                        </textarea>
+                        <mat-error *ngIf="!message.invalid"> {{'contactUs.mandatoryMsg' | translate}}</mat-error>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field>
+                        <mat-label><b>{{'contactUs.fullName' | translate}}</b><span class="mandatory">* </span>
+                        </mat-label>
+                        <input
+                                matInput
+                                #name
+                                placeholder="{{'contactUs.fullName' | translate}}"
+                                [formControlName]="formControlNames.name" />
+                        <mat-error *ngIf="!name.invalid"> {{'contactUs.mandatoryName' | translate}}</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+
+                    <mat-form-field>
+                        <mat-label><b>{{'contactUs.email' | translate}}</b><span class="mandatory">* </span></mat-label>
+                        <input
+                            #email
+                            type="text"
+                            matInput
+                            placeholder="{{'contactUs.email' | translate}}"
+                            [formControlName]="formControlNames.email"/>
+                        <mat-error *ngIf="!email.invalid"> {{'contactUs.mandatoryEmail' | translate}}</mat-error>
+                    </mat-form-field>
+                    <br>
+
 
                     <button
                             class="submit_button title"
@@ -112,7 +114,7 @@
                     </p>
                     <h4 class="contact-title">{{'contactUs.title_email' | translate}}</h4>
 
-                    <i>{{'contactUs.email_body' | translate}}</i>
+                    <a style="color: #020F59; text-underline: none" [href]="'mailto: contact@wuriguinee.com'">{{'contactUs.email_body' | translate}}</a>
                 </div>
                 <br>
                 <div class="telephone">

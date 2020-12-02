@@ -21,6 +21,7 @@ export class ContactUsComponent implements OnInit {
     email: 'email',
     reason: 'reason',
     otherReason: 'otherReason',
+    objet: 'object',
     message: 'message',
   };
 
@@ -54,6 +55,7 @@ export class ContactUsComponent implements OnInit {
       email: '',
       message: '',
       otherReason: '',
+      objet: '',
       reason: ''
     };
   }

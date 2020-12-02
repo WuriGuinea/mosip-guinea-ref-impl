@@ -255,7 +255,7 @@
 	"contactUs": {
 		"objet":"Objet du message",
 		"fullName":"Prénom(s) et Nom",
-		"email":"Adresse E-mail",
+		"email":"Adresse e-mail",
 		"reason":"Raison",
 		"otherReason":"Autre Raison",
 		"message":"Message",
