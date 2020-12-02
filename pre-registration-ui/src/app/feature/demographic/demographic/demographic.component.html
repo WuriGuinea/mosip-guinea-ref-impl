@@ -152,7 +152,7 @@
                     </div>
 
 
-                        <div style="margin-left: 0px;" class="user__genderAndForeigner user__dropdown col-50">
+                        <div style="margin-left: 7px;" class="user__genderAndForeigner user__dropdown col-50">
 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_residence_status' | translate }} <span class="mandatory">*</span></mat-label>
@@ -199,7 +199,7 @@
                                         }}</mat-error>
                                 </mat-form-field>
                             </div>
-                            <div  class="user__dropdown col-50">
+                            <div style="margin-left: 8px"  class="user__dropdown col-50">
                                 <mat-form-field>
                                     <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>
                                     <input
@@ -221,7 +221,7 @@
                 <div [dir]="textDir" class="user__container card">
                     <h4 id="titleposition" class="titlecolor">{{ 'demographic.address_section_title' | translate }}</h4>
                     <br/>
-                    <div class="user__dropdown col-50">
+                    <div class="user__dropdown col-50"> 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_region' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
@@ -311,7 +311,7 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 55px;">
+                    <div style="margin-top: 61px;">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}
                             </mat-label>
