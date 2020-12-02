@@ -189,6 +189,7 @@ body {
 
 .mat-error {
   color: #e44c29;
+  margin-top: -1px;
 }
 
 .mat-slide-toggle .mat-slide-toggle-thumb {
