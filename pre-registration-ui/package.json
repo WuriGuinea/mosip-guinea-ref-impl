@@ -35,7 +35,7 @@
     "material-design-icons": "^3.0.1",
     "material-icons": "^0.2.3",
     "moment": "^2.29.0",
-    "ng-recaptcha": "^6.1.0",
+    "ng-recaptcha": "5.0.0-beta.2",
     "ng2-pdf-viewer": "^5.3.4",
     "ngx-print": "^1.1.4",
     "ngx7-material-keyboard": "^0.1.2",
