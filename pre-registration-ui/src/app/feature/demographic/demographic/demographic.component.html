@@ -47,7 +47,7 @@
                     <div class="row" style="font-size: 15px; font-family: Roboto; margin-top: 12px">
                         <div class="col-50" >
                             <div class="row">
-                                <mat-label class="col-50-use label-date" style="padding-left: 3px">
+                                <mat-label class="col-50-use label-date" style="padding-left: 3px; margin-top: 13px;">
                                     <span class="half-plus">{{ 'demographic.text_date' | translate }}</span>
                                     <span class="mandatory half"> *</span>
                                 </mat-label>
@@ -58,6 +58,7 @@
                                         <mat-label class="label-date">{{ 'demographic.date_dd' | translate }}</mat-label>
                                         <input
                                                 matInput
+                                                id="dd"
                                                 placeholder="JJ"
                                                 #dd
                                                 [formControlName]="formControlNames.date"
@@ -69,6 +70,7 @@
                                         <mat-label class="label-date">{{ 'demographic.date_mm' | translate }}</mat-label>
                                         <input
                                                 matInput
+                                                id="mm"
                                                 placeholder="MM"
                                                 #mm
                                                 [formControlName]="formControlNames.month"
@@ -81,6 +83,7 @@
                                         <input
                                                 matInput
                                                 placeholder="AAAA"
+                                                id="yyyy"
                                                 #yyyy
                                                 [formControlName]="formControlNames.year"
                                                 (focusout)="onDOBChange()"
@@ -100,6 +103,7 @@
                                             <mat-label class="label-date">{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
                                             <input
                                                     matInput
+                                                    id="age"
                                                     tabindex="-1"
                                                     [formControlName]="formControlNames.age"
                                                     placeholder="{{ 'demographic.label_age' | translate }}"
@@ -129,19 +133,20 @@
 
 
 
-                        <div class="user__genderAndForeigner user__dropdown col-50">
+                    <div class="user__genderAndForeigner user__dropdown col-50">
 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_gender' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     id="gender"
+                                    #gender
                                     [formControlName]="formControlNames.gender"
                                     (change)="onGenderChange(genders, $event)"
                                     placeholder="{{ 'demographic.text_gender' | translate  }}"
                                     appearance="legacy"
                                     name="fontStyle"
                                     aria-label="Font Style"
-                            >
+                                >
                                 <mat-option *ngFor="let gender of genders" [value]="gender.code">
                                     {{ gender.genderName }}
                                 </mat-option>
@@ -150,18 +155,17 @@
                                 {{ 'demographic.validation.gender_validation' | translate }}</mat-error>
                         </mat-form-field>
                     </div>
-
-
-<<<<<<< HEAD
                     <div style="margin-left: 10px;" class="user__genderAndForeigner user__dropdown col-50">
 =======
                         <div style="margin-left: 0px;" class="user__genderAndForeigner user__dropdown col-50">
->>>>>>> 876d0b4a9dea70af5a3ba7ffe2e8023d296a113e
+=======
+                        <div style="margin-left: 7px;" class="user__genderAndForeigner rstatus user__dropdown col-50">
 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_residence_status' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     id="nationnality"
+                                    #nationnality
                                     [formControlName]="formControlNames.residenceStatus"
                                     (change)="onResidenceStatusChange(residenceStatus, $event)"
                                     placeholder="{{ 'demographic.text_residence_status' | translate }}"
@@ -203,7 +207,7 @@
                                         }}</mat-error>
                                 </mat-form-field>
                             </div>
-                            <div  class="user__dropdown col-50">
+                            <div style="margin-left: 8px"  class="user__dropdown mail col-50">
                                 <mat-form-field>
                                     <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>
                                     <input
@@ -225,7 +229,7 @@
                 <div [dir]="textDir" class="user__container card">
                     <h4 id="titleposition" class="titlecolor">{{ 'demographic.address_section_title' | translate }}</h4>
                     <br/>
-                    <div class="user__dropdown col-50">
+                    <div class="user__dropdown col-50"> 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_region' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
@@ -234,6 +238,7 @@
                                     placeholder="Région"
                                     [formControlName]="formControlNames.region"
                                     #region
+                                    id="region"
                             >
                                 <mat-option *ngFor="let region of regions" [value]="region.valueCode">{{
                                     region.valueName
@@ -254,6 +259,7 @@
                                     placeholder="Préfecture"
                                     [formControlName]="formControlNames.prefecture"
                                     #prefecture
+                                    id="pref"
                             >
                                 <mat-option *ngFor="let prefecture of prefectures" [value]="prefecture.valueCode">{{
                                     prefecture.valueName
@@ -264,7 +270,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 12px;" class="user__dropdown col-50">
+                    <div style="margin-top: 17px;" class="user__dropdown col-50">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_subprefectureOrCommune' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
@@ -273,6 +279,7 @@
                                     placeholder="Sous-préfecture ou Commune"
                                     [formControlName]="formControlNames.subPrefectureOrCommune"
                                     #subprefecture
+                                    id="subpref"
                             >
                                 <mat-option *ngFor="let subprefecture of subPrefectureOrCommunes" [value]="subprefecture.valueCode">{{
                                     subprefecture.valueName
@@ -290,6 +297,7 @@
                                     placeholder="District"
                                     [formControlName]="formControlNames.district"
                                     #district
+                                    id="district"
                             >
                                 <mat-option *ngFor="let district of districts" [value]="district.valueCode">{{
                                     district.valueName
@@ -307,6 +315,7 @@
                                     placeholder="Secteur"
                                     [formControlName]="formControlNames.sector"
                                     #sector
+                                    id="sector"
                             >
                                 <mat-option *ngFor="let sector of sectors" [value]="sector.valueCode">{{
                                     sector.valueName
@@ -315,7 +324,7 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 55px;">
+                    <div style="margin-top: 53px;">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}
                             </mat-label>

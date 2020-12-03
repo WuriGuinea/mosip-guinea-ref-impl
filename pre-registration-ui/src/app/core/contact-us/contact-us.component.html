@@ -83,8 +83,18 @@
                     </mat-form-field>
                     <br>
 
+                    <re-captcha (resolved)="resolved($event)"
+                                [formControlName]="formControlNames.captcha"
+                                siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
+                                class="mycaptcha"
+                    >
+                    </re-captcha>
+                    <mat-error *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
+
+                    <br>
 
                     <button
+                            [disabled]="userForm.invalid || !captchaValidated"
                             class="submit_button title"
                             type="button"
                             (click)="onSubmit()">

@@ -7,6 +7,7 @@ export interface ContactUsFormControlModal {
     otherReason: string;
     objet: string,
     message: string;
+    captcha: string;
 }
 
 export class ContactUs {
