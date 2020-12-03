@@ -91,7 +91,7 @@
   margin-bottom: 1rem;
   width: 49%;
   float: left;
-  height: 340px !important;
+  height: 345px !important;
 }
 
 .test1 {
@@ -453,6 +453,12 @@ mat-icon {
   top: 61px;
 }
 
+@media(max-width: 1000px){
+  .col-50{
+    width: 100%;
+    margin-top: 3px;
+  }
+}
 .col-50{
   width: 100%;
 }
@@ -469,7 +475,14 @@ mat-icon {
 @media (max-width: 700px){
   .hidedesk{
   display: none;
-}
+  }
+  .rstatus{
+    margin-left: 0px !important;
+  }
+
+  .mail{
+    margin-left: 0px !important;
+  }
 }
 .hidemobile{
   display: none;
