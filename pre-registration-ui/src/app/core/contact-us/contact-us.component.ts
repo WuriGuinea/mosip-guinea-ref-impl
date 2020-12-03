@@ -78,7 +78,7 @@ export class ContactUsComponent implements OnInit {
   onSubmit() {
     const response = grecaptcha.getResponse();
     if (response.length === 0) {
-      this.captchaError = true;
+      this.captchaError = '';
       return;
     }
 
