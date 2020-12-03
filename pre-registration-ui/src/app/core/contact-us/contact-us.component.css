@@ -150,9 +150,44 @@ textarea.mat-input-element {
     padding-right: 5px;
 }
 
+button:disabled,
+button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
 .label-indent {
     margin-left: 15px;
     padding:0 !important;
     line-height: 38px;
     height: 38px;
+}
+.capt2 {
+    position: absolute;
+    z-index: 30;
+    display: block;
+}
+
+#container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+#navi,
+#infoi {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#infoi {
+    z-index: 10;
+}
+
+.mycaptcha {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

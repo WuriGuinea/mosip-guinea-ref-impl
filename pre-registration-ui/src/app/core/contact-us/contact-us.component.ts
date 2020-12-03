@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
 import { ContactUs, ContactUsFormControlModal } from './contact-us';
+import {ContactUsService} from "./contact-us.service";
+declare var grecaptcha: any;
+
+
 
 @Component({
   selector: 'app-contact-us',
@@ -23,29 +27,39 @@ export class ContactUsComponent implements OnInit {
     otherReason: 'otherReason',
     objet: 'object',
     message: 'message',
+    captcha: ''
   };
 
-  constructor(private httpClient: HttpClient) { }
+  invalidLogin: boolean = false;
+  captchaError = '';
+  loginResponse: string;
+  captchaValidated = false;
+
+  constructor(
+      private httpClient: HttpClient,
+      private contactUsService: ContactUsService
+  ) { }
 
   ngOnInit() {
     this.setFormControlValues();
     this.userForm = new FormGroup({
       [this.formControlNames.name]: new FormControl(this.formControlValues.name.trim(), [
-        Validators.required 
+        Validators.required
       ]),
       [this.formControlNames.email]: new FormControl(this.formControlValues.email, [
         Validators.pattern(/^[\w-\+]+(\.[\w]+)*@[\w-]+(\.[\w]+)*(\.[a-zA-Z]{2,})$/),
-          Validators.required
+        Validators.required
       ]),
       [this.formControlNames.reason]: new FormControl(this.formControlValues.reason.trim(), [
-        Validators.required 
+        Validators.required
       ]),
       [this.formControlNames.otherReason]: new FormControl(this.formControlValues.otherReason.trim(), [
-        Validators.required 
+        Validators.required
       ]),
       [this.formControlNames.message]: new FormControl(this.formControlValues.message.trim(), [
-        Validators.required 
-      ])
+        Validators.required
+      ]),
+      [this.formControlNames.captcha]: new FormControl(this.formControlValues.captcha, [])
     });
   }
 
@@ -56,30 +70,40 @@ export class ContactUsComponent implements OnInit {
       message: '',
       otherReason: '',
       objet: '',
-      reason: ''
+      reason: '',
+      captcha: ''
     };
   }
 
   onSubmit() {
+    const response = grecaptcha.getResponse();
+    if (response.length === 0) {
+      this.captchaError = '';
+      return;
+    }
+
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid) {
       const request = this.userForm.value;
       this.sendForm(request).subscribe(
-        response => {
-          const r = response;
-          console.log(r);
-        },
-        error => {
-          const err = error;
-          console.log(err);
-        });
+          response => {
+            const r = response;
+            console.log(r);
+          },
+          error => {
+            this.invalidLogin = true;
+            this.loginResponse = response.message;
+            const err = error;
+            console.log(err);
+          });
+      grecaptcha.reset();
     }
   }
 
   onReasonChange(entity: any, event?: MatButtonToggleChange) {
     this.displayOtherReason = "other" === event.value;
   }
-  
+
   private markFormGroupTouched(formGroup: FormGroup) {
     (<any>Object).values(formGroup.controls).forEach(control => {
       control.markAsTouched();
@@ -94,4 +118,14 @@ export class ContactUsComponent implements OnInit {
     return this.httpClient.post(url, data);
   }
 
+  resolved(token: any) {
+    console.log(token);
+    this.contactUsService.verifyMyCaptcha(token).subscribe(response => {
+      this.captchaValidated = true;
+      console.log(response);
+    }, error => {
+      console.log(error);
+      this.captchaError = 'invalid';
+    });
+  }
 }
