@@ -58,6 +58,7 @@
                                         <mat-label class="label-date">{{ 'demographic.date_dd' | translate }}</mat-label>
                                         <input
                                                 matInput
+                                                id="dd"
                                                 placeholder="JJ"
                                                 #dd
                                                 [formControlName]="formControlNames.date"
@@ -69,6 +70,7 @@
                                         <mat-label class="label-date">{{ 'demographic.date_mm' | translate }}</mat-label>
                                         <input
                                                 matInput
+                                                id="mm"
                                                 placeholder="MM"
                                                 #mm
                                                 [formControlName]="formControlNames.month"
@@ -81,6 +83,7 @@
                                         <input
                                                 matInput
                                                 placeholder="AAAA"
+                                                id="yyyy"
                                                 #yyyy
                                                 [formControlName]="formControlNames.year"
                                                 (focusout)="onDOBChange()"
@@ -100,6 +103,7 @@
                                             <mat-label class="label-date">{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
                                             <input
                                                     matInput
+                                                    id="age"
                                                     tabindex="-1"
                                                     [formControlName]="formControlNames.age"
                                                     placeholder="{{ 'demographic.label_age' | translate }}"
@@ -129,19 +133,20 @@
 
 
 
-                        <div class="user__genderAndForeigner user__dropdown col-50">
+                    <div class="user__genderAndForeigner user__dropdown col-50">
 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_gender' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     id="gender"
+                                    #gender
                                     [formControlName]="formControlNames.gender"
                                     (change)="onGenderChange(genders, $event)"
                                     placeholder="{{ 'demographic.text_gender' | translate  }}"
                                     appearance="legacy"
                                     name="fontStyle"
                                     aria-label="Font Style"
-                            >
+                                >
                                 <mat-option *ngFor="let gender of genders" [value]="gender.code">
                                     {{ gender.genderName }}
                                 </mat-option>
@@ -158,6 +163,7 @@
                             <mat-label>{{ 'demographic.text_residence_status' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
                                     id="nationnality"
+                                    #nationnality
                                     [formControlName]="formControlNames.residenceStatus"
                                     (change)="onResidenceStatusChange(residenceStatus, $event)"
                                     placeholder="{{ 'demographic.text_residence_status' | translate }}"
@@ -230,6 +236,7 @@
                                     placeholder="Région"
                                     [formControlName]="formControlNames.region"
                                     #region
+                                    id="region"
                             >
                                 <mat-option *ngFor="let region of regions" [value]="region.valueCode">{{
                                     region.valueName
@@ -250,6 +257,7 @@
                                     placeholder="Préfecture"
                                     [formControlName]="formControlNames.prefecture"
                                     #prefecture
+                                    id="pref"
                             >
                                 <mat-option *ngFor="let prefecture of prefectures" [value]="prefecture.valueCode">{{
                                     prefecture.valueName
@@ -269,6 +277,7 @@
                                     placeholder="Sous-préfecture ou Commune"
                                     [formControlName]="formControlNames.subPrefectureOrCommune"
                                     #subprefecture
+                                    id="subpref"
                             >
                                 <mat-option *ngFor="let subprefecture of subPrefectureOrCommunes" [value]="subprefecture.valueCode">{{
                                     subprefecture.valueName
@@ -286,6 +295,7 @@
                                     placeholder="District"
                                     [formControlName]="formControlNames.district"
                                     #district
+                                    id="district"
                             >
                                 <mat-option *ngFor="let district of districts" [value]="district.valueCode">{{
                                     district.valueName
@@ -303,6 +313,7 @@
                                     placeholder="Secteur"
                                     [formControlName]="formControlNames.sector"
                                     #sector
+                                    id="sector"
                             >
                                 <mat-option *ngFor="let sector of sectors" [value]="sector.valueCode">{{
                                     sector.valueName
