@@ -453,6 +453,12 @@ mat-icon {
   top: 61px;
 }
 
+@media(max-width: 1000px){
+  .col-50{
+    width: 100%;
+    margin-top: 3px;
+  }
+}
 .col-50{
   width: 100%;
 }
