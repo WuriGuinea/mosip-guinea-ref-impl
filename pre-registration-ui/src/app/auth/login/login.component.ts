@@ -70,6 +70,7 @@ export class LoginComponent implements OnInit {
     this.authService.onLogout();
   }
 
+  
   loadValidationMessages() {
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
