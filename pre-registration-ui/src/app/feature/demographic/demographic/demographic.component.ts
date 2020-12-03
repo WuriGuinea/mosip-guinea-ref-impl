@@ -1270,7 +1270,11 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       const nationnality = this.form.nativeElement.querySelector("#nationnality");
       const phone = this.form.nativeElement.querySelector("#phone");
       const email = this.form.nativeElement.querySelector("#email");
-      const complement = this.form.nativeElement.querySelector("#complement");
+      const region = this.form.nativeElement.querySelector("#region");
+      const pref = this.form.nativeElement.querySelector("#pref");
+      const subpref = this.form.nativeElement.querySelector("#subpref");
+      const district = this.form.nativeElement.querySelector("#district");
+      const sector = this.form.nativeElement.querySelector("#sector");
 
       els.push(firstName);
       els.push(lastName);
@@ -1282,7 +1286,11 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       els.push(nationnality);
       els.push(phone);
       els.push(email);
-      els.push(complement);
+      els.push(region);
+      els.push(pref);
+      els.push(subpref);
+      els.push(district);
+      els.push(sector);
 
       let emptyElFound = false;
       let totalEmptyEls = 0;
