@@ -7,7 +7,7 @@
     margin-right: -15px;
     font-family: Arial, Roboto, "Helvetica Neue", sans-serif;
     font-size: 12px;
-    padding: 25px;
+    padding: 15px;
     color: #020F59;
 
 }
@@ -37,55 +37,6 @@
     max-width: 100%;
 }
 
-.contact {
-    position: relative;
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    max-width: 100%;
-}
-
-.address_wording {
-    display: block;
-}
-
-.objet {
-    border: 1px solid #BCE0FD;
-    height: 35px;
-    margin-bottom: -9px;
-    margin-top: 2px;
-}
-
-.mat-form-field-label-wrapper{
-    top: -35px !important;
-    font-size: 15px;
-    font-family: Roboto;
-}
-
-.espace{
-    margin-left: 1.3em;
-}
-
-.space{
-    margin-left: 5.5em;
-}
-
-textarea.mat-input-element {
-    padding: 10px;
-    border-radius: 5px;
-    height: 80px;
-    border: solid 1px #BCE0FD !important;
-}
-
-
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
-    width: 360px;
-}
-
 .header {
     position: relative;
     display: block;
@@ -105,6 +56,7 @@ textarea.mat-input-element {
     width: 50%;
     font-size: 15px;
     color: #020F59;
+    font-weight: unset;
 }
 
 .right-h {
@@ -114,9 +66,6 @@ textarea.mat-input-element {
     color: #020F59;
 }
 
-.msg-area {
-    margin-bottom: -7.8px;
-}
 
 .title {
     color: #020F59;
@@ -134,7 +83,7 @@ textarea.mat-input-element {
     margin-bottom: 5px;
 }
 
-.submit_button {
+.submit_buttona {
     background-color: #BCE0FD;
     border: none;
     color: #020F59 !important;
@@ -150,19 +99,19 @@ textarea.mat-input-element {
     padding-right: 5px;
 }
 
-button:disabled,
-button[disabled]{
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
+.submit_button {
+    min-width: 158px;
+    min-height: 50px;
+    padding: 0px 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 4px;
 }
 
-.label-indent {
-    margin-left: 15px;
-    padding:0 !important;
-    line-height: 38px;
-    height: 38px;
+.btn_axn-pri[disabled]{
+    background: #BCE0FD;
 }
+
 .capt2 {
     position: absolute;
     z-index: 30;
@@ -191,3 +140,81 @@ button[disabled]{
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.extra-label{
+    font-size: 13px;
+}
+
+.center-block {
+    display: flex;
+    justify-content: center;
+}
+.message {
+    margin-bottom: 10px;
+}
+.contact-us{
+    height: 700px;
+    overflow-y: auto;
+}
+.contact {
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.address_wording {
+    display: block;
+}
+
+.objet {
+
+}
+
+.mat-select-object {
+    border: 1px solid #BCE0FD;
+    height: 34px;
+    padding: 3px;
+}
+
+
+.espace{
+    margin-left: 1.3em;
+}
+
+.space{
+    margin-left: 5.5em;
+}
+
+textarea {
+    border-radius: 5px;
+    height: 85px;
+    border: solid 1px #BCE0FD !important;
+    margin-bottom: -9px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    width: 360px;
+}
+
+.my-10 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.label-indent-textarea {
+    display: block;
+    position: relative;
+    margin-bottom: 26px;
+    padding-left: 5px;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0em;
+}
+

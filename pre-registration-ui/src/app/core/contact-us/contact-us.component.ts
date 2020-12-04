@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
 import { ContactUs, ContactUsFormControlModal } from './contact-us';
@@ -11,7 +11,8 @@ declare var grecaptcha: any;
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css']
+  styleUrls: ['./contact-us.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContactUsComponent implements OnInit {
 
