@@ -433,6 +433,9 @@
 .nextshort{
   display: none;
 }
+.mobiletooltip{
+  display: none;
+}
 
 @media (max-width: 500px) {
   .container {
@@ -441,8 +444,8 @@
   .middle {
     margin: 0;
     width: 59%;
-    overflow: scroll;
     margin-left: 5px;
+    z-index: 0;
   }
   .leftarrow{
     position: relative;
@@ -461,11 +464,12 @@
   .sizing {
     margin: 15px 5px 0 5px;
     width: 49%;
-    height: 78%;
+    height: 90%;
     margin-right: -26px;
     margin-left: 29px;
     padding-right: 9px;
     z-index: 6;
+    margin-top: 0px;
   }
   .time-selection__tile-date{
     font-size: 0.6rem;
@@ -539,6 +543,10 @@
     color: currentColor;
     float: right;
   }
+  .mobiletooltip{
+    display: block;
+    margin-top: 3px;
+  }
   .compteur{
     display: table-column;
     position: absolute;
@@ -555,6 +563,10 @@
     font-size: 0.7rem;
     padding: 0.6rem 1rem;
     margin-right: 5px;
+  }
+  .mobiletooltip{
+    display: block;
+    margin-top: 3px;
   }
 }
 @media screen and (min-width: 767px) and (max-width: 991px) {
