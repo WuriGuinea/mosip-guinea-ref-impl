@@ -4,7 +4,7 @@
     <mat-card-header>
       <p class="time-selection__title-card-text">
         {{ 'timeSelection.title_book' | translate }}
-        <mat-icon class="icon" matTooltip="{{ 'helpText.bookAppointment' | translate }}" [inline]="true">help_outline
+        <mat-icon class="icon mobiletooltip" matTooltip="{{ 'helpText.bookAppointment' | translate }}" [inline]="true">help_outline
         </mat-icon>
       </p>
     </mat-card-header>
@@ -85,7 +85,7 @@
         <div  class="applicants_card appcard">
           <div class="time-selection__name-list-header">
             {{ 'timeSelection.text_available' | translate }}
-            <mat-icon class="icon" matTooltip="{{ 'helpText.etape1' | translate }}" [inline]="true">help_outline
+            <mat-icon class="icon mobiletooltip" matTooltip="{{ 'helpText.etape1' | translate }}" [inline]="true">help_outline
             </mat-icon>
           </div>
           <div>
@@ -110,7 +110,7 @@
             <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDate }}</span>,
             <span
               class="time-selection__names-header-time-text">{{availabilityData[selectedTile].timeSlots[selectedCard].displayTime}}</span>
-              <mat-icon class="icon" matTooltip="{{ 'helpText.etape2' | translate }}" [inline]="true">help_outline
+              <mat-icon class="icon mobiletooltip" matTooltip="{{ 'helpText.etape2' | translate }}" [inline]="true">help_outline
               </mat-icon>
             </div>
           <table class="time-selection__name-list">
