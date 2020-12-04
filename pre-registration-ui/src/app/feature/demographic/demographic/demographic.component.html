@@ -4,17 +4,18 @@
 <div *ngIf="(dataIncomingSuccessful) || hasError">
     <div class="wrapper">
         <div class="user">
-            <form [formGroup]="userForm" class="user__form">
+            <form [formGroup]="userForm" class="user__form" (keydown.enter)="onEnterDown($event)" #form>
                 <div [dir]="textDir" class="user__container card">
-                    
-                    <h4 id="titleposition" class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4> 
-                    <mat-label class="champs"> <span class="mandatory">*</span> : {{ 'demographic.champs_oblig' | translate }} </mat-label> 
+
+                    <h4 id="titleposition" class="titlecolor">{{ 'demographic.personnal_infos_section_title' | translate }}</h4>
+                    <mat-label class="champs"> <span class="mandatory">*</span> : {{ 'demographic.champs_oblig' | translate }} </mat-label>
                     <br/>
                     <div class="row">
-                        <div class="col-50">
+                        <div class="col-50" style="padding-left: 2px">
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.label_first_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
+                                        id="firstName"
                                         matInput
                                         #firstName
                                         placeholder="prénom"
@@ -29,6 +30,7 @@
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.label_last_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
+                                        id="lastName"
                                         matInput
                                         #lastName
                                         placeholder="nom de famille"
@@ -41,83 +43,110 @@
                         </div>
                     </div>
 
-                    <mat-label style="position: relative;margin-left: 3px;bottom: -20px;font-size: 15px;font-family: Roboto;
-                    ">{{ 'demographic.text_date' | translate }} <span class="mandatory">*</span></mat-label>
-                    <div class="user__age-or-date">
-                        <div style="margin-right: 12px;" class="user__date">
-                            <mat-form-field>
-                                <mat-label>{{ 'demographic.date_dd' | translate }}</mat-label> 
-                                <input
-                                        matInput
-                                        placeholder="JJ"
-                                        #dd
-                                        [formControlName]="formControlNames.date"
-                                        (focusout)="onDOBChange()"
-                                />
-                            </mat-form-field> <p>/</p>
-                            <mat-form-field>
-                                <mat-label>{{ 'demographic.date_mm' | translate }}</mat-label>
-                                <input
-                                        matInput
-                                        placeholder="MM"
-                                        #mm
-                                        [formControlName]="formControlNames.month"
-                                        (focusout)="onDOBChange()"
-                                />
-                            </mat-form-field> <p>/</p>
-                            <mat-form-field>
-                                <mat-label>{{ 'demographic.date_yyyy' | translate }} </mat-label>
-                                <input
-                                        matInput
-                                        placeholder="AAAA"
-                                        #yyyy
-                                        [formControlName]="formControlNames.year"
-                                        (focusout)="onDOBChange()"
-                                />
-                            </mat-form-field>
+                    <!--Date right-->
+                    <div class="row" style="font-size: 15px; font-family: Roboto; margin-top: 12px">
+                        <div class="col-50" >
+                            <div class="row">
+                                <mat-label class="col-50-use label-date" style="padding-left: 3px; margin-top: 13px;">
+                                    <span class="half-plus">{{ 'demographic.text_date' | translate }}</span>
+                                    <span class="mandatory half"> *</span>
+                                </mat-label>
+
+
+                                <div class="col-50-use">
+                                    <mat-form-field class="col-auto-jj" style="margin-top: 7px">
+                                        <mat-label class="label-date">{{ 'demographic.date_dd' | translate }}</mat-label>
+                                        <input
+                                                matInput
+                                                id="dd"
+                                                placeholder="JJ"
+                                                #dd
+                                                [formControlName]="formControlNames.date"
+                                                (focusout)="onDOBChange()"
+                                        />
+                                    </mat-form-field>
+                                    <p>/</p>
+                                    <mat-form-field class="col-auto-mm" style="margin-top: 7px">
+                                        <mat-label class="label-date">{{ 'demographic.date_mm' | translate }}</mat-label>
+                                        <input
+                                                matInput
+                                                id="mm"
+                                                placeholder="MM"
+                                                #mm
+                                                [formControlName]="formControlNames.month"
+                                                (focusout)="onDOBChange()"
+                                        />
+                                    </mat-form-field>
+                                    <p>/</p>
+                                    <mat-form-field class="col-auto-aaaa" style="margin-top: 7px">
+                                        <mat-label class="label-date">{{ 'demographic.date_yyyy' | translate }} </mat-label>
+                                        <input
+                                                matInput
+                                                placeholder="AAAA"
+                                                id="yyyy"
+                                                #yyyy
+                                                [formControlName]="formControlNames.year"
+                                                (focusout)="onDOBChange()"
+                                        />
+                                    </mat-form-field>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="user__pref">
-                            {{ 'demographic.text_or' | translate }}
-                        </div>
-                        <div style="margin-right: 67px;" class="user__age">
-                            <mat-form-field>
-                                <mat-label>{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
-                                <input
-                                        matInput
-                                        tabindex="-1"
-                                        [formControlName]="formControlNames.age"
-                                        placeholder="{{ 'demographic.label_age' | translate }}"
-                                        #age
-                                        (focusout)="onAgeChange()"
-                                />
-                            </mat-form-field>
-                            <div class="user__age--years">{{ 'demographic.text_years' | translate }}</div>
+                        <div class="col-50">
+                            <div class="row">
+                                    <div class="col-auto or_text">
+                                        <p>{{ 'demographic.text_or' | translate }}</p>
+                                    </div>
+                                    <div class="col-auto">
+                                        <mat-form-field style="margin-top: 7px">
+                                            <mat-label class="label-date">{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
+                                            <input
+                                                    matInput
+                                                    id="age"
+                                                    tabindex="-1"
+                                                    [formControlName]="formControlNames.age"
+                                                    placeholder="{{ 'demographic.label_age' | translate }}"
+                                                    #age
+                                                    (focusout)="onAgeChange()"
+                                            />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-auto">
+                                        <p>
+                                            {{ 'demographic.text_years' | translate }}
+                                        </p>
+                                    </div>
+
                         </div>
                     </div>
-                    <div
-                            class="mat-error ng-star-inserted user__dob__error"
-                            *ngIf="
+                        <div
+                                class="mat-error ng-star-inserted user__dob__error"
+                                *ngIf="
                   (userForm.get(formControlNames.dateOfBirth).touched &&
                     userForm.get(formControlNames.dateOfBirth).hasError('incorrect')) ||
                   (userForm.get(formControlNames.age).touched && !userForm.get(formControlNames.age).valid)
                 "
-                    >
-                        {{ 'demographic.validation.DOB_validation' | translate }}
-                    </div>
+                        >
+                            {{ 'demographic.validation.DOB_validation' | translate }}
+                        </div>
+
+
 
                     <div class="user__genderAndForeigner user__dropdown col-50">
 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_gender' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                                    id="gender"
+                                    #gender
                                     [formControlName]="formControlNames.gender"
                                     (change)="onGenderChange(genders, $event)"
                                     placeholder="{{ 'demographic.text_gender' | translate  }}"
                                     appearance="legacy"
                                     name="fontStyle"
                                     aria-label="Font Style"
-                            >
+                                >
                                 <mat-option *ngFor="let gender of genders" [value]="gender.code">
                                     {{ gender.genderName }}
                                 </mat-option>
@@ -128,11 +157,13 @@
                     </div>
 
 
-                    <div style="margin-left: 0px;" class="user__genderAndForeigner user__dropdown col-50">
+                        <div style="margin-left: 7px;" class="user__genderAndForeigner rstatus user__dropdown col-50">
 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_residence_status' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                                    id="nationnality"
+                                    #nationnality
                                     [formControlName]="formControlNames.residenceStatus"
                                     (change)="onResidenceStatusChange(residenceStatus, $event)"
                                     placeholder="{{ 'demographic.text_residence_status' | translate }}"
@@ -148,49 +179,55 @@
                             <mat-error *ngIf="userForm.get(formControlNames.residenceStatus).touched &&
                                             userForm.get(formControlNames.residenceStatus).invalid">
                                 {{ 'demographic.validation.nationality_validation' | translate }}
-                                </mat-error>
+                            </mat-error>
                         </mat-form-field>
                     </div>
 
-                    <br/>
-                    <h4 style="margin-top: 22px;" class="titlecolor posmobile">{{ 'demographic.contact_section_title' | translate }}</h4>
 
-                    <div class="user__dropdown col-50">
-                        <mat-form-field>
-                            <mat-label>{{ 'demographic.label_mob_num' | translate }}</mat-label>
-                            <input
-                                    matInput
-                                    #mobileNumber
-                                    type=""
-                                    maxlength="{{ MOBILE_LENGTH }}"
-                                    placeholder="{{ 'demographic.label_mob_num' | translate }}"
-                                    [formControlName]="formControlNames.phone"
-                            />
-                            <mat-error *ngIf="!mobileNumber.invalid">{{
-                                'demographic.validation.mobile_required' | translate
-                                }}</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div style="margin-left: 0px;" class="user__dropdown col-50">
-                        <mat-form-field>
-                            <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>   
-                            <input
-                                #email
-                                type="text"
-                                maxlength="{{ EMAIL_LENGTH }}"
-                                matInput
-                                placeholder="{{ 'demographic.label_email_id' | translate }}"
-                                [formControlName]="formControlNames.email"
-                            />
-                            <mat-error *ngIf="!email.invalid">{{ 'demographic.validation.email_required' | translate }}</mat-error>
-                        </mat-form-field>
-                    </div>
+                        <h4 style="margin-top: 15px;" class="titlecolor posmobile">{{ 'demographic.contact_section_title' | translate }}</h4>
+
+
+                        <div class="row">
+                            <div class="user__dropdown col-50">
+                                <mat-form-field>
+                                    <mat-label>{{ 'demographic.label_mob_num' | translate }}</mat-label>
+                                    <input
+                                            id="phone"
+                                            matInput
+                                            #mobileNumber
+                                            type=""
+                                            maxlength="{{ MOBILE_LENGTH }}"
+                                            placeholder="{{ 'demographic.label_mob_num' | translate }}"
+                                            [formControlName]="formControlNames.phone"
+                                    />
+                                    <mat-error *ngIf="!mobileNumber.invalid">{{
+                                        'demographic.validation.mobile_required' | translate
+                                        }}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div style="margin-left: 8px"  class="user__dropdown mail col-50">
+                                <mat-form-field>
+                                    <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>
+                                    <input
+                                            id="email"
+                                            #email
+                                            type="text"
+                                            maxlength="{{ EMAIL_LENGTH }}"
+                                            matInput
+                                            placeholder="{{ 'demographic.label_email_id' | translate }}"
+                                            [formControlName]="formControlNames.email"
+                                    />
+                                    <mat-error *ngIf="!email.invalid">{{ 'demographic.validation.email_required' | translate }}</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                </div>
                 </div>
 
                 <div [dir]="textDir" class="user__container card">
                     <h4 id="titleposition" class="titlecolor">{{ 'demographic.address_section_title' | translate }}</h4>
-                   <br/>
-                    <div class="user__dropdown col-50">
+                    <br/>
+                    <div class="user__dropdown col-50"> 
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_region' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
@@ -199,6 +236,7 @@
                                     placeholder="Région"
                                     [formControlName]="formControlNames.region"
                                     #region
+                                    id="region"
                             >
                                 <mat-option *ngFor="let region of regions" [value]="region.valueCode">{{
                                     region.valueName
@@ -219,6 +257,7 @@
                                     placeholder="Préfecture"
                                     [formControlName]="formControlNames.prefecture"
                                     #prefecture
+                                    id="pref"
                             >
                                 <mat-option *ngFor="let prefecture of prefectures" [value]="prefecture.valueCode">{{
                                     prefecture.valueName
@@ -229,7 +268,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 12px;" class="user__dropdown col-50">
+                    <div style="margin-top: 17px;" class="user__dropdown col-50">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_subprefectureOrCommune' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
@@ -238,6 +277,7 @@
                                     placeholder="Sous-préfecture ou Commune"
                                     [formControlName]="formControlNames.subPrefectureOrCommune"
                                     #subprefecture
+                                    id="subpref"
                             >
                                 <mat-option *ngFor="let subprefecture of subPrefectureOrCommunes" [value]="subprefecture.valueCode">{{
                                     subprefecture.valueName
@@ -255,6 +295,7 @@
                                     placeholder="District"
                                     [formControlName]="formControlNames.district"
                                     #district
+                                    id="district"
                             >
                                 <mat-option *ngFor="let district of districts" [value]="district.valueCode">{{
                                     district.valueName
@@ -272,6 +313,7 @@
                                     placeholder="Secteur"
                                     [formControlName]="formControlNames.sector"
                                     #sector
+                                    id="sector"
                             >
                                 <mat-option *ngFor="let sector of sectors" [value]="sector.valueCode">{{
                                     sector.valueName
@@ -280,11 +322,12 @@
                             <mat-error *ngIf="!sector.invalid">Veuillez sélectionner un secteur</mat-error>
                         </mat-form-field>
                     </div>
-                    <div style="margin-top: 55px;"> 
+                    <div style="margin-top: 53px;">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}
                             </mat-label>
                         <input 
+                             id="complement"
                              #additionalAddressDetails
                              type="text"
                              placeholder="{{'demographic.label_additionalAddressDetails' | translate}} - {{ 'helpText.info' | translate }}"
@@ -296,14 +339,14 @@
                     </div>
                 </div>
                 <button
-                *ngIf="!showPreviewButton"
-                class="user__btn hidemobile btneffect"
-                type="button"
-                [disabled]="!dataUploadComplete"
-                (click)="onSubmit()"
-        >
-            {{ 'demographic.action_continue' | translate }}
-        </button>
+                        *ngIf="!showPreviewButton"
+                        class="user__btn hidemobile"
+                        type="button"
+                        [disabled]="!dataUploadComplete"
+                        (click)="onSubmit($event)"
+                >
+                    {{ 'demographic.action_continue' | translate }}
+                </button>
             </form>
         </div>
     </div>
@@ -321,7 +364,7 @@
                 class="user__btn hidedesk"
                 type="button"
                 [disabled]="!dataUploadComplete"
-                (click)="onSubmit()"
+                (click)="onSubmit($event)"
         >
             {{ 'demographic.action_continue' | translate }}
         </button>
@@ -330,7 +373,7 @@
                 class="user__btn btn"
                 type="button"
                 [disabled]="!dataUploadComplete"
-                (click)="onSubmit()"
+                (click)="onSubmit($event)"
         >
             {{ 'demographic.action_preview' | translate }}
         </button>
