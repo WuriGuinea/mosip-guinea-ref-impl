@@ -419,6 +419,20 @@
   margin: 0.35rem 0 10px 5px;
   text-align: center;
 }
+.prevlong{
+  display: block;
+}
+
+.prevshort{
+  display: none;
+}
+.nextlong{
+  display: block;
+}
+
+.nextshort{
+  display: none;
+}
 
 @media (max-width: 500px) {
   .container {
@@ -426,15 +440,76 @@
   }
   .middle {
     margin: 0;
-    width: 100%;
+    width: 59%;
     overflow: scroll;
+    margin-left: 5px;
+  }
+  .leftarrow{
+    position: relative;
+    left: 15px;
+    top: -1px;
+  }
+  .rightarrow{
+    position: relative;
+    left: -11px;
+    top: -1px;
   }
   div::-webkit-scrollbar {
     width: 0px;
     background: transparent;
   }
   .sizing {
-    margin: 0 5px 0 5px;
+    margin: 15px 5px 0 5px;
+    width: 49%;
+    height: 78%;
+    margin-right: -26px;
+    margin-left: 29px;
+    padding-right: 9px;
+    z-index: 6;
+  }
+  .time-selection__tile-date{
+    font-size: 0.6rem;
+    margin-left: -16px;
+  }
+  .time-selection__tile-date-text{
+    font-size: 0.6rem;
+    margin-left: -16px;
+    margin-top: -6px;
+  }
+  .time-selection__tile-date-text{
+    font-size: 0.6rem;
+  }
+  .time-selection__date-card{
+    padding-top: 11px;
+    margin: 17px;
+    width: 92%;
+    left: -4px;
+    top: -30px;
+    padding-right: 52px;
+  }
+  #legend-step{
+    display: none !important;
+  }
+  .prevlong{
+    display: none;
+  }
+  .prevshort{
+    display: block  !important;
+    font-size: 12px;
+    margin-left: 16px;
+  }
+  .nextlong{
+    display: none;
+  }
+  .nextshort{
+    display: block  !important;
+    font-size: 12px;
+    margin-left: 20px;
+  }
+  .time-selection__tile-availability-text{
+    font-size: 0.6rem;
+    margin-left: -10px;
+    margin-top: -8px;
   }
 
   .time-selection__name-list-item {
@@ -444,6 +519,7 @@
 
   .time-selection__time-slots-container {
     width: 100%;
+    margin-left: 19px;
   }
 
   .time-selection__slots-div {
@@ -454,6 +530,20 @@
     height: 50px;
     width: 100%;
     padding: 5px;
+  }
+  .appcard{
+    width: 100%;
+    margin: 15px;
+  }
+  .mat-icon{
+    color: currentColor;
+    float: right;
+  }
+  .compteur{
+    display: table-column;
+    position: absolute;
+    top: 183px;
+    left: 251px;
   }
 
 }
@@ -538,6 +628,7 @@
   line-height:14px;
   font-size: 0.9rem;
   padding-bottom: 1px;
+  display: block;
 }
 .mat-card-header{
   margin-left: -27px;

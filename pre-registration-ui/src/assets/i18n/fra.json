@@ -521,6 +521,8 @@
 		"text_step2": "Etape 2: Ajoutez des demandeurs en cliquant sur le + dans la liste des demandeurs",
 		"text_prev": "Précédent",
 		"text_next": "Suivant",
+		"text_prevsmall": "Préc.",
+		"text_nextsmall": "Suiv.",
 		"text_morning": "Matin",
 		"text_afternoon": "Après midi",
 		"text_available": "Demandeurs Disponibles",
@@ -610,7 +612,7 @@
 		"info":"40 caractères permis",
 		"deleteIcon": "Vous pouvez entièrement supprimer la demande ou simplement annuler le rendez-vous en préservant les données personnelles fournies. Supprimer la demande annulera le rendez-vous. Anuulez seulement le rendez-vous préservera les données personnelles fournies.",
 		"book/modify_appointment": "Vous devez cocher la case près du libelle du No de demande pour qu'un ou plusieurs demandeurs puissent prendre un rendez-vous",
-		"bookAppointment": "Commencez par sélectionner un créneau horaire libre , puis sélectionnez le demandeur pour lequel le rendez-vous doit  être pris. ",
+		"bookAppointment": "Inscrivez-vous pour un rendez-vous en sélectionnant sur le calendrier une journée parmi les dates, puis en cliquant sur le créneau que vous avez retenu. ",
 		"send_email/sms": "Vous pouvez ajouter un destinataire supplémentaire pour recevoir les notifications.",
 		"modify_at_DemoPreview": "Cliquez sur Modifier pour corriger les informations personnelles",
 		"modify_at_DocumentPreview": "Cliquez sur Modifier pour corriger le document téléchargé.",
@@ -619,7 +621,9 @@
 		"recommended_centers": "Liste des centres recommandés selon votre préfecture",
 		"nearBy": "Centres d'enregistrement basés sur votre géolocalisation",
 		"magnifying_glass": "Recherche basée sur la sélection du menu déroulant.",
-		"preview_continue": "Téléchargez tous les fichiers pour continuer"
+		"preview_continue": "Téléchargez tous les fichiers pour continuer",
+		"etape1":"Ajoutez des demandeurs en cliquant sur le + dans la liste des demandeurs",
+		"etape2":"Supprimez des demandeurs en cliquant sur le - dans la liste ci dessous"
 	},
 	"error": {
 		"error": "Une erreur technique est survenue et l'opération ne peut s'achever. Aucune donnée saisie ne peut être sauvegardée",
