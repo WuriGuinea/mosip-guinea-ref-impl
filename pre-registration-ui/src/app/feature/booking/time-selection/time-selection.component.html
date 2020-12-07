@@ -4,7 +4,7 @@
     <mat-card-header>
       <p class="time-selection__title-card-text">
         {{ 'timeSelection.title_book' | translate }}
-        <mat-icon class="icon" matTooltip="{{ 'helpText.bookAppointment' | translate }}" [inline]="true">help_outline
+        <mat-icon class="icon mobiletooltip" matTooltip="{{ 'helpText.bookAppointment' | translate }}" [inline]="true">help_outline
         </mat-icon>
       </p>
     </mat-card-header>
@@ -20,10 +20,11 @@
       <div *ngIf="availabilityData.length !== 0">
         <div class="container">
           <div id="leftbutton" class="time-selection__arrow-text">
-            <p (click)="scrollLeft()">{{ 'timeSelection.text_prev' | translate }}</p>
+            <p class="prevlong"(click)="scrollLeft()">{{ 'timeSelection.text_prev' | translate }}</p>
+            <p class="prevshort" (click)="scrollLeft()">{{ 'timeSelection.text_prevsmall' | translate }}</p>
           </div>
           <div class="left-button">
-            <a (click)="scrollLeft()"><img src="assets/Backward_arrow.png" /></a>
+            <a (click)="scrollLeft()"><img class="leftarrow" src="assets/Backward_arrow.png" /></a>
           </div>
           <div #widgetsContent class="middle">
             <mat-card *ngFor="let data of availabilityData | slice: 0:days; let i = index"
@@ -39,10 +40,11 @@
             </mat-card>
           </div>
           <div class="right-button">
-            <a (click)="scrollRight()"><img src="assets/Forward_arrow.png" /></a>
+            <a (click)="scrollRight()"><img class="rightarrow" src="assets/Forward_arrow.png" /></a>
           </div>
           <div id="rightbutton" class="time-selection__arrow-text">
-            <p (click)="scrollRight()">{{ 'timeSelection.text_next' | translate }}</p>
+            <p  class="nextlong"(click)="scrollRight()">{{ 'timeSelection.text_next' | translate }}</p>
+            <p class="nextshort" (click)="scrollRight()">{{ 'timeSelection.text_nextsmall' | translate }}</p>
           </div>
         </div>
       </div>
@@ -83,6 +85,8 @@
         <div  class="applicants_card appcard">
           <div class="time-selection__name-list-header">
             {{ 'timeSelection.text_available' | translate }}
+            <mat-icon class="icon mobiletooltip" matTooltip="{{ 'helpText.etape1' | translate }}" [inline]="true">help_outline
+            </mat-icon>
           </div>
           <div>
             <table class="time-selection__name-list">
@@ -106,7 +110,9 @@
             <span class="time-selection__names-header-date-text">{{ availabilityData[selectedTile].displayDate }}</span>,
             <span
               class="time-selection__names-header-time-text">{{availabilityData[selectedTile].timeSlots[selectedCard].displayTime}}</span>
-          </div>
+              <mat-icon class="icon mobiletooltip" matTooltip="{{ 'helpText.etape2' | translate }}" [inline]="true">help_outline
+              </mat-icon>
+            </div>
           <table class="time-selection__name-list">
             <tr class="placeholder" *ngIf="availabilityData[selectedTile].timeSlots[selectedCard].names.length === 0"><i>{{ 'timeSelection.applicant_selected_list_empty' | translate }}</i></tr>
             <tr class="time-selection__name-list-item" 
