@@ -24,8 +24,8 @@
                                         aria-label="Font Style"
                                         (selectionChange)="onReasonChange(reasons, $event)"
                                         [formControlName]="formControlNames.reason">
-                                    <mat-option *ngFor="let reason of reasons" [value]="reason.key">
-                                       <span style="display: block; margin-left: 10px">{{reason.value}}</span>
+                                    <mat-option *ngFor="let reason of reasons" [value]="reason.value">
+                                       <span style="display: block; margin-left: 10px">{{reason.key}}</span>
                                     </mat-option>
                                 </mat-select>
                                 <mat-error *ngIf=" userForm.get(formControlNames.reason).touched &&

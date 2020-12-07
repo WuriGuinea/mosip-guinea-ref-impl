@@ -14,8 +14,11 @@ export class ContactUs {
 
     // Dummy reasons
     static Reasons : object[] = [
-        { key : "reason 1", value : "Raison 1"},
-        { key : "reason 2", value : "Raison 2"},
-        { key : "other", value : "Autre"}
+        { key : "Appréciations", value : "APPRECIATION"},
+        { key : "Demande d’information", value : "DEMANDE_INFORMATION"},
+        { key : "Incident technique", value : "INCIDENT_TECHNIQUE"},
+        { key : "Perte de la carte INU", value : "PERTE_DE_LA_CARTE_INU"},
+        { key : "Plaintes et réclamations", value : "PLAINTE_ET_RECLAMATION"},
+        { key : "Autres", value : "AUTRE"},
     ];
 }

@@ -178,8 +178,8 @@
 
 .mat-select-object {
     border: 1px solid #BCE0FD;
-    height: 34px;
-    padding: 3px;
+    height: 35px;
+    margin-top: -20px;
 }
 
 
@@ -198,7 +198,7 @@ textarea {
     margin-bottom: -9px;
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-infix {
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
     width: 360px;
 }
 
@@ -218,3 +218,10 @@ textarea {
     padding-bottom: 0em;
 }
 
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: red!important;
+}
+
+::ng-deep .mat-input-element {
+    caret-color: red!important;
+}

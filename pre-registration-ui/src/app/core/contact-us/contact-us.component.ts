@@ -11,8 +11,7 @@ declare var grecaptcha: any;
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
 
@@ -102,7 +101,8 @@ export class ContactUsComponent implements OnInit {
   }
 
   onReasonChange(entity: any, event?: MatButtonToggleChange) {
-    this.displayOtherReason = "other" === event.value;
+    console.log(event.value);
+    this.displayOtherReason = "AUTRE" === event.value;
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
