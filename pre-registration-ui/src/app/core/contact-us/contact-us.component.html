@@ -11,10 +11,10 @@
         <div class="wuri-card">
             <div class="form" style="font-size: 15px" #form>
                 <article>
-                    <h4 class="title center-block">Ecrivez-nous</h4>
+                    <h4 class="title">Ecrivez-nous</h4>
                     <form [formGroup]="userForm" class="user__form">
                         <div class="center-block">
-                            <mat-form-field >
+                            <mat-form-field class="mat-select-mobile">
                                 <mat-label>{{'contactUs.objet' | translate}}<span class="mandatory">*</span></mat-label>
                                 <mat-select
                                         class="mat-select-object objet"
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="center-block">
-                            <mat-form-field *ngIf="displayOtherReason">
+                            <mat-form-field *ngIf="displayOtherReason" class="mat-select-mobile">
                                 <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
                                 <input
                                         matInput
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="center-block message">
-                            <mat-form-field>
+                            <mat-form-field class="mat-select-mobile">
                                 <mat-label  class="label-indent-textarea">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
                                 <textarea
                                         matInput
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="center-block">
-                            <mat-form-field>
+                            <mat-form-field class="mat-select-mobile">
                                 <mat-label class="extra-label"><b>{{'contactUs.fullName' | translate}}</b><span class="mandatory">* </span>
                                 </mat-label>
                                 <input
@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="center-block my-10">
-                            <mat-form-field>
+                            <mat-form-field class="mat-select-mobile">
                                 <mat-label class="extra-label"><b>{{'contactUs.email' | translate}}</b><span class="mandatory">* </span></mat-label>
                                 <input
                                     #email
@@ -87,11 +87,11 @@
                             </mat-form-field>
                         </div>
 
-                        <div class="center-block">
+                        <div class="center-block mat-select-mobile captcha-block">
                             <re-captcha (resolved)="resolved($event)"
                                         [formControlName]="formControlNames.captcha"
                                         siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
-                                        class="mycaptcha"
+                                        class="mycaptcha g-recaptcha"
                             >
                             </re-captcha>
                             <p>
@@ -99,9 +99,8 @@
                             </p>
 
                         </div>
-                        <br>
 
-                        <div class="center-block">
+                        <div class="center-block center-block2">
                             <button
                                     [disabled]="userForm.invalid || !captchaValidated"
                                     mat-raised-button
