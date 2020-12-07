@@ -472,22 +472,19 @@
     margin-top: 0px;
   }
   .time-selection__tile-date{
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     margin-left: -16px;
   }
   .time-selection__tile-date-text{
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     margin-left: -16px;
-    margin-top: -6px;
-  }
-  .time-selection__tile-date-text{
-    font-size: 0.6rem;
+    margin-top: -2px;
   }
   .time-selection__date-card{
     padding-top: 11px;
     margin: 17px;
     width: 92%;
-    left: -4px;
+    left: 4px;
     top: -30px;
     padding-right: 52px;
   }
@@ -500,7 +497,7 @@
   .prevshort{
     display: block  !important;
     font-size: 12px;
-    margin-left: 16px;
+    margin-left: 8px;
   }
   .nextlong{
     display: none;
@@ -511,9 +508,9 @@
     margin-left: 20px;
   }
   .time-selection__tile-availability-text{
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     margin-left: -10px;
-    margin-top: -8px;
+    margin-top: -2px;
   }
 
   .time-selection__name-list-item {

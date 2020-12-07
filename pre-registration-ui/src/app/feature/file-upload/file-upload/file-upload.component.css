@@ -245,8 +245,8 @@ mat-select:focus {
 }
 @media (min-width: 350px) and (max-width: 360px){
   .docposition{
-    left: -49px;
-    margin: -6px;
+    left: -48px;
+    margin: -11px;
   }
   .pareil{
     margin-left: -52px;
@@ -383,6 +383,8 @@ mat-select:focus {
   margin: 40px;
   position: relative;
   top: 9px;
+  margin-right: 88px;
+  left: 44px;
 }
 
 .file-upload__body__document-name {
