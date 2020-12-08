@@ -124,6 +124,30 @@
     padding-right: 1%;
   }
 }
+@media (min-width:501px) and (max-width:520px){
+  .time-selection__names-container{
+    min-width: 35rem !important;
+    margin-left: 26px;
+  }
+}
+@media (min-width:521px) and (max-width:600px){
+  .time-selection__names-container{
+    min-width: 35rem !important;
+    margin-left: 67px;
+  }
+}
+@media (min-width:601px) and (max-width:675px){
+  .time-selection__names-container{
+    min-width: 40rem!important;
+    margin-left: 67px;
+  }
+}
+@media (min-width:675px) and (max-width:705px){
+  .time-selection__names-container{
+    min-width: 40rem!important;
+    margin-left: 109px;
+  }
+}
 .appcard{
   width: 50%;
   }
@@ -443,8 +467,8 @@
   }
   .middle {
     margin: 0;
-    width: 59%;
-    margin-left: 5px;
+    width: 70%;
+    margin-left: 18px;
     z-index: 0;
   }
   .leftarrow{
@@ -454,7 +478,7 @@
   }
   .rightarrow{
     position: relative;
-    left: -11px;
+    left: 0px;
     top: -1px;
   }
   div::-webkit-scrollbar {
