@@ -64,9 +64,7 @@
     color: #020F59;
 }
 
-.title {
-    color: #020F59;
-}
+
 
 .adresse .email .telephone {
     display: block;
@@ -127,9 +125,7 @@
     display: flex;
     justify-content: center;
 }
-.message {
-    margin-bottom: 10px;
-}
+
 .contact-us{
     height: 700px;
     overflow-y: auto;
@@ -150,16 +146,10 @@
     display: block;
 }
 
-.objet {
-
-}
-
 .mat-select-object {
     border: 1px solid #BCE0FD;
     height: 35px;
-    margin-top: -20px;
 }
-
 
 .espace{
     margin-left: 1.3em;
@@ -170,18 +160,45 @@
 }
 
 textarea {
-    border-radius: 5px;
+    border-radius: 2px;
     height: 85px;
     border: solid 1px #BCE0FD !important;
-    margin-bottom: -9px;
 }
 
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix{
     width: 360px;
 }
 
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix mat-select{
+    border-bottom: none !important;
+    margin-bottom: -8px;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix textarea{
+    border-bottom: none !important;
+    margin-bottom: -8px;
+}
+
+::ng-deep .mat-select-value-text {
+    position: absolute;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+@media (max-width: 1280px) {
+    .title {
+        margin-left: 10%;
+    }
+}
+
+@media (min-width: 1285px) {
+    .title {
+        margin-left: 15%;
+    }
+}
 @media (max-width: 500px) {
-    ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+    ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix{
         width: 100%;
     }
 
@@ -196,7 +213,7 @@ textarea {
     }
 
     .g-recaptcha {
-        transform: scale(0.8);
+        transform: scale(1);
         transform-origin: 0 0;
     }
 
@@ -207,29 +224,83 @@ textarea {
 
     .container {
         max-height: none;
+        margin-left: 4%;
+        margin-right: 4%;
     }
 
     .contact {
         margin-top: 25px;
     }
 
+    .telephone, .email, .adresse {
+        margin-top: 15px;
+    }
+
+    .title {
+        margin-left: -45px;
+    }
+
+    .right-h {
+        display: none;
+    }
 }
 
 .my-10 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 15px;
 }
 
-.label-indent-textarea {
-    display: block;
-    position: relative;
-    margin-bottom: 26px;
-    padding-left: 5px;
-}
+
 
 .mat-form-field-wrapper {
     padding-bottom: 0em;
 }
 
+.mat-form-field-infix {
+    border-bottom: none;
+}
+
+.label-object {
+    margin-top: -10px;
+}
+
+
+::ng-deep .mat-form-field-label{
+    text-overflow: initial !important;
+    overflow: initial !important;
+    white-space: initial !important;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.mat-drawer-content {
+    position: relative;
+    z-index: 1;
+    display: flow-root !important;
+    height: 100%;
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+mat-form-field {
+    margin-top: 8px;
+}
+
+mat-error {
+    margin-left: 5px;
+}
+
+
+.mat-option-text-contact-us {
+    color: #020F59;
+}
+
+.acceuil {
+    color: #2f3033;
+    font-weight: normal;
+}
+
+.header-contact {
+    display: inline-block;
+    margin-left: 35px;
+}
 
 
