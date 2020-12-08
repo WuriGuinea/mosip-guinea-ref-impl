@@ -119,22 +119,20 @@
                                     </div>
 
                         </div>
-                    </div>
-                        <div
-                                class="mat-error ng-star-inserted user__dob__error"
-                                *ngIf="
-                  (userForm.get(formControlNames.dateOfBirth).touched &&
-                    userForm.get(formControlNames.dateOfBirth).hasError('incorrect')) ||
-                  (userForm.get(formControlNames.age).touched && !userForm.get(formControlNames.age).valid)
-                "
-                        >
-                            {{ 'demographic.validation.DOB_validation' | translate }}
-                        </div>
-
-
+                    
+                </div>
+                <div class="mat-error user__dob__error" style= ""
+                *ngIf="
+                (userForm.get(formControlNames.dateOfBirth).touched &&
+                userForm.get(formControlNames.dateOfBirth).hasError('incorrect')) ||
+                (userForm.get(formControlNames.age).touched && 
+                !userForm.get(formControlNames.age).valid)"
+                >
+                {{ 'demographic.validation.DOB_validation' | translate }}
+                </div>
+                
 
                     <div class="user__genderAndForeigner user__dropdown col-50">
-
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_gender' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
@@ -182,10 +180,7 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-
-
                         <h4 style="margin-top: 15px;" class="titlecolor posmobile">{{ 'demographic.contact_section_title' | translate }}</h4>
-
 
                         <div class="row">
                             <div class="user__dropdown col-50">
