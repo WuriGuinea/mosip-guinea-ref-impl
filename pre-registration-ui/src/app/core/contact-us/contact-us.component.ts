@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
 import { ContactUs, ContactUsFormControlModal } from './contact-us';
@@ -101,7 +101,8 @@ export class ContactUsComponent implements OnInit {
   }
 
   onReasonChange(entity: any, event?: MatButtonToggleChange) {
-    this.displayOtherReason = "other" === event.value;
+    console.log(event.value);
+    this.displayOtherReason = "AUTRE" === event.value;
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
