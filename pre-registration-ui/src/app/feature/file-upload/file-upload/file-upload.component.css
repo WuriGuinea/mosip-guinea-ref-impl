@@ -25,7 +25,7 @@
   border: none;
   display: block !important;
   outline: none;
-  z-index: auto;
+  z-index: 0;
 }
 .browseInputhide{
   display: block !important;
@@ -61,6 +61,7 @@
   height: 29px !important;
   width:  29px !important;
   margin-right: 3px;
+  z-index: 6;
 }
 .documentWrapper {
   width: 100%;
@@ -218,11 +219,19 @@ mat-select:focus {
   width: 100%;
 }
 .docposition{
-  margin-left: -150px !important;
-  top: 34px !important;
+  margin-left: -95px !important;
+  top: 42px !important;
   display: flex;
   text-align: center;
   float: left;
+}
+.docposition{
+  margin-left: 78px;
+  text-decoration: underline #BCE0FD;
+  color: #020F59;
+  position: absolute !important;
+  top: -3px;
+  line-break: anywhere;
 }
 }
 @media (min-width: 701px) and (max-width: 1950px){
@@ -247,6 +256,8 @@ mat-select:focus {
   .docposition{
     left: -48px;
     margin: -11px;
+    white-space: pre-wrap;
+    line-break: anywhere;
   }
   .pareil{
     margin-left: -52px;
@@ -339,6 +350,12 @@ mat-select:focus {
     margin: -6px;
   }
 }
+  @media (min-width: 701px) and (max-width: 770px){
+    .docposition{
+      left: 203px;
+      margin: -6px;
+    }
+}
 
 
 :host ::ng-deep .ng2-pdf-viewer-container {
@@ -416,7 +433,7 @@ mat-select:focus {
   filter: none;
 }
 .docposition{
-  margin-left: 78px;
+  margin-left: -321px;
   text-decoration: underline #BCE0FD;
   color: #020F59;
   position: relative;
@@ -480,7 +497,7 @@ mat-select:focus {
 }
 
 .file-upload__or {
-  padding-top: 1rem;
+  padding-top: 2.7rem;
 }
 
 .file-buttons {
