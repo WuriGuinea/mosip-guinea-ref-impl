@@ -1295,12 +1295,10 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       let emptyElFound = false;
       let totalEmptyEls = 0;
       els.forEach(el => {
-        if (el.value === "" && !emptyElFound) {
           el.focus();
           emptyElFound = true;
           totalEmptyEls += 1;
           return;
-        }
         // console.log(el.value);
       });
 
