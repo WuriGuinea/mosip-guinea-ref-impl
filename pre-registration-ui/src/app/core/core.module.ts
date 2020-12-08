@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {RecaptchaFormsModule, RecaptchaModule} from "ng-recaptcha";
 
 import { AboutUsComponent } from './about-us/about-us.component';
+import {ContactUsService} from "./contact-us/contact-us.service";
 import { FaqComponent } from './faq/faq.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -20,6 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RecaptchaFormsModule],
   declarations: [HeaderComponent, FooterComponent, AboutUsComponent, FaqComponent, ContactUsComponent],
   exports: [HeaderComponent, FooterComponent, SharedModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }]
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }, ContactUsService]
 })
 export class CoreModule {}

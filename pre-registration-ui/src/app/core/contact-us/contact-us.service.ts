@@ -3,9 +3,7 @@ import { Injectable } from "@angular/core";
 import {Observable} from "rxjs";
 
 
-@Injectable({
-    providedIn: 'root'
-  })
+@Injectable({providedIn: 'root'})
 export class ContactUsService {
 
     BASE_URL = "https://guinea-sandbox.mosip.net/pre-registration-contactus";
