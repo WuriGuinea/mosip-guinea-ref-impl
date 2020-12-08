@@ -524,6 +524,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       response => { 
         if (response[appConstants.RESPONSE]) {
           this.registration.updateUser(this.registration.getUsers().length - 1, this.users[this.step]);
+          this. hideview();
         } else {
           this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error);
         }

@@ -25,7 +25,7 @@
   border: none;
   display: block !important;
   outline: none;
-  z-index: auto;
+  z-index: 0;
 }
 .browseInputhide{
   display: block !important;
@@ -61,6 +61,7 @@
   height: 29px !important;
   width:  29px !important;
   margin-right: 3px;
+  z-index: 6;
 }
 .documentWrapper {
   width: 100%;
@@ -349,6 +350,12 @@ mat-select:focus {
     margin: -6px;
   }
 }
+  @media (min-width: 701px) and (max-width: 770px){
+    .docposition{
+      left: 203px;
+      margin: -6px;
+    }
+}
 
 
 :host ::ng-deep .ng2-pdf-viewer-container {
@@ -490,7 +497,7 @@ mat-select:focus {
 }
 
 .file-upload__or {
-  padding-top: 2rem;
+  padding-top: 2.7rem;
 }
 
 .file-buttons {
