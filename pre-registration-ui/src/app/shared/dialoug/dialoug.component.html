@@ -36,6 +36,41 @@
       </tr>
     </table>
 
+    <table class="table-containermobile">
+      <tr *ngIf="input.notificationTypes.includes('EMAIL')">
+        <td><i class="material-icons icon-color">email</i></td>
+        <td>
+          <mat-form-field>
+            <input
+              #email
+              matInput
+              placeholder="{{ 'dialog.text_emailmobile' | translate }}"
+              (keyup)="validateEmail()"
+              type="text"
+              [(ngModel)]="applicantEmail"
+              (focusout)="enableButton(email, mobile)"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr *ngIf="input.notificationTypes.includes('SMS')">
+        <td><i  class="material-icons icon-color">chat</i></td>
+        <td>
+          <mat-form-field>
+            <input
+              #mobile
+              matInput
+              placeholder="{{ 'dialog.text_mobilem' | translate }}"
+              (keyup)="validateMobile()"
+              type="text"
+              [(ngModel)]="applicantNumber"
+              (focusout)="enableButton(email, mobile)"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    
     <div *ngIf="invalidApplicantNumber">
       <div>{{ 'dialog.invalidApplicantNumber' | translate }}</div>
     </div>
