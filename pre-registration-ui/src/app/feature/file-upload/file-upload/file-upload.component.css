@@ -360,12 +360,12 @@ mat-select:focus {
   .docposition{
     left: 150px
   }
-} 
-@media (min-width: 1366px) and (max-width: 1500px){
+}
+@media screen and (min-device-width: 1366px) and (max-device-width: 1480px) {
   .docposition{
     left: 93px;
   }
-} 
+}
 
 
 
