@@ -361,6 +361,12 @@ mat-select:focus {
     left: 150px
   }
 } 
+@media (min-width: 1366px) and (max-width: 1500px){
+  .docposition{
+    left: 93px;
+  }
+} 
+
 
 
 :host ::ng-deep .ng2-pdf-viewer-container {
