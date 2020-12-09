@@ -16,11 +16,7 @@ import LanguageFactory from '../../../assets/i18n';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, AfterViewInit {
-  @ViewChild('loginP') loginP: MatInput;
-  ngAfterViewInit(): void {
-    this.loginP.focus();
-  }
+export class LoginComponent implements OnInit {
   languages: string[] = [];
   inputPlaceholderContact = 'Email ID or Phone Number';
   inputPlaceholderOTP = 'Enter OTP';

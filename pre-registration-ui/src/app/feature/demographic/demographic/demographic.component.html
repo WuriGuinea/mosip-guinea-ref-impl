@@ -268,6 +268,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_prefecture' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, subPrefectureOrCommunes, prefectures, formControlNames.subPrefectureOrCommune)"
                                     placeholder="Préfecture"
@@ -288,6 +289,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_subprefectureOrCommune' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, districts, subPrefectureOrCommunes, formControlNames.district)"
                                     placeholder="Sous-préfecture ou Commune"
@@ -306,6 +308,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_district' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, sectors, districts, formControlNames.sector)"
                                     placeholder="District"
@@ -324,6 +327,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_sector' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, null, sectors)"
                                     placeholder="Secteur"
@@ -343,6 +347,7 @@
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}
                             </mat-label>
                         <input 
+                        class="tabulation"
                              id="complement"
                              #additionalAddressDetails
                              type="text"
@@ -376,6 +381,7 @@
             {{ 'demographic.action_back' | translate }}
         </button>
         <button
+        class="tabulation"
                 *ngIf="!showPreviewButton"
                 class="user__btn hidedesk"
                 type="button"
