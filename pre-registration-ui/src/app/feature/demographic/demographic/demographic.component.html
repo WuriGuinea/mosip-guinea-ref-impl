@@ -360,6 +360,7 @@
                     </div>
                 </div>
                 <button
+                class="tabulation"
                         *ngIf="!showPreviewButton"
                         class="user__btn hidemobile"
                         type="button"
@@ -373,6 +374,7 @@
     </div>
     <div class="user__buttons">
         <button
+        class="tabulation"
                 class="user__btn user__btn--back"
                 type="button"
                 (click)="onBack()"
@@ -391,6 +393,7 @@
             {{ 'demographic.action_continue' | translate }}
         </button>
         <button
+        class="tabulation"
                 *ngIf="showPreviewButton"
                 class="user__btn btn"
                 type="button"
