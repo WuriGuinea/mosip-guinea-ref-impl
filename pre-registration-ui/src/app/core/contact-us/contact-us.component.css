@@ -118,10 +118,16 @@
 }
 
 .extra-label{
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .center-block {
+    display: block;
+    justify-content: normal;
+    width: 360px;
+}
+
+.center-block-cent {
     display: flex;
     justify-content: center;
 }
@@ -184,6 +190,7 @@ textarea {
     position: absolute;
     padding-top: 5px;
     padding-left: 5px;
+    text-transform: uppercase;
 }
 
 @media (max-width: 1280px) {
@@ -192,12 +199,25 @@ textarea {
     }
 }
 
-@media (min-width: 1285px) {
+@media (max-width: 1285px) {
     .title {
         margin-left: 15%;
     }
 }
-@media (max-width: 500px) {
+
+@media (max-width: 3000px) {
+    .title {
+        margin-left: 24.5%;
+    }
+}
+
+@media (max-width: 700px) {
+    .center-block {
+        display: flex;
+        justify-content: normal;
+        width: 100%;
+    }
+
     ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix{
         width: 100%;
     }
@@ -206,10 +226,10 @@ textarea {
         width: 100%;
     }
 
-    .center-block {
-        display: flex;
-        justify-content: normal;
-        margin-left: -45px;
+    .form {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
     }
 
     .g-recaptcha {
@@ -226,6 +246,7 @@ textarea {
         max-height: none;
         margin-left: 4%;
         margin-right: 4%;
+        padding-left: 0px;
     }
 
     .contact {
@@ -300,7 +321,14 @@ mat-error {
 
 .header-contact {
     display: inline-block;
-    margin-left: 35px;
+}
+
+.mat-error-captcha {
+    font-size: 11px;
 }
 
 
+
+.maz {
+    text-transform: uppercase;
+}
