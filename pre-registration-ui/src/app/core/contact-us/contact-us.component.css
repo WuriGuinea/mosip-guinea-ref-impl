@@ -42,13 +42,14 @@
     background: #fff;
     text-decoration: none;
     outline: none;
-    font-size: 15px;
-    font-weight: bold;
+
     line-height: 44px;
     white-space: nowrap;
     padding: 0 20px 0 60px;
     border-bottom:1px solid #BCE0FD;
     border-top: 1px solid #BCE0FD;
+    font-weight: bold;
+    font-size: 20px;
 }
 .left-h {
     width: 50%;
@@ -230,11 +231,7 @@ textarea {
         position: relative;
         width: 100%;
         max-width: 100%;
-    }
-
-    .g-recaptcha {
-        transform: scale(1);
-        transform-origin: 0 0;
+        color: #020F59;
     }
 
     .center-block2 {
@@ -315,7 +312,6 @@ mat-error {
 }
 
 .acceuil {
-    color: #2f3033;
     font-weight: normal;
 }
 
