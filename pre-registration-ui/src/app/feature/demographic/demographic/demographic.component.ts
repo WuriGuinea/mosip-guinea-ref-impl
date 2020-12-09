@@ -118,7 +118,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   @ViewChildren('keyboardRef', { read: ElementRef })
   private _attachToElementMesOne: any;
 
-  @ViewChild("gender") genderFocus: ElementRef;
+  @ViewChild("gender") genderFocus: MatSelect;
 
   regions: CodeValueModal[] = [];
   prefectures: CodeValueModal[] = [];
@@ -1311,6 +1311,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
           //.select();
 
           this.genderFocus.focused = true;
+          this.genderFocus.open();
           emptyElFound = true;
           totalEmptyEls += 1;
           return;
