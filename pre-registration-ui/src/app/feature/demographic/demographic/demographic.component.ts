@@ -1275,6 +1275,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       const subpref = this.form.nativeElement.querySelector("#subpref");
       const district = this.form.nativeElement.querySelector("#district");
       const sector = this.form.nativeElement.querySelector("#sector");
+      const complement = this.form.nativeElement.querySelector("#complement");
 
       els.push(firstName);
       els.push(lastName);
@@ -1291,6 +1292,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       els.push(subpref);
       els.push(district);
       els.push(sector);
+      els.push(complement);
 
       let emptyElFound = false;
       let totalEmptyEls = 0;
@@ -1312,4 +1314,5 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       }
       event.preventDefault();
   }
+ 
 }
