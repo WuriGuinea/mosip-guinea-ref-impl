@@ -298,8 +298,7 @@ public class IdaController {
 
         if (otpAuthType.isSelected()) {
             if (otpValue.getText().trim().isEmpty() || otpValue.getText().equals(otpDefaultValue)) {
-                System.out.println("OTP get disable");
-                sendAuthRequest.setDisable(true);
+                     sendAuthRequest.setDisable(true);
                 return;
             }
         }
