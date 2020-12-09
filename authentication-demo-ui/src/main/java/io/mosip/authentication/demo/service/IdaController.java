@@ -189,7 +189,7 @@ public class IdaController {
             updateSendButton();
         });
         otpValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (otpValue.isEditable())
+            if (otpValue.isEditable()  && otpValue.getText().equals(otpDefaultValue))
             {  otpValue.setText("");
             otpValue.setStyle("-fx-text-fill: #020F59;");}
 
@@ -298,6 +298,7 @@ public class IdaController {
 
         if (otpAuthType.isSelected()) {
             if (otpValue.getText().trim().isEmpty() || otpValue.getText().equals(otpDefaultValue)) {
+                System.out.println("OTP get disable");
                 sendAuthRequest.setDisable(true);
                 return;
             }
@@ -564,6 +565,10 @@ public class IdaController {
         otpRequestDTO.setVersion("1.0");
 
         try {
+            //System.out.println ("-----------------------------------------------------------");
+           // System.out.println( " IDA.OTP.URL:"+   env.getProperty("ida.otp.url"));
+            //System.out.println( " OTP REQUEST:"+   otpRequestDTO.toString());
+            System.out.println ("-----------------------------------------------------------");
             RestTemplate restTemplate = createTemplate();
             HttpEntity<OtpRequestDTO> httpEntity = new HttpEntity<>(otpRequestDTO);
             ResponseEntity<Map> response = restTemplate.exchange(
@@ -598,6 +603,7 @@ public class IdaController {
     @SuppressWarnings({"unchecked", "rawtypes"})
     @FXML
     private void onSendAuthRequest() throws Exception {
+        System.out.println(" TRYING TO SEND AUTH REQUEST");
         responsetextField.setText(null);
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
         responsetextField.setText("Preparation de la requête OTP");
