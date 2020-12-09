@@ -356,6 +356,18 @@ mat-select:focus {
       margin: -6px;
     }
 }
+@media (min-width: 772px) and (max-width: 1000px){
+  .docposition{
+    left: 192px;
+    margin: -6px;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1023px){
+  .docposition{
+    left: 155px;
+    margin: -6px;
+  }
+}
 @media (min-width: 1024px) and (max-width: 1134px){
   .docposition{
     left: 150px
