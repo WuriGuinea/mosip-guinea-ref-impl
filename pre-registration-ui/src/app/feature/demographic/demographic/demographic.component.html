@@ -132,7 +132,7 @@
                         </div>
                     
                 </div>
-                <div class="mat-error user__dob__error" style= ""
+                <div class="mat-error user__dob__error"
                 *ngIf="
                 (userForm.get(formControlNames.dateOfBirth).touched &&
                 userForm.get(formControlNames.dateOfBirth).hasError('incorrect')) ||
@@ -246,6 +246,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_region' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, prefectures, regions, formControlNames.prefecture)"
                                     placeholder="Région"
