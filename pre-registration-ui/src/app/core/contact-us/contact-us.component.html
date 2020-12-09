@@ -33,7 +33,7 @@
                             </mat-form-field>
                         </div>
 
-                        <div class="center-block" style="margin-top: -5px">
+                        <div class="center-block" style="margin-top: -15px">
                             <mat-form-field *ngIf="displayOtherReason" class="mat-select-mobile">
                                 <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
                                 <input
@@ -42,7 +42,7 @@
                                         #otherReason
                                         placeholder="{{'contactUs.otherReason' | translate}}"
                                         [formControlName]="formControlNames.otherReason"/>
-                                <mat-error *ngIf="!otherReason.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
+                                <mat-error *ngIf="!otherReason.invalid"> {{'contactUs.mandatoryMotif' | translate}}</mat-error>
                             </mat-form-field>
                         </div>
 
@@ -96,7 +96,7 @@
                                     <re-captcha (resolved)="resolved($event)"
                                                 [formControlName]="formControlNames.captcha"
                                                 siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
-                                                class="mycaptcha g-recaptcha"
+                                                class="mycaptcha"
                                     >
                                     </re-captcha>
                                     <div >
