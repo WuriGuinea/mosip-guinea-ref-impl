@@ -1,3 +1,22 @@
+.breadcrumb {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.header-container {
+    display: flex;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.header-text {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: -117px;
+}
+
 .wuri-card {
     display: -ms-flexbox;
     display: flex;
@@ -13,10 +32,10 @@
 
 .container {
     color: #020F59;
-    border: solid grey 1px;
+    border: solid #020F59 1px;
     border-radius: 30px;
     padding-left: 50px;
-    box-shadow: 0px 3px 6px darkgrey;
+    /*box-shadow: 0px 3px 6px darkgrey;*/
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 10px;
@@ -69,7 +88,7 @@
 
 .adresse .email .telephone {
     display: block;
-    margin-top: 25px;
+    margin-top: 30px;
     font-size: 14px;
 }
 
@@ -131,6 +150,7 @@
 .center-block-cent {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .contact-us{
@@ -172,7 +192,6 @@ textarea {
     border: solid 1px #BCE0FD !important;
 }
 
-
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix{
     width: 360px;
 }
@@ -189,7 +208,7 @@ textarea {
 
 ::ng-deep .mat-select-value-text {
     position: absolute;
-    padding-top: 5px;
+    padding-top: 7px;
     padding-left: 5px;
     text-transform: uppercase;
 }
@@ -215,8 +234,18 @@ textarea {
 @media (max-width: 700px) {
     .center-block {
         display: flex;
-        justify-content: normal;
+        justify-content: center;
         width: 100%;
+    }
+
+    .captcha-center {
+        position: relative;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 2px;
     }
 
     ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix{
@@ -254,6 +283,9 @@ textarea {
         margin-top: 15px;
     }
 
+    .telephone {
+        margin-top: 10px;
+    }
     .title {
         margin-left: -45px;
     }
@@ -261,6 +293,8 @@ textarea {
     .right-h {
         display: none;
     }
+
+
 }
 
 .my-10 {
@@ -278,7 +312,7 @@ textarea {
 }
 
 .label-object {
-    margin-top: -10px;
+    margin-top: -6px;
 }
 
 
@@ -323,8 +357,10 @@ mat-error {
     font-size: 11px;
 }
 
-
-
 .maz {
     text-transform: uppercase;
+}
+
+.padding-text-area {
+    padding-left: 2.5px;
 }
