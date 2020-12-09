@@ -1,12 +1,12 @@
 <div class="contact-us">
-    <div class="header" style="display: flex">
-        <div class="left-h">
-            <span class="acceuil">Accueil</span>/<span class="active">Contact</span>
+    <mat-card>
+        <div class="header-container">
+            <span class="breadcrumb">Accueil/<strong>Contact</strong></span>
+            <span class="spacer"></span>
+            <span class="header-text">Contact <!--{{'faq.breadcrumb.getting_started' | translate}}--></span>
+            <span class="spacer"></span>
         </div>
-        <div class="right-h">
-            <span class="header-contact">Contact</span>
-        </div>
-    </div>
+    </mat-card>
     <div class="container">
         <div class="wuri-card">
             <div class="form" style="font-size: 15px" #form>
@@ -33,8 +33,8 @@
                             </mat-form-field>
                         </div>
 
-                        <div class="center-block" style="margin-top: -15px">
-                            <mat-form-field *ngIf="displayOtherReason" class="mat-select-mobile">
+                        <div class="center-block">
+                            <mat-form-field style="margin-top: -5px" *ngIf="displayOtherReason" class="mat-select-mobile">
                                 <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
                                 <input
                                         class="maz"
@@ -48,8 +48,9 @@
 
                         <div class="center-block">
                             <mat-form-field class="mat-select-mobile">
-                                <mat-label  class="label-indent-textarea ">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
+                                <mat-label  class="label-indent-textarea">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
                                 <textarea
+                                        class="padding-text-area"
                                         matInput
                                         #message
                                         rows="10"
@@ -90,19 +91,17 @@
                             </mat-form-field>
                         </div>
 
-                        <div class="center-block mat-select-mobile captcha-block">
+                        <div class="center-block captcha-block">
                             <div class="center-block-cent">
-                                <div class="block" style="display:block;">
-                                    <re-captcha (resolved)="resolved($event)"
-                                                [formControlName]="formControlNames.captcha"
-                                                siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
-                                                class="mycaptcha"
-                                    >
-                                    </re-captcha>
-                                    <div >
-                                        <mat-error class="mat-error-captcha" *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
-                                    </div>
-                                </div>
+                                        <re-captcha (resolved)="resolved($event)"
+                                                    [formControlName]="formControlNames.captcha"
+                                                    siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
+                                                    class="mycaptcha g-recaptcha captcha-center"
+                                        >
+                                        </re-captcha>
+                            </div>
+                            <div class="center-block-cent" style="margin-top: -5px">
+                                <mat-error class="mat-error-captcha" *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
                             </div>
 
                         </div>
@@ -123,7 +122,7 @@
                     </form>
                 </article>
             </div>
-            <div class="contact center-block">
+            <div class="contact">
                 <article>
                     <div class="adresse">
                         <p>
