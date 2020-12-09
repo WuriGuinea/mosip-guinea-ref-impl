@@ -118,6 +118,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   @ViewChildren('keyboardRef', { read: ElementRef })
   private _attachToElementMesOne: any;
 
+  @ViewChild("gender") genderFocus: ElementRef;
+
   regions: CodeValueModal[] = [];
   prefectures: CodeValueModal[] = [];
   subPrefectureOrCommunes: CodeValueModal[] = [];
@@ -1297,6 +1299,16 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
       els.forEach(el => {
         if (el.value === "" && !emptyElFound) {
           el.focus();
+          emptyElFound = true;
+          totalEmptyEls += 1;
+          return;
+        }
+        else if (el.tagName == "MAT-SELECT") {
+          console.log(el);
+          //el.focus();
+          //.select();
+
+          this.genderFocus.focused = true;
           emptyElFound = true;
           totalEmptyEls += 1;
           return;
