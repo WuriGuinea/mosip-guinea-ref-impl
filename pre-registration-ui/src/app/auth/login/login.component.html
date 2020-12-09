@@ -17,7 +17,7 @@
       <div *ngIf="showContactDetails">
         
           <mat-form-field appearance="outline">     
-            <input class="login-input" autofocus="autofocus" matInput [(ngModel)]="inputContactDetails"
+            <input class="login-input" #loginP="matInput" matInput [(ngModel)]="inputContactDetails"
               placeholder="{{ 'login.label_email_num' | translate }}" 
               id="inputFieldContact" required />   
               
