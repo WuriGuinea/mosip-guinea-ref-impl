@@ -11,8 +11,8 @@
         <div class="wuri-card">
             <div class="form" style="font-size: 15px" #form>
                 <article>
-                    <h4 class="title" >Ecrivez-nous</h4>
                     <form [formGroup]="userForm" class="user__form">
+                        <h4>Ecrivez-nous</h4>
                         <div class="center-block">
                             <mat-form-field class="mat-select-mobile">
                                 <mat-label class="label-object">{{'contactUs.objet' | translate}}<span class="mandatory">*</span></mat-label>
@@ -25,7 +25,7 @@
                                         (selectionChange)="onReasonChange(reasons, $event)"
                                         [formControlName]="formControlNames.reason">
                                     <mat-option class="mat-option-text-contact-us" *ngFor="let reason of reasons" [value]="reason.value">
-                                        <span>{{reason.key}}</span>
+                                        <span >{{reason.key}}</span>
                                     </mat-option>
                                 </mat-select>
                                 <mat-error *ngIf=" userForm.get(formControlNames.reason).touched &&
@@ -37,6 +37,7 @@
                             <mat-form-field *ngIf="displayOtherReason" class="mat-select-mobile">
                                 <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
                                 <input
+                                        class="maz"
                                         matInput
                                         #otherReason
                                         placeholder="{{'contactUs.otherReason' | translate}}"
@@ -45,9 +46,9 @@
                             </mat-form-field>
                         </div>
 
-                        <div class="center-block ">
+                        <div class="center-block">
                             <mat-form-field class="mat-select-mobile">
-                                <mat-label  class="label-indent-textarea">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
+                                <mat-label  class="label-indent-textarea ">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
                                 <textarea
                                         matInput
                                         #message
@@ -65,6 +66,7 @@
                                 <mat-label class="extra-label">{{'contactUs.fullName' | translate}}<span class="mandatory">* </span>
                                 </mat-label>
                                 <input
+                                        class="maz"
                                         matInput
                                         #name
                                         placeholder="{{'contactUs.fullName' | translate}}"
@@ -77,38 +79,46 @@
                             <mat-form-field class="mat-select-mobile">
                                 <mat-label class="extra-label">{{'contactUs.email' | translate}}<span class="mandatory">* </span></mat-label>
                                 <input
-                                    #email
-                                    type="text"
-                                    matInput
-                                    placeholder="{{'contactUs.email' | translate}}"
-                                    [formControlName]="formControlNames.email"/>
-                                    <mat-error *ngIf="!email.invalid && email.value==''"> {{'contactUs.mandatoryEmail' | translate}}</mat-error>
-                                    <mat-error *ngIf="email.value !== ''  && !email.invalid"> {{'contactUs.mandatoryEmailInvalid' | translate}}</mat-error>
+                                        class="maz"
+                                        #email
+                                        type="text"
+                                        matInput
+                                        placeholder="{{'contactUs.email' | translate}}"
+                                        [formControlName]="formControlNames.email"/>
+                                <mat-error *ngIf="!email.invalid && email.value==''"> {{'contactUs.mandatoryEmail' | translate}}</mat-error>
+                                <mat-error *ngIf="email.value !== ''  && !email.invalid"> {{'contactUs.mandatoryEmailInvalid' | translate}}</mat-error>
                             </mat-form-field>
                         </div>
 
                         <div class="center-block mat-select-mobile captcha-block">
-                            <re-captcha (resolved)="resolved($event)"
-                                        [formControlName]="formControlNames.captcha"
-                                        siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
-                                        class="mycaptcha g-recaptcha"
-                            >
-                            </re-captcha>
-                            <p>
-                                <mat-error *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
-                            </p>
+                            <div class="center-block-cent">
+                                <div class="block" style="display:block;">
+                                    <re-captcha (resolved)="resolved($event)"
+                                                [formControlName]="formControlNames.captcha"
+                                                siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
+                                                class="mycaptcha g-recaptcha"
+                                    >
+                                    </re-captcha>
+                                    <div >
+                                        <mat-error class="mat-error-captcha" *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 
+                        <br>
                         <div class="center-block center-block2">
-                            <button
-                                    [disabled]="userForm.invalid || !captchaValidated"
-                                    mat-raised-button
-                                    class="btn_axn-pri submit_button"
-                                    type="button"
-                                    (click)="onSubmit()">
-                                {{'contactUs.send' | translate}}
-                            </button>
+                            <div class="center-block-cent">
+                                <button
+                                        [disabled]="!captchaValidated && userForm.invalid"
+                                        mat-raised-button
+                                        class="btn_axn-pri submit_button"
+                                        type="button"
+                                        (click)="onSubmit()">
+                                    {{'contactUs.send' | translate}}
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </article>
