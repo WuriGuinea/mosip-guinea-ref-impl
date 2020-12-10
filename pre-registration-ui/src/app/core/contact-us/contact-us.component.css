@@ -355,6 +355,13 @@ mat-error {
 
 .mat-error-captcha {
     font-size: 11px;
+
+}
+
+.mat-error-local {
+    font-size: 11px;
+    margin-top: 3px;
+    margin-left: 3px;
 }
 
 .maz {

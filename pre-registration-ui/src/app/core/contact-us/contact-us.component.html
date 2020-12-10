@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="center-block">
-                            <mat-form-field style="margin-top: -5px" *ngIf="displayOtherReason" class="mat-select-mobile">
+                            <mat-form-field style="margin-top: -5px" *ngIf="displayOtherReason" class="mat-select-mobile" (mouseleave)="onBlurOtherReason()" (keyup)="onWrittingReason()">
                                 <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
                                 <input
                                         class="maz"
@@ -42,7 +42,7 @@
                                         #otherReason
                                         placeholder="{{'contactUs.otherReason' | translate}}"
                                         [formControlName]="formControlNames.otherReason"/>
-                                <mat-error *ngIf="!otherReason.invalid"> {{'contactUs.mandatoryMotif' | translate}}</mat-error>
+                                <span class="mat-error mat-error-local" *ngIf="otherReasonError"> {{'contactUs.mandatoryMotif' | translate}}</span>
                             </mat-form-field>
                         </div>
 
