@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmationDialogComponent} from "./confirmation-dialog/confirmation-dialog.component";
 import { ContactUs, ContactUsFormControlModal } from './contact-us';
 import {ContactUsService} from "./contact-us.service";
 declare var grecaptcha: any;
@@ -37,7 +39,8 @@ export class ContactUsComponent implements OnInit {
 
   constructor(
       private httpClient: HttpClient,
-      private contactUsService: ContactUsService
+      private contactUsService: ContactUsService,
+      public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -63,6 +66,18 @@ export class ContactUsComponent implements OnInit {
     });
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '550px',
+      disableClose: true,
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.userForm.reset();
+    });
+  }
+
   setFormControlValues() {
     this.formControlValues = {
       name: '',
@@ -76,6 +91,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.openDialog();
     const response = grecaptcha.getResponse();
     if (response.length === 0) {
       this.captchaError = '';
@@ -89,12 +105,16 @@ export class ContactUsComponent implements OnInit {
           response => {
             const r = response;
             console.log(r);
+
+            this.openDialog();
           },
           error => {
             this.invalidLogin = true;
             this.loginResponse = response.message;
             const err = error;
             console.log(err);
+
+            //this.openDialog();
           });
       grecaptcha.reset();
     }
