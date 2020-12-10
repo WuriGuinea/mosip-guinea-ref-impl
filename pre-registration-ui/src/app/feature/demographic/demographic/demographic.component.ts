@@ -1,4 +1,5 @@
 import {Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {MatSelect} from "@angular/material/select";
 import {Router} from '@angular/router';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatButtonToggleChange, MatDialog, MatSelectChange} from '@angular/material';
@@ -27,7 +28,7 @@ import {LogService} from 'src/app/shared/logger/log.service';
 import LanguageFactory from 'src/assets/i18n';
 import {FormDeactivateGuardService} from 'src/app/shared/can-deactivate-guard/form-guard/form-deactivate-guard.service';
 import {Subscription} from 'rxjs';
-
+import * as $ from 'jquery';
 // import { ErrorService } from 'src/app/shared/error/error.service';
 
 /**
@@ -118,6 +119,9 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   @ViewChildren('keyboardRef', { read: ElementRef })
   private _attachToElementMesOne: any;
 
+  @ViewChild("gender") genderFocus: MatSelect;
+  @ViewChild("nationnality") nationality: MatSelect;
+
   regions: CodeValueModal[] = [];
   prefectures: CodeValueModal[] = [];
   subPrefectureOrCommunes: CodeValueModal[] = [];
@@ -128,6 +132,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   locationHierarchy = ["region", "prefecture", "subPrefectureOrCommune", "district", "sector"];
   codeValue: CodeValueModal[] = [];
   subscriptions: Subscription[] = [];
+
+
 
   formControlValues: FormControlModal;
   formControlNames: FormControlModal = {
@@ -1255,61 +1261,14 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   }
 
   onEnterDown(event: any) {
-    console.log("Enter", event.target.value);
-
-      const els: any[] = [];
-
-
-      const firstName = this.form.nativeElement.querySelector("#firstName");
-      const lastName = this.form.nativeElement.querySelector("#lastName");
-      const dd = this.form.nativeElement.querySelector("#dd");
-      const mm = this.form.nativeElement.querySelector("#mm");
-      const yyyy = this.form.nativeElement.querySelector("#yyyy");
-      const age = this.form.nativeElement.querySelector("#age");
-      const gender = this.form.nativeElement.querySelector("#gender");
-      const nationnality = this.form.nativeElement.querySelector("#nationnality");
-      const phone = this.form.nativeElement.querySelector("#phone");
-      const email = this.form.nativeElement.querySelector("#email");
-      const region = this.form.nativeElement.querySelector("#region");
-      const pref = this.form.nativeElement.querySelector("#pref");
-      const subpref = this.form.nativeElement.querySelector("#subpref");
-      const district = this.form.nativeElement.querySelector("#district");
-      const sector = this.form.nativeElement.querySelector("#sector");
-
-      els.push(firstName);
-      els.push(lastName);
-      els.push(dd);
-      els.push(mm);
-      els.push(yyyy);
-      els.push(age);
-      els.push(gender);
-      els.push(nationnality);
-      els.push(phone);
-      els.push(email);
-      els.push(region);
-      els.push(pref);
-      els.push(subpref);
-      els.push(district);
-      els.push(sector);
-
-      let emptyElFound = false;
-      let totalEmptyEls = 0;
-      els.forEach(el => {
-        if (el.value === "" && !emptyElFound) {
-          el.focus();
-          emptyElFound = true;
-          totalEmptyEls += 1;
-          return;
-        }
-        // console.log(el.value);
-      });
-
-      if (totalEmptyEls === 0) {
-        // console.log();
-        //this.submitButton.nativeElement.click();
-        //console.log(this.submitButton.nativeElement.click, "Submit by enter");
-        //this.myform.nativeElement.submit();
+     $('input').keydown( function(e) {
+      var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+      if(key == 13) {
+        e.preventDefault();
+        var inputs = $(this).closest('form').find('.tabulation');
+        inputs.eq( inputs.index(this)+ 1 ).focus();
       }
-      event.preventDefault();
+    });
   }
+ 
 }

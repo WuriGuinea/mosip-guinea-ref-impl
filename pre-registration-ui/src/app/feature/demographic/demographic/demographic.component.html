@@ -15,6 +15,8 @@
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.label_first_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
+                                        class="tabulation"
+                                        tabindex="1"
                                         id="firstName"
                                         matInput
                                         #firstName
@@ -30,6 +32,8 @@
                             <mat-form-field>
                                 <mat-label>{{ 'demographic.label_last_name' | translate }} <span class="mandatory">*</span></mat-label>
                                 <input
+                                        class="tabulation"
+                                        tabindex="2"
                                         id="lastName"
                                         matInput
                                         #lastName
@@ -57,6 +61,8 @@
                                     <mat-form-field class="col-auto-jj" style="margin-top: 7px">
                                         <mat-label class="label-date">{{ 'demographic.date_dd' | translate }}</mat-label>
                                         <input
+                                                class="tabulation"
+                                                tabindex="3"
                                                 matInput
                                                 id="dd"
                                                 placeholder="JJ"
@@ -69,6 +75,8 @@
                                     <mat-form-field class="col-auto-mm" style="margin-top: 7px">
                                         <mat-label class="label-date">{{ 'demographic.date_mm' | translate }}</mat-label>
                                         <input
+                                                class="tabulation"
+                                                tabindex="4"
                                                 matInput
                                                 id="mm"
                                                 placeholder="MM"
@@ -81,6 +89,8 @@
                                     <mat-form-field class="col-auto-aaaa" style="margin-top: 7px">
                                         <mat-label class="label-date">{{ 'demographic.date_yyyy' | translate }} </mat-label>
                                         <input
+                                                class="tabulation"
+                                                tabindex="5"
                                                 matInput
                                                 placeholder="AAAA"
                                                 id="yyyy"
@@ -102,9 +112,10 @@
                                         <mat-form-field style="margin-top: 7px">
                                             <mat-label class="label-date">{{ 'demographic.label_age' | translate }}  <span class="mandatory">*</span></mat-label>
                                             <input
+                                                    class="tabulation"
+                                                    tabindex="6"
                                                     matInput
                                                     id="age"
-                                                    tabindex="-1"
                                                     [formControlName]="formControlNames.age"
                                                     placeholder="{{ 'demographic.label_age' | translate }}"
                                                     #age
@@ -121,7 +132,7 @@
                         </div>
                     
                 </div>
-                <div class="mat-error user__dob__error" style= ""
+                <div class="mat-error user__dob__error"
                 *ngIf="
                 (userForm.get(formControlNames.dateOfBirth).touched &&
                 userForm.get(formControlNames.dateOfBirth).hasError('incorrect')) ||
@@ -136,14 +147,17 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_gender' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                                    class="tabulation"
+                                    tabindex="7"
                                     id="gender"
                                     #gender
                                     [formControlName]="formControlNames.gender"
-                                    (change)="onGenderChange(genders, $event)"
+                                    (selectionChange)="onGenderChange(genders, $event)"
                                     placeholder="{{ 'demographic.text_gender' | translate  }}"
                                     appearance="legacy"
                                     name="fontStyle"
                                     aria-label="Font Style"
+
                                 >
                                 <mat-option *ngFor="let gender of genders" [value]="gender.code">
                                     {{ gender.genderName }}
@@ -160,6 +174,8 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.text_residence_status' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                                    class="tabulation"
+                                    tabindex="8"
                                     id="nationnality"
                                     #nationnality
                                     [formControlName]="formControlNames.residenceStatus"
@@ -187,6 +203,8 @@
                                 <mat-form-field>
                                     <mat-label>{{ 'demographic.label_mob_num' | translate }}</mat-label>
                                     <input
+                                            class="tabulation"
+                                            tabindex="9"
                                             id="phone"
                                             matInput
                                             #mobileNumber
@@ -204,6 +222,8 @@
                                 <mat-form-field>
                                     <mat-label>{{ 'demographic.label_email_id' | translate }}</mat-label>
                                     <input
+                                            class="tabulation"
+                                            tabindex="10"
                                             id="email"
                                             #email
                                             type="text"
@@ -226,6 +246,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_region' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, prefectures, regions, formControlNames.prefecture)"
                                     placeholder="Région"
@@ -247,6 +268,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_prefecture' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, subPrefectureOrCommunes, prefectures, formControlNames.subPrefectureOrCommune)"
                                     placeholder="Préfecture"
@@ -267,6 +289,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_subprefectureOrCommune' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, districts, subPrefectureOrCommunes, formControlNames.district)"
                                     placeholder="Sous-préfecture ou Commune"
@@ -285,6 +308,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_district' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, sectors, districts, formControlNames.sector)"
                                     placeholder="District"
@@ -303,6 +327,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_sector' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
+                            class="tabulation"
                                     disableOptionCentering
                                     (selectionChange)="onLocationSelect($event, null, sectors)"
                                     placeholder="Secteur"
@@ -322,6 +347,7 @@
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}
                             </mat-label>
                         <input 
+                        class="tabulation"
                              id="complement"
                              #additionalAddressDetails
                              type="text"
@@ -334,6 +360,7 @@
                     </div>
                 </div>
                 <button
+                class="tabulation"
                         *ngIf="!showPreviewButton"
                         class="user__btn hidemobile"
                         type="button"
@@ -347,6 +374,7 @@
     </div>
     <div class="user__buttons">
         <button
+        class="tabulation"
                 class="user__btn user__btn--back"
                 type="button"
                 (click)="onBack()"
@@ -355,6 +383,7 @@
             {{ 'demographic.action_back' | translate }}
         </button>
         <button
+        class="tabulation"
                 *ngIf="!showPreviewButton"
                 class="user__btn hidedesk"
                 type="button"
@@ -364,6 +393,7 @@
             {{ 'demographic.action_continue' | translate }}
         </button>
         <button
+        class="tabulation"
                 *ngIf="showPreviewButton"
                 class="user__btn btn"
                 type="button"

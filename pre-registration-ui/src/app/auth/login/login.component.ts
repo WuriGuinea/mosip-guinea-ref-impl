@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {MatInput} from "@angular/material/input";
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
@@ -48,16 +49,18 @@ export class LoginComponent implements OnInit {
   validationMessages = {};
   textDir = localStorage.getItem('dir');
   LANGUAGE_ERROR_TEXT =
-    'The system has encountered a technical error. Administrator to setup the necessary language configuration(s)';
+      'The system has encountered a technical error. Administrator to setup the necessary language configuration(s)';
+
+
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private translate: TranslateService,
-    private dialog: MatDialog,
-    private dataService: DataStorageService,
-    private regService: RegistrationService,
-    private configService: ConfigService
+      private authService: AuthService,
+      private router: Router,
+      private translate: TranslateService,
+      private dialog: MatDialog,
+      private dataService: DataStorageService,
+      private regService: RegistrationService,
+      private configService: ConfigService
   ) {
     translate.setDefaultLang('fra');
     localStorage.clear();
@@ -70,7 +73,7 @@ export class LoginComponent implements OnInit {
     this.authService.onLogout();
   }
 
-  
+
   loadValidationMessages() {
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
@@ -99,14 +102,14 @@ export class LoginComponent implements OnInit {
 
   loadConfigs() {
     this.dataService.getConfig().subscribe(
-      response => {
-        this.configService.setConfig(response);
-        this.setTimer();
-        this.loadLanguagesWithConfig();
-      },
-      error => {
-        this.showErrorMessage();
-      }
+        response => {
+          this.configService.setConfig(response);
+          this.setTimer();
+          this.loadLanguagesWithConfig();
+        },
+        error => {
+          this.showErrorMessage();
+        }
     );
   }
 
@@ -123,10 +126,10 @@ export class LoginComponent implements OnInit {
     //   : this.secondaryLangFromConfig;
 
     if (
-      !this.primaryLangFromConfig ||
-      !this.secondaryLangFromConfig ||
-      this.primaryLangFromConfig === '' ||
-      this.secondaryLangFromConfig === ''
+        !this.primaryLangFromConfig ||
+        !this.secondaryLangFromConfig ||
+        this.primaryLangFromConfig === '' ||
+        this.secondaryLangFromConfig === ''
     ) {
       const message = {
         case: 'MESSAGE',
@@ -148,8 +151,8 @@ export class LoginComponent implements OnInit {
     this.translate.use(this.primaryLang);
     this.selectedLanguage = appConstants.languageMapping[this.primaryLang].langName;
     if (
-      appConstants.languageMapping[this.primaryLangFromConfig] &&
-      appConstants.languageMapping[this.secondaryLangFromConfig]
+        appConstants.languageMapping[this.primaryLangFromConfig] &&
+        appConstants.languageMapping[this.secondaryLangFromConfig]
     ) {
       this.languages.push(appConstants.languageMapping[this.primaryLangFromConfig].langName);
       this.languages.push(appConstants.languageMapping[this.secondaryLangFromConfig].langName);
@@ -161,8 +164,8 @@ export class LoginComponent implements OnInit {
 
   setLanguageDirection(primaryLang: string, secondaryLang: string) {
     const ltrLangs = this.configService
-      .getConfigByKey(appConstants.CONFIG_KEYS.mosip_left_to_right_orientation)
-      .split(',');
+        .getConfigByKey(appConstants.CONFIG_KEYS.mosip_left_to_right_orientation)
+        .split(',');
     if (ltrLangs.includes(primaryLang)) {
       this.dir = 'ltr';
     } else {
@@ -222,8 +225,8 @@ export class LoginComponent implements OnInit {
 
   showVerifyBtn() {
     if (
-      this.inputOTP.length ===
-      Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_default_length))
+        this.inputOTP.length ===
+        Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_default_length))
     ) {
       this.showVerify = true;
       this.showResend = false;
@@ -299,23 +302,23 @@ export class LoginComponent implements OnInit {
     } else if (this.showVerify && this.errorMessage === undefined) {
       this.disableVerify = true;
       this.dataService.verifyOtp(this.inputContactDetails, this.inputOTP).subscribe(
-        response => {
-          if (!response['errors']) {
-            clearInterval(this.timer);
-            // localStorage.setItem('loggedIn', 'true');
-            // this.authService.setToken();
-            // this.regService.setLoginId(this.inputContactDetails);
+          response => {
+            if (!response['errors']) {
+              clearInterval(this.timer);
+              // localStorage.setItem('loggedIn', 'true');
+              // this.authService.setToken();
+              // this.regService.setLoginId(this.inputContactDetails);
+              this.disableVerify = false;
+              this.router.navigate(['']);
+            } else {
+              this.disableVerify = false;
+              this.showOtpMessage();
+            }
+          },
+          error => {
             this.disableVerify = false;
-            this.router.navigate(['']);
-          } else {
-            this.disableVerify = false;
-            this.showOtpMessage();
+            this.showErrorMessage();
           }
-        },
-        error => {
-          this.disableVerify = false;
-          this.showErrorMessage();
-        }
       );
     }
   }
