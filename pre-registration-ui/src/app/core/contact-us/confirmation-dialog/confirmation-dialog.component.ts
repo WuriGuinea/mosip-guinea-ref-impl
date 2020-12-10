@@ -15,7 +15,13 @@ export class ConfirmationDialogComponent implements OnInit {
       @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
-    this.data.case = 1
   }
 
+  userRedirection() {
+
+  }
+
+  onOkClick() {
+
+  }
 }

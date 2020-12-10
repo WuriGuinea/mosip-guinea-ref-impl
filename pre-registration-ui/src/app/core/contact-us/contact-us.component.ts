@@ -3,6 +3,8 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
 import {MatDialog} from "@angular/material/dialog";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
+import {DialogData} from "../../shared/dialoug/dialoug.component";
 import {ConfirmationDialogComponent} from "./confirmation-dialog/confirmation-dialog.component";
 import { ContactUs, ContactUsFormControlModal } from './contact-us';
 import {ContactUsService} from "./contact-us.service";
@@ -36,6 +38,8 @@ export class ContactUsComponent implements OnInit {
   captchaError = '';
   loginResponse: string;
   captchaValidated = false;
+  dialogType: DialogData = {case: 0};
+  otherReasonError = false;
 
   constructor(
       private httpClient: HttpClient,
@@ -56,9 +60,7 @@ export class ContactUsComponent implements OnInit {
       [this.formControlNames.reason]: new FormControl(this.formControlValues.reason.trim(), [
         Validators.required
       ]),
-      [this.formControlNames.otherReason]: new FormControl(this.formControlValues.otherReason.trim(), [
-        Validators.required
-      ]),
+      [this.formControlNames.otherReason]: new FormControl(this.formControlValues.otherReason.trim(), []),
       [this.formControlNames.message]: new FormControl(this.formControlValues.message.trim(), [
         Validators.required
       ]),
@@ -66,11 +68,11 @@ export class ContactUsComponent implements OnInit {
     });
   }
 
-  openDialog(): void {
+  openDialog(dialogType: DialogData): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '550px',
       disableClose: true,
-      data: {}
+      data: dialogType
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -91,32 +93,26 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.openDialog();
-    const response = grecaptcha.getResponse();
-    if (response.length === 0) {
-      this.captchaError = '';
-      return;
-    }
-
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid) {
-      const request = this.userForm.value;
-      this.sendForm(request).subscribe(
-          response => {
-            const r = response;
-            console.log(r);
-
-            this.openDialog();
-          },
-          error => {
-            this.invalidLogin = true;
-            this.loginResponse = response.message;
-            const err = error;
-            console.log(err);
-
-            //this.openDialog();
-          });
-      grecaptcha.reset();
+      if (this.userForm.getRawValue().reason.toLocaleLowerCase() == "autre") {
+        if (this.userForm.getRawValue().otherReason.length == 0) {
+          this.otherReasonError = true;
+        }
+        else {
+          this.sendValidatedForm();
+        }
+      }
+      else {
+        this.sendValidatedForm();
+      }
+    }
+    else {
+      if (this.userForm.getRawValue().reason.toLocaleLowerCase() == "autre") {
+        if (this.userForm.getRawValue().otherReason.length == 0) {
+          this.otherReasonError = true;
+        }
+      }
     }
   }
 
@@ -148,5 +144,34 @@ export class ContactUsComponent implements OnInit {
       console.log(error);
       this.captchaError = 'invalid';
     });
+  }
+
+  onBlurOtherReason() {
+    if (this.userForm.getRawValue().otherReason.length == 0) {
+      this.otherReasonError = true;
+    }
+  }
+
+  private sendValidatedForm() {
+    this.sendForm(this.userForm.getRawValue()).subscribe(
+        response => {
+          const r = response;
+
+          this.dialogType.case = 1;
+
+          this.openDialog(this.dialogType);
+        },
+        error => {
+          console.log(error);
+          this.invalidLogin = true;
+          this.dialogType.case = 0;
+
+          this.openDialog(this.dialogType);
+        });
+    grecaptcha.reset();
+  }
+
+  onWrittingReason() {
+    this.otherReasonError = this.userForm.getRawValue().otherReason.length == 0;
   }
 }
