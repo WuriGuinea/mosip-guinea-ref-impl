@@ -1261,23 +1261,7 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   }
 
   onEnterDown(event: any) {
-    /*$('input').on("keypress", function(e) {
-      /!* ENTER PRESSED*!/
-      if (e.keyCode == 13) {
-        /!* FOCUS ELEMENT *!/
-        var inputs = $(this).parents("form").eq(0).find(".tabulation");
-        var idx = inputs.index(this);
-        if (idx == inputs.length - 1) {
-          inputs[0].select()
-        } else {
-          inputs[idx + 1].focus(); //  handles submit buttons
-          inputs[idx + 1].select();
-        }
-        return false;
-      }
-    });*/
-
-    $('input').keydown( function(e) {
+     $('input').keydown( function(e) {
       var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
       if(key == 13) {
         e.preventDefault();
