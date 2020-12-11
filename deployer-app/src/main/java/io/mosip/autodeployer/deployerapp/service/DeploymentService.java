@@ -22,6 +22,7 @@ public class DeploymentService {
         Session session;
         try {
 
+
             String privateKey = "~/.ssh/wuri-sandbox-aws.pem";
 
             if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
@@ -51,9 +52,7 @@ public class DeploymentService {
             commander.print("exit\n");
             commander.print("exit\n");
             commander.close();
-            do {
-                TimeUnit.SECONDS.sleep(1);
-            } while (!channel.isEOF());
+
             session.disconnect();
             System.out.println("Process Finished ...");
 
