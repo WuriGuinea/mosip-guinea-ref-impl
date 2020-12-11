@@ -39,7 +39,6 @@
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 10px;
-    max-height: 95%;
 }
 
 .form {
@@ -61,6 +60,7 @@
     background: #fff;
     text-decoration: none;
     outline: none;
+
 
     line-height: 44px;
     white-space: nowrap;
@@ -269,7 +269,6 @@ textarea {
     }
 
     .container {
-        max-height: none;
         margin-left: 4%;
         margin-right: 4%;
         padding-left: 0px;
