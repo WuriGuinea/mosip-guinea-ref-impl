@@ -48,7 +48,7 @@ public class DeploymentService {
             commander.print("sudo su mosipuser\n");
             commander.print("cd\n");
             commander.print("POD_UI=$(kc1 get pod | grep prereg-ui | awk '{print $1}') \n");
-            commander.print("kc1 delete pod $POD_UI\n");
+            commander.print("kc1 delete pod $POD_UI &\n");
             commander.print("exit\n");
             commander.print("exit\n");
             commander.close();
