@@ -170,6 +170,7 @@ export class ContactUsComponent implements OnInit {
           this.openDialog(this.dialogType);
         });
     grecaptcha.reset();
+    this.captchaValidated = false;
   }
 
   onWrittingReason() {
