@@ -72,7 +72,7 @@ export class ContactUsComponent implements OnInit {
 
   openDialog(dialogType: DialogData): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      width: '550px',
+      width: '310px',
       disableClose: true,
       data: dialogType
     });

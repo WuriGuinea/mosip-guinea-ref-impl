@@ -15,9 +15,9 @@ export class ContactUsService {
         const data = {
             "name" : formData.name,
             "email" : formData.email,
-            "reason" :  formData.reason.toLocaleLowerCase() == 'autre' ? formData.otherReason : formData.reason,
+            "reason" :  `<h2> Objet: Accusé de réception - RE[${formData.reason.toLocaleLowerCase() == 'autre' ? formData.otherReason : formData.reason}]</h2>` ,
             "sign" : "",
-            "message" : `<h2> Objet: Accusé de réception - RE[${formData.reason}]</h2> <h3> ${formData.name}, </h3> <p> Nous avons reçu votre message et un membre de notre équipe vous contactera dans les plus bref délais. Ceci est un réponse automatique. </p><p> Votre message: <br><br>&nbsp; &nbsp; À: &nbsp; &nbsp; contact@wuriguinee.com <br>&nbsp; &nbsp; Objet: ${formData.reason} <br>&nbsp; &nbsp; Envoyé: ${this.getDateTime()} <br>&nbsp; &nbsp; Message: ${formData.message.replace("\r\n", "<br />\r\n")} <br></p><p> Cordialement, <br>L'Équipe WURI Guinée </p>`
+            "message" : `<h3> ${formData.name}, </h3> <p> Nous avons reçu votre message et un membre de notre équipe vous contactera dans les plus bref délais. Ceci est un réponse automatique. </p><p> Votre message: <br><br>&nbsp; &nbsp; À: &nbsp; &nbsp; contact@wuriguinee.com <br>&nbsp; &nbsp; Objet: ${formData.reason} <br>&nbsp; &nbsp; Envoyé: ${this.getDateTime()} <br>&nbsp; &nbsp; Message: ${formData.message.replace("\r\n", "<br />\r\n")} <br></p><p> Cordialement, <br>L'Équipe WURI Guinée </p>`
         };
         return this.httpClient.post(url, data);
     }

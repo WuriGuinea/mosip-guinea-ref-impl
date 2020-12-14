@@ -24,7 +24,7 @@
                                         aria-label="Font Style"
                                         (selectionChange)="onReasonChange(reasons, $event)"
                                         [formControlName]="formControlNames.reason">
-                                    <mat-option class="mat-option-text-contact-us" *ngFor="let reason of reasons" [value]="reason.value">
+                                    <mat-option class="mat-option-text-contact-us" *ngFor="let reason of reasons" [value]="reason.key">
                                         <span >{{reason.key}}</span>
                                     </mat-option>
                                 </mat-select>
@@ -106,7 +106,6 @@
                                 <mat-error class="mat-error-captcha" *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
                             </div>
                         </div>
-
                         <br>
                         <div class="center-block center-block2">
                             <div class="center-block-cent">
