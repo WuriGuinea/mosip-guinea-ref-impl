@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
 import {MatDialog} from "@angular/material/dialog";
+import {MatIcon} from "@angular/material/icon";
+import {MatInput} from "@angular/material/input";
 import {el} from "@angular/platform-browser/testing/src/browser_util";
 import {DialogData} from "../../shared/dialoug/dialoug.component";
 import {ConfirmationDialogComponent} from "./confirmation-dialog/confirmation-dialog.component";
@@ -116,6 +118,9 @@ export class ContactUsComponent implements OnInit {
     }
   }
 
+
+
+
   onReasonChange(entity: any, event?: MatButtonToggleChange) {
     console.log(event.value);
     this.displayOtherReason = "AUTRE" === event.value;
@@ -130,10 +135,6 @@ export class ContactUsComponent implements OnInit {
     });
   }
 
-  private sendForm(data: object) {
-    const url = this.BASE_URL + "/contact-us";
-    return this.httpClient.post(url, data);
-  }
 
   resolved(token: any) {
     console.log(token);
@@ -153,7 +154,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   private sendValidatedForm() {
-    this.sendForm(this.userForm.getRawValue()).subscribe(
+    this.contactUsService.sendForm(this.userForm.getRawValue()).subscribe(
         response => {
           const r = response;
 
@@ -169,6 +170,7 @@ export class ContactUsComponent implements OnInit {
           this.openDialog(this.dialogType);
         });
     grecaptcha.reset();
+    this.captchaValidated = false;
   }
 
   onWrittingReason() {
