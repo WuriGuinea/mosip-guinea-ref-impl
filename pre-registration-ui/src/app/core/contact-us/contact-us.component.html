@@ -106,11 +106,11 @@
                                 <mat-error class="mat-error-captcha" *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
                             </div>
                         </div>
-                        <!--[disabled]="!captchaValidated || !userForm.valid"-->
                         <br>
                         <div class="center-block center-block2">
                             <div class="center-block-cent">
                                 <button
+                                        [disabled]="!captchaValidated || !userForm.valid"
                                         mat-raised-button
                                         class="btn_axn-pri submit_button"
                                         type="button"

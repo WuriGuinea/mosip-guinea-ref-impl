@@ -165,7 +165,7 @@ export class ContactUsComponent implements OnInit {
         error => {
           console.log(error);
           this.invalidLogin = true;
-          this.dialogType.case = 1;
+          this.dialogType.case = 0;
 
           this.openDialog(this.dialogType);
         });
