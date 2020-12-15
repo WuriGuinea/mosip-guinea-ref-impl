@@ -64,12 +64,19 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   ngOnInit() {
+    /*this.dataService.getNearbyRegistrationCenters({
+      longitude: "9.5198182",
+      latitude: "-13.6953373,17"
+    }).subscribe(r => {
+      console.log(r);
+    }, error => {
+      console.log(error);
+    });*/
     this.REGISTRATION_CENTRES = [];
     this.selectedCentre = null;
     const subs = this.dataService.getLocationTypeData().subscribe(response => {
       const locationItems = response[appConstants.RESPONSE]['locations'];
       this.filterLocations(locationItems);
-
     });
     this.subscriptions.push(subs);
     this.users = this.service.getNameList();
@@ -139,6 +146,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
             // .getCenter()
             .subscribe((response) => {
               if (response[appConstants.RESPONSE]) {
+                console.log(response["response"]);
                 this.displayResults(response["response"]);
               } else {
                 if (response["errors"] && response["errors"].length > 0) {
@@ -152,7 +160,8 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
               }
             })
         );
-      } else {
+      }
+      else {
         alert("No prefectures found")
       }
     });
@@ -250,13 +259,24 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getLocation() {
+
+
     this.searchClick = true;
     this.REGISTRATION_CENTRES = [];
     if (navigator.geolocation) {
       this.showMap = false;
       navigator.geolocation.getCurrentPosition(position => {
+        console.log(position);
+        this.service.coordinatesList.subscribe(r => {
+          // latitude: 10.94065 longitude: -14.280725
+          console.log(r);
+          console.log(this.calcCrow(position.coords.latitude, position.coords.longitude, r[0]["latitude"], r[0]["longitude"]));
+        });
+
+
         const subs = this.dataService.getNearbyRegistrationCenters(position.coords).subscribe(
           response => {
+            console.log(response);
             if (
               response[appConstants.NESTED_ERROR].length === 0 &&
               response[appConstants.RESPONSE]['registrationCenters'].length !== 0
@@ -267,6 +287,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
             }
           },
           error => {
+            console.log(error);
             this.showMessage = true;
             this.displayMessageError('Error', this.errorlabels.error, error);
           }
@@ -301,6 +322,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
       };
       coords.push(data);
     });
+
     this.service.listOfCenters(coords);
   }
 
@@ -332,6 +354,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
 
   async displayResults(response: any) {
     this.REGISTRATION_CENTRES = response['registrationCenters'];
+    console.log(this.REGISTRATION_CENTRES);
     await this.getWorkingDays();
     this.showTable = true;
     if (this.REGISTRATION_CENTRES) {
@@ -381,5 +404,26 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  //This function takes in latitude and longitude of two location and returns the distance between them as the crow flies (in km)
+  calcCrow(lat1P, lon1P, lat2P, lon2P) {
+    let R = 6371; // km
+    let dLat = this.toRad(lat2P-lat1P);
+    let dLon = this.toRad(lon2P-lon1P);
+    let lat1 = this.toRad(lat1P);
+    let lat2 = this.toRad(lat2P);
+
+    let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    let d = R * c;
+    return d;
+  }
+
+  // Converts numeric degrees to radians
+  toRad(Value)
+  {
+    return Value * Math.PI / 180;
   }
 }
