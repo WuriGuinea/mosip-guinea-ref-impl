@@ -83,6 +83,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.getRecommendedCenters();
     this.getErrorLabels();
     this.centerSelectedOption = 'Recommanded';
+    this.getNearbyCenter();
   }
 
   // Hack: for displaying SOUS-Prefecture and COMMUNE separately and retrieving PAYS option
@@ -257,7 +258,19 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
       this.plotOnMap();
     }
   }
-
+  pos:number;
+getNearbyCenter(){
+  if(navigator.geolocation && window.navigator.geolocation){
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.pos = position.coords.latitude;
+      if(this.getPrefectures && this.pos){
+        
+        
+      }
+      console.log(this.pos);
+     });     
+   }
+}
   getLocation() {
 
 
