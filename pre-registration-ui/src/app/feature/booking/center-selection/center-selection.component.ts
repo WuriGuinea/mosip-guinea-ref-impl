@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DialougComponent } from '../../../shared/dialoug/dialoug.component';
 import { DataStorageService } from 'src/app/core/services/data-storage.service';
+import {NESTED_ERROR, RESPONSE} from "./../../../app.constants";
+import {BookingInterface} from "./booking.model";
 import { RegistrationCentre } from './registration-center-details.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -272,29 +274,21 @@ getNearbyCenter(){
    }
 }
   getLocation() {
-
-
     this.searchClick = true;
     this.REGISTRATION_CENTRES = [];
     if (navigator.geolocation) {
       this.showMap = false;
       navigator.geolocation.getCurrentPosition(position => {
         console.log(position);
-        this.service.coordinatesList.subscribe(r => {
-          // latitude: 10.94065 longitude: -14.280725
-          console.log(r);
-          console.log(this.calcCrow(position.coords.latitude, position.coords.longitude, r[0]["latitude"], r[0]["longitude"]));
-        });
-
-
         const subs = this.dataService.getNearbyRegistrationCenters(position.coords).subscribe(
-          response => {
-            console.log(response);
+            (resp: BookingInterface) => {
+
             if (
-              response[appConstants.NESTED_ERROR].length === 0 &&
-              response[appConstants.RESPONSE]['registrationCenters'].length !== 0
+                resp.errors === null &&
+                resp.response.registrationCenters.length !== 0
             ) {
-              this.displayResults(response[appConstants.RESPONSE]);
+              console.log("Inside condition", resp);
+              this.displayResults(resp.response);
             } else {
               this.showMessage = true;
             }
