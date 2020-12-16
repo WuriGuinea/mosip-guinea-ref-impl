@@ -122,8 +122,7 @@ export class ContactUsComponent implements OnInit {
 
 
   onReasonChange(entity: any, event?: MatButtonToggleChange) {
-    console.log(event.value);
-    this.displayOtherReason = "AUTRE" === event.value;
+    this.displayOtherReason = "AUTRES" === event.value.toString().toLocaleUpperCase();
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
