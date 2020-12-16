@@ -1,5 +1,5 @@
 id,sw_binary_hash,sw_version,dprovider_id,dtype_code,dstype_code,make,model,sw_cr_dtimes,sw_expiry_dtimes,is_active,cr_by,cr_dtimes,eff_dtimes
 7ab9b6af-2537-4933-840e-ac0fe5e9edfe,0,SB.WIN.001,SYNCBYTE.LTC165,Face,Full face,Logitech,C615,2020-09-08 05:10:35.677000,2020-12-31 06:12:52.994000,true,lisbon,now(),now()
-8dc974dc-01e7-47ef-8005-c6be4581d98c,0,SB.WIN.001,SYNCBYTE.TCI322,Finger,Slab,SB,FRO900,2020-09-08 05:12:00.568000,2020-12-31 06:12:52.994000,true,lisbon,now(),now()
+8dc974dc-01e7-47ef-8005-c6be4581d98c,0,SB.WIN.001,SYNCBYTE.FRO900,Finger,Slap,Aratek,FRO900,2020-09-08 05:12:00.568000,2020-12-31 06:12:52.994000,true,lisbon,now(),now()
 50925e7d-88ea-466d-80b8-0539da0a1c6d,0,SB.WIN.001,SYNCBYTE.MC01A,Finger,Single,MC01A,SMIDCL,2020-09-08 05:13:37.391000,2020-12-31 06:12:52.994000,true,lisbon,now(),now()
-3c7b688b-bf54-4ab1-9ea7-1ef889b0ca21,0,SB.WIN.001,SYNCBYTE.TCI322,Iris,DoubleIris,EYECOOL,TCI322,2020-09-08 06:13:00.521000,2020-12-31 06:12:52.994000,true,lisbon,now(),now()
+3c7b688b-bf54-4ab1-9ea7-1ef889b0ca21,0,SB.WIN.001,SYNCBYTE.TCI322,Iris,Double,"Eyecool",ECI102,2020-09-08 06:13:00.521000,2020-12-31 06:12:52.994000,true,lisbon,now(),now()
