@@ -66,14 +66,6 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   ngOnInit() {
-    /*this.dataService.getNearbyRegistrationCenters({
-      longitude: "9.5198182",
-      latitude: "-13.6953373,17"
-    }).subscribe(r => {
-      console.log(r);
-    }, error => {
-      console.log(error);
-    });*/
     this.REGISTRATION_CENTRES = [];
     this.selectedCentre = null;
     const subs = this.dataService.getLocationTypeData().subscribe(response => {
