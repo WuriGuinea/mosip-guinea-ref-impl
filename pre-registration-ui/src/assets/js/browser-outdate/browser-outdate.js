@@ -1,19 +1,19 @@
 $buoop = {
-    required:{e:-4,f:-1,o:-3,s:-1,c:-3},insecure:true,unsupported:true,style:"top",api:2020.12,
+    required:{e:-4,f:-1,o:-3,s:-1,c:-3},insecure:true,unsupported:true,style:"corner",api:2020.12,
     reminder: 24,
     reminderClosed: 150,
     onshow: function(infos){},
     onclick: function(infos){},
     onclose: function(infos){},
     l: false,
-    text: "Votre navigateur, {brow_name}, est trop ancien : <a {up_but}> mise à jour </a>",
+    text: "Vous utilisez une version de navigateur ({brow_name}), non supportée. <br/> <a{up_but}> Mises à jour </a> <a{ignore_but}>Annulé</a>",
     newwindow: true,
     url: null,
     noclose:false,
     nomessage: false,
-    jsshowurl: "//browser-update.org/update.show.min.js",
+    jsshowurl: "https://guinea-sandbox.mosip.net/pre-registration-ui/assets/js/browser-outdate/update.show.min.js",
     container: document.body,
-    no_permanent_hide: false,
+    no_permanent_hide: false
 };
 
 function $buo_f(){
