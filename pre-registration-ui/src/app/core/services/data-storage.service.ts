@@ -133,8 +133,7 @@ export class DataStorageService {
   }
 
   getNearbyRegistrationCenters(coords: any) {
-    return this.httpClient.get(
-      this.BASE_URL +
+    const URL = this.BASE_URL +
         appConstants.APPEND_URL.master_data +
         appConstants.APPEND_URL.nearby_registration_centers +
         localStorage.getItem('langCode') +
@@ -143,7 +142,11 @@ export class DataStorageService {
         '/' +
         coords.latitude +
         '/' +
-        this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_nearby_centers)
+        this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_nearby_centers);
+
+    console.log(URL);
+    return this.httpClient.get(
+      URL
     );
   }
 
