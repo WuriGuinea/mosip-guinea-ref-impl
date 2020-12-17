@@ -11,15 +11,14 @@ $buoop = {
     url: null,
     noclose:false,
     nomessage: false,
-    jsshowurl: "//browser-update.org/update.show.min.js",
+    jsshowurl: "https://guinea-sandbox.mosip.net/pre-registration-ui/assets/js/browser-outdate/update.show.min.js",
     container: document.body,
-    no_permanent_hide: false,
-    shift_page_down: true
+    no_permanent_hide: false
 };
 
 function $buo_f(){
     var e = document.createElement("script");
-    e.src = "http://localhost:4200/assets/js/browser-outdate/update.min.js";
+    e.src = "//browser-update.org/update.min.js";
     document.body.appendChild(e);
 };
 try {document.addEventListener("DOMContentLoaded", $buo_f,false)}

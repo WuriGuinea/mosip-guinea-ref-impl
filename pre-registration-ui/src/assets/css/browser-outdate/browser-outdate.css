@@ -2,8 +2,6 @@
     position: absolute;
     z-index: 111111;
     width: 350px;
-    bottom: 0px;
-    right: 0px;
     text-align: center;
     color: #020F59 !important;
     background-color: #BCE0FD !important;;
@@ -12,6 +10,8 @@
     animation: 1s ease-out 0s buorgfly;
     border: none;
 }
+
+
 
 .buorg-pad {
     padding: 9px;
