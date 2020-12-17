@@ -194,7 +194,9 @@ jobs:
             echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
 
       - name: npm install
-        run: cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
+        run: |
+          cd ${{ env.SERVICE_LOCATION }} && npm cache clear --force
+          cd ${{ env.SERVICE_LOCATION }} && npm install --ignore-scripts
 
       - name: npm build
         run: cd ${{ env.SERVICE_LOCATION }} && npm run-script build -- --prod --base-href . --output-path=dist
