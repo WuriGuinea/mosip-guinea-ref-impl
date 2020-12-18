@@ -75,8 +75,7 @@ export class LoginComponent implements OnInit {
 
   @ViewChild("inputFieldOTP") myInputField: MatInput;
   ngAfterViewInit() {
-    document.getElementById("inputFieldOTP").focus();
-  this.myInputField.focus();
+      this.myInputField.focus();
   }
 
   loadValidationMessages() {
