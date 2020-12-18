@@ -7,6 +7,8 @@ import com.jcraft.jsch.Session;
 import io.mosip.autodeployer.deployerapp.model.DeploymentModel;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.concurrent.TimeUnit;
@@ -47,7 +49,7 @@ public class DeploymentService {
             commander.print("sudo su mosipuser\n");
             commander.print("cd\n");
             commander.print("POD_UI=$(kc1 get pod | grep prereg-ui | awk '{print $1}') \n");
-            commander.print("kc1 delete pod $POD_UI\n");
+            commander.print("kc1 delete pod $POD_UI \n");
             commander.print("exit\n");
             commander.print("exit\n");
             commander.close();

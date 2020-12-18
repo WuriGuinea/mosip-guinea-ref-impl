@@ -1,3 +1,22 @@
+.breadcrumb {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.header-container {
+    display: flex;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.header-text {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: -117px;
+}
+
 .wuri-card {
     display: -ms-flexbox;
     display: flex;
@@ -13,14 +32,13 @@
 
 .container {
     color: #020F59;
-    border: solid grey 1px;
+    border: solid #020F59 1px;
     border-radius: 30px;
     padding-left: 50px;
-    box-shadow: 0px 3px 6px darkgrey;
+    /*box-shadow: 0px 3px 6px darkgrey;*/
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 10px;
-    max-height: 95%;
 }
 
 .form {
@@ -42,13 +60,15 @@
     background: #fff;
     text-decoration: none;
     outline: none;
-    font-size: 15px;
-    font-weight: bold;
+
+
     line-height: 44px;
     white-space: nowrap;
     padding: 0 20px 0 60px;
     border-bottom:1px solid #BCE0FD;
     border-top: 1px solid #BCE0FD;
+    font-weight: bold;
+    font-size: 20px;
 }
 .left-h {
     width: 50%;
@@ -68,7 +88,7 @@
 
 .adresse .email .telephone {
     display: block;
-    margin-top: 25px;
+    margin-top: 30px;
     font-size: 14px;
 }
 
@@ -130,6 +150,7 @@
 .center-block-cent {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .contact-us{
@@ -171,7 +192,6 @@ textarea {
     border: solid 1px #BCE0FD !important;
 }
 
-
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix{
     width: 360px;
 }
@@ -188,7 +208,7 @@ textarea {
 
 ::ng-deep .mat-select-value-text {
     position: absolute;
-    padding-top: 5px;
+    padding-top: 7px;
     padding-left: 5px;
     text-transform: uppercase;
 }
@@ -214,8 +234,18 @@ textarea {
 @media (max-width: 700px) {
     .center-block {
         display: flex;
-        justify-content: normal;
+        justify-content: center;
         width: 100%;
+    }
+
+    .captcha-center {
+        position: relative;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 2px;
     }
 
     ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix{
@@ -230,11 +260,7 @@ textarea {
         position: relative;
         width: 100%;
         max-width: 100%;
-    }
-
-    .g-recaptcha {
-        transform: scale(1);
-        transform-origin: 0 0;
+        color: #020F59;
     }
 
     .center-block2 {
@@ -243,7 +269,6 @@ textarea {
     }
 
     .container {
-        max-height: none;
         margin-left: 4%;
         margin-right: 4%;
         padding-left: 0px;
@@ -257,6 +282,9 @@ textarea {
         margin-top: 15px;
     }
 
+    .telephone {
+        margin-top: 10px;
+    }
     .title {
         margin-left: -45px;
     }
@@ -264,6 +292,8 @@ textarea {
     .right-h {
         display: none;
     }
+
+
 }
 
 .my-10 {
@@ -281,7 +311,7 @@ textarea {
 }
 
 .label-object {
-    margin-top: -10px;
+    margin-top: -6px;
 }
 
 
@@ -315,7 +345,6 @@ mat-error {
 }
 
 .acceuil {
-    color: #2f3033;
     font-weight: normal;
 }
 
@@ -325,10 +354,26 @@ mat-error {
 
 .mat-error-captcha {
     font-size: 11px;
+
 }
 
-
+.mat-error-local {
+    font-size: 11px;
+    margin-top: 3px;
+    margin-left: 3px;
+}
 
 .maz {
     text-transform: uppercase;
+}
+
+.padding-text-area {
+    padding-left: 2.5px;
+}
+
+.g-recaptcha {
+    transform:scale(1);
+    -webkit-transform:scal(1);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
 }

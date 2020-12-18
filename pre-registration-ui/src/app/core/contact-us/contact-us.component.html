@@ -1,12 +1,12 @@
 <div class="contact-us">
-    <div class="header" style="display: flex">
-        <div class="left-h">
-            <span class="acceuil">Accueil</span>/<span class="active">Contact</span>
+    <mat-card>
+        <div class="header-container">
+            <span class="breadcrumb">Accueil/<strong>Contact</strong></span>
+            <span class="spacer"></span>
+            <span class="header-text">Contact <!--{{'faq.breadcrumb.getting_started' | translate}}--></span>
+            <span class="spacer"></span>
         </div>
-        <div class="right-h">
-            <span class="header-contact">Contact</span>
-        </div>
-    </div>
+    </mat-card>
     <div class="container">
         <div class="wuri-card">
             <div class="form" style="font-size: 15px" #form>
@@ -24,7 +24,7 @@
                                         aria-label="Font Style"
                                         (selectionChange)="onReasonChange(reasons, $event)"
                                         [formControlName]="formControlNames.reason">
-                                    <mat-option class="mat-option-text-contact-us" *ngFor="let reason of reasons" [value]="reason.value">
+                                    <mat-option class="mat-option-text-contact-us" *ngFor="let reason of reasons" [value]="reason.key">
                                         <span >{{reason.key}}</span>
                                     </mat-option>
                                 </mat-select>
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="center-block">
-                            <mat-form-field *ngIf="displayOtherReason" class="mat-select-mobile">
+                            <mat-form-field style="margin-top: -5px" *ngIf="displayOtherReason" class="mat-select-mobile" (mouseleave)="onBlurOtherReason()" (keyup)="onWrittingReason()">
                                 <mat-label>{{'contactUs.otherReason' | translate}}<span class="mandatory">*</span></mat-label>
                                 <input
                                         class="maz"
@@ -42,14 +42,15 @@
                                         #otherReason
                                         placeholder="{{'contactUs.otherReason' | translate}}"
                                         [formControlName]="formControlNames.otherReason"/>
-                                <mat-error *ngIf="!otherReason.invalid"> {{'contactUs.mandatoryField' | translate}}</mat-error>
+                                <span class="mat-error mat-error-local" *ngIf="otherReasonError"> {{'contactUs.mandatoryMotif' | translate}}</span>
                             </mat-form-field>
                         </div>
 
                         <div class="center-block">
                             <mat-form-field class="mat-select-mobile">
-                                <mat-label  class="label-indent-textarea ">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
+                                <mat-label  class="label-indent-textarea">{{'contactUs.message' | translate}}<span class="mandatory">*</span></mat-label>
                                 <textarea
+                                        class="padding-text-area"
                                         matInput
                                         #message
                                         rows="10"
@@ -90,28 +91,26 @@
                             </mat-form-field>
                         </div>
 
-                        <div class="center-block mat-select-mobile captcha-block">
+                        <div class="center-block captcha-block">
                             <div class="center-block-cent">
-                                <div class="block" style="display:block;">
-                                    <re-captcha (resolved)="resolved($event)"
-                                                [formControlName]="formControlNames.captcha"
-                                                siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
-                                                class="mycaptcha g-recaptcha"
-                                    >
-                                    </re-captcha>
-                                    <div >
-                                        <mat-error class="mat-error-captcha" *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
-                                    </div>
-                                </div>
+                                        <re-captcha (resolved)="resolved($event)"
+                                                    [formControlName]="formControlNames.captcha"
+                                                    siteKey="6LfrcvYZAAAAAHrZWf6fQOZziZeAfJQ0PcAgYGLT"
+                                                    class="mycaptcha g-recaptcha captcha-center"
+                                        >
+                                        </re-captcha>
                             </div>
-
                         </div>
-
+                        <div style="margin-top: -5px; display: block">
+                            <div class="center-block">
+                                <mat-error class="mat-error-captcha" *ngIf="captchaError.length > 0"> {{'contactUs.captcha_error' | translate}}</mat-error>
+                            </div>
+                        </div>
                         <br>
                         <div class="center-block center-block2">
                             <div class="center-block-cent">
                                 <button
-                                        [disabled]="!captchaValidated && userForm.invalid"
+                                        [disabled]="!captchaValidated || !userForm.valid"
                                         mat-raised-button
                                         class="btn_axn-pri submit_button"
                                         type="button"
@@ -123,7 +122,7 @@
                     </form>
                 </article>
             </div>
-            <div class="contact center-block">
+            <div class="contact">
                 <article>
                     <div class="adresse">
                         <p>

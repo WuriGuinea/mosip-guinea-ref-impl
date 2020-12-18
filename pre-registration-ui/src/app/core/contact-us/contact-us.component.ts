@@ -1,7 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatButtonToggleChange } from '@angular/material';
+import {MatDialog} from "@angular/material/dialog";
+import {MatIcon} from "@angular/material/icon";
+import {MatInput} from "@angular/material/input";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
+import {DialogData} from "../../shared/dialoug/dialoug.component";
+import {ConfirmationDialogComponent} from "./confirmation-dialog/confirmation-dialog.component";
 import { ContactUs, ContactUsFormControlModal } from './contact-us';
 import {ContactUsService} from "./contact-us.service";
 declare var grecaptcha: any;
@@ -34,10 +40,13 @@ export class ContactUsComponent implements OnInit {
   captchaError = '';
   loginResponse: string;
   captchaValidated = false;
+  dialogType: DialogData = {case: 0};
+  otherReasonError = false;
 
   constructor(
       private httpClient: HttpClient,
-      private contactUsService: ContactUsService
+      private contactUsService: ContactUsService,
+      public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -53,13 +62,23 @@ export class ContactUsComponent implements OnInit {
       [this.formControlNames.reason]: new FormControl(this.formControlValues.reason.trim(), [
         Validators.required
       ]),
-      [this.formControlNames.otherReason]: new FormControl(this.formControlValues.otherReason.trim(), [
-        Validators.required
-      ]),
+      [this.formControlNames.otherReason]: new FormControl(this.formControlValues.otherReason.trim(), []),
       [this.formControlNames.message]: new FormControl(this.formControlValues.message.trim(), [
         Validators.required
       ]),
       [this.formControlNames.captcha]: new FormControl(this.formControlValues.captcha, [])
+    });
+  }
+
+  openDialog(dialogType: DialogData): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '310px',
+      disableClose: true,
+      data: dialogType
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.userForm.reset();
     });
   }
 
@@ -76,33 +95,34 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit() {
-    const response = grecaptcha.getResponse();
-    if (response.length === 0) {
-      this.captchaError = '';
-      return;
-    }
-
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid) {
-      const request = this.userForm.value;
-      this.sendForm(request).subscribe(
-          response => {
-            const r = response;
-            console.log(r);
-          },
-          error => {
-            this.invalidLogin = true;
-            this.loginResponse = response.message;
-            const err = error;
-            console.log(err);
-          });
-      grecaptcha.reset();
+      if (this.userForm.getRawValue().reason.toLocaleLowerCase() == "autre") {
+        if (this.userForm.getRawValue().otherReason.length == 0) {
+          this.otherReasonError = true;
+        }
+        else {
+          this.sendValidatedForm();
+        }
+      }
+      else {
+        this.sendValidatedForm();
+      }
+    }
+    else {
+      if (this.userForm.getRawValue().reason.toLocaleLowerCase() == "autre") {
+        if (this.userForm.getRawValue().otherReason.length == 0) {
+          this.otherReasonError = true;
+        }
+      }
     }
   }
 
+
+
+
   onReasonChange(entity: any, event?: MatButtonToggleChange) {
-    console.log(event.value);
-    this.displayOtherReason = "AUTRE" === event.value;
+    this.displayOtherReason = "AUTRES" === event.value.toString().toLocaleUpperCase();
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
@@ -114,10 +134,6 @@ export class ContactUsComponent implements OnInit {
     });
   }
 
-  private sendForm(data: object) {
-    const url = this.BASE_URL + "/contact-us";
-    return this.httpClient.post(url, data);
-  }
 
   resolved(token: any) {
     console.log(token);
@@ -128,5 +144,35 @@ export class ContactUsComponent implements OnInit {
       console.log(error);
       this.captchaError = 'invalid';
     });
+  }
+
+  onBlurOtherReason() {
+    if (this.userForm.getRawValue().otherReason.length == 0) {
+      this.otherReasonError = true;
+    }
+  }
+
+  private sendValidatedForm() {
+    this.contactUsService.sendForm(this.userForm.getRawValue()).subscribe(
+        response => {
+          const r = response;
+
+          this.dialogType.case = 1;
+
+          this.openDialog(this.dialogType);
+        },
+        error => {
+          console.log(error);
+          this.invalidLogin = true;
+          this.dialogType.case = 0;
+
+          this.openDialog(this.dialogType);
+        });
+    grecaptcha.reset();
+    this.captchaValidated = false;
+  }
+
+  onWrittingReason() {
+    this.otherReasonError = this.userForm.getRawValue().otherReason.length == 0;
   }
 }

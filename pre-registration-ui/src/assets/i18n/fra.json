@@ -257,7 +257,7 @@
 		"fullName":"Prénom(s) et Nom",
 		"email":"E-mail",
 		"reason":"Raison",
-		"otherReason":"Autre Raison",
+		"otherReason":"Autre Motif",
 		"message":"Message",
 		"maxChars":"250 Caractères MAXIMUM",
 		"mandatoryObjet":"Objet du message requis",
@@ -265,6 +265,7 @@
 		"mandatoryName":"Prénom et nom requis",
 		"mandatoryEmail":"Adresse email requise",
 		"mandatoryEmailInvalid":"Adresse email invalide",
+		"mandatoryMotif":"Le motif de votre message est requis",
 		"send":"Envoyer",
 		"writeUs": "Ecrivez-nous",
 		"title_address": "Adresse",
@@ -278,7 +279,11 @@
 		"email_body": "contact@wuriguinee.com",
 		"title_telephone": "Téléphone",
 		"telephone_body": "+224 622 22 74 91",
-		"captcha_error": "Captcha invalide"
+		"captcha_error": "Captcha invalide/expiré",
+		"confirmation_header_success": "Nous vous remercions!",
+		"confirmation_header_error": "Erreur technique",
+		"confirmation_body_success": "Votre demande a été transmise avec succès!",
+		"confirmation_body_error": "Cette action ne peut être effectuée pour le moment. Veuillez réessayer plus tard."
 
 	},
 	"header": {

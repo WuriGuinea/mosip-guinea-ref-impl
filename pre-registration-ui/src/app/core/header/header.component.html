@@ -4,7 +4,7 @@
       <a mat-list-item routerLink="/about-us" (click)="sidenav.toggle()"> {{ 'header.link_about' | translate }}</a>
       <a mat-list-item  href="assets/consentement.pdf"target="_blank">{{ 'header.consent_form' | translate }}</a>
       <a mat-list-item routerLink="/faq" (click)="sidenav.toggle()">{{ 'header.link_faq' | translate }}</a>
-      <a mat-list-item routerLink="/contact-us" (click)="sidenav.toggle()">s{{ 'header.link_contact' | translate }}</a>
+      <a mat-list-item routerLink="/contact-us" (click)="sidenav.toggle()">{{ 'header.link_contact' | translate }}</a>
       <a *ngIf="!(authService.myProp$ | async)" href="./" mat-list-item> {{ 'header.link_login' | translate }}</a>
       <a mat-list-item *ngIf="authService.myProp$ | async" (click)="onHome(); sidenav.toggle()">{{
         'header.link_applications' | translate

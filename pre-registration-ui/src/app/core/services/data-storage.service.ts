@@ -135,17 +135,20 @@ export class DataStorageService {
   }
 
   getNearbyRegistrationCenters(coords: any) {
+    const URL = this.BASE_URL +
+        appConstants.APPEND_URL.master_data +
+        appConstants.APPEND_URL.nearby_registration_centers +
+        localStorage.getItem('langCode') +
+        '/' +
+        coords.longitude +
+        '/' +
+        coords.latitude +
+        '/' +
+        this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_nearby_centers);
+
+    console.log(URL);
     return this.httpClient.get(
-      this.BASE_URL +
-      appConstants.APPEND_URL.master_data +
-      appConstants.APPEND_URL.nearby_registration_centers +
-      localStorage.getItem('langCode') +
-      '/' +
-      coords.longitude +
-      '/' +
-      coords.latitude +
-      '/' +
-      this.configService.getConfigByKey(appConstants.CONFIG_KEYS.preregistration_nearby_centers)
+      URL
     );
   }
 
