@@ -8,25 +8,25 @@
     {
         "critere": 1,
         "degreeTitleList": [
-            "BOKE", "CONAKRY", "KANKAN", "KINDIA", "LABE", "MAMOU", "NZEREKORE"
+            "BOKE", "CONAKRY", "KANKAN", "KINDIA", "LABE", "MAMOU", "N'ZEREKORE"
         ]
     },
     {
         "critere": 2,
         "degreeTitleList": [
-            "BOKE", "COYAH", "DIXINN", "DUBREKA", "FORECARIAH", "KALOUM", "KANKAN", "KOUROUSSA", "LABE", "MAMOU", "NZEREKORE", "SIGUIRI", "TELIMELE"
+            "BOKE", "COYAH", "DIXINN", "DUBREKA", "FORECARIAH", "KALOUM", "KANKAN", "KOUROUSSA", "LABE", "MAMOU", "N'ZEREKORE", "SIGUIRI", "TELIMELE"
         ]
     },
     {
         "critere": 3,
         "degreeTitleList": [
-            "CU-BOKE", "CU-COYAH", "DIXINN", "CU-DUBREKA", "CU-FORECARIAH", "KALOUM", "CU-KANKAN", "CU-KOUROUSSA", "CU-LABE", "CU-MAMOU", "CU-NZEREKORE", "CU-SIGUIRI", "CU-TELIMELE"
+            "CU-BOKE", "CU-COYAH", "DIXINN", "CU-DUBREKA", "CU-FORECARIAH", "KALOUM", "CU-KANKAN", "CU-KOUROUSSA", "CU-LABE", "CU-MAMOU", "CU-N'ZEREKORE", "CU-SIGUIRI", "CU-TELIMELE"
         ]
     },
     {
         "critere": 4,
         "degreeTitleList": [
-            "CU-BOKE", "CU-COYAH", "DIXINN", "CU-DUBREKA", "CU-FORECARIAH", "KALOUM", "CU-KANKAN", "CU-KOUROUSSA", "CU-LABE", "CU-MAMOU", "CU-NZEREKORE", "CU-SIGUIRI", "CU-TELIMELE"
+            "CU-BOKE", "CU-COYAH", "DIXINN", "CU-DUBREKA", "CU-FORECARIAH", "KALOUM", "CU-KANKAN", "CU-KOUROUSSA", "CU-LABE", "CU-MAMOU", "CU-N'ZEREKORE", "CU-SIGUIRI", "CU-TELIMELE"
         ]
     }
 ]
