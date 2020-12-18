@@ -120,17 +120,13 @@
   </div>
   <div mat-dialog-actions>
     <span
-      style="
-    width: 50%;
-"
-      ><button mat-button [mat-dialog-close]="confirm" cdkFocusInitial>{{ input.yesButtonText }}</button></span
-    >
+      style="width: 50%;">
+      <button mat-button [mat-dialog-close]="confirm" cdkFocusInitial>{{ input.yesButtonText }}</button>
+    </span>
     <span
-      style="
-    width: 50%;
-"
-      ><button mat-button (click)="onNoClick()" cdkFocusInitial>{{ input.noButtonText }}</button></span
-    >
+      style="width: 50%;">
+      <button mat-button (click)="onNoClick()" cdkFocusInitial>{{ input.noButtonText }}</button>
+    </span>
   </div>
 </div>
 
@@ -151,7 +147,7 @@
       <div>{{ message }}</div>
     </div>
   </div>
-  <mat-checkbox (change)="onSelectCheckbox()" class="checkbox-accept">
+  <mat-checkbox (change)="onSelectCheckbox()" class="checkbox-accept" v-if="dialog" autofocus>
     {{ input.checkCondition }}
   </mat-checkbox>
   <div mat-dialog-actions>
