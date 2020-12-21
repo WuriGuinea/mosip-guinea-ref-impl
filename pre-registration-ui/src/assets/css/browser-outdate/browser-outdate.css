@@ -4,14 +4,12 @@
     width: 350px;
     text-align: center;
     color: #020F59 !important;
-    background-color: #BCE0FD !important;;
+    background-color: #fff !important;;
     font: 18px Calibri, Helvetica, sans-serif;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     animation: 1s ease-out 0s buorgfly;
     border: none;
 }
-
-
 
 .buorg-pad {
     padding: 9px;
@@ -75,4 +73,11 @@
 .cancel {
     background: red;
     color: white;
+}
+
+.button-center {
+    margin-top: 15px;
+    display: flex;justify-content: center;align-items: center;
+    font-size: 12px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
