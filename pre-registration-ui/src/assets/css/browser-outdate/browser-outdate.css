@@ -5,7 +5,9 @@
     text-align: center;
     color: #020F59 !important;
     background-color: #fff !important;;
-    font: 18px Calibri, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, Calibri, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5em;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     animation: 1s ease-out 0s buorgfly;
     border: none;
@@ -20,17 +22,21 @@
     display: block;
     text-align: center;
 }
+
+#buorg-buttons {
+    padding-top: 5px;
+}
 #buorgig, #buorgul, #buorgpermanent {
-    color: #fff;
+    color: #020F59 !important;
     text-decoration: none;
     cursor: pointer;
-    padding: 1px 10px;
     border-radius: 4px;
     font-weight: normal;
-    background: #020F59 !important;
+    background: #BCE0FD !important;
+    margin-left: 8px !important;
+    padding-top: 5px !important;
+    height: 30px;
     white-space: nowrap;
-    margin: 0 2px;
-    display: inline-block;
     border: none;
 }
 
