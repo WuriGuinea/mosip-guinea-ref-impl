@@ -259,12 +259,7 @@ jobs:
 
       - name: Build image
         run: |
-          cd "./${{env.SERVICE_LOCATION}}"
-          if [ $BRANCH_NAME = "qa" ]; then
-             docker build . --file Dockerfile-qa --tag ${{ env.SERVICE_NAME }}
-          else
-            docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
-          fi
+          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
 
       - name: Log into registry
         run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
@@ -281,8 +276,6 @@ jobs:
           echo VERSION=$VERSION
           docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-
-
 
   ui-redeployer-service:
     runs-on: ubuntu-latest
@@ -306,7 +299,13 @@ jobs:
       - name: Build image
         run: |
           cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+          cd "./${{env.SERVICE_LOCATION}}"
+             if [ $BRANCH_NAME = "qa" ]; then
+                  docker build . --file Dockerfile-qa --tag ${{ env.SERVICE_NAME }}
+             else
+                  docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+             fi
+
       - name: Log into registry
         run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
 
