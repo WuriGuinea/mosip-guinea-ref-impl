@@ -160,13 +160,13 @@
 </div>
 
 <mat-card class="center-selection__button-container">
-  <button (click)="navigateBack()" class="user-back-btn">{{ 'preview.action_back' | translate }}</button>
+  <button mat-raised-button (click)="navigateBack()" class="btn_axn-pri step-demo-page-button">{{ 'preview.action_back' | translate }}</button>
   <span class="spacer"></span>
-  <button matTooltip="{{ 'helpText.add_applicant' | translate }}" (click)="navigateDashboard()"
-    class="user-book_later-btn">
+  <button mat-raised-button  matTooltip="{{ 'helpText.add_applicant' | translate }}" (click)="navigateDashboard()"
+    class="btn_axn-pri step-demo-page-button mar_right-r25">
     {{ 'preview.action_add_applicant' | translate }}
   </button>
-  <button (click)="navigateNext()" class="user-continue-btn">
+  <button mat-raised-button (click)="navigateNext()" class="btn_axn-pri step-demo-page-button">
     {{ 'preview.action_continue' | translate }}
   </button>
 </mat-card>

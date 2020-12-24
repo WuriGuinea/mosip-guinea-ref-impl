@@ -691,3 +691,9 @@ textarea.mat-input-element{
 }
 
 
+
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}
+
+

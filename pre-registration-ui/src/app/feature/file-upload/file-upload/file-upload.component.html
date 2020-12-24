@@ -81,14 +81,14 @@
   </div>
 </div>
 <div class="user__buttons">
-  <button class="user__btn user__btn--back" type="button" (click)="onBack()"
+  <button mat-raised-button class="user__btn--back btn_axn-pri step-demo-page-button" type="button" (click)="onBack()"
     [disabled]="isModify == 'true' || disableNavigation">
     {{ 'documents.action_back' | translate }}
   </button>
-  <button *ngIf="isModify == 'false'" class="user__btn" type="button" (click)="onNext()" [disabled]="disableNavigation">
+  <button mat-raised-button *ngIf="isModify == 'false'" class="btn_axn-pri step-demo-page-button" type="button" (click)="onNext()" [disabled]="disableNavigation">
     {{ 'documents.action_continue' | translate }}
   </button>
-  <button [disabled]="disableNavigation" *ngIf="isModify == 'true'" class="user__btn" type="button" (click)="onNext()">
-    {{ 'demographic.action_preview' | translate }}
+  <button mat-raised-button [disabled]="disableNavigation" *ngIf="isModify == 'true'" class="btn_axn-pri step-demo-page-button" type="button" (click)="onNext()">
+    bb{{ 'demographic.action_preview' | translate }}
   </button>
 </div>

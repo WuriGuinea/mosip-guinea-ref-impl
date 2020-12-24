@@ -6,18 +6,17 @@
     </div>
     <span class="spacer"></span>
     <div class="buttons">
-      <span matTooltip="{{ 'helpText.book/modify_appointment' | translate }}"
+      <span  matTooltip="{{ 'helpText.book/modify_appointment' | translate }}"
         [matTooltipDisabled]="!disableModifyAppointmentButton">
-        <button [disabled]="disableModifyAppointmentButton" class="btn_axn-sec page_btn mar_right-30"
+        <button mat-raised-button [disabled]="disableModifyAppointmentButton" class="btn_axn-sec page_btn "
           (click)="onModifyMultipleAppointment()">
           <!-- mat-button -->
           {{ 'dashboard.action_modify_appointment' | translate }}
         </button></span>
       <span>
-        <button class="btn_axn-pri page_btn" (click)="onNewApplication()">
-          <img style="position: relative;top: 6px;" src="assets\Add.png" class="create-app-img" />
-          {{ 'dashboard.action_cre_application' | translate }} <br>
-          &nbsp;&nbsp;&nbsp;&nbsp; {{ 'dashboard.action_cre2_application' | translate }}
+        <button style="margin-left: 30px" mat-raised-button class="btn_axn-pri page_btn" (click)="onNewApplication()">
+          <img style="position: relative;" src="assets\Add.png" class="create-app-img" /> {{ 'dashboard.action_cre_application' | translate }}
+          &nbsp;{{ 'dashboard.action_cre2_application' | translate }}
         </button></span>
     </div>
   </div>

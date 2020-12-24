@@ -367,7 +367,7 @@
                         [disabled]="!dataUploadComplete"
                         (click)="onSubmit($event)"
                 >
-                    {{ 'demographic.action_continue' | translate }}
+                    {{ 'demographic.action_continue' | translate }} yy
                 </button>
             </form>
         </div>
@@ -375,7 +375,7 @@
     <div class="user__buttons">
         <button
         class="tabulation"
-                class="user__btn user__btn--back"
+                class="user__btn user__btn--back btn_axn-pri step-demo-page-button"
                 type="button"
                 (click)="onBack()"
                 [disabled]="isNewApplicant || this.message['modifyUserFromPreview'] === 'true'"
@@ -383,9 +383,9 @@
             {{ 'demographic.action_back' | translate }}
         </button>
         <button
-        class="tabulation"
+        class=" btn_axn-pri hidedesk step-demo-page-button"
+                mat-raised-button
                 *ngIf="!showPreviewButton"
-                class="user__btn hidedesk"
                 type="button"
                 [disabled]="!dataUploadComplete"
                 (click)="onSubmit($event)"
@@ -395,12 +395,12 @@
         <button
         class="tabulation"
                 *ngIf="showPreviewButton"
-                class="user__btn btn"
+                class="user__btn btn btn_axn-pri hidedesk step-demo-page-button"
                 type="button"
                 [disabled]="!dataUploadComplete"
                 (click)="onSubmit($event)"
         >
-            {{ 'demographic.action_preview' | translate }}
+            {{ 'demographic.action_preview' | translate }} yyq
         </button>
     </div>
 </div>

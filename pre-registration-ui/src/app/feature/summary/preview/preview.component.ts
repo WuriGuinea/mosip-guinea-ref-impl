@@ -185,16 +185,22 @@ export class PreviewComponent implements OnInit {
     this.registrationService.setSameAs('');
     this.registrationService.changeMessage({ modifyUserFromPreview: 'false' });
     const url = Utils.getURL(this.router.url, 'demographic', 2);
-    this.router.navigateByUrl(url);
+    setTimeout(f => {
+      this.router.navigateByUrl(url);
+    }, 500);
   }
 
   navigateBack() {
     const url = Utils.getURL(this.router.url, 'file-upload', 2);
-    this.router.navigateByUrl(url);
+    setTimeout(f => {
+      this.router.navigateByUrl(url);
+    }, 500);
   }
 
   navigateNext() {
     const url = Utils.getURL(this.router.url, 'booking/pick-center', 2);
-    this.router.navigateByUrl(url);
+    setTimeout(f => {
+      this.router.navigateByUrl(url);
+    }, 500);
   }
 }

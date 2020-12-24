@@ -416,3 +416,14 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 .mandatory{
 color: red;
 }
+
+.step-demo-page-button {
+  min-height: 45px !important;
+  max-height: 45px !important;
+  min-width: 100px !important;
+}
+
+.mar_right-r25 {
+  margin-right: 25px !important;
+}
+
