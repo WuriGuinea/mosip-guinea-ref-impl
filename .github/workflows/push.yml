@@ -260,7 +260,12 @@ jobs:
       - name: Build image
         run: |
           cd "./${{env.SERVICE_LOCATION}}"
-          docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+          if [ $BRANCH_NAME = "qa" ]; then
+             docker build . --file Dockerfile --tag ${{ env.SERVICE_NAME }}
+          else
+            docker build . --file Dockerfile-qa --tag ${{ env.SERVICE_NAME }}
+          fi
+
       - name: Log into registry
         run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
 
