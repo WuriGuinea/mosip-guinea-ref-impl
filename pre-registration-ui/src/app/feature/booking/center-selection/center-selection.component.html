@@ -138,14 +138,15 @@
   <!-- Footer navigation -->
   <div>
     <mat-card class="center-selection__button-container">
-      <button (click)="routeBack()" class="user-back-btn">
+      <button mat-raised-button (click)="routeBack()" class="btn_axn-pri step-demo-page-button">
         {{ 'centerSelection.action_back' | translate }}
       </button>
       <span class="spacer"></span>
-      <button (click)="routeDashboard()" class="user-book_later-btn">
+      <button mat-raised-button (click)="routeDashboard()"
+              class="btn_axn-pri step-demo-page-button mar_right-r25">
         {{ 'centerSelection.action_book_later' | translate }}
       </button>
-      <button (click)="routeNext()" [disabled]="selectedCentre === null" class="user-continue-btn ajouts">
+      <button mat-raised-button (click)="routeNext()" [disabled]="selectedCentre === null" class="btn_axn-pri step-demo-page-button">
         {{ 'centerSelection.action_continue' | translate }}
       </button>
     </mat-card>

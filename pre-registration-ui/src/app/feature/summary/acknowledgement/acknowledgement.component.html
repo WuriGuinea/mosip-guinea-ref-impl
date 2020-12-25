@@ -77,9 +77,9 @@
     <button
       *ngIf="notificationTypes.length > 0 && notificationTypes[0] !== ''"
       matTooltip="{{ 'helpText.send_email/sms' | translate }}"
-      mat-button
+      mat-raised-button
       (click)="sendAcknowledgement()"
-      class="ack-book_later-btn"
+      class="ack-book_later-btn btn_axn-pri step-demo-page-button"
     >
       {{ 'acknowledgement.action_send' | translate }}
     </button>
@@ -89,17 +89,17 @@
     <button
       *ngIf="notificationTypes.length > 0 && notificationTypes[0] !== ''"
       matTooltip="{{ 'helpText.send_email/sms' | translate }}"
-      mat-button
+      mat-raised-button
       (click)="sendAcknowledgement()"
-      class="ack-book_msg-btn"
+      class="ack-book_msg-btn btn_axn-pri step-demo-page-button"
     >
       {{ 'acknowledgement.action_sendmobile' | translate }}
     </button>
-    <button mat-button (click)="download()" class="ack-book_later-btnm">
+    <button mat-raised-button (click)="download()" class="ack-book_later-btnm">
       {{ 'acknowledgement.action_downloadmobile' | translate }}
     </button>
     <button
-      mat-button
+      mat-raised-button
       [printStyle]="{
         '#message-container': { display: 'none' },
         '#body-container': { display: 'flex', 'flex-wrap': 'wrap', width: '100%' },
@@ -109,7 +109,7 @@
       }"
       printSectionId="print-section"
       ngxPrint
-      class="ack-continue-btn"
+      class="ack-continue-btn btn_axn-pri step-demo-page-button"
     >
       {{ 'acknowledgement.action_print' | translate }}
     </button>

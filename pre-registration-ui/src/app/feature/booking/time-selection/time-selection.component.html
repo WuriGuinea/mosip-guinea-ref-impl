@@ -132,12 +132,16 @@
  
   <div>
     <mat-card class="time-selection__button-container">
-      <button (click)="navigateBack()" class="user-back-btn">{{ 'timeSelection.action_back' | translate }}</button>
+      <button mat-raised-button (click)="navigateBack()"
+              class="btn_axn-pri step-demo-page-button">
+        {{ 'timeSelection.action_back' | translate }}
+      </button>
       <span class="spacer"></span>
-      <button (click)="navigateDashboard()" class="user-book_later-btn">
+      <button mat-raised-button (click)="navigateDashboard()"
+              class="btn_axn-pri step-demo-page-button mar_right-r25">
         {{ 'timeSelection.action_bookLater' | translate }}
       </button>
-      <button [disabled]="deletedNames.length > 0" (click)="makeBooking()" class="user-continue-btn" [ngClass]="deletedNames.length > 0 ? 'disabled_btn' : 'user-continue-btn-normal'">
+      <button mat-raised-button [disabled]="deletedNames.length > 0" (click)="makeBooking()" class="btn_axn-pri step-demo-page-button" [ngClass]="deletedNames.length > 0 ? 'disabled_btn' : 'user-continue-btn-normal'">
         {{ 'timeSelection.action_continue' | translate }}
       </button>
     </mat-card>

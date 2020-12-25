@@ -319,13 +319,17 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
       this.service.updateRegistrationCenterData(user.preRegId, this.selectedCentre);
     });
     this.canDeactivateFlag = false;
-    this.router.navigate(['../pick-time'], { relativeTo: this.route });
+    setTimeout(f => {
+      this.router.navigate(['../pick-time'], { relativeTo: this.route });
+    }, 500);
   }
 
   routeDashboard() {
     this.canDeactivateFlag = false;
     const url = Utils.getURL(this.router.url, '', 3);
-    this.router.navigateByUrl(url);
+    setTimeout(f => {
+      this.router.navigateByUrl(url);
+    }, 500)
   }
 
   routeBack() {
@@ -336,7 +340,9 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
       url = Utils.getURL(this.router.url, 'summary/preview', 2);
     }
     this.canDeactivateFlag = false;
-    this.router.navigateByUrl(url);
+    setTimeout(f => {
+      this.router.navigateByUrl(url);
+    }, 500)
   }
 
   async displayResults(response: any) {

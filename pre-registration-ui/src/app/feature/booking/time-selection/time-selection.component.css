@@ -696,3 +696,7 @@ padding-bottom: 25px;
     background: none;
 }
 }
+
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}

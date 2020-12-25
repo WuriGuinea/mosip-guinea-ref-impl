@@ -402,3 +402,7 @@ input[type='radio'] {
   z-index: 2;
 }
 }
+
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}
