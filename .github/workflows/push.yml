@@ -229,8 +229,14 @@ jobs:
           docker push $IMAGE_ID:$VERSION
       - name: Redeploy PREREG-UI in the SANDBOX
         run: |
-          curl --request POST \
-                      --url "${{ secrets.REDEPLOYER_URL }}"
+          if [ $BRANCH_NAME = "qa" ]; then
+             curl --request POST \
+                                   --url "${{ secrets.REDEPLOYER_URL_QA }}"
+          else
+            curl --request POST \
+                                   --url "${{ secrets.REDEPLOYER_URL }}"
+          fi
+
 
   docker-kernel-auth-service:
     needs: build
