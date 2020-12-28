@@ -8,32 +8,17 @@
     <div class="buttons">
       <span matTooltip="{{ 'helpText.book/modify_appointment' | translate }}"
         [matTooltipDisabled]="!disableModifyAppointmentButton">
-        <!--page_btn mar_right-30-->
-        <button
-                mat-raised-button
-                [disabled]="disableModifyAppointmentButton"
-                class="btn_axn-sec appointement-button"
+        <button [disabled]="disableModifyAppointmentButton" class="btn_axn-sec page_btn mar_right-30"
           (click)="onModifyMultipleAppointment()">
           <!-- mat-button -->
           {{ 'dashboard.action_modify_appointment' | translate }}
-        </button>
-      </span>
-      <span style="margin-left: 10px !important;">
-        <!-- <button class="btn_axn-pri page_btn" (click)="onNewApplication()">
+        </button></span>
+      <span>
+        <button class="btn_axn-pri page_btn" (click)="onNewApplication()">
           <img style="position: relative;top: 6px;" src="assets\Add.png" class="create-app-img" />
           {{ 'dashboard.action_cre_application' | translate }} <br>
           &nbsp;&nbsp;&nbsp;&nbsp; {{ 'dashboard.action_cre2_application' | translate }}
-        </button>-->
-
-        <button
-                mat-raised-button
-                class="btn_axn-pri appointement-button"
-                (click)="onNewApplication()">
-          <img style="height: 15px" src="assets\Add.png" />
-          {{ 'dashboard.action_cre_application' | translate }}
-          {{ 'dashboard.action_cre2_application' | translate }}
-        </button>
-      </span>
+        </button></span>
     </div>
   </div>
   <div class="spinner" *ngIf="!isFetched">
@@ -56,7 +41,7 @@
             <span class="spacer"></span>
             <button (click)="onDelete(user)" mat-button class="delete-img">
               <img matTooltip="{{ 'helpText.deleteIcon' | translate }}" [matTooltipDisabled]="false"
-                src="assets\delete.png" class="" />
+                   src="assets\delete.png" class="" />
             </button>
           </div>
           <mat-card-content [ngStyle]="{ marginTop: getMargin(user.firstName) }">
@@ -65,14 +50,14 @@
                 <tr>
                   <td>{{ 'dashboard.card.text_lastname' | translate }}</td>
                   <td
-                    [ngClass]="user.firstName.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'">
+                          [ngClass]="user.firstName.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'">
                     {{ user.firstName }}
                   </td>
                 </tr>
                 <tr>
                   <td>{{ 'dashboard.card.text_name' | translate }}</td>
                   <td
-                    [ngClass]="user.lastName.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'">
+                          [ngClass]="user.lastName.length > 30 ? 'application-value user__name--wordwrap' : 'application-value'">
                     {{ user.lastName }}
                   </td>
                 </tr>
@@ -85,11 +70,11 @@
                   <td>{{ 'dashboard.card.text_status' | translate }}</td>
                   <td id="status" [ngStyle]="{ color: getColor(user.status) }">
                     {{
-                      (user.status === 'Booked'
-                        ? 'dashboard.status.booked'
-                        : user.status === 'Expired'
-                        ? 'dashboard.status.expired'
-                        : 'dashboard.status.pendingAppointment') | translate
+                    (user.status === 'Booked'
+                            ? 'dashboard.status.booked'
+                            : user.status === 'Expired'
+                                    ? 'dashboard.status.expired'
+                                    : 'dashboard.status.pendingAppointment') | translate
                     }}
 
                     <mat-icon class="icon" matTooltip="{{
@@ -107,14 +92,14 @@
           <mat-card-footer>
             <mat-card-actions>
               <button mat-button class="footer-btn" [disabled]="disableModifyDataButton"
-                (click)="onModifyInformation(user)">
+                      (click)="onModifyInformation(user)">
                 <img matTooltip="{{ 'dashboard.card.action_modify_information' | translate }}"
-                  src="assets\Modify information_grey.png" class="modifyinfo-btn-img" />
+                     src="assets\Modify information_grey.png" class="modifyinfo-btn-img" />
               </button>
               <button mat-button class="footer-btn" (click)="onAcknowledgementView(user)"
-                [disabled]="user.status === 'Pending_Appointment'">
+                      [disabled]="user.status === 'Pending_Appointment'">
                 <img matTooltip="{{ 'dashboard.card.action_view_acknowledgement' | translate }}" src="assets\view.png"
-                  class="modifyapp-btn-img" />
+                     class="modifyapp-btn-img" />
               </button>
             </mat-card-actions>
           </mat-card-footer>

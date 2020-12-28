@@ -360,21 +360,21 @@
                     </div>
                 </div>
                 <button
-                class="tabulation"
+                        mat-raised-button
                         *ngIf="!showPreviewButton"
-                        class="user__btn hidemobile"
+                        class="hidemobile step-demo-page-button btn_axn-pri"
                         type="button"
                         [disabled]="!dataUploadComplete"
                         (click)="onSubmit($event)"
                 >
-                    {{ 'demographic.action_continue' | translate }} yy
+                    {{ 'demographic.action_continue' | translate }}
                 </button>
             </form>
         </div>
     </div>
     <div class="user__buttons">
         <button
-        class="tabulation"
+                mat-raised-button
                 class="user__btn user__btn--back btn_axn-pri step-demo-page-button"
                 type="button"
                 (click)="onBack()"
@@ -393,14 +393,14 @@
             {{ 'demographic.action_continue' | translate }}
         </button>
         <button
-        class="tabulation"
+                mat-raised-button
                 *ngIf="showPreviewButton"
                 class="user__btn btn btn_axn-pri hidedesk step-demo-page-button"
                 type="button"
                 [disabled]="!dataUploadComplete"
                 (click)="onSubmit($event)"
         >
-            {{ 'demographic.action_preview' | translate }} yyq
+            {{ 'demographic.action_preview' | translate }}
         </button>
     </div>
 </div>

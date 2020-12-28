@@ -153,9 +153,9 @@ img {
   height: 15px;
   transform: translateY(0.1rem);
 }
-/*.create-app-img {
+.create-app-img {
   height: 11px;
-}*/
+}
 .view-img {
   height: 18px;
 }
@@ -166,7 +166,7 @@ img {
 }
 .buttons {
   margin-top: 1rem;
-  /*margin: 1rem;*/
+  margin: 1rem;
 }
 .checkbox {
   white-space: nowrap;
@@ -213,4 +213,14 @@ mat-card-content {
 .appointement-button {
   min-height: 45px !important;
   max-height: 45px !important;
+  max-width: 200px !important;
+}
+
+.page_btn_message {
+  display: block;
+  margin-top: -15px;
+}
+
+.page_btn_message_down {
+  margin-top: -5px;
 }

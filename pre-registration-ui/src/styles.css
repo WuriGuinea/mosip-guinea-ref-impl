@@ -42,7 +42,7 @@ button {
   font-weight: bold;
 }
 .mar_right-30 {
-  margin-right: 30px;
+  margin-right: 30px !important;
 }
 
 .material-icons {
@@ -421,6 +421,15 @@ color: red;
   min-height: 45px !important;
   max-height: 45px !important;
   min-width: 100px !important;
+  padding: 0.8rem 2rem;
+}
+
+@media (max-width: 500px){
+  .step-demo-page-button {
+    min-height: 35px !important;
+    max-height: 35px !important;
+    min-width: auto !important;
+  }
 }
 
 .mar_right-r25 {
