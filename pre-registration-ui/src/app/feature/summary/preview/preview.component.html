@@ -70,7 +70,7 @@
             </table>
           </div>
         </div>
-        <div class="preview__body-content-div">
+        <div class="preview__body-content-div right-preview-marging" >
           <h4>Adresse</h4>
           <span style="margin-left:58px" (click)="this.router.navigate(['/pre-registration/demographic']);"
             class="preview__modify-file position_modify"
@@ -154,19 +154,25 @@
           </div>
 
         </div>
+
+        <div class="center-selection__button-container">
+          <button mat-raised-button (click)="navigateBack()" class="btn_axn-pri step-demo-page-button-preview">
+            {{ 'preview.action_back' | translate }}
+          </button>
+          <span class="spacer"></span>
+          <button mat-raised-button  matTooltip="{{ 'helpText.add_applicant' | translate }}" (click)="navigateDashboard()"
+                  class="btn_axn-pri step-demo-page-button-preview mar_right-r25">
+            {{ 'preview.action_add_applicant' | translate }}
+          </button>
+          <button mat-raised-button (click)="navigateNext()" class="btn_axn-pri step-demo-page-button-preview">
+            {{ 'preview.action_continue' | translate }}
+          </button>
+        </div>
       </div>
     </mat-card-content>
   </mat-card>
+
+
 </div>
 
-<mat-card class="center-selection__button-container">
-  <button mat-raised-button (click)="navigateBack()" class="btn_axn-pri step-demo-page-button">{{ 'preview.action_back' | translate }}</button>
-  <span class="spacer"></span>
-  <button mat-raised-button  matTooltip="{{ 'helpText.add_applicant' | translate }}" (click)="navigateDashboard()"
-    class="btn_axn-pri step-demo-page-button mar_right-r25">
-    {{ 'preview.action_add_applicant' | translate }}
-  </button>
-  <button mat-raised-button (click)="navigateNext()" class="btn_axn-pri step-demo-page-button">
-    {{ 'preview.action_continue' | translate }}
-  </button>
-</mat-card>
+

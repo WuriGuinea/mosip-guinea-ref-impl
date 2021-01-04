@@ -94,9 +94,6 @@
   height: 345px !important;
 }
 
-.test1 {
-}
-
 
 .user__container h6 {
   font-weight: bold;
@@ -252,12 +249,7 @@ mat-icon {
 .user__buttons {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  bottom: 9rem;
   position: relative;
-  z-index: 2;
-  padding: 0 4vw;
   justify-content: flex-end;
 }
 .user__btn {
@@ -268,14 +260,8 @@ mat-icon {
   text-align: center;
   text-decoration: none;
   font-size: 0.8rem;
-  margin: 5px 1px 7px 10rem;
-  margin-right: 2rem;
   cursor: pointer;
   text-transform: capitalize;
-  font-weight: bold;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
-  0 2px 2px 0 rgba(0,0,0,.14), 
-  0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 .user__btn--back {
@@ -374,11 +360,8 @@ mat-icon {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
-    bottom: 5rem;
     position: relative;
     z-index: 2;
-    padding: 0 4vw;
     justify-content: flex-end;
     position: -webkit-sticky;
   }

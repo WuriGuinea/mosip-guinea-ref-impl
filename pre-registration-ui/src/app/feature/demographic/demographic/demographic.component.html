@@ -130,7 +130,7 @@
                                     </div>
 
                         </div>
-                    
+
                 </div>
                 <div class="mat-error user__dob__error"
                 *ngIf="
@@ -141,7 +141,7 @@
                 >
                 {{ 'demographic.validation.DOB_validation' | translate }}
                 </div>
-                
+
 
                     <div class="user__genderAndForeigner user__dropdown col-50">
                         <mat-form-field>
@@ -242,7 +242,7 @@
                 <div [dir]="textDir" class="user__container card">
                     <h4 id="titleposition" class="titlecolor">{{ 'demographic.address_section_title' | translate }}</h4>
                     <br/>
-                    <div class="user__dropdown col-50"> 
+                    <div class="user__dropdown col-50">
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_region' | translate }} <span class="mandatory">*</span></mat-label>
                             <mat-select
@@ -346,7 +346,7 @@
                         <mat-form-field>
                             <mat-label>{{ 'demographic.label_additionalAddressDetails' | translate }}
                             </mat-label>
-                        <input 
+                        <input
                         class="tabulation"
                              id="complement"
                              #additionalAddressDetails
@@ -369,38 +369,42 @@
                 >
                     {{ 'demographic.action_continue' | translate }}
                 </button>
+
+                <div class="user__buttons">
+                        <button
+                                mat-raised-button
+                                class="user__btn--back btn_axn-pri step-demo-page-button"
+                                type="button"
+                                (click)="onBack()"
+                                [disabled]="isNewApplicant || this.message['modifyUserFromPreview'] === 'true'"
+                        >
+                            {{ 'demographic.action_back' | translate }}
+                        </button>
+                        <button
+                                class="btn_axn-pri hidedesk step-demo-page-button"
+                                mat-raised-button
+                                *ngIf="!showPreviewButton"
+                                type="button"
+                                [disabled]="!dataUploadComplete"
+                                (click)="onSubmit($event)"
+                        >
+                            {{ 'demographic.action_continue' | translate }}ssd
+                        </button>
+                        <button
+                                mat-raised-button
+                                *ngIf="showPreviewButton"
+                                class="user__btn btn btn_axn-pri hidedesk step-demo-page-button"
+                                type="button"
+                                [disabled]="!dataUploadComplete"
+                                (click)="onSubmit($event)"
+                        >
+                            {{ 'demographic.action_preview' | translate }}
+                        </button>
+                    </div>
             </form>
         </div>
+
+
     </div>
-    <div class="user__buttons">
-        <button
-                mat-raised-button
-                class="user__btn user__btn--back btn_axn-pri step-demo-page-button"
-                type="button"
-                (click)="onBack()"
-                [disabled]="isNewApplicant || this.message['modifyUserFromPreview'] === 'true'"
-        >
-            {{ 'demographic.action_back' | translate }}
-        </button>
-        <button
-        class=" btn_axn-pri hidedesk step-demo-page-button"
-                mat-raised-button
-                *ngIf="!showPreviewButton"
-                type="button"
-                [disabled]="!dataUploadComplete"
-                (click)="onSubmit($event)"
-        >
-            {{ 'demographic.action_continue' | translate }}
-        </button>
-        <button
-                mat-raised-button
-                *ngIf="showPreviewButton"
-                class="user__btn btn btn_axn-pri hidedesk step-demo-page-button"
-                type="button"
-                [disabled]="!dataUploadComplete"
-                (click)="onSubmit($event)"
-        >
-            {{ 'demographic.action_preview' | translate }}
-        </button>
-    </div>
+
 </div>
