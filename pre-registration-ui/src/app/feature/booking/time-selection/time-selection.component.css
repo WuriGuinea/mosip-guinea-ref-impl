@@ -625,10 +625,8 @@
 
 .disabled_btn
 {
-  background-color: #BCE0FD !important;
   cursor: not-allowed;
-  opacity: 0.5;
-  color: #020F59;
+  background: #BCE0FD !important;
 }
 
 .placeholder{
@@ -701,9 +699,6 @@ padding-bottom: 25px;
 }
 }
 
-.btn_axn-pri[disabled]{
-  background: #BCE0FD;
-}
 
 .step-demo-page-button-time-selection {
   min-height: 45px !important;
@@ -720,3 +715,8 @@ padding-bottom: 25px;
     margin-top: 25px;
   }
 }
+
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}
+

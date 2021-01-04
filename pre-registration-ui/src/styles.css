@@ -446,3 +446,6 @@ color: red;
   }
 }
 
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}

@@ -224,3 +224,7 @@ mat-card-content {
 .page_btn_message_down {
   margin-top: -5px;
 }
+
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}

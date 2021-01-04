@@ -447,3 +447,7 @@ table tr td {
         margin-right: 2px;
     }
 }
+
+.btn_axn-pri[disabled]{
+    background: #BCE0FD;
+}

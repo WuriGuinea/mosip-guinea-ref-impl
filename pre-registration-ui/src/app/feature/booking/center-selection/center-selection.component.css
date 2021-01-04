@@ -437,6 +437,10 @@ input[type='radio'] {
   }
 }
 
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}
+
 
 
 
