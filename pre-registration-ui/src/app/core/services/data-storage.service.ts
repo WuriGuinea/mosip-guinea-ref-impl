@@ -6,6 +6,8 @@ import { AppConfigService } from '../../app-config.service';
 import { Applicant } from '../../shared/models/dashboard-model/dashboard.modal';
 import { ConfigService } from './config.service';
 import { RequestModel } from 'src/app/shared/models/request-model/RequestModel';
+import { Observable, of } from 'rxjs';
+import { LocationTypeHttp } from '../models/location-type-http';
 
 /**
  * @description This class is responsible for sending or receiving data to the service.
@@ -30,7 +32,7 @@ export class DataStorageService {
     private httpClient: HttpClient,
     private appConfigService: AppConfigService,
     private configService: ConfigService
-  ) {}
+  ) { }
 
   BASE_URL = this.appConfigService.getConfig()['BASE_URL'];
   PRE_REG_URL = this.appConfigService.getConfig()['PRE_REG_URL'];
@@ -150,17 +152,22 @@ export class DataStorageService {
     );
   }
 
-  getRegistrationCentersByName(locType: string, text: string) {
-    return this.httpClient.get(
+  getRegistrationCentersByName(locType: string, text: string): Observable<LocationTypeHttp> {
+    return this.httpClient.get<LocationTypeHttp>(
       this.BASE_URL +
-        appConstants.APPEND_URL.master_data +
-        appConstants.APPEND_URL.registration_centers_by_name +
-        localStorage.getItem('langCode') +
-        '/' +
-        locType +
-        '/' +
-        text
+      appConstants.APPEND_URL.master_data +
+      appConstants.APPEND_URL.registration_centers_by_name +
+      localStorage.getItem('langCode') +
+      '/' +
+      locType +
+      '/' +
+      text
     );
+  }
+
+  getCenterByLocattionType(locType: string) {
+
+    return this.httpClient.get("./assets/mocks/location-types.json");
   }
 
   getLocationTypeData() {
@@ -260,9 +267,9 @@ export class DataStorageService {
   sendNotification(data: FormData) {
     return this.httpClient.post(
       this.BASE_URL +
-        this.PRE_REG_URL +
-        appConstants.APPEND_URL.notification +
-        appConstants.APPEND_URL.send_notification,
+      this.PRE_REG_URL +
+      appConstants.APPEND_URL.notification +
+      appConstants.APPEND_URL.send_notification,
       data
     );
   }
@@ -292,7 +299,7 @@ export class DataStorageService {
     let url =
       this.BASE_URL +
       appConstants.APPEND_URL.master_data +
-      'locations/locationhierarchy/'+hiererchy;
+      'locations/locationhierarchy/' + hiererchy;
     return this.httpClient.get(url);
   }
 
