@@ -427,7 +427,7 @@ jobs:
     env:
       NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
       SERVICE_NAME: registration-processor-print-service
-      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-print-service
+      SERVICE_LOCATION: registration/registration-processor/post-processor/registration-processor-print-service
 
     steps:
       - uses: actions/checkout@v2
@@ -477,7 +477,7 @@ jobs:
     env:
       NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
       SERVICE_NAME: registration-processor-printing-stage
-      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-printing-stage
+      SERVICE_LOCATION: registration/registration-processor/post-processor/registration-processor-printing-stage
 
     steps:
       - uses: actions/checkout@v2
@@ -528,7 +528,7 @@ jobs:
     env:
       NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
       SERVICE_NAME: registration-processor-registration-transaction-service
-      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-registration-transaction-service
+      SERVICE_LOCATION: registration/registration-processor/post-processor/registration-processor-registration-transaction-service
 
     steps:
       - uses: actions/checkout@v2
@@ -579,7 +579,7 @@ jobs:
     env:
       NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
       SERVICE_NAME: registration-processor-osi-validator-stage
-      SERVICE_LOCATION: registration-processor/pre-processor/registration-processor-osi-validator-stage
+      SERVICE_LOCATION: registration/registration-processor/pre-processor/registration-processor-osi-validator-stage
 
     steps:
       - uses: actions/checkout@v2
