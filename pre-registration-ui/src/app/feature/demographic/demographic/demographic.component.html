@@ -359,29 +359,11 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <button
-                        mat-raised-button
-                        *ngIf="!showPreviewButton"
-                        class="hidemobile step-demo-page-button btn_axn-pri"
-                        type="button"
-                        [disabled]="!dataUploadComplete"
-                        (click)="onSubmit($event)"
-                >
-                    {{ 'demographic.action_continue' | translate }}
-                </button>
 
                 <div class="user__buttons">
+
                         <button
-                                mat-raised-button
-                                class="user__btn--back btn_axn-pri step-demo-page-button"
-                                type="button"
-                                (click)="onBack()"
-                                [disabled]="isNewApplicant || this.message['modifyUserFromPreview'] === 'true'"
-                        >
-                            {{ 'demographic.action_back' | translate }}
-                        </button>
-                        <button
-                                class="btn_axn-pri hidedesk step-demo-page-button"
+                                class="btn_axn-pri  step-demo-page-button-form"
                                 mat-raised-button
                                 *ngIf="!showPreviewButton"
                                 type="button"
@@ -390,16 +372,7 @@
                         >
                             {{ 'demographic.action_continue' | translate }}
                         </button>
-                        <button
-                                mat-raised-button
-                                *ngIf="showPreviewButton"
-                                class="user__btn btn btn_axn-pri hidedesk step-demo-page-button"
-                                type="button"
-                                [disabled]="!dataUploadComplete"
-                                (click)="onSubmit($event)"
-                        >
-                            {{ 'demographic.action_preview' | translate }}
-                        </button>
+
                     </div>
             </form>
         </div>

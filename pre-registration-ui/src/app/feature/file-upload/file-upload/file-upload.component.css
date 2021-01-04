@@ -579,3 +579,7 @@ mat-select:focus {
   background: #BCE0FD;
 }
 
+.wrapper {
+  min-height: 560px;
+  overflow-y: auto;
+}

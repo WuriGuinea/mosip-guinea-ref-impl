@@ -77,7 +77,6 @@
   <div  *ngIf="!showSpinner">
     <div class="my-button-right">
 
-
       <button
               *ngIf="notificationTypes.length > 0 && notificationTypes[0] !== ''"
               matTooltip="{{ 'helpText.send_email/sms' | translate }}"
@@ -87,7 +86,6 @@
       >
         {{ 'acknowledgement.action_sendmobile' | translate }}
       </button>
-
 
       <button
               *ngIf="notificationTypes.length > 0 && notificationTypes[0] !== ''"
