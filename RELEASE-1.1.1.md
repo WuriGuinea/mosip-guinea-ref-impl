@@ -1,8 +1,9 @@
-Release notes - wuriguinea-pilot - Version Release 3 (UNIR_1.1.1)
+Release notes - wuriguinea-pilot - Version Release 3 (UNIR_1.x)
 
 ## Task
 
 *   [[WUR-251](https://wuri-guinea.atlassian.net/browse/WUR-251)] - Create GUI prototype for re-printing service
+*   [[WUR-398](https://wuri-guinea.atlassian.net/browse/WUR-398)] - Contact us page backend setup
 *   [[WUR-457](https://wuri-guinea.atlassian.net/browse/WUR-457)] - Resolve AWS migration db issue
 
 ## Story
@@ -60,3 +61,7 @@ Release notes - wuriguinea-pilot - Version Release 3 (UNIR_1.1.1)
 *   [[WUR-463](https://wuri-guinea.atlassian.net/browse/WUR-463)] - scale text and fields on upload page
 *   [[WUR-464](https://wuri-guinea.atlassian.net/browse/WUR-464)] - Upload page layout - Mobile
 *   [[WUR-466](https://wuri-guinea.atlassian.net/browse/WUR-466)] - Contact us captcha
+
+## Sous-tâche
+
+*   [[WUR-411](https://wuri-guinea.atlassian.net/browse/WUR-411)] - Integrate with Pre Reg APIs/StandAlone API to handle contact us
