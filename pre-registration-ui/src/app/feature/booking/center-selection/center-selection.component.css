@@ -211,7 +211,6 @@ input[type='radio'] {
   outline: none;
   font-family: Roboto;
   opacity: 100%;
-  background-color: white;
   text-transform: uppercase;
   border: none;
   width: 85%;
@@ -285,8 +284,9 @@ input[type='radio'] {
 }
 @media (min-width:250px) and (max-width:444px){
   .search-form{
-    left: 0px !important;
+    left: -6px !important;
     top: -25px;
+    width: 312px;
   }
   .centers-list{
     margin-left: -35px;
@@ -305,6 +305,18 @@ input[type='radio'] {
   }
   .mat-form-field{
     width: 272px !important;
+  }
+}
+@media (min-width:445px) and (max-width:564px){
+  .search-form{
+    width: 242px !important;
+    left: 188px;
+  }
+}
+@media(min-width:565px) and (max-width:700px){
+  .search-form{
+    width: 400px !important;
+    left: 187px;
   }
 }
 @media (max-width: 700px) {
@@ -343,10 +355,6 @@ input[type='radio'] {
     width: 108px !important;
     margin-left: 96px !important;
   }
-  .search-form{
-    width: 315px !important;
-    left: 197px;
-  }
   
 .search-card{
   width: 55%;
@@ -367,9 +375,7 @@ input[type='radio'] {
   .centers-list{
     margin-left: 5px;
   }
-  .container{
-    margin-left: 74px;
-  }
+  
 }
 
   .centers-list{
@@ -402,4 +408,7 @@ input[type='radio'] {
   display: flex;
   z-index: 2;
 }
+}
+.card-align{
+  margin: 6px;
 }

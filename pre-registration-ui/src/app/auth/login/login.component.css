@@ -309,7 +309,7 @@ left: 15vw;
     left: 0px;
     padding: initial;
   }  
-  } 
+}
 .positionimgbiom{
   height: 21rem;
   margin-top: -10px;
@@ -326,8 +326,9 @@ button.mat-raised-button.mat-primary{
 mat-form-field-infix{
   border: none !important;
 }
+
 .btn_axn-pri[disabled]{
-background: #BCE0FD;
+  background: #BCE0FD;
 }
 
 @media (max-width: 699px){

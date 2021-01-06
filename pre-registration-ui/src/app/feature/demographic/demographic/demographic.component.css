@@ -141,6 +141,7 @@ mat-icon {
 }
 
 .user__age-or-date > div {
+  margin-left: 20px;
   width: 30.3%;
 }
 
@@ -179,11 +180,10 @@ mat-icon {
 }
 
 .user__dob__error {
-  left: 3px;
-  position: relative;
-  top: -15px;
-  font-size: 75%;
-  margin-bottom: -12px;
+  font-size: 10px; 
+  margin-top: 38px; 
+  position: absolute;
+  margin-left: 3px;
 }
 
 .user__genderAndForeigner {
@@ -328,7 +328,7 @@ mat-icon {
     width: 37%;
   }
 }
-@media (min-width: 799px) and (max-width: 1299px){
+@media (min-width: 801px) and (max-width: 1299px){
   .champs {
     padding: 0rem 0 0 16.2rem;
     font-size: 11px;
@@ -337,6 +337,13 @@ mat-icon {
     display: block;
     margin-top: -28px;
     position: inherit;
+  }
+
+  .user__dob__error {
+    font-size: 10px; 
+    margin-top: 45px; 
+    position: absolute;
+    margin-left: 3px;
   }
 }
 
@@ -436,18 +443,18 @@ mat-icon {
 .user__btn{
   margin: 5px 1px 4px 7rem;
   font-size: 0.7rem;
-}
-.user__pref{
+  }
+  .user__pref{
   position: relative;
   left: -252px;
   top: 51px;
-}
-.user__age--years{
+  }
+  .user__age--years{
   position: relative;
   left: 11px;
   top: 10px !important;
-}
-.user__age{
+  }
+  .user__age{
   position: relative;
   left: -180px;
   top: 61px;
@@ -461,13 +468,13 @@ mat-icon {
 }
 .col-50{
   width: 100%;
-}
-.posmobile{
+  }
+  .posmobile{
   margin-top: -6px !important;
-}
-.champs{
+  }
+  .champs{
   padding: 0rem 0 0 12rem;
-}
+  }
 }
 .hidedesk{
   display: block;
@@ -494,7 +501,14 @@ mat-icon {
 }
 }
 
-
+@media (max-width: 315px){
+  .user__dob__error {
+    font-size: 10px; 
+    margin-top: 48px; 
+    position: absolute;
+    margin-left: 3px;
+  }
+}
 
 .mat-input-element {
   font: inherit;

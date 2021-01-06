@@ -1,11 +1,1 @@
 regcntr_id,machine_id,device_id,lang_code,is_active,cr_by,cr_dtimes
-10002,10004,3000036,fra,TRUE,superadmin(),now()
-10002,10004,3000037,fra,TRUE,superadmin(),now()
-10002,10004,3000038,fra,TRUE,superadmin(),now()
-10002,10004,3000039,fra,TRUE,superadmin(),now()
-10002,10004,3000040,fra,TRUE,superadmin(),now()
-10002,10005,3000041,fra,TRUE,superadmin(),now()
-10002,10005,3000042,fra,TRUE,superadmin(),now()
-10002,10005,3000043,fra,TRUE,superadmin(),now()
-10002,10005,3000044,fra,TRUE,superadmin(),now()
-10002,10005,3000045,fra,TRUE,superadmin(),now()

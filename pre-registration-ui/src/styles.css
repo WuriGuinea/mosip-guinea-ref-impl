@@ -127,7 +127,6 @@ body {
 .btn_axn-sec:active,
 .btn_axn-pri.page_btn:active,
 .btn_axn-sec.page_btn:active {
-  
   border: none;
   opacity: 1 !important;
   box-shadow:none !important
@@ -189,6 +188,7 @@ body {
 
 .mat-error {
   color: #e44c29;
+  margin-top: -0.9px;
 }
 
 .mat-slide-toggle .mat-slide-toggle-thumb {
