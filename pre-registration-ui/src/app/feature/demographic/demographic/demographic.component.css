@@ -412,7 +412,7 @@ mat-icon {
   border: 1px solid #020F59;
   padding: 16px;
 }
-
+@media (max-width: 700px){
   .user__btn{
     margin: 5px 1px 4px 7rem;
     font-size: 0.7rem;

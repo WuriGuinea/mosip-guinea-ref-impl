@@ -50,6 +50,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   primaryLang = localStorage.getItem('langCode');
   workingDays: string;
   centerSelectedOption: string = '';
+  degreeTitleList = [];
 
   constructor(
     public dialog: MatDialog,
@@ -78,6 +79,35 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
     this.getErrorLabels();
     this.centerSelectedOption = 'Recommanded';
   }
+  educationLevelChangeAction(education) {
+    this.degreeTitleList = education.degreeTitleList;
+  }
+  // educationList: any = [
+  //   {
+  //     'critere': 'REGION',
+  //     degreeTitleList: [
+  //       'BOKE', 'CONAKRY', 'KANKAN', 'KINDIA', 'LABE', 'MAMOU', 'NZEREKORE'
+  //     ]
+  //   },
+  //   {
+  //     'critere': 'PREFECTURE',
+  //     degreeTitleList: [
+  //       'BOKE', 'COYAH', 'DIXINN', 'DUBREKA', 'FORECARIAH', 'KALOUM', 'KANKAN', 'KOUROUSSA', 'LABE', 'MAMOU', 'NZEREKORE', 'SIGUIRI', 'TELIMELE'
+  //     ]
+  //   },
+  //   {
+  //     'critere': 'SOUS-PREFECTURE',
+  //     degreeTitleList: [
+  //       'CU-BOKE', 'CU-COYAH', 'DIXINN', 'CU-DUBREKA', 'CU-FORECARIAH', 'KALOUM', 'CU-KANKAN', 'CU-KOUROUSSA', 'CU-LABE', 'CU-MAMOU', 'CU-NZEREKORE', 'CU-SIGUIRI', 'CU-TELIMELE'
+  //     ]
+  //   },
+  // {
+  //     'critere': 'COMMMUNE',
+  //     degreeTitleList: [
+  //       'CU-BOKE', 'CU-COYAH', 'DIXINN', 'CU-DUBREKA', 'CU-FORECARIAH', 'KALOUM', 'CU-KANKAN', 'CU-KOUROUSSA', 'CU-LABE', 'CU-MAMOU', 'CU-NZEREKORE', 'CU-SIGUIRI', 'CU-TELIMELE'
+  //     ]
+  //   }
+  // ];
 
   // Hack: for displaying SOUS-Prefecture and COMMUNE separately and retrieving PAYS option
   filterLocations(locationItems: any) {
@@ -102,7 +132,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
       locationHierarchylevel: 3
     });
 
-    this.locationTypes.sort((a,b) => (a.locationHierarchylevel > b.locationHierarchylevel) ? 1 : ((b.locationHierarchylevel > a.locationHierarchylevel) ? -1 : 0)); 
+    this.locationTypes.sort((a, b) => (a.locationHierarchylevel > b.locationHierarchylevel) ? 1 : ((b.locationHierarchylevel > a.locationHierarchylevel) ? -1 : 0));
   }
 
   getErrorLabels() {
@@ -112,7 +142,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   }
 
   getRecommendedCenters() {
-    this.searchClick =true;
+    this.searchClick = true;
     let locations = [];
     let locationNames = [];
     this.users.forEach((user) => {
@@ -192,7 +222,17 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
 
   setSearchClick(flag: boolean) {
     this.searchClick = flag;
+    this.setCenters();
   }
+
+  setCenters() {
+    this.dataService.getCenterByLocattionType(this.locationType.locationHierarchylevel).subscribe(ret => {
+      const dtl = ret[this.locationType.locationHierarchylevel];
+      console.log(dtl);
+      this.degreeTitleList = dtl.degreeTitleList;
+    })
+  }
+
   onSubmit() {
     this.searchTextFlag = true;
     if (this.searchText.length !== 0 || this.searchText !== null) {
