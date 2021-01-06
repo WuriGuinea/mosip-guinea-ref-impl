@@ -275,42 +275,6 @@
   transform: translateY(0.3rem);
 }
 
-/*
-@media (min-width: 350px) and (max-width: 400px){
-  .preview__body-content-container {
-    width: 100%;
-  }
-}
-@media (min-width: 410px) and (max-width: 432px){
-  .preview__body-content-container {
-    width: 100%;
-  }
-}
-@media (min-width: 450px) and (max-width: 500px){
-  .preview__body-content-container {
-    width: 100%;
-  }
-}
-@media (min-width: 501px) and (max-width: 550px){
-  .preview__body-content-container {
-    width: 100%;
-  }
-}
-@media (min-width: 552px) and (max-width:645px){
-  .preview__body-content-container {
-    width: 100%;
-  }
-}
-@media (min-width: 646px) and (max-width:800px){
-  .preview__body-content-container {
-    width: 100%;
-  }
-}
-@media (max-width: 900px) {
-  .preview__body-content-div {
-    width: 100%;
-  }*/
-
 .personal-info-label{
   width: 10rem;
 }

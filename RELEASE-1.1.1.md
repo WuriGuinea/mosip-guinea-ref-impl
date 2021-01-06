@@ -1,4 +1,4 @@
-Release notes - wuriguinea-pilot - Version Release 3 (UNIR_1.x)
+Release notes - wuriguinea-pilot - Version Release (UNIR_1.1.1)
 
 ## Task
 
