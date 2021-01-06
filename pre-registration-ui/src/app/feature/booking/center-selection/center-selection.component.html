@@ -21,6 +21,43 @@
             </mat-select>
           </mat-form-field>
 
+<<<<<<< HEAD
+=======
+      </div>
+      <!-- search container -->
+      <ng-template #elseBlock>
+        <mat-form-field>
+          <mat-select [(ngModel)]="centerSelectedOption">
+            <mat-option value="Recommanded" (click)="getRecommendedCenters()">
+              {{ 'centerSelection.display_recommended' | translate }}</mat-option>
+            <mat-option value="{{ 'centerSelection.action_nearBy' | translate }}">
+              {{ 'centerSelection.action_nearBy' | translate }}</mat-option>
+            <mat-option value="{{ 'centerSelection.text_search' | translate }}" (click)="setSearchClick(false)">
+              {{ 'centerSelection.text_search' | translate }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="center_selection-form-container">
+          <form class="search-form">
+           <mat-card class="select-card card-align">
+              <mat-select disableOptionCentering name="select" class="select-input" [(ngModel)]="locationType"
+                value="locationType" placeholder="{{ 'centerSelection.text_select' | translate }}" (selectionChange)="setCenters()">
+                <mat-option style="color:black;" *ngFor="let locationType of locationTypes" [value]="locationType">
+                  {{ locationType.locationHierarchyDescription }}
+                </mat-option>
+              </mat-select>
+            </mat-card>
+            <mat-card class="select-card card-align">
+              <mat-select disableOptionCentering name="select" class="select-input" [(ngModel)]="center" (selectionChange)="searchText=center; showResults()"
+                value="locationType" placeholder="{{ 'centerSelection.text_select' | translate }}">
+
+                <mat-option  style="color:black;" *ngFor="let center of degreeTitleList" [value]="center">
+                  {{ center }}
+                </mat-option>
+
+              </mat-select>
+            </mat-card>
+          </form>
+>>>>>>> Dev_teli
         </div>
         <!-- search container -->
         <ng-template #elseBlock>
@@ -91,10 +128,10 @@
                     </div>
                   </div>
                   <div>
-                    <span><img style="top: 7px;" id="schedule" src="assets\schedule.png" /></span>
+                    <span><img style="top: 7px;" id="schedule1" src="assets\schedule.png" /></span>
                     <span style="position: relative;top: 0px;">
                     {{ 'centerSelection.text_horaire' | translate }}</span><br>
-                    <span><img style="top: 16px;" id="schedule" src="assets\contact number.png" /></span>
+                    <span><img style="top: 16px;" id="schedul2" src="assets\contact number.png" /></span>
                     <span
                             style="position: relative;top: 5px;">{{ center.contactPerson + ', ' + center.contactPhone }}</span>
                   </div>

@@ -52,6 +52,10 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   centerSelectedOption: string = '';
   degreeTitleList = [];
 
+  toShow = 'autre';
+  communes = [];
+  sousPrefecture = [];
+
   constructor(
     public dialog: MatDialog,
     private service: BookingService,
@@ -119,7 +123,7 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
         return;
 
       if (locationType.locationHierarchylevel === 3) // 3 => SOUS_PREFECTURE_OU_COMMUNE
-        locationType.locationHierarchyDescription = 'SOUS-PREFECTURE';
+        locationType.locationHierarchyDescription = 'SOUS-PREFECTURE/COMMUNE';
       else
         locationType.locationHierarchyDescription = locationType.locationHierarchyName;
 
@@ -228,9 +232,10 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
   setCenters() {
     this.dataService.getCenterByLocattionType(this.locationType.locationHierarchylevel).subscribe(ret => {
       const dtl = ret[this.locationType.locationHierarchylevel];
-      console.log(dtl);
       this.degreeTitleList = dtl.degreeTitleList;
     })
+
+    console.log(this.degreeTitleList === this.communes);
   }
 
   onSubmit() {
