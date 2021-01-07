@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - automatic-ui-redeployer
-      - qa
   
 jobs:
 #  build:
@@ -175,6 +174,7 @@ jobs:
 #          #docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
 #          #docker push $IMAGE_ID:$VERSION
 
+
 # This workflow contains a single job called "build"
   build-pre-registration-ui:
 
@@ -228,6 +228,7 @@ jobs:
           echo VERSION=$VERSION
           docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+
       - name: Redeploy PREREG-UI in the SANDBOX
         run: |
           if [ $BRANCH_NAME = "qa" ]; then
@@ -331,7 +332,6 @@ jobs:
           echo VERSION=$VERSION
           docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-
 
 
 
@@ -536,6 +536,7 @@ jobs:
 #          docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
 #          docker push $IMAGE_ID:$VERSION
 #
+
 #  docker-registration-processor-registration-transaction-service:
 #    needs: build
 #
@@ -544,6 +545,7 @@ jobs:
 #      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
 #      SERVICE_NAME: registration-processor-registration-transaction-service
 #      SERVICE_LOCATION: registration-processor/post-processor/registration-processor-registration-transaction-service
+
 #
 #    steps:
 #      - uses: actions/checkout@v2

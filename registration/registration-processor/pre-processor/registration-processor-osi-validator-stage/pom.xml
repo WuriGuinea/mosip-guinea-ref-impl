@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.mosip.guinea.registrationprocessor</groupId>
-		<artifactId>post-processor</artifactId>
+		<artifactId>pre-processor</artifactId>
 		<version>1.1.1</version>
 	</parent>
-	<artifactId>registration-processor-printing-stage</artifactId>
-	 <version>1.0.1</version>
+	<artifactId>registration-processor-osi-validator-stage</artifactId>
+	<version>1.1.1</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -47,22 +48,6 @@
 			<version>${spring-framework.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.vertx</groupId>
-			<artifactId>vertx-unit</artifactId>
-			<version>${vertx.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.vertx</groupId>
-			<artifactId>vertx-web-client</artifactId>
-			<version>3.6.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpmime</artifactId>
-			<version>4.3.1</version>
-		</dependency>
-		<dependency>
 			<groupId>io.mosip.guinea.registrationprocessor</groupId>
 			<artifactId>registration-processor-core</artifactId>
 			<version>${registration.processor.core.version}</version>
@@ -72,6 +57,7 @@
 			<artifactId>registration-processor-registration-status-service-impl</artifactId>
 			<version>${registration.status.service.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>io.mosip.guinea.registrationprocessor</groupId>
 			<artifactId>registration-processor-info-storage-service</artifactId>
@@ -83,34 +69,24 @@
 			<version>${registration.processor.rest.client.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.mosip.guinea.registrationprocessor</groupId>
-			<artifactId>registration-processor-message-sender-impl</artifactId>
-			<version>${registration.processor.message.sender.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.mosip.guinea.registrationprocessor</groupId>
-			<artifactId>registration-processor-print-service-impl</artifactId>
-			<version>${registration.processor.print.service.impl.version}</version>
+			<groupId>io.mosip.kernel</groupId>
+			<artifactId>kernel-keygenerator-bouncycastle</artifactId>
+			<version>${kernel.keygenerator.bouncycastle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
-			<artifactId>kernel-idvalidator-uin</artifactId>
-			<version>${kernel.idvalidator.uin.version}</version>
+			<artifactId>kernel-crypto-jce</artifactId>
+			<version>${kernel.crypto.jce.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
-			<artifactId>kernel-qrcodegenerator-zxing</artifactId>
-			<version>${kernel.qrcodegenerator.zxing.version}</version>
+			<artifactId>kernel-bioapi-provider</artifactId>
+			<version>${kernel.bioapi.provider.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
-			<artifactId>kernel-registration-packet-manager</artifactId>
-			<version>1.1.1-rc1</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
+			<artifactId>kernel-core</artifactId>
+			<version>${kernel.core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.powermock</groupId>
@@ -139,6 +115,11 @@
 			<artifactId>micrometer-registry-prometheus</artifactId>
 			<version>${io.micrometer.prometheus.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.mosip.kernel</groupId>
+			<artifactId>kernel-registration-packet-manager</artifactId>
+			<version>${kernel.registration.packet.manager.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -160,4 +141,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
