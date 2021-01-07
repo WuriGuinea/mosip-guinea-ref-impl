@@ -9,15 +9,14 @@
   color: #020F59;
   padding: 0px;
   align-items: center;
-  margin: 13px 4vw 15vw;
   border: 1px solid #020F59;
   border-radius: 10px;
   min-height: 517px;
   display: block;
-  margin-bottom: 120px;
-  width: 96vw;
-  margin-left: 11px;
+  width: 98%;
+  margin-left: 1%;
   top: 30px;
+  margin-bottom: 75px !important;
 }
 
 .applicants_card {
@@ -234,6 +233,9 @@
 }
 
 .button-right {
+  margin-top: 55px !important;
+  display: flex;
+
   float: right;
 }
 
@@ -372,10 +374,13 @@
   position: relative;
   bottom: 4.4rem;
   left: 0;
-  padding: 2px 1.6rem;
+  padding-left: 1%;
+  padding-right: 1%;
   display: flex;
   z-index: 2;
   background: none;
+  margin-top: 45px;
+
 }
 .spacer {
   flex: 1 1 auto;
@@ -620,10 +625,8 @@
 
 .disabled_btn
 {
-  background-color: #BCE0FD !important;
   cursor: not-allowed;
-  opacity: 0.5;
-  color: #020F59;
+  background: #BCE0FD !important;
 }
 
 .placeholder{
@@ -690,9 +693,30 @@ padding-bottom: 25px;
     position: relative;
     bottom: 68px;
     left: 0;
-    padding: 2px 1.6rem;
     display: flex;
     z-index: 2;
     background: none;
 }
 }
+
+
+.step-demo-page-button-time-selection {
+  min-height: 45px !important;
+  max-height: 45px !important;
+  min-width: 100px !important;
+  margin-top: 25px;
+}
+
+@media (max-width: 500px){
+  .step-demo-page-button-time-selection {
+    min-height: 35px !important;
+    max-height: 35px !important;
+    min-width: auto !important;
+    margin-top: 25px;
+  }
+}
+
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}
+

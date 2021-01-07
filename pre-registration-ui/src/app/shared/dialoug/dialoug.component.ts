@@ -52,7 +52,9 @@ export class DialougComponent implements OnInit {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    setTimeout(f => {
+      this.dialogRef.close();
+    }, 500);
   }
 
   onSubmit(): void {
