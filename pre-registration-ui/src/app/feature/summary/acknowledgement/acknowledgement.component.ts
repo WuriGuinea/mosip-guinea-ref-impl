@@ -45,18 +45,18 @@ export class AcknowledgementComponent implements OnInit, OnDestroy {
     this.translate.use(localStorage.getItem('langCode'));
   }
 
-  async ngOnInit() {
+  async ngOnInit() {  
     this.usersInfo = this.bookingService.getNameList();
     let notificationTypes = this.configService
       .getConfigByKey(appConstants.CONFIG_KEYS.mosip_notification_type)
       .split('|');
     this.notificationTypes = notificationTypes.map(item => item.toUpperCase());
     this.opt = {
-      margin: [0, 0.5, 0.5, 0],
+      margin: [0, 0, 0, 0],
       filename: this.usersInfo[0].preRegId + '.pdf',
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 1 },
-      jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
 
     await this.apiCalls();
