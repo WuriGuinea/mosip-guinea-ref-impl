@@ -25,7 +25,7 @@
   border: none;
   display: block !important;
   outline: none;
-  z-index: auto;
+  z-index: 0;
 }
 .browseInputhide{
   display: block !important;
@@ -61,6 +61,7 @@
   height: 29px !important;
   width:  29px !important;
   margin-right: 3px;
+  z-index: 6;
 }
 .documentWrapper {
   width: 100%;
@@ -150,7 +151,7 @@ mat-select:focus {
   margin: 40px 2vw 15vw;
   color: #020F59;
   border: solid 1px #020F59;
-  height: 35rem;
+  min-height: 35rem;
   border-radius: 16px;
 }
 
@@ -174,7 +175,6 @@ mat-select:focus {
   font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 70px;
 }
 @media (min-width: 1026px) and (max-width: 1400px){
   .file-upload__body {
@@ -210,93 +210,175 @@ mat-select:focus {
   width: 100%;
 }
 .hidebloc{
-  display: none;
+  display: block;
 }
 .showbloc{
-  display: none;
+  display: block;
 }
 .file-upload__body__2{
   width: 100%;
 }
 .docposition{
-  margin-left: -150px !important;
-  top: 34px !important;
+  margin-left: -76px !important;
+  top: 42px !important;
   display: flex;
   text-align: center;
   float: left;
 }
+.docposition{
+  margin-left: 78px;
+  text-decoration: underline #BCE0FD;
+  color: #020F59;
+  position: absolute !important;
+  top: -3px;
+  line-break: anywhere;
+}
+}
+@media (min-width: 701px) and (max-width: 1950px){
+.hidebloc{
+  display: block !important;
+}
+#hidebloc{
+  display: block !important;
 }
 .showbloc{
-  display: none;
+  display: block;
 }
+.file-upload__body{
+  min-height: 35rem !important;
+}
+}
+
 .croix{
   float: right;
 }
 @media (min-width: 350px) and (max-width: 360px){
   .docposition{
-    left: -27px;
+    left: -48px;
+    margin: -11px;
+    white-space: pre-wrap;
+    line-break: anywhere;
+  }
+  .pareil{
+    margin-left: -52px;
   }
 }
 @media (min-width: 361px) and (max-width: 371px){
   .docposition{
-    left: -35px;
+    left: -57px;
+    margin: -6px;
   }
 }
 @media (min-width: 372px) and (max-width: 392px){
   .docposition{
-    left: -42px;
+    left: -64px;
+    margin: -6px;
+  }
+  .pareil{
+    margin-left: -44px;
   }
 }
 @media (min-width: 393px) and (max-width: 410px){
   .docposition{
-    left: -54px;
+    left: -76px;
+    margin: -6px;
+  }
+  .pareil{
+    margin-left: -39px;
   }
 }
 @media (min-width: 411px) and (max-width: 450px){
   .docposition{
-    left: -60px;
+    left: -82px;
+    margin: -6px;
+  }
+  .pareil{
+    margin-left: -28px;
   }
 }
 @media (min-width: 451px) and (max-width: 480px){
   .docposition{
-    left: -87px;
+    left: -109px;
+    margin: -6px;
+  }
+  .pareil{
+    margin-left: -23px;
   }
 }
 @media (min-width: 481px) and (max-width: 500px){
   .docposition{
-    left: -105px;
+    left: -127px;
+    margin: -6px;
+  }
+  .pareil{
+    margin-left: -18px;
   }
 }
 @media (min-width: 501px) and (max-width: 530px){
   .docposition{
     left: -115px;
+    margin: -6px;
   }
 }
 @media (min-width: 531px) and (max-width: 560px){
   .docposition{
-    left: -133px;
+    left: -155px;
+    margin: -6px;
   }
 }
 @media (min-width: 561px) and (max-width: 590px){
   .docposition{
-    left: -151px;
+    left: -173px;
+    margin: -6px;
   }
 }
 @media (min-width: 591px) and (max-width: 630px){
   .docposition{
-    left: -169px;
+    left: -191px;
+    margin: -6px;
   }
 }
 @media (min-width: 631px) and (max-width: 670px){
   .docposition{
-    left: -191px;
+    left: -213px;
+    margin: -6px;
   }
 }
 @media (min-width: 671px) and (max-width: 700px){
   .docposition{
-    left: -211px;
+    left: -233px;
+    margin: -6px;
   }
 }
+  @media (min-width: 701px) and (max-width: 770px){
+    .docposition{
+      left: 203px;
+      margin: -6px;
+    }
+}
+@media (min-width: 772px) and (max-width: 1000px){
+  .docposition{
+    left: 192px;
+    margin: -6px;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1023px){
+  .docposition{
+    left: 155px;
+    margin: -6px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1134px){
+  .docposition{
+    left: 150px
+  }
+}
+@media screen and (min-device-width: 1366px) and (max-device-width: 1480px) {
+  .docposition{
+    left: 93px;
+  }
+}
+
 
 
 :host ::ng-deep .ng2-pdf-viewer-container {
@@ -319,7 +401,7 @@ mat-select:focus {
 }
 
 .file-upload__body__document-type {
-  padding: 10px 0px;
+  padding: 10px 5px;
   min-height: 100px;
 }
 .filestyle{
@@ -341,6 +423,8 @@ mat-select:focus {
   margin: 40px;
   position: relative;
   top: 9px;
+  margin-right: 88px;
+  left: 44px;
 }
 
 .file-upload__body__document-name {
@@ -372,7 +456,7 @@ mat-select:focus {
   filter: none;
 }
 .docposition{
-  margin-left: 78px;
+  margin-left: -321px;
   text-decoration: underline #BCE0FD;
   color: #020F59;
   position: relative;
@@ -385,7 +469,7 @@ mat-select:focus {
 }
 
 .file-uplaoad__body__2__preview {
-  height: 60vh;
+  min-height: 60vh !important;
   width: 100%;
 }
 
@@ -393,10 +477,9 @@ mat-select:focus {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: -8rem;
-  bottom: 68px;
-  position: fixed;
-  z-index: 22;
+  bottom: 8rem;
+  position: relative;
+  z-index: 2;
   padding: 0 2vw;
 }
 
@@ -413,6 +496,10 @@ mat-select:focus {
   cursor: pointer;
   text-transform: capitalize;
   font-weight: bold;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
+  0 2px 2px 0 rgba(0,0,0,.14), 
+  0 1px 5px 0 rgba(0,0,0,.12);
+  cursor: pointer;
 }
 
 .user__btn--back {
@@ -433,7 +520,7 @@ mat-select:focus {
 }
 
 .file-upload__or {
-  padding-top: 1rem;
+  padding-top: 2.7rem;
 }
 
 .file-buttons {
@@ -477,7 +564,8 @@ mat-select:focus {
 }
 @media (max-width : 700px){
   .mat-select{
-    padding-top: 16px;
+    padding-top: 6px;
+    width: 95%;
   }
   .file-upload__input{
     width: 60%;
@@ -502,15 +590,31 @@ mat-select:focus {
   .deleteicon{
     width: 20px;
     height: 20px;
+    float: left;
   }
   .browseInput{
     width: 20px;
     height: 20px;
   }
+  .user__btn{
+    font-size: 0.7rem;
+  }
 }
 
+@media (max-width : 479px){
+  .user__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -2rem;
+    bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    padding: 0 2vw; 
+  }
+}
 
-@media (max-width : 1200px){
+@media (min-width : 480px) and (max-width : 1200px){
   .user__buttons {
     width: 100%;
     display: flex;
@@ -528,7 +632,7 @@ mat-select:focus {
     margin: 40px 2vw 32vw;
     color: #020F59;
     border: solid 1px #020F59;
-    height: 35rem;
+    min-height: 35rem;
     border-radius: 16px;
   }
 

@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="960.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.mosip.authentication.demo.service.IdaController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="980.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.mosip.authentication.demo.service.IdaController">
 
-   
+
 
     <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -19,54 +19,31 @@
    <children>
       <GridPane prefHeight="440.0" prefWidth="56.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="91.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="1.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="2.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="96.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="2.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="53.0" minHeight="10.0" percentHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="394.0" minHeight="10.0" percentHeight="90.0" prefHeight="387.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane prefHeight="44.0" prefWidth="958.0" style="-fx-background-color: #020F59;" GridPane.columnIndex="1">
+            <AnchorPane prefHeight="63.0" prefWidth="985.0" style="-fx-background-color: #020F59;" GridPane.columnIndex="1">
                <children>
-                  <Label layoutX="167.0" layoutY="41.0" prefHeight="17.0" prefWidth="508.0" text="Système de Verification d'Identité" textFill="WHITE">
+                  <Label layoutX="222.0" layoutY="16.0" prefHeight="57.0" prefWidth="508.0" text="Système de Verification d'Identité" textFill="WHITE">
                      <font>
                         <Font name="Courier New Bold" size="24.0" />
                      </font></Label>
-                   <ImageView fitHeight="54.0" fitWidth="94.0" layoutX="9.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: green;">
+                   <ImageView fitHeight="50.0" fitWidth="91.0" layoutX="6.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: green;">
+                              <image>
+                                <Image url="logo.png" preserveRatio="true" smooth="true"     />
+                            </image>
+                        </ImageView>
+                       <ImageView fitHeight="50.0" fitWidth="91.0" layoutX="888.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: green;">
                        <image>
-                           <Image url="logo.png" preserveRatio="true" smooth="true"     />
-                       </image>
-                   </ImageView>
-                  <!--Button styleClass="button-title" fx:id="closeButton" alignment="TOP_RIGHT" layoutX="870.0" layoutY="30.0" mnemonicParsing="false" onAction="#closeAction" prefHeight="33.0" prefWidth="33.0">
-                      <graphic>
-                          <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                              <image>
-                                  <Image url="CROSS.png" />
-                              </image>
-                          </ImageView>
-                      </graphic>
-                  </Button>
-                  <Button fx:id="maximizeBtn" styleClass="button-title" layoutX="834.0" layoutY="30.0" mnemonicParsing="false" onAction="#maximizeAction" prefHeight="33.0" prefWidth="33.0" >
-                      <graphic>
-                          <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                              <image>
-                                  <Image url="BIG.png" />
-                              </image>
-                          </ImageView>
-                      </graphic>
-
-                  </Button>
-                  <Button fx:id="minimizeBtn" styleClass= "button-title" layoutX="798.0" layoutY="30.0" mnemonicParsing="false" onAction="#minimizeAction" prefHeight="33.0" prefWidth="33.0" >
-                   <graphic>
-                       <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                               <Image url="MIN.png" />
-                           </image>
-                       </ImageView>
-                   </graphic>
-                  </Button-->
+                       <Image url="banniere.png" preserveRatio="true" smooth="true"     />
+                   </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <GridPane prefHeight="380.0" prefWidth="838.0" vgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -102,7 +79,7 @@
                         <HBox prefHeight="25.0" prefWidth="956.0" spacing="20.0">
                            <children>
                               <Label prefHeight="17.0" prefWidth="141.0" styleClass="labelPlus" text="  Identifiant Numérique" />
-                              <TextField fx:id="idValue" prefHeight="25.0" prefWidth="145.0" styleClass="textfield" text="INU" />
+                              <TextField fx:id="idValue" prefHeight="5.0" prefWidth="145.0" styleClass="textfield" text="INU" />
                                <HBox fx:id="tsHBox" alignment="CENTER" maxHeight="15" minWidth="35" styleClass="rounded-corner">
                                <children>
 
@@ -114,8 +91,8 @@
                                    <Label id="toggleLabel1" fx:id="uinRidToggleLabel1" layoutY="32.0" text="" /-->
                                </children>
                                </HBox>
-                              <TextField fx:id="idValueVID" layoutX="161.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" styleClass="textfield" text="VID" />
-                              <Label prefHeight="17.0" prefWidth="103.0" styleClass="labelPlus" text="Mode vérification" />
+                              <TextField fx:id="idValueVID" layoutX="141.0" layoutY="10.0" prefHeight="5.0" prefWidth="170.0" styleClass="textfield" text="VID" />
+                              <Label prefHeight="17.0" prefWidth="135.0" styleClass="labelPlus" text="Mode de vérification" />
                               <CheckBox fx:id="fingerAuthType" mnemonicParsing="false" onAction="#onFingerPrintAuth" prefHeight="17.0" prefWidth="149.0" styleClass="check-box" text="Empreintes Digitales" />
                               <CheckBox fx:id="otpAuthType" mnemonicParsing="false" onAction="#onOTPAuth" prefHeight="17.0" prefWidth="58.0" styleClass="check-box" text="OTP" />
                            </children>
@@ -141,17 +118,22 @@
                         <AnchorPane fx:id="bioAnchorPane" prefHeight="146.0" prefWidth="407.0" style="-fx-border-color: #020F59;">
                            <children>
                               <Label layoutX="14.0" layoutY="5.0" prefHeight="17.0" prefWidth="185.0" styleClass="labelPlus" text="Authentification biométrique" />
-                           	  <Label ellipsisString="" layoutX="23.0" layoutY="56.0" prefHeight="17.0" prefWidth="101.0" styleClass="labelPlus" text="Numéro doigt" />
-                              <ComboBox fx:id="fingerCount" layoutX="124.0" layoutY="52.0" onAction="#onSubTypeSelection" prefHeight="25.0" prefWidth="160.0" styleClass="combo-box" />
-                              <Button fx:id="capture" layoutX="124.0" layoutY="92.0" mnemonicParsing="false" onAction="#onCapture" prefHeight="25.0" prefWidth="160.0" text="Capture" styleClass="buttons" />
+                           	  <Label ellipsisString="" layoutX="23.0" layoutY="56.0" prefHeight="17.0" prefWidth="101.0" styleClass="labelPlus" text="Numéro de doigt" />
+                              <ComboBox fx:id="fingerCount" layoutX="134.0" layoutY="52.0" onAction="#onSubTypeSelection" prefHeight="25.0" prefWidth="160.0" styleClass="combo-box" />
+                              <Button fx:id="capture" layoutX="134.0" layoutY="92.0" mnemonicParsing="false" onAction="#onCapture" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" text="Capture" />
+                              <ImageView fitHeight="121.0" fitWidth="133.0" layoutX="314.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                             <Image url="hand_map.png" preserveRatio="true" smooth="true"     />
+                         </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="otpAnchorPane" prefHeight="146.0" prefWidth="424.0" style="-fx-border-color: #020F59;" GridPane.columnIndex="2">
                            <children>
                               <Label layoutX="14.0" layoutY="5.0" styleClass="labelPlus" text="Authentification via clé OTP" />
-                              <Button fx:id="requestOtp" layoutX="180.0" layoutY="92.0" mnemonicParsing="false" onAction="#onRequestOtp" prefHeight="25.0" prefWidth="160.0" text="Envoyer une clé OTP" styleClass="buttons" />
-                              <Label layoutX="10.0" layoutY="58.0" prefHeight="17.0" prefWidth="160.0" styleClass="labelPlus" text="Clé d'identification OTP" />
-                              <TextField fx:id="otpValue" layoutX="145.0" layoutY="54.0" prefHeight="25.0" prefWidth="170.0" styleClass="textfield" text=" " />
+                              <Button fx:id="requestOtp" layoutX="190.0" layoutY="92.0" mnemonicParsing="false" onAction="#onRequestOtp" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" text="Envoyer une clé OTP" />
+                              <Label layoutX="14.0" layoutY="58.0" prefHeight="17.0" prefWidth="160.0" styleClass="labelPlus" text="Clé d'identification OTP" />
+                              <TextField fx:id="otpValue" layoutX="150.0" layoutY="54.0" prefHeight="25.0" prefWidth="190.0" styleClass="textfield" text=" " />
                            </children>
                            <GridPane.margin>
                               <Insets />
@@ -161,8 +143,8 @@
                   </GridPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
-                        <Button fx:id="sendAuthRequest" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#onSendAuthRequest" text="Authentifier"  styleClass="buttons"/>
-                        <Button fx:id="reset" layoutX="823.0" mnemonicParsing="false" onAction="#onReset" text="Réinitialiser" styleClass="buttons"/>
+                        <Button fx:id="sendAuthRequest" layoutX="863.0" mnemonicParsing="false" onAction="#onSendAuthRequest" styleClass="buttons" text="Authentifier" />
+                        <Button fx:id="reset" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#onReset" styleClass="buttons" text="Réinitialiser" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
@@ -171,7 +153,7 @@
                       <children>
                    <Label layoutX="0.0" layoutY="0.0" styleClass="labelPlus" text="Statut" />
 
-                        <TextField fx:id="responsetextField" layoutX="0.0" layoutY="20.0" maxWidth="Infinity" prefHeight="39.0" prefWidth="900.0" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="responsetextField" layoutX="0.0" layoutY="20.0" maxWidth="Infinity" prefHeight="39.0" prefWidth="940.0" HBox.hgrow="ALWAYS" />
                      </children>
 
 

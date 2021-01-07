@@ -5,7 +5,7 @@
     {{ 'documents.text_filetype' | translate }} : {{ allowedFilesHtmlDisplay }} &nbsp;{{'documents.text_filesize' | translate }} : {{ allowedFileSize }}
   </div>
   <div class="file-upload__body">
-    <div  [ngClass]="{'hidebloc' : flag  }"  class="file-upload__body__1">
+    <div  [ngClass]="{'hidebloc' : flag  }" id="hidebloc"  class="file-upload__body__1">
       <div class="file-upload__body__document-type filestyle" *ngFor="let document of LOD; let i = index">
         <mat-form-field class="file-upload__input">
           <mat-select #ref (selectionChange)="changeStatus(ref, i)" [(value)]="document.selectedDocName"
@@ -29,15 +29,15 @@
               <div class="deleteandview" *ngIf="file.docCatCode == document.code">
 
                 <span class="file-uplaoad__body__document-name__view" (click)="viewFile(file)">
-                  <img src="assets\view.svg" class="view-img" />
+                  <img src="assets\view.svg" class="view-img" (click)="showview()" />
                 </span>
                 <input class="deleteicon" type="button" (click)="deletefile(i,j)" />
-                <span class="docposition">{{ file.docName }}</span>
+                <div class="docposition">{{ file.docName }}</div>
               </div>
             </div>
           </div>
         </span>
-        <span style="margin-left: 40px;" *ngIf="document.code === 'POA'">
+        <span class="pareil" *ngIf="document.code === 'POA'">
           <span id="sameas" *ngIf="allApplicants.length > 1"> {{ 'documents.OR' | translate }}</span>
           <span *ngIf="allApplicants.length > 1">
             <mat-form-field class="file-upload__or">
@@ -54,9 +54,9 @@
         </span>
       </div>
     </div>
-    <div [ngClass]="{'showbloc' : !flag  }" class="file-upload__body__2" *ngIf="this.users[0].files && fileIndex >= 0">
+    <div [ngClass]="{'showbloc' : !flag  }" id="showbloc" class="file-upload__body__2" *ngIf="this.users[0].files && fileIndex >= 0">
       <p>{{ fileName }}</p>
-      <p class="croix"><img src="/assets/supp.svg" class="view-img" (click)="hideview()"/></p>
+      <p class="croix"><img src="assets/supp.svg" class="view-img" (click)="hideview()"/></p>
       <div *ngIf="!flag">
         <pdf-viewer class="file-uplaoad__body__2__preview pdf-viewer"
           *ngIf="fileUrl && fileExtension.toLowerCase() == 'pdf'" [src]="fileUrl" [zoom]="zoom">

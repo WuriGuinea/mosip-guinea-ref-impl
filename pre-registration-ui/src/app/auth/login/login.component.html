@@ -17,13 +17,13 @@
       <div *ngIf="showContactDetails">
         
           <mat-form-field appearance="outline">     
-            <input class="login-input" autofocus="autofocus" matInput [(ngModel)]="inputContactDetails"
+            <input class="login-input" #loginP="matInput" matInput [(ngModel)]="inputContactDetails"
               placeholder="{{ 'login.label_email_num' | translate }}" 
               id="inputFieldContact" required />   
               
               <input class="login-mobile" autofocus="autofocus" matInput [(ngModel)]="inputContactDetails"
                 placeholder="{{ 'login.label_email_nummobile' | translate }}" 
-                id="inputFieldContact" required />
+                id="inputFieldContacts" required />
           </mat-form-field>
       
         <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
@@ -35,25 +35,30 @@
             id="inputFieldOTP" (input)="showVerifyBtn()" />
         </mat-form-field>
       </div>
+      <div *ngIf="showOTP" class="login_inputm">
+        <mat-form-field appearance="outline">
+        <input autofocus="autofocus" matInput [(ngModel)]="inputOTP" placeholder="{{ 'login.label_otp_mobile' | translate }}"
+          id="inputFieldOTPm" (input)="showVerifyBtn()" />
+      </mat-form-field>
+    </div>
 
       <div *ngIf="showSendOTP">
-        <button mat-raised-button class="btn_axn-pri" [disabled]="inputContactDetails.length > 0 ? false : true"
-          (click)="submit()">
-          {{ 'login.action_send' | translate }}
-        </button>
+
+        <app-button-uniform  [disabled]="inputContactDetails.length > 0 ? false : true" (click)="submit()" [text]="'login.action_send' | translate">
+        </app-button-uniform>
+
       </div>
 
       <div *ngIf="showVerify">
-        <button mat-raised-button class="btn_axn-pri" [disabled]="disableVerify" disabled="{{ disableBtn }}"
-          (click)="submit()">
-          {{ 'login.action_verify' | translate }}
-        </button>
+        <app-button-uniform disable="{{disableBtn}}" [disabled]="disableVerify" (click)="submit()" [text]="'login.action_verify' | translate">
+        </app-button-uniform>
       </div>
 
       <div *ngIf="showResend">
-        <button mat-raised-button class="btn_axn-pri" disabled="{{ disableBtn }}" (click)="submit()">
-          {{ 'login.action_resend' | translate }}
-        </button>
+
+        <app-button-uniform disable="{{disableBtn}}" (click)="submit()" [text]="'login.action_resend' | translate">
+        </app-button-uniform>
+
       </div>
 
       <div class="pinkText boldText" id="timer">

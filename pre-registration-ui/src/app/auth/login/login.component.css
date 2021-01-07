@@ -194,6 +194,7 @@ button {
   border-radius: 8px !important;
   opacity: 0.6;
   font-size: 14px;
+  padding: 10px;
 }
 button {
   margin-left: 2%;
@@ -291,9 +292,9 @@ left: 15vw;
   }
   .form_wrapper[_ngcontent-c13] {    
      width: 80%; 
+  }
 }
-}
- @media (max-width: 1000px) {
+@media (max-width: 1000px) {
   .positionimgbiom {
     display: none !important;
   }
@@ -308,7 +309,7 @@ left: 15vw;
     left: 0px;
     padding: initial;
   }  
-  } 
+}
 .positionimgbiom{
   height: 21rem;
   margin-top: -10px;
@@ -325,28 +326,42 @@ button.mat-raised-button.mat-primary{
 mat-form-field-infix{
   border: none !important;
 }
+
 .btn_axn-pri[disabled]{
-background: #BCE0FD;
-margin-left: 3%;
+  background: #BCE0FD;
 }
-@media (min-width: 566px)  and (max-width: 699px){
+
+@media (max-width: 699px){
   #inputFieldOTP{
     font-size: 13px !important;
+    display: none;
+  }
+
+  #inputFieldOTPm{
+    display: block;
+  }
+
+  .login_inputm{
+    margin-top: -3rem;
   }
 }
-@media (min-width: 350px)  and (max-width: 400px){
+
+@media (min-width: 700px){
+  #inputFieldOTPm{
+    display: none;
+  }
+
   #inputFieldOTP{
-    font-size: 8px !important;
+    font-size: 14px !important;
+    display: block;
   }
-}
-@media (max-width: 700px) {
-.main-footer{
-  position: fixed !important;
-  bottom:2px !important ;
-}
-}
-@media (max-width: 550px) {
-#inputFieldOTP{
-  font-size: 10px;
-}
+
+  .login_inputm{
+    display: none;
+  }
+
+  .login_input{
+    display: block;
+  }
+
 }

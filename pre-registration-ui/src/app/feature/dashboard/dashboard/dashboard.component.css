@@ -9,10 +9,10 @@
   background-color: #f4f4f4;
   opacity: 100%;
   width: 100%;
-  min-height: 91rem;
+  min-height: 95rem;
   margin: 0;
   padding: 0px 2vw;
-  margin-bottom: -2rem;
+  margin-bottom: -1rem;
 }
 .heading-row {
   display: flex;
@@ -121,6 +121,10 @@ img {
 .btn_axn-sec.page_btn{
   max-width: 200px !important;
   font-weight: bold;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
+  0 2px 2px 0 rgba(0,0,0,.14), 
+  0 1px 5px 0 rgba(0,0,0,.12);
+  cursor: pointer;
 }
 .footer-btn {
   font-size: 9px;
@@ -198,4 +202,8 @@ mat-card-content {
 .btn_axn-pri{
   background: #BCE0FD !important;
   color: #020F59 !important;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
+  0 2px 2px 0 rgba(0,0,0,.14), 
+  0 1px 5px 0 rgba(0,0,0,.12);
+  cursor: pointer;
 }

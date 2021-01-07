@@ -524,6 +524,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
       response => { 
         if (response[appConstants.RESPONSE]) {
           this.registration.updateUser(this.registration.getUsers().length - 1, this.users[this.step]);
+          this. hideview();
         } else {
           this.displayMessage(this.fileUploadLanguagelabels.uploadDocuments.error, this.errorlabels.error);
         }
@@ -598,7 +599,12 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   }
 
   hideview() {
-    this.flag = false;
+    document.getElementById('showbloc').style.display = "none";
+    document.getElementById('hidebloc').style.display = "block";
+  }
+ showview() {
+    document.getElementById('hidebloc').style.display = "none";
+    document.getElementById('showbloc').style.display = "block";
   }
 
   /**

@@ -14,7 +14,10 @@
   border-radius: 10px;
   min-height: 517px;
   display: block;
-  margin-bottom: 116px;
+  margin-bottom: 120px;
+  width: 96vw;
+  margin-left: 11px;
+  top: 30px;
 }
 
 .applicants_card {
@@ -121,6 +124,30 @@
     padding-right: 1%;
   }
 }
+@media (min-width:501px) and (max-width:520px){
+  .time-selection__names-container{
+    min-width: 35rem !important;
+    margin-left: 26px;
+  }
+}
+@media (min-width:521px) and (max-width:600px){
+  .time-selection__names-container{
+    min-width: 35rem !important;
+    margin-left: 67px;
+  }
+}
+@media (min-width:601px) and (max-width:675px){
+  .time-selection__names-container{
+    min-width: 40rem!important;
+    margin-left: 67px;
+  }
+}
+@media (min-width:675px) and (max-width:705px){
+  .time-selection__names-container{
+    min-width: 40rem!important;
+    margin-left: 109px;
+  }
+}
 .appcard{
   width: 50%;
   }
@@ -197,6 +224,9 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
+  0 2px 2px 0 rgba(0,0,0,.14), 
+  0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 .button-placer {
@@ -339,12 +369,12 @@
 
 .time-selection__button-container {
   width: 100%;
-  position: fixed;
-  bottom: 68px;
+  position: relative;
+  bottom: 4.4rem;
   left: 0;
   padding: 2px 1.6rem;
   display: flex;
-  z-index: 22;
+  z-index: 2;
   background: none;
 }
 .spacer {
@@ -363,6 +393,10 @@
   cursor: pointer;
   text-transform: none;
   font-weight: bold;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
+  0 2px 2px 0 rgba(0,0,0,.14), 
+  0 1px 5px 0 rgba(0,0,0,.12);
+  cursor: pointer;
 }
 .user-book_later-btn {
   background-color: #BCE0FD;
@@ -378,6 +412,10 @@
   margin-right: 0px;
   text-transform: none;
   font-weight: bold;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
+  0 2px 2px 0 rgba(0,0,0,.14), 
+  0 1px 5px 0 rgba(0,0,0,.12);
+  cursor: pointer;
 }
 .user-continue-btn {
   background-color: #BCE0FD ;
@@ -392,6 +430,10 @@
   cursor: pointer;
   text-transform: none;
   font-weight: bold;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
+  0 2px 2px 0 rgba(0,0,0,.14), 
+  0 1px 5px 0 rgba(0,0,0,.12);
+  cursor: pointer;
 }
 .user-continue-btn-normal {
   background-color: #BCE0FD ;
@@ -401,6 +443,23 @@
   margin: 0.35rem 0 10px 5px;
   text-align: center;
 }
+.prevlong{
+  display: block;
+}
+
+.prevshort{
+  display: none;
+}
+.nextlong{
+  display: block;
+}
+
+.nextshort{
+  display: none;
+}
+.mobiletooltip{
+  display: none;
+}
 
 @media (max-width: 500px) {
   .container {
@@ -408,15 +467,74 @@
   }
   .middle {
     margin: 0;
-    width: 100%;
-    overflow: scroll;
+    width: 70%;
+    margin-left: 18px;
+    z-index: 0;
+  }
+  .leftarrow{
+    position: relative;
+    left: 15px;
+    top: -1px;
+  }
+  .rightarrow{
+    position: relative;
+    left: 0px;
+    top: -1px;
   }
   div::-webkit-scrollbar {
     width: 0px;
     background: transparent;
   }
   .sizing {
-    margin: 0 5px 0 5px;
+    margin: 15px 5px 0 5px;
+    width: 49%;
+    height: 90%;
+    margin-right: -26px;
+    margin-left: 29px;
+    padding-right: 9px;
+    z-index: 6;
+    margin-top: 0px;
+  }
+  .time-selection__tile-date{
+    font-size: 0.8rem;
+    margin-left: -16px;
+  }
+  .time-selection__tile-date-text{
+    font-size: 0.8rem;
+    margin-left: -16px;
+    margin-top: -2px;
+  }
+  .time-selection__date-card{
+    padding-top: 11px;
+    margin: 17px;
+    width: 92%;
+    left: 4px;
+    top: -30px;
+    padding-right: 52px;
+  }
+  #legend-step{
+    display: none !important;
+  }
+  .prevlong{
+    display: none;
+  }
+  .prevshort{
+    display: block  !important;
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  .nextlong{
+    display: none;
+  }
+  .nextshort{
+    display: block  !important;
+    font-size: 12px;
+    margin-left: 20px;
+  }
+  .time-selection__tile-availability-text{
+    font-size: 0.8rem;
+    margin-left: -10px;
+    margin-top: -2px;
   }
 
   .time-selection__name-list-item {
@@ -426,6 +544,7 @@
 
   .time-selection__time-slots-container {
     width: 100%;
+    margin-left: 19px;
   }
 
   .time-selection__slots-div {
@@ -437,16 +556,40 @@
     width: 100%;
     padding: 5px;
   }
+  .appcard{
+    width: 100%;
+    margin: 15px;
+  }
+  .mat-icon{
+    color: currentColor;
+    float: right;
+  }
+  .mobiletooltip{
+    display: block;
+    margin-top: 3px;
+  }
+  .compteur{
+    display: table-column;
+    position: absolute;
+    top: 183px;
+    left: 251px;
+  }
 
+}
+
+@media (max-width: 700px){
   .user-back-btn,
   .user-book_later-btn,
   .user-continue-btn {
-    font-size: 10px;
-    padding: 0px 2px;
-    margin-right: 20px;
+    font-size: 0.7rem;
+    padding: 0.6rem 1rem;
+    margin-right: 5px;
+  }
+  .mobiletooltip{
+    display: block;
+    margin-top: 3px;
   }
 }
-
 @media screen and (min-width: 767px) and (max-width: 991px) {
   .container {
     margin: 0 0 0 15px;
@@ -477,8 +620,10 @@
 
 .disabled_btn
 {
-  background-color: #E1F0FB;
+  background-color: #BCE0FD !important;
   cursor: not-allowed;
+  opacity: 0.5;
+  color: #020F59;
 }
 
 .placeholder{
@@ -516,6 +661,7 @@
   line-height:14px;
   font-size: 0.9rem;
   padding-bottom: 1px;
+  display: block;
 }
 .mat-card-header{
   margin-left: -27px;

@@ -1,4 +1,5 @@
 import {Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {MatSelect} from "@angular/material/select";
 import {Router} from '@angular/router';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatButtonToggleChange, MatDialog, MatSelectChange} from '@angular/material';
@@ -27,7 +28,7 @@ import {LogService} from 'src/app/shared/logger/log.service';
 import LanguageFactory from 'src/assets/i18n';
 import {FormDeactivateGuardService} from 'src/app/shared/can-deactivate-guard/form-guard/form-deactivate-guard.service';
 import {Subscription} from 'rxjs';
-
+import $ from 'jquery';
 // import { ErrorService } from 'src/app/shared/error/error.service';
 
 /**
@@ -111,10 +112,15 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   @ViewChild('mm') mm: ElementRef;
   @ViewChild('yyyy') yyyy: ElementRef;
   @ViewChild('age') age: ElementRef;
+  @ViewChild('form') form: ElementRef;
+  @ViewChild('submitButton') submitButton: ElementRef;
 
   private _keyboardRef: MatKeyboardRef<MatKeyboardComponent>;
   @ViewChildren('keyboardRef', { read: ElementRef })
   private _attachToElementMesOne: any;
+
+  @ViewChild("gender") genderFocus: MatSelect;
+  @ViewChild("nationnality") nationality: MatSelect;
 
   regions: CodeValueModal[] = [];
   prefectures: CodeValueModal[] = [];
@@ -126,6 +132,8 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
   locationHierarchy = ["region", "prefecture", "subPrefectureOrCommune", "district", "sector"];
   codeValue: CodeValueModal[] = [];
   subscriptions: Subscription[] = [];
+
+
 
   formControlValues: FormControlModal;
   formControlNames: FormControlModal = {
@@ -936,7 +944,9 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
    *
    * @memberof DemographicComponent
    */
-  onSubmit() {
+  onSubmit(e: Event) {
+
+
     this.markFormGroupTouched(this.userForm);
     if (this.userForm.valid && this.dataIncomingSuccessful) {
       const identity = this.createIdentityJSONDynamic();
@@ -1246,21 +1256,19 @@ export class DemographicComponent extends FormDeactivateGuardService implements 
     }
   }
 
-    @HostListener('keydown', ['$event']) onKeyDown(e:any) {
-        if ((e.which == 13 || e.keyCode == 13)) {
-            e.preventDefault();
-            if (e.srcElement.nextElementSibling) {
-                e.srcElement.nextElementSibling.focus();
-            }
-            else{
-                console.log('close keyboard');
-            }
-            return;
-        }
-
-    }
-
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
+
+  onEnterDown(event: any) {
+     $('input').keydown( function(e) {
+      var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+      if(key == 13) {
+        e.preventDefault();
+        var inputs = $(this).closest('form').find('.tabulation');
+        inputs.eq( inputs.index(this)+ 1 ).focus();
+      }
+    });
+  }
+ 
 }

@@ -127,7 +127,6 @@ body {
 .btn_axn-sec:active,
 .btn_axn-pri.page_btn:active,
 .btn_axn-sec.page_btn:active {
-  
   border: none;
   opacity: 1 !important;
   box-shadow:none !important
@@ -135,7 +134,7 @@ body {
 
 .btn_axn-pri.page_btn,
 .btn_axn-sec.page_btn {
-  min-width: 120px;
+  min-width: 13rem;
   min-height: 40px;
   padding: 0px 40px;
   margin-bottom: 1rem;
@@ -189,6 +188,7 @@ body {
 
 .mat-error {
   color: #e44c29;
+  margin-top: -0.9px;
 }
 
 .mat-slide-toggle .mat-slide-toggle-thumb {
@@ -342,6 +342,11 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
     opacity: 1 !important;
     box-shadow: none !important;
   }
+  .user__btn  .mat-raised-button .cdk-focused .cdk-mouse-focused{
+    background: #BCE0FD !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
   .mat-select-value{
     color: #000000 !important;
     text-transform: none !important;
@@ -376,7 +381,16 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
       overflow-x: hidden !important;
     }
   }
-  
+  @media (max-width: 400px){
+    .mat-drawer-content {
+      position: relative;
+      z-index: 1;
+      display: flow-root !important;
+      height: 100%;
+      width: 100% !important;
+      overflow-x: scroll !important;
+    }
+  }
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
     top: 24px;
   }

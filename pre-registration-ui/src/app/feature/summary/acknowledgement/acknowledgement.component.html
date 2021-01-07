@@ -41,8 +41,8 @@
                 <td>{{ 'acknowledgement.label_reg_cntr' | translate }}</td>
                 <td>:</td>
                 <td style="line-height: 14px;" id="txt-cap">
-                 <p> {{ user.registrationCenter.name }},</p> <p>{{ user.registrationCenter.addressLine1 }},
-                  {{ user.registrationCenter.addressLine2 }},{{ user.registrationCenter.addressLine3 }}</p>
+                 <p> {{ user.registrationCenter.name }},</p> 
+                 <p>{{ user.registrationCenter.addressLine1 }}, {{ user.registrationCenter.addressLine2 }}, {{ user.registrationCenter.addressLine3 }}</p>
                 </td>
               </tr>
               <tr>
@@ -91,7 +91,7 @@
       matTooltip="{{ 'helpText.send_email/sms' | translate }}"
       mat-button
       (click)="sendAcknowledgement()"
-      class="ack-book_later-btnm"
+      class="ack-book_msg-btn"
     >
       {{ 'acknowledgement.action_sendmobile' | translate }}
     </button>

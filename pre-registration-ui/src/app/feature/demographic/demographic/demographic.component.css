@@ -63,6 +63,11 @@
   width: 50%;
 }
 
+.col-50-use {
+  position: relative;
+  width: 50%;
+  display: flex;
+}
 
 .user header {
   margin: 0;
@@ -86,7 +91,7 @@
   margin-bottom: 1rem;
   width: 49%;
   float: left;
-  height: 340px !important;
+  height: 345px !important;
 }
 
 .test1 {
@@ -129,19 +134,20 @@ mat-icon {
 
 .user__age-or-date {
   display: flex;
-  width: 70.5%;
+  width: 90.5%;
   align-items: center;
   margin-top: -7px;
   margin-left: 120px;
 }
 
 .user__age-or-date > div {
-  width: 33.3%;
+  margin-left: 20px;
+  width: 30.3%;
 }
 
 .user__date {
   display: flex;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .user__form .user__date mat-form-field {
@@ -160,7 +166,6 @@ mat-icon {
 }
 
 .user__age mat-form-field {
-  width: 32%;
   text-align: center;
 }
 
@@ -175,11 +180,10 @@ mat-icon {
 }
 
 .user__dob__error {
-  left: 3px;
-  position: relative;
-  top: -15px;
-  font-size: 75%;
-  margin-bottom: -12px;
+  font-size: 10px; 
+  margin-top: 38px; 
+  position: absolute;
+  margin-left: 3px;
 }
 
 .user__genderAndForeigner {
@@ -187,7 +191,7 @@ mat-icon {
   font-size: 0.8rem;
   display: flex;
   margin-bottom: 6px;
-  margin-top: 9px;
+  margin-top: 10px;
   padding-left: 2px;
 }
 
@@ -250,12 +254,28 @@ mat-icon {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
-  bottom: 70px;
-  position: fixed;
-  z-index: 22;
-  padding: 0 2vw;
+  bottom: 9rem;
+  position: relative;
+  z-index: 2;
+  padding: 0 4vw;
   justify-content: flex-end;
-  position: -webkit-sticky;
+}
+.user__btn {
+  background-color: #BCE0FD;
+  border: none;
+  color: #020F59 !important;
+  padding: 0.8rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin: 5px 1px 7px 10rem;
+  margin-right: 2rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: bold;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
+  0 2px 2px 0 rgba(0,0,0,.14), 
+  0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 .user__btn--back {
@@ -308,7 +328,7 @@ mat-icon {
     width: 37%;
   }
 }
-@media (min-width: 799px) and (max-width: 1299px){
+@media (min-width: 801px) and (max-width: 1299px){
   .champs {
     padding: 0rem 0 0 16.2rem;
     font-size: 11px;
@@ -317,6 +337,13 @@ mat-icon {
     display: block;
     margin-top: -28px;
     position: inherit;
+  }
+
+  .user__dob__error {
+    font-size: 10px; 
+    margin-top: 45px; 
+    position: absolute;
+    margin-left: 3px;
   }
 }
 
@@ -386,14 +413,7 @@ mat-icon {
     padding: 0.2rem 0;
   }
 
-  .user__age-or-date {
-    width: 92%;
-  }
 
-  user__age-or-date .user__age {
-    width: 78px;
-    text-align: end;
-  }
 
   .user__gender__error {
     top: 0px;
@@ -414,43 +434,47 @@ mat-icon {
   .card{
   position: relative;
   bottom: 34px;
-  width: 100%;
+  width: 96vw;
+  left: -38px;
   height: 100% !important;
+  top: 10px;
 }
-.user__genderAndForeigner{
-  margin-top: -2px;
-}
+
 .user__btn{
   margin: 5px 1px 4px 7rem;
-}
-.user__pref{
+  font-size: 0.7rem;
+  }
+  .user__pref{
   position: relative;
   left: -252px;
   top: 51px;
-}
-.user__age--years{
+  }
+  .user__age--years{
   position: relative;
   left: 11px;
   top: 10px !important;
-}
-.user__age{
+  }
+  .user__age{
   position: relative;
   left: -180px;
   top: 61px;
 }
-.user__age-or-date{
-  width: 336px;
-  margin-bottom: 80px;
+
+@media(max-width: 1000px){
+  .col-50{
+    width: 100%;
+    margin-top: 3px;
+  }
 }
 .col-50{
   width: 100%;
-}
-.posmobile{
+  }
+  .posmobile{
   margin-top: -6px !important;
-}
-.champs{
+  }
+  .champs{
   padding: 0rem 0 0 12rem;
-}
+  }
 }
 .hidedesk{
   display: block;
@@ -458,7 +482,14 @@ mat-icon {
 @media (max-width: 700px){
   .hidedesk{
   display: none;
-}
+  }
+  .rstatus{
+    margin-left: 0px !important;
+  }
+
+  .mail{
+    margin-left: 0px !important;
+  }
 }
 .hidemobile{
   display: none;
@@ -470,7 +501,14 @@ mat-icon {
 }
 }
 
-
+@media (max-width: 315px){
+  .user__dob__error {
+    font-size: 10px; 
+    margin-top: 48px; 
+    position: absolute;
+    margin-left: 3px;
+  }
+}
 
 .mat-input-element {
   font: inherit;
@@ -563,10 +601,93 @@ textarea.mat-input-element{
 
 .iconinfo{
   touch-action: none;
-    margin-top: 40px;
-    margin-left: 38rem;
+    margin-top: 0;
+    margin-left: 1px;
     user-select: none;
     -webkit-tap-highlight-color: #020F59;
     width: 15px;
     height: 14px;
 }
+.tooltip-position{
+  position: relative;
+  display: flex;
+  left: 2px;
+  top: -16px;
+  font-size: 9px;
+}
+
+
+
+.date-col {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.col-4-5 {
+  -ms-flex: 0 0 70%;
+  flex: 0 0 70%;
+  max-width: 70%;
+}
+
+.col-4 {
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+
+.col-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 33.33%;
+}
+
+.label-date {
+  margin-top: 2px;
+}
+
+.date-row {
+  display: flex;
+  position: relative;
+}
+.or_text {
+  position: relative;
+  margin-right: 10px;
+}
+
+.col-jj .col-mm {
+  max-width: 20%;
+}
+
+.col-auto-jj {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 20%;
+}
+
+.col-auto-mm {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 25%;
+}
+
+.col-auto-aaaa {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 40%;
+}
+
+
