@@ -202,8 +202,29 @@ mat-card-content {
 .btn_axn-pri{
   background: #BCE0FD !important;
   color: #020F59 !important;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
-  0 2px 2px 0 rgba(0,0,0,.14), 
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),
+  0 2px 2px 0 rgba(0,0,0,.14),
   0 1px 5px 0 rgba(0,0,0,.12);
   cursor: pointer;
+}
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
+}
+.appointement-button {
+  min-height: 45px !important;
+  max-height: 45px !important;
+  max-width: 200px !important;
+}
+
+.page_btn_message {
+  display: block;
+  margin-top: -15px;
+}
+
+.page_btn_message_down {
+  margin-top: -5px;
+}
+
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
 }

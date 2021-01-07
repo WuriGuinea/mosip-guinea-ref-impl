@@ -972,7 +972,9 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   onBack() {
     this.registration.changeMessage({ modifyUser: 'true' });
     let url = Utils.getURL(this.router.url, 'demographic');
-    this.router.navigateByUrl(url);
+    setTimeout(e => {
+      this.router.navigateByUrl(url);
+    }, 500);
   }
 
   /**
@@ -983,7 +985,9 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   onNext() {
     localStorage.setItem('modifyDocument', 'false');
     let url = Utils.getURL(this.router.url, 'summary/preview');
-    this.router.navigateByUrl(url);
+    setTimeout(e => {
+      this.router.navigateByUrl(url);
+    }, 500)
   }
 
   /**

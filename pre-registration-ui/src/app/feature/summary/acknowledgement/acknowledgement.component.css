@@ -1,142 +1,138 @@
 .ack-container {
-  margin: 20px 2vw; 
-  padding: 0 0 0 0;
-  border-radius: 12px;
-  border: solid 1px #020F59;
+    position: relative;
+    border-radius: 12px;
+    border: solid 1px #020F59;
+    width: 98%;
+    margin-left: 1%;
 }
+
+.my-button-right {
+    position: relative;
+    display: block;
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 10px !important;
+}
+
 .ack__guidelines li:last-child{
     display: none;
 }
 
 .spinner-loading-data {
-  margin-left: 43%;
-  margin-top: 10%;
+    margin-left: 43%;
+    margin-top: 10%;
 }
 .spinner-wrapper {
-  width: 100%;
-  height: 100%;
-  background: #00000036;
-  position: fixed;
-  opacity: 0.7;
-  top: 0px;
-  z-index: 999999;
+    width: 100%;
+    height: 100%;
+    background: #00000036;
+    position: fixed;
+    opacity: 0.7;
+    top: 0px;
+    z-index: 999999;
 }
 
 .bottom-margin {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .ack__guidelines {
-  padding-right: 10%;
-  word-break: break-word;
-  page-break-after: always;
+    padding-right: 10%;
+    word-break: break-word;
+    page-break-after: always;
 }
 .ack__guidelines  :last-child {
-  page-break-after: avoid;
+    page-break-after: avoid;
 }
 .inner-guideline-content {
-  padding: 2px !important;
+    padding: 2px !important;
 }
 
 
 .ack__guidelines li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .ack__header {
-  color: #020F59;
-  width: 100%;
-  font-size: 1rem;
-  margin-left: 33px;
+    color: #020F59;
+    width: 100%;
+    font-size: 1rem;
+    margin-left: 33px;
 }
 
 .ack__header-container {
-  padding: 0;
-  text-align: left;
-  display: block;
+    padding: 0;
+    text-align: left;
+    display: block;
 }
 @media (max-width: 1200px) {
-  .ack__header-container {
-    display: block;
-  }
+    .ack__header-container {
+        display: block;
+    }
 }
 
 .ack__header-container hr {
-  left: 0;
-  width: 100%;
-  border: 1px solid #ff4081;
-  height: 1px;
-  color: #ff4081;
-  margin-top: 36.5px;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ff4081;
+    height: 1px;
+    color: #ff4081;
+    margin-top: 36.5px;
 }
 
 .ack__header hr {
-  left: 0;
-  width: 100%;
-  border: 1px solid #ff4081;
-  height: 1px;
-  color: #ff4081;
-  margin-top: -11.5px !important;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ff4081;
+    height: 1px;
+    color: #ff4081;
+    margin-top: -11.5px !important;
 }
 
 .ack__button-container {
-  width: 100%;
-  position: relative;
-  bottom: 68px;
-  left: 0;
-  padding: 10px 2vw;
-  display: flex;
-  background: none;
-  z-index: 2;
-  box-shadow: none;
-  margin-top: 80px;
+    width: 100%;
+    position: relative;
+    bottom: 68px;
+    left: 0;
+    display: flex;
+    background: none;
+    z-index: 2;
+    box-shadow: none;
+    align-content: end;
+    justify-content: end;
+    direction: rtl;
 }
 
-.ack-book_later-btn {
-  background-color: #BCE0FD;
-  color: #020F59;
-  padding: 0px 2rem;
-  text-align: center;
-  font-size: 0.8rem;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 0 4px 1.2rem;
-  cursor: pointer;
-  border-radius: 0;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
-  0 2px 2px 0 rgba(0,0,0,.14), 
-  0 1px 5px 0 rgba(0,0,0,.12);
-}
 .ack-continue-btn {
-  background-color: #BCE0FD;
-  border: none;
-  border-radius: 0;
-  color: #020F59;
-  padding: 0px 2rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.8rem;
-  margin: 4px 2rem 4px 1.2rem !important;
-  cursor: pointer;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
-  0 2px 2px 0 rgba(0,0,0,.14), 
-  0 1px 5px 0 rgba(0,0,0,.12);
+    background-color: #BCE0FD;
+    border: none;
+    border-radius: 0;
+    color: #020F59;
+    padding: 0px 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8rem;
+    margin: 4px 2rem 4px 1.2rem !important;
+    cursor: pointer;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),
+    0 2px 2px 0 rgba(0,0,0,.14),
+    0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 .ack__message-container {
-  padding: 1px 10px;
-  background-color: #C6EFCE;
-  color: green;
-  margin: 0 2rem;
+    padding: 1px 10px;
+    background-color: #C6EFCE;
+    color: green;
+    margin: 0 2rem;
 }
 
 .ack__body-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 10px 2rem;
-  border-bottom: 1px dashed #c9c9c9;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px 2rem;
+    border-bottom: 1px dashed #c9c9c9;
 }
 
 table tr td {
@@ -144,106 +140,106 @@ table tr td {
 }
 
 .ack__qr-code {
-  width: 150px;
-  height: 150px;
+    width: 150px;
+    height: 150px;
 }
 
 .ack__qr-code img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .ack__guidelines-container {
-  margin: 20px 2rem;
-  font-size: 14px;
+    margin: 20px 2rem;
+    font-size: 14px;
 }
 
 #table-container table {
-  table-layout: fixed;
+    table-layout: fixed;
 }
 
 
 @media (max-width: 530px) {
-  .ack-container {
-    margin: 5px;
-  }
+    .ack-container {
+        margin: 5px;
+    }
 
-  .ack-book_later-btn {
-    font-size: 8px;
-    padding: 5px;
-  }
+    .ack-book_later-btn {
+        font-size: 8px;
+        padding: 5px;
+    }
 
-  .ack__header {
-    white-space: nowrap;
-    margin-left: 10px !important;
-  }
+    .ack__header {
+        white-space: nowrap;
+        margin-left: 10px !important;
+    }
 
-  .ack__header-container hr {
-    margin-top: 36.5px;
-  }
+    .ack__header-container hr {
+        margin-top: 36.5px;
+    }
 
-  .ack__message-container {
-    padding-left: 8px;
-  }
+    .ack__message-container {
+        padding-left: 8px;
+    }
 
-  .ack-book_later-btn,
-  .ack-continue-btn {
-    font-size: 8px;
-    padding: 0px 2px;
-  }
+    .ack-book_later-btn,
+    .ack-continue-btn {
+        font-size: 8px;
+        padding: 0px 2px;
+    }
 
-  .ack__button-container {
-    width: 100%;
-    position: relative;
-    bottom: 61px;
-    left: 0;
-    padding: 10px 2vw;
-    display: flex;
-    background: none;
-    z-index: 2;
-    box-shadow: none;
-  }
+    .ack__button-container {
+        width: 100%;
+        position: relative;
+        bottom: 61px;
+        left: 0;
+        padding: 10px 2vw;
+        display: flex;
+        background: none;
+        z-index: 2;
+        box-shadow: none;
+    }
 
 }
 .guidelinearea{
-  width: 100%;
-  height:100px;
-  border: none;
-  margin-left: -78px;
-  background: transparent;color: #020F59;
+    width: 100%;
+    height:100px;
+    border: none;
+    margin-left: -78px;
+    background: transparent;color: #020F59;
 }
 @media (max-width: 1000px) {
-  .ack__guidelines-container {
-    margin: 17px 1rem;
-  }
-  .guidelinearea{
-    width: 100%;
-    margin-left: 2px;
-  }
-  
+    .ack__guidelines-container {
+        margin: 17px 1rem;
+    }
+    .guidelinearea{
+        width: 100%;
+        margin-left: 2px;
+    }
+
 }
 #txt-cap{
-text-transform: uppercase;
-width: 70%;
+    text-transform: uppercase;
+    width: 70%;
 }
 .txtalign{
-  position: relative;
-  margin-top: 8px;
-  display: flex;
-  margin-bottom: -14px;
+    position: relative;
+    margin-top: 8px;
+    display: flex;
+    margin-bottom: -14px;
 }
 .txtalignpoint{
-  position: relative;
-  top: 6px;
+    position: relative;
+    top: 6px;
 }
 .txtalignbottom{
-  position: relative;
-  margin-top: -8px;
-  display: flex;
+    position: relative;
+    margin-top: -8px;
+    display: flex;
 }
 .point{
-  position: relative;
-  top: -8px;
+    position: relative;
+    top: -8px;
 }
 
 @media (min-width: 900px) and (max-width: 1300px) {
@@ -311,7 +307,6 @@ width: 70%;
   padding: 0 0 0px;
   border-radius: 12px;
   border: 1px solid #020f59;
-  /*height: 26rem;*/
  }
 
  .ack__guidelines {
@@ -321,93 +316,81 @@ width: 70%;
   margin-top: -1%;
  }
 }
- 
+
 .print-section-inner-div{
-  padding:7px;
-  padding-right: 2px;
-  padding-left: 2px;
+    padding:7px;
 }
 .ack-book_later-btnm{
-  display: none;
+    display: none;
 }
 
 .ack-book_msg-btn{
-  display: none;
+    display: none;
 }
 @media (max-width: 650px) {
-  .ack-book_later-btn{
-    background-color: #BCE0FD;
-    color: #020F59;
-    display: none;
-    text-align: center;
-    margin: 4px 0 4px 0.2rem;
-    font-size: 0.5rem;
-  }
+    .ack-book_later-btn{
+        background-color: #BCE0FD;
+        color: #020F59;
+        display: none;
+        text-align: center;
+        margin: 4px 0 4px 0.2rem;
+        font-size: 0.5rem;
+    }
 
-  .ack-book_later-btnm {
-    background-color: #BCE0FD;
-    color: #020F59;
-    padding: 0.1rem 0.5rem;
-    text-align: center;
-    font-size: 0.7rem;
-    min-width: 2.7rem;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 4rem 4px 5rem;
-    cursor: pointer;
-    border-radius: 0;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
-    0 2px 2px 0 rgba(0,0,0,.14), 
-    0 1px 5px 0 rgba(0,0,0,.12);
-  }
+    .ack-book_later-btnm {
+        display: inline-block;
+    }
 
-  .ack-book_msg-btn{
-   background-color: #BCE0FD;
-   color: #020F59;
-   padding: 0.1rem 0.5rem;
-   text-align: center;
-   font-size: 0.7rem;
-   min-width: 5rem;
-   text-decoration: none;
-   display: inline-block;
-   margin: 4px 1px 4px 0.5rem;
-   cursor: pointer;
-   border-radius: 0;
-   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
-   0 2px 2px 0 rgba(0,0,0,.14), 
-   0 1px 5px 0 rgba(0,0,0,.12);
-  }
+    .ack-book_msg-btn{
+        display: inline-block;
+    }
 
- .ack-continue-btn{
-   background-color: #BCE0FD;
-   border: none;
-   border-radius: 0;
-   color: #020F59;
-   padding: 0.1rem 0.5rem;
-   min-width: 6rem;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 0.7rem;
-   margin: 4px 1rem 4px 1rem!important;
-   cursor: pointer;
-  }
-   
-  .ack__button-container {
-    justify-content: space-between;
- }
+    .ack-continue-btn{
+        display: inline-block;
+    }
+    .ack-container {
+        min-width: 25rem;
+    }
+    .ack__button-container {
+        justify-content: space-between;
+    }
 }
 
 @media (min-width: 1301px) {
-  .ack__button-container {
-    width: 100%;
-    position: relative;
-    bottom: 68px;
-    left: 35rem;
-    padding: 10px 2vw;
-    display: flex;
-    background: none;
-    z-index: 2;
-    box-shadow: none;
-  }
+    .ack__button-container {
+        width: 100%;
+        position: relative;
+        bottom: 68px;
+        left: 35rem;
+        padding: 10px 2vw;
+        display: flex;
+        background: none;
+        z-index: 2;
+        box-shadow: none;
+    }
+}
+
+
+.step-demo-page-button-acknow {
+    min-height: 45px !important;
+    max-height: 45px !important;
+    min-width: 100px !important;
+    float: right !important;
+    margin-bottom: 90px;
+    margin-right: 4px;
+}
+
+@media (max-width: 500px){
+    .step-demo-page-button-acknow {
+        min-height: 35px !important;
+        max-height: 35px !important;
+        min-width: auto !important;
+        margin-top: 25px;
+        margin-bottom: 90px;
+        margin-right: 2px;
+    }
+}
+
+.btn_axn-pri[disabled]{
+    background: #BCE0FD;
 }

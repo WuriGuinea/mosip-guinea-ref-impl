@@ -42,7 +42,7 @@ button {
   font-weight: bold;
 }
 .mar_right-30 {
-  margin-right: 30px;
+  margin-right: 30px !important;
 }
 
 .material-icons {
@@ -92,6 +92,7 @@ body {
   border-radius: 4px;
   background:#BCE0FD;
   opacity: 1;
+  box-shadow: none !important;
 }
 
 .btn_axn-sec {
@@ -415,4 +416,33 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 
 .mandatory{
 color: red;
+}
+
+.step-demo-page-button {
+  min-height: 45px !important;
+  max-height: 45px !important;
+  min-width: 100px !important;
+  margin-top: 20px !important;
+}
+
+@media (max-width: 500px){
+  .step-demo-page-button {
+    min-height: 35px !important;
+    max-height: 35px !important;
+    min-width: auto !important;
+  }
+}
+
+.mar_right-r25 {
+  margin-right: 25px !important;
+}
+
+@media (max-width: 500px){
+  .mar_right-r25 {
+    margin-right: 5px !important;
+  }
+}
+
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
 }
