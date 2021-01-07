@@ -36,7 +36,7 @@ ENV artifactory_url_env=${artifactory_url}
 # change volume to whichever storage directory you want to use for this container.
 VOLUME /home/logs
 
-COPY ./target/registration-processor-message-sender-stage-*.jar registration-processor-message-sender-stage.jar
+COPY ./target/registration-processor-osi-validator-stage-*.jar registration-processor-osi-validator-stage.jar
 
 CMD if [ "$is_glowroot_env" = "present" ]; then \
     wget "${artifactory_url_env}"/artifactory/libs-release-local/io/mosip/testing/glowroot.zip ; \
@@ -44,11 +44,10 @@ CMD if [ "$is_glowroot_env" = "present" ]; then \
     unzip glowroot.zip ; \
     rm -rf glowroot.zip ; \
     
-    sed -i 's/<service_name>/registration-processor-message-sender-stage/g' glowroot/glowroot.properties ; \
-    java -Dspring.cloud.config.label="${spring_config_label_env}" -Dspring.profiles.active="${active_profile_env}" -Dspring.cloud.config.uri="${spring_config_url_env}" -jar -javaagent:glowroot/glowroot.jar registration-processor-message-sender-stage.jar ; \
+    sed -i 's/<service_name>/registration-processor-osi-validator-stage/g' glowroot/glowroot.properties ; \
+    java -Dspring.cloud.config.label="${spring_config_label_env}" -Dspring.profiles.active="${active_profile_env}" -Dspring.cloud.config.uri="${spring_config_url_env}" -jar -javaagent:glowroot/glowroot.jar registration-processor-osi-validator-stage.jar ; \
     else \
-    java -Dspring.cloud.config.label="${spring_config_label_env}" -Dspring.profiles.active="${active_profile_env}" -Dspring.cloud.config.uri="${spring_config_url_env}" -jar registration-processor-message-sender-stage.jar ; \
+    java -Dspring.cloud.config.label="${spring_config_label_env}" -Dspring.profiles.active="${active_profile_env}" -Dspring.cloud.config.uri="${spring_config_url_env}" -jar registration-processor-osi-validator-stage.jar ; \
     fi
 
-#CMD ["java","-Dspring.cloud.config.label=${spring_config_label_env}","-Dspring.profiles.active=${active_profile_env}","-Dspring.cloud.config.uri=${spring_config_url_env}","-jar","registration-processor-message-sender-stage.jar"]
-
+#CMD ["java","-Dspring.cloud.config.label=${spring_config_label_env}","-Dspring.profiles.active=${active_profile_env}","-Dspring.cloud.config.uri=${spring_config_url_env}","-jar","registration-processor-osi-validator-stage.jar"]
