@@ -1,6 +1,6 @@
 .ack-container {
-  margin: 40px 2vw;
-  padding: 0 0 50px 0;
+  margin: 20px 2vw; 
+  padding: 0 0 0 0;
   border-radius: 12px;
   border: solid 1px #020F59;
 }
@@ -89,6 +89,7 @@
   background: none;
   z-index: 2;
   box-shadow: none;
+  margin-top: 80px;
 }
 
 .ack-book_later-btn {
@@ -139,7 +140,7 @@
 }
 
 table tr td {
-  padding: 10px 5px 10px 0px;
+  padding: 5px 5px 5px 0px;
 }
 
 .ack__qr-code {
@@ -306,7 +307,7 @@ width: 70%;
  }
 
  .ack-container{
-  margin: -3px 2vw;
+  margin: 40px 2vw; 
   padding: 0 0 0px;
   border-radius: 12px;
   border: 1px solid #020f59;
@@ -320,9 +321,7 @@ width: 70%;
   margin-top: -1%;
  }
 }
-#print-section{
-  margin-bottom: 80px;
-}
+ 
 .print-section-inner-div{
   padding:7px;
   padding-right: 2px;
@@ -393,9 +392,7 @@ width: 70%;
    margin: 4px 1rem 4px 1rem!important;
    cursor: pointer;
   }
-  .ack-container {
-    min-width: 25rem;
-  }
+   
   .ack__button-container {
     justify-content: space-between;
  }
