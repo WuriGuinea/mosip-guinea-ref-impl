@@ -1,10 +1,23 @@
-Release notes - wuriguinea-pilot - Version Release (UNIR_1.1.1)
+Release notes - WURI GUINEA PILOT 
 
-## Task
+- Guinea Republic
+- WURI project
+- Version  UNIR_1.1.1
 
-*   [[WUR-251](https://wuri-guinea.atlassian.net/browse/WUR-251)] - Create GUI prototype for re-printing service
+**RELEASES | UNIR_1.1.1 | Janvier 07, 2021**
+
+Thanks to WURI GUINEA/MOSIP **techteam** for your contribution, here we are. I am pleased to announce that **UNIR_1.1.1** has been released.
+
+## New Features 
+
+*   [[WUR-25](https://wuri-guinea.atlassian.net/browse/WUR-251)] - Create GUI prototype for re-printing service
 *   [[WUR-398](https://wuri-guinea.atlassian.net/browse/WUR-398)] - Contact us page backend setup
 *   [[WUR-457](https://wuri-guinea.atlassian.net/browse/WUR-457)] - Resolve AWS migration db issue
+
+
+## Sub-Task
+
+*   [[WUR-411](https://wuri-guinea.atlassian.net/browse/WUR-411)] - Integrate with Pre Reg APIs/StandAlone API to handle contact us
 
 ## Story
 
@@ -62,6 +75,3 @@ Release notes - wuriguinea-pilot - Version Release (UNIR_1.1.1)
 *   [[WUR-464](https://wuri-guinea.atlassian.net/browse/WUR-464)] - Upload page layout - Mobile
 *   [[WUR-466](https://wuri-guinea.atlassian.net/browse/WUR-466)] - Contact us captcha
 
-## Sous-tâche
-
-*   [[WUR-411](https://wuri-guinea.atlassian.net/browse/WUR-411)] - Integrate with Pre Reg APIs/StandAlone API to handle contact us
