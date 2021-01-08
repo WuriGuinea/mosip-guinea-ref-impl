@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 import {MatInput} from "@angular/material/input";
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import {element} from "protractor";
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
 import { MatDialog } from '@angular/material';
 import { AuthService } from '../auth.service';
