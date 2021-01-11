@@ -32,7 +32,7 @@
       <div *ngIf="showOTP" class="login_input">
         <mat-form-field appearance="outline">
           <input autofocus="autofocus" matInput [(ngModel)]="inputOTP" placeholder="{{ 'login.label_otp' | translate }}"
-            id="inputFieldOTP" (input)="showVerifyBtn()" />
+            id="inputFieldOTP" (input)="showVerifyBtn()" #inputFieldOTP/>
         </mat-form-field>
       </div>
       <div *ngIf="showOTP" class="login_inputm">

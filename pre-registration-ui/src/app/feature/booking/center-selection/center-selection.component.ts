@@ -130,7 +130,6 @@ export class CenterSelectionComponent extends BookingDeactivateGuardService impl
       this.locationTypes.push(locationType);
     });
 
-
     this.locationTypes.sort((a, b) => (a.locationHierarchylevel > b.locationHierarchylevel) ? 1 : ((b.locationHierarchylevel > a.locationHierarchylevel) ? -1 : 0));
   }
 

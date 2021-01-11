@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {MatInput} from "@angular/material/input";
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
     translate.setDefaultLang('fra');
     localStorage.clear();
   }
-
+ 
   ngOnInit() {
     localStorage.setItem('langCode', 'fra');
     this.showSpinner = true;
@@ -74,6 +74,10 @@ export class LoginComponent implements OnInit {
     this.authService.onLogout();
   }
 
+  @ViewChild("inputFieldOTP") myInputField: MatInput;
+  ngAfterViewInit() {
+      this.myInputField.focus();
+  }
 
   loadValidationMessages() {
     let factory = new LanguageFactory(localStorage.getItem('langCode'));

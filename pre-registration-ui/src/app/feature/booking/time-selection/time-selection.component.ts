@@ -142,7 +142,7 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
   }
 
   canAddApplicant(slot: any): boolean {
-    if (slot.availability > slot.names.length) {
+    if (slot.availability >= slot.names.length) {
       this.disableAddButton = false;
       return true;
     } else {
