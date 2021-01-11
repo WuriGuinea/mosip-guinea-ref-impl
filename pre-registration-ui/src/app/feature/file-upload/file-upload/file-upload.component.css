@@ -148,11 +148,15 @@ mat-select:focus {
 .file-upload {
   box-shadow: 1px 1px 10px 4px #eeeeee;
   background: #ffffff;
-  margin: 40px 2vw 15vw;
+  margin-right: 25px !important;
+  margin-left: 25px !important;
   color: #020F59;
   border: solid 1px #020F59;
-  min-height: 35rem;
   border-radius: 16px;
+  min-height: 450px;
+  margin-top: 15px !important;
+  padding-top: 15px !important;
+  overflow-y: auto;
 }
 
 .file-uploaad__header {
@@ -175,25 +179,6 @@ mat-select:focus {
   font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
-}
-@media (min-width: 1026px) and (max-width: 1400px){
-  .file-upload__body {
-    padding: 0px 2rem 10px 2rem;
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: -26px;
-  }
-  .file-upload {
-    box-shadow: 1px 1px 10px 4px #eeeeee;
-    background: #ffffff;
-    margin: 40px 2vw 11vw;
-    color: #020F59;
-    border: solid 1px #020F59;
-    height: auto;
-    border-radius: 16px;
-  }
-
 }
 
 .file-upload__body__1 {
@@ -243,9 +228,6 @@ mat-select:focus {
 }
 .showbloc{
   display: block;
-}
-.file-upload__body{
-  min-height: 35rem !important;
 }
 }
 
@@ -469,7 +451,7 @@ mat-select:focus {
 }
 
 .file-uplaoad__body__2__preview {
-  min-height: 60vh !important;
+  min-height: auto;
   width: 100%;
 }
 
@@ -477,10 +459,7 @@ mat-select:focus {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  bottom: 8rem;
-  position: relative;
-  z-index: 2;
-  padding: 0 2vw;
+  margin-bottom: 90px !important;
 }
 
 .user__btn {
@@ -573,10 +552,6 @@ mat-select:focus {
   .mat-form-field-label-wrapper{
     width: inherit !important;
   }
-  .user__buttons{
-   margin-left: 8px !important;
-   justify-content: space-around !important; 
-  }
   .browseInput[disabled]{
     display: none !important;
   }
@@ -601,39 +576,11 @@ mat-select:focus {
   }
 }
 
-@media (max-width : 479px){
-  .user__buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: -2rem;
-    bottom: 1rem;
-    position: relative;
-    z-index: 2;
-    padding: 0 2vw; 
-  }
+.btn_axn-pri[disabled]{
+  background: #BCE0FD;
 }
 
-@media (min-width : 480px) and (max-width : 1200px){
-  .user__buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: -7rem;
-    bottom: 1rem;
-    position: relative;
-    z-index: 2;
-    padding: 0 2vw; 
-  }
-
-  .file-upload{
-    box-shadow: 1px 1px 10px 4px #eeeeee;
-    background: #ffffff;
-    margin: 40px 2vw 32vw;
-    color: #020F59;
-    border: solid 1px #020F59;
-    min-height: 35rem;
-    border-radius: 16px;
-  }
-
+.wrapper {
+  min-height: 560px;
+  overflow-y: auto;
 }
