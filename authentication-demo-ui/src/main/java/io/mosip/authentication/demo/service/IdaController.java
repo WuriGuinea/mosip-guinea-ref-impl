@@ -161,7 +161,7 @@ public class IdaController {
 
     private String otpDefaultValue = "Saisir OTP";
 
-  //  private boolean firstInit = true;
+    //  private boolean firstInit = true;
 
     @FXML
     private void initialize() {
@@ -186,12 +186,12 @@ public class IdaController {
         });
         otpValue.textProperty().addListener((observable, oldValue, newValue) -> {
             if (otpValue.isEditable())
-            updateSendButton();
+                updateSendButton();
         });
         otpValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (otpValue.isEditable()  && otpValue.getText().equals(otpDefaultValue))
             {  otpValue.setText("");
-            otpValue.setStyle("-fx-text-fill: #020F59;");}
+                otpValue.setStyle("-fx-text-fill: #020F59;");}
 
         });
         idValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -202,7 +202,7 @@ public class IdaController {
         });
         idValueVID.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (idValueVID.isEditable())
-            idValueVID.setText("");
+                idValueVID.setText("");
         });
         switchedOn.addListener((a, b, c) -> {
             if (c) {
@@ -298,7 +298,7 @@ public class IdaController {
 
         if (otpAuthType.isSelected()) {
             if (otpValue.getText().trim().isEmpty() || otpValue.getText().equals(otpDefaultValue)) {
-                     sendAuthRequest.setDisable(true);
+                sendAuthRequest.setDisable(true);
                 return;
             }
         }
@@ -331,8 +331,8 @@ public class IdaController {
         updateSendButton();
         if (otpAuthType.isSelected())
         {
-               otpValue.setText(otpDefaultValue);
-             otpValue.setStyle("-fx-text-fill: grey;");
+            otpValue.setText(otpDefaultValue);
+            otpValue.setStyle("-fx-text-fill: grey;");
             otpAnchorPane.setStyle( "-fx-border-color: #020F59;");
 
         }
@@ -565,7 +565,7 @@ public class IdaController {
 
         try {
             //System.out.println ("-----------------------------------------------------------");
-           // System.out.println( " IDA.OTP.URL:"+   env.getProperty("ida.otp.url"));
+            // System.out.println( " IDA.OTP.URL:"+   env.getProperty("ida.otp.url"));
             //System.out.println( " OTP REQUEST:"+   otpRequestDTO.toString());
             System.out.println ("-----------------------------------------------------------");
             RestTemplate restTemplate = createTemplate();
@@ -603,9 +603,10 @@ public class IdaController {
     @FXML
     private void onSendAuthRequest() throws Exception {
         System.out.println(" TRYING TO SEND AUTH REQUEST");
-        responsetextField.setText(null);
+        responsetextField.setText("null");
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
-        responsetextField.setText("Preparation de la requête OTP");
+        System.out.println("  wwwwwwwww"+responsetextField.getText() );
+        responsetextField.setText("Preparation de la requête d'authentification");
         AuthRequestDTO authRequestDTO = new AuthRequestDTO();
         // Set Auth Type
         AuthTypeDTO authTypeDTO = new AuthTypeDTO();
@@ -628,13 +629,15 @@ public class IdaController {
         if (isBioAuthType()) {
             identityBlock.put("biometrics", mapper.readValue(capture, Map.class).get("biometrics"));
         }
-        responsetextField.setText("Requête dauthentification...");
+        responsetextField.setText("Requête d'authentification...");
+        System.out.println(" ------->"+responsetextField.getText());
         System.out.println("******* Request before encryption ************ \n\n");
         System.out.println(mapper.writeValueAsString(identityBlock));
         EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
         encryptionRequestDto.setIdentityRequest(identityBlock);
         EncryptionResponseDto kernelEncrypt = null;
         try {
+            responsetextField.setText("Requête d'authentification...");
             kernelEncrypt = kernelEncrypt(encryptionRequestDto, false);
         } catch (Exception e) {
             e.printStackTrace();
@@ -672,7 +675,9 @@ public class IdaController {
                 } else {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
                 }
-                responsetextField.setText(response);
+                String content=responsetextField.getText();
+                System.out.println("   --------"+content);
+                responsetextField.setText(response+" "+content);
             } else {
                 responsetextField.setText("Echec de le requête d'authentification avec des erreurs");
                 responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
