@@ -239,6 +239,21 @@ input[type='radio'] {
   font-size: 14px;
 }
 
+.card-align{
+margin-left: 50px;
+}
+
+.select-input1 {
+  outline: none;
+  font-family: Roboto;
+  color: #000000;
+  opacity: 100%;
+  padding: 14px;
+  appearance: none;
+  width: 100%;
+  font-size: 14px;
+}
+
 .mat-option:hover {
   background-color: #BCE0FD;
   opacity: 100%;
