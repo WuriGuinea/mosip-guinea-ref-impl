@@ -308,7 +308,7 @@ margin-left: 50px;
 }
 @media (min-width:250px) and (max-width:444px){
   .search-form{
-    left: -6px !important;
+    left: -49px !important;
     top: -25px;
     width: 312px;
   }
