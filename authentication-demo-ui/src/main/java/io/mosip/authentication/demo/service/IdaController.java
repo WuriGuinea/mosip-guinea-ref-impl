@@ -87,7 +87,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
-
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 /**
  * The Class IdaController.
  *
@@ -677,7 +678,7 @@ public class IdaController {
                 }
                 String content=responsetextField.getText();
                 System.out.println("   --------"+content);
-                responsetextField.setText(response+" "+content);
+                responsetextField.setText(response);
             } else {
                 responsetextField.setText("Echec de le requête d'authentification avec des erreurs");
                 responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
@@ -838,11 +839,17 @@ public class IdaController {
     @FXML
     private void onReset() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
+
+
+     //   alert.getHeader().setStyle("-fx-text-fill:#020F59;-fx-font-size:28.0px;");
         alert.setContentText("Etes vous sur de vouloir annuler?");
         ButtonType okButton = new ButtonType("Oui", ButtonBar.ButtonData.YES);
         ButtonType noButton = new ButtonType("Non", ButtonBar.ButtonData.NO);
         alert.getButtonTypes().setAll(okButton, noButton);
+        alert.initStyle(StageStyle.UNDECORATED);
+        alert.initModality(Modality.WINDOW_MODAL);
+        alert.getDialogPane().getStylesheets().add("alert.css");
+
         alert.showAndWait().ifPresent(type -> {
             if (type.getButtonData().equals(ButtonType.YES.getButtonData())) {
                 reset();
@@ -853,7 +860,7 @@ public class IdaController {
     private void reset() {
         fingerCount.getSelectionModel().select(0);
         //	irisCount.getSelectionModel().select(0);
-        idValue.setText("1");
+        idValue.setText("");
         fingerAuthType.setSelected(false);
         //	irisAuthType.setSelected(false);
         //	faceAuthType.setSelected(false);
@@ -868,6 +875,7 @@ public class IdaController {
         previousHash = null;
         updateBioPane();
         updateSendButton();
+        init();
     }
 
     @FXML
