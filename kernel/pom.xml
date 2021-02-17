@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    <modelVersion>4.0.0</modelVersion>
-   <groupId>io.mosip.kernel</groupId>
-   <artifactId>kernel-ref-parent</artifactId>
+   <groupId>io.mosip.guinea.kernel</groupId>
+   <artifactId>kernel-parent</artifactId>
    <version>0.9.1</version>
    <packaging>pom</packaging>
    <name>kernel</name>
@@ -28,27 +28,6 @@
          <organizationUrl>https://github.com/mosip/mosip-ref-impl</organizationUrl>
       </developer>
    </developers>
-   <repositories>
-      <repository>
-         <id>central</id>
-         <name>Central Repository</name>
-         <url>http://52.172.8.144:8040/artifactory/libs-release</url>
-         <layout>default</layout>
-         <snapshots>
-            <enabled>true</enabled>
-         </snapshots>
-      </repository>
-   </repositories>
-   <distributionManagement>
-      <snapshotRepository>
-         <id>central</id>
-         <url>http://52.172.8.144:8040/artifactory/libs-snapshot</url>
-      </snapshotRepository>
-      <repository>
-         <id>central</id>
-         <url>http://52.172.8.144:8040/artifactory/libs-release</url>
-      </repository>
-   </distributionManagement>
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <!-- maven -->
@@ -143,6 +122,7 @@
       <sonar.cpd.exclusions>**/dto/**,**/entity/**,**/config/**</sonar.cpd.exclusions>
    </properties>
    <modules>
+      <module>kernel-auth-service</module>
       <module>kernel-ref-idobjectvalidator</module>
       <module>kernel-smsserviceprovider-mtn</module>
       <module>kernel-notification-service</module>

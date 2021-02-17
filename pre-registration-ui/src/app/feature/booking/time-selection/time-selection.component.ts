@@ -142,7 +142,7 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
   }
 
   canAddApplicant(slot: any): boolean {
-    if (slot.availability > slot.names.length) {
+    if (slot.availability > 0) {
       this.disableAddButton = false;
       return true;
     } else {
@@ -327,7 +327,9 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
               });
               this.bookingService.setSendNotification(true);
               const url = Utils.getURL(this.router.url, 'summary/acknowledgement', 2);
-              this.router.navigateByUrl(url);
+              setTimeout(f => {
+                this.router.navigateByUrl(url);
+              }, 500);
             });
         } else if (
           response[appConstants.NESTED_ERROR][0][appConstants.ERROR_CODE] === appConstants.ERROR_CODES.timeExpired
@@ -395,7 +397,9 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
 
   navigateDashboard() {
     this.canDeactivateFlag = false;
-    this.router.navigate(['']);
+    setTimeout(f => {
+      this.router.navigate(['']);
+    }, 500);
   }
 
   reloadData() {
@@ -409,7 +413,9 @@ export class TimeSelectionComponent extends BookingDeactivateGuardService implem
     this.reloadData();
     this.canDeactivateFlag = false;
     const url = Utils.getURL(this.router.url, 'pick-center');
-    this.router.navigateByUrl(url);
+    setTimeout(f => {
+      this.router.navigateByUrl(url);
+    }, 500);
   }
 
   ngOnDestroy() {

@@ -6,12 +6,13 @@ $buoop = {
     onclick: function(infos){},
     onclose: function(infos){},
     l: false,
-    text: "Vous utilisez une version de navigateur ({brow_name}), non supportée. <br/> <a{up_but}> Mises à jour </a> <a{ignore_but}>Annulé</a>",
+    text: "Vous utilisez une version de navigateur ({brow_name}) non supportée. <div class='button-center'> <a{up_but}> Mise à jour </a> <a{ignore_but}>Annuler</a> </div>",
     newwindow: true,
     url: null,
     noclose:false,
     nomessage: false,
     jsshowurl: "https://guinea-sandbox.mosip.net/pre-registration-ui/assets/js/browser-outdate/update.show.min.js",
+    //jsshowurl: "http://localhost:4200/assets/js/browser-outdate/update.show.min.js",
     container: document.body,
     no_permanent_hide: false
 };

@@ -4,9 +4,9 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>io.mosip.registrationprocessor.guinea</groupId>
+		<groupId>io.mosip.guinea.registrationprocessor</groupId>
 		<artifactId>post-processor</artifactId>
-		<version>1.1.1-rc1</version>
+		<version>1.1.1</version>
 	</parent>
 	<artifactId>registration-processor-printing-stage</artifactId>
 	 <version>1.0.1</version>
@@ -63,7 +63,7 @@
 			<version>4.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>io.mosip.registrationprocessor</groupId>
+			<groupId>io.mosip.guinea.registrationprocessor</groupId>
 			<artifactId>registration-processor-core</artifactId>
 			<version>${registration.processor.core.version}</version>
 		</dependency>
@@ -73,7 +73,7 @@
 			<version>${registration.status.service.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.mosip.registrationprocessor</groupId>
+			<groupId>io.mosip.guinea.registrationprocessor</groupId>
 			<artifactId>registration-processor-info-storage-service</artifactId>
 			<version>${packet.info.storage.service.version}</version>
 		</dependency>
@@ -83,12 +83,12 @@
 			<version>${registration.processor.rest.client.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.mosip.registrationprocessor</groupId>
+			<groupId>io.mosip.guinea.registrationprocessor</groupId>
 			<artifactId>registration-processor-message-sender-impl</artifactId>
 			<version>${registration.processor.message.sender.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.mosip.registrationprocessor.guinea</groupId>
+			<groupId>io.mosip.guinea.registrationprocessor</groupId>
 			<artifactId>registration-processor-print-service-impl</artifactId>
 			<version>${registration.processor.print.service.impl.version}</version>
 		</dependency>

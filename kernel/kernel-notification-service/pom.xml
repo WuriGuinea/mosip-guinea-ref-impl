@@ -8,9 +8,9 @@
 	<name>kernel-notification-service</name>
 	<version>1.0.7</version>
 	<parent>
-		<groupId>io.mosip.kernel</groupId>
+		<groupId>io.mosip.guinea.kernel</groupId>
 		<artifactId>kernel-parent</artifactId>
-		<version>1.0.6</version>
+		<version>0.9.1</version>
 	</parent>
 	<properties>
 	<kernel.core.version>1.0.8</kernel.core.version>
@@ -37,7 +37,7 @@
 			<version>${kernel.logger.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.mosip.kernel</groupId>
+			<groupId>io.mosip.guinea.kernel</groupId>
 			<artifactId>kernel-smsserviceprovider-mtn</artifactId>
 			<version>${kernel.smsserviceprovider.mtn.version}</version>
 		</dependency>

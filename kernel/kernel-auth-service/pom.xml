@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>io.mosip.kernel</groupId>
-		<artifactId>kernel-ref-parent</artifactId>
+		<groupId>io.mosip.guinea.kernel</groupId>
+		<artifactId>kernel-parent</artifactId>
 		<version>0.9.1</version>
 	</parent>
 

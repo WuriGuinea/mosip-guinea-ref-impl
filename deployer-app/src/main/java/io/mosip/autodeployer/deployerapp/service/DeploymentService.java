@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class DeploymentService {
-    public DeploymentModel preregUiRedeployer(){
+    public DeploymentModel preregUiRedeployer(String app){
         System.out.println("Trying to reach ... AWS \n");
         JSch jsch = new JSch();
         String user = "centos";
@@ -48,10 +48,13 @@ public class DeploymentService {
             System.out.println("Connected to AWS VM");
             commander.print("sudo su mosipuser\n");
             commander.print("cd\n");
-            commander.print("POD_UI=$(kc1 get pod | grep prereg-ui | awk '{print $1}') \n");
+            if (app.toLowerCase().equals("qa")) {
+                commander.print("POD_UI=$(kc1 get pod | grep prereg-qa | awk '{print $1}') \n");
+            }
+            else {
+                commander.print("POD_UI=$(kc1 get pod | grep prereg-ui | awk '{print $1}') \n");
+            }
             commander.print("kc1 delete pod $POD_UI \n");
-            commander.print("exit\n");
-            commander.print("exit\n");
             commander.close();
             do {
                 TimeUnit.SECONDS.sleep(1);
