@@ -162,7 +162,8 @@ public class IdaController {
 
     private String otpDefaultValue = "Saisir OTP";
 
-    //  private boolean firstInit = true;
+    Logger logger = Logger.getLogger("MyLog");
+    FileHandler fh;
 
     @FXML
     private void initialize() {

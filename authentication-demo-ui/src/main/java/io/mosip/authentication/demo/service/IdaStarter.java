@@ -1,12 +1,10 @@
 package io.mosip.authentication.demo.service;
 
 import java.io.IOException;
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
-
 import io.mosip.authentication.demo.helper.CryptoUtility;
 import io.mosip.kernel.crypto.jce.core.CryptoCore;
 import javafx.application.Application;
@@ -51,12 +49,8 @@ public class IdaStarter extends Application {
         scene.getStylesheets().add("style.css");
         // Set the Scene to the Stage
         stage.setScene(scene);
-        // Set the Title to the Stage
         stage.setTitle("UNIR 1.0.0");
         stage.getIcons().add(new Image("logo.png"));
-     //   stage.initStyle(StageStyle.UNDECORATED);
-        //stage.ge
-        // Display the Stage
         stage.setResizable(false);
         stage.show();
     }
