@@ -87,7 +87,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
-
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
+import java.util.logging.FileHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * The Class IdaController.
  *
@@ -161,7 +165,8 @@ public class IdaController {
 
     private String otpDefaultValue = "Saisir OTP";
 
-  //  private boolean firstInit = true;
+    Logger logger = LoggerFactory.getLogger(IdaController.class);
+    FileHandler fileHandler;
 
     @FXML
     private void initialize() {
@@ -186,12 +191,12 @@ public class IdaController {
         });
         otpValue.textProperty().addListener((observable, oldValue, newValue) -> {
             if (otpValue.isEditable())
-            updateSendButton();
+                updateSendButton();
         });
         otpValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (otpValue.isEditable())
+            if (otpValue.isEditable()  && otpValue.getText().equals(otpDefaultValue))
             {  otpValue.setText("");
-            otpValue.setStyle("-fx-text-fill: #020F59;");}
+                otpValue.setStyle("-fx-text-fill: #020F59;");}
 
         });
         idValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -202,7 +207,7 @@ public class IdaController {
         });
         idValueVID.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (idValueVID.isEditable())
-            idValueVID.setText("");
+                idValueVID.setText("");
         });
         switchedOn.addListener((a, b, c) -> {
             if (c) {
@@ -331,8 +336,8 @@ public class IdaController {
         updateSendButton();
         if (otpAuthType.isSelected())
         {
-               otpValue.setText(otpDefaultValue);
-             otpValue.setStyle("-fx-text-fill: grey;");
+            otpValue.setText(otpDefaultValue);
+            otpValue.setStyle("-fx-text-fill: grey;");
             otpAnchorPane.setStyle( "-fx-border-color: #020F59;");
 
         }
@@ -564,6 +569,10 @@ public class IdaController {
         otpRequestDTO.setVersion("1.0");
 
         try {
+            //System.out.println ("-----------------------------------------------------------");
+            // System.out.println( " IDA.OTP.URL:"+   env.getProperty("ida.otp.url"));
+            //System.out.println( " OTP REQUEST:"+   otpRequestDTO.toString());
+            System.out.println ("-----------------------------------------------------------");
             RestTemplate restTemplate = createTemplate();
             HttpEntity<OtpRequestDTO> httpEntity = new HttpEntity<>(otpRequestDTO);
             ResponseEntity<Map> response = restTemplate.exchange(
@@ -598,9 +607,11 @@ public class IdaController {
     @SuppressWarnings({"unchecked", "rawtypes"})
     @FXML
     private void onSendAuthRequest() throws Exception {
-        responsetextField.setText(null);
+        System.out.println(" TRYING TO SEND AUTH REQUEST");
+        responsetextField.setText("null");
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
-        responsetextField.setText("Preparation de la requête OTP");
+        System.out.println("  wwwwwwwww"+responsetextField.getText() );
+        responsetextField.setText("Preparation de la requête d'authentification");
         AuthRequestDTO authRequestDTO = new AuthRequestDTO();
         // Set Auth Type
         AuthTypeDTO authTypeDTO = new AuthTypeDTO();
@@ -623,13 +634,15 @@ public class IdaController {
         if (isBioAuthType()) {
             identityBlock.put("biometrics", mapper.readValue(capture, Map.class).get("biometrics"));
         }
-        responsetextField.setText("Requête dauthentification...");
+        responsetextField.setText("Requête d'authentification...");
+        System.out.println(" ------->"+responsetextField.getText());
         System.out.println("******* Request before encryption ************ \n\n");
         System.out.println(mapper.writeValueAsString(identityBlock));
         EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
         encryptionRequestDto.setIdentityRequest(identityBlock);
         EncryptionResponseDto kernelEncrypt = null;
         try {
+            responsetextField.setText("Requête d'authentification...");
             kernelEncrypt = kernelEncrypt(encryptionRequestDto, false);
         } catch (Exception e) {
             e.printStackTrace();
@@ -667,6 +680,8 @@ public class IdaController {
                 } else {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
                 }
+                String content=responsetextField.getText();
+                System.out.println("   --------"+content);
                 responsetextField.setText(response);
             } else {
                 responsetextField.setText("Echec de le requête d'authentification avec des erreurs");
@@ -828,11 +843,17 @@ public class IdaController {
     @FXML
     private void onReset() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
+
+
+     //   alert.getHeader().setStyle("-fx-text-fill:#020F59;-fx-font-size:28.0px;");
         alert.setContentText("Etes vous sur de vouloir annuler?");
         ButtonType okButton = new ButtonType("Oui", ButtonBar.ButtonData.YES);
         ButtonType noButton = new ButtonType("Non", ButtonBar.ButtonData.NO);
         alert.getButtonTypes().setAll(okButton, noButton);
+        alert.initStyle(StageStyle.UNDECORATED);
+        alert.initModality(Modality.WINDOW_MODAL);
+        alert.getDialogPane().getStylesheets().add("alert.css");
+
         alert.showAndWait().ifPresent(type -> {
             if (type.getButtonData().equals(ButtonType.YES.getButtonData())) {
                 reset();
@@ -843,7 +864,7 @@ public class IdaController {
     private void reset() {
         fingerCount.getSelectionModel().select(0);
         //	irisCount.getSelectionModel().select(0);
-        idValue.setText("1");
+        idValue.setText("");
         fingerAuthType.setSelected(false);
         //	irisAuthType.setSelected(false);
         //	faceAuthType.setSelected(false);
@@ -858,6 +879,7 @@ public class IdaController {
         previousHash = null;
         updateBioPane();
         updateSendButton();
+        init();
     }
 
     @FXML
