@@ -1,9 +1,10 @@
 .ack-container {
-    position: relative;
-    border-radius: 12px;
-    border: solid 1px #020F59;
-    width: 98%;
-    margin-left: 1%;
+  margin: 40px 2vw;
+  padding: 0 0 50px 0;
+  border-radius: 12px;
+  border: solid 1px #020F59;
+  top: 1px;
+  margin-top: 11px;
 }
 
 .my-button-right {
