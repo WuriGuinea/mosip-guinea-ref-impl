@@ -89,6 +89,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
+import java.util.logging.FileHandler;
+import org.slf4j.Logger;
 /**
  * The Class IdaController.
  *
@@ -162,7 +164,7 @@ public class IdaController {
 
     private String otpDefaultValue = "Saisir OTP";
 
-    Logger logger = Logger.getLogger("MyLog");
+    Logger logger = LoggerFactory.getLogger(EmailDispatcherImpl.class);
     FileHandler fh;
 
     @FXML
