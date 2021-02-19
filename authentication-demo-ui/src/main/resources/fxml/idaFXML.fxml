@@ -36,12 +36,12 @@
                      </font></Label>
                    <ImageView fitHeight="50.0" fitWidth="91.0" layoutX="6.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: green;">
                               <image>
-                                <Image url="logo.png" preserveRatio="true" smooth="true"     />
+                                <Image url="logo_resized.png" preserveRatio="true" smooth="true"     />
                             </image>
                         </ImageView>
                        <ImageView fitHeight="50.0" fitWidth="91.0" layoutX="888.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: green;">
                        <image>
-                       <Image url="banniere.png" preserveRatio="true" smooth="true"     />
+                       <Image url="coats.png" preserveRatio="true" smooth="true"     />
                    </image>
                   </ImageView>
                </children>
@@ -123,7 +123,7 @@
                               <Button fx:id="capture" layoutX="134.0" layoutY="92.0" mnemonicParsing="false" onAction="#onCapture" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" text="Capture" />
                               <ImageView fitHeight="121.0" fitWidth="133.0" layoutX="314.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
-                             <Image url="hand_map.png" preserveRatio="true" smooth="true"     />
+                             <Image url="hands_26.png" preserveRatio="true" smooth="true"     />
                          </image>
                               </ImageView>
                            </children>

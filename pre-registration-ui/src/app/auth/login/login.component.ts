@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit {
     const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
     const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
     const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
-    if (modes === 'email,mobile') {
+	    if (modes === 'email,mobile') {
       if (!(emailRegex.test(this.inputContactDetails) || phoneRegex.test(this.inputContactDetails))) {
         this.errorMessage = this.validationMessages['invalidInput'];
       }
