@@ -166,12 +166,12 @@ public class IdaController {
     private String otpDefaultValue = "Saisir OTP";
 
     Logger logger = LoggerFactory.getLogger(IdaController.class);
-    
+
 
     @FXML
     private void initialize() {
 
-    //    logger.addHandler(fileHandler);
+        //    logger.addHandler(fileHandler);
 
         responsetextField.setText(null);
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
@@ -481,8 +481,7 @@ public class IdaController {
 
     @SuppressWarnings("rawtypes")
     private String capturebiometrics(String requestBody) throws Exception {
-        //System.out.println("Capture request:\n" + requestBody);
-              logger.info("Capture request:\n" + requestBody);
+        logger.info("Capture request:\n" + requestBody);
         CloseableHttpClient client = HttpClients.createDefault();
         StringEntity requestEntity = new StringEntity(requestBody, ContentType.APPLICATION_JSON);
         HttpUriRequest request = RequestBuilder.create("CAPTURE").setUri(env.getProperty("ida.captureRequest.uri"))
@@ -514,7 +513,6 @@ public class IdaController {
                 Map b = (Map) dataList.get(i);
                 String dataJws = (String) b.get("data");
                 Map dataMap = objectMapper.readValue(CryptoUtil.decodeBase64(dataJws.split("\\.")[1]), Map.class);
-                //System.out.println((i + 1) + " Bio-type: " + dataMap.get("bioType") + " Bio-sub-type: " + dataMap.get("bioSubType"));
                 logger.info((i + 1) + " Bio-type: " + dataMap.get("bioType") + " Bio-sub-type: " + dataMap.get("bioSubType"));
                 previousHash = (String) b.get("hash");
             }
@@ -522,8 +520,7 @@ public class IdaController {
             responsetextField.setText("Erreur de capture");
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
         }
-        //System.out.println(result);
-      logger.info(result);
+        logger.info(result);
 
         return result;
     }
@@ -574,7 +571,7 @@ public class IdaController {
         otpRequestDTO.setVersion("1.0");
 
         try {
-                        RestTemplate restTemplate = createTemplate();
+            RestTemplate restTemplate = createTemplate();
             HttpEntity<OtpRequestDTO> httpEntity = new HttpEntity<>(otpRequestDTO);
             ResponseEntity<Map> response = restTemplate.exchange(
                     env.getProperty("ida.otp.url"),
@@ -609,10 +606,8 @@ public class IdaController {
     @SuppressWarnings({"unchecked", "rawtypes"})
     @FXML
     private void onSendAuthRequest() throws Exception {
-      //  //System.out.println(" TRYING TO SEND AUTH REQUEST");
         responsetextField.setText("null");
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
-        ////System.out.println("  wwwwwwwww"+responsetextField.getText() );
         responsetextField.setText("Preparation de la requête d'authentification");
         AuthRequestDTO authRequestDTO = new AuthRequestDTO();
         // Set Auth Type
@@ -637,11 +632,7 @@ public class IdaController {
             identityBlock.put("biometrics", mapper.readValue(capture, Map.class).get("biometrics"));
         }
         responsetextField.setText("Requête d'authentification...");
-      //  //System.out.println(" ------->"+responsetextField.getText());
-        //System.out.println("******* Request before encryption ************ \n\n");
         logger.info("******* Request before encryption ************ \n\n");
-        //System.out.println(mapper.writeValueAsString(identityBlock));
-      //  logger.infro(""+mapper.writeValueAsString(identityBlock));
         EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
         encryptionRequestDto.setIdentityRequest(identityBlock);
         EncryptionResponseDto kernelEncrypt = null;
@@ -649,7 +640,6 @@ public class IdaController {
             responsetextField.setText("Requête d'authentification...");
             kernelEncrypt = kernelEncrypt(encryptionRequestDto, false);
         } catch (Exception e) {
-       //     e.printStackTrace();
             logger.info ("Error"+e);
             responsetextField.setText(" Erreur d'encryption de la requête d'authentification");
             return;
@@ -672,9 +662,7 @@ public class IdaController {
         RestTemplate restTemplate = createTemplate();
         HttpEntity<Map> httpEntity = new HttpEntity<>(authRequestMap);
         String url = getUrl();
-        //System.out.println("Auth URL: " + url);
         logger.info("Auth URL: " + url);
-        //System.out.println("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
         logger.info("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
 
         try {
@@ -689,19 +677,15 @@ public class IdaController {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
                 }
                 String content=responsetextField.getText();
-                //System.out.println("   --------"+content);
                 responsetextField.setText(response);
             } else {
                 responsetextField.setText("Echec de le requête d'authentification avec des erreurs");
                 responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
             }
-
-            //System.out.println("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
             logger.info("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
-            //System.out.println(authResponse.getBody());
             logger.info(""+authResponse.getBody());
         } catch (Exception e) {
-           // e.printStackTrace();
+            // e.printStackTrace();
             logger.error("Error:"+e);
             responsetextField.setText("Echec d'authentification avec erreur");
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
@@ -856,7 +840,7 @@ public class IdaController {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
 
-     //   alert.getHeader().setStyle("-fx-text-fill:#020F59;-fx-font-size:28.0px;");
+        //   alert.getHeader().setStyle("-fx-text-fill:#020F59;-fx-font-size:28.0px;");
         alert.setContentText("Etes vous sur de vouloir annuler?");
         ButtonType okButton = new ButtonType("Oui", ButtonBar.ButtonData.YES);
         ButtonType noButton = new ButtonType("Non", ButtonBar.ButtonData.NO);
