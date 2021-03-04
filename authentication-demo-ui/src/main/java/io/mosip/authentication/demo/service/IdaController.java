@@ -403,7 +403,7 @@ public class IdaController {
                     try {
                         return objectMapper.readValue(obj, Map.class);
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        logger.error("Error: "+e);
                     }
                     return null;
                 })
@@ -419,7 +419,7 @@ public class IdaController {
         try {
             return objectMapper.writeValueAsString(identity);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            logger.error("Error: "+e);
         }
         return null;
     }
@@ -499,7 +499,7 @@ public class IdaController {
             }
             bR.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error: "+e);
         }
         String result = stringBuilder.toString();
         String error = ((Map) mapper.readValue(result, Map.class).get("error")).get("errorCode").toString();
@@ -549,13 +549,14 @@ public class IdaController {
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
-
+System.out.println(" JESSAIE DENVOYER LA REQUETE");
         otpValue.setStyle("-fx-text-fill: grey;");
 
         otpValue.setText(otpDefaultValue);
 
         String type = "UIN";
         responsetextField.setText(null);
+        responsetextField.setText("JESSAIE DENVOYER LA REQUETE");
         OtpRequestDTO otpRequestDTO = new OtpRequestDTO();
         otpRequestDTO.setId("mosip.identity.otp");
         String valueToCheck = idValue.getText();
@@ -571,13 +572,15 @@ public class IdaController {
         otpRequestDTO.setVersion("1.0");
 
         try {
+            System.out.println("JESSAIE DENVOYER LA REQUETE REST");
+
             RestTemplate restTemplate = createTemplate();
             HttpEntity<OtpRequestDTO> httpEntity = new HttpEntity<>(otpRequestDTO);
             ResponseEntity<Map> response = restTemplate.exchange(
                     env.getProperty("ida.otp.url"),
                     HttpMethod.POST, httpEntity, Map.class);
-            System.err.println(response);
-            logger.error(""+response);
+           // System.err.println(response);
+           // logger.error(""+response);
 
             if (response.getStatusCode().is2xxSuccessful()) {
                 List errors = ((List) response.getBody().get("errors"));
@@ -590,16 +593,17 @@ public class IdaController {
 
 
                 } else {
-                    responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
+                   // responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
                 }
-                responsetextField.setText(responseText);
+              //  responsetextField.setText(responseText);
             } else {
-                responsetextField.setText("Erreur d'envoi de la requête OTP");
+             //   responsetextField.setText("Erreur d'envoi de la requête OTP");
                 responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 13px; -fx-font-weight: bold");
             }
 
         } catch (KeyManagementException | NoSuchAlgorithmException e) {
-            e.printStackTrace();
+          //  e.printStackTrace();
+            logger.error("Error: "+e);
         }
     }
 
@@ -640,7 +644,7 @@ public class IdaController {
             responsetextField.setText("Requête d'authentification...");
             kernelEncrypt = kernelEncrypt(encryptionRequestDto, false);
         } catch (Exception e) {
-            logger.info ("Error"+e);
+            logger.error ("Error"+e);
             responsetextField.setText(" Erreur d'encryption de la requête d'authentification");
             return;
         }
@@ -686,7 +690,7 @@ public class IdaController {
             logger.info(""+authResponse.getBody());
         } catch (Exception e) {
             // e.printStackTrace();
-            logger.error("Error:"+e);
+            logger.error("Error: "+e);
             responsetextField.setText("Echec d'authentification avec erreur");
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
         }
@@ -763,6 +767,7 @@ public class IdaController {
                 if (authToken != null && !authToken.isEmpty()) {
                     request.getHeaders().set("Cookie", "Authorization=" + authToken);
                 }
+
                 return execution.execute(request, body);
             }
         };
