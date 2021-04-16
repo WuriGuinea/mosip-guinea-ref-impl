@@ -22,12 +22,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
+
 import javafx.event.ActionEvent;
+
 import javax.crypto.SecretKey;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
 import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -89,9 +92,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
+
 import java.util.logging.FileHandler;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /**
  * The Class IdaController.
  *
@@ -101,76 +107,91 @@ import org.slf4j.LoggerFactory;
 @Component
 public class IdaController {
 
-    @Autowired
-    private Environment env;
-
     private static final String ASYMMETRIC_ALGORITHM_NAME = "RSA";
-
     private static final String SSL = "SSL";
+    private static final TrustManager[] UNQUESTIONING_TRUST_MANAGER = new TrustManager[]{new X509TrustManager() {
+        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+            return null;
+        }
 
+        public void checkClientTrusted(java.security.cert.X509Certificate[] arg0, String arg1)
+                throws CertificateException {
+        }
+
+        public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String arg1)
+                throws CertificateException {
+        }
+    }};
     ObjectMapper mapper = new ObjectMapper();
 
     @FXML
     ComboBox<String> fingerCount;
-
+    Logger logger = LoggerFactory.getLogger(IdaController.class);
+    Stage stage;
+    @Autowired
+    private Environment env;
     @FXML
     private TextField idValue;
-
     @FXML
     private TextField idValueVID;
     @FXML
     private CheckBox fingerAuthType;
-
     @FXML
     private CheckBox otpAuthType;
-
     @FXML
     private TextField otpValue;
-
     @FXML
     private AnchorPane otpAnchorPane;
-
     @FXML
     private AnchorPane bioAnchorPane;
-
     @FXML
     private TextField responsetextField;
-
     @FXML
     private ImageView img;
-
     @FXML
     private Button requestOtp;
-
     @FXML
     private Button sendAuthRequest;
-
     private String capture;
-
     private String previousHash;
-
     private ObjectMapper objectMapper = new ObjectMapper();
-
     private SimpleBooleanProperty switchedOn = new SimpleBooleanProperty(true);
+    @FXML
+    private Button tsButton;
+    @FXML
+    private Label tsLabel;
+    private String otpDefaultValue = "Saisir OTP";
+    @FXML
+    private HBox tsHBox;
+    @Autowired
+    private CryptoUtility cryptoUtil;
+
+    public static void turnOffSslChecking() throws KeyManagementException, java.security.NoSuchAlgorithmException {
+        // Install the all-trusting trust manager
+        final SSLContext sc = SSLContext.getInstance(SSL);
+        sc.init(null, UNQUESTIONING_TRUST_MANAGER, null);
+        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+    }
+
+    public static String getUTCCurrentDateTimeISOString() {
+        return DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
+    }
+
+    /**
+     * Gets the transaction ID.
+     *
+     * @return the transaction ID
+     */
+    public static String getTransactionID() {
+        return "1234567890";
+    }
 
     public SimpleBooleanProperty switchOnProperty() {
         return switchedOn;
     }
 
     @FXML
-    private Button tsButton;
-
-    @FXML
-    private Label tsLabel;
-
-    private String otpDefaultValue = "Saisir OTP";
-
-    Logger logger = LoggerFactory.getLogger(IdaController.class);
-    FileHandler fileHandler;
-
-    @FXML
     private void initialize() {
-
         responsetextField.setText(null);
         ObservableList<String> idTypeChoices = FXCollections.observableArrayList("UIN", "VID", "USERID");
         ObservableList<String> fingerCountChoices = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7",
@@ -194,9 +215,10 @@ public class IdaController {
                 updateSendButton();
         });
         otpValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (otpValue.isEditable()  && otpValue.getText().equals(otpDefaultValue))
-            {  otpValue.setText("");
-                otpValue.setStyle("-fx-text-fill: #020F59;");}
+            if (otpValue.isEditable() && otpValue.getText().equals(otpDefaultValue)) {
+                otpValue.setText("");
+                otpValue.setStyle("-fx-text-fill: #020F59;");
+            }
 
         });
         idValue.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -247,9 +269,6 @@ public class IdaController {
     }
 
     @FXML
-    private HBox tsHBox;
-
-    @FXML
     private void onFingerPrintAuth() {
         updateBioCapture();
     }
@@ -261,14 +280,13 @@ public class IdaController {
         updateSendButton();
     }
 
-
     private void setStyle() {
         tsLabel.setAlignment(Pos.CENTER);
     }
 
     private void init() {
-        otpAnchorPane.setStyle( "-fx-border-color: lightgrey;");
-        bioAnchorPane.setStyle( "-fx-border-color: lightgrey;");
+        otpAnchorPane.setStyle("-fx-border-color: lightgrey;");
+        bioAnchorPane.setStyle("-fx-border-color: lightgrey;");
         idValueVID.setEditable(false);
         idValue.setEditable(true);
         idValueVID.setStyle("-fx-text-color: grey;");
@@ -320,31 +338,27 @@ public class IdaController {
     private void updateBioPane() {
         if (isBioAuthType()) {
             bioAnchorPane.setDisable(false);
-            bioAnchorPane.setStyle( "-fx-border-color: #020F59;");
+            bioAnchorPane.setStyle("-fx-border-color: #020F59;");
         } else {
             bioAnchorPane.setDisable(true);
-            bioAnchorPane.setStyle( "-fx-border-color: lightgrey;");
+            bioAnchorPane.setStyle("-fx-border-color: lightgrey;");
         }
         fingerCount.setDisable(!fingerAuthType.isSelected());
     }
-
 
     @FXML
     private void onOTPAuth() {
         responsetextField.setText(null);
         otpAnchorPane.setDisable(!otpAnchorPane.isDisable());
         updateSendButton();
-        if (otpAuthType.isSelected())
-        {
+        if (otpAuthType.isSelected()) {
             otpValue.setText(otpDefaultValue);
             otpValue.setStyle("-fx-text-fill: grey;");
-            otpAnchorPane.setStyle( "-fx-border-color: #020F59;");
+            otpAnchorPane.setStyle("-fx-border-color: #020F59;");
 
-        }
-        else
-        {
+        } else {
             otpValue.setText("");
-            otpAnchorPane.setStyle( "-fx-border-color: lightgrey;");
+            otpAnchorPane.setStyle("-fx-border-color: lightgrey;");
         }
 
     }
@@ -401,7 +415,7 @@ public class IdaController {
                     try {
                         return objectMapper.readValue(obj, Map.class);
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        logger.error("Error: " + e);
                     }
                     return null;
                 })
@@ -417,7 +431,7 @@ public class IdaController {
         try {
             return objectMapper.writeValueAsString(identity);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            logger.error("Error: " + e);
         }
         return null;
     }
@@ -442,11 +456,9 @@ public class IdaController {
         return capturebiometrics(requestBody);
     }
 
-
     private String getFingerDeviceSubId() {
         return "0";
     }
-
 
     private String getPreviousHash() {
         return previousHash == null ? "" : previousHash;
@@ -468,7 +480,6 @@ public class IdaController {
         return finalStr;
     }
 
-
     private String getCaptureTime() {
         TimeZone tz = TimeZone.getTimeZone("UTC");
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'"); // Quoted "Z" to indicate UTC, no timezone offset
@@ -479,7 +490,7 @@ public class IdaController {
 
     @SuppressWarnings("rawtypes")
     private String capturebiometrics(String requestBody) throws Exception {
-        System.out.println("Capture request:\n" + requestBody);
+        logger.info("Capture request:\n" + requestBody);
         CloseableHttpClient client = HttpClients.createDefault();
         StringEntity requestEntity = new StringEntity(requestBody, ContentType.APPLICATION_JSON);
         HttpUriRequest request = RequestBuilder.create("CAPTURE").setUri(env.getProperty("ida.captureRequest.uri"))
@@ -497,7 +508,7 @@ public class IdaController {
             }
             bR.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error: " + e);
         }
         String result = stringBuilder.toString();
         String error = ((Map) mapper.readValue(result, Map.class).get("error")).get("errorCode").toString();
@@ -511,26 +522,23 @@ public class IdaController {
                 Map b = (Map) dataList.get(i);
                 String dataJws = (String) b.get("data");
                 Map dataMap = objectMapper.readValue(CryptoUtil.decodeBase64(dataJws.split("\\.")[1]), Map.class);
-                System.out.println((i + 1) + " Bio-type: " + dataMap.get("bioType") + " Bio-sub-type: " + dataMap.get("bioSubType"));
+                logger.info((i + 1) + " Bio-type: " + dataMap.get("bioType") + " Bio-sub-type: " + dataMap.get("bioSubType"));
                 previousHash = (String) b.get("hash");
             }
         } else {
             responsetextField.setText("Erreur de capture");
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
         }
-        System.out.println(result);
+        logger.info(result);
 
         return result;
     }
-
-    Stage stage;
 
     @FXML
     private void closeAction(ActionEvent event) {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         stage.close();
     }
-
 
     @FXML
     private void minimizeAction(ActionEvent event) {
@@ -547,11 +555,8 @@ public class IdaController {
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
-
-        otpValue.setStyle("-fx-text-fill: grey;");
-
+       otpValue.setStyle("-fx-text-fill: grey;");
         otpValue.setText(otpDefaultValue);
-
         String type = "UIN";
         responsetextField.setText(null);
         OtpRequestDTO otpRequestDTO = new OtpRequestDTO();
@@ -569,18 +574,12 @@ public class IdaController {
         otpRequestDTO.setVersion("1.0");
 
         try {
-            //System.out.println ("-----------------------------------------------------------");
-            // System.out.println( " IDA.OTP.URL:"+   env.getProperty("ida.otp.url"));
-            //System.out.println( " OTP REQUEST:"+   otpRequestDTO.toString());
-            System.out.println ("-----------------------------------------------------------");
             RestTemplate restTemplate = createTemplate();
             HttpEntity<OtpRequestDTO> httpEntity = new HttpEntity<>(otpRequestDTO);
             ResponseEntity<Map> response = restTemplate.exchange(
                     env.getProperty("ida.otp.url"),
                     HttpMethod.POST, httpEntity, Map.class);
-            System.err.println(response);
-
-            if (response.getStatusCode().is2xxSuccessful()) {
+                       if (response.getStatusCode().is2xxSuccessful()) {
                 List errors = ((List) response.getBody().get("errors"));
                 boolean status = errors == null || errors.isEmpty();
                 String responseText = status ? "Succès de la requête OTP" : "Echec de la requête OTP";
@@ -589,28 +588,26 @@ public class IdaController {
                     otpValue.setEditable(true);
                     otpValue.setText(otpDefaultValue);
 
-
                 } else {
-                    responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
+                    // responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
                 }
-                responsetextField.setText(responseText);
+                //  responsetextField.setText(responseText);
             } else {
-                responsetextField.setText("Erreur d'envoi de la requête OTP");
+                //   responsetextField.setText("Erreur d'envoi de la requête OTP");
                 responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 13px; -fx-font-weight: bold");
             }
 
         } catch (KeyManagementException | NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            //  e.printStackTrace();
+            logger.error("Error: " + e);
         }
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @FXML
     private void onSendAuthRequest() throws Exception {
-        System.out.println(" TRYING TO SEND AUTH REQUEST");
         responsetextField.setText("null");
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
-        System.out.println("  wwwwwwwww"+responsetextField.getText() );
         responsetextField.setText("Preparation de la requête d'authentification");
         AuthRequestDTO authRequestDTO = new AuthRequestDTO();
         // Set Auth Type
@@ -635,9 +632,7 @@ public class IdaController {
             identityBlock.put("biometrics", mapper.readValue(capture, Map.class).get("biometrics"));
         }
         responsetextField.setText("Requête d'authentification...");
-        System.out.println(" ------->"+responsetextField.getText());
-        System.out.println("******* Request before encryption ************ \n\n");
-        System.out.println(mapper.writeValueAsString(identityBlock));
+        logger.info("******* Request before encryption ************ \n\n");
         EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
         encryptionRequestDto.setIdentityRequest(identityBlock);
         EncryptionResponseDto kernelEncrypt = null;
@@ -645,7 +640,7 @@ public class IdaController {
             responsetextField.setText("Requête d'authentification...");
             kernelEncrypt = kernelEncrypt(encryptionRequestDto, false);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Error" + e);
             responsetextField.setText(" Erreur d'encryption de la requête d'authentification");
             return;
         }
@@ -667,8 +662,9 @@ public class IdaController {
         RestTemplate restTemplate = createTemplate();
         HttpEntity<Map> httpEntity = new HttpEntity<>(authRequestMap);
         String url = getUrl();
-        System.out.println("Auth URL: " + url);
-        System.out.println("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
+        logger.info("Auth URL: " + url);
+        logger.info("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
+
         try {
             ResponseEntity<Map> authResponse = restTemplate.exchange(url,
                     HttpMethod.POST, httpEntity, Map.class);
@@ -680,18 +676,17 @@ public class IdaController {
                 } else {
                     responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
                 }
-                String content=responsetextField.getText();
-                System.out.println("   --------"+content);
+                String content = responsetextField.getText();
                 responsetextField.setText(response);
             } else {
                 responsetextField.setText("Echec de le requête d'authentification avec des erreurs");
                 responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
             }
-
-            System.out.println("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
-            System.out.println(authResponse.getBody());
+            logger.info("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
+            logger.info("" + authResponse.getBody());
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            logger.error("Error: " + e);
             responsetextField.setText("Echec d'authentification avec erreur");
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
         }
@@ -768,6 +763,7 @@ public class IdaController {
                 if (authToken != null && !authToken.isEmpty()) {
                     request.getHeaders().set("Cookie", "Authorization=" + authToken);
                 }
+
                 return execution.execute(request, body);
             }
         };
@@ -802,50 +798,12 @@ public class IdaController {
         return new HttpEntity<CryptomanagerRequestDto>(req, headers);
     }
 
-
-    private static final TrustManager[] UNQUESTIONING_TRUST_MANAGER = new TrustManager[]{new X509TrustManager() {
-        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-            return null;
-        }
-
-        public void checkClientTrusted(java.security.cert.X509Certificate[] arg0, String arg1)
-                throws CertificateException {
-        }
-
-        public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String arg1)
-                throws CertificateException {
-        }
-    }};
-
-    @Autowired
-    private CryptoUtility cryptoUtil;
-
-    public static void turnOffSslChecking() throws KeyManagementException, java.security.NoSuchAlgorithmException {
-        // Install the all-trusting trust manager
-        final SSLContext sc = SSLContext.getInstance(SSL);
-        sc.init(null, UNQUESTIONING_TRUST_MANAGER, null);
-        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-    }
-
-    public static String getUTCCurrentDateTimeISOString() {
-        return DateUtils.formatToISOString(DateUtils.getUTCCurrentDateTime());
-    }
-
-    /**
-     * Gets the transaction ID.
-     *
-     * @return the transaction ID
-     */
-    public static String getTransactionID() {
-        return "1234567890";
-    }
-
     @FXML
     private void onReset() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
 
-     //   alert.getHeader().setStyle("-fx-text-fill:#020F59;-fx-font-size:28.0px;");
+        //   alert.getHeader().setStyle("-fx-text-fill:#020F59;-fx-font-size:28.0px;");
         alert.setContentText("Etes vous sur de vouloir annuler?");
         ButtonType okButton = new ButtonType("Oui", ButtonBar.ButtonData.YES);
         ButtonType noButton = new ButtonType("Non", ButtonBar.ButtonData.NO);
