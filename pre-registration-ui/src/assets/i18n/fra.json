@@ -294,7 +294,8 @@
 		"link_applications": "DOSSIERS",
 		"link_logout": "SE DÉCONNECTER",
 		"link_login": "S'IDENTIFIER",
-		"consent_form":"FORMULAIRE DE CONSENTEMENT"
+		"consent_form":"FORMULAIRE DE CONSENTEMENT",
+		"application_form":"FORMULAIRE DE DEMANDE"
 	},
 	"login": {
 		"text": "S'identifier",
