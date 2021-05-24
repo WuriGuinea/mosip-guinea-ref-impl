@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
 @Injectable({providedIn: 'root'})
 export class ContactUsService {
 
-    BASE_URL = "https://test.inu.gov.gn/pre-registration-contactus";
+    BASE_URL = "https://prod.inu.gov.gn/pre-registration-contactus";
 
     constructor(private httpClient: HttpClient) { }
 
