@@ -21,7 +21,7 @@ declare var grecaptcha: any;
 })
 export class ContactUsComponent implements OnInit {
 
-  BASE_URL = "https://guinea-sandbox.mosip.net/pre-registration-contactus";
+  BASE_URL = "https://test.inu.gov.gn/pre-registration-contactus";
   reasons: object[] = ContactUs.Reasons;
   userForm: FormGroup;
   displayOtherReason: boolean = false;

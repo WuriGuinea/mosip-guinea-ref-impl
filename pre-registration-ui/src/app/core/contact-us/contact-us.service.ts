@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
 @Injectable({providedIn: 'root'})
 export class ContactUsService {
 
-    BASE_URL = "https://guinea-sandbox.mosip.net/pre-registration-contactus";
+    BASE_URL = "https://test.inu.gov.gn/pre-registration-contactus";
 
     constructor(private httpClient: HttpClient) { }
 
@@ -29,7 +29,7 @@ export class ContactUsService {
         });
         const url = this.BASE_URL + "/contact-us/captcha";
 
-
+console.log(url);
         return this.httpClient.post(url, {}, {
             headers: headers
         });
