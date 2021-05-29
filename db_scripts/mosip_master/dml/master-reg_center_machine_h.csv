@@ -9,6 +9,7 @@ regcntr_id,machine_id,lang_code,is_active,cr_by,cr_dtimes,eff_dtimes
 10001,91005,fra,TRUE,superadmin,now(),now()
 10001,91006,fra,TRUE,superadmin,now(),now()
 10001,91007,fra,TRUE,superadmin,now(),now()
+10001,91008,fra,TRUE,superadmin,now(),now()
 10002,10007,fra,TRUE,superadmin,now(),now()
 10002,10008,fra,TRUE,superadmin,now(),now()
 10001,99001,fra,TRUE,superadmin,now(),now()
