@@ -23,4 +23,3 @@ regcntr_id,machine_id,lang_code,is_active,cr_by,cr_dtimes
 10001,99009,fra,TRUE,superadmin,now()
 10001,99010,fra,TRUE,superadmin,now()
 10001,99011,fra,TRUE,superadmin,now()
-
