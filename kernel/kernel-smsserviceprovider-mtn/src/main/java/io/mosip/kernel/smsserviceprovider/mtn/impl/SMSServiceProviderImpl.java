@@ -62,8 +62,11 @@ public class SMSServiceProviderImpl implements SMSServiceProvider {
 		try {
 			MtnMessageRequest.send(buildAPIURl(), contactNumber, message);
 		} catch (HttpClientErrorException | HttpServerErrorException | UnsupportedEncodingException | IOException e) {
+			// build the docker image
+			e.printStackTrace();
+			System.out.println(e.getMessage());
 
-			throw new RuntimeException(((RestClientResponseException) e).getResponseBodyAsString());
+			throw new RuntimeException(e);
 		}
 		smsResponseDTO.setMessage(SmsPropertyConstant.SUCCESS_RESPONSE.getProperty());
 		smsResponseDTO.setStatus("success");

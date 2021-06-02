@@ -119,8 +119,6 @@ export class ContactUsComponent implements OnInit {
   }
 
 
-
-
   onReasonChange(entity: any, event?: MatButtonToggleChange) {
     this.displayOtherReason = "AUTRES" === event.value.toString().toLocaleUpperCase();
   }

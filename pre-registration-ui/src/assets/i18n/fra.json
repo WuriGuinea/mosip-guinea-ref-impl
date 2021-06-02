@@ -294,7 +294,8 @@
 		"link_applications": "DOSSIERS",
 		"link_logout": "SE DÉCONNECTER",
 		"link_login": "S'IDENTIFIER",
-		"consent_form":"FORMULAIRE DE CONSENTEMENT"
+		"consent_form":"FORMULAIRE DE CONSENTEMENT",
+		"application_form":"FORMULAIRE DE DEMANDE"
 	},
 	"login": {
 		"text": "S'identifier",
@@ -334,7 +335,7 @@
 		"text_or": "OU",
 		"text_years": "Ans",
 		"text_gender": "Genre ",
-		"text_residence_status": "Nationalité ",
+		"text_residence_status": "Statut de Résidence",
 		"text_date": "Date de Naissance",
 		"label_region": "Région ",
 		"label_prefecture": "Préfecture ",
@@ -365,7 +366,7 @@
 			"last_name_required": "Le nom complet est requis",
 			"age_validation": "L'âge devrait être inférieur à 150",
 			"gender_validation": "Veuillez sélectionner le genre",
-			"nationality_validation": "Veuillez sélectionner la nationalité",
+			"nationality_validation": "Veuillez sélectionner le statut de Résidence",
 			"DOB_validation": "Entrez une date de naissance ou  un âge valide",
 			"date_required": "Entrez 2 chiffres pour la date",
 			"month_required": "Entrez 2 chiffres pour le mois",
@@ -422,7 +423,7 @@
 		"label_DOB": "Date de Naissance",
 		"text_years": "Ans",
 		"text_gender": "Genre",
-		"text_resident_status": "Nationalité",
+		"text_resident_status": "Statut de Résidence",
 		"subheading_contact": "Contact",
 		"label_address": "Adresse",
 		"label_region": "Région",
@@ -648,8 +649,8 @@
 		"errorLabel": "Erreur"
 	},
 	"residentTypesMapping": {
-		"NFR": "Nationale",
-		"FR": "Étranger"
+		"NFR": "RESIDENT",
+		"FR": "NON RESIDENT"
 	},
 	"sameAs": "Document téléchargé avec Idem que",
 	"DAYS": ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
