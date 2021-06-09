@@ -139,7 +139,7 @@
             </table>
           </div>
           <h4>Justificatifs</h4>
-          <span (click)="modifyDocument()" class="preview__modify-file position_modify"
+          <span (click)="this.router.navigate(['/pre-registration/file-upload']);" class="preview__modify-file position_modify"
             matTooltip="{{ 'helpText.modify_at_DocumentPreview' | translate }}"><img src="assets/edit.svg" /></span>
           <div>
             <table id="justificatifstable" *ngIf="documentMapObject">
