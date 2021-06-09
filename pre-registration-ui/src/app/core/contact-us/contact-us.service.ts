@@ -36,21 +36,13 @@ export class ContactUsService {
     }
 
     getDateTime() {
-        let resp = "";
         let date = new Date();
 
-        if (date.getDay() < 10) {
-            resp = `0${date.getDay()}`
-        }else {
-            resp = date.getDay().toString()
-        }
+        var mm = date.getMonth() + 1;
+        var dd = date.getDate();
+        var yyyy = date.getFullYear();
 
-        if (date.getMonth() < 10) {
-            resp = `${resp}-0${date.getMonth()}`
-        }else {
-            resp = `${resp}-${date.getMonth()}`
-        }
-
-        return `${resp}-${date.getFullYear()}`
+        return [(dd>9 ? '' : '0') + dd, (mm>9 ? '' : '0') + mm, yyyy]
+                .join('-');
     }
 }
