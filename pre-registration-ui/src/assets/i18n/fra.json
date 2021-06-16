@@ -160,7 +160,7 @@
 			"list": {
 				"line1": "Sur la page Dossiers, cliquez sur l'icône de suppression sur la demande de pré-enregistrement d'un demandeur. Une fenêtre contextuelle apparaît à l'écran.",
 				"line2": "Sélectionnez l'option Annuler le rendez-vous et enregistrez les détails dans la fenêtre contextuelle.",
-				"line3": "Cliquez sur ENVOYER pour annuler un rendez-vous."
+				"line3": "Cliquez sur VALIDER pour annuler un rendez-vous."
 			}
 		},
 		"discard": {
@@ -168,7 +168,7 @@
 			"list": {
 				"line1": "Sur la page Dossiers, cliquez sur l'icône de suppression en regard de la demande de pré-enregistrement d'un demandeur. Une fenêtre contextuelle apparaît à l'écran.",
 				"line2": "Sélectionnez l'option Supprimer toute l'application dans la fenêtre contextuelle.",
-				"line3": "Cliquez sur ENVOYER pour rejeter votre application."
+				"line3": "Cliquez sur VALIDER pour rejeter votre application."
 			}
 		},
 		"Logout": {
