@@ -5,8 +5,9 @@ on:
     types: [closed]
   push:
     branches:
-      - automatic-ui-redeployer
-  
+      - test
+      - prod
+
 jobs:
   build:
 

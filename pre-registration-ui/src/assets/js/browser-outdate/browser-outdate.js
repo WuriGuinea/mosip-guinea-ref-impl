@@ -11,7 +11,7 @@ $buoop = {
     url: null,
     noclose:false,
     nomessage: false,
-    jsshowurl: "https://guinea-sandbox.mosip.net/pre-registration-ui/assets/js/browser-outdate/update.show.min.js",
+    jsshowurl: "https://prod.inu.gov.gn/pre-registration-ui/assets/js/browser-outdate/update.show.min.js",
     //jsshowurl: "http://localhost:4200/assets/js/browser-outdate/update.show.min.js",
     container: document.body,
     no_permanent_hide: false
