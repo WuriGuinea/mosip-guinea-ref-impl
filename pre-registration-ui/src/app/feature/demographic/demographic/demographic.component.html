@@ -21,6 +21,7 @@
                                         matInput
                                         #firstName
                                         placeholder="prénom"
+                                        maxlength="40"
                                         [formControlName]="formControlNames.firstName"
                                 />
                                 <mat-error *ngIf="!firstName.invalid">
@@ -38,6 +39,7 @@
                                         matInput
                                         #lastName
                                         placeholder="nom de famille"
+                                        maxlength="40"
                                         [formControlName]="formControlNames.lastName"
                                 />
                                 <mat-error *ngIf="!lastName.invalid">

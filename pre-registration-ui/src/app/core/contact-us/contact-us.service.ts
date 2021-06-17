@@ -17,7 +17,7 @@ export class ContactUsService {
             "email" : formData.email,
             "reason" :  `Accusé de réception - RE:[${formData.reason.toLocaleLowerCase() == 'autre' ? formData.otherReason.toLocaleUpperCase() : formData.reason.toLocaleUpperCase()}]`,
             "sign" : "",
-            "message" : `<h3> ${formData.name}, </h3> <p> Nous avons reçu votre message et un membre de notre équipe vous contactera dans les plus bref délais. Ceci est un réponse automatique. </p><p> Votre message: <br><br>&nbsp; &nbsp; À: &nbsp; &nbsp; contact@wuriguinee.com <br>&nbsp; &nbsp; Objet: ${formData.reason} <br>&nbsp; &nbsp; Envoyé: ${this.getDateTime()} <br>&nbsp; &nbsp; Message: ${formData.message.replace("\r\n", "<br />\r\n")} <br></p><p> Cordialement, <br>L'Équipe WURI Guinée </p>`
+            "message" : `Madame/Monsieur <h3> ${formData.name}, </h3> <p> Nous avons reçu votre message et un membre de notre équipe vous contactera dans les plus bref délais. Ceci est un réponse automatique. </p><p> Votre message: <br><br>&nbsp; &nbsp; À: &nbsp; &nbsp; contact@inu.gov.gn <br>&nbsp; &nbsp; Objet: ${formData.reason} <br>&nbsp; &nbsp; Envoyé: ${this.getDateTime()} <br>&nbsp; &nbsp; Message: ${formData.message.replace("\r\n", "<br />\r\n")} <br></p><p> Cordialement, <br>L'Équipe WURI Guinée </p>`
         };
         return this.httpClient.post(url, data);
     }
@@ -36,21 +36,13 @@ console.log(url);
     }
 
     getDateTime() {
-        let resp = "";
         let date = new Date();
 
-        if (date.getDay() < 10) {
-            resp = `0${date.getDay()}`
-        }else {
-            resp = date.getDay().toString()
-        }
+        var mm = date.getMonth() + 1;
+        var dd = date.getDate();
+        var yyyy = date.getFullYear();
 
-        if (date.getMonth() < 10) {
-            resp = `${resp}-0${date.getMonth()}`
-        }else {
-            resp = `${resp}-${date.getMonth()}`
-        }
-
-        return `${resp}-${date.getFullYear()}`
+        return [(dd>9 ? '' : '0') + dd, (mm>9 ? '' : '0') + mm, yyyy]
+                .join('-');
     }
 }
