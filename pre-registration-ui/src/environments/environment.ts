@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'https://test.inu.gov.gn'
+  BASE_URL: 'https://prod.inu.gov.gn'
 };
 
 /*
