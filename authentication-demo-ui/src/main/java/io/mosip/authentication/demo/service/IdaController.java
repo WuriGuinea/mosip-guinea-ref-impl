@@ -453,12 +453,12 @@ public class IdaController {
                         replace("$bioSubType", getBioSubType(getFingerCount(), env.getProperty("ida.request.captureFinger.bioSubType"))).
                         replace("$name", env.getProperty("ida.request.captureFinger.name")).
                         replace("$value", env.getProperty("ida.request.captureFinger.value"));
-        System.out.println("<===========================================================================   ");
+      //  System.out.println("<===========================================================================   ");
 
-        System.out.println("Request body  ==>:"+requestBody);
-        System.out.println("===========================================================================>   ");
+      //  System.out.println("Request body  ==>:"+requestBody);
+        //System.out.println("===========================================================================>   ");
 
-        System.out.println("Request body hash==>:"+getPreviousHash());
+       // System.out.println("Request body hash==>:"+getPreviousHash());
 
         return capturebiometrics(requestBody);
     }
@@ -472,7 +472,7 @@ public class IdaController {
     }
 
     private String getFingerCount() {
-        System.out.println ("fingerCount:"+fingerCount.getValue().charAt(0));
+    //    System.out.println ("fingerCount:"+fingerCount.getValue().charAt(0));
 
         return fingerCount.getValue() == null ? String.valueOf(1) : ""+fingerCount.getValue().charAt(0);
     }
@@ -483,7 +483,7 @@ public class IdaController {
             return "\"" + bioValue + "\"";
         }
         String finalStr = "\"" + bioValue + "\"";
-        System.out.println("========"+finalStr);
+   //     System.out.println("========"+finalStr);
         for (int i = 2; i <= Integer.parseInt(count); i++) {
             finalStr = finalStr + "," + "\"" + bioValue + "\"";
         //    System.out.println(bioValue+"========"+finalStr);
@@ -547,9 +547,9 @@ public class IdaController {
                     Map b = (Map) dataList.get(i);
                     String dataJws = (String) b.get("data");
                     Map dataMap = objectMapper.readValue(CryptoUtil.decodeBase64(dataJws.split("\\.")[1]), Map.class);
-                    System.out.println((i+1) + " Bio-type: " + dataMap.get("bioType") + " Bio-sub-type: " +  dataMap.get("bioSubType"));
+              //      System.out.println((i+1) + " Bio-type: " + dataMap.get("bioType") + " Bio-sub-type: " +  dataMap.get("bioSubType"));
                     previousHash = (String) b.get("hash");
-                    System.out.println(" 548 Hash: "+previousHash);
+                //    System.out.println(" 548 Hash: "+previousHash);
                 }
             } else {
                 responsetextField.setText("Echec de la capture de l'empreinte");
@@ -596,7 +596,7 @@ public class IdaController {
             valueToCheck = idValueVID.getText();
             type = "VID";
         }
-        System.out.println("valueToCheck"+valueToCheck);
+      //  System.out.println("valueToCheck"+valueToCheck);
         otpRequestDTO.setIndividualId(valueToCheck);
         otpRequestDTO.setIndividualIdType(type);
         otpRequestDTO.setOtpChannel(Collections.singletonList("email"));
@@ -607,7 +607,7 @@ public class IdaController {
         try {
             RestTemplate restTemplate = createTemplate();
 
-            System.out.println("OTP Request DTO---"+otpRequestDTO);
+      //      System.out.println("OTP Request DTO---"+otpRequestDTO);
             Gson gson = new Gson();
             String json = gson.toJson(otpRequestDTO);
           //  System.out.println("------>"+json);
@@ -670,12 +670,12 @@ public class IdaController {
             identityBlock.put("biometrics", mapper.readValue(capture, Map.class).get("biometrics"));
         }
         responsetextField.setText("Encrypting Auth Request...");
-        System.out.println("******* Request before encryption ************ \n\n");
-      System.out.println("______________________Identity Block-----------------------");
+     //   System.out.println("******* Request before encryption ************ \n\n");
+     // System.out.println("______________________Identity Block-----------------------");
 
-        System.out.println(mapper.writeValueAsString(identityBlock));
+       // System.out.println(mapper.writeValueAsString(identityBlock));
 
-        System.out.println("______________________Identity Block-----------------------");
+       // System.out.println("______________________Identity Block-----------------------");
         EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
         encryptionRequestDto.setIdentityRequest(identityBlock);
         EncryptionResponseDto kernelEncrypt = null;
@@ -702,17 +702,17 @@ public class IdaController {
         authRequestMap.replace("requestSessionKey", kernelEncrypt.getEncryptedSessionKey());
         authRequestMap.replace("requestHMAC", kernelEncrypt.getRequestHMAC());
         RestTemplate restTemplate = createTemplate();
-        System.out.println ("------------------------------------------------------------Auth Request ");
+       // System.out.println ("------------------------------------------------------------Auth Request ");
     //    System.out.println ("Auth Request "+authRequestMap);
 
         Gson gson = new Gson();
         String json = gson.toJson(authRequestDTO);
-        System.out.println(json);
-        System.out.println ("-------------------------------------End Auth Request ");
+   //     System.out.println(json);
+      //  System.out.println ("-------------------------------------End Auth Request ");
 
         HttpEntity<Map> httpEntity = new HttpEntity<>(authRequestMap);
         String url = getUrl();
-        System.out.println("Auth URL: " + url);
+     //   System.out.println("Auth URL: " + url);
   //      System.out.println("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
         try {
             ResponseEntity<Map> authResponse = restTemplate.exchange(url,
@@ -755,8 +755,8 @@ public class IdaController {
     }
 
     private boolean isBioAuthType() {
-        if  (fingerAuthType.isSelected())
-        System.out.println("=====>Is Finger Auth Type Selected");
+ //       if  (fingerAuthType.isSelected())
+     //   System.out.println("=====>Is Finger Auth Type Selected");
         return fingerAuthType.isSelected();//|| irisAuthType.isSelected() || faceAuthType.isSelected();
     }
 
