@@ -38,11 +38,7 @@
               <mat-icon class="icon" [ngClass]="isBookingAllowed(user) ? '' : 'label-disabled' " matTooltip="{{ 'helpText.applicationId' | translate }}" [inline]="true">
                 help_outline</mat-icon>
             </span>
-            <span class="spacer"></span>
-            <button (click)="onDelete(user)" mat-button class="delete-img">
-              <img matTooltip="{{ 'helpText.deleteIcon' | translate }}" [matTooltipDisabled]="false"
-                   src="assets\delete.png" class="" />
-            </button>
+            <span class="spacer"></span>            
           </div>
           <mat-card-content [ngStyle]="{ marginTop: getMargin(user.firstName) }">
             <div class="card-content">
@@ -100,6 +96,10 @@
                       [disabled]="user.status === 'Pending_Appointment'">
                 <img matTooltip="{{ 'dashboard.card.action_view_acknowledgement' | translate }}" src="assets\view.png"
                      class="modifyapp-btn-img" />
+              </button>
+              <button mat-button class="footer-btn delete-img"(click)="onDelete(user)">
+                <img matTooltip="{{ 'helpText.deleteIcon' | translate }}" [matTooltipDisabled]="false"
+                     src="assets\delete.png" />
               </button>
             </mat-card-actions>
           </mat-card-footer>
