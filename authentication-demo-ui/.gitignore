@@ -15,3 +15,5 @@ target
 .jar
 /ida_gn.zip
 *.log
+/KITS L1/
+/AUTH CLIENT/

@@ -600,6 +600,7 @@ public class IdaController {
         otpRequestDTO.setIndividualId(valueToCheck);
         otpRequestDTO.setIndividualIdType(type);
         otpRequestDTO.setOtpChannel(Collections.singletonList("email"));
+        otpRequestDTO.setOtpChannel(Collections.singletonList("phone"));
         otpRequestDTO.setRequestTime(getUTCCurrentDateTimeISOString());
         otpRequestDTO.setTransactionID(getTransactionID());
         otpRequestDTO.setVersion("1.0");
@@ -670,7 +671,7 @@ public class IdaController {
             identityBlock.put("biometrics", mapper.readValue(capture, Map.class).get("biometrics"));
         }
         responsetextField.setText("Encrypting Auth Request...");
-     //   System.out.println("******* Request before encryption ************ \n\n");
+       System.out.println("******* Request before encryption ************ \n\n");
      // System.out.println("______________________Identity Block-----------------------");
 
        // System.out.println(mapper.writeValueAsString(identityBlock));
@@ -681,13 +682,17 @@ public class IdaController {
         EncryptionResponseDto kernelEncrypt = null;
         try {
             kernelEncrypt = kernelEncrypt(encryptionRequestDto, false);
+
+         //   System.out.println("Encryption OK");
         } catch (Exception e) {
             e.printStackTrace();
             responsetextField.setText("Echec de l'encryption de la requête");
+            System.out.println("Echec de l'encryption de la requête");
             return;
         }
 
-        responsetextField.setText("Authentification en corus ...");
+        responsetextField.setText("Authentification en cours ...");
+        System.out.println("Authentification en cours");
         // Set request block
         authRequestDTO.setRequest(requestDTO);
 
@@ -703,17 +708,17 @@ public class IdaController {
         authRequestMap.replace("requestHMAC", kernelEncrypt.getRequestHMAC());
         RestTemplate restTemplate = createTemplate();
        // System.out.println ("------------------------------------------------------------Auth Request ");
-    //    System.out.println ("Auth Request "+authRequestMap);
+    //  System.out.println ("Auth Request "+authRequestMap);
 
         Gson gson = new Gson();
         String json = gson.toJson(authRequestDTO);
-   //     System.out.println(json);
+     //  System.out.println(json);
       //  System.out.println ("-------------------------------------End Auth Request ");
 
         HttpEntity<Map> httpEntity = new HttpEntity<>(authRequestMap);
         String url = getUrl();
      //   System.out.println("Auth URL: " + url);
-  //      System.out.println("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
+    //   System.out.println("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
         try {
             ResponseEntity<Map> authResponse = restTemplate.exchange(url,
                     HttpMethod.POST, httpEntity, Map.class);
@@ -731,7 +736,7 @@ public class IdaController {
                 responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
             }
 
-        //    System.out.println("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
+           System.out.println("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
 
             System.out.println("--------------------------------");
             System.out.println(authResponse.getBody());
