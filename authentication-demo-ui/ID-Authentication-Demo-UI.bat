@@ -1,1 +1,0 @@
-java -Dida.request.captureFinger.deviceId=1 -Dida.request.captureIris.deviceId=3 -Dida.request.captureFace.deviceId=2 -Dmosip.base.url=https://sandboxv2.southindia.cloudapp.azure.com -Dspring.cloud.config.label=1.0.9 -Dspring.profiles.active=local -Dspring.cloud.config.uri=http://104.211.212.28:51000 -jar ./target/authentication-demo-ui-1.0.9.jar
