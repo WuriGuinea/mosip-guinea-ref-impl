@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 
+import com.google.gson.Gson;
 import javafx.event.ActionEvent;
 
 import javax.crypto.SecretKey;
@@ -92,9 +93,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
-
 import java.util.logging.FileHandler;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -378,18 +377,20 @@ public class IdaController {
         responsetextField.setFont(Font.font("Times New Roman", javafx.scene.text.FontWeight.EXTRA_BOLD, 20));
         previousHash = null;
         List<String> bioCaptures = new ArrayList<>();
-        String fingerCapture;
+        String fingerCapture=null;
         if (fingerAuthType.isSelected()) {
             fingerCapture = captureFingerprint();
+    //        System.out.println ("Line 382:   Fingercapture: "+fingerCapture);
             if (!fingerCapture.contains("\"biometrics\"")) {
                 updateSendButton();
                 return;
             }
             bioCaptures.add(fingerCapture);
+            capture = fingerCapture;
         }
 
 
-        capture = combineCaptures(bioCaptures);
+     //   capture = fingerCapture;//combineCaptures(bioCaptures);
 
         updateSendButton();
     }
@@ -452,6 +453,12 @@ public class IdaController {
                         replace("$bioSubType", getBioSubType(getFingerCount(), env.getProperty("ida.request.captureFinger.bioSubType"))).
                         replace("$name", env.getProperty("ida.request.captureFinger.name")).
                         replace("$value", env.getProperty("ida.request.captureFinger.value"));
+      //  System.out.println("<===========================================================================   ");
+
+      //  System.out.println("Request body  ==>:"+requestBody);
+        //System.out.println("===========================================================================>   ");
+
+       // System.out.println("Request body hash==>:"+getPreviousHash());
 
         return capturebiometrics(requestBody);
     }
@@ -465,16 +472,21 @@ public class IdaController {
     }
 
     private String getFingerCount() {
-        return fingerCount.getValue() == null ? String.valueOf(1) : fingerCount.getValue();
+    //    System.out.println ("fingerCount:"+fingerCount.getValue().charAt(0));
+
+        return fingerCount.getValue() == null ? String.valueOf(1) : ""+fingerCount.getValue().charAt(0);
     }
 
     private String getBioSubType(String count, String bioValue) {
+        System.out.println( "count:"+count+" and biovalue:"+bioValue);
         if (count.equalsIgnoreCase("1")) {
             return "\"" + bioValue + "\"";
         }
         String finalStr = "\"" + bioValue + "\"";
+   //     System.out.println("========"+finalStr);
         for (int i = 2; i <= Integer.parseInt(count); i++) {
             finalStr = finalStr + "," + "\"" + bioValue + "\"";
+        //    System.out.println(bioValue+"========"+finalStr);
         }
 
         return finalStr;
@@ -508,29 +520,45 @@ public class IdaController {
             }
             bR.close();
         } catch (IOException e) {
-            logger.error("Error: " + e);
+            e.printStackTrace();
+           // logger.error("Error: " + e);
+            logger.error("==========Error: " + e.getMessage());
         }
         String result = stringBuilder.toString();
-        String error = ((Map) mapper.readValue(result, Map.class).get("error")).get("errorCode").toString();
 
-        if (error.equals("0")) {
-            responsetextField.setText("Capture réussie");
-            responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
-            ObjectMapper objectMapper = new ObjectMapper();
-            List dataList = (List) objectMapper.readValue(result.getBytes(), Map.class).get("biometrics");
-            for (int i = 0; i < dataList.size(); i++) {
-                Map b = (Map) dataList.get(i);
-                String dataJws = (String) b.get("data");
-                Map dataMap = objectMapper.readValue(CryptoUtil.decodeBase64(dataJws.split("\\.")[1]), Map.class);
-                logger.info((i + 1) + " Bio-type: " + dataMap.get("bioType") + " Bio-sub-type: " + dataMap.get("bioSubType"));
-                previousHash = (String) b.get("hash");
-            }
-        } else {
-            responsetextField.setText("Erreur de capture");
+        String error = null;
+
+        List data = (List) objectMapper.readValue(result.getBytes(), Map.class).get("biometrics");
+        if(data == null) {
+            responsetextField.setText(result);
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
         }
-        logger.info(result);
 
+        for (int j = 0; j < data.size(); j++) {
+            Map e = (Map) data.get(j);
+            Map errorMap = (Map) e.get("error");
+            error = errorMap.get("errorCode").toString();
+            if (error.equals("0") || error.equals("100")) {
+                responsetextField.setText("Succès de la capture de l'empreinte");
+                responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
+                ObjectMapper objectMapper = new ObjectMapper();
+                List dataList = (List) objectMapper.readValue(result.getBytes(), Map.class).get("biometrics");
+                for (int i = 0; i < dataList.size(); i++) {
+                    Map b = (Map) dataList.get(i);
+                    String dataJws = (String) b.get("data");
+                    Map dataMap = objectMapper.readValue(CryptoUtil.decodeBase64(dataJws.split("\\.")[1]), Map.class);
+              //      System.out.println((i+1) + " Bio-type: " + dataMap.get("bioType") + " Bio-sub-type: " +  dataMap.get("bioSubType"));
+                    previousHash = (String) b.get("hash");
+                //    System.out.println(" 548 Hash: "+previousHash);
+                }
+            } else {
+                responsetextField.setText("Echec de la capture de l'empreinte");
+                responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
+                break;
+            }
+        }
+
+//   System.out.println(result);
         return result;
     }
 
@@ -555,10 +583,12 @@ public class IdaController {
     @SuppressWarnings("rawtypes")
     @FXML
     private void onRequestOtp() {
+        System.out.println("Sending OTP Request");
        otpValue.setStyle("-fx-text-fill: grey;");
         otpValue.setText(otpDefaultValue);
         String type = "UIN";
-        responsetextField.setText(null);
+        responsetextField.setText("Envoi de la requete OTP");
+
         OtpRequestDTO otpRequestDTO = new OtpRequestDTO();
         otpRequestDTO.setId("mosip.identity.otp");
         String valueToCheck = idValue.getText();
@@ -566,21 +596,30 @@ public class IdaController {
             valueToCheck = idValueVID.getText();
             type = "VID";
         }
+      //  System.out.println("valueToCheck"+valueToCheck);
         otpRequestDTO.setIndividualId(valueToCheck);
         otpRequestDTO.setIndividualIdType(type);
         otpRequestDTO.setOtpChannel(Collections.singletonList("email"));
+        otpRequestDTO.setOtpChannel(Collections.singletonList("phone"));
         otpRequestDTO.setRequestTime(getUTCCurrentDateTimeISOString());
         otpRequestDTO.setTransactionID(getTransactionID());
         otpRequestDTO.setVersion("1.0");
 
         try {
             RestTemplate restTemplate = createTemplate();
+
+      //      System.out.println("OTP Request DTO---"+otpRequestDTO);
+            Gson gson = new Gson();
+            String json = gson.toJson(otpRequestDTO);
+          //  System.out.println("------>"+json);
             HttpEntity<OtpRequestDTO> httpEntity = new HttpEntity<>(otpRequestDTO);
             ResponseEntity<Map> response = restTemplate.exchange(
                     env.getProperty("ida.otp.url"),
                     HttpMethod.POST, httpEntity, Map.class);
                        if (response.getStatusCode().is2xxSuccessful()) {
                 List errors = ((List) response.getBody().get("errors"));
+
+                System.out.println("response body OTP "+response.getBody());
                 boolean status = errors == null || errors.isEmpty();
                 String responseText = status ? "Succès de la requête OTP" : "Echec de la requête OTP";
                 if (status) {
@@ -589,11 +628,11 @@ public class IdaController {
                     otpValue.setText(otpDefaultValue);
 
                 } else {
-                    // responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
+             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
                 }
-                //  responsetextField.setText(responseText);
+                  responsetextField.setText(responseText);
             } else {
-                //   responsetextField.setText("Erreur d'envoi de la requête OTP");
+                   responsetextField.setText("Erreur d'envoi de la requête OTP");
                 responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 13px; -fx-font-weight: bold");
             }
 
@@ -606,9 +645,9 @@ public class IdaController {
     @SuppressWarnings({"unchecked", "rawtypes"})
     @FXML
     private void onSendAuthRequest() throws Exception {
-        responsetextField.setText("null");
+        responsetextField.setText(null);
         responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
-        responsetextField.setText("Preparation de la requête d'authentification");
+        responsetextField.setText("Preparing de la requête d'authentification...");
         AuthRequestDTO authRequestDTO = new AuthRequestDTO();
         // Set Auth Type
         AuthTypeDTO authTypeDTO = new AuthTypeDTO();
@@ -631,21 +670,29 @@ public class IdaController {
         if (isBioAuthType()) {
             identityBlock.put("biometrics", mapper.readValue(capture, Map.class).get("biometrics"));
         }
-        responsetextField.setText("Requête d'authentification...");
-        logger.info("******* Request before encryption ************ \n\n");
+        responsetextField.setText("Encrypting Auth Request...");
+       System.out.println("******* Request before encryption ************ \n\n");
+     // System.out.println("______________________Identity Block-----------------------");
+
+       // System.out.println(mapper.writeValueAsString(identityBlock));
+
+       // System.out.println("______________________Identity Block-----------------------");
         EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
         encryptionRequestDto.setIdentityRequest(identityBlock);
         EncryptionResponseDto kernelEncrypt = null;
         try {
-            responsetextField.setText("Requête d'authentification...");
             kernelEncrypt = kernelEncrypt(encryptionRequestDto, false);
+
+         //   System.out.println("Encryption OK");
         } catch (Exception e) {
-            logger.error("Error" + e);
-            responsetextField.setText(" Erreur d'encryption de la requête d'authentification");
+            e.printStackTrace();
+            responsetextField.setText("Echec de l'encryption de la requête");
+            System.out.println("Echec de l'encryption de la requête");
             return;
         }
 
-        responsetextField.setText("Authentification en cours...");
+        responsetextField.setText("Authentification en cours ...");
+        System.out.println("Authentification en cours");
         // Set request block
         authRequestDTO.setRequest(requestDTO);
 
@@ -660,38 +707,46 @@ public class IdaController {
         authRequestMap.replace("requestSessionKey", kernelEncrypt.getEncryptedSessionKey());
         authRequestMap.replace("requestHMAC", kernelEncrypt.getRequestHMAC());
         RestTemplate restTemplate = createTemplate();
+       // System.out.println ("------------------------------------------------------------Auth Request ");
+    //  System.out.println ("Auth Request "+authRequestMap);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(authRequestDTO);
+     //  System.out.println(json);
+      //  System.out.println ("-------------------------------------End Auth Request ");
+
         HttpEntity<Map> httpEntity = new HttpEntity<>(authRequestMap);
         String url = getUrl();
-        logger.info("Auth URL: " + url);
-        logger.info("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
-
+     //   System.out.println("Auth URL: " + url);
+    //   System.out.println("Auth Request : \n" + new ObjectMapper().writeValueAsString(authRequestMap));
         try {
             ResponseEntity<Map> authResponse = restTemplate.exchange(url,
                     HttpMethod.POST, httpEntity, Map.class);
             if (authResponse.getStatusCode().is2xxSuccessful()) {
                 boolean status = (boolean) ((Map<String, Object>) authResponse.getBody().get("response")).get("authStatus");
-                String response = status ? "Authentification réussie" : "Echec d'authentification";
+                String response = status ? "Authentification reussie" : "Echec authentification";
                 if (status) {
-                    responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 15px; -fx-font-weight: bold");
+                    responsetextField.setStyle("-fx-text-fill: green; -fx-font-size: 20px; -fx-font-weight: bold");
                 } else {
-                    responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
+                    responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
                 }
-                String content = responsetextField.getText();
                 responsetextField.setText(response);
             } else {
-                responsetextField.setText("Echec de le requête d'authentification avec des erreurs");
-                responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 15px; -fx-font-weight: bold");
+                responsetextField.setText("Authentication Failed with Error");
+                responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
             }
-            logger.info("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
-            logger.info("" + authResponse.getBody());
+
+           System.out.println("Auth Response : \n" + new ObjectMapper().writeValueAsString(authResponse));
+
+            System.out.println("--------------------------------");
+            System.out.println(authResponse.getBody());
+            System.out.println("--------------------------------");
         } catch (Exception e) {
-            // e.printStackTrace();
-            logger.error("Error: " + e);
-            responsetextField.setText("Echec d'authentification avec erreur");
+           // e.printStackTrace();
+            responsetextField.setText("Authentication Failed with Error");
             responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
         }
     }
-
     private String getAuthRequestId() {
         return env.getProperty("authRequestId", "mosip.identity.auth");
     }
@@ -705,6 +760,8 @@ public class IdaController {
     }
 
     private boolean isBioAuthType() {
+ //       if  (fingerAuthType.isSelected())
+     //   System.out.println("=====>Is Finger Auth Type Selected");
         return fingerAuthType.isSelected();//|| irisAuthType.isSelected() || faceAuthType.isSelected();
     }
 
